@@ -1,0 +1,489 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 3.4 Internal backend properties</title>
+
+<meta name="description" content="LilyPond program-reference: 3.4 Internal backend properties">
+<meta name="keywords" content="LilyPond program-reference: 3.4 Internal backend properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.fr.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Backend.fr.html#Backend" rel="up" title="3. Backend">
+<link href="Indices.fr.html#Indices" rel="next" title="A.2 Function index">
+<link href="User-backend-properties.fr.html#User-backend-properties" rel="previous" title="3.3 User backend properties">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Internal-backend-properties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Backend.fr.html#Backend" title="Beginning of this chapter or previous chapter"> &lt;&lt; Backend&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Scheme-functions.fr.html#Scheme-functions" title="Next chapter">&nbsp;Scheme functions &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="User-backend-properties.fr.html#User-backend-properties" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; User backend properties&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Backend.fr.html#Backend" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Backend&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Scheme-functions.fr.html#Scheme-functions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Scheme functions &gt; </a>]</td></tr></table>
+<a name="Internal-backend-properties"></a>
+<h2 class="section">3.4 Internal backend properties</h2>
+
+
+<dl compact="compact">
+<dt> <code>X-common</code> (layout object)</dt>
+<dd><p>Common reference point for axis group.
+</p></dd>
+<dt> <code>Y-common</code> (layout object)</dt>
+<dd><p>See <code>X-common</code>.
+</p></dd>
+<dt> <code>accidental-grob</code> (layout object)</dt>
+<dd><p>The accidental for this note.
+</p></dd>
+<dt> <code>accidental-grobs</code> (list)</dt>
+<dd><p>An alist with <code>(<var>notename</var> .
+<var>groblist</var>)</code> entries.
+</p></dd>
+<dt> <code>add-cauda</code> (boolean)</dt>
+<dd><p>Does this flexa require an additional cauda on
+the left side?
+</p></dd>
+<dt> <code>add-join</code> (boolean)</dt>
+<dd><p>Is this ligature head-joined with the next one
+by a vertical line?
+</p></dd>
+<dt> <code>add-stem</code> (boolean)</dt>
+<dd><p>Is this ligature head a virga and therefore needs
+an additional stem on the right side?
+</p></dd>
+<dt> <code>adjacent-hairpins</code> (unknown)</dt>
+<dd><p>A list of directly neighboring
+hairpins.
+</p></dd>
+<dt> <code>adjacent-pure-heights</code> (vector)</dt>
+<dd><p>Used by a <code>VerticalAxisGroup</code> to
+cache the <code>Y-extent</code>s of different column ranges.
+</p></dd>
+<dt> <code>all-elements</code> (unknown)</dt>
+<dd><p>A list of all grobs in this line.  Its
+function is to protect objects from being garbage collected.
+</p></dd>
+<dt> <code>arpeggio</code> (layout object)</dt>
+<dd><p>A pointer to an <code>Arpeggio</code> object.
+</p></dd>
+<dt> <code>ascendens</code> (boolean)</dt>
+<dd><p>Is this neume of ascending type?
+</p></dd>
+<dt> <code>auctum</code> (boolean)</dt>
+<dd><p>Is this neume liquescentically augmented?
+</p></dd>
+<dt> <code>axis-group-parent-X</code> (layout object)</dt>
+<dd><p>Containing X&nbsp;axis group.
+</p></dd>
+<dt> <code>axis-group-parent-Y</code> (layout object)</dt>
+<dd><p>Containing Y&nbsp;axis group.
+</p></dd>
+<dt> <code>bar-extent</code> (pair of numbers)</dt>
+<dd><p>The Y-extent of the actual bar line.
+This may differ from <code>Y-extent</code> because it does not include the dots in
+a repeat bar line.
+</p></dd>
+<dt> <code>bars</code> (unknown)</dt>
+<dd><p>A list of bar line pointers.
+</p></dd>
+<dt> <code>beam</code> (layout object)</dt>
+<dd><p>A pointer to the beam, if applicable.
+</p></dd>
+<dt> <code>begin-of-line-visible</code> (boolean)</dt>
+<dd><p>Used for marking <code>ChordNames</code>
+that should only show changes.
+</p></dd>
+<dt> <code>bounded-by-me</code> (unknown)</dt>
+<dd><p>A list of spanners that have this
+column as start/begin point.  Only columns that have grobs or act as
+bounds are spaced.
+</p></dd>
+<dt> <code>bracket</code> (layout object)</dt>
+<dd><p>The bracket for a number.
+</p></dd>
+<dt> <code>cause</code> (any type)</dt>
+<dd><p>Any kind of causation objects (i.e., music, or perhaps
+translator) that was the cause for this grob.
+</p></dd>
+<dt> <code>cavum</code> (boolean)</dt>
+<dd><p>Is this neume outlined?
+</p></dd>
+<dt> <code>columns</code> (unknown)</dt>
+<dd><p>A list of grobs, typically containing
+<code>PaperColumn</code> or <code>NoteColumn</code> objects.
+</p></dd>
+<dt> <code>conditional-elements</code> (unknown)</dt>
+<dd><p>Internal use only.
+</p></dd>
+<dt> <code>context-info</code> (integer)</dt>
+<dd><p>Within a ligature, the final glyph or shape of
+a head may be affected by the left and/or right neighbour head.
+<code>context-info</code> holds for each head such information about the left and
+right neighbour, encoded as a bit mask.
+</p></dd>
+<dt> <code>cross-staff</code> (boolean)</dt>
+<dd><p>For a beam or a stem, this is true if we
+depend on inter-staff spacing.
+</p></dd>
+<dt> <code>delta-position</code> (number)</dt>
+<dd><p>The vertical position difference.
+</p></dd>
+<dt> <code>deminutum</code> (boolean)</dt>
+<dd><p>Is this neume deminished?
+</p></dd>
+<dt> <code>descendens</code> (boolean)</dt>
+<dd><p>Is this neume of descendent type?
+</p></dd>
+<dt> <code>details</code> (list)</dt>
+<dd><p>Alist of parameters for detailed grob behavior.
+</p>
+<p>More information on the allowed parameters can be found by inspecting
+&lsquo;<tt>lily/slur-scoring.cc</tt>&rsquo;, &lsquo;<tt>lily/beam-quanting.cc</tt>&rsquo;, and
+&lsquo;<tt>lily/tie-formatting-problem.cc</tt>&rsquo;.  Setting <code>debug-tie-scoring</code>,
+<code>debug-beam-scoring</code> or <code>debug-slur-scoring</code> also provides
+useful clues.
+</p></dd>
+<dt> <code>direction-source</code> (layout object)</dt>
+<dd><p>In case <code>side-relative-direction</code> is
+set, which grob to get the direction from.
+</p></dd>
+<dt> <code>dot</code> (layout object)</dt>
+<dd><p>A reference to a <code>Dots</code> object.
+</p></dd>
+<dt> <code>dots</code> (unknown)</dt>
+<dd><p>Multiple <code>Dots</code> objects.
+</p></dd>
+<dt> <code>elements</code> (unknown)</dt>
+<dd><p>A list of grobs; the type is depending on
+the grob where this is set in.
+</p></dd>
+<dt> <code>encompass-objects</code> (unknown)</dt>
+<dd><p>Objects that a slur should avoid
+in addition to notes and stems.
+</p></dd>
+<dt> <code>figures</code> (unknown)</dt>
+<dd><p>Figured bass objects for continuation line.
+</p></dd>
+<dt> <code>flexa-height</code> (dimension, in staff space)</dt>
+<dd><p>The height of a flexa shape in a ligature
+grob (in <code>staff-space</code> units).
+</p></dd>
+<dt> <code>flexa-width</code> (dimension, in staff space)</dt>
+<dd><p>The width of a flexa shape in a
+ligature grob in (in <code>staff-space</code> units).
+</p></dd>
+<dt> <code>font</code> (font metric)</dt>
+<dd><p>A cached font metric object.
+</p></dd>
+<dt> <code>forced</code> (boolean)</dt>
+<dd><p>Manually forced accidental.
+</p></dd>
+<dt> <code>glyph-name</code> (string)</dt>
+<dd><p>The glyph name within the font.
+</p></dd>
+<dt> <code>grace-spacing</code> (layout object)</dt>
+<dd><p>A run of grace notes.
+</p></dd>
+<dt> <code>head-width</code> (dimension, in staff space)</dt>
+<dd><p>The width of this ligature head.
+</p></dd>
+<dt> <code>heads</code> (unknown)</dt>
+<dd><p>A list of note heads.
+</p></dd>
+<dt> <code>ideal-distances</code> (list)</dt>
+<dd><p><code>(<var>obj</var> . (<var>dist</var> .
+<var>strength</var>))</code> pairs.
+</p></dd>
+<dt> <code>important-column-ranks</code> (vector)</dt>
+<dd><p>A cache of columns that contain
+<code>items-worth-living</code> data.
+</p></dd>
+<dt> <code>inclinatum</code> (boolean)</dt>
+<dd><p>Is this neume an inclinatum?
+</p></dd>
+<dt> <code>interfaces</code> (list)</dt>
+<dd><p>A list of symbols indicating the interfaces
+supported by this object.  It is initialized from the <code>meta</code> field.
+</p></dd>
+<dt> <code>items-worth-living</code> (unknown)</dt>
+<dd><p>A list of interesting items.  If
+empty in a particular staff, then that staff is erased.
+</p></dd>
+<dt> <code>join-heads</code> (boolean)</dt>
+<dd><p>Whether to join the note heads of an ambitus
+grob with a vertical line.
+</p></dd>
+<dt> <code>join-right-amount</code> (number)</dt>
+<dd><p>DOCME
+</p></dd>
+<dt> <code>least-squares-dy</code> (number)</dt>
+<dd><p>The ideal beam slope, without damping.
+</p></dd>
+<dt> <code>left-items</code> (unknown)</dt>
+<dd><p>DOCME
+</p></dd>
+<dt> <code>left-neighbors</code> (unknown)</dt>
+<dd><p>A list of <code>spacing-wishes</code> grobs
+that are close to the current column.
+</p>
+<p>The closest <code>spacing-wishes</code> determine the actual distances between the
+columns.
+</p></dd>
+<dt> <code>linea</code> (boolean)</dt>
+<dd><p>Attach vertical lines to this neume?
+</p></dd>
+<dt> <code>meta</code> (list)</dt>
+<dd><p>Provide meta information.  It is an alist with the
+entries <code>name</code> and <code>interfaces</code>.
+</p></dd>
+<dt> <code>minimum-distances</code> (list)</dt>
+<dd><p>A list of rods that have the format
+<code>(<var>obj</var> . <var>dist</var>)</code>.
+</p></dd>
+<dt> <code>normal-stems</code> (unknown)</dt>
+<dd><p>An array of visible stems.
+</p></dd>
+<dt> <code>note-columns</code> (pair)</dt>
+<dd><p>A list of <code>NoteColumn</code> grobs.
+</p></dd>
+<dt> <code>note-head</code> (layout object)</dt>
+<dd><p>A single note head.
+</p></dd>
+<dt> <code>note-heads</code> (unknown)</dt>
+<dd><p>A list of note head grobs.
+</p></dd>
+<dt> <code>oriscus</code> (boolean)</dt>
+<dd><p>Is this neume an oriscus?
+</p></dd>
+<dt> <code>pedal-text</code> (layout object)</dt>
+<dd><p>A pointer to the text of a mixed-style piano
+pedal.
+</p></dd>
+<dt> <code>pes-or-flexa</code> (boolean)</dt>
+<dd><p>Shall this neume be joined with the previous
+head?
+</p></dd>
+<dt> <code>positioning-done</code> (boolean)</dt>
+<dd><p>Used to signal that a positioning element
+did its job.  This ensures that a positioning is only done once.
+</p></dd>
+<dt> <code>prefix-set</code> (number)</dt>
+<dd><p>A bit mask that holds all Gregorian head
+prefixes, such as <code>\virga</code> or <code>\quilisma</code>.
+</p></dd>
+<dt> <code>primitive</code> (integer)</dt>
+<dd><p>A pointer to a ligature primitive, i.e., an item
+similar to a note head that is part of a ligature.
+</p></dd>
+<dt> <code>pure-Y-common</code> (layout object)</dt>
+<dd><p>A cache of the
+<code>common_refpoint_of_array</code> of the <code>elements</code> grob set.
+</p></dd>
+<dt> <code>pure-Y-extent</code> (pair of numbers)</dt>
+<dd><p>The estimated height of a system.
+</p></dd>
+<dt> <code>pure-Y-offset-in-progress</code> (boolean)</dt>
+<dd><p>A debugging aid for catching
+cyclic dependencies.
+</p></dd>
+<dt> <code>pure-relevant-items</code> (unknown)</dt>
+<dd><p>A subset of elements that are
+relevant for finding the <code>pure-Y-extent</code>.
+</p></dd>
+<dt> <code>pure-relevant-spanners</code> (unknown)</dt>
+<dd><p>A subset of elements that are
+relevant for finding the <code>pure-Y-extent</code>.
+</p></dd>
+<dt> <code>quant-score</code> (string)</dt>
+<dd><p>The beam quanting score; stored for
+debugging.
+</p></dd>
+<dt> <code>quantize-position</code> (boolean)</dt>
+<dd><p>If set, a vertical alignment is aligned
+to be within staff spaces.
+</p></dd>
+<dt> <code>quantized-positions</code> (pair of numbers)</dt>
+<dd><p>The beam positions after
+quanting.
+</p></dd>
+<dt> <code>quilisma</code> (boolean)</dt>
+<dd><p>Is this neume a quilisma?
+</p></dd>
+<dt> <code>rest</code> (layout object)</dt>
+<dd><p>A pointer to a <code>Rest</code> object.
+</p></dd>
+<dt> <code>rest-collision</code> (layout object)</dt>
+<dd><p>A rest collision that a rest is in.
+</p></dd>
+<dt> <code>rests</code> (unknown)</dt>
+<dd><p>A list of rest objects.
+</p></dd>
+<dt> <code>right-items</code> (unknown)</dt>
+<dd><p>DOCME
+</p></dd>
+<dt> <code>right-neighbors</code> (unknown)</dt>
+<dd><p>See <code>left-neighbors</code>.
+</p></dd>
+<dt> <code>script-stencil</code> (pair)</dt>
+<dd><p>A pair <code>(<var>type</var> . <var>arg</var>)</code> which
+acts as an index for looking up a <code>Stencil</code> object.
+</p></dd>
+<dt> <code>separation-item</code> (layout object)</dt>
+<dd><p>A separation item.
+</p></dd>
+<dt> <code>shorten</code> (dimension, in staff space)</dt>
+<dd><p>The amount of space that a stem is shortened.
+Internally used to distribute beam shortening over stems.
+</p></dd>
+<dt> <code>side-support-elements</code> (unknown)</dt>
+<dd><p>The side support, a list of
+grobs.
+</p></dd>
+<dt> <code>skyline-distance</code> (number)</dt>
+<dd><p>The distance between this staff and the
+next one, as determined by a skyline algorithm.
+</p></dd>
+<dt> <code>slur</code> (layout object)</dt>
+<dd><p>A pointer to a <code>Slur</code> object.
+</p></dd>
+<dt> <code>spaceable-staves</code> (unknown)</dt>
+<dd><p>Objects to be spaced during page
+layout.
+</p></dd>
+<dt> <code>spacing</code> (layout object)</dt>
+<dd><p>The spacing spanner governing this section.
+</p></dd>
+<dt> <code>spacing-wishes</code> (unknown)</dt>
+<dd><p>List of note spacing or staff spacing
+objects.
+</p></dd>
+<dt> <code>staff-symbol</code> (layout object)</dt>
+<dd><p>The staff symbol grob that we are in.
+</p></dd>
+<dt> <code>stem</code> (layout object)</dt>
+<dd><p>A pointer to a <code>Stem</code> object.
+</p></dd>
+<dt> <code>stem-info</code> (pair)</dt>
+<dd><p>A cache of stem parameters.
+</p></dd>
+<dt> <code>stems</code> (unknown)</dt>
+<dd><p>A list of stem objects, corresponding to the
+notes that the arpeggio has to be before.
+</p></dd>
+<dt> <code>stropha</code> (boolean)</dt>
+<dd><p>Is this neume a stropha?
+</p></dd>
+<dt> <code>tie</code> (layout object)</dt>
+<dd><p>A pointer to a <code>Tie</code> object.
+</p></dd>
+<dt> <code>tremolo-flag</code> (layout object)</dt>
+<dd><p>The tremolo object on a stem.
+</p></dd>
+<dt> <code>tuplet-number</code> (layout object)</dt>
+<dd><p>The number for a bracket.
+</p></dd>
+<dt> <code>tuplets</code> (unknown)</dt>
+<dd><p>A list of smaller tuplet brackets.
+</p></dd>
+<dt> <code>use-breve-rest</code> (boolean)</dt>
+<dd><p>Use breve rests for measures longer
+than a whole rest.
+</p></dd>
+<dt> <code>virga</code> (boolean)</dt>
+<dd><p>Is this neume a virga?
+</p></dd>
+<dt> <code>x-offset</code> (dimension, in staff space)</dt>
+<dd><p>Extra horizontal offset for ligature heads.
+</p></dd>
+</dl>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Backend.fr.html#Backend" title="Beginning of this chapter or previous chapter"> &lt;&lt; Backend&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Scheme-functions.fr.html#Scheme-functions" title="Next chapter">&nbsp;Scheme functions &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="User-backend-properties.fr.html#User-backend-properties" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; User backend properties&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Backend.fr.html#Backend" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Backend&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Scheme-functions.fr.html#Scheme-functions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Scheme functions &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.fr.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.fr.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.fr.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.fr.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Translation-1" href="Translation.fr.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li><a name="toc-Contexts-1" href="Contexts.fr.html#Contexts">2.1 Contexts</a>    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.fr.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.fr.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.fr.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Backend-1" href="Backend.fr.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.fr.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.fr.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.fr.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li class="toc_current"><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.fr.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.fr.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.fr.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.fr.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 著作者一同
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+以下は英語を話さない人々のための著作権についての注意書きです。しかしながら、
+英語で書かれた注意書きだけが法的に有効です。
+
+
+GNU フリー文書利用許諾契約書バージョン 1.1 またはフリー ソフトウェア財団によって発行されたその後のバージョンの約定に従う限り、このドキュメントを複製、変更する許可を与えます。変更不可部分はありません。この利用許諾契約書のコピーは 「GNU フリー文書利用許諾契約書」
+という章に含まれています。
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 1 月 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation: 1.1 バックグラウンド</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 1.1 Background">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 1.1 Background">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; 学習マニュアル">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="目次">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="このドキュメントについて">
+<link href="Introduction.ja.html#Introduction" rel="up" title="1. Introduction">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Introduction.ja.html#Introduction" rel="previous" title="1. Introduction">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Background"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Introduction.ja.html#Introduction" title="前のセクション" accesskey="p" rel="previous"> &lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Introduction.ja.html#Introduction" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;導入部&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Engraving" title="次のセクション" accesskey="n" rel="next">&nbsp;譜刻 &gt; </a>]</td></tr></table>
+<a name="Background"></a>
+<h2 class="section">1.1 バックグラウンド</h2>
+
+<p>この節は LilyPond の最終目的とアーキテクチャについてカバーします。
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Engraving" accesskey="1">譜刻</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Automated-engraving" accesskey="2">自動譜刻</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#What-symbols-to-engrave_003f" accesskey="3">譜刻するシンボルは何か？</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Music-representation" accesskey="4">音楽表記</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Example-applications" accesskey="5">例用例</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Background" title="前のセクション" accesskey="p" rel="previous"> &lt; バックグラウンド&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automated-engraving" title="次のセクション" accesskey="n" rel="next">&nbsp;自動譜刻 &gt; </a>]</td></tr></table>
+<a name="Engraving"></a>
+<h3 class="unnumberedsubsec">譜刻</h3>
+
+<a name="index-engraving"></a>
+<a name="index-typography_002c-music"></a>
+<a name="index-music-typography"></a>
+<a name="index-plate-engraving"></a>
+<a name="index-music-engraving"></a>
+
+<p>楽譜印刷の技術は <em>(プレート) 譜刻</em> (原文: engraving、版画などの印刷のこと) と呼ばれています。この用語は伝統的な楽譜印刷のプロセスに由来します。ほんの数十年前まで、楽譜は音楽記号を亜鉛やしろめ (錫と鉛の合金) の版に反転したイメージで彫り込んだり、刻印することによって作られていました。版にはインクが塗られ、彫り込んだり刻印してくぼんだ部分にはインクが溜まります。版のイメージはその版に紙が押し付けられることによって形になります。刻印と彫刻は完全に手作業で行われていました。校正は可能だとしても厄介でした。なぜなら一から刻印と彫刻のやり直しだったからです。譜刻は高度に専門的な技術でした; 職人はマスター エングラーバ (譜刻を行う人) の称号を得るまで 5 年の修行を修めなければならず、本当に技術を習得するまでにはさらにもう 5 年の経験が必要だったのです。
+</p>
+<p>今日では、コンピュータによってまったく新しい楽譜が出版されています。これには明らかな利点があります; 印刷は安く済み、編集したものを email で配ることが可能です。不幸なことに、コンピュータが広く使われるようになって楽譜のグラフィカルな品質は低下しています。コンピュータによって出版された楽譜は味気無く、機械的な見た目をしているため、その楽譜で演奏することに喜びを感じられません。
+</p>
+<p>以下の図は伝統的な譜刻とコンピュータ出版の違いを描いたものであり、3 番目の図は LilyPond がどれくらい伝統的な見た目を模倣しているのかを示しています。左端のスキャンした図はコンピュータ出版の典型的な決定を示しています; 縦棒は細く、フラット記号の太さは細線と一致していて、曲線はまっすぐなレイアウトになっています。対照的に、ベーレンライター (Barenreiter: ドイツの出版社) のフラットは太く、曲線は官能的です。我々のフラットは 2 つのもののうち後者を元にデザインされています。丸みを帯びていて、太さは縦棒の太さと調和していて、コンピュータによるものよりも線が太くなっています。
+</p>
+<table>
+<tr><td width="12%"></td><td width="25%"><img src="../henle-flat-gray.png" alt="png"></td><td width="25%"><img src="../baer-flat-gray.png" alt="png"></td><td width="25%"><img src="../lily-flat-bw.png" alt="png"></td></tr>
+<tr><td width="12%"></td><td width="25%"><p>Henle (2000)
+</p></td><td width="25%"><p>Bärenreiter (1950)
+</p></td><td width="25%"><p>LilyPond Feta font (2003)
+</p></td></tr>
+</table>
+
+
+<a name="index-musical-symbols"></a>
+<a name="index-font"></a>
+<a name="index-blackness"></a>
+<a name="index-balance"></a>
+
+<p>スペースの点では、スペースの配分は音符と音符の間の音の間隔を反映します。しかしながら、現代楽譜の多くは数学的な正確さを持った間隔に固執しています。このことはおもしろくない結果を生み出します。次の例では、2 度楽譜をプリントしています: 1 度目は正確に数学的なスペースを用いて、2 度目はそれに校正を加えています。違いを見分けられますか？
+</p>
+<a name="index-optical-spacing"></a>
+<p>
+ <a href="../90/lily-35e012eb.ly">
+  <img align="middle"
+       border="0"
+       src="../90/lily-35e012eb.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>
+ <a href="../1c/lily-f9b0aa77.ly">
+  <img align="middle"
+       border="0"
+       src="../1c/lily-f9b0aa77.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<a name="index-regular-rhythms"></a>
+<a name="index-regular-spacing"></a>
+<a name="index-spacing_002c-regular"></a>
+
+<p>各小節には一定のリズムで演奏される音符だけがあります。スペースもそれを反映しています。不幸なことに、我々の目は我々を少し惑わせます。音符の「玉」 (ノート ヘッド) の間隔だけでなく、連続した棒 (ステム、音符から突き出る棒) の間隔も考慮します。結果として、アップ ステム/ダウン ステム (玉の上に突き出た棒/玉の下に突き出た棒) の組み合わせは離すべきであり、ダウン ステム/アップステムの組み合わせは近づけるべきです、すべては音符の垂直方向の位置の組み合わせに次第です。上の 2 小節は音符のダウン ステム/アップ ステムの組み合わせを近づけるよう校正を加えたものであり、下の 2 小節はこの校正を加えていないものです。
+</p>
+
+<p>通常、奏者は楽譜の見え方を勉強するよりも演奏をするほうに夢中ですので、印刷上の詳細にこだわることは形式尊重のように思えるかもしれません。しかしそうではありません。単調なリズムがずっと続くような場合、スペースの校正を行うことで各行のレイアウトに微妙な変化が加わり、それぞれが異なる視覚的特徴を持つようになります。この特徴が無ければすべての行は同じに見え、迷路のようになってしまいます。奏者がちょっと目を逸らしたり、集中力を欠くと、それまで見ていた行はページの中に埋もれてしまいます。
+</p>
+<p>同様に、太い譜線 (音の高さを表す線。五線譜では 5 本) に描かれた太い記号は見た目が強く、楽譜から奏者が離れている場合 &ndash; 例えば、楽譜が譜面台にある場合 &ndash; に良く目立ちます。空白を注意深く配置することで、楽譜は記号が乱雑になることなく締まります。結果としてページをめくる回数は最小となり、これは大きな利点になります。
+</p>
+<p>これは印刷において共通して言えることですが、レイアウトはこざっぱりとしているべきです。これは印刷自体のためであるだけでなく、特にその印刷物を読んでいる読み手の助けにもなるからです。楽譜のような演奏用の道具では、このことは 2 重に重要性を持ちます: 奏者の注意力には限界があり、奏者が楽譜を読むことに払う注意力が少なくて済めば済むほど、その奏者は演奏に集中することができます。言い換えると、良い印刷は良い演奏につながるのです。
+</p>
+<p>以上で挙げたことは、楽譜の印刷は微妙で複雑な技術であり、楽譜を印刷するには非常な熟練 &ndash; これは通常、奏者が持っているものではありません &ndash; が必要であるということを示しています。LilyPond は、手作業で譜刻された楽譜のすばらしさをコンピュータ世代に提供しよう、すばらしい楽譜を普通の音楽家にも利用可能にしようという我々の努力なのです。我々は、良く見てみたくなり、演奏したくなるような古い楽譜のクオリティに匹敵する楽譜を提供するために、アルゴリズム、フォント デザイン、プログラム設定を調整してきました。
+</p>
+
+<hr size="6">
+<a name="Automated-engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Engraving" title="前のセクション" accesskey="p" rel="previous"> &lt; 譜刻&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="次のセクション" accesskey="n" rel="next">&nbsp;譜刻するシンボルは何か？ &gt; </a>]</td></tr></table>
+<a name="Automated-engraving"></a>
+<h3 class="unnumberedsubsec">自動譜刻</h3>
+
+<a name="index-engraving_002c-automated"></a>
+<a name="index-automated-engraving"></a>
+
+<p>我々はどのように譜刻を実現していくのでしょうか？職人が本当のマスターになるのに 10 年以上かかるのなら、単なるハッカーである我々がどうやったら職人の仕事を越えるプログラムを書けるのでしょうか？
+</p>
+<p>その答えは、我々には「できない」です。譜刻は人間的な状況判断に頼っているため、判断を行う人間を完全にコンピュータに置き換えることはできません。しかしながら、退屈な作業の多くを自動化することはできます。もし LilyPond が一般的なケースの大半に対処できるなら、それは既存のソフトウェアよりも大きく前進することになります。残りのケースは手作業で調整することができます。年数が経つにつれて、このソフトウェアはより多くのことを自動的に行えるよう洗練されていき、手作業による手直しはどんどん必要なくなっていくことでしょう。
+</p>
+<p>我々が LilyPond の開発を始めたとき、我々は LilyPond プログラム全体を C++ プログラミング言語で書いていました。プログラムの機能は開発者によってかっちりと決められていました。これはいくつかの理由で不満足なものであることがわかりました:
+</p>
+<ul>
+<li> LilyPond が失敗を犯したとき、ユーザはフォーマット判断 (どのようなフォーマットにするかの判断) を上書きする必要があります。そのため、ユーザはフォーマット エンジンにアクセスしなければなりません。そのため、コンパイル時に我々 (開発者) によって規則と設定を固定することは無理があり、実行時 (LilyPond によって楽譜を作り出すとき) にユーザが規則と設定にアクセスできなければなりません。
+
+</li><li> 譜刻は視覚的判断の問題であり、そのために好みがあります。我々には知識がありますが、ユーザは我々の個人的な判断に異を唱える可能性もあります。そのため、譜刻様式の定義もまたユーザがアクセスできるものでなければなりません。
+</li><li> 最後に、我々は継続的にフォーマット アルゴリズムを改良させていくので、我々には規則に対する自由度の高いアプローチが必要です。C++ 言語は音楽表記の作業とはうまくマッチしない規則分類法を押し付けてきます。
+
+</li></ul>
+
+<a name="index-Scheme-programming-language"></a>
+
+<p>これらの問題に対して、Scheme プログラミング言語のインタプリタを統合し、LilyPond の各部分を Scheme で書き直すという処置がとられてきました。現在のフォーマット アーキテクチャはグラフィカル オブジェクトという概念で構築されていて、Scheme 変数と関数によって記述されています。このアーキテクチャは、フォーマット規則、譜刻スタイル、個々のフォーマットに関する判断を包含しています。ユーザはこれらの制御の大半に直接アクセスする術を持ちます。
+</p>
+<p>Scheme 変数はレイアウトに関する判断を制御します。例えば、多くのグラフィカル オブジェクトは上か下か (あるいは左か右か) の選択を決定する方向 (に関する) 変数を持ちます。ここで、アクセントとアルペジオを持つ 2 つの和音を見てみます。最初の和音では、すべてのグラフィカル オブジェクトは下向き (あるいは左向き) の方向を持っています。2 番目の和音では、すべてが上向き (あるいは右向き) の方向を持っています。
+</p>
+<blockquote><p>
+ <a href="../ad/lily-a808e181.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-a808e181.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-score-formatting"></a>
+<a name="index-formatting-a-score"></a>
+<a name="index-formatting-rules"></a>
+
+<p>楽譜を形作るプロセスはグラフィカルオブジェクトの変数を読み込んだり、書き込んだりすることからなります。いくつかの変数はプリセット値を持ちます。例えば、多くの線の太さ &ndash; 印刷スタイルの特性 &ndash; はプリセット値を持つ変数です。あなたは自由にこの値を変更することができ、それによってあなたの楽譜は異なる印象を持つことになります。
+</p>
+<blockquote><p>
+ <a href="../45/lily-b8e84cc1.ly">
+  <img align="middle"
+       border="0"
+       src="../45/lily-b8e84cc1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>さらにフォーマット規則もプリセット変数です: 各オブジェクトはプロシージャを保持している変数を持ちます。これらのプロシージャが実際のフォーマットを実行し、異なるプロシージャを使用することによってオブジェクトの見た目を変えることができます。以下の例では、音符の玉 (ノート ヘッド) シンボルを印刷するのにどの音符の玉オブジェクトを使用するかを決定する規則を楽譜の途中で変更しています。
+</p>
+<blockquote><p>
+ <a href="../dd/lily-4ee665c7.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-4ee665c7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<a name="What-symbols-to-engrave_003f"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automated-engraving" title="前のセクション" accesskey="p" rel="previous"> &lt; 自動譜刻&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Music-representation" title="次のセクション" accesskey="n" rel="next">&nbsp;音楽表記 &gt; </a>]</td></tr></table>
+<a name="What-symbols-to-engrave_003f"></a>
+<h3 class="unnumberedsubsec">譜刻するシンボルは何か？</h3>
+
+<a name="index-engraving-1"></a>
+<a name="index-typography"></a>
+<a name="index-engraver"></a>
+<a name="index-plug_002din"></a>
+
+
+<p>フォーマット プロセスはシンボルを置く場所を決定します。しかしながら、<em>どの</em>シンボルを譜刻すべきかを決定する &ndash; 言い換えると、使用する表記を決定する &ndash; と、シンボルを置く場所も決まります。
+</p>
+<p>一般の音楽表記は音楽を記録するシステムであり、これは過去 1000 年以上にもわたって進化してきました。現在の一般的な形式はルネッサンス前期にまでさかのぼります。基本的な形式 (すなわち、音符の玉が 5 本線の譜表上にあるというもの) は変更されていませんが、細かな点は現代の表記の改革を表現するためにいまだに発展が続けられています。したがって、一般的な音楽表記はおよそ500年間の音楽を扱います。応用範囲は単旋律から大規模なオーケストラのための途方もない対位法にまで及びます。
+</p>
+<p>どうやったら我々はそのような多頭の獣を統率し、制限のあるコンピュータ プログラムに押し込めることができるでしょうか？我々の解決策は表記の問題 (譜刻とは対照的にある、すなわち、活字学) を消化の良いプログラム可能な小さな塊に分解していくことです: それぞれのシンボルのタイプは個々のモジュール &ndash; いわゆるプラグイン &ndash; によって処理されます。各プラグインは完全にモジュール化されて独立していて、それによりそれぞれを別個に開発、改良することができます。そのようなプラグインは音楽的概念をグラフィック シンボルに変換する職人に例えて <code>engraver</code> (エングラーバ) と呼びます。
+</p>
+<p>以下の例では、我々が音符の玉のためのプラグイン <code>Note_heads_engraver</code> から始めていく様子を見ていきます。
+</p>
+<blockquote><p>
+ <a href="../38/lily-e26fb32e.ly">
+  <img align="middle"
+       border="0"
+       src="../38/lily-e26fb32e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>それから、<code>Staff_symbol_engraver</code> が譜表を加え
+</p>
+<blockquote><p>
+ <a href="../2e/lily-09b3a4db.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-09b3a4db.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><code>Clef_engraver</code> が譜表の参照位置を定義し
+</p>
+<blockquote><p>
+ <a href="../ad/lily-b7b430b0.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-b7b430b0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><code>Stem_engraver</code> が棒 (ステム) を付け加えます。
+</p>
+<blockquote><p>
+ <a href="../de/lily-dde85252.ly">
+  <img align="middle"
+       border="0"
+       src="../de/lily-dde85252.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><code>Stem_engraver</code> はやって来るすべての音符の玉 (ノート ヘッド) について知らされます。1 つの音符の玉 (あるいは和音の場合は複数の音符の玉) が現れるたびに、ステム オブジェクトが作成され、音符の玉に接続されます。さらにビーム (ステムとステムをつなぐ横棒)、スラー、アクセント、臨時記号、小節線 (小節と小節を区切る縦線)、拍子記号、調号のためのエングラーバを付け加えるによって、我々は完全な楽譜を手に入れることができます。
+</p>
+<blockquote><p>
+ <a href="../48/lily-aa409614.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-aa409614.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-polyphony"></a>
+<a name="index-engraving-multiple-voices"></a>
+<a name="index-contexts"></a>
+
+<p>このシステムは単旋律の音楽に対してはうまく機能しますが、多声部音楽に対してはどうでしょうか？多声部表記では、多くの声部 (ボイス) が 1 つの譜表を共有します。
+</p>
+<blockquote><p>
+ <a href="../81/lily-ac7b5eb7.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-ac7b5eb7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>このような場合、臨時記号と譜表は共有されますが、ステム、スラー、ビームなどは各声部が単独で持ちます。そのため、エングラーバはグループ化されるべきです。音符の玉、ステム、スラーなどのためのエングラーバは &lsquo;Voice context&rsquo; (ボイス コンテキスト) と呼ばれるグループに入れられ、一方の調子、臨時記号、小節線などのためのエングラーバは &lsquo;Staff context&rsquo; (譜表コンテキスト) とグループに入れられます。多声部音楽の場合、単一の譜表コンテキストには複数のボイス コンテキストが含まれます。同様に、複数の譜表コンテキストは単一の楽譜 (Score) コンテキストになり得ます。楽譜コンテキストは最上位の表記コンテキストです。
+</p>
+
+<a name="See-also"></a>
+<h4 class="subsubheading">参照</h4>
+<p>内部リファレンス: <a name="index-Contexts"></a>
+<a href="../lilypond-internals/Contexts.ja.html#Contexts">Contexts</a>.
+</p>
+
+<blockquote><p>
+ <a href="../d5/lily-4da76545.ly">
+  <img align="middle"
+       border="0"
+       src="../d5/lily-4da76545.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<a name="Music-representation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="前のセクション" accesskey="p" rel="previous"> &lt; 譜刻するシンボルは何か？&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Example-applications" title="次のセクション" accesskey="n" rel="next">&nbsp;例用例 &gt; </a>]</td></tr></table>
+<a name="Music-representation"></a>
+<h3 class="unnumberedsubsec">音楽表記</h3>
+
+<p>概念上、高レベル フォーマット システムのための入力フォーマットは内容を抽象的に記述するものになります。このケースでは、内容は音楽自体になります。これは手に負えない問題に見えます: どうやったら我々は音楽の本質を定義できるでしょうか？その答えを見つけようとする代わりに、我々はその問題を逆転させました。我々は楽譜を譜刻する能力を持つプログラムを書き、そのフォーマットができる限りすっきりしたものになるよう調整します。これ以上フォーマットを減らすことができないという状態になったとき、当然のことながら我々に残されているのは内容自体になります。我々のプログラムは音楽ドキュメントの形式定義として機能します。
+</p>
+<p>さらに、構文が LilyPond のユーザ インタフェイスになっているため、
+</p>
+<blockquote><pre class="example">{
+  c'4 d'8
+}
+</pre></blockquote>
+
+<p>とタイプだけで、4 分音符の C1 (ミドル C (=ド)) と 8 分音符の D1 (ミドル C の上の D (=レ)) になります。
+</p>
+<blockquote><p>
+ <a href="../a3/lily-4ac8db18.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-4ac8db18.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> C = ド, D = レ, E = ミ, F = ファ, G = ソ, A = ラ, B = シ です。LilyPond では音符を「ドレミ〜」ではなく &quot;CDE~&quot; として捉えることが必須なので、今後は音符をアルファべット表記にします。
+</p></td></tr></table>
+
+<p>小さなスケールでは、そのような構文は簡単に使用できます。大きなスケールでは、構文はさらに構造を持つ必要があります。そうしなければ、どうやったらあなたはシンフォニーやオペラのような複雑な楽譜に取り組めるでしょうか？構造は音楽表現法というコンセプトによって形成されます: 小さな音楽の断片を組み合わせて大きな音楽にすることによって、より複雑な音楽を表すことができるようになります。例を挙げます。
+</p>
+<blockquote><pre class="verbatim">f4
+</pre><p>
+ <a href="../71/lily-4525b349.ly">
+  <img align="middle"
+       border="0"
+       src="../71/lily-4525b349.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>同時進行の音符はそれらを <code>&lt;&lt;</code> と <code>&gt;&gt;</code> で囲むことによって構築できます:
+</p>
+
+<blockquote><pre class="example">&lt;&lt;c4 d4 e4&gt;&gt;
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../ca/lily-8d9298b5.ly">
+  <img align="middle"
+       border="0"
+       src="../ca/lily-8d9298b5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>この音楽表現を中括弧 <code>{&nbsp;&hellip;&nbsp;}</code> で囲むことによってシークエンスの中に入れることができます:
+</p>
+<blockquote><pre class="example">{ f4 &lt;&lt;c4 d4 e4&gt;&gt; }
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../48/lily-f2a8b3f3.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-f2a8b3f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>上記もまた音楽表現の 1 つなので、<code>&lt;&lt;</code>, <code>\\</code>, and <code>&gt;&gt;</code> を使ってそれを再び他の同時進行の音楽表現 (2 分音符) と組み合わせることもできます:
+</p>
+<blockquote><pre class="example"><code>&lt;&lt; g2 \\ { f4 &lt;&lt;c4 d4 e4&gt;&gt; } &gt;&gt;</code>
+</pre></blockquote>
+
+
+<blockquote><p>
+ <a href="../a0/lily-41ba6474.ly">
+  <img align="middle"
+       border="0"
+       src="../a0/lily-41ba6474.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>このような再帰的な構造はさっぱりと、かつ、しっかりした形式でコンテキスト フリー文法で記すことができます。コード解析もまたこの文法から生成されます。言い換えると、LilyPond の構文ははっきりと明快に定義されます。
+</p>
+<p>ユーザが LilyPond に取り組むときに、ユーザがその時間の大半で見て、扱うものはユーザ インタフェイスと構文です。それらのある部分は好みの問題であり、多くの議論の対象にもなるものです。好みについて議論することは有意義なことですが、それほど生産的なことではありません。LilyPond という大きな世界の中で、入力構文の重要性は小さいのです: さっぱりとした構文をでっちあげることは簡単ですが、見苦しくないフォーマット コードを作成することはとても難しいのです。このことは、それぞれのコンポーネントの行数をカウントすることによっても実証されます: 解析と表記のためのコンポーネントはソース コード全体の 10 % にも達しません。
+</p>
+
+
+
+
+
+
+
+<hr size="6">
+<a name="Example-applications"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="前のセクション" accesskey="p" rel="previous"> &lt; 音楽表記&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.ja.html#About-the-documentation" title="次のセクション" accesskey="n" rel="next">&nbsp;このドキュメントについて &gt; </a>]</td></tr></table>
+<a name="Example-applications"></a>
+<h3 class="unnumberedsubsec">例用例</h3>
+
+<a name="index-simple-examples"></a>
+<a name="index-examples_002c-simple"></a>
+
+<p>我々はどのように譜刻の技術をコンピュータ プログラムの中に凝縮するかという実験として LilyPond を開発してきました。重労働のおかげで、今やこのプログラムは有用な働きを行うのに使用できるようになりました。非常に簡単な利用例は音符を刻譜することです。
+</p>
+<blockquote><p>
+ <a href="../63/lily-bbccbca9.ly">
+  <img align="middle"
+       border="0"
+       src="../63/lily-bbccbca9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>コード ネームと歌詞を加えることによって、我々はリード譜を得ます。
+</p>
+<blockquote><p>
+ <a href="../34/lily-1f1cc0c4.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-1f1cc0c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>さらに、多声部表記とピアノ譜を刻譜することもできます。以下の例はいくつかのより風変わりな構成を組み合わせています。
+</p>
+<blockquote><p>
+ <a href="../2c/lily-647cf69c.ly">
+  <img align="middle"
+       border="0"
+       src="../2c/lily-647cf69c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>上で示した楽譜の断片はすべて手作業で作成されていました。しかしながら、必ずしも手作業で行う必要はありません。フォーマット エンジンの大部分は自動化されているため、その出力を音楽を操作する他のプログラムに供することができます。例えば、音楽の断片のデータベースをウェブサイトやマルチメディア プレゼンテーションで使用する画像に変換するために使用することもできます。
+</p>
+<p>このマニュアルも利用例です: 入力フォーマットはテキストなので、容易に他のテキスト ベースのフォーマット &ndash; 例えば、@LaTex{}, HTML, このマニュアルの場合は Texinfo &ndash; に埋め込むことができます。ある特別なプログラムによって入力断片を音楽イメージに置き換えることができ、それによって PDF や HTML の出力ファイルという結果を得ることができます。これはドキュメントの中で音楽とテキストを混在させることを容易にします。
+</p>
+
+
+
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.ja.html#Introduction" title="この章あるいは前の章の先頭"> &lt;&lt; 導入部&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="ドキュメントの表紙 (先頭)" rel="start">トップ</a>][<a href="index_toc.ja.html#SEC_Contents" title="目次" rel="contents">目次</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="インデックス" rel="index">インデックス</a>][<a href="index_abt.ja.html#SEC_About" title="情報 (ヘルプ)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.ja.html#Tutorial" title="次の章">&nbsp;チュートリアル &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="前のセクション" accesskey="p" rel="previous"> &lt; 音楽表記&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="上のセクション" accesskey="u" rel="up">&nbsp; 上へ :&nbsp;バックグラウンド&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.ja.html#About-the-documentation" title="次のセクション" accesskey="n" rel="next">&nbsp;このドキュメントについて &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Background.html">English</a>, <a href="Background.fr.html">français</a>, <a href="Background.es.html">español</a>, <a href="Background.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"><a href="index.ja.html#Top" title="Start of the manual">学習マニュアル</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">序文</a>  </li>
+  <li class="toc_current"><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. 導入部</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Background-1" href="Background.ja.html#Background">1.1 バックグラウンド</a>
+    <ul class="toc">
+      <li><a name="toc-Engraving-1" href="Background.ja.html#Engraving">譜刻</a>      </li>
+      <li><a name="toc-Automated-engraving-1" href="Background.ja.html#Automated-engraving">自動譜刻</a>      </li>
+      <li><a name="toc-What-symbols-to-engrave_003f-1" href="Background.ja.html#What-symbols-to-engrave_003f">譜刻するシンボルは何か？</a>      </li>
+      <li><a name="toc-Music-representation-1" href="Background.ja.html#Music-representation">音楽表記</a>      </li>
+      <li><a name="toc-Example-applications-1" href="Background.ja.html#Example-applications">例用例</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 このドキュメントについて</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. チュートリアル</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 最初のステップ</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 単一譜表表記</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 同時に演奏する複数の音符</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 歌曲</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 仕上げ</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. 基礎となるコンセプト</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 LilyPond 入力ファイルの仕組み</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 音楽を保持するボイス</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 コンテキストとエングラーバ</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 テンプレートを拡張する</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. 出力を調整する</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 調整の基本</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 内部リファレンス マニュアル</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 オブジェクトの見た目</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 オブジェクトの配置</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 オブジェクトの衝突</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 更なる調整</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. LilyPond プロジェクトに取り組む</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 LilyPond 入力ファイルの記述に対する提案</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 うまくいかないとき</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 楽譜とパート</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. テンプレート</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 単一の譜表</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 ピアノ テンプレート</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.ja.html#String-quartet">A.3 弦楽四重奏</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 合唱</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond インデックス</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

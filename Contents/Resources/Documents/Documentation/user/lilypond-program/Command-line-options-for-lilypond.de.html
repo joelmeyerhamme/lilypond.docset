@@ -1,0 +1,460 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung 
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber 
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne 
+Invariante Abschnitte), 
+zu kopieren, verbreiten und/oder
+zu verändern. Eine Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Programmbenutzung: 3.2.2 Optionen von lilypond auf der Kommandozeile</title>
+
+<meta name="description" content="GNU LilyPond Programmbenutzung: 3.2.2 Command line options for lilypond">
+<meta name="keywords" content="GNU LilyPond Programmbenutzung: 3.2.2 Command line options for lilypond">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#Top" rel="start" title="GNU LilyPond &ndash; Programmbenutzung">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Command_002dline-usage.de.html#Command_002dline-usage" rel="up" title="3.2 Command-line usage">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Invoking-lilypond.de.html#Invoking-lilypond" rel="previous" title="3.2.1 Invoking lilypond">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Command-line-options-for-lilypond"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Running-LilyPond.de.html#Running-LilyPond" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; LilyPond starten&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="N&auml;chstes Kapitel">&nbsp;LilyPond-book &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Invoking-lilypond.de.html#Invoking-lilypond" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; lilypond aufrufen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Command_002dline-usage.de.html#Command_002dline-usage" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Benutzung auf der Kommandozeile&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Environment-variables.de.html#Environment-variables" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Umgebungsvariablen &gt; </a>]</td></tr></table>
+<a name="Command-line-options-for-lilypond"></a>
+<h3 class="subsection">3.2.2 Optionen auf der Kommandozeile für <code>lilypond</code></h3>
+
+<p>Die folgenden Kommandozeilenoptionen werden von <code>lilypond</code> unterstützt:
+</p>
+<dl compact="compact">
+<dt> <code>-e,--evaluate=<var>expr</var></code></dt>
+<dd><p>Wertet den Scheme-Ausdruck <var>expr</var> aus, bevor die &lsquo;<tt>.ly</tt>&rsquo; Dateien 
+gelesen und interpretiert werden.
+Die <code>-e</code> Option kann auch mehrfach angegeben werden, die Ausdrücke
+werden nacheinander ausgewertet.
+</p>
+<p>Da der Ausdruck im <code>guile-user</code> Modul ausgewertet wird, ist bei der 
+Definitionen innerhalb von <var>expr</var> folgendes Vorgehen nötig. An der 
+Kommandozeile wird z.B. <code>a</code> im <code>guile-user</code> Modul definiert:
+</p>
+<blockquote><pre class="example">lilypond -e '(define-public a 42)'
+</pre></blockquote>
+
+<p>Am Beginn der &lsquo;<tt>.ly</tt>&rsquo;-Datei muss dann das <code>guile-user</code> Modul noch geladen werden, bevor die Definition von <var>a</var> verfügbar ist:
+</p>
+<blockquote><pre class="example">#(use-modules (guile-user))
+</pre></blockquote>
+
+
+</dd>
+<dt> <code>-f,--format=<var>Format</var></code></dt>
+<dd><p>Bestimmt das Ausgabeformat. Mögliche Werte von <var>Format</var> sind
+<code>svg</code>, <code>ps</code>, <code>pdf</code> und <code>png</code>.
+</p>
+<p>Beispiel: <code>lilypond -fpng <var>Dateiname</var>.ly</code>
+</p>
+
+
+</dd>
+<dt> <code>-d,--define-default=<var>Variable</var>=<var>Wert</var></code></dt>
+<dd><p>Damit wird die interne Programmoption <var>Variable</var> auf den Scheme-Wert 
+<var>Wert</var> gesetzt. Wird kein <var>Wert</var> angegeben, so wird <var>#t</var> benutzt.
+Um eine Option auszuschalten, kann der Präfix <code>no-</code> dem Namen 
+<var>Variable</var> der Variable vorangestellt werden. So ist etwa
+</p>
+<a name="index-Point-and-Click_002c-Kommandozeile"></a>
+
+<blockquote><pre class="example">-dno-point-and-click
+</pre></blockquote>
+
+<p>dasselbe wie
+</p><blockquote><pre class="example">-dpoint-and-click='#f'
+</pre></blockquote>
+
+<p>Hier sind ein paar interessante Optionen:
+</p>
+<dl compact="compact">
+<dt> &lsquo;<samp>help</samp>&rsquo;</dt>
+<dd><p>Die Ausführung von <code>lilypond -dhelp</code> zeigt alle verfügbaren <code>-d</code> 
+Optionen.
+</p>
+</dd>
+<dt> &lsquo;<samp>paper-size</samp>&rsquo;</dt>
+<dd><p>Setzt das Standard-Papierformat,
+</p><blockquote><pre class="example">-dpaper-size=\&quot;letter\&quot;
+</pre></blockquote>
+
+<p>Die Zeichenkette, die das Format angibt, muss in Anführungszeichen mit Backslash 
+( <code>\&quot;</code> ) stehen.
+</p>
+
+</dd>
+<dt> &lsquo;<samp>safe</samp>&rsquo;</dt>
+<dd><p>Vertraut der <code>.ly</code> Datei nicht.
+</p>
+<p>Wenn LilyPond über einen Webserver verfügbar gemacht wird, <b>MUSS</b> unbedingt
+eine die Optionen <code>--safe</code> oder <code>--jail</code> angegeben werden.
+Die <code>--safe</code> Option verhindert, dass in der .ly-Datei angegebener 
+Scheme-Code das System gefährden kann, wie etwa in folgendem Beispiel:
+</p>
+<blockquote><pre class="verbatim">#(system &quot;rm -rf /&quot;)
+{
+  c4^#(ly:export (ly:gulp-file &quot;/etc/passwd&quot;))
+}
+</pre></blockquote>
+
+<p>Mit der <code>-dsafe</code> Option werden alle Scheme-Ausdrücke einem speziellen
+sicheren Modus ausgewertet. Dieser Modus ist vom GUILE &lsquo;<tt>safe-r5rs</tt>&rsquo; Modul
+abgeleitet und fügt noch zahlreiche weitere erlaubte Funktionen der
+LilyPond Programm-Schnittstelle hinzu. Diese Funktionen sind in 
+&lsquo;<tt>scm/safe-lily.scm</tt>&rsquo; angegeben.
+</p>
+<p>Zusätzliche verbietet der sichere Modus auch <code>\include</code> Befehle.
+</p>
+<p>Im sicheren Modus ist es nicht möglich, LilyPond-Variablen nach Scheme 
+zu exportieren.
+</p>
+<p><code>-dsafe</code> erkennt jedoch <em>KEINE</em> Überbeanspruchung der verfügbaren
+Ressourcen. In diesem Modus ist es also trotzdem möglich, dass LilyPond in einer
+Endlosschleife hängt, z.B. wenn zyklische Datenstrukturen an das Backend 
+übergeben werden. Wenn LilyPond also auf einem öffentlich zugänglichen 
+Webserver verfügbar gemacht wird, sollte der Prozess sowohl in der CPU-
+als auch in der Speichernutzung limitiert werden.
+</p>
+<p>Der sichere Modus verhindert auch, dass zahlreiche nützliche 
+Musikfragmente von LilyPond verarbeitet werden. Die <code>--jail</code> Option ist
+eine sicherere Alternative, benötigt allerdings auch mehr Aufwand zur 
+Einrichtung.
+</p>
+</dd>
+<dt> &lsquo;<samp>backend</samp>&rsquo;</dt>
+<dd><p>Gibt an, welches Ausgabeformat das LilyPond Backend benutzt. Mögliche Werte
+für diese Option sind:
+</p>
+<dl compact="compact">
+<dt> <code>ps</code></dt>
+<dd><p>PostScript-Ausgabeformat.
+</p>
+<a name="index-PostScript-Ausgabeformat"></a>
+
+<p>Postscript-Dateien enthalten auch TTF-, Type1- und OTF-Schriften. Allerdings 
+wird die gesamte Schriftart eingefügt und nicht nur die benötigten Zeichen.
+Vor allem wenn nicht-westliche Zeichensätze benutzt werden, kann dies zu sehr
+großen Dateien führen.
+</p>
+</dd>
+<dt> <code>eps</code></dt>
+<dd><p>Erzeugt &sbquo;encapsulated PostScript&lsquo; (EPS). Jede Seite (oder jedes System) wird
+als eigene &lsquo;<tt>EPS</tt>&rsquo;-Datei ausgegeben, inklusive Schriftarten. Außerdem wird
+eine Datei mit allen Seiten (bzw. Systemen) und Schriftarten erzeugt.
+</p>
+<p>Dies ist die Standardeinstellung von <code>lilypond-book</code>.
+</p>
+</dd>
+<dt> <code>svg</code></dt>
+<dd><p>SVG-Ausgabe (Scalable Vector Graphics). Jede Seite wird als eigene 
+&lsquo;<tt>SVG</tt>&rsquo;-Datei ausgegeben, inklusive eingebetteten Schriftarten.
+<a name="index-SVG-_0028Scalable-Vector-Graphics_0029"></a>
+Sie benötigen einen SVG-Betrachter, der eingebettete Schriftarten unterstützt,
+oder einen SVG-Betrachter, der eingebettete Schriftarten durch OTF-Schriften
+ersetzen kann. In UNIX und Linux kann z.B. <a href="http://www.inkscape.org">Inkscape</a>
+(ab Version 0.42) benutzt werden, nachdem die OTF-Schriften aus dem 
+LilyPond-Verzeichnis (typischerweise &lsquo;<tt>/usr/share/lilypond/VERSION/fonts/otf/</tt>&rsquo;)
+in das Verzeichnis &lsquo;<tt>~/.fonts/</tt>&rsquo; kopiert wurden.
+</p>
+</dd>
+<dt> <code>scm</code></dt>
+<dd><p>gibt die rohen Scheme-basierenden Zeichenbefehle aus, wie sie intern von 
+LilyPond benutzt werden.
+</p>
+<a name="index-Scheme-dump"></a>
+
+</dd>
+<dt> <code>null</code></dt>
+<dd><p>Keine Partitur wird ausgegeben, hat gleichen Effekt wie <code>-dno-print-pages</code>.
+</p>
+</dd>
+</dl>
+
+<p>Beispiel: <code>lilypond -dbackend=svg <var>Dateiname</var>.ly</code>
+</p>
+<a name="index-Ausgabeformat"></a>
+
+</dd>
+<dt> &lsquo;<samp>preview</samp>&rsquo;</dt>
+<dd><p>Erzeugt eine Ausgabedatei, die nur die Titelzeilen und das erste System 
+enthält.
+</p>
+</dd>
+<dt> &lsquo;<samp>print-pages</samp>&rsquo;</dt>
+<dd><p>Erzeugt vollständige Seiten (Standardeinstellung).  <code>-dno-print-pages</code> 
+ist in Verbindung mit <code>-dpreview</code> nützlich.
+</p>
+</dd>
+</dl>
+
+
+
+</dd>
+<dt> <code>-h,--help</code></dt>
+<dd><p>Zeigt eine Zusammenfassung der Programmbenutzung und der Optionen.
+</p>
+</dd>
+<dt> <code>-H,--header=<var>FELD</var></code></dt>
+<dd><p>Gibt den Inhalt eines Feldes aus dem <code>\header</code>-Block in die Datei 
+&lsquo;<tt>Dateiname.<var>FELD</var></tt>&rsquo; aus.
+</p>
+</dd>
+<dt> <code>--include, -I=<var>Verzeichnis</var></code></dt>
+<dd><p>Fügt <var>Verzeichnis</var> zur Liste der Suchpfade hinzu.
+<a name="index-Dateisuche"></a>
+<a name="index-Suchpfad"></a>
+</p>
+</dd>
+<dt> <code>-i,--init=<var>Initialisierungsdatei</var></code></dt>
+<dd><p>Benutzt <var>Initialisierungsdatei</var> zur gesamten Programminitialisierung. Der 
+Standardwert ist &lsquo;<tt>init.ly</tt>&rsquo;.
+</p>
+</dd>
+<dt> <code>-o,--output=<var>DATEI</var></code></dt>
+<dd><p>Schreibt das Ergebnis der Verarbeitung mit LilyPond in die Ausgabedatei
+<var>DATEI</var>. Die entsprechende Dateinamenserweiterung wird angehängt (z.B. 
+<code>.pdf</code> für pdf).
+</p>
+</dd>
+<dt> <code>--ps</code></dt>
+<dd><p>Erzeugt PostScript.
+</p>
+</dd>
+<dt> <code>--png</code></dt>
+<dd><p>Erzeugt eine Grafik-Datei im PNG-Format von jeder Seite. Diese Option
+impliziert auch <code>--ps</code>. Die Auflösung in DPI der Grafik kann festgelegt
+werden durch
+</p><blockquote><pre class="example">-dresolution=110
+</pre></blockquote>
+
+</dd>
+<dt> <code>--pdf</code></dt>
+<dd><p>Erzeugt PDF-Dateien. Dies impliziert <code>--ps</code>.
+</p>
+</dd>
+<dt> <code>-j,--jail=<var>Benutzer</var>,<var>Gruppe</var>,<var>Jail-Verzeichnis</var>,<var>Arbeitsverzeichnis</var></code></dt>
+<dd><p>Führt <code>lilypond</code> in einem chroot-Jail aus.
+</p>
+<p>Die <code>--jail</code> Option ist eine flexiblere Alternative zu <code>--safe</code>, wenn
+LilyPond über das Internet verfügbar gemacht wird oder LilyPond-Quelldateien
+von Dritten automatisch vararbeitet werden.
+</p>
+<p>Sie funktioniert dergestalt, dass das Wurzelverzeichnis von 
+<code>lilypond</code> auf <var>Jail-Verzeichnis</var> gesetzt wird, bevor die
+tatsächliche Kompilierung der .ly-Datei beginnt. Der Benutzer und die Gruppe
+werden auf die angegebenen Werte gesetzt und das aktuelle Arbeitsverzeichnis
+wird ebenfalls auf den angegebenen Wert <var>Arbeitsverzeichnis</var> gesetzt.
+Diese Einstellungen garantieren (zumindest in der Theorie), dass es nicht
+möglich ist, aus dem Jail auszubrechen. Damit <code>--jail</code> funktioniert, muss
+<code>lilypond</code> allerdings als root ausgeführt werden, was normalerweise
+auf sichere Art mit dem Kommando <code>sudo</code> erreicht werden kann.
+</p>
+<p>Das Jail-Verzeichnis zu erstellen ist etwas heikel, da LilyPond alle zur 
+Ausführung nötigen Bibliotheken und Dateien <em>innerhalb des 
+Jail-Verzeichnisses</em> finden muss. Ein typisches Setup besteht aus folgenden
+Punkten:
+</p>
+<dl compact="compact">
+<dt> Erstellung eines getrennten Dateisystems</dt>
+<dd><p>Ein eigenes Dateisystem muss für LilyPond erstellt werden, sodass es mit
+sicheren Einstellungen wie <code>noexec</code>, <code>nodev</code> und <code>nosuid</code>
+eingebunden werden kann. Damit ist es unmöglich, Programme von diesem
+Dateisystem auszuführen oder direkt auf eine Hardware-Schnittstelle 
+zuzugreifen. Wenn Sie keine eigene Partition erstellen möchten, können Sie
+auch eine Datei der entsprechenden Größe erstellen und sie als &sbquo;loop&lsquo;-Gerät 
+einbinden. Ein getrenntes Dateisystem garantiert auch, dass LilyPond nicht 
+mehr Festplattenspeicher benutzt als erlaubt.
+</p>
+</dd>
+<dt> Erstellung eines eigenen Benutzerkontos</dt>
+<dd><p>Es sollte ein eigener Benutzer und eine eigene Gruppe (z. B. 
+<code>lily</code>/<code>lily</code>) mit geringen Rechten für die Ausführung von LilyPond
+innerhalb des Jails benutzt werden. Nur ein einziges Verzeichnis des Jails sollte
+für den Benutzer schreibbar sein und als <var>Arbeitsverzeichnis</var> an 
+<code>lilypond</code> übergeben werden.
+</p>
+</dd>
+<dt> Einrichtung des Jails</dt>
+<dd><p>LilyPond muss zahlreiche Dateien für die Ausführung einlesen. All diese
+Dateien müssen in das Jail-Verzeichnis kopiert werden (mit denselben Pfaden
+wie im tatsächlichen Wurzel-Dateisystem). Die gesamte LilyPond-Installation
+(typischerweise &lsquo;<tt>/usr/share/lilypond</tt>&rsquo;) sollte kopiert werden.
+</p>
+<p>Falls Probleme auftreten, ist es am einfachsten, Lilypond mittels 
+<code>strace</code> zu starten, wodurch Sie relativ leicht feststellen können,
+welche Dateien im Jail noch fehlen.
+</p>
+</dd>
+<dt> Ausführung von LilyPond</dt>
+<dd><p>In einem mit <code>noexec</code> eingebundenen Jail ist es nicht möglich, externe
+Programme auszuführen. Daher muss LilyPond auf eine Art gestartet werden, 
+die keine weitere Ausführung von Programmen benötigt. Wie bereits erwähnt 
+muss LilyPond mit Administrator-Rechten gestartet werden (die es allerdings
+sofort wieder abgibt), beispielsweise mittels <code>sudo</code>. Außerdem 
+ist es eine gute Idee, die LilyPond zur Verfügung stehende CPU-Zeit zu
+limitieren (z. B. mit <code>ulimit -t</code>) und &ndash; falls das Betriebssystem
+dies unterstützt &ndash; auch den zur Verfügung stehenden Hauptspeicher.
+</p></dd>
+</dl>
+
+
+</dd>
+<dt> <code>-v,--version</code></dt>
+<dd><p>Gibt die Versionsnummer aus.
+</p>
+</dd>
+<dt> <code>-V,--verbose</code></dt>
+<dd><p>Gibt ausführliche informative Meldungen aus: Zeigt die vollen Dateipfade
+aller gelesenen Dateien sowie Informationen über die Laufzeit.
+</p>
+</dd>
+<dt> <code>-w,--warranty</code></dt>
+<dd><p>Zeigt die Garantiebedingungen an, unter denen GNU LilyPond steht. (Es besteht
+<strong>KEINERLEI GARANTIE</strong>!)
+</p></dd>
+</dl>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Running-LilyPond.de.html#Running-LilyPond" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; LilyPond starten&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="N&auml;chstes Kapitel">&nbsp;LilyPond-book &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Invoking-lilypond.de.html#Invoking-lilypond" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; lilypond aufrufen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Command_002dline-usage.de.html#Command_002dline-usage" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Benutzung auf der Kommandozeile&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Environment-variables.de.html#Environment-variables" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Umgebungsvariablen &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Command-line-options-for-lilypond.html">English</a>, <a href="Command-line-options-for-lilypond.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#Top" title="Start of the manual">Programmbenutzung</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.de.html#Install">1. Installieren</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.de.html#Precompiled-binaries">1.1 Vorkompilierte Binär-Pakete</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.de.html#Compiling-from-source">1.2 Aus den Quellen übersetzen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.de.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.de.html#Setup-for-specific-Operating-Systems">2.1 Setup für bestimmte Betriebssysteme</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.de.html#Text-editor-support">2.2 Unterstützung von Texteditoren</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.de.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Running-LilyPond-1" href="Running-LilyPond.de.html#Running-LilyPond">3. LilyPond starten</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.de.html#Normal-usage">3.1 Übliche Programmbenutzung</a>    </li>
+    <li class="toc_current"><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.de.html#Command_002dline-usage">3.2 Benutzung auf der Kommandozeile</a>
+    <ul class="toc">
+      <li><a name="toc-Invoking-lilypond-1" href="Invoking-lilypond.de.html#Invoking-lilypond">3.2.1 <code>lilypond</code> aufrufen</a>      </li>
+      <li class="toc_current"><a name="toc-Command-line-options-for-lilypond-1" href="Command-line-options-for-lilypond.de.html#Command-line-options-for-lilypond">3.2.2 Optionen auf der Kommandozeile für <code>lilypond</code></a>      </li>
+      <li><a name="toc-Environment-variables-1" href="Environment-variables.de.html#Environment-variables">3.2.3 Umgebungsvariablen</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.de.html#Error-messages">3.3 Fehlermeldungen</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.de.html#Updating-files-with-convert_002dly">3.4 Dateien mit <code>convert-ly</code> aktualisieren</a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.de.html#Reporting-bugs">3.5 Fehler melden</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.de.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Noten in den Text integrieren</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.de.html#An-example-of-a-musicological-document">4.1 Ein musikwissenschaftlicher Text als Beispiel</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.de.html#Integrating-music-and-text">4.2 Noten in Text integrieren</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.de.html#Music-fragment-options">4.3 Die Musikfragment-Optionen</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.de.html#Invoking-lilypond_002dbook">4.4 <code>lilypond-book</code> aufrufen</a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.de.html#Filename-extensions">4.5 Dateiendungen</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.de.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative Methoden, Text mit Musik zu kombinieren</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.de.html#Converting-from-other-formats">5. Von anderen Formaten konvertieren</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.de.html#Invoking-midi2ly">5.1 <code>midi2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.de.html#Invoking-musicxml2ly">5.2 <code>muscxml2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.de.html#Invoking-abc2ly">5.3 <code>abc2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.de.html#Invoking-etf2ly">5.4 <code>etf2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.de.html#Generating-LilyPond-files">5.5 LilyPond-Dateien erstellen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">B. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

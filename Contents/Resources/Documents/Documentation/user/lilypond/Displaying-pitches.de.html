@@ -1,0 +1,1701 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.1.3 Tonhöhen anzeigen lassen</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.1.3 Displaying pitches">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.1.3 Displaying pitches">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Pitches.de.html#Pitches" rel="up" title="1.1 Pitches">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Changing-multiple-pitches.de.html#Changing-multiple-pitches" rel="previous" title="1.1.2 Changing multiple pitches">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Displaying-pitches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Changing-multiple-pitches.de.html#Transpose" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Transposition&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Pitches.de.html#Pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Clef" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Notenschlüssel &gt; </a>]</td></tr></table>
+<a name="Displaying-pitches"></a>
+<h3 class="subsection">1.1.3 Tonhöhen anzeigen lassen</h3>
+
+<p>Dieser Abschnitt zeigt, wie die Ausgabe von Tonhöhen
+verändern werden kann.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Clef" accesskey="1">Notenschlüssel</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Key-signature" accesskey="2">Tonartbezeichnung</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Ottava-brackets" accesskey="3">Oktavierungsklammern</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Instrument-transpositions" accesskey="4">Transposition von Instrumenten</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Automatic-accidentals" accesskey="5">Automatische Versetzungszeichen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Ambitus" accesskey="6">Tonumfang</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Clef"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Displaying-pitches" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Key-signature" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Tonartbezeichnung &gt; </a>]</td></tr></table>
+<a name="Clef"></a>
+<h4 class="unnumberedsubsubsec">Notenschlüssel</h4>
+
+<a name="index-G_002dSchlussel"></a>
+<a name="index-C_002dSchlussel"></a>
+<a name="index-F_002dSchlussel"></a>
+<a name="index-Sopranschlussel"></a>
+<a name="index-Violinschlussel"></a>
+<a name="index-Altschlussel"></a>
+<a name="index-Bratschenschlussel"></a>
+<a name="index-Tenorschlussel"></a>
+<a name="index-Bassschlussel"></a>
+<a name="index-Franzosischer-Violinschlussel"></a>
+<a name="index-Mezzosopranschlussel"></a>
+<a name="index-Sopranschlussel-in-C"></a>
+<a name="index-Baritonschlussel"></a>
+<a name="index-Subbassschlussel"></a>
+<a name="index-Schlussel-1"></a>
+<a name="index-Notenschlussel"></a>
+<a name="index-Alte-Schlussel"></a>
+<a name="index-Schlussel-Alter-Musik"></a>
+<a name="index-Schlussel_002c-C"></a>
+<a name="index-Schlussel_002c-G"></a>
+<a name="index-Schlussel_002c-F"></a>
+
+<a name="index-_005cclef"></a>
+<a name="index-_005cclef-1"></a>
+<a name="index-clef"></a>
+<a name="index-clef-1"></a>
+
+<p>Der Schlüssel kann verändert werden. Das eingestrichene
+C wird in jedem Beispiel gezeigt:
+</p>
+<blockquote><pre class="verbatim">\clef treble
+c2 c
+\clef alto
+c2 c
+\clef tenor
+c2 c
+\clef bass
+c2 c
+</pre><p>
+ <a href="../e3/lily-432b0b9e.ly">
+  <img align="middle"
+       border="0"
+       src="../e3/lily-432b0b9e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Andere Schlüssel sind u. A.:
+</p>
+<blockquote><pre class="verbatim">\clef french
+c2 c
+\clef soprano
+c2 c
+\clef mezzosoprano
+c2 c
+\clef baritone
+c2 c
+
+\break
+
+\clef varbaritone
+c2 c
+\clef subbass
+c2 c
+\clef percussion
+c2 c
+\clef tab
+c2 c
+</pre><p>
+ <a href="../65/lily-5d455317.ly">
+  <img align="middle"
+       border="0"
+       src="../65/lily-5d455317.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Weitere unterstützte Schlüssel sind beschrieben in <a href="Alternative-note-signs.de.html#Ancient-clefs">Schlüssel Alter Musik</a>.
+</p>
+<a name="index-transponierende-Schlussel"></a>
+<a name="index-Schlussel_002c-transponierend"></a>
+<a name="index-Oktavtransposition"></a>
+<a name="index-Chor_002dTenorschlussel"></a>
+<a name="index-Tenorschlussel_002c-Chor"></a>
+
+<p>Indem <code>_8</code> oder <code>^8</code> an die jeweilige Schlüsselbezeichnung 
+angehängt wird, wird der Schlüssel um eine Oktave nach oben oder unten 
+transponiert, mit <code>_15</code> oder <code>^15</code> um zwei Oktaven. 
+Die Schlüsselbezeichnung muss in Anführungszeichen gesetzt werden, 
+wenn sie Unterstriche oder Zahlen enthält, siehe Beispiel:
+</p>
+<blockquote><pre class="verbatim">\clef treble
+c2 c
+\clef &quot;treble_8&quot;
+c2 c
+\clef &quot;bass^15&quot;
+c2 c
+</pre><p>
+ <a href="../69/lily-45f5f586.ly">
+  <img align="middle"
+       border="0"
+       src="../69/lily-45f5f586.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Selected-Snippets-57"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Eigenschaften des Schlüssels optimieren</em>
+</p>
+
+<p>Der Befehl <code>\clef &quot;treble_8&quot;</code> ist gleichbedeutend mit einem
+expliziten Setzen der Eigenschaften von <code>clefGlyph</code>,
+<code>clefPosition</code> (welche die vertikale Position des Schlüssels bestimmt),
+<code>middleCPosition</code> und <code>clefOctavation</code>.  Ein Schlüssel wird
+ausgegeben, wenn eine der Eigenschaften außer <code>middleCPosition</code> sich
+ändert.
+</p>
+<p>Eine Änderung des Schriftzeichens (Glyph), der Schlüsselposition oder der
+Oktavierung selber ändert noch nicht die Position der darauf folgenden Noten
+auf dem System: das geschieht nur, wenn auch die Position des
+eingestrichenen&nbsp;C (middleCPosition) angegeben wird.  Die
+Positionsparameter sind relativ zur Mittellinie des Systems, dabei versetzen
+positive Zahlen die Position nach oben, jeweils eine Zahl für jede Linie
+plus Zwischenraum.  Der <code>clefOctavation</code>-Wert ist normalerweise auf 7,
+-7, 15 oder -15 gesetzt, aber auch andere Werte sind gültig.
+</p>
+<p>Wenn ein Schlüsselwechsel an einem Zeilenwechsel geschieht, wird das neue
+Symbol sowohl am Ende der alten Zeilen als auch am Anfang der neuen Zeile
+ausgegeben.  Wenn der Warnungs-Schlüssel am Ende der alten Zeile nicht
+erforderlich ist, kann er unterdrückt werden, indem die
+<code>explicitClefVisibility</code>-Eigenschaft des <code>Staff</code>-Kontextes auf den
+Wert <code>end-of-line-invisible</code> gesetzt wird.  Das Standardverhalten kann
+mit <code>\unset Staff.explicitClefVisibility</code> wieder hergestellt werden.
+</p>
+<p>Die folgenden Beispiele zeigen die Möglichkeiten, wenn man diese
+Eigenschaften manuell setzt.  Auf der ersten Zeile erhalten die manuellen
+Änderungen die ursprüngliche relative Positionierung von Schlüssel und
+Noten, auf der zweiten Zeile nicht.
+</p>
+<blockquote><pre class="verbatim">\layout { ragged-right = ##t }
+
+{
+  % Standard-Sopranschlüssel
+  c'1
+  % Standard-Bassschlüssel
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  \set Staff.middleCPosition = #6
+  c'1
+  % Baritonschlüssel
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  \set Staff.clefPosition = #4
+  \set Staff.middleCPosition = #4
+  c'1
+  % Standard-Chortenorschlüssel
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  \set Staff.clefPosition = #-2
+  \set Staff.clefOctavation = #-7
+  \set Staff.middleCPosition = #1
+  c'1
+  % Nicht-Standard-Schlüssel
+  \set Staff.clefPosition = #0
+  \set Staff.clefOctavation = #0
+  \set Staff.middleCPosition = #-4
+  c'1 \break
+
+  % Folgende Schlüsselwechsel erhalten nicht
+  % das normale Verhältnis zwischen Noten und Schlüsseln
+
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  c'1
+  \set Staff.clefOctavation = #7
+  c'1
+  \set Staff.clefOctavation = #0
+  \set Staff.clefPosition = #0
+  c'1
+  
+  % Return to the normal clef:
+
+  \set Staff.middleCPosition = #0
+  c'1
+}
+
+</pre><p>
+ <a href="../76/lily-0a1ca109.ly">
+  <img align="middle"
+       border="0"
+       src="../76/lily-0a1ca109.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-28"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz: <a href="Alternative-note-signs.de.html#Ancient-clefs">Schlüssel Alter Musik</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Clef_005fengraver"></a>
+<a href="../lilypond-internals/Clef_005fengraver.de.html#Clef_005fengraver">Clef_engraver</a>,
+<a name="index-Clef"></a>
+<a href="../lilypond-internals/Clef.de.html#Clef">Notenschlüssel</a>,
+<a name="index-OctavateEight"></a>
+<a href="../lilypond-internals/OctavateEight.de.html#OctavateEight">OctavateEight</a>,
+<a name="index-clef_002dinterface"></a>
+<a href="../lilypond-internals/clef_002dinterface.de.html#clef_002dinterface">clef-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Key-signature"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clef" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Notenschlüssel&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ottava-brackets" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Oktavierungsklammern &gt; </a>]</td></tr></table>
+<a name="Key-signature"></a>
+<h4 class="unnumberedsubsubsec">Tonartbezeichnung</h4>
+
+<a name="index-Tonart-1"></a>
+<a name="index-Vorzeichen"></a>
+
+<a name="index-_005ckey"></a>
+<a name="index-_005ckey-1"></a>
+<a name="index-key"></a>
+<a name="index-key-1"></a>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Achtung:</b> Neue Benutzer sind manchmal verwirrt, wie
+Versetzungszeichen und Vorzeichen/Tonarten funktionieren.
+In LilyPond sind Notenbezeichnungen die wirkliche
+Tonhöhe, erst durch Vorzeichen wird bestimmt, wie diese
+Tonhöhe dann im Notenbild dargestellt wird. Eine
+einfache Tonhöhe wie etwa&nbsp;<code>c</code> bedeutet also
+immer das eingestrichene C ohne Versetzungszeichen, egal
+was für Vorzeichen/Tonart oder Schlüssel gesetzt sind.
+Mehr Information dazu in <a name="index-Accidentals-and-key-1"></a>
+signatures
+<a href="../lilypond-learning/Accidentals-and-key-signatures.de.html#Accidentals-and-key-signatures">Versetzungszeichen und Tonartbezeichnung (Vorzeichen)</a>.
+</p></td></tr></table>
+
+<p>Die Vorzeichen zeigen die Tonart an, in welcher ein Stück notiert ist.
+Es handelt sich um eine Anzahl von Alterationszeichen (Kreuzen oder 
+Bs) am Beginn jedes Notensystems.
+</p>
+<p>Die Tonart kann geändert werden:
+</p>
+<blockquote><pre class="example"><code>\key</code> <var>Tonhöhe</var> <var>Modus</var>
+</pre></blockquote>
+
+<a name="index-_005cminor"></a>
+<a name="index-_005cminor-1"></a>
+<a name="index-_005cmajor"></a>
+<a name="index-_005cmajor-1"></a>
+<a name="index-_005cminor-2"></a>
+<a name="index-_005cminor-3"></a>
+<a name="index-_005cionian"></a>
+<a name="index-_005cionian-1"></a>
+<a name="index-_005clocrian"></a>
+<a name="index-_005clocrian-1"></a>
+<a name="index-_005caeolian"></a>
+<a name="index-_005caeolian-1"></a>
+<a name="index-_005cmixolydian"></a>
+<a name="index-_005cmixolydian-1"></a>
+<a name="index-_005clydian"></a>
+<a name="index-_005clydian-1"></a>
+<a name="index-_005cphrygian"></a>
+<a name="index-_005cphrygian-1"></a>
+<a name="index-_005cdorian"></a>
+<a name="index-_005cdorian-1"></a>
+<a name="index-minor"></a>
+<a name="index-minor-1"></a>
+<a name="index-major"></a>
+<a name="index-major-1"></a>
+<a name="index-minor-2"></a>
+<a name="index-minor-3"></a>
+<a name="index-ionian"></a>
+<a name="index-ionian-1"></a>
+<a name="index-locrian"></a>
+<a name="index-locrian-1"></a>
+<a name="index-aeolian"></a>
+<a name="index-aeolian-1"></a>
+<a name="index-mixolydian"></a>
+<a name="index-mixolydian-1"></a>
+<a name="index-lydian"></a>
+<a name="index-lydian-1"></a>
+<a name="index-phrygian"></a>
+<a name="index-phrygian-1"></a>
+<a name="index-dorian"></a>
+<a name="index-dorian-1"></a>
+
+<a name="index-Kirchentonarten"></a>
+<a name="index-Modus"></a>
+<a name="index-Dur"></a>
+<a name="index-Moll"></a>
+<a name="index-Ionisch"></a>
+<a name="index-Lokrisch"></a>
+<a name="index-Aolisch"></a>
+<a name="index-Mixolydisch"></a>
+<a name="index-Aeolisch"></a>
+<a name="index-Dorisch"></a>
+<a name="index-Lydisch"></a>
+<a name="index-Phrygisch"></a>
+
+<p>Der Wert <var>Modus</var> sollte entweder <code>\major</code> oder <code>\minor</code> 
+sein, um Moll oder Dur der <var>Tonhöhe</var> zu erhalten. Es können auch 
+Modusbezeichnungen für Kirchentonarten verwendet werden: <code>\ionian</code> 
+(Ionisch), <code>\locrian</code> (Locrisch), <code>\aeolian</code> (Aeolisch), 
+<code>\mixolydian</code> (Mixolydisch), <code>\lydian</code> (Lydisch),
+<code>\phrygian</code> (Phrygisch) und <code>\dorian</code> (Dorisch).
+</p>
+<blockquote><pre class="verbatim">\key g \major
+fis1
+f
+fis
+</pre><p>
+ <a href="../b1/lily-e1bbf8dc.ly">
+  <img align="middle"
+       border="0"
+       src="../b1/lily-e1bbf8dc.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Selected-Snippets-2"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Auflösungzeichen nicht setzen, wenn die Tonart wechselt</em>
+</p>
+
+<p>Wenn die Tonart wechselt, werden automatisch Auflösungszeichen ausgegeben,
+um Versetzungszeichen der vorherigen Tonart aufzulösen.  Das kann
+verhindert werden, indem die <code>printKeyCancellation</code>-Eigenschaft
+im <code>Staff</code>-Kontext auf &quot;false&quot; gesetzt wird.
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  \key d \major
+  a4 b cis d
+  \key g \minor
+  a4 bes c d
+  \set Staff.printKeyCancellation = ##f
+  \key d \major
+  a4 b cis d
+  \key g \minor
+  a4 bes c d
+}
+
+</pre><p>
+ <a href="../2e/lily-6ddea6de.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-6ddea6de.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Untypische Tonarten</em>
+</p>
+
+<p>Der üblicherweise benutzte <code>\key</code>-Befehl setzt die
+<code>keySignature</code>-Eigenschaft im <code>Staff</code>-Kontext.
+</p>
+<p>Um untypische Tonartenvorzeichen zu erstellen, muss man diese Eigenschaft
+direkt setzen.  Das Format für den Befehl ist eine Liste: <code> \set
+Staff.keySignature = #`(((Oktave . Schritt) . Alteration) ((Oktave
+. Schritt) . Alteration) ...)</code> wobei für jedes Element in der Liste
+<code>Oktave</code> die Oktave angibt (0&nbsp;ist die Oktave vom
+eingestrichenen&nbsp;C bis zum eingestrichenen&nbsp;H), <code>Schritt</code> gibt
+die Note innerhalb der Oktave an (0&nbsp;heißt&nbsp;C und
+6&nbsp;heißt&nbsp;H), und <code>Alteration</code> ist <code>,SHARP ,FLAT
+,DOUBLE-SHARP</code> usw.  (Beachte das beginnende Komma.)
+</p>
+<p>Alternativ kann auch jedes Element der Liste mit dem allgemeineren Format
+<code>(Schritt . Alteration)</code> gesetzt werden, wobei dann die Einstellungen
+für alle Oktaven gelten.
+</p>
+<p>Hier ein Beispiel einer möglichen Tonart für eine Ganztonleiter:
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  \set Staff.keySignature = #`(((0 . 3) . ,SHARP)
+                               ((0 . 5) . ,FLAT)
+                               ((0 . 6) . ,FLAT))
+  c4 d e fis
+  aes4 bes c2
+}
+</pre><p>
+ <a href="../9b/lily-643a2443.ly">
+  <img align="middle"
+       border="0"
+       src="../9b/lily-643a2443.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-4"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-church-mode"></a>
+<a href="../music-glossary/church-mode.de.html#church-mode">Kirchentonart</a>,
+<a name="index-scordatura"></a>
+<a href="../music-glossary/scordatura.de.html#scordatura">Skordatur</a>.
+</p>
+<p>Handbuch zum Lernen:
+<a name="index-Accidentals-and-key-signatures-1"></a>
+<a href="../lilypond-learning/Accidentals-and-key-signatures.de.html#Accidentals-and-key-signatures">Versetzungszeichen und Tonartbezeichnung (Vorzeichen)</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-KeyChangeEvent"></a>
+<a href="../lilypond-internals/KeyChangeEvent.de.html#KeyChangeEvent">KeyChangeEvent</a>,
+<a name="index-Key_005fengraver"></a>
+<a href="../lilypond-internals/Key_005fengraver.de.html#Key_005fengraver">Key_engraver</a>,
+<a name="index-Key_005fperformer"></a>
+<a href="../lilypond-internals/Key_005fperformer.de.html#Key_005fperformer">Key_performer</a>,
+<a name="index-KeyCancellation"></a>
+<a href="../lilypond-internals/KeyCancellation.de.html#KeyCancellation">KeyCancellation</a>,
+<a name="index-KeySignature"></a>
+<a href="../lilypond-internals/KeySignature.de.html#KeySignature">KeySignature</a>,
+<a name="index-key_002dcancellation_002dinterface"></a>
+<a href="../lilypond-internals/key_002dcancellation_002dinterface.de.html#key_002dcancellation_002dinterface">key-cancellation-interface</a>,
+<a name="index-key_002dsignature_002dinterface"></a>
+<a href="../lilypond-internals/key_002dsignature_002dinterface.de.html#key_002dsignature_002dinterface">key-signature-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Ottava-brackets"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Key-signature" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Tonartbezeichnung&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Instrument-transpositions" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Transposition von Instrumenten &gt; </a>]</td></tr></table>
+<a name="Ottava-brackets"></a>
+<h4 class="unnumberedsubsubsec">Oktavierungsklammern</h4>
+
+<a name="index-ottava"></a>
+<a name="index-15ma"></a>
+<a name="index-8va"></a>
+<a name="index-8ve"></a>
+<a name="index-Oktavierung"></a>
+
+<a name="index-set_002doctavation"></a>
+<a name="index-set_002doctavation-1"></a>
+<a name="index-_005cottava"></a>
+<a name="index-_005cottava-1"></a>
+<a name="index-ottava-1"></a>
+<a name="index-ottava-2"></a>
+
+<p><var>Oktavierungsklammern</var> zeigen eine zusätzliche
+Transposition von einer Oktave an:
+</p>
+<blockquote><pre class="verbatim">a'2 b
+\ottava #1
+a b
+\ottava #0
+a b
+</pre><p>
+ <a href="../02/lily-9b24c75c.ly">
+  <img align="middle"
+       border="0"
+       src="../02/lily-9b24c75c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die <code>ottava</code>-(Oktavierungs)-Funktion kann auch die
+Werte -1 (für 8va bassa),
+2&nbsp;(für 15ma), und -2 (für 15ma bassa) als Argumente
+haben.
+</p>
+
+<a name="Selected-Snippets-43"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Ottava-Text</em>
+</p>
+
+<p>Intern setzt die <code>set-octavation</code>-Funktion die Eigenschaften
+<code>ottavation</code> (etwa auf den Wert <code>&quot;8va&quot;</code> oder <code>&quot;8vb&quot;</code>)
+und <code>middleCPosition</code>.  Um den Text der Oktavierungsklammer zu
+ändern, kann <code>ottavation</code> manuell gesetzt werden, nachdem
+<code>set-octavation</code> benützt wurde.
+</p>
+
+<blockquote><pre class="verbatim">{
+  \ottava #1
+  \set Staff.ottavation = #&quot;8&quot;
+  c''1
+  \ottava #0
+  c'1
+  \ottava #1
+  \set Staff.ottavation = #&quot;Text&quot;
+  c''1
+}
+
+</pre><p>
+ <a href="../11/lily-330f82d3.ly">
+  <img align="middle"
+       border="0"
+       src="../11/lily-330f82d3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-81"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-octavation"></a>
+<a href="../music-glossary/octavation.de.html#octavation">Oktavierung</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Ottava_005fspanner_005fengraver"></a>
+<a href="../lilypond-internals/Ottava_005fspanner_005fengraver.de.html#Ottava_005fspanner_005fengraver">Ottava_spanner_engraver</a>,
+<a name="index-OttavaBracket"></a>
+<a href="../lilypond-internals/OttavaBracket.de.html#OttavaBracket">OttavaBracket</a>,
+<a name="index-ottava_002dbracket_002dinterface"></a>
+<a href="../lilypond-internals/ottava_002dbracket_002dinterface.de.html#ottava_002dbracket_002dinterface">ottava-bracket-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Instrument-transpositions"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ottava-brackets" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Oktavierungsklammern&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automatic-accidentals" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Automatische Versetzungszeichen &gt; </a>]</td></tr></table>
+<a name="Instrument-transpositions"></a>
+<h4 class="unnumberedsubsubsec">Transposition von Instrumenten</h4>
+
+<a name="index-Transposition_002c-MIDI"></a>
+<a name="index-Transposition_002c-Instrumente"></a>
+<a name="index-Transponierendes-Instrument"></a>
+<a name="index-MIDI"></a>
+<a name="index-MIDI_002dTransposition"></a>
+
+<a name="index-_005ctransposition"></a>
+<a name="index-_005ctransposition-1"></a>
+<a name="index-transposition"></a>
+<a name="index-transposition-1"></a>
+
+<p>Wenn man Noten setzt, die von transponierenden Instrumenten
+gespielt werden, sind oft einige Stimmen auf einer
+anderen Tonhöhe notiert als dem Kammerton.  In diesem
+Fall muss die Tonart des transponierenden Instruments
+gekennzeichnet werden, weil sonst die MIDI-Ausgabe
+und Stichnoten in anderen Stimmen falsche Tonhöhen
+produzieren.  Mehr Information zu Stichnoten in
+<a href="Writing-parts.de.html#Quoting-other-voices">Stichnoten</a>.
+</p>
+<blockquote><pre class="example">\transposition <var>Tonhöhe</var>
+</pre></blockquote>
+
+<p>Die Tonhöhe, die für <code>\transposition</code> benutzt
+wird, muss mit dem wirklichen Ton übereinstimmen,
+der erklingt, wenn das Instrument ein <code>c'</code>
+in seiner Stimme spielt.  Die Tonhöhe wird im
+absoluten Modus angegeben, ein Instrument also,
+dass einen Ton höher erklingt als es notiert wird,
+muss folgenden Befehl benutzen:
+<code>\transposition d'</code>.  <code>\transposition</code>
+sollte <em>nur</em> dann benutzt werden, wenn sie nicht
+<em>nicht</em> in C notiert werden.
+</p>
+<p>Hier einige Noten für Geige und B-Klarinette: die
+Stimmen (Noten und Vorzeichen) sind so notiert, wie sie
+in der Partitur erscheinen.  Die zwei Instrumente
+spielen unisono.
+</p>
+<blockquote><pre class="verbatim">\new GrandStaff &lt;&lt;
+  \new Staff = &quot;Geige&quot; {
+    \relative c'' {
+      \set Staff.instrumentName = #&quot;Vln&quot;
+      \set Staff.midiInstrument = #&quot;Geige&quot;
+      % nicht unbdingt nötig, aber gut zu erinnern
+      \transposition c'
+
+      \key c \major
+      g4( c8) r c r c4
+    }
+  }
+  \new Staff = &quot;Klarinette&quot; {
+    \relative c'' {
+      \set Staff.instrumentName = \markup { Cl (B\flat) }
+      \set Staff.midiInstrument = #&quot;Klarinette&quot;
+      \transposition bes
+
+      \key d \major
+      a4( d8) r d r d4
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../36/lily-f2fd1cbe.ly">
+  <img align="middle"
+       border="0"
+       src="../36/lily-f2fd1cbe.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die <code>\transposition</code> kann während eines Stückes
+geändert werden.  Ein Klarinetist zum Beispiel kann
+zwischen B- und A-Klarinette wechseln.
+</p>
+<blockquote><pre class="verbatim">\set Staff.instrumentName = #&quot;Cl (A)&quot;
+\key a \major
+\transposition a
+c d e f
+\textLengthOn
+s1*0^\markup { Switch to B\flat clarinet }
+R1
+
+\key bes \major
+\transposition bes
+c2 g
+</pre><p>
+ <a href="../f0/lily-97976496.ly">
+  <img align="middle"
+       border="0"
+       src="../f0/lily-97976496.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-140"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-concert-pitch"></a>
+<a href="../music-glossary/concert-pitch.de.html#concert-pitch">Kammerton</a>,
+<a name="index-transposing-instrument"></a>
+<a href="../music-glossary/transposing-instrument.de.html#transposing-instrument">Transponierende Instrumente</a>.
+</p>
+<p>Notationsreferenz:
+<a href="Writing-parts.de.html#Quoting-other-voices">Stichnoten</a>, <a href="Changing-multiple-pitches.de.html#Transpose">Transposition</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+
+<hr size="6">
+<a name="Automatic-accidentals"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Instrument-transpositions" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Transposition von Instrumenten&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ambitus" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Tonumfang &gt; </a>]</td></tr></table>
+<a name="Automatic-accidentals"></a>
+<h4 class="unnumberedsubsubsec">Automatische Versetzungszeichen</h4>
+
+<a name="index-Akzidentien-1"></a>
+<a name="index-Versetzungszeichen_002c-Standard"></a>
+<a name="index-Versetzungszeichenstil"></a>
+<a name="index-Automatische-Versetzungszeichen"></a>
+<a name="index-Versetzungszeichen_002c-automatisch"></a>
+<a name="index-Standard_002dVersetzungszeichenstil"></a>
+
+<a name="index-set_002daccidental_002dstyle"></a>
+<a name="index-set_002daccidental_002dstyle-1"></a>
+<a name="index-voice"></a>
+<a name="index-voice-1"></a>
+<a name="index-default"></a>
+<a name="index-default-1"></a>
+
+<p>Es gibt viele unterschiedliche Regeln, wie Versetzungszeichen
+notiert werden.  LilyPond hat eine Funktion, mit der
+spezifiziert werden kann, welcher Stil benutzt werden
+soll.  Diese Funktion kann man wie folgt benutzen:
+</p>
+<blockquote><pre class="example">\new Staff &lt;&lt;
+  #(set-accidental-style 'voice)
+  { &hellip; }
+&gt;&gt;
+</pre></blockquote>
+
+<p>Der Versetzungszeichenstil bezieht sich auf das aktuelle
+Notensystem in der Standardeinstellung (eine Ausnahme
+bilden die Stile <code>piano</code> und <code>piano-cautionary</code>,
+die weiter unten erklärt werden).  Die Funktion kann aber
+auch ein zweites Argument erhalten, mit der spezifiziert
+wird, auf welchen Bereich sich der neue Stil erstreckt.
+Um etwa den neuen Stil in allen Systemen einer
+Stimmbruppe (<code>StaffGroup</code>) zu benutzen, müsste der Befehl so aussehen:
+</p>
+<blockquote><pre class="example">#(set-accidental-style 'voice 'StaffGroup)
+</pre></blockquote>
+
+<p>Folgende Versetzungszeichenstile sind unterstützt.
+Um jeden Stil zu erklären, wird folgendes Beispiel
+benützt:
+</p>
+<blockquote><pre class="verbatim">NotenA = {
+  &lt;&lt;
+    \relative c' {
+      cis'8 fis, d'4 &lt;a cis&gt;8 f bis4 |
+      cis2. &lt;c, g'&gt;4 |
+    }
+    \\
+    \relative c' {
+      ais'2 cis, |
+      fis8 b a4 cis2 |
+    }
+  &gt;&gt;
+}
+
+NotenB = {
+  \clef bass
+  \new Voice {
+    \voiceTwo \relative c' {
+      &lt;fis, a cis&gt;4
+      \change Staff = oben
+      cis'
+      \change Staff = unten
+      &lt;fis, a&gt;
+      \change Staff = oben
+      dis' |
+      \change Staff = unten
+      &lt;fis, a cis&gt;4 gis &lt;f a d&gt;2 |
+    }
+  }
+}
+
+\new PianoStaff {
+  &lt;&lt;
+    \context Staff = &quot;oben&quot; {
+      #(set-accidental-style 'default)
+      \NotenA
+    }
+    \context Staff = &quot;unten&quot; {
+      #(set-accidental-style 'default)
+      \NotenB
+    }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../e0/lily-e1305056.ly">
+  <img align="middle"
+       border="0"
+       src="../e0/lily-e1305056.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die letzten Zeilen des Beispiels könnten auch mit folgendem
+Code ersetzt werden, solange der gleiche Versetzungszeichenstil
+in beiden Systemen benutzt werden soll:
+</p>
+<blockquote><pre class="example">\new PianoStaff {
+  &lt;&lt;
+    \context Staff = &quot;up&quot; {
+      %%% change the next line as desired:
+      #(set-accidental-style 'default 'Score)
+      \musicA
+    }
+    \context Staff = &quot;down&quot; {
+      \musicB
+    }
+  &gt;&gt;
+}
+</pre></blockquote>
+
+
+<dl compact="compact">
+<dt> <code>default (Standard)</code></dt>
+<dd>
+<a name="index-Standard_002dVersetzungszeichenstil-1"></a>
+<a name="index-Versetzungszeichenstil_002c-Standard"></a>
+
+<p>Das ist das Standardverhalten.  Es entspricht der
+Konvention für Notation von Musik des 18. Jahrhunderts:
+Versetzungszeichen werden bis zum Taktende erinnert, in
+dem sie gesetzt wurden, und nur in ihrer eigenen
+Oktave.  Im nächsten Beispiel wird also kein
+Auslösungszeichen vor dem&nbsp;<code>b</code> (H) im zweiten
+Takt oder dem letzen&nbsp;<code>c</code> gesetzt:
+</p>
+<blockquote><p>
+ <a href="../c4/lily-e70522d7.ly">
+  <img align="middle"
+       border="0"
+       src="../c4/lily-e70522d7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>voice (Stimme)</code></dt>
+<dd>
+<a name="index-Versetzungszeichenstil_002c-Stimme"></a>
+<a name="index-Stimme_002dVersetzungszeichenstil"></a>
+<a name="index-Voice_002dVersetzungszeichenstil"></a>
+<a name="index-moderner-Versetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil-modern"></a>
+<a name="index-Versetzungszeichenstil_002c-modern_002dcautionary"></a>
+<a name="index-modern_002dWarnung_002dVersetzungszeichenstil"></a>
+
+<a name="index-voice-2"></a>
+<a name="index-voice-3"></a>
+
+<p>Das normale Verhalten ist es, die Versetzungszeichen
+auf der Notensystemebene zu erinnern.  In diesem
+Stil aber werden Versetzungszeichen individuell für
+jede Stimme errechnet.  Abgesehen davon gelten die
+Regeln des Standardstiles (<code>default</code>).
+</p>
+<p>Das hat zur Folge, dass Versetzungszeichen von einer
+Stimme in der anderen nicht aufgelöst werden, was oft
+ein unerwünschtes Ergebnis ist: im folgenden Beispiel
+kann man schwer sagen, ob das zweite <code>a</code> unalteriert
+oder erhöht gespielt werden soll.  Die <code>voice</code>-Option
+sollte also nur benutzt werden, wenn die Stimmen 
+separat von unterschiedlichen Musikern gelesen werden.
+Wenn das System nur von einem Musiker benutzt wird
+(etwa der Dirigent oder ein Klavierspieler), dann
+sind die Stile <code>modern</code> oder <code>modern-cautionary</code>
+besser.
+</p>
+<blockquote><p>
+ <a href="../13/lily-f0a17f6a.ly">
+  <img align="middle"
+       border="0"
+       src="../13/lily-f0a17f6a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>modern (Modern)</code></dt>
+<dd>
+<a name="index-Versetzungszeichen_002c-moderne-Stile"></a>
+<a name="index-Moderner-Stil_002c-Versetzungszeichen"></a>
+
+<a name="index-modern"></a>
+<a name="index-modern-1"></a>
+
+<p>Dieser Stil orientiert sich an den üblichen Regeln für
+das 20. Jahrhundert.  Die gleichen Versetzungszeichen
+wie im Standardstil werden gesetzt, allerdings mit zwei
+Ausnahmen, die Uneindeutigkeiten verhindern sollen: nach
+vorübergehenden Versetzungszeichen werden Auflösungszeichen
+auch im folgenden Takt gesetzt (für Noten innerhalb der
+selben Oktave) und im gleichen Takt für Noten in
+unterschiedlichen Oktaven.  Daher kommen also die Auflösungszeichen
+vor dem H und dem C im zweiten Takt des oberen Systems:
+</p>
+<blockquote><p>
+ <a href="../b2/lily-b9f57f54.ly">
+  <img align="middle"
+       border="0"
+       src="../b2/lily-b9f57f54.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>modern-cautionary (Modern mit Warnungen)</code></dt>
+<dd>
+<a name="index-Versetzungszeichen_002c-moderner-Stil-mit-Warnungen"></a>
+<a name="index-moderner-Versetzungszeichenstil-1"></a>
+<a name="index-moderner-Verseztungszeichenstil-mit-Warnungen"></a>
+
+<a name="index-modern_002dcautionary"></a>
+<a name="index-modern_002dcautionary-1"></a>
+
+<p>Dieser Stil ähnelt <code>modern</code>, aber die &bdquo;zusätzlichen&ldquo;
+Versetzungszeichen (die normalerweise nicht gesetzt werden)
+werden als Warnungen gesetzt.  In der Standardeinstellung werden
+sie in Klammern gesetzt, aber sie können auch in kleinerer
+Größe gesetzt werden, wenn man die <code>cautionary-style</code>-Eigenschaft
+von <code>AccidentalSuggestion</code> definiert.
+</p>
+<blockquote><p>
+ <a href="../f4/lily-b2d10c63.ly">
+  <img align="middle"
+       border="0"
+       src="../f4/lily-b2d10c63.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>modern-voice (Modern für Stimmeen)</code></dt>
+<dd>
+<a name="index-Versetzungszeichenstil_002c-modern"></a>
+<a name="index-Versetzungszeichen-pro-Stimme"></a>
+<a name="index-moderner-Versetzungszeichenstil-2"></a>
+<a name="index-moderne-Versetzungszeichen"></a>
+<a name="index-Stimmen_002c-Versetzungszeichen-fur"></a>
+
+<a name="index-modern_002dvoice"></a>
+<a name="index-modern_002dvoice-1"></a>
+
+<p>Diese Regel wird für vielstimmige Noten benutzt, die sowohl von
+unterschiedlichen Spielern für jede Stimme als auch von einem Spieler
+für alle Stimmen benutzt.  Versetzungszeichen werden für jede
+Stimme gesetzt, aber sie <em>werden</em> über die Stimme hinweg
+aufgelöst innerhalb des selben Notensystems.  Das <code>a</code> im letzten
+Takt ist also aufgelöst, weil die vorigen Auflösung in einer anderen
+Stimme stattgefunden hatte, und das <code>d</code> im unteren System ist
+aufgelöst wegen eines Versetzunszeichens in einer anderen Stimme im
+vorigen Takt:
+</p>
+<blockquote><p>
+ <a href="../78/lily-f34ddf83.ly">
+  <img align="middle"
+       border="0"
+       src="../78/lily-f34ddf83.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Versetzungszeichenstil_002c-modern-mit-Warnung-fur-Stimmen"></a>
+<a name="index-Stimmen_002c-Versetzungszeichenstil-mit-Warnung-fur-Stimmen"></a>
+<a name="index-moderner-Versetzungszeichensitl-mit-Warnungen-fur-Stimmen"></a>
+
+<a name="index-modern_002dvoice_002dcautionary"></a>
+<a name="index-modern_002dvoice_002dcautionary-1"></a>
+
+</dd>
+<dt> <code>modern-voice-cautionary (modern mit Warnungen für einzelne Stimmen)</code></dt>
+<dd>
+<p>Dieser Stil ist der gleiche wie <code>modern-voice</code>, nur dass hier
+die zusätzlichen Versetzungszeichen (die nicht vom <code>voice</code>-Stil
+gesetzt werden) als Warnungsversetzungszeichen gesetzt werden.
+Obwohl alle Versetzungszeichen, die mit <code>default</code> gesetzt werden,
+auch mit diesem Stil gesetzt werden, sind manche Warnungsversetzungszeichen.
+</p>
+<blockquote><p>
+ <a href="../74/lily-3dc1f6f2.ly">
+  <img align="middle"
+       border="0"
+       src="../74/lily-3dc1f6f2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>piano (Klavier)</code></dt>
+<dd>
+<a name="index-Versetzungszeichenstil_002c-piano"></a>
+<a name="index-Versetzungszeichen-fur-Klavier"></a>
+<a name="index-Klavier_002dVersetzungszeichenstil"></a>
+<a name="index-Piano_002dVersetzungszeichenstil"></a>
+
+<a name="index-piano"></a>
+<a name="index-piano-1"></a>
+
+<p>Dieser Stil orientiert sich an den Regeln im 20. Jahrhundert für die
+Notation von Klaviermusik.  Er ist sehr ähnlich mit dem modernen
+Stil, aber Versetzungszeichen werden auch über Notensysteme hinweg
+für die selbe Akkolade (<code>GrandStaff</code> oder <code>PianoStaff</code>) aufgelöst.
+</p>
+<p>Dieser Versetzungszeichenstil wirkt sich standardmäßig auf die gesamte
+Akkolade (<code>GrandStaff</code> oder <code>PianoStaff</code>) aus.
+</p>
+<blockquote><p>
+ <a href="../50/lily-8f045980.ly">
+  <img align="middle"
+       border="0"
+       src="../50/lily-8f045980.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>piano-cautionary (Klavier mit Warnungen)</code></dt>
+<dd>
+<a name="index-piano_002dcautionary"></a>
+<a name="index-piano_002dcautionary-1"></a>
+
+<a name="index-Versetzungszeichen_002c-piano-cautionary"></a>
+<a name="index-Warnungsversetzungszeichen-fur-Klavier"></a>
+<a name="index-Klavier_003a-Warnungsversetzungszeichen"></a>
+<a name="index-Versetzungszeichenstil-Klavier-mit-Warnungen"></a>
+
+<p>Dieser Stil verhält sich wie <code>piano</code>, aber die zusätzlichen
+Versetzungszeichen werden als Warnungen ausgegeben:
+</p>
+<blockquote><p>
+ <a href="../8f/lily-d28ea594.ly">
+  <img align="middle"
+       border="0"
+       src="../8f/lily-d28ea594.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+</dd>
+<dt> <code>neo-modern</code></dt>
+<dd>
+<a name="index-neo_002dmodern"></a>
+<a name="index-neo_002dmodern-1"></a>
+
+<a name="index-neo_002dmoderner-Versetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil_002c-neo_002dmodern"></a>
+
+<p>Dieser Stil richtet sich nach den Regeln für moderne Musik:
+Versetzungszeichen werden mit im <code>modern</code>-Stil gesetzt, aber
+sie werden nochmal gesetzt, wenn die gleiche Note später im selben
+Takt auftritt &ndash; außer die Note wird unmittelbar wiederholt.
+</p>
+<blockquote><p>
+ <a href="../33/lily-7d3f182e.ly">
+  <img align="middle"
+       border="0"
+       src="../33/lily-7d3f182e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>neo-modern-cautionary (neo-modern mit Warnungen)</code></dt>
+<dd>
+<a name="index-neo_002dmodern_002dcautionary"></a>
+<a name="index-neo_002dmodern_002dcautionary-1"></a>
+
+<a name="index-neo_002dmodern_002dcautionary_002dVersetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil-neo_002dmodern-mit-Warnungen"></a>
+<a name="index-Warnungsversetzungszeichen_002c-neo_002dmodern"></a>
+
+<p>Dieser Stil ähnelt <code>neo-modern</code>, aber die zusätzlichen
+Versetzungszeichen werden als Warnungen gesetzt.
+</p>
+<blockquote><p>
+ <a href="../c2/lily-59a6122e.ly">
+  <img align="middle"
+       border="0"
+       src="../c2/lily-59a6122e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+</dd>
+<dt> <code>dodecaphonic (Zwölftonmusik)</code></dt>
+<dd>
+<a name="index-dodecaphonic"></a>
+<a name="index-dodecaphonic-1"></a>
+
+<a name="index-dodekaphoner-Versetzungszeichenstil"></a>
+<a name="index-Zwolftonmusik_002c-Versetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil_002c-Zwolftonmusik"></a>
+
+<p>Dieser Stil orientiert sich an der Notation von sog. Zwölftonmusik,
+der Stil wurde Anfang des 20. Jahrhunderts in Gebrauch genommen.
+In diesem Stil erhält <em>jede</em> Note ein Versetzungszeichen, wozu
+auch Auflösungszeichen zählen.
+</p>
+<blockquote><p>
+ <a href="../2d/lily-26e42c2a.ly">
+  <img align="middle"
+       border="0"
+       src="../2d/lily-26e42c2a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+</dd>
+<dt> <code>teaching (didaktisch)</code></dt>
+<dd>
+<a name="index-teaching"></a>
+<a name="index-teaching-1"></a>
+
+<a name="index-teaching_002dVersetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil-teaching"></a>
+<a name="index-didaktischer-Versetzungszeichenstil"></a>
+
+<p>Dieser Stil ist für Lernende bestimmt: der Stil orientiert sich
+am  <code>modern</code>-Stil, aber die Alterationen, die sich durch die
+Tonart ergeben, werden zusätzlich als Warnungsversetzungszeichen
+gesetzt.  Eine Ausnahme sind direkt wiederholte Noten.
+</p>
+<blockquote><p>
+ <a href="../a1/lily-d0ade293.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-d0ade293.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+</dd>
+<dt> <code>no-reset (nicht zurücksetzen)</code></dt>
+<dd>
+<a name="index-no_002dreset"></a>
+<a name="index-no_002dreset-1"></a>
+
+<a name="index-Versetzungszeichenstil_002c-no-reset"></a>
+<a name="index-Versetzungszeichenstil_003a-nicht-zurucksetzen"></a>
+
+<p>Das ist der gleiche Stil wie <code>default</code>, aber die Versetzungszeichen
+dauern für &bdquo;immer&ldquo; an, nicht nur im aktuellen Takt:
+</p>
+<blockquote><p>
+ <a href="../bb/lily-ecd92c34.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-ecd92c34.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>forget (vergessen)</code></dt>
+<dd>
+<a name="index-forget"></a>
+<a name="index-forget-1"></a>
+
+<a name="index-forget_002dVersetzungszeichenstil"></a>
+<a name="index-Versetzungszeichenstil-forget"></a>
+<a name="index-Versetzungszeichenstil-Vergessen"></a>
+
+<p>Das ist das Gegenteil von <code>no-reset</code>: Versetzungszeichen
+werden überhaupt nicht erinnert und folgerichtig werden alle
+Versetzungszeichen entsprechend der Tonart gesetzt, unabhängig
+vom Kontext der Noten.  Anders als <code>dodecaphonic</code> werden nie
+Auflösungszeichen gesetzt:
+</p>
+<blockquote><p>
+ <a href="../92/lily-93d90ee7.ly">
+  <img align="middle"
+       border="0"
+       src="../92/lily-93d90ee7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+</dd>
+</dl>
+
+<a name="Selected-Snippets-36"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Versetzungszeichen für jede Note im Stil der Zwölftonmusik</em>
+</p>
+
+<p> In Werken des fürhen 20. Jahrhundert, angefangen mit Schönberg, Berg
+ und Webern (die zweite Wiener Schule), wird jeder Ton der 
+ Zwölftonleiter als gleichwertig erachtet, ohne hierarchische
+ Ordnung.  Deshalb wird in dieser Musik für jede Note ein Versetzungszeichen
+ ausgegeben, auch für unalterierte Tonhöhen, um das neue Verständnis
+ der Musiktheorie und Musiksprache zu verdeutlichen.
+</p> 
+<p> Dieser Schnipsel zeigt, wie derartige Notationsregeln zu erstellen sind.
+</p> 
+<blockquote><pre class="verbatim">\score {
+  \new Staff {
+    #(set-accidental-style 'dodecaphonic)
+    c'4 dis' cis' cis'
+    c'4 dis' cis' cis'
+    c'4 c' dis' des'
+  }
+  \layout {
+    \context {
+      \Staff
+      \remove &quot;Key_engraver&quot;
+    }
+  }
+}
+
+</pre><p>
+ <a href="../06/lily-3ce47a9f.ly">
+  <img align="middle"
+       border="0"
+       src="../06/lily-3ce47a9f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-38"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Accidental-1"></a>
+<a href="../lilypond-internals/Accidental.de.html#Accidental">Accidental</a>,
+<a name="index-Accidental_005fengraver-1"></a>
+<a href="../lilypond-internals/Accidental_005fengraver.de.html#Accidental_005fengraver">Accidental_engraver</a>,
+<a name="index-GrandStaff"></a>
+<a href="../lilypond-internals/GrandStaff.de.html#GrandStaff">GrandStaff</a> and
+<a name="index-PianoStaff"></a>
+<a href="../lilypond-internals/PianoStaff.de.html#PianoStaff">PianoStaff</a>,
+<a name="index-Staff"></a>
+<a href="../lilypond-internals/Staff.de.html#Staff">Staff</a>,
+<a name="index-AccidentalSuggestion"></a>
+<a href="../lilypond-internals/AccidentalSuggestion.de.html#AccidentalSuggestion">AccidentalSuggestion</a>,
+<a name="index-AccidentalPlacement"></a>
+<a href="../lilypond-internals/AccidentalPlacement.de.html#AccidentalPlacement">AccidentalPlacement</a>,
+<a name="index-accidental_002dsuggestion_002dinterface"></a>
+<a href="../lilypond-internals/accidental_002dsuggestion_002dinterface.de.html#accidental_002dsuggestion_002dinterface">accidental-suggestion-interface</a>.
+</p>
+
+<a name="index-Versetzungszeichen-und-gleichzeitige-Noten"></a>
+<a name="index-simultane-Noten-und-Versetzungszeichen"></a>
+<a name="index-Akkorde_003a-Versetzungszeichen"></a>
+<a name="index-gleichzeitige-Noten_003a-Versetzungszeichen"></a>
+<a name="index-Versetzungszeichen-in-Akkorden"></a>
+
+<a name="Known-issues-and-warnings-22"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Gleichzeitig erklingende Noten müssen im sequenziellen Modus eingegeben
+werden.  Das bedeutet, dass die Versetzungszeichen von Noten in
+Akkorden so gesetzt werden, als ob die Noten nacheinander auftreten,
+in der Reihenfolge, in der sie im Quelltext erscheinen.  Das ist ein
+Problem, wenn Versetzungzeichen in einem AKkord voneinander abhängen,
+was im Standard-Stil nicht vorkommt.  Das Problem kann gelöst werden,
+indem man manuell&nbsp;<code>!</code> oder&nbsp;<code>?</code> für die problematischen
+Noten schreibt.
+</p>
+
+<hr size="6">
+<a name="Ambitus"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-accidentals" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Automatische Versetzungszeichen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Note-heads.de.html#Note-heads" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Notenköpfe &gt; </a>]</td></tr></table>
+<a name="Ambitus"></a>
+<h4 class="unnumberedsubsubsec">Tonumfang</h4>
+
+<a name="index-Ambitus"></a>
+<a name="index-Stimmumfang"></a>
+
+<p>Der Begriff <var>ambitus</var> (Pl. ambitus) beschreibt den
+Stimmumfang einer Stimme.  Er kann auch die Töne bedeuten, die
+ein Musikinstrument zu spielen in der Lage ist.  Ambitus werden
+in Chorpartituren gesetzt, damit die Sänger schnell wissen, ob
+sie die Stimme meistern können.
+</p>
+<p>Ambitus werden zu Beginn des Stückes nahe des ersten Schlüssels
+notiert.  Der Stimmumfang wird durch zwei Notenköpfe dargestellt,
+die die tiefste und höchste Note der Stimme repräsentieren.
+Versetzungszeichen werden nur gesetzt, wenn sie nicht durch die
+Tonart definiert werden.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  \context {
+    \Voice
+    \consists &quot;Ambitus_engraver&quot;
+  }
+}
+
+\relative c'' {
+  aes c e2
+  cis,1
+}
+</pre><p>
+ <a href="../e3/lily-5a53a862.ly">
+  <img align="middle"
+       border="0"
+       src="../e3/lily-5a53a862.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Selected-Snippets-12"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Ambitus pro Stimme hinzufügen</em>
+</p>
+
+<p>Ambitus können pro Stimme gesetzt werden. In diesem Fall müssen sie
+manual verschoben werden, um Zusammenstöße zu verhindern.
+</p>
+
+<blockquote><pre class="verbatim">\new Staff &lt;&lt;
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c'' {
+    \override Ambitus #'X-offset = #2.0
+    \voiceOne
+    c4 a d e
+    f1
+  }
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c' {
+    \voiceTwo
+    es4 f g as
+    b1
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../28/lily-bea9561e.ly">
+  <img align="middle"
+       border="0"
+       src="../28/lily-bea9561e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Ambitus mit vielen Stimmen</em>
+</p>
+
+<p>Indem man den <code>Ambitus_engraver</code> im <code>Staff</code>-Kontext
+hinzufügt, erhält man einen einzigen Ambitus pro System, auch in dem
+Fall, dass mehrere Stimmen sich im gleichen System befinden.
+</p>
+<blockquote><pre class="verbatim">\new Staff \with {
+  \consists &quot;Ambitus_engraver&quot;
+  }
+&lt;&lt;
+  \new Voice \relative c'' {
+    \voiceOne
+    c4 a d e
+    f1
+  }
+  \new Voice \relative c' {
+    \voiceTwo
+    es4 f g as
+    b1
+  }
+&gt;&gt;
+
+
+</pre><p>
+ <a href="../ff/lily-0d815ea2.ly">
+  <img align="middle"
+       border="0"
+       src="../ff/lily-0d815ea2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-29"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-ambitus"></a>
+<a href="../music-glossary/ambitus.de.html#ambitus">Tonumfang</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Ambitus_005fengraver"></a>
+<a href="../lilypond-internals/Ambitus_005fengraver.de.html#Ambitus_005fengraver">Ambitus_engraver</a>,
+<a name="index-Voice"></a>
+<a href="../lilypond-internals/Voice.de.html#Voice">Voice</a>,
+<a name="index-Staff-1"></a>
+<a href="../lilypond-internals/Staff.de.html#Staff">Staff</a>,
+<a name="index-Ambitus-1"></a>
+<a href="../lilypond-internals/Ambitus.de.html#Ambitus">Tonumfang</a>,
+<a name="index-AmbitusAccidental"></a>
+<a href="../lilypond-internals/AmbitusAccidental.de.html#AmbitusAccidental">AmbitusAccidental</a>,
+<a name="index-AmbitusLine"></a>
+<a href="../lilypond-internals/AmbitusLine.de.html#AmbitusLine">AmbitusLine</a>,
+<a name="index-AmbitusNoteHead"></a>
+<a href="../lilypond-internals/AmbitusNoteHead.de.html#AmbitusNoteHead">AmbitusNoteHead</a>,
+<a name="index-ambitus_002dinterface"></a>
+<a href="../lilypond-internals/ambitus_002dinterface.de.html#ambitus_002dinterface">ambitus-interface</a>.
+</p>
+
+<a name="Known-issues-and-warnings-21"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Es gibt keine Kollisionskontrolle bei mehreren Ambitus in einem System.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-accidentals" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Automatische Versetzungszeichen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-pitches" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Tonhöhen anzeigen lassen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Note-heads.de.html#Note-heads" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Notenköpfe &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Displaying-pitches.html">English</a>, <a href="Displaying-pitches.fr.html">français</a>, <a href="Displaying-pitches.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-pitches-1" href="Writing-pitches.de.html#Writing-pitches">1.1.1 Tonhöhen setzen</a>      </li>
+      <li><a name="toc-Changing-multiple-pitches-1" href="Changing-multiple-pitches.de.html#Changing-multiple-pitches">1.1.2 Viele Tonhöhen gleichzeitig verändern</a>      </li>
+      <li class="toc_current"><a name="toc-Displaying-pitches-1" href="Displaying-pitches.de.html#Displaying-pitches">1.1.3 Tonhöhen anzeigen lassen</a>
+      <ul class="toc">
+        <li><a name="toc-Clef-1" href="Displaying-pitches.de.html#Clef">Notenschlüssel</a>        </li>
+        <li><a name="toc-Key-signature-1" href="Displaying-pitches.de.html#Key-signature">Tonartbezeichnung</a>        </li>
+        <li><a name="toc-Ottava-brackets-1" href="Displaying-pitches.de.html#Ottava-brackets">Oktavierungsklammern</a>        </li>
+        <li><a name="toc-Instrument-transpositions-1" href="Displaying-pitches.de.html#Instrument-transpositions">Transposition von Instrumenten</a>        </li>
+        <li><a name="toc-Automatic-accidentals-1" href="Displaying-pitches.de.html#Automatic-accidentals">Automatische Versetzungszeichen</a>        </li>
+        <li><a name="toc-Ambitus-1" href="Displaying-pitches.de.html#Ambitus">Tonumfang</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Note-heads-1" href="Note-heads.de.html#Note-heads">1.1.4 Notenköpfe</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

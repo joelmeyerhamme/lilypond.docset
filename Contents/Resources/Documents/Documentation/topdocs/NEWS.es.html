@@ -1,0 +1,613 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>NEWS</title>
+
+<meta name="description" content="NEWS">
+<meta name="keywords" content="NEWS">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+-->
+</style>
+
+
+    <link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../Documentation/lilypond-mccarty.css">
+    <link rel="alternate stylesheet" type="text/css" href="../../Documentation/lilypond.css" title="Andrew Hawryluk's design">
+    <link rel="alternate stylesheet" type="text/css" href="../../Documentation/lilypond-blue.css" title="Kurt Kroon's blue design">
+    <!--[if lte IE 7]>
+    <link href="../../Documentation/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<a name="Top"></a>
+<a name="New-features-in-2_002e12-since-2_002e10"></a>
+<h1 class="unnumbered">New features in 2.12 since 2.10</h1>
+
+<p>Este documento está disponible también en formato <a href="NEWS.es.pdf">PDF</a>. Forma parte de
+la <a href="../">Documentación de LilyPond</a>.
+</p>
+
+
+
+<ul>
+<li>
+Ahora se contemplan las garrapateas sueltas:
+<blockquote><p>
+ <a href="6e/lily-61902fe6.ly">
+  <img align="middle"
+       border="0"
+       src="6e/lily-61902fe6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Como extensión de la forma en que LilyPond contempla actualmente los
+microtonos, ahora hay alteraciones con flecha para la notación de las
+alteraciones microtonales.  Para usarlas, redefina la propiedad
+<code>glyph-name-alist</code> de <code>Accidental</code> como en el ejemplo
+siguiente que utiliza cuartos de tono para la composición tipográfica
+de alteraciones con flecha.  De forma alternativa, es posible definir
+nombres distintos para todas las notas con alteraciones con flecha
+(consulte <code>ly/makam.ly</code> para ver un ejemplo de código estándar).
+
+<blockquote><p>
+ <a href="cb/lily-a8064505.ly">
+  <img align="middle"
+       border="0"
+       src="cb/lily-a8064505.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Ahora están implementados los corchetes rectos (utilizados en
+partituras antiguas de p.ej. Bach, pero también de forma distinta en
+partituras modernas de p.ej. Stockhausen):
+<blockquote><p>
+ <a href="3d/lily-1700a73a.ly">
+  <img align="middle"
+       border="0"
+       src="3d/lily-1700a73a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Los bloques <code>\bookpart</code> se pueden usar para dividir un libro en
+varias partes, separadas por un salto de página, con el objeto de
+facilitar la división en páginas o usar distintos ajustes de
+<code>\paper</code> en partes distintas.
+
+<table><tr><td>&nbsp;</td><td><pre class="example">\bookpart {
+  \header {
+    title = &quot;Título del libro&quot;
+    subtitle = &quot;Primera parte&quot;
+  }
+  \score { &hellip; }
+  &hellip;
+}
+\bookpart {
+  \header {
+    subtitle = &quot;Segunda parte&quot;
+  }
+  \score { &hellip; }
+  &hellip;
+}
+</pre></td></tr></table>
+
+</li><li>
+Ahora se permiten contextos anidados del mismo tipo.
+Esto hace obsoletos <code>InnerStaffGroup</code> e <code>InnerChoirStaff</code>.
+<blockquote><p>
+ <a href="75/lily-f5b2d948.ly">
+  <img align="middle"
+       border="0"
+       src="75/lily-f5b2d948.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Se pueden mostrar contadores de repetición de tipo porcentaje a
+intervalos regulares usando la propiedad de contexto
+<code>repeatCountVisibility</code>.
+<blockquote><p>
+ <a href="bb/lily-ee26bba6.ly">
+  <img align="middle"
+       border="0"
+       src="bb/lily-ee26bba6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Además de la propiedad existente <code>showLastLength</code>, ahora se puede
+establecer también <code>showFirstLength</code>, componiendo sólo los
+primeros compases de una pieza.  Las dos propiedades se pueden
+establecer al mismo tiempo:
+<blockquote><p>
+ <a href="bb/lily-1533ee70.ly">
+  <img align="middle"
+       border="0"
+       src="bb/lily-1533ee70.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+La extensión de archivo para el MIDI se puede fijar usando el valor
+predeterminado del programa en la línea de órdenes
+<code>midi-extension</code>.  Para Windows, la extensión predeterminada ha
+cambiado a <code>.mid</code>.
+
+</li><li>
+Ahora están disponibles dos variaciones sobre la doble barra predeterminada de repetición.
+<blockquote><p>
+ <a href="d9/lily-46701e8c.ly">
+  <img align="middle"
+       border="0"
+       src="d9/lily-46701e8c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Se han añadido cuatro reglas de alteraciones accidentales automáticas:
+<code>neo-modern</code>, <code>neo-modern-cautionary</code>, <code>dodecaphonic</code> y
+<code>teaching</code>.  El ejemplo siguiente ilustra la regla
+<code>neo-modern</code>.
+<blockquote><p>
+ <a href="20/lily-3b3a5381.ly">
+  <img align="middle"
+       border="0"
+       src="20/lily-3b3a5381.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Ahora se pueden generar los corchetes con código de Scheme usando la
+propiedad <code>'flag</code> (corchete) del grob <code>Stem</code> (plica).  Las
+partituras existentes siguen funcionando sin ningún cambio.
+<blockquote><p>
+ <a href="89/lily-3307362e.ly">
+  <img align="middle"
+       border="0"
+       src="89/lily-3307362e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Se han añadido diagramas de pedal de arpa:
+
+<blockquote><p>
+ <a href="48/lily-e724a8c4.ly">
+  <img align="middle"
+       border="0"
+       src="48/lily-e724a8c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Ahora están disponibles diagramas de posiciones predefinidos,
+configurables por el usuario y transportables, en el contexto
+<code>FretBoards</code>:
+<blockquote><p>
+ <a href="c8/lily-51ca724b.ly">
+  <img align="middle"
+       border="0"
+       src="c8/lily-51ca724b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Se han hecho los siguientes cambios en la sintaxis, en orden
+cronológico. Además, las propiedades de los diagramas de posiciones se
+han movido a <code>fret-diagram-details</code>, y se usa la propiedad
+<code>#'style</code> para seleccionar líneas continuas o discontinuas en vez
+de <code>#'dash-fraction</code>.
+
+<table><tr><td>&nbsp;</td><td><pre class="example">'break-align-symbol -&gt; 'break-align-symbols
+scripts.caesura -&gt; scripts.caesura.curved
+\setEasyHeads -&gt; \easyHeadsOn
+\easyHeadsOff (instrucción nueva)
+\fatText -&gt; \textLengthOn
+\emptyText -&gt; \textLengthOff
+\set hairpinToBarline -&gt; \override Hairpin #'to-barline
+\compressMusic -&gt; \scaleDurations
+\octave -&gt; \octaveCheck
+\arpeggioUp -&gt; \arpeggioArrowUp
+\arpeggioDown -&gt; \arpeggioArrowDown
+\arpeggioNeutral -&gt; \arpeggioNormal
+\setTextCresc -&gt; \crescTextCresc
+\setTextDecresc -&gt; \dimTextDecresc
+\setTextDecr -&gt; \dimTextDecr
+\setTextDim -&gt; \dimTextDim
+\setHairpinCresc -&gt; \crescHairpin
+\setHairpinDecresc -&gt; \dimHairpin
+\sustainUp -&gt; \sustainOff
+\sustainDown -&gt; \sustainOn
+\sostenutoDown -&gt; \sostenutoOn
+\sostenutoUp -&gt; \sostenutoOff
+'infinite-spacing-height -&gt; 'extra-spacing-height
+#(set-octavation oct) -&gt; \ottava #oct
+\put-adjacent marcado eje dirección marcad -&gt; \put-adjacent eje dirección marcado marcado
+\pointAndClickOn (instrucción nueva)
+\pointAndClickOff (instrucción nueva)
+\center-align -&gt; \center-column
+\hcenter -&gt; \center-align
+printallheaders -&gt; print-all-headers
+\bigger -&gt; \larger (instrucción existente)
+systemSeparatorMarkup -&gt; system-separator-markup
+</pre></td></tr></table>
+
+<p>Además se han renombrado ciertos archivos del directorio <code>ly/</code>;
+ahora los nombres de archivo *-init.ly sólo se usan para archivos que
+se incluyen automáticamente, mientras que los archivos como
+<code>makam-init.ly</code> o <code>gregorian-init.ly</code> se han renombrado como
+<code>makam.ly</code> o <code>gregorian.ly</code>.
+</p>
+</li><li>
+Se han suprimido los backends &ldquo;tex&rdquo; y &ldquo;texstr&rdquo;.  Ahora se accede a
+las tipografías a través de la biblioteca fontconfig; para presentar
+las cadenas de texto se usa la biblioteca Pango.
+
+</li><li>
+Ahora las indicaciones metronómicas también pueden contener una
+dscripción textual.  La duración y número (si se indican) se muestran
+entre paréntesis después del texto.
+
+<blockquote><p>
+ <a href="7e/lily-aa48e1dc.ly">
+  <img align="middle"
+       border="0"
+       src="7e/lily-aa48e1dc.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+En el bajo cifrado podemos ahora usar también una barra invertida
+tachando una cifra para indicar una sexta aumentada.
+
+<blockquote><p>
+ <a href="dc/lily-66d27c04.ly">
+  <img align="middle"
+       border="0"
+       src="dc/lily-66d27c04.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Los arpegios pueden usar ahora corchetes de estilo &ldquo;paréntesis&rdquo;:
+
+<blockquote><p>
+ <a href="46/lily-ee14689e.ly">
+  <img align="middle"
+       border="0"
+       src="46/lily-ee14689e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Las partituras de un solo sistema reciben ahora un especiado natural
+en lugar de estirarse hasta llenar el ancho del papel.  Se puede
+cambiar estableciendo <code>ragged-right = ##f</code>.
+
+</li><li>
+Ahora es posible encerrar texto en rectángulos con esquinas
+redondeadas, usando la instrucción de marcado <code>\rounded-box</code>.
+
+</li><li>
+<code>lilypond-book</code> puede ejecutar cualquier porgrama en lugar de
+<code>latex</code> para determinar la anchura de la línea, gracias a la
+opción de la línea de órdenes <code>--latex-program</code>.
+
+</li><li>
+Ahora se puede subrayar el texto con la instrucción de marcado
+<code>\underline</code>.
+
+</li><li>
+Es posible ahora especificar, utilizando la variable <code>page-count</code>
+en el bloque del papel, el número de páginas que usar.
+
+</li><li>
+Se dedica una función nueva, <code>ly:minimal-breaking</code>, a los libros
+con muchas páginas o con mucho texto.
+
+</li><li>
+Se puede incluir un índice general usando <code>\markuplines
+\table-of-contents</code>.  Se añaden elementos a este índice usando la
+instrucción <code>\tocItem</code>.
+
+</li><li>
+Los textos que abarcan varias páginas se introducen usando la palabra
+clave <code>\markuplines</code>.  Se pueden usar las instrucciones de lista
+de marcado incorporadas, como <code>\justified-lines</code> o
+<code>\wordwrap-lines</code>, y las nuevas que se crean usando el macro de
+Scheme <code>define-markup-list-command</code>.
+
+</li><li>
+Se pueden marcar puntos concretos de un libro con la instrucción
+<code>\label</code>.  Luego nos podemos referir a la página en que estos
+puntos se han colocado, usando la instrucción de marcado
+<code>\page-ref</code>.
+
+</li><li>
+Las instrucciones de salto y paso de página (<code>\pageBreak</code>,
+<code>\noPageBreak</code>, etc.) se pueden usar en el nivel superior,
+intercaladas entre las partituras y los elementos de marcado del
+superior.
+
+</li><li>
+Han cambiado las siguientes opciones a una sub-opción <code>-d</code>:
+<code>--backend</code>, <code>--safe</code>, <code>--preview</code> y <code>--no-pages</code>
+(que se ha convertido en <code>-dno-print-pages</code>).  La opción
+<code>-b</code> ya no existe.
+
+</li><li>
+Unos procedimientos de prueba mejorados ahora captan los cambios en el
+desempeño de CPU y memoria, disposición de página, resultado MIDI y
+advertencias.  Esto ayuda a reducir el número de errores de regresión
+durante el desarrollo, dando como resultado lanzamientos más estables.
+
+<p>Consulte <a href="INSTALL.html#Testing-LilyPond">INSTALL.html#Testing-LilyPond</a> para ver más
+información.
+</p>
+</li><li>
+Las propiedades anidadas como <code>'details</code> en el objeto
+<code>Slur</code>, se pueden también revertir.  La sintaxis de esto es
+
+<table><tr><td>&nbsp;</td><td><pre class="example">\revert Slur #'(details closeness-factor)
+</pre></td></tr></table>
+
+</li><li>
+Todos los objetos de extensión de líne son ahora más flexibles en la
+configuración de los puntos extremos.  Entre aquellos están el
+glissando, las líneas de seguimiento de voz, los crescendos de texto y
+otros objetos extensores de texto.  La sintaxis antigua para fijar el
+texto de los objetos de extensión ya no es válida.
+
+<blockquote><p>
+ <a href="28/lily-8e1f2e66.ly">
+  <img align="middle"
+       border="0"
+       src="28/lily-8e1f2e66.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Esta funcionalidad fue patrocinada por Trevor Bača.
+</p>
+</li><li>
+La variable de entorno <code>LILYPONDPREFIX</code> se ha renombrado como
+<code>LILYPOND_DATADIR</code>.
+
+</li><li>
+Las típicas notas o silencios finales que ocupan un compás completo
+ahora vienen precedidas de algo más de espacio.
+<blockquote><p>
+ <a href="33/lily-6c7e0e3c.ly">
+  <img align="middle"
+       border="0"
+       src="33/lily-6c7e0e3c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Todas las <code>\score</code>s de un fragmento de lilypond-book se insertan
+ahora dentro del documento.  Asimismo, los marcados de nivel superior
+no dan como resultado una página completa por sí solos.
+
+</li><li>
+Las alteraciones como el sostenido y el bemol pueden ahora ser
+fracciones arbitrarias.  Esto permite ciertas formas de música
+microtonal.  Por ejemplo, la música makam turca usa alteraciones de
+1/9 de tono.
+
+<blockquote><p>
+ <a href="d4/lily-075e2aa6.ly">
+  <img align="middle"
+       border="0"
+       src="d4/lily-075e2aa6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Se puede establecer la dirección de las ligaduras de unión con
+<code>^~</code> y <code>_~</code>.
+
+</li><li>
+Las tablaturas contemplan ahora la posibilidad de armónicos y
+deslizamientos:
+
+<blockquote><p>
+ <a href="54/lily-33140a0e.ly">
+  <img align="middle"
+       border="0"
+       src="54/lily-33140a0e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Esta funcionalidad fue patrocinada por Mike Amundsen.
+</p>
+</li><li>
+El espaciado horizontal ahora sigue el contorno de los objetos de
+manera más precisa.  Esto permite un espaciado horizontal más
+apretado.
+
+<blockquote><p>
+ <a href="11/lily-f0314257.ly">
+  <img align="middle"
+       border="0"
+       src="11/lily-f0314257.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Los objetos que corresponden a fuera del pentagrama ahora se
+posicionan automáticamente para evitar las colisiones.
+
+<blockquote><p>
+ <a href="ce/lily-2000ab8e.ly">
+  <img align="middle"
+       border="0"
+       src="ce/lily-2000ab8e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li><li>
+Los pentagramas se disponen verticalmente utilizando un algoritmo de
+línea de horizonte.  Esto ayuda a evitar un espaciado vertical
+disparejo.
+
+<blockquote><p>
+ <a href="a3/lily-b5e08713.ly">
+  <img align="middle"
+       border="0"
+       src="a3/lily-b5e08713.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</li></ul>
+
+
+
+<p>Para ver noticias más antiguas, diríjase a
+<a href="http://lilypond.org/doc/v2.10/Documentation/topdocs/NEWS.html">http://lilypond.org/doc/v2.10/Documentation/topdocs/NEWS.html</a>,
+o <a href="../">vuelva</a> al índica de la documentación.
+</p>
+
+
+<hr size="1">
+<p>
+ <font size="-1">
+  Este documento ha sido generado por <em>Graham Percival</em> el <em>el 13 enero 2010</em> utilizando <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+ </font>
+ <br>
+
+</p>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="NEWS.html">English</a>.
+ <br>
+ 
+</p>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 5.2 When things don't work</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 5.2 When things don't work">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 5.2 When things don't work">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" rel="up" title="5. Working on LilyPond projects">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Style-sheets.ja.html#Style-sheets" rel="previous" title="5.1.5 Style sheets">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="When-things-don_0027t-work"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Beginning of this chapter or previous chapter"> &lt;&lt; Working on LilyPond projects&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.ja.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Style-sheets.ja.html#Style-sheets" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Style sheets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Working on LilyPond projects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Updating-old-input-files.ja.html#Updating-old-input-files" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Updating old input files &gt; </a>]</td></tr></table>
+<a name="When-things-don_0027t-work"></a>
+<h2 class="section">5.2 When things don&rsquo;t work</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="Updating-old-input-files.ja.html#Updating-old-input-files" accesskey="1">5.2.1 Updating old input files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Troubleshooting-_0028taking-it-all-apart_0029.ja.html#Troubleshooting-_0028taking-it-all-apart_0029" accesskey="2">5.2.2 Troubleshooting (taking it all apart)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Minimal-examples.ja.html#Minimal-examples" accesskey="3">5.2.3 Minimal examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Beginning of this chapter or previous chapter"> &lt;&lt; Working on LilyPond projects&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.ja.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Style-sheets.ja.html#Style-sheets" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Style sheets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Working on LilyPond projects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Updating-old-input-files.ja.html#Updating-old-input-files" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Updating old input files &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="When-things-don_0027t-work.fr.html">français</a>, <a href="When-things-don_0027t-work.es.html">español</a>, <a href="When-things-don_0027t-work.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.ja.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li class="toc_current"><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>
+    <ul class="toc">
+      <li><a name="toc-Updating-old-input-files-1" href="Updating-old-input-files.ja.html#Updating-old-input-files">5.2.1 Updating old input files</a>      </li>
+      <li><a name="toc-Troubleshooting-_0028taking-it-all-apart_0029-1" href="Troubleshooting-_0028taking-it-all-apart_0029.ja.html#Troubleshooting-_0028taking-it-all-apart_0029">5.2.2 Troubleshooting (taking it all apart)</a>      </li>
+      <li><a name="toc-Minimal-examples-1" href="Minimal-examples.ja.html#Minimal-examples">5.2.3 Minimal examples</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.ja.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

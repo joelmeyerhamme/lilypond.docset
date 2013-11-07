@@ -1,0 +1,553 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 4.3.1 Visibility and color of objects</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 4.3.1 Visibility and color of objects">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 4.3.1 Visibility and color of objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Appearance-of-objects.ja.html#Appearance-of-objects" rel="up" title="4.3 Appearance of objects">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Appearance-of-objects.ja.html#Appearance-of-objects" rel="previous" title="4.3 Appearance of objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Visibility-and-color-of-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.ja.html#Appearance-of-objects" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Appearance of objects&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.ja.html#Appearance-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Appearance of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.ja.html#Size-of-objects" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Size of objects &gt; </a>]</td></tr></table>
+<a name="Visibility-and-color-of-objects"></a>
+<h3 class="subsection">4.3.1 Visibility and color of objects</h3>
+
+<p>In the educational use of music we might wish to print a score
+with certain elements omitted as an exercise for the student,
+who is required to supply them.  As a simple example,
+let us suppose the exercise is to supply the missing bar lines
+in a piece of music.  But the bar lines are normally inserted
+automatically.  How do we prevent them printing?
+</p>
+<p>Before we tackle this, let us remember that object properties are
+grouped in what are called <em>interfaces</em> &ndash; see <a href="Properties-found-in-interfaces.ja.html#Properties-found-in-interfaces">Properties found in interfaces</a>.  This is simply to group together those
+properties that may be used together to tweak a graphical object &ndash; if
+one of them is allowed for an object, so are the others.  Some objects
+then use the properties in some interfaces, others use them from other
+interfaces.  The interfaces which contain the properties used by a
+particular grob are listed in the IR at the bottom of the page
+describing that grob, and those properties may be viewed by looking at
+those interfaces.
+</p>
+<p>We explained how to find information about grobs in <a href="Properties-of-layout-objects.ja.html#Properties-of-layout-objects">Properties of layout objects</a>.  Using the same approach, we go to the IR to find the
+layout object which prints bar lines.  Going via <em>Backend</em> and
+<em>All layout objects</em> we find there is a layout object called
+<code>BarLine</code>.  Its properties include two that control its
+visibility: <code>break-visibility</code> and <code>stencil</code>.  Barline also
+supports a number of interfaces, including the <code>grob-interface</code>,
+where we find the <code>transparent</code> and the <code>color</code> properties.
+All of these can affect the visibility of bar lines (and, of course,
+by extension, many other layout objects too.)  Let&rsquo;s consider each of
+these in turn.
+</p>
+<a name="stencil"></a>
+<h3 class="subheading">stencil</h3>
+
+<a name="index-stencil-property"></a>
+
+<p>This property controls the appearance of the bar lines by specifying
+the symbol (glyph) which should be printed.  In common
+with many other properties, it can be set to print nothing by
+setting its value to <code>#f</code>.  Let&rsquo;s try it, as before, omitting
+the implied Context, <code>Voice</code>:
+</p>
+<a name="index-BarLine_002c-example-of-overriding"></a>
+<a name="index-stencil-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../a7/lily-1cc66621.ly">
+  <img align="middle"
+       border="0"
+       src="../a7/lily-1cc66621.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The bar lines are still printed.  What is wrong?  Go back to the IR
+and look again at the page giving the properties of BarLine.  At the
+top of the page it says &ldquo;Barline objects are created by:
+Bar_engraver&rdquo;.  Go to the <code>Bar_engraver</code> page.  At the bottom it
+gives a list of Contexts in which the bar engraver operates.  All of
+them are of the type <code>Staff</code>, so the reason the <code>\override</code>
+command failed to work as expected is because <code>Barline</code> is not in
+the default <code>Voice</code> context.  If the context is specified
+wrongly, the command simply does not work.  No error message is
+produced, and nothing is logged in the log file.  Let&rsquo;s try correcting
+it by adding the correct context:
+</p>
+<a name="index-BarLine_002c-example-of-overriding-1"></a>
+<a name="index-stencil-property_002c-example-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../af/lily-22da988b.ly">
+  <img align="middle"
+       border="0"
+       src="../af/lily-22da988b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Now the bar lines have vanished.
+</p>
+<a name="break_002dvisibility"></a>
+<h3 class="subheading">break-visibility</h3>
+
+<a name="index-break_002dvisibility-property"></a>
+
+<p>We see from the <code>BarLine</code> properties in the IR that the
+<code>break-visibility</code> property requires a vector of three booleans.
+These control respectively whether bar lines are printed at the end of
+a line, in the middle of lines, and at the beginning of lines.  For
+our example we want all bar lines to be suppressed, so the value we
+need is <code>'#(#f #f #f)</code>.  Let&rsquo;s try that, remembering to include
+the <code>Staff</code> context.  Note also that in writing this value we
+have <code>#'#</code> before the opening bracket.  The <code>'#</code> is required
+as part of the value to introduce a vector, and the first <code>#</code> is
+required, as always, to precede the value itself in the
+<code>\override</code> command.
+</p>
+<a name="index-BarLine_002c-example-of-overriding-2"></a>
+<a name="index-break_002dvisibility-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'break-visibility = #'#(#f #f #f)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../db/lily-5a5a3823.ly">
+  <img align="middle"
+       border="0"
+       src="../db/lily-5a5a3823.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>And we see this too removes all the bar lines.
+</p>
+<a name="transparent"></a>
+<h3 class="subheading">transparent</h3>
+
+<a name="index-transparent-property"></a>
+<a name="index-transparency"></a>
+
+<p>We see from the properties specified in the <code>grob-interface</code> page
+in the IR that the <code>transparent</code> property is a boolean.  This
+should be set to <code>#t</code> to make the grob transparent.  In this next
+example let us make the time signature invisible rather than the bar
+lines.  To do this we need to find the grob name for the time
+signature.  Back to the &lsquo;All layout objects&rsquo; page in the IR to find
+the properties of the <code>TimeSignature</code> layout object.  This is
+produced by the <code>Time_signature_engraver</code> which you can check
+also lives in the <code>Staff</code> context and also supports the
+<code>grob-interface</code>.  So the command to make the time signature
+transparent is:
+</p>
+<a name="index-TimeSignature_002c-example-of-overriding"></a>
+<a name="index-transparent-property_002c-example-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'transparent = ##t
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../98/lily-7a19ec15.ly">
+  <img align="middle"
+       border="0"
+       src="../98/lily-7a19ec15.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The time signature is gone, but this command leaves a gap where
+the time signature should be.  Maybe this is what is wanted for
+an exercise for the student to fill it in, but in other
+circumstances a gap might be undesirable.  To remove it, the
+stencil for the time signature should be set to <code>#f</code>
+instead:
+</p>
+<a name="index-TimeSignature_002c-example-of-overriding-1"></a>
+<a name="index-stencil-property_002c-example-2"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6c/lily-6937aea0.ly">
+  <img align="middle"
+       border="0"
+       src="../6c/lily-6937aea0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>and the difference is obvious: setting the stencil to <code>#f</code>
+removes the object entirely; making the object <code>transparent</code>
+leaves it where it is, but makes it invisible.
+</p>
+<a name="color"></a>
+<h3 class="subheading">color</h3>
+
+<a name="index-color-property"></a>
+
+<p>Finally let us try making the bar lines invisible by coloring
+them white.  (There is a difficulty with this in that the
+white bar line may or may not blank out the staff lines where
+they cross.  You may see in some of the examples below that this
+happens unpredictably.  The details of why this is so and how to
+control it are covered in <a name="index-Painting-objects-white"></a>
+<a href="../lilypond/Visibility-of-objects.ja.html#Painting-objects-white">Painting objects white</a>.  But at
+the moment we are learning about color, so please just accept this
+limitation for now.)
+</p>
+<p>The <code>grob-interface</code> specifies that the
+color property value is a list, but there is no
+explanation of what that list should be.  The list it
+requires is actually a list of values in internal units,
+but, to avoid having to know what these are, several ways
+are provided to specify colors.  The first way is to use one
+of the &lsquo;normal&rsquo; colors listed in the first table in
+<a name="index-List-of-colors"></a>
+<a href="../lilypond/List-of-colors.ja.html#List-of-colors">List of colors</a>.  To set the bar lines to white
+we write:
+</p>
+<a name="index-BarLine_002c-example-of-overriding-3"></a>
+<a name="index-color-property_002c-example-5"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #white
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../24/lily-ead66fae.ly">
+  <img align="middle"
+       border="0"
+       src="../24/lily-ead66fae.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>and again, we see the bar lines are not visible.  Note that
+<em>white</em> is not preceded by an apostrophe &ndash; it is not
+a symbol, but a <em>function</em>.  When called, it provides
+the list of internal values required to set the color to
+white.  The other colors in the normal list are functions
+too.  To convince yourself this is working you might like
+to change the color to one of the other functions in the
+list.
+</p>
+<a name="index-color_002c-X11"></a>
+<a name="index-X11-colors"></a>
+
+<a name="index-x11_002dcolor"></a>
+<a name="index-x11_002dcolor-1"></a>
+
+<p>The second way of changing the color is to use the list of
+X11 color names in the second list in <a name="index-List-of-colors-1"></a>
+<a href="../lilypond/List-of-colors.ja.html#List-of-colors">List of colors</a>.
+However, these must be preceded by another function, which
+converts X11 color names into the list of internal values,
+<code>x11-color</code>, like this:
+</p>
+<a name="index-BarLine_002c-example-of-overriding-4"></a>
+<a name="index-color-property_002c-example-6"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(x11-color 'white)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6b/lily-7a8b71ec.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-7a8b71ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Note that in this case the function <code>x11-color</code> takes
+a symbol as an argument, so the symbol must be preceded by
+an apostrophe and the two enclosed in brackets.
+</p>
+<a name="index-rgb-colors"></a>
+<a name="index-color_002c-rgb"></a>
+
+<a name="index-rgb_002dcolor"></a>
+<a name="index-rgb_002dcolor-1"></a>
+
+<p>There is yet a third function, one which converts RGB values into
+internal colors &ndash; the <code>rgb-color</code> function.  This takes
+three arguments giving the intensities of the red, green and
+blue colors.  These take values in the range 0 to 1.  So to
+set the color to red the value should be <code>(rgb-color 1 0 0)</code>
+and to white it should be <code>(rgb-color 1 1 1)</code>:
+</p>
+<a name="index-BarLine_002c-example-of-overriding-5"></a>
+<a name="index-color-property_002c-example-7"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(rgb-color 1 1 1)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d2/lily-013d0e0d.ly">
+  <img align="middle"
+       border="0"
+       src="../d2/lily-013d0e0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Finally, there is also a grey scale available as part of the
+X11 set of colors.  These range from black, <code>'grey0'</code>,
+to white, <code>'grey100</code>, in steps of 1.  Let&rsquo;s illustrate
+this by setting all the layout objects in our example to
+various shades of grey:
+</p>
+<a name="index-StaffSymbol_002c-example-of-overriding"></a>
+<a name="index-TimeSignature_002c-example-of-overriding-2"></a>
+<a name="index-Clef_002c-example-of-overriding"></a>
+<a name="index-NoteHead_002c-example-of-overriding-4"></a>
+<a name="index-Stem_002c-example-of-overriding"></a>
+<a name="index-BarLine_002c-example-of-overriding-6"></a>
+<a name="index-color-property_002c-example-8"></a>
+<a name="index-x11_002dcolor_002c-example-of-using"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.StaffSymbol   #'color = #(x11-color 'grey30)
+  \override Staff.TimeSignature #'color = #(x11-color 'grey60)
+  \override Staff.Clef          #'color = #(x11-color 'grey60)
+  \override Voice.NoteHead      #'color = #(x11-color 'grey85)
+  \override Voice.Stem          #'color = #(x11-color 'grey85)
+  \override Staff.BarLine       #'color = #(x11-color 'grey10)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d4/lily-f6c92178.ly">
+  <img align="middle"
+       border="0"
+       src="../d4/lily-f6c92178.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Note the contexts associated with each of the layout objects.
+It is important to get these right, or the commands will not
+work!  Remember, the context is the one in which the appropriate
+engraver is placed.  The default context for engravers can be
+found by starting from the layout object, going from there to
+the engraver which produces it, and on the engraver page in the
+IR it tells you in which context the engraver will normally be
+found.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.ja.html#Appearance-of-objects" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Appearance of objects&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.ja.html#Appearance-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Appearance of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.ja.html#Size-of-objects" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Size of objects &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Visibility-and-color-of-objects.fr.html">français</a>, <a href="Visibility-and-color-of-objects.es.html">español</a>, <a href="Visibility-and-color-of-objects.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.ja.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li class="toc_current"><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 Appearance of objects</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Visibility-and-color-of-objects-1" href="Visibility-and-color-of-objects.ja.html#Visibility-and-color-of-objects">4.3.1 Visibility and color of objects</a>      </li>
+      <li><a name="toc-Size-of-objects-1" href="Size-of-objects.ja.html#Size-of-objects">4.3.2 Size of objects</a>      </li>
+      <li><a name="toc-Length-and-thickness-of-objects-1" href="Length-and-thickness-of-objects.ja.html#Length-and-thickness-of-objects">4.3.3 Length and thickness of objects</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.ja.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

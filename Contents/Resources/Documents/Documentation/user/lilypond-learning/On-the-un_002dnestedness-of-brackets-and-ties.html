@@ -1,0 +1,257 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 3.1.4 On the un-nestedness of brackets and ties</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 3.1.4 On the un-nestedness of brackets and ties">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 3.1.4 On the un-nestedness of brackets and ties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work" rel="up" title="3.1 How LilyPond input files work">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Nesting-music-expressions.html#Nesting-music-expressions" rel="previous" title="3.1.3 Nesting music expressions">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="On-the-un_002dnestedness-of-brackets-and-ties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Nesting-music-expressions.html#Nesting-music-expressions" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Nesting music expressions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;How LilyPond input files work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Voices-contain-music.html#Voices-contain-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Voices contain music &gt; </a>]</td></tr></table>
+<a name="On-the-un_002dnestedness-of-brackets-and-ties"></a>
+<h3 class="subsection">3.1.4 On the un-nestedness of brackets and ties</h3>
+
+<a name="index-brackets_002c-nesting"></a>
+<a name="index-bracket-types"></a>
+<a name="index-brackets_002c-enclosing-vs_002e-marking"></a>
+
+<p>You have already met a number of different types of bracket in
+writing the input file to LilyPond.  These obey different rules
+which can be confusing at first.  Before we explain the rules
+let&rsquo;s first review the different types of bracket.
+</p>
+<table>
+<thead><tr><th width="30%"><p> Bracket Type
+  </p></th><th width="70%"><p> Function
+</p></th></tr></thead>
+<tr><td width="30%"><p> <code>{ .. }</code>
+  </p></td><td width="70%"><p> Encloses a sequential segment of music
+</p></td></tr>
+<tr><td width="30%"><p> <code>&lt; .. &gt;</code>
+  </p></td><td width="70%"><p> Encloses the notes of a chord
+</p></td></tr>
+<tr><td width="30%"><p> <code>&lt;&lt; .. &gt;&gt;</code>
+  </p></td><td width="70%"><p> Encloses simultaneous music expressions
+</p></td></tr>
+<tr><td width="30%"><p> <code>( .. )</code>
+  </p></td><td width="70%"><p> Marks the start and end of a slur
+</p></td></tr>
+<tr><td width="30%"><p> <code>\( .. \)</code>
+  </p></td><td width="70%"><p> Marks the start and end of a phrasing slur
+</p></td></tr>
+<tr><td width="30%"><p> <code>[ .. ]</code>
+  </p></td><td width="70%"><p> Marks the start and end of a manual beam
+</p></td></tr>
+</table>
+
+<p>To these we should add other constructs which generate lines
+between or across notes: ties (marked by a tilde, <code>~</code>),
+tuplets written as <code>\times x/y {..}</code>, and grace notes
+written as <code>\grace{..}</code>.
+</p>
+<p>Outside LilyPond, the conventional use of brackets requires the
+different types to be properly nested, like this, <code>&lt;&lt; [ { ( .. )
+} ] &gt;&gt;</code>, with the closing brackets being encountered in exactly the
+opposite order to the opening brackets.  This <strong>is</strong> a
+requirement for the three types of bracket described by the word
+&lsquo;Encloses&rsquo; in the table above &ndash; they must nest properly.  However,
+the remaining brackets, described with the word &lsquo;Marks&rsquo; in the table
+above together with ties and tuplets, do <strong>not</strong> have to nest
+properly with any of the brackets.  In fact, these are not brackets in
+the sense that they enclose something &ndash; they are simply markers to
+indicate where something starts and ends.
+</p>
+<p>So, for example, a phrasing slur can start before a manually
+inserted beam and end before the end of the beam &ndash; not very
+musical, perhaps, but possible:
+</p>
+<blockquote><pre class="verbatim"> { g8\( a b[ c b\) a] }
+</pre><p>
+ <a href="../81/lily-46a51cea.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-46a51cea.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>In general, different kinds of brackets, and those implied by
+tuplets, ties and grace notes, may be mixed freely.
+This example shows a beam extending into a tuplet (line 1),
+a slur extending into a tuplet (line 2),
+a beam and a slur extending into a tuplet, a tie crossing
+two tuplets, and a phrasing slur extending out of a tuplet
+(lines 3 and 4).
+</p>
+<blockquote><pre class="verbatim">{
+  r16[ g16 \times 2/3 {r16 e'8] }
+  g16( a \times 2/3 {b d) e' }
+  g8[( a \times 2/3 {b d') e'~]}
+  \times 4/5 {e'32\( a b d' e'} a'4.\)
+}
+</pre><p>
+ <a href="../fb/lily-18298ac6.ly">
+  <img align="middle"
+       border="0"
+       src="../fb/lily-18298ac6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Nesting-music-expressions.html#Nesting-music-expressions" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Nesting music expressions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;How LilyPond input files work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Voices-contain-music.html#Voices-contain-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Voices contain music &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="On-the-un_002dnestedness-of-brackets-and-ties.fr.html">français</a>, <a href="On-the-un_002dnestedness-of-brackets-and-ties.es.html">español</a>, <a href="On-the-un_002dnestedness-of-brackets-and-ties.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>
+    <ul class="toc">
+      <li><a name="toc-Introduction-to-the-LilyPond-file-structure-1" href="Introduction-to-the-LilyPond-file-structure.html#Introduction-to-the-LilyPond-file-structure">3.1.1 Introduction to the LilyPond file structure</a>      </li>
+      <li><a name="toc-Score-is-a-_0028single_0029-compound-musical-expression-1" href="Score-is-a-_0028single_0029-compound-musical-expression.html#Score-is-a-_0028single_0029-compound-musical-expression">3.1.2 Score is a (single) compound musical expression</a>      </li>
+      <li><a name="toc-Nesting-music-expressions-1" href="Nesting-music-expressions.html#Nesting-music-expressions">3.1.3 Nesting music expressions</a>      </li>
+      <li class="toc_current"><a name="toc-On-the-un_002dnestedness-of-brackets-and-ties-1" href="On-the-un_002dnestedness-of-brackets-and-ties.html#On-the-un_002dnestedness-of-brackets-and-ties">3.1.4 On the un-nestedness of brackets and ties</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

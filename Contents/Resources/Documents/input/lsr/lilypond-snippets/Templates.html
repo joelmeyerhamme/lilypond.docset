@@ -1,0 +1,2195 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Templates</title>
+
+<meta name="description" content="LilyPond snippets: Templates">
+<meta name="keywords" content="LilyPond snippets: Templates">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="MIDI.html#MIDI" rel="previous" title="MIDI">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Templates"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="MIDI.html#MIDI" title="Beginning of this chapter or previous chapter"> &lt;&lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="MIDI.html#Demo-MidiInstruments" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Demo MidiInstruments&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Templates"></a>
+<h1 class="unnumbered">Templates</h1>
+
+
+<a name="ancient-notation-template----modern-transcription-of-gregorian-music.ly"></a>
+<hr size="6">
+<a name="Templates"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Ancient notation template &ndash; modern transcription of gregorian music</h2>
+
+
+<p>This example demonstrates how to do modern transcription of Gregorian
+music. Gregorian music has no measure, no stems; it uses only half and
+quarter note heads, and special marks, indicating rests of different
+length.
+</p>
+
+<pre class="verbatim">\include &quot;gregorian.ly&quot;
+
+chant = \relative c' {
+  \set Score.timing = ##f
+  f4 a2 \divisioMinima
+  g4 b a2 f2 \divisioMaior
+  g4( f) f( g) a2 \finalis
+}
+
+verba = \lyricmode {
+  Lo -- rem ip -- sum do -- lor sit a -- met
+}
+
+\score {
+  \new Staff &lt;&lt;
+    \new Voice = &quot;melody&quot; \chant
+    \new Lyrics = &quot;one&quot; \lyricsto melody \verba
+  &gt;&gt;
+  \layout {
+    \context {
+      \Staff
+      \remove &quot;Time_signature_engraver&quot;
+      \remove &quot;Bar_engraver&quot;
+      \override Stem #'transparent = ##t
+    }
+    \context {
+      \Voice
+      \override Stem #'length = #0
+    }
+    \context {
+      \Score
+      barAlways = ##t
+    }
+  }
+}
+
+</pre><p>
+ <a href="../1b/lily-4790c942.ly">
+  <img align="middle"
+       border="0"
+       src="../1b/lily-4790c942.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ancient-notation-template----modern-transcription-of-mensural-music.ly"></a>
+<hr size="6">
+<a name="Templates"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Ancient notation template &ndash; modern transcription of mensural music</h2>
+
+
+<p>When transcribing mensural music, an incipit at the beginning of the
+piece is useful to indicate the original key and tempo. While today
+musicians are used to bar lines in order to faster recognize rhythmic
+patterns, bar lines were not yet invented during the period of mensural
+music; in fact, the meter often changed after every few notes. As a
+compromise, bar lines are often printed between the staves rather than
+on the staves. 
+</p>
+
+<pre class="verbatim">global = {
+  \set Score.skipBars = ##t
+
+  % incipit
+  \once \override Score.SystemStartBracket #'transparent = ##t
+  \override Score.SpacingSpanner #'spacing-increment = #1.0 % tight spacing
+  \key f \major
+  \time 2/2
+  \once \override Staff.TimeSignature #'style = #'neomensural
+  \override Voice.NoteHead #'style = #'neomensural
+  \override Voice.Rest #'style = #'neomensural
+  \set Staff.printKeyCancellation = ##f
+  \cadenzaOn % turn off bar lines
+  \skip 1*10
+  \once \override Staff.BarLine #'transparent = ##f
+  \bar &quot;||&quot;
+  \skip 1*1 % need this extra \skip such that clef change comes
+            % after bar line
+  \bar &quot;&quot;
+
+  % main
+  \revert Score.SpacingSpanner #'spacing-increment % CHECK: no effect?
+  \cadenzaOff % turn bar lines on again
+  \once \override Staff.Clef #'full-size-change = ##t
+  \set Staff.forceClef = ##t
+  \key g \major
+  \time 4/4
+  \override Voice.NoteHead #'style = #'default
+  \override Voice.Rest #'style = #'default
+
+  % FIXME: setting printKeyCancellation back to #t must not
+  % occur in the first bar after the incipit.  Dto. for forceClef.
+  % Therefore, we need an extra \skip.
+  \skip 1*1
+  \set Staff.printKeyCancellation = ##t
+  \set Staff.forceClef = ##f
+
+  \skip 1*7 % the actual music
+
+  % let finis bar go through all staves
+  \override Staff.BarLine #'transparent = ##f
+
+  % finis bar
+  \bar &quot;|.&quot;
+}
+
+discantusNotes = {
+  \transpose c' c'' {
+    \set Staff.instrumentName = #&quot;Discantus  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c1&quot;
+    c'1. s2   % two bars
+    \skip 1*8 % eight bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble&quot;
+    d'2. d'4 |
+    b e' d'2 |
+    c'4 e'4.( d'8 c' b |
+    a4) b a2 |
+    b4.( c'8 d'4) c'4 |
+    \once \override NoteHead #'transparent = ##t c'1 |
+    b\breve |
+  }
+}
+
+discantusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- |
+  la -- te De -- |
+  o, om --
+  nis ter -- |
+  ra, __ om- |
+  &quot;...&quot; |
+  -us. |
+}
+
+altusNotes = {
+  \transpose c' c'' {
+    \set Staff.instrumentName = #&quot;Altus  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c3&quot;
+    r1        % one bar
+    f1. s2    % two bars
+    \skip 1*7 % seven bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble&quot;
+    r2 g2. e4 fis g | % two bars
+    a2 g4 e |
+    fis g4.( fis16 e fis4) |
+    g1 |
+    \once \override NoteHead #'transparent = ##t g1 |
+    g\breve |
+  }
+}
+
+altusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- la -- te | % two bars
+  De -- o, om -- |
+  nis ter -- ra, |
+  &quot;...&quot; |
+  -us. |
+}
+
+tenorNotes = {
+  \transpose c' c' {
+    \set Staff.instrumentName = #&quot;Tenor  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c4&quot;
+    r\longa   % four bars
+    r\breve   % two bars
+    r1        % one bar
+    c'1. s2   % two bars
+    \skip 1*1 % one bar
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble_8&quot;
+    R1 |
+    R1 |
+    R1 |
+    r2 d'2. d'4 b e' | % two bars
+    \once \override NoteHead #'transparent = ##t e'1 |
+    d'\breve |
+  }
+}
+
+tenorLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- la -- te | % two bars
+  &quot;...&quot; |
+  -us. |
+}
+
+bassusNotes = {
+  \transpose c' c' {
+    \set Staff.instrumentName = #&quot;Bassus  &quot;
+
+    % incipit
+    \clef &quot;bass&quot;
+    r\maxima  % eight bars
+    f1. s2    % two bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;bass&quot;
+    R1 |
+    R1 |
+    R1 |
+    R1 |
+    g2. e4 |
+    \once \override NoteHead #'transparent = ##t e1 |
+    g\breve |
+  }
+}
+
+bassusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi- |
+  &quot;...&quot; |
+  -us. |
+}
+
+\score {
+  \new StaffGroup = choirStaff &lt;&lt;
+    \new Voice =
+      &quot;discantusNotes&quot; &lt;&lt; \global \discantusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;discantusLyrics&quot; \lyricsto discantusNotes { \discantusLyrics }
+    \new Voice =
+      &quot;altusNotes&quot; &lt;&lt; \global \altusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;altusLyrics&quot; \lyricsto altusNotes { \altusLyrics }
+    \new Voice =
+      &quot;tenorNotes&quot; &lt;&lt; \global \tenorNotes &gt;&gt;
+    \new Lyrics =
+      &quot;tenorLyrics&quot; \lyricsto tenorNotes { \tenorLyrics }
+    \new Voice =
+      &quot;bassusNotes&quot; &lt;&lt; \global \bassusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;bassusLyrics&quot; \lyricsto bassusNotes { \bassusLyrics }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+
+      % no bars in staves
+      \override BarLine #'transparent = ##t
+
+      % incipit should not start with a start delimiter
+      \remove &quot;System_start_delimiter_engraver&quot;
+    }
+    \context {
+      \Voice
+
+      % no slurs
+      \override Slur #'transparent = ##t
+
+      % Comment in the below &quot;\remove&quot; command to allow line
+      % breaking also at those barlines where a note overlaps
+      % into the next bar.  The command is commented out in this
+      % short example score, but especially for large scores, you
+      % will typically yield better line breaking and thus improve
+      % overall spacing if you comment in the following command.
+      %\remove &quot;Forbid_line_break_engraver&quot;
+    }
+  }
+}
+
+
+
+
+</pre><p>
+ <a href="../02/lily-e334b25a.ly">
+  <img align="middle"
+       border="0"
+       src="../02/lily-e334b25a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="jazz-combo-template.ly"></a>
+<hr size="6">
+<a name="Templates"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Orchestra" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Orchestra &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Jazz combo template</h2>
+
+
+<p>This is quite an advanced template, for a jazz ensemble. Note that all
+instruments are notated in <code>\key c \major</code>. This refers to the
+key in concert pitch; the key will be automatically transposed if the
+music is within a <code>\transpose</code> section.
+</p>
+
+<pre class="verbatim">\header {
+  title = &quot;Song&quot;
+  subtitle = &quot;(tune)&quot;
+  composer = &quot;Me&quot;
+  meter = &quot;moderato&quot;
+  piece = &quot;Swing&quot;
+  tagline = \markup {
+    \column {
+      &quot;LilyPond example file by Amelie Zapf,&quot;
+      &quot;Berlin 07/07/2003&quot;
+    }
+  }
+}
+
+%#(set-global-staff-size 16)
+\include &quot;english.ly&quot;
+
+%%%%%%%%%%%% Some macros %%%%%%%%%%%%%%%%%%%
+
+sl = {
+  \override NoteHead #'style = #'slash
+  \override Stem #'transparent = ##t
+}
+nsl = {
+  \revert NoteHead #'style
+  \revert Stem #'transparent
+}
+crOn = \override NoteHead #'style = #'cross
+crOff = \revert NoteHead #'style
+
+%% insert chord name style stuff here.
+
+jazzChords = { }
+
+%%%%%%%%%%%% Keys'n'thangs %%%%%%%%%%%%%%%%%
+
+global = { \time 4/4 }
+
+Key = { \key c \major }
+
+% ############ Horns ############
+
+% ------ Trumpet ------
+trpt = \transpose c d \relative c'' {
+  \Key
+  c1 | c | c |
+}
+trpHarmony = \transpose c' d {
+  \jazzChords
+}
+trumpet = {
+  \global
+  \set Staff.instrumentName = #&quot;Trumpet&quot;
+  \clef treble
+  &lt;&lt;
+    \trpt
+  &gt;&gt;
+}
+
+% ------ Alto Saxophone ------
+alto = \transpose c a \relative c' {
+  \Key
+  c1 | c | c |
+}
+altoHarmony = \transpose c' a {
+  \jazzChords
+}
+altoSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Alto Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \alto
+  &gt;&gt;
+}
+
+% ------ Baritone Saxophone ------
+bari = \transpose c a' \relative c {
+  \Key
+  c1
+  c1
+  \sl
+  d4^&quot;Solo&quot; d d d
+  \nsl
+}
+bariHarmony = \transpose c' a \chordmode {
+  \jazzChords s1 s d2:maj e:m7
+}
+bariSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Bari Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \bari
+  &gt;&gt;
+}
+
+% ------ Trombone ------
+tbone = \relative c {
+  \Key
+  c1 | c | c
+}
+tboneHarmony = \chordmode {
+  \jazzChords
+}
+trombone = {
+  \global
+  \set Staff.instrumentName = #&quot;Trombone&quot;
+  \clef bass
+  &lt;&lt;
+    \tbone
+  &gt;&gt;
+}
+
+% ############ Rhythm Section #############
+
+% ------ Guitar ------
+gtr = \relative c'' {
+  \Key
+  c1
+  \sl
+  b4 b b b
+  \nsl
+  c1
+}
+gtrHarmony = \chordmode {
+  \jazzChords
+  s1 c2:min7+ d2:maj9
+}
+guitar = {
+  \global
+  \set Staff.instrumentName = #&quot;Guitar&quot;
+  \clef treble
+  &lt;&lt;
+    \gtr
+  &gt;&gt;
+}
+
+%% ------ Piano ------
+rhUpper = \relative c'' {
+  \voiceOne
+  \Key
+  c1 | c | c
+}
+rhLower = \relative c' {
+  \voiceTwo
+  \Key
+  e1 | e | e
+}
+
+lhUpper = \relative c' {
+  \voiceOne
+  \Key
+  g1 | g | g
+}
+lhLower = \relative c {
+  \voiceTwo
+  \Key
+  c1 | c | c
+}
+
+PianoRH = {
+  \clef treble
+  \global
+  \set Staff.midiInstrument = #&quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \rhUpper
+    \new Voice = &quot;two&quot; \rhLower
+  &gt;&gt;
+}
+PianoLH = {
+  \clef bass
+  \global
+  \set Staff.midiInstrument = &quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \lhUpper
+    \new Voice = &quot;two&quot; \lhLower
+  &gt;&gt;
+}
+
+piano = {
+  &lt;&lt;
+    \set PianoStaff.instrumentName = #&quot;Piano&quot;
+    \new Staff = &quot;upper&quot; \PianoRH
+    \new Staff = &quot;lower&quot; \PianoLH
+  &gt;&gt;
+}
+
+% ------ Bass Guitar ------
+Bass = \relative c {
+  \Key
+  c1 | c | c
+}
+bass = {
+  \global
+  \set Staff.instrumentName = #&quot;Bass&quot;
+  \clef bass
+  &lt;&lt;
+    \Bass
+  &gt;&gt;
+}
+
+% ------ Drums ------
+up = \drummode {
+  \voiceOne
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+}
+down = \drummode {
+  \voiceTwo
+  bd4 s bd s
+  bd4 s bd s
+  bd4 s bd s
+}
+
+drumContents = {
+  \global
+  &lt;&lt;
+    \set DrumStaff.instrumentName = #&quot;Drums&quot;
+    \new DrumVoice \up
+    \new DrumVoice \down
+  &gt;&gt;
+}
+
+%%%%%%%%% It All Goes Together Here %%%%%%%%%%%%%%%%%%%%%%
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = &quot;horns&quot; &lt;&lt;
+      \new Staff = &quot;trumpet&quot; \trumpet
+      \new Staff = &quot;altosax&quot; \altoSax
+      \new ChordNames = &quot;barichords&quot; \bariHarmony
+      \new Staff = &quot;barisax&quot; \bariSax
+      \new Staff = &quot;trombone&quot; \trombone
+    &gt;&gt;
+    
+    \new StaffGroup = &quot;rhythm&quot; &lt;&lt;
+      \new ChordNames = &quot;chords&quot; \gtrHarmony
+      \new Staff = &quot;guitar&quot; \guitar
+      \new PianoStaff = &quot;piano&quot; \piano
+      \new Staff = &quot;bass&quot; \bass
+      \new DrumStaff \drumContents
+    &gt;&gt;
+  &gt;&gt;
+  
+  \layout {
+    \context { \RemoveEmptyStaffContext }
+    \context {
+      \Score
+      \override BarNumber #'padding = #3
+      \override RehearsalMark #'padding = #2
+      skipBars = ##t
+    }
+  }
+  
+  \midi { }
+}
+
+</pre><p>
+ <a href="../4e/lily-20354a0d.ly">
+  <img align="middle"
+       border="0"
+       src="../4e/lily-20354a0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="orchestra,-choir-and-piano-template.ly"></a>
+<hr size="6">
+<a name="Orchestra"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Orchestra" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Orchestra"></a>
+<h2 class="unnumberedsec">Orchestra, choir and piano template</h2>
+
+
+<p>This template demonstrates the use of nested <code>StaffGroup</code> and
+<code>GrandStaff</code> contexts to sub-group instruments of the same type
+together, and the use of <code>\transpose</code> for transposing
+instruments.  All music in variables is stored in C.  Music may be
+entered in C or, alternatively, entered in the instrument key and
+transposed to C before being assigned to a variable.
+</p>
+
+<pre class="verbatim">#(set-global-staff-size 17)
+
+\paper {
+  indent = 3.0\cm
+  short-indent = 1.5\cm
+}
+
+fluteMusic = \relative c { \key c \major c'1 d }
+oboeMusic = \relative c { \key c \major c'1 d }
+clarinetMusic = \relative c { \key c \major c'1 d }
+bassoonMusic = \relative c { \clef bass \key c \major c1 d }
+trumpetMusic = \relative c { \key c \major c''1 d }
+tromboneMusic = \relative c { \key c \major c1 d }
+hornIMusic = \relative c { c'1 d }
+hornIIMusic = \relative c { c1 d }
+percussionMusic = \relative c { \key c \major c1 d }
+sopranoMusic = \relative c'' { \key c \major c1 d }
+sopranoLyrics = \lyricmode { Sop -- ra }
+altoIMusic = \relative c' { \key c \major c1 d }
+altoILyrics = \lyricmode { A -- one }
+altoIIMusic = \relative c' { \key c \major c1 d }
+altoIILyrics = \lyricmode { A -- two }
+tenorMusic = \relative c' { \key c \major c1 d }
+tenorLyrics = \lyricmode { Ten -- or }
+pianoRHMusic = \relative c { \key c \major c'1 d }
+pianoLHMusic = \relative c { \key c \major c1 d }
+violinIMusic = \relative c { \key c \major c'1 d }
+violinIIMusic = \relative c { \key c \major c'1 d }
+violaMusic = \relative c { \clef alto \key c \major c'1 d }
+celloMusic = \relative c { \clef bass \key c \major c1 d }
+bassMusic = \relative c { \clef &quot;bass_8&quot; \key c \major c,1 d }
+
+\score {
+  \new GrandStaff = &quot;GrandStaff_score&quot; &lt;&lt;
+    \new StaffGroup = &quot;StaffGroup_woodwinds&quot; &lt;&lt;
+      \new Staff = &quot;Staff_flute&quot; {
+        \set Staff.instrumentName = #&quot;Flute&quot;
+        \fluteMusic
+      }
+      \new Staff = &quot;Staff_oboe&quot; {
+        \set Staff.instrumentName = #&quot;Oboe&quot;
+        \oboeMusic
+      }
+      \new Staff = &quot;Staff_clarinet&quot; {
+        \set Staff.instrumentName = \markup \concat { &quot;Clarinet in B&quot; \flat }
+        \transposition bes
+        \transpose bes c' \clarinetMusic
+      }
+      \new Staff = &quot;Staff_bassoon&quot; {
+        \set Staff.instrumentName = #&quot;Bassoon&quot;
+        \bassoonMusic
+      }
+    &gt;&gt;
+    \new StaffGroup = &quot;StaffGroup_brass&quot; &lt;&lt;
+      \new GrandStaff &lt;&lt;
+        \new Staff = &quot;Staff_hornI&quot; {
+          \set Staff.instrumentName = #&quot;Horn I&quot;
+          \transposition f
+          \transpose f c' \hornIMusic
+        }
+        \new Staff = &quot;Staff_hornII&quot; {
+          \set Staff.instrumentName = #&quot;Horn II&quot;
+          \clef bass
+          \transposition f'
+          \transpose f c \hornIIMusic
+        }
+      &gt;&gt;
+      \new Staff = &quot;Staff_trumpet&quot; {
+        \set Staff.instrumentName = #&quot;Trumpet in C&quot;
+        \trumpetMusic
+      }
+      \new Staff = &quot;Staff_trombone&quot; {
+        \set Staff.instrumentName = #&quot;Trombone&quot;
+        \clef bass
+        \tromboneMusic
+      }
+    &gt;&gt;
+    \new RhythmicStaff = &quot;RhythmicStaff_percussion&quot; &lt;&lt;
+      \set RhythmicStaff.instrumentName = #&quot;Percussion&quot;
+      \percussionMusic
+    &gt;&gt;
+    \new PianoStaff &lt;&lt;
+      \set PianoStaff.instrumentName = #&quot;Piano&quot;
+      \new Staff { \pianoRHMusic }
+      \new Staff {
+        \clef bass
+        \pianoLHMusic
+      }
+    &gt;&gt;
+    \new ChoirStaff = &quot;ChoirStaff_choir&quot; &lt;&lt;
+      \new Staff = &quot;Staff_soprano&quot; {
+        \set Staff.instrumentName = #&quot;Soprano&quot;
+        \new Voice = &quot;soprano&quot;
+        \sopranoMusic
+      }
+      \new Lyrics \lyricsto &quot;soprano&quot; { \sopranoLyrics }
+      \new GrandStaff = &quot;GrandStaff_altos&quot; \with { \accepts Lyrics } &lt;&lt;
+        \new Staff = &quot;Staff_altoI&quot;  {
+          \set Staff.instrumentName = #&quot;Alto I&quot;
+          \new Voice = &quot;altoI&quot;
+          \altoIMusic
+        }
+        \new Lyrics \lyricsto &quot;altoI&quot; { \altoILyrics }
+        \new Staff = &quot;Staff_altoII&quot; {
+          \set Staff.instrumentName = #&quot;Alto II&quot;
+          \new Voice = &quot;altoII&quot;
+          \altoIIMusic
+        }
+        \new Lyrics \lyricsto &quot;altoII&quot; { \altoIILyrics }
+      &gt;&gt;
+      \new Staff = &quot;Staff_tenor&quot; {
+        \set Staff.instrumentName = #&quot;Tenor&quot;
+        \clef &quot;treble_8&quot;
+        \new Voice = &quot;tenor&quot;
+        \tenorMusic
+      }
+      \new Lyrics \lyricsto &quot;tenor&quot; { \tenorLyrics }
+    &gt;&gt;
+    \new StaffGroup = &quot;StaffGroup_strings&quot; &lt;&lt;
+      \new GrandStaff = &quot;GrandStaff_violins&quot; &lt;&lt;
+        \new Staff = &quot;Staff_violinI&quot; {
+          \set Staff.instrumentName = #&quot;Violin I&quot;
+          \violinIMusic
+        }
+        \new Staff = &quot;Staff_violinII&quot; {
+          \set Staff.instrumentName = #&quot;Violin II&quot;
+          \violinIIMusic
+        }
+      &gt;&gt;
+      \new Staff = &quot;Staff_viola&quot; {
+        \set Staff.instrumentName = #&quot;Viola&quot;
+        \violaMusic
+      }
+      \new Staff = &quot;Staff_cello&quot; {
+        \set Staff.instrumentName = #&quot;Cello&quot;
+        \celloMusic
+      }
+      \new Staff = &quot;Staff_bass&quot; {
+        \set Staff.instrumentName = #&quot;Double Bass&quot;
+        \bassMusic
+      }
+    &gt;&gt;
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../3e/lily-a73c07ba.ly">
+  <img align="middle"
+       border="0"
+       src="../3e/lily-a73c07ba.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="piano-template-simple.ly"></a>
+<hr size="6">
+<a name="Orchestra"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Orchestra" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Orchestra&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Orchestra" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Piano template (simple)</h2>
+
+
+<p>Here is a simple piano staff with some notes.
+</p>
+
+<pre class="verbatim">upper = \relative c'' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d  
+}
+
+lower = \relative c {
+  \clef bass
+  \key c \major
+  \time 4/4
+  
+  a2 c  
+}
+
+\score {
+  \new PianoStaff &lt;&lt;
+    \set PianoStaff.instrumentName = #&quot;Piano  &quot;
+    \new Staff = &quot;upper&quot; \upper
+    \new Staff = &quot;lower&quot; \lower
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../92/lily-ff74007a.ly">
+  <img align="middle"
+       border="0"
+       src="../92/lily-ff74007a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="piano-template-with-centered-dynamics.ly"></a>
+<hr size="6">
+<a name="Orchestra"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Orchestra" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Orchestra" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Piano template with centered dynamics</h2>
+
+
+<p>Many piano scores have the dynamics centered between the two staves.
+This requires a bit of tweaking to implement, but since the template is
+right here, you don&rsquo;t have to do the tweaking yourself.
+</p>
+
+<pre class="verbatim">global = {
+  \key c \major
+  \time 4/4
+}
+
+upper = \relative c'' {
+  \clef treble
+  a4 b c d
+}
+
+lower = \relative c {
+  \clef bass
+  a2 c
+}
+
+dynamics = {
+  s2\fff\&gt; s4 s\!\pp
+}
+
+pedal = {
+  s2\sustainOn s\sustainOff
+}
+
+\score {
+  \new PianoStaff = &quot;PianoStaff_pf&quot; &lt;&lt;
+    \new Staff = &quot;Staff_pfUpper&quot; &lt;&lt; \global \upper &gt;&gt;
+    \new Dynamics = &quot;Dynamics_pf&quot; \dynamics
+    \new Staff = &quot;Staff_pfLower&quot; &lt;&lt; \global \lower &gt;&gt;
+    \new Dynamics = &quot;pedal&quot; \pedal
+  &gt;&gt;
+
+  \layout {
+    % define Dynamics context
+    \context {
+      \type &quot;Engraver_group&quot;
+      \name Dynamics
+      \alias Voice
+      \consists &quot;Output_property_engraver&quot;
+      \consists &quot;Piano_pedal_engraver&quot;
+      \consists &quot;Script_engraver&quot;
+      \consists &quot;New_dynamic_engraver&quot;
+      \consists &quot;Dynamic_align_engraver&quot;
+      \consists &quot;Text_engraver&quot;
+      \consists &quot;Skip_event_swallow_translator&quot;
+      \consists &quot;Axis_group_engraver&quot;
+
+      pedalSustainStrings = #'(&quot;Ped.&quot; &quot;*Ped.&quot; &quot;*&quot;)
+      pedalUnaCordaStrings = #'(&quot;una corda&quot; &quot;&quot; &quot;tre corde&quot;)
+      \override DynamicLineSpanner #'Y-offset = #0
+      \override TextScript #'font-size = #2
+      \override TextScript #'font-shape = #'italic
+      \override VerticalAxisGroup #'minimum-Y-extent = #'(-1 . 1)
+    }
+    % modify PianoStaff context to accept Dynamics context
+    \context {
+      \PianoStaff
+      \accepts Dynamics
+    }
+  }
+}
+
+\score {
+  \new PianoStaff = &quot;PianoStaff_pf&quot; &lt;&lt;
+    \new Staff = &quot;Staff_pfUpper&quot; &lt;&lt; \global \upper \dynamics \pedal &gt;&gt;
+    \new Staff = &quot;Staff_pfLower&quot; &lt;&lt; \global \lower \dynamics \pedal &gt;&gt;
+  &gt;&gt;
+  \midi { }
+}
+</pre><p>
+ <a href="../4a/lily-6f94be39.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-6f94be39.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="piano-template-with-centered-lyrics.ly"></a>
+<hr size="6">
+<a name="Orchestra"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Orchestra" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Orchestra" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Piano template with centered lyrics</h2>
+
+
+<p>Instead of having a full staff for the melody and lyrics, lyrics can be
+centered between the staves of a piano staff.
+</p>
+
+<pre class="verbatim">upper = \relative c'' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d  
+}
+
+lower = \relative c {
+  \clef bass
+  \key c \major
+  \time 4/4
+  
+  a2 c  
+}
+
+text = \lyricmode {
+  Aaa Bee Cee Dee
+}
+
+\score {
+  \new GrandStaff &lt;&lt;
+    \new Staff = upper { \new Voice = &quot;singer&quot; \upper }
+    \new Lyrics \lyricsto &quot;singer&quot; \text
+    \new Staff = lower { \lower }
+  &gt;&gt;
+  \layout {
+    \context {
+      \GrandStaff
+      \accepts &quot;Lyrics&quot;
+    }
+    \context {
+      \Lyrics
+      \consists &quot;Bar_engraver&quot;
+    }
+  }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../a9/lily-1d5833a3.ly">
+  <img align="middle"
+       border="0"
+       src="../a9/lily-1d5833a3.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="piano-template-with-melody-and-lyrics.ly"></a>
+<hr size="6">
+<a name="Orchestra"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Orchestra" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Score for diatonic accordion &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Piano template with melody and lyrics</h2>
+
+
+<p>Here is a typical song format: one staff with the melody and lyrics,
+with piano accompaniment underneath. 
+</p>
+
+<pre class="verbatim">melody = \relative c'' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a b c d  
+}
+
+text = \lyricmode {
+  Aaa Bee Cee Dee
+}
+
+upper = \relative c'' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d  
+}
+
+lower = \relative c {
+  \clef bass
+  \key c \major
+  \time 4/4
+  
+  a2 c  
+}
+
+\score {
+  &lt;&lt;
+    \new Voice = &quot;mel&quot; { \autoBeamOff \melody }
+    \new Lyrics \lyricsto mel \text    
+    \new PianoStaff &lt;&lt;
+      \new Staff = &quot;upper&quot; \upper
+      \new Staff = &quot;lower&quot; \lower
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    \context { \RemoveEmptyStaffContext }
+  }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../62/lily-c6e42fc9.ly">
+  <img align="middle"
+       border="0"
+       src="../62/lily-c6e42fc9.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="score-for-diatonic-accordion.ly"></a>
+<hr size="6">
+<a name="Score-for-diatonic-accordion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Orchestra" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Score-for-diatonic-accordion"></a>
+<h2 class="unnumberedsec">Score for diatonic accordion</h2>
+
+
+<p>A template to write a score for a diatonic accordion.
+</p>
+<p>- There is a horizontal staff indicating if the accordion must be
+pushed (thick line) or pulled (thin line)
+</p>
+<p>- There is a small rhythmic staff with lyrics that describes the bass
+buttons to press. The bar lines are made from gridlines
+</p>
+<p>- The tabulator staff for diatonic accordions shows the geographic
+position of the buttons and not (as for every other instrument) the
+pitch of the notes; the keys on the melody-side of the accordion are
+placed in three columns and about 12 rows
+</p>
+
+<p>In the tabulator staff notation the outermost column is described with
+notes between lines, the innermost column is described with notes
+between lines and a cross as accidental, and the middle column is
+described with notes on a line, whereby the row in the middle is
+represented on the middle line in the staff.
+</p>
+
+<p>Some words to transpose piano notes to the diatonic accordion:
+</p>
+
+<p>1. Every diatonic accordion is built for some keys only (for example,
+for the keys of C major and F major), so it is important to transpose a
+piano melody to match one of these keys. Transpose the source code, not
+only the output because this code is required later on to translate it
+once more to the tabulator staff. This can be done with the command
+<code>displayLilyMusic</code>.
+</p>
+
+<p>2. You have to alternate the push- and pull-direction of the accordion
+regularly. If the player has a too long part to pull the accordion gets
+broken. On the other hand, some harmonies are only available in one
+direction. Considering this, decide which parts of the melody are the
+push-parts and which the pull-parts.
+</p>
+
+<p>3. For each pull- or push-part translate the piano notes to the
+according tabulature representation.
+</p>
+
+<p>This snippet comes with a useful optional macro for the jEdit text
+editor. 
+</p>
+
+<pre class="verbatim">verse = \lyricmode { Wie gross bist du! Wie gross bist du! }
+
+harmonies = \new ChordNames \chordmode {
+  \germanChords
+  \set chordChanges = ##t
+	bes8 bes8 bes8
+  es2 f
+  bes1
+}
+
+NoStem = \override Stem #'transparent = ##t
+NoNoteHead = \override NoteHead #'transparent = ##t
+ZeroBeam = \override Beam  #'positions = #'(0 . 0)
+
+staffTabLine = \new Staff \with {
+  \remove &quot;Time_signature_engraver&quot;
+  \remove &quot;Clef_engraver&quot;
+} {
+  \override Staff.StaffSymbol #'line-positions = #'(0)
+% Shows one horizontal line. The vertical line (simulating a bar-line) is simulated with a gridline
+	\set Staff.midiInstrument = #&quot;choir aahs&quot;
+	\key c \major
+	\relative c''
+		{  
+			% disable the following line to see the the noteheads while writing the song 
+			\NoNoteHead  
+			\override NoteHead #'no-ledgers = ##t
+
+			% The beam between 8th-notes is used to draw the push-line
+			%How to fast write the push-lines: 
+			%	 1. write repeatedly 'c c c c c c c c |' for the whole length of the song 
+			%	 2. uncomment the line \NoNoteHead
+			%	 3. compile
+			%	 4. Mark the positions on which push/pull changes. 
+			%	    In the score-picture click on the position the push- or pull-part starts 
+                        %           (on the noteHead, the cursor will change to a hand-icon).
+			%	    The cursor in the source code will jump just at this position.
+			%	  a) If a push-part starts there, replace the 'c' by an 'e['
+			%	  b) If a pull-part starts there, replace the 'c' by an 's'
+			%	 5. Switch into 'overwrite-mode' by pressing the 'ins' key. 
+			%	 6. For the pull-parts overwrite the 'c' with 's' 
+			%	 7. For every push-part replace the last 'c' with 'e]' 
+			%        8. Switch into 'insert-mode' again 
+			%	 9. At last it should look lik e.g. (s s e[ c | c c c c c c c c | c c c c c c e] s s)
+			%	10. re-enable the line \NoNoteHead
+			\autoBeamOff
+			\ZeroBeam 
+			 s8 s s e[ c c c c c c e] | s s s s s 
+		}
+}
+
+%{
+%}
+
+% Accordion melody in tabulator score		
+% 1. Place a copy of the piano melody below
+% 2. Separate piano melody into pull- and push-parts according to the staffTabLine you've already made      
+% 3. For each line: Double the line. Remark the 1st one (Keeps unchanged as reference) and then change the second line using the transformation paper
+%    or the macros 'conv2diaton push.bsh' and 'conv2diaton pull.bsh' 
+% Tips:
+% - In jEdit Search &amp; Replace mark the Option 'Keep Dialog'
+
+AccordionTabTwoCBesDur = {
+ % pull 1
+ %&lt;f' bes'&gt;8 &lt;f' a'&gt;8 &lt;d' bes'&gt;8 | 
+&lt;g'' a''&gt;8 &lt;g'' b''&gt;8 &lt;e'' a''&gt;8 | 
+ % push 2
+ %&lt;g' c''&gt;4 &lt;f' d''&gt; &lt;g' ees''&gt; &lt;f' a'&gt; | 
+&lt;g'' a''&gt;4 &lt;d'' eisis''&gt; &lt;g'' bisis''&gt; &lt;d'' f''&gt; | 
+ % pull 3
+% &lt;f' bes'&gt;2 r8 }
+ &lt;g'' a''&gt;2 r8 }
+
+  AccordionTab= { \dynamicUp		
+% 1. Place a copy of the piano melody above
+% 2. Separate piano melody into pull- and push-parts according to the staffTabLine you've already made      
+% 3. For each line: Double the line. Remark the 1st one (Keeps unchanged as reference) and then 
+%    change the second line using the transformation paper
+% Tips:
+% - In jEdit Search &amp; Replace mark the Option 'Keep Dialog'
+% - 
+\AccordionTabTwoCBesDur
+ }
+
+
+ 
+ \layout {   
+ \context {
+   \Staff    	  
+   \consists &quot;Grid_point_engraver&quot;
+
+   gridInterval = #(ly:make-moment 4 4) % 4/4 - tact. How many beats per bar
+
+   % The following line has to be adjusted O-F-T-E-N.
+   \override GridPoint #'Y-extent = #'(-2 . -21)   
+ }
+ \context {
+    \ChoirStaff
+    \remove &quot;System_start_delimiter_engraver&quot; 
+ }
+}
+
+staffVoice = \new Staff=astaffvoice  {
+	\time 4/4
+	\set Staff.instrumentName=&quot;Voice&quot;
+	\set Staff.midiInstrument=&quot;voice oohs&quot;
+	\key bes \major
+	\partial 8*3 
+	\clef treble
+	{ 	
+		\context Voice = &quot;melodyVoi&quot; 
+		{ &lt;f' bes'&gt;8 &lt;f' a'&gt;8 &lt;d' bes'&gt;8 | &lt;g' c''&gt;4 &lt;f' d''&gt; &lt;g' es''&gt; &lt;f' a'&gt; | &lt;f' bes'&gt;2 r8 }
+	\bar &quot;|.&quot;
+	}
+}
+
+staffAccordionMel = \new Staff  \with { \remove &quot;Clef_engraver&quot; } {
+	#(set-accidental-style 'forget) %Set the accidentals (Vorzeichen) for each note, 
+					%do not remember them for the rest of the measure.  
+	\time 4/4
+	\set Staff.instrumentName=&quot;Accordion&quot;
+	\set Staff.midiInstrument=&quot;voice oohs&quot;
+	\key c \major
+	\clef treble
+	{ \AccordionTab \bar &quot;|.&quot; }
+}
+
+	AltOn = #(define-music-function (parser location mag) (number?)
+        	#{ \override Stem #'length = #$(* 7.0 mag)
+		\override NoteHead #'font-size =
+		#$(inexact-&gt;exact (* (/ 6.0 (log 2.0)) (log mag))) #})
+     
+	AltOff = {
+		\revert Stem #'length
+		\revert NoteHead #'font-size
+		}
+
+BassRhytm = {s4 s8 | c2 c2 | c2 s8 }
+LyricBassRhythmI=  \lyricmode { c b | c }
+
+staffBassRhytm = \new Staff=staffbass  \with { \remove &quot;Clef_engraver&quot; } {
+	% This is not a RhythmicStaff  because it must be possible to append lyrics.
+		
+	\override Score.GridLine #'extra-offset = #'( 13.0 . 0.0 ) % x.y
+	\override Staff.StaffSymbol #'line-positions = #'( 0 ) 
+        % Shows one horizontal line. The vertical line (simulating a bar-line) is simulated by a grid
+        % Search for 'grid' in this page to find all related functions 
+	\time 4/4
+	{ 	
+		\context Voice = &quot;VoiceBassRhytm&quot; 
+		\stemDown \AltOn #0.6
+		\relative c''
+		{   
+		\BassRhytm
+		}
+		\AltOff
+	\bar &quot;|.&quot;
+	}
+}
+
+\new Score 
+\with {
+ \consists &quot;Grid_line_span_engraver&quot; %The vertical line (simulating a bar-line) in the staffBassRhytm is a gridline 
+}
+\new ChoirStaff 
+	&lt;&lt;
+		\harmonies 
+		\staffVoice
+		\context Lyrics = &quot;lmelodyVoi&quot; \with {alignBelowContext=astaffvoice} { \lyricsto &quot;melodyVoi&quot; \verse }
+		\staffAccordionMel
+		\staffTabLine
+		\staffBassRhytm
+	\context Lyrics = &quot;lBassRhytmAboveI&quot; \with {alignAboveContext=staffbass} \lyricsto VoiceBassRhytm \LyricBassRhythmI
+	&gt;&gt;
+%}
+
+</pre><p>
+ <a href="../3f/lily-d9df2b5f.ly">
+  <img align="middle"
+       border="0"
+       src="../3f/lily-d9df2b5f.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="single-staff-template-with-notes,-lyrics,-and-chords.ly"></a>
+<hr size="6">
+<a name="Score-for-diatonic-accordion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Score for diatonic accordion&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Single staff template with notes, lyrics, and chords</h2>
+
+
+<p>This template allows the preparation of a song with melody, words, and
+chords. 
+</p>
+
+<pre class="verbatim">melody = \relative c' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d
+}
+
+text = \lyricmode {
+  Aaa Bee Cee Dee
+}
+
+harmonies = \chordmode {
+  a2 c
+}
+
+\score {
+  &lt;&lt;
+    \new ChordNames {
+      \set chordChanges = ##t
+      \harmonies
+    }
+    \new Voice = &quot;one&quot; { \autoBeamOff \melody }
+    \new Lyrics \lyricsto &quot;one&quot; \text
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../be/lily-11b65b1b.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-11b65b1b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="single-staff-template-with-notes,-lyrics,-chords-and-frets.ly"></a>
+<hr size="6">
+<a name="Score-for-diatonic-accordion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Single staff template with notes, lyrics, chords and frets</h2>
+
+
+<p>Here is a simple lead sheet template with melody, lyrics, chords and
+fret diagrams.
+</p>
+
+<pre class="verbatim">verseI = \lyricmode {
+  \set stanza = #&quot;1.&quot;
+  This is the first verse
+}
+
+verseII = \lyricmode {
+  \set stanza = #&quot;2.&quot;
+  This is the second verse.
+}
+
+theChords = \chordmode {
+  % insert chords for chordnames and fretboards here
+  c2 g4 c
+}
+
+staffMelody = \relative c' {
+   \key c \major
+   \clef treble
+   % Type notes for melody here
+   c4 d8 e f4 g
+   \bar &quot;|.&quot;
+}
+
+\score {
+  &lt;&lt;
+    \context ChordNames { \theChords }
+    \context FretBoards { \theChords }
+    \new Staff {
+      \context Voice = &quot;voiceMelody&quot; { \staffMelody }
+    }
+    \new Lyrics = &quot;lyricsI&quot; {
+      \lyricsto &quot;voiceMelody&quot; \verseI
+    }
+    \new Lyrics = &quot;lyricsII&quot; {
+      \lyricsto &quot;voiceMelody&quot; \verseII
+    }
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../85/lily-0e9127ce.ly">
+  <img align="middle"
+       border="0"
+       src="../85/lily-0e9127ce.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="single-staff-template-with-notes-and-chords.ly"></a>
+<hr size="6">
+<a name="Score-for-diatonic-accordion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Single staff template with notes and chords</h2>
+
+
+<p>Want to prepare a lead sheet with a melody and chords? Look no further!
+</p>
+
+
+<pre class="verbatim">melody = \relative c' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  f4 e8[ c] d4 g
+  a2 ~ a
+}
+
+harmonies = \chordmode {
+  c4:m f:min7 g:maj c:aug
+  d2:dim b:sus
+}
+
+\score {
+  &lt;&lt;
+    \new ChordNames {
+      \set chordChanges = ##t
+      \harmonies
+    }
+    \new Staff \melody
+  &gt;&gt;  
+  \layout{ }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../ec/lily-eeb1a4e9.ly">
+  <img align="middle"
+       border="0"
+       src="../ec/lily-eeb1a4e9.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="single-staff-template-with-notes-and-lyrics.ly"></a>
+<hr size="6">
+<a name="Score-for-diatonic-accordion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Single staff template with only notes &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Single staff template with notes and lyrics</h2>
+
+
+<p>This small template demonstrates a simple melody with lyrics. Cut and
+paste, add notes, then words for the lyrics. This example turns off
+automatic beaming, which is common for vocal parts. To use automatic
+beaming, change or comment out the relevant line.
+</p>
+
+<pre class="verbatim">melody = \relative c' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d
+}
+
+text = \lyricmode {
+  Aaa Bee Cee Dee
+}
+
+\score{
+  &lt;&lt;
+    \new Voice = &quot;one&quot; {
+      \autoBeamOff
+      \melody
+    }
+    \new Lyrics \lyricsto &quot;one&quot; \text
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../cc/lily-0df0fb81.ly">
+  <img align="middle"
+       border="0"
+       src="../cc/lily-0df0fb81.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="single-staff-template-with-only-notes.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Score-for-diatonic-accordion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Single-staff-template-with-only-notes"></a>
+<h2 class="unnumberedsec">Single staff template with only notes</h2>
+
+
+<p>This very simple template gives you a staff with notes, suitable for a
+solo instrument or a melodic fragment. Cut and paste this into a file,
+add notes, and you&rsquo;re finished! 
+</p>
+
+<pre class="verbatim">melody = \relative c' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d
+}
+
+\score {
+  \new Staff \melody
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../bc/lily-88ebb612.ly">
+  <img align="middle"
+       border="0"
+       src="../bc/lily-88ebb612.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="string-quartet-template-simple.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Single staff template with only notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">String quartet template (simple)</h2>
+
+
+<p>This template demonstrates a simple string quartet. It also uses a
+<code>\global</code> section for time and key signatures
+</p>
+
+<pre class="verbatim">global= {
+  \time 4/4
+  \key c \major
+}
+
+violinOne = \new Voice \relative c'' {
+  \set Staff.instrumentName = #&quot;Violin 1 &quot;
+  
+  c2 d
+  e1
+  
+  \bar &quot;|.&quot;
+}
+ 
+violinTwo = \new Voice \relative c'' {
+  \set Staff.instrumentName = #&quot;Violin 2 &quot;
+  
+  g2 f
+  e1
+  
+  \bar &quot;|.&quot;
+}
+
+viola = \new Voice \relative c' {
+  \set Staff.instrumentName = #&quot;Viola &quot;  
+  \clef alto
+  
+  e2 d
+  c1
+  
+  \bar &quot;|.&quot;
+}
+
+cello = \new Voice \relative c' {
+  \set Staff.instrumentName = #&quot;Cello &quot;
+  \clef bass
+  
+  c2 b
+  a1
+  
+  \bar &quot;|.&quot;
+}
+
+\score {
+  \new StaffGroup &lt;&lt;
+    \new Staff &lt;&lt; \global \violinOne &gt;&gt;
+    \new Staff &lt;&lt; \global \violinTwo &gt;&gt;
+    \new Staff &lt;&lt; \global \viola &gt;&gt;
+    \new Staff &lt;&lt; \global \cello &gt;&gt;
+  &gt;&gt;
+  \layout { }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../85/lily-3d9c96b5.ly">
+  <img align="middle"
+       border="0"
+       src="../85/lily-3d9c96b5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="string-quartet-template-with-separate-parts.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">String quartet template with separate parts</h2>
+
+
+<p>The &quot;String quartet template&quot; snippet produces a nice string quartet,
+but what if you needed to print parts? This new template demonstrates
+how to use the <code>\tag</code> feature to easily split a piece into
+individual parts.
+</p>
+<p>You need to split this template into separate files; the filenames are
+contained in comments at the beginning of each file. <code>piece.ly</code>
+contains all the music definitions. The other files – <code>score.ly</code>,
+<code>vn1.ly</code>, <code>vn2.ly</code>, <code>vla.ly</code>, and <code>vlc.ly</code> –
+produce the appropriate part.
+</p>
+
+<p>Do not forget to remove specified comments when using separate files! 
+</p>
+
+<pre class="verbatim">%%%%% piece.ly
+%%%%% (This is the global definitions file)
+
+global= {
+  \time 4/4
+  \key c \major
+}
+
+Violinone = \new Voice { \relative c''{
+  \set Staff.instrumentName = #&quot;Violin 1 &quot;
+
+  c2 d e1
+
+\bar &quot;|.&quot; }}   %*********************************
+Violintwo = \new Voice { \relative c''{
+  \set Staff.instrumentName = #&quot;Violin 2 &quot;
+
+  g2 f e1
+
+\bar &quot;|.&quot; }}   %*********************************
+Viola = \new Voice { \relative c' {
+  \set Staff.instrumentName = #&quot;Viola &quot;
+  \clef alto
+
+  e2 d c1
+
+\bar &quot;|.&quot; }}   %*********************************
+Cello = \new Voice { \relative c' {
+  \set Staff.instrumentName = #&quot;Cello &quot;
+  \clef bass
+
+  c2 b a1
+
+\bar &quot;|.&quot;}}   %**********************************
+
+music = {
+  &lt;&lt;
+    \tag #'score \tag #'vn1 \new Staff { &lt;&lt; \global \Violinone &gt;&gt; }
+    \tag #'score \tag #'vn2 \new Staff { &lt;&lt; \global \Violintwo&gt;&gt; }
+    \tag #'score \tag #'vla \new Staff { &lt;&lt; \global \Viola&gt;&gt; }
+    \tag #'score \tag #'vlc \new Staff { &lt;&lt; \global \Cello&gt;&gt; }
+  &gt;&gt;
+}
+
+%%% These are the other files you need to save on your computer
+
+%%%%% score.ly
+%%%%% (This is the main file)
+
+
+%\include &quot;piece.ly&quot;             %%% uncomment this line when using a separate file
+#(set-global-staff-size 14)
+\score {
+  \new StaffGroup \keepWithTag #'score \music
+  \layout { }
+  \midi { }
+}
+
+
+%{ Uncomment this block when using separate files
+
+%%%%% vn1.ly
+%%%%% (This is the Violin 1 part file)
+
+\include &quot;piece.ly&quot;
+\score {
+  \keepWithTag #'vn1 \music
+  \layout { }
+}
+
+
+%%%%% vn2.ly
+%%%%% (This is the Violin 2 part file)
+
+\include &quot;piece.ly&quot;
+\score {
+  \keepWithTag #'vn2 \music
+  \layout { }
+}
+
+
+%%%%% vla.ly
+%%%%% (This is the Viola part file)
+
+\include &quot;piece.ly&quot;
+\score {
+  \keepWithTag #'vla \music
+  \layout { }
+}
+
+
+%%%%% vlc.ly
+%%%%% (This is the Cello part file)
+
+\include &quot;piece.ly&quot;
+\score {
+  \keepWithTag #'vlc \music
+  \layout { }
+}
+
+%}
+
+</pre><p>
+ <a href="../72/lily-9ef68368.ly">
+  <img align="middle"
+       border="0"
+       src="../72/lily-9ef68368.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="vocal-ensemble-template-with-automatic-piano-reduction.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Vocal ensemble template with automatic piano reduction</h2>
+
+
+<p>This template adds an automatic piano reduction to the standard SATB
+vocal score demonstrated in &quot;Vocal ensemble template&quot;. This
+demonstrates one of the strengths of LilyPond – you can use a music
+definition more than once. If any changes are made to the vocal notes
+(say, <code>tenorMusic</code>), then the changes will also apply to the piano
+reduction.
+</p>
+
+<pre class="verbatim">global = {
+  \key c \major
+  \time 4/4
+}
+
+sopMusic = \relative c'' {
+  c4 c c8[( b)] c4
+}
+sopWords = \lyricmode {
+  hi hi hi hi
+}
+
+altoMusic = \relative c' {
+  e4 f d e
+}
+altoWords =\lyricmode {
+  ha ha ha ha
+}
+
+tenorMusic = \relative c' {
+  g4 a f g
+}
+tenorWords = \lyricmode {
+  hu hu hu hu
+}
+
+bassMusic = \relative c {
+  c4 c g c
+}
+bassWords = \lyricmode {
+  ho ho ho ho
+}
+
+\score {
+  &lt;&lt;
+    \new ChoirStaff &lt;&lt;
+      \new Lyrics = sopranos { s1 }
+      \new Staff = women &lt;&lt;
+        \new Voice = sopranos { \voiceOne &lt;&lt; \global \sopMusic &gt;&gt; }
+        \new Voice = altos { \voiceTwo &lt;&lt; \global \altoMusic &gt;&gt; }
+      &gt;&gt;
+      \new Lyrics = altos { s1 }
+      \new Lyrics = tenors { s1 }
+      \new Staff = men &lt;&lt;
+        \clef bass
+        \new Voice = tenors { \voiceOne &lt;&lt;\global \tenorMusic &gt;&gt; }
+        \new Voice = basses { \voiceTwo &lt;&lt;\global \bassMusic &gt;&gt; }
+      &gt;&gt;
+      \new Lyrics = basses { s1 }
+      \context Lyrics = sopranos \lyricsto sopranos \sopWords
+      \context Lyrics = altos \lyricsto altos \altoWords
+      \context Lyrics = tenors \lyricsto tenors \tenorWords
+      \context Lyrics = basses \lyricsto basses \bassWords
+    &gt;&gt;
+    \new PianoStaff &lt;&lt;
+      \new Staff &lt;&lt;
+        \set Staff.printPartCombineTexts = ##f
+        \partcombine
+        &lt;&lt; \global \sopMusic &gt;&gt;
+        &lt;&lt; \global \altoMusic &gt;&gt;
+      &gt;&gt;
+      \new Staff &lt;&lt;
+        \clef bass
+        \set Staff.printPartCombineTexts = ##f
+        \partcombine
+        &lt;&lt; \global \tenorMusic &gt;&gt;
+        &lt;&lt; \global \bassMusic &gt;&gt;
+      &gt;&gt;
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    \context {
+      % a little smaller so lyrics
+      % can be closer to the staff
+      \Staff
+      \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../fa/lily-db838dfc.ly">
+  <img align="middle"
+       border="0"
+       src="../fa/lily-db838dfc.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Vocal ensemble template with lyrics aligned below and above the staves</h2>
+
+
+<p>This template is basically the same as the simple &quot;Vocal ensemble&quot;
+template, with the exception that here all the lyrics lines are placed
+using <code>alignAboveContext</code> and <code>alignBelowContext</code>.
+</p>
+
+<pre class="verbatim">global = {
+  \key c \major
+  \time 4/4
+}
+
+sopMusic = \relative c'' {
+  c4 c c8[( b)] c4
+}
+sopWords = \lyricmode {
+  hi hi hi hi
+}
+
+altoMusic = \relative c' {
+  e4 f d e
+}
+altoWords = \lyricmode {
+  ha ha ha ha
+}
+
+tenorMusic = \relative c' {
+  g4 a f g
+}
+tenorWords = \lyricmode {
+  hu hu hu hu
+}
+
+bassMusic = \relative c {
+  c4 c g c
+}
+bassWords = \lyricmode {
+  ho ho ho ho
+}
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Staff = women &lt;&lt;
+      \new Voice = &quot;sopranos&quot; { \voiceOne &lt;&lt; \global \sopMusic &gt;&gt; }
+      \new Voice = &quot;altos&quot; { \voiceTwo &lt;&lt; \global \altoMusic &gt;&gt; }
+    &gt;&gt;
+    \new Lyrics \with { alignAboveContext = women } \lyricsto sopranos \sopWords
+    \new Lyrics \with { alignBelowContext = women } \lyricsto altos \altoWords
+    % we could remove the line about this with the line below, since we want
+    % the alto lyrics to be below the alto Voice anyway.
+    % \new Lyrics \lyricsto altos \altoWords
+    
+    \new Staff = men &lt;&lt;
+      \clef bass
+      \new Voice = &quot;tenors&quot; { \voiceOne &lt;&lt; \global \tenorMusic &gt;&gt; }
+      \new Voice = &quot;basses&quot; { \voiceTwo &lt;&lt; \global \bassMusic &gt;&gt; }
+    &gt;&gt;
+    \new Lyrics \with { alignAboveContext = men } \lyricsto tenors \tenorWords
+    \new Lyrics \with { alignBelowContext = men } \lyricsto basses \bassWords
+    % again, we could replace the line above this with the line below.
+    % \new Lyrics \lyricsto basses \bassWords
+  &gt;&gt;
+  \layout {
+    \context {
+      % a little smaller so lyrics
+      % can be closer to the staff
+      \Staff
+      \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../45/lily-b608b16a.ly">
+  <img align="middle"
+       border="0"
+       src="../45/lily-b608b16a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="vocal-ensemble-template.ly"></a>
+<hr size="6">
+<a name="Single-staff-template-with-only-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[&nbsp; &gt; ]</td></tr></table>
+<h2 class="unnumberedsec">Vocal ensemble template</h2>
+
+
+<p>Here is a standard four-part SATB vocal score. With larger ensembles,
+it is often useful to include a section which is included in all parts.
+For example, the time signature and key signature are almost always the
+same for all parts. Like in the &quot;Hymn&quot; template, the four voices are
+regrouped on only two staves.
+</p>
+
+<pre class="verbatim">global = {
+  \key c \major
+  \time 4/4
+}
+
+sopMusic = \relative c'' {
+  c4 c c8[( b)] c4
+}
+sopWords = \lyricmode {
+  hi hi hi hi
+}
+
+altoMusic = \relative c' {
+  e4 f d e
+}
+altoWords = \lyricmode {
+  ha ha ha ha
+}
+
+tenorMusic = \relative c' {
+  g4 a f g
+}
+tenorWords = \lyricmode {
+  hu hu hu hu
+}
+
+bassMusic = \relative c {
+  c4 c g c
+}
+bassWords = \lyricmode {
+  ho ho ho ho
+}
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Lyrics = sopranos { s1 }
+    \new Staff = women &lt;&lt;
+      \new Voice = &quot;sopranos&quot; {
+        \voiceOne
+        &lt;&lt; \global \sopMusic &gt;&gt;
+      }
+      \new Voice = &quot;altos&quot; {
+        \voiceTwo
+        &lt;&lt; \global \altoMusic &gt;&gt;
+      }
+    &gt;&gt;
+    \new Lyrics = &quot;altos&quot; { s1 }
+    \new Lyrics = &quot;tenors&quot; { s1 }
+    \new Staff = men &lt;&lt;
+      \clef bass
+      \new Voice = &quot;tenors&quot; {
+        \voiceOne
+        &lt;&lt; \global \tenorMusic &gt;&gt;
+      }
+      \new Voice = &quot;basses&quot; {
+        \voiceTwo &lt;&lt; \global \bassMusic &gt;&gt;
+      }
+    &gt;&gt;
+    \new Lyrics = basses { s1 }    
+    \context Lyrics = sopranos \lyricsto sopranos \sopWords
+    \context Lyrics = altos \lyricsto altos \altoWords
+    \context Lyrics = tenors \lyricsto tenors \tenorWords
+    \context Lyrics = basses \lyricsto basses \bassWords
+  &gt;&gt;  
+  \layout {
+    \context {
+      % a little smaller so lyrics
+      % can be closer to the staff
+      \Staff
+      \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../3f/lily-e9336a36.ly">
+  <img align="middle"
+       border="0"
+       src="../3f/lily-e9336a36.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[&nbsp; &gt;&gt; ]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Single-staff-template-with-only-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[&nbsp; &gt; ]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li class="toc_current"><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Ancient-notation-template-_002d_002d-modern-transcription-of-gregorian-music-2" href="Templates.html#Templates">Ancient notation template &ndash; modern transcription of gregorian music</a>    </li>
+    <li class="toc_current"><a name="toc-Ancient-notation-template-_002d_002d-modern-transcription-of-mensural-music-1" href="Templates.html#Templates">Ancient notation template &ndash; modern transcription of mensural music</a>    </li>
+    <li class="toc_current"><a name="toc-Jazz-combo-template-2" href="Templates.html#Templates">Jazz combo template</a>    </li>
+    <li><a name="toc-Orchestra_002c-choir-and-piano-template" href="Templates.html#Orchestra">Orchestra, choir and piano template</a>    </li>
+    <li><a name="toc-Piano-template-_0028simple_0029-2" href="Templates.html#Orchestra">Piano template (simple)</a>    </li>
+    <li><a name="toc-Piano-template-with-centered-dynamics-3" href="Templates.html#Orchestra">Piano template with centered dynamics</a>    </li>
+    <li><a name="toc-Piano-template-with-centered-lyrics-1" href="Templates.html#Orchestra">Piano template with centered lyrics</a>    </li>
+    <li><a name="toc-Piano-template-with-melody-and-lyrics-2" href="Templates.html#Orchestra">Piano template with melody and lyrics</a>    </li>
+    <li><a name="toc-Score-for-diatonic-accordion-1" href="Templates.html#Score-for-diatonic-accordion">Score for diatonic accordion</a>    </li>
+    <li><a name="toc-Single-staff-template-with-notes_002c-lyrics_002c-and-chords" href="Templates.html#Score-for-diatonic-accordion">Single staff template with notes, lyrics, and chords</a>    </li>
+    <li><a name="toc-Single-staff-template-with-notes_002c-lyrics_002c-chords-and-frets" href="Templates.html#Score-for-diatonic-accordion">Single staff template with notes, lyrics, chords and frets</a>    </li>
+    <li><a name="toc-Single-staff-template-with-notes-and-chords-1" href="Templates.html#Score-for-diatonic-accordion">Single staff template with notes and chords</a>    </li>
+    <li><a name="toc-Single-staff-template-with-notes-and-lyrics-1" href="Templates.html#Score-for-diatonic-accordion">Single staff template with notes and lyrics</a>    </li>
+    <li><a name="toc-Single-staff-template-with-only-notes-1" href="Templates.html#Single-staff-template-with-only-notes">Single staff template with only notes</a>    </li>
+    <li><a name="toc-String-quartet-template-_0028simple_0029-1" href="Templates.html#Single-staff-template-with-only-notes">String quartet template (simple)</a>    </li>
+    <li><a name="toc-String-quartet-template-with-separate-parts-1" href="Templates.html#Single-staff-template-with-only-notes">String quartet template with separate parts</a>    </li>
+    <li><a name="toc-Vocal-ensemble-template-with-automatic-piano-reduction-2" href="Templates.html#Single-staff-template-with-only-notes">Vocal ensemble template with automatic piano reduction</a>    </li>
+    <li><a name="toc-Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves-1" href="Templates.html#Single-staff-template-with-only-notes">Vocal ensemble template with lyrics aligned below and above the staves</a>    </li>
+    <li><a name="toc-Vocal-ensemble-template-2" href="Templates.html#Single-staff-template-with-only-notes">Vocal ensemble template</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

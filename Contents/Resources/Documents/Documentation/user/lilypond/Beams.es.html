@@ -1,0 +1,1408 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 1.2.4 Barras</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 1.2.4 Beams">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 1.2.4 Beams">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Rhythms.es.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Displaying-rhythms.es.html#Displaying-rhythms" rel="previous" title="1.2.3 Displaying rhythms">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Displaying-rhythms.es.html#Showing-melody-rhythms" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Mostrar los ritmos de la melodía&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.es.html#Rhythms" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Duraciones&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automatic-beams" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras automáticas &gt; </a>]</td></tr></table>
+<a name="Beams"></a>
+<h3 class="subsection">1.2.4 Barras</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Automatic-beams" accesskey="1">Barras automáticas</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Setting-automatic-beam-behavior" accesskey="2">Establecer el comportamiento de las barras automáticas</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Manual-beams" accesskey="3">Barras manuales</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Feathered-beams" accesskey="4">Barras progresivas</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Automatic-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Beams" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Setting-automatic-beam-behavior" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Establecer el comportamiento de las barras automáticas &gt; </a>]</td></tr></table>
+<a name="Automatic-beams"></a>
+<h4 class="unnumberedsubsubsec">Barras automáticas</h4>
+
+<p>De manera predeterminada, las barras de corchea se insertan
+automáticamente:
+</p>
+<a name="index-barras-manuales"></a>
+<a name="index-manuales_002c-barras"></a>
+<a name="index-barras_002c-establecer-reglas"></a>
+<a name="index-barras_002c-reglas-personalizadas"></a>
+
+<a name="index-measureLength"></a>
+<a name="index-measureLength-1"></a>
+<a name="index-beatLength"></a>
+<a name="index-beatLength-1"></a>
+<a name="index-beatGrouping"></a>
+<a name="index-beatGrouping-1"></a>
+<a name="index-_005cautoBeamOn"></a>
+<a name="index-_005cautoBeamOn-1"></a>
+<a name="index-autoBeamOn"></a>
+<a name="index-autoBeamOn-1"></a>
+<a name="index-_005cautoBeamOff"></a>
+<a name="index-_005cautoBeamOff-1"></a>
+<a name="index-autoBeamOff"></a>
+<a name="index-autoBeamOff-1"></a>
+
+<blockquote><pre class="verbatim">\time 2/4 c8 c c c
+\time 6/8 c c c c8. c16 c8
+</pre><p>
+ <a href="../4e/lily-f2ed804a.ly">
+  <img align="middle"
+       border="0"
+       src="../4e/lily-f2ed804a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Cuando estas decisiones automáticas no son lo bastante buenas, se
+pueden escribir los barrados de forma explícita; véase <a href="#Manual-beams">Barras manuales</a>.  También es posible definir patrones de barrado que difieran
+de los ajustes por defecto.  Las reglas de barrado predeterminadas
+están definidas en el archivo &lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;.  Si no
+hay definidas reglas de barrado para una duración dada de la barra en
+el tipo de compás en uso, el barrado se controla mediante los valores
+de tres propiedades de contexto, <code>measureLength</code>,
+<code>beatLength</code> y <code>beatGrouping</code>.  Tanto las reglas de barrado
+como las propiedades de contexto se pueden sobreescribir, véase
+<a href="#Setting-automatic-beam-behavior">Establecer el comportamiento de las barras automáticas</a>.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Nota:</b> Si se usan barras para indicar los melismas de las canciones,
+entonces se debe desactivar el barrado automático con
+<code>autoBeamOff</code> e indicar las barras manualmente.
+</p></td></tr></table>
+
+
+<p>El barrado automático se puede habilitar o desactivar con las
+instrucciones <code>\autoBeamOff</code> y <code>\autoBeamOn</code>:
+</p>
+<blockquote><pre class="verbatim">c4 c8 c8. c16 c8. c16 c8
+\autoBeamOff
+c4 c8 c8. c16 c8.
+\autoBeamOn
+c16 c8
+</pre><p>
+ <a href="../57/lily-8a3c3054.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-8a3c3054.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Instrucciones-predefinidas-36"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<p><code>\autoBeamOff</code>,
+<code>\autoBeamOn</code>.
+</p>
+
+<a name="Fragmentos-de-codigo-seleccionados-1"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+
+<a name="index-saltos-de-linea-y-barrado"></a>
+<a name="index-linea_002c-saltos-de_002c-y-barrado"></a>
+
+<a name="index-divisible"></a>
+<a name="index-divisible-1"></a>
+
+<p><em> Beams across line breaks</em>
+</p>
+
+<p>Normalmente están prohibidos los saltos de línea si las barras
+atraviesan las líneas divisorias.  Se puede cambiar este
+comportamiento como se muestra aquí:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override Beam #'breakable = ##t
+  c8 c[ c] c[ c] c[ c] c[ \break  
+  c8] c[ c] c[ c] c[ c] c
+}
+
+
+</pre><p>
+ <a href="../fb/lily-7f7b42ec.ly">
+  <img align="middle"
+       border="0"
+       src="../fb/lily-7f7b42ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Cambiar el salto de las barras en ángulo</em>
+</p>
+
+<p>Se insertan automáticamente barras en ángulo cuando se detecta un
+intervalo muy grande entre las notas.  Se puede hacer un ajuste
+fino de este comportamiento a través de la propiedad
+<code>auto-knee-gap</code>.  Se traza una barra doblada si el salto es
+mayor que el valor de <code>auto-knee-gap</code> más el ancho del objeto
+barra (que depende de la duración de las notas y de la inclinación
+de la barra).  De forma predeterminada <code>auto-knee-gap</code> está
+establecido a 5.5 espacios de pentagrama.
+</p>
+
+<blockquote><pre class="verbatim">{
+  f8 f''8 f8 f''8
+  \override Beam #'auto-knee-gap = #6
+  f8 f''8 f8 f''8
+}
+
+</pre><p>
+ <a href="../bb/lily-a0737d05.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-a0737d05.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-162"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de la notación:
+<a href="#Manual-beams">Barras manuales</a>,
+<a href="#Setting-automatic-beam-behavior">Establecer el comportamiento de las barras automáticas</a>.
+</p>
+<p>Archivos instalados:
+&lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-Beam"></a>
+<a href="../lilypond-internals/Beam.es.html#Beam">Beam</a>.
+</p>
+
+<a name="Advertencias-y-problemas-conocidos-5"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>No se pueden usar conjuntamente barras dobladas automáticamente que
+cruzan pentagramas y pentagramas ocultos.  Véase <a href="Modifying-single-staves.es.html#Hiding-staves">Ocultar pentagramas</a>.
+</p>
+<p>Las barras pueden colisionar con las cabezas de las notas y las
+alteraciones accidentales de las otras voces.
+</p>
+<hr size="6">
+<a name="Setting-automatic-beam-behavior"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-beams" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras automáticas&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Manual-beams" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras manuales &gt; </a>]</td></tr></table>
+<a name="Setting-automatic-beam-behavior"></a>
+<h4 class="unnumberedsubsubsec">Establecer el comportamiento de las barras automáticas</h4>
+
+
+<a name="index-barras-automaticas_002c-ajuste-fino"></a>
+<a name="index-ajuste-fino-de-las-barras-automaticas"></a>
+<a name="index-automaticas_002c-generacion-de-barras"></a>
+<a name="index-barras-automaticas"></a>
+<a name="index-letra-y-barrado"></a>
+
+<a name="index-autoBeaming"></a>
+<a name="index-autoBeaming-1"></a>
+<a name="index-autoBeamSettings"></a>
+<a name="index-autoBeamSettings-1"></a>
+<a name="index-_0028end-_002a-_002a-_002a-_002a_0029"></a>
+<a name="index-_0028end-_002a-_002a-_002a-_002a_0029-1"></a>
+<a name="index-_0028begin-_002a-_002a-_002a-_002a_0029"></a>
+<a name="index-_0028begin-_002a-_002a-_002a-_002a_0029-1"></a>
+<a name="index-measureLength-2"></a>
+<a name="index-measureLength-3"></a>
+<a name="index-beatLength-2"></a>
+<a name="index-beatLength-3"></a>
+<a name="index-beatGrouping-2"></a>
+<a name="index-beatGrouping-3"></a>
+<a name="index-_005ctime-2"></a>
+<a name="index-_005ctime-3"></a>
+<a name="index-time-2"></a>
+<a name="index-time-3"></a>
+<a name="index-_005cset"></a>
+<a name="index-_005cset-1"></a>
+<a name="index-set"></a>
+<a name="index-set-1"></a>
+
+<p>La colocación de barras automáticas viene determinada por las reglas
+descritas en <a href="#Automatic-beams">Barras automáticas</a>.  Existen dos formas mutuamente
+excluyentes de modificar estas reglas.  La primera es modificar la
+agrupación de los pulsos y se aplica a compases poco usuales, es
+decir, aquellos para los que no ha reglas predefinidas que definen los
+puntos de final de las barras.  El segundo método, modificar la
+especificación de los puntos finales de las barras, se puede usar para
+cualquier tipo de compás. Este segundo método <strong>se debe</strong> usar
+para aquellos compases y combinaciones de duración de barras para los
+que existen reglas predefinidas de final de barra, a no ser que se
+hayan revertido. Hay reglas predefinidas para los compases de 3/2,
+3/4, 4/4, 2/4, 4/8, 4/16, 6/8, 9/8 y 12/8.
+</p>
+<p><i><strong>Modificar las agrupaciones de pulsos</strong></i>
+</p>
+<p>Si no hay definida ninguna regla de final de barra para la duración de
+una barra en particular dentro del tipo de compás en uso, su barrado
+se controla mediante tres propiedades de contexto:
+<code>measureLength</code>, <code>beatLength</code> y <code>beatGrouping</code>.  Estas
+propiedades se deben establecer en los contextos <code>Score</code>,
+<code>Staff</code> o <code>Voice</code> para delimitar el ámbito de su efecto.
+Los valores predeterminados se establecen al procesarse las
+instrucciones <code>\time</code>, por ello las instrucciones <code>\set</code> se
+deben escribir después de todas las instrucciones <code>\time</code>.
+</p>
+<p>Dichas propiedades determinan el barrado de la siguiente forma:
+</p>
+<p>Las barras pueden dar comienzo en cualquier lugar (excepto si ya hay
+una barra activa).  Las barras terminan en un tiempo determinado por
+los valores de <code>beatGrouping</code> y <code>beatLength</code>, com se ve a
+continuación:
+</p>
+<ul>
+<li>
+Si <code>beatGrouping</code> y <code>beatLength</code> con consistentes con
+<code>measureLength</code>, se utiliza <code>beatGrouping</code> para determinar
+los puntos finales de las barras.
+
+</li><li>
+Si <code>beatGrouping</code> y <code>beatLength</code> no concuerdan con
+<code>measureLength</code>, se usa <code>beatLength</code> para determinar los
+puntos finales de las barras.
+
+</li></ul>
+
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Nota:</b> Estas tres propiedades se hacen efectivas para una barra
+concreta <strong>solamente</strong> si no hay reglas de final de barra
+predefinidas para esa duración de barra en el tipo de compás en uso, o
+si todas esas reglas de final de barra se han revertido.
+</p></td></tr></table>
+
+<p>De forma predeterminada, las propiedades the <code>measureLength</code> y
+<code>beatLength</code> se derivan del compás establecido por la instrucción
+<code>\time</code>.  La longitud <code>measureLength</code> está establecida de
+forma que sea exactamente la misma que la longitud del compás dado por
+la indicación de compás, y la longitud del pulso <code>beatLength</code>
+tiene un valor dado igual a una parte de compás (1/n, siendo n el
+denominador del compás).
+</p>
+<p>El valor predeterminado de <code>beatGrouping</code> se toma de una tabla
+que está en &lsquo;<tt>scm/music-functions.scm</tt>&rsquo;.  Para localizarla,
+véase <a name="index-Other-sources-of-information"></a>
+<a href="../lilypond-learning/Other-sources-of-information.es.html#Other-sources-of-information">Otras fuentes de información</a>.  Define la agrupación
+de pulsos para los compases de 5/8, 6/8, 8/8, 9/8 y 12/8.
+</p>
+<p>Tanto <code>measureLength</code> como <code>beatLength</code> son <i>momentos</i>,
+unidades de duración musical.  Las cantidades del tipo <i>moment</i> se
+crean por la función de Scheme <code>ly:make-moment</code>.  Para ver más
+información sobre esta función, consulte <a href="Special-rhythmic-concerns.es.html#Time-administration">Gestión del tiempo</a>.
+</p>
+<p><code>beatGrouping</code> es una lista de enteros que dan el número de
+pulsos en cada grupo.
+</p>
+<a name="Fragmentos-de-codigo-seleccionados-25"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Agrupar los pulsos</em>
+</p>
+
+<p>Los patrones de barrado se pueden alterar con la propiedad
+<code>beatGrouping</code>:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 5/16
+  #(override-auto-beam-setting '(end * * 5 16) 5 16)
+  \set beatGrouping = #'(2 3)
+  c8^&quot;(2+3)&quot; c16 c8
+  \set beatGrouping = #'(3 2)
+  c8^&quot;(3+2)&quot; c16 c8
+}
+
+
+</pre><p>
+ <a href="../cb/lily-319ee847.ly">
+  <img align="middle"
+       border="0"
+       src="../cb/lily-319ee847.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Especificar el contexto con beatGrouping</em>
+</p>
+
+<p>Mediante la especificación del contexto, el efecto de
+<code>beatGrouping</code> puede limitarse al contexto especificado, y
+sobreescribirse los valores establecidos en contextos de niveles más
+altos:
+</p>
+
+<blockquote><pre class="verbatim">\score {
+  \new Staff &lt;&lt;
+    \time 7/8
+    \new Voice {
+      \relative c'' {
+        \set Staff.beatGrouping = #'(2 3 2)
+        a8 a a a a a a
+      }
+    }
+    \new Voice {
+      \relative c' {
+        \voiceTwo
+        \set beatGrouping = #'(1 3 3)
+        f8 f f f f f f
+      }
+    }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../6b/lily-5ab0c0ee.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-5ab0c0ee.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Utilización de beatLength y beatGrouping</em>
+</p>
+
+<p>La propiedad <code>measureLength</code> determina dónde se deben insertar
+líneas divisorias y, con <code>beatLength</code> y <code>beatGrouping</code>, cómo
+se deben generar las barras autoomáticas para las duraciones de barra
+y compases para los que no hay ninguna regla definida para los finales
+de barra. Este ejemplo muestra distintas dormas de controlar el
+barrado mediante el establecimiento de estas propiedades. Las
+explicaciones están en forma de comentarios dentro del código.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 3/4
+  % De forma predeterminada, en 3/4 el barrado se hace en tres grupos
+  % de una negra de longitud cada uno
+  a16 a a a a a a a a a a a
+
+  \time 12/16
+  % No hay ningún barrado automático definido para 12/16
+  a16 a a a a a a a a a a a
+
+  \time 3/4
+  % Cambiar el símbolo de compás, manteniendo el barrado subyacente de 3/4
+  \set Score.timeSignatureFraction = #'(12 . 16)
+  a16 a a a a a a a a a a a
+
+  % El agrupamiento predeterminado de (1 1 1) y beatLength de 1/8 del compás 3/4
+  % no son consistentes con una longitud de compás measureLength de 3/4, por ello las barras
+  % se agrupan a intervalos de beatLength
+  \set Score.beatLength = #(ly:make-moment 1 8)
+  a16 a a a a a a a a a a a
+
+  % Especificar barras en grupos de (3 3 2 3) semicorcheas
+  % 3+3+2+3=11, y 11*1/16&lt;&gt;3/4, así que no es de aplicación beatGrouping
+  % y las barras se agrupan a intervalos de beatLength (semicorcheas)
+  \set Score.beatLength = #(ly:make-moment 1 16)
+  \set Score.beatGrouping = #'(3 3 2 3)
+  a16 a a a a a a a a a a a
+
+  % Especificat barras en grupos de (3 4 2 3) semicorcheas
+  % 3+4+2+3=12, y 12*1/16=3/4, así pues beatGrouping es de aplicación
+  \set Score.beatLength = #(ly:make-moment 1 16)
+  \set Score.beatGrouping = #'(3 4 2 3)
+  a16 a a a a a a a a a a a
+}
+</pre><p>
+ <a href="../ce/lily-b6c209c2.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-b6c209c2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-subdivideBeams"></a>
+<a name="index-subdivideBeams-1"></a>
+
+<p><em> Subdivisión de las barras de semicorchea</em>
+</p>
+
+<p>Las barras de semicorcheas (o notas más breves) seguidas no se
+subdividen de forma predeterminada.  Esto es: las tres (o más)
+barras se prolongan, sin dividirse, sobre grupos completos de
+notas.  Este comportamiento se puede modificar para que las barras
+se subdividan en subgrupos mediante el establecimiento de la
+propiedad <code>subdivideBeams</code>.  Cuando está establecida, las
+diversas barras se subdividen a intervalos definidos por el valor
+actual de la longitud del pulso <code>beatLength</code> reduciendo las
+barras múltiples a una sola entre los subgrupos.  Observe que el
+valor predeterminado de <code>beatLength</code> es de una negra si no
+está establecido explícitamente.  Se debe establecer al valor de
+una fracción que da la duración el subgrupo de barras utilizando
+la función <code>make-moment</code>, como se muestra aquí:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  c32[ c c c c c c c]
+  \set subdivideBeams = ##t
+  c32[ c c c c c c c]
+
+  % Fijar la longitud del subgrupo de barras a una corchea
+  \set beatLength = #(ly:make-moment 1 8)
+  c32[ c c c c c c c]
+
+  % Fijar la longitud del subgrupo de barras a una semicorchea
+  \set beatLength = #(ly:make-moment 1 16)
+  c32[ c c c c c c c]
+}
+
+</pre><p>
+ <a href="../5c/lily-303b9993.ly">
+  <img align="middle"
+       border="0"
+       src="../5c/lily-303b9993.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-compases_002c-agrupaciones-de"></a>
+<a name="index-pulsos_002c-agrupar"></a>
+<a name="index-agrupacion-de-pulsos"></a>
+<a name="index-compases_002c-subgrupos-dentro-de"></a>
+
+<p><em> Símbolos de dirección, símbolos de agrupación de compás</em>
+</p>
+
+<p>Las opciones para agrupar los pulsos de un compás están a nuestra
+disposición a través de la función de Scheme
+<code>set-time-signature</code>, que acepta tres argumentos: el número
+de pulsos, la longitud del pulso, y la agrupación interna de los
+pulsos dentro del compás.  Si se incluye el grabador
+<code>Measure_grouping_engraver</code>, la función crea también símbolos
+de agrupación <code>MeasureGrouping</code>.  Dichos símbolos facilitan
+la lectura de la música moderna de cierta complejidad rítmica.  En
+el ejemplo, el compás de 9/8 se subdivide en 2, 2, 2 y 3.  Esto se
+pasa a la función <code>set-time-signature</code> como tercer argumento:
+<code>'(2 2 2 3)</code>:
+</p>
+
+<blockquote><pre class="verbatim">\score {
+  \relative c'' {
+    #(set-time-signature 9 8 '(2 2 2 3))
+    #(revert-auto-beam-setting '(end * * 9 8) 3 8)
+    #(override-auto-beam-setting '(end 1 8 9 8) 1 4)
+    #(override-auto-beam-setting '(end 1 8 9 8) 2 4)
+    #(override-auto-beam-setting '(end 1 8 9 8) 3 4)
+    g8 g d d g g a( bes g) |
+    #(set-time-signature 5 8 '(3 2))
+    a4. g4
+  }
+  \layout {
+    \context {
+      \Staff
+      \consists &quot;Measure_grouping_engraver&quot;
+    }
+  }
+}
+
+</pre><p>
+ <a href="../ee/lily-86d98b04.ly">
+  <img align="middle"
+       border="0"
+       src="../ee/lily-86d98b04.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p><strong><i>Modificar los puntos finales de las barras</i></strong>
+</p>
+<p>En compases de tipo normal, las barras automáticas pueden comenzar en
+cualquier nota pero solamente pueden terminar en algunas poriciones
+dentro del compás, concretamente en las duraciones que estén
+especificadas por las propiedades de <code>autoBeamSettings</code>.  Estas
+propiedades consisten en una lista de reglas que especifican dónde
+pueden terminar las barras.  Las reglas predeterminadas de
+<code>autoBeamSettings</code> están definidas en
+&lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;. Para localizarlo, consulte
+<a name="index-Other-sources-of-information-1"></a>
+<a href="../lilypond-learning/Other-sources-of-information.es.html#Other-sources-of-information">Otras fuentes de información</a>.
+</p>
+<p><strong>Se debe</strong> usar este método para los tipos de compás para los
+que existen reglas de final de barra definidas de forma
+predeterminada, a no ser que todas ellas se hayan revertido. También
+es particularmente apropiado para otros muchos compases si la
+indicación de compás cambia con frecuencia, o si el barrado debe ser
+distinto para las distintas duraciones de barra.
+</p>
+<p>Para añadir una regla a la lista, utilice
+</p>
+<blockquote><pre class="example">#(override-auto-beam-setting
+  '(beam-limit
+    beam-numerator  beam-denominator
+    time-signature-numerator time-signature-denominator)
+  moment-numerator moment-denominator [context])
+</pre></blockquote>
+
+<p>donde:
+</p>
+<ul>
+<li> <code>límite-barra</code> es el tipo de límte de barra automática que se
+define.  Puede ser <code>begin</code> o <code>end</code>, pero sólo es efectivo
+<code>end</code>.
+
+</li><li> <code>numerador-barra/denominador-barra</code> es la duración de la barra
+a la que se quiere aplicar la regla.  Se considera que una barra tiene
+la duración de su nota más breve.  Ajuste <code>numerador-barra</code> y
+<code>denominador-barra</code> a un asterisco <code>'*'</code> para que la regla
+se aplique a las barras de cualquier duración.
+
+</li><li> <code>numerador-compás/denominador-compás</code> especifica la indicación de compás
+a que se aplica esta regla.  Si <code>numerador-compás</code> y
+<code>denominador-compás</code> tienen el valor de un asterisco <code>'*'</code>,
+esta regla se aplica a cualquier tipo de compás.
+
+</li><li> <code>numerador-momento/denominador-momento</code> es la posición dentro del
+compás en que la barra debe terminar.
+
+</li><li> <code>contexto</code> es opcional, y especifica el contexto en que se debe
+hacer el cambio.  El valor predeterminado es <code>'Voice</code>.
+
+<p><code>#(score-override-auto-beam-setting '(A B C D) E F)</code> es
+equivalente a <code>#(override-auto-beam-setting '(A B C D) E F
+'Score)</code>.
+</p>
+</li></ul>
+
+<p>Por ejemplo, si las barras automáticas siempre deben terminar sobre la
+primera negra, para cualquier tipo de compás o duración de la barra,
+use
+</p>
+<blockquote><pre class="verbatim">a8 a a a a a a a
+#(override-auto-beam-setting '(end * * * *) 1 4)
+a8 a a a a a a a
+</pre><p>
+ <a href="../4f/lily-7390abb1.ly">
+  <img align="middle"
+       border="0"
+       src="../4f/lily-7390abb1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Podemos forzar los ajustes de las barras para que tengan efecto sólo
+sobre las barras cuya nota más breve sea de una cierta duración:
+</p>
+<blockquote><pre class="verbatim">\time 2/4
+% finalizar barras de semicorchea para todos los compases en el momento 1/16
+#(override-auto-beam-setting '(end 1 16 * *) 1 16)
+a16 a a a a a a a |
+a32 a a a a16 a a a a a |
+% finalizar barras de fusa para todos los compases en el momento 1/16
+#(override-auto-beam-setting '(end 1 32 * *) 1 16)
+a32 a a a a16 a a a a a |
+</pre><p>
+ <a href="../d9/lily-21ed3d3d.ly">
+  <img align="middle"
+       border="0"
+       src="../d9/lily-21ed3d3d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Podemos forzar los ajustes de las barras para que tengan efecto
+solamente en ciertos tipos de compás:
+</p>
+<blockquote><pre class="verbatim">\time 5/8
+% finalizar barras para cualquier duración en el compás de 5/8, en el momento 2/8
+#(override-auto-beam-setting '(end * * 5 8) 2 8)
+c8 c d d d
+\time 4/4
+e8 e f f e e d d
+\time 5/8
+c8 c d d d
+</pre><p>
+ <a href="../1e/lily-ca5394dd.ly">
+  <img align="middle"
+       border="0"
+       src="../1e/lily-ca5394dd.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>En caso de usar varias voces, se debe especificar el contexto
+<code>Staff</code> si queremos aplicar el barrado a todas las voces del
+pentagrama:
+</p>
+<blockquote><pre class="verbatim">\time 7/8
+% ritmo 3-1-1-2
+% Contexto sin especificar: no funciona correctamente
+#(override-auto-beam-setting '(end * * 7 8) 3 8)
+#(override-auto-beam-setting '(end * * 7 8) 4 8)
+#(override-auto-beam-setting '(end * * 7 8) 5 8)
+&lt;&lt; {a8 a a a16 a a a a8 a} \\ {f4. f8 f f f} &gt;&gt;
+
+% Funciona correctamente con el contexto especificado
+#(override-auto-beam-setting '(end * * 7 8) 3 8 'Staff)
+#(override-auto-beam-setting '(end * * 7 8) 4 8 'Staff)
+#(override-auto-beam-setting '(end * * 7 8) 5 8 'Staff)
+&lt;&lt; {a8 a a a16 a a a a8 a} \\ {f4. f8 f f f} &gt;&gt;
+</pre><p>
+ <a href="../e4/lily-26a75fc6.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-26a75fc6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Nota:</b> Si se produce un comportamiento inesperado de las barras,
+compruebe la existencia de una posible interferencia en los ajustes
+predeterminados del barrado automático que están en
+&lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;, porque los finales de barra definidos
+aquí aún son válidos además de los suyos.
+</p></td></tr></table>
+
+<p>Debemos revertir cualquer final predeterminado indeseado o
+conflictivo, para nuestro compás concreto.  Podemos eliminar una regla
+de barrado automático previamente establecida usando
+</p>
+<blockquote><pre class="example">#(revert-auto-beam-setting
+  '(beam-limit
+    beam-numerator  beam-denominator
+    time-signature-numerator time-signature-denominator)
+  moment-numerator moment-denominator [context])
+</pre></blockquote>
+
+<p><code>límite-barra</code>, <code>numerador-barra</code>, <code>denominador-barra</code>,
+<code>numerador-compás</code>, <code>denominador-compás</code>,
+<code>numerador-momento</code>, <code>denominador-momento</code> y <code>contexto</code>
+son los mismos que antes.
+</p>
+<blockquote><pre class="verbatim">\time 4/4
+a16 a a a a a a a a a a a a a a a
+% deshacer regla de finalizar barras de semicorchea en compás 4/4 en el momento 1/4
+#(revert-auto-beam-setting '(end 1 16 4 4) 1 4)
+a16 a a a a a a a a a a a a a a a
+</pre><p>
+ <a href="../21/lily-9b8f5537.ly">
+  <img align="middle"
+       border="0"
+       src="../21/lily-9b8f5537.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La regla de un enunciado <code>revert-auto-beam-setting</code> debe
+corresponderse exactamente con la regla original.  Esto es, no se
+tiene en cuenta ninguna expansión de comodines.
+</p>
+<blockquote><pre class="verbatim">\time 1/4
+#(override-auto-beam-setting '(end 1 16 1 4) 1 8)
+a16 a a a
+#(revert-auto-beam-setting '(end 1 16 * *) 1 8) % ¡esto no lo devuelve a su valor anterior!
+a a a a
+#(revert-auto-beam-setting '(end 1 16 1 4) 1 8) % esto sí
+a a a a
+</pre><p>
+ <a href="../6d/lily-c29a4c38.ly">
+  <img align="middle"
+       border="0"
+       src="../6d/lily-c29a4c38.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-56"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Agrupamiento de las barras en el compás de 7/8</em>
+</p>
+
+<p>No está especificada ninguna agrupación predeterminada automática
+de las barras para el compás de 7/8, de forma que si se requieren
+barras automáticas se debe especificar la forma de agrupamiento.
+Por ejemplo, para agrupar todas las barras en la forma 2-3-2 en el
+compás de 7/8, especificamos los finales de barra en 2/8 y 5/8:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 7/8
+  % ritmo 2-3-2
+  a8 a a a a a a
+  #(override-auto-beam-setting '(end * * 7 8) 2 8)
+  #(override-auto-beam-setting '(end * * 7 8) 5 8)
+  a8 a a a a a a
+}
+
+</pre><p>
+ <a href="../c0/lily-95ae3471.ly">
+  <img align="middle"
+       border="0"
+       src="../c0/lily-95ae3471.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Alteración de los finales de barra predeterminados</em>
+</p>
+
+<p>Para tipografiar las barras agrupadas en la forma <code>3-4-3-2</code>
+en 12/8, en primer lugar tenemos que sobreescribir los finales de
+barra predeterminados en 12/8, y después preparar los finales de
+barra nuevos:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 12/8
+
+  % Barrado predeterminado
+  a8 a a a a a a a a a a a
+
+  % Revertir los valores predeterminados en scm/auto-beam.scm para el 12/8
+  #(revert-auto-beam-setting '(end * * 12 8) 3 8)
+  #(revert-auto-beam-setting '(end * * 12 8) 3 4)
+  #(revert-auto-beam-setting '(end * * 12 8) 9 8)
+  a8 a a a a a a a a a a a
+
+  % establecer valores nuevos para finales de barra
+  #(override-auto-beam-setting '(end * * 12 8) 3 8)
+  #(override-auto-beam-setting '(end * * 12 8) 7 8)
+  #(override-auto-beam-setting '(end * * 12 8) 10 8)
+  a8 a a a a a a a a a a a
+}
+
+</pre><p>
+ <a href="../b7/lily-23896f34.ly">
+  <img align="middle"
+       border="0"
+       src="../b7/lily-23896f34.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Finales de barra en el contexto Score</em>
+</p>
+
+<p>Las reglas de final de barra especificadas en el contexto
+<code>Score</code> se aplican a todos los pentagramas, pero se pueden
+modificar tanto en los niveles de <code>Staff</code> como de
+<code>Voice</code>:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 5/4
+  % Establecer el barrado predeterminado para todos los pentagramas
+  #(score-override-auto-beam-setting '(end * * 5 4) 3 8)
+  #(score-override-auto-beam-setting '(end * * 5 4) 7 8)
+  &lt;&lt;
+    \new Staff {
+      c8 c c c c c c c c c
+    }
+    \new Staff {
+      % Modificar el barrado sólo para este pentagrama
+      #(override-auto-beam-setting '(end * * 5 4) 6 8 'Staff)
+      #(revert-auto-beam-setting '(end * * 5 4) 7 8 'Staff)
+      c8 c c c c c c c c c
+    }
+    \new Staff {
+      % Heredar el barrado del contexto Score
+      &lt;&lt;
+        {
+          \voiceOne
+          c8 c c c c c c c c c
+        }
+        % Modificar el barrado sólo para esta voz
+        \new Voice {
+          \voiceTwo
+          #(override-auto-beam-setting '(end * * 5 4) 6 8)
+          #(revert-auto-beam-setting '(end * * 5 4) 7 8)
+          a8 a a a a a a a a a
+        }
+      &gt;&gt;
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../cd/lily-057f6e4d.ly">
+  <img align="middle"
+       border="0"
+       src="../cd/lily-057f6e4d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cautoBeamOff-2"></a>
+<a name="index-_005cautoBeamOff-3"></a>
+<a name="index-autoBeamOff-2"></a>
+<a name="index-autoBeamOff-3"></a>
+<a name="index-_005cautoBeamOn-2"></a>
+<a name="index-_005cautoBeamOn-3"></a>
+<a name="index-autoBeamOn-2"></a>
+<a name="index-autoBeamOn-3"></a>
+
+<a name="Instrucciones-predefinidas-2"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<p><code>\autoBeamOff</code>,
+<code>\autoBeamOn</code>.
+</p>
+<a name="index-barra_002c-ultima-en-la-partitura"></a>
+<a name="index-barra_002c-ultima-en-una-voz-polifonica"></a>
+
+<a name="Advertencias-y-problemas-conocidos-21"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Si una partitura termina mientras una barra automática no ha terminado
+aún todavía está aceptando notas, esta última barra no se imprimirá en
+absoluto.  Lo mismo sirve para las voces polifónicas, introducidas con
+<code>&lt;&lt; &hellip; \\ &hellip; &gt;&gt;</code>.  Si una voz polifónica termina
+mientras una barra automática está aún aceptando notas, no se imprime.
+</p>
+
+<a name="Vease-tambien-119"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+
+<hr size="6">
+<a name="Manual-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Setting-automatic-beam-behavior" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Establecer el comportamiento de las barras automáticas&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Feathered-beams" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras progresivas &gt; </a>]</td></tr></table>
+<a name="Manual-beams"></a>
+<h4 class="unnumberedsubsubsec">Barras manuales</h4>
+
+<a name="index-barras-manuales-1"></a>
+<a name="index-manuales_002c-barras-1"></a>
+
+<a name="index-_005d"></a>
+<a name="index-_005d-1"></a>
+<a name="index-_005b"></a>
+<a name="index-_005b-1"></a>
+
+<p>En ciertos casos puede ser preciso sobreescribir el algoritmo de
+barrado automático.  Por ejemplo, el barrador automático no escribe
+barras por encima de los silencios o las líneas divisorias, y en las
+partituras corales el barrado se ajusta con frecuencia para que siga
+la medida de la letra en vez de la de las notas.  Tales barras se
+especifican manualmente marcando los puntos de comienzo y final con
+<code>[</code> y <code>]</code>
+</p>
+<blockquote><pre class="verbatim">{
+  r4 r8[ g' a r8] r8 g[ | a] r8
+}
+</pre><p>
+ <a href="../31/lily-ee7abff0.ly">
+  <img align="middle"
+       border="0"
+       src="../31/lily-ee7abff0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cnoBeam"></a>
+<a name="index-_005cnoBeam-1"></a>
+<a name="index-noBeam"></a>
+<a name="index-noBeam-1"></a>
+
+<p>Se pueden marcar notas individuales con <code>\noBeam</code> para evitar que
+resulten unidas por una barra:
+</p>
+<blockquote><pre class="verbatim">\time 2/4 c8 c\noBeam c c
+</pre><p>
+ <a href="../49/lily-4d76621f.ly">
+  <img align="middle"
+       border="0"
+       src="../49/lily-4d76621f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-stemLeftBeamCount"></a>
+<a name="index-stemLeftBeamCount-1"></a>
+<a name="index-stemRightBeamCount"></a>
+<a name="index-stemRightBeamCount-1"></a>
+
+<p>Se puede conseguir un control incluso más estritcto sobre las barras
+estableciendo las propiedades <code>stemLeftBeamCount</code> y
+<code>stemRightBeamCount</code>.  Especifican el número de barras que se
+dibujarán en los lados izquierdo y derecho, respectivamente, de la
+nota siguiente.  Si cualquiera de estas dos propiedades está ajustada
+a un valor, dicho valor se usará una sola vez, y luego se borrará.  En
+este ejemplo, el último Fa se imprime con sólo una barra en el lado
+izquierdo, es decir, la barra de corchea del grupo como un todo.
+</p>
+<blockquote><pre class="verbatim">a8[ r16 f g a]
+a8[ r16
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #1
+f
+\set stemLeftBeamCount = #1
+g a]
+</pre><p>
+ <a href="../5c/lily-8c61f9c9.ly">
+  <img align="middle"
+       border="0"
+       src="../5c/lily-8c61f9c9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-49"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Corchetes rectos y extremos de barra sueltos</em>
+</p>
+
+<p> Son posibles tanto los corchetes rectos sobre notas sueltas como
+extremos de barra sueltos en figuras unidas, con una combinación de
+<code>stemLeftBeamCount</code>, <code>stemRightBeamCount</code> e indicadores de
+barra <code>[ ]</code> emparejados.
+</p>
+
+
+
+<p>Para corchetes rectos que apunten a la derecha sobre notas sueltas,
+use indicadores de barra emparejados <code>[ ]</code> y establezca
+<code>stemLeftBeamCount</code> a cero (véase el ejemplo 1).
+</p>
+
+
+
+<p>Para corchetes rectos que apunten a la izquierda, establezca en su
+lugar <code>stemRightBeamCount</code> (ejemplo 2).
+</p>
+
+
+
+<p>Para extremos sueltos que apunten a la derecha al final de un conjunto
+de notas unidas, establezca <code>stemRightBeamCount</code> a un valor
+positivo.  Y para extremos sueltos que apunten a la izquierda al
+principio de un conjunto de notas unidas, establezca
+<code>stemLeftBeamCount</code> en su lugar (ejemplo 3).
+</p>
+
+
+
+<p>A veces, para una nota suelta rodeada de silencios tiene sentido que
+lleve los dos extremos sueltos del corchete plano, apuntando a derecha
+e izquierda.  Hágalo solamente con indicadores de barra emparejados
+<code>[ ]</code> (ejemplo 4).
+</p>
+
+
+
+<p>(Observe que <code>\set stemLeftBeamCount</code> siempre equivale a
+<code>\once \set</code>.  En otras palabras, los ajustes de la cantidad de
+barras no se recuerdan, y por ello el par de corchetes planos
+aplicados a la nota Do semicorchea <code>c'16 [ ]</code> del último ejemplo
+no tiene nada que ver con el <code>\set</code> de dos notas por detrás.)
+</p>
+
+
+
+
+<blockquote><pre class="verbatim">\score {
+  &lt;&lt;
+    % Ejemplo 1
+    \new RhythmicStaff {
+      \set stemLeftBeamCount = #0
+      c16[]
+      r8.
+    }
+    
+    % Ejemplo 2
+    \new RhythmicStaff {
+      r8.
+      \set stemRightBeamCount = #0
+      c16[]
+    }
+    
+    % Ejemplo 3
+    \new RhythmicStaff {
+      c16 c
+      \set stemRightBeamCount = #2
+      c16 r r
+      \set stemLeftBeamCount = #2
+      c16 c c
+    }
+    
+    % Ejemplo 4
+    \new RhythmicStaff {
+      c16 c
+      \set stemRightBeamCount = #2
+      c16 r
+      c16[]
+      r16
+      \set stemLeftBeamCount = #2
+      c16 c
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../87/lily-2a8c6f4b.ly">
+  <img align="middle"
+       border="0"
+       src="../87/lily-2a8c6f4b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<a name="Feathered-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Manual-beams" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras manuales&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Bars.es.html#Bars" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras de compás &gt; </a>]</td></tr></table>
+<a name="Feathered-beams"></a>
+<h4 class="unnumberedsubsubsec">Barras progresivas</h4>
+
+<a name="index-barras-progresivas"></a>
+
+<a name="index-_005cfeatherDurations"></a>
+<a name="index-_005cfeatherDurations-1"></a>
+<a name="index-featherDurations"></a>
+<a name="index-featherDurations-1"></a>
+<a name="index-grow_002ddirection"></a>
+<a name="index-grow_002ddirection-1"></a>
+
+<p>Las barras progresivas se usan para indicar que un pequeño grupo de
+notas se debe tocar a una velocidad creciente (o decreciente), sin
+cambiar el tempo general de la pieza.  El ámbito de la barra progresiva
+se debe indicar manualmente usando <code>[</code> y <code>]</code>, el efecto de
+ángulo de la barra se inicia especificando una dirección en la
+propiedad <code>grow-direction</code> del objeto <code>Beam</code>.
+</p>
+<p>Si queremos que la colocación de las notas y el sonido de la salida
+MIDI refleje el ritardando o accelerando indicado por la barra
+progresiva, las notas se deben agrupar como una expresión musical
+delimitada por llaves y precedida de una instrucción
+<code>featheredDurations</code> que especifica la razón entre las duraciones
+de la primera y la última notas dentro del grupo.
+</p>
+<p>Los corchetes rectos muestran el ábito de la barra y las llaves
+muestran qué notas han de modificar sus duraciones.  Normalmente
+delimitarían el mismo grupo de notas, pero no es un requisito: las dos
+instrucciones son independientes.
+</p>
+<p>En el ejemplo siguiente las ocho semicorcheas ocupan exactamente el
+mismo tiempo que una blanca, pero la primera nota tiene la mitar de
+duración que la última, con las notas intermedias alargándose
+gradualmente.  Las cuatro primeras fusas se aceleran gradualmente,
+mientras que las últimas cuatro fusas están a un tempo constante.
+</p>
+<blockquote><pre class="verbatim">\override Beam #'grow-direction = #LEFT
+\featherDurations #(ly:make-moment 2 1)
+{ c16[ c c c c c c c] }
+\override Beam #'grow-direction = #RIGHT
+\featherDurations #(ly:make-moment 2 3)
+{ c32[ d e f] }
+% volver a usar barras continuas
+\override Beam #'grow-direction = #'()
+{ g32[ a b c] }
+</pre><p>
+ <a href="../f3/lily-5d2d0e26.ly">
+  <img align="middle"
+       border="0"
+       src="../f3/lily-5d2d0e26.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El espaciado en la salida impresa representa las duraciones de las
+notas de una forma sólo aproximada, pero la salida MIDI es exacta.
+</p>
+<a name="Advertencias-y-problemas-conocidos-49"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>La instrucción <code>\featherDurations</code> sólo funciona con fragmentos
+musicales muy breves, y cuando los números de la fracción son
+pequeños.
+</p>
+
+<a name="Vease-tambien-127"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Manual-beams" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras manuales&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Bars.es.html#Bars" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras de compás &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Beams.html">English</a>, <a href="Beams.fr.html">français</a>, <a href="Beams.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.es.html#Writing-rhythms">1.2.1 Escritura de las duraciones (valores rítmicos)</a>      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.es.html#Writing-rests">1.2.2 Escritura de silencios</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.es.html#Displaying-rhythms">1.2.3 Impresión de las duraciones</a>      </li>
+      <li class="toc_current"><a name="toc-Beams-1" href="Beams.es.html#Beams">1.2.4 Barras</a>
+      <ul class="toc">
+        <li><a name="toc-Automatic-beams-1" href="Beams.es.html#Automatic-beams">Barras automáticas</a>        </li>
+        <li><a name="toc-Setting-automatic-beam-behavior-1" href="Beams.es.html#Setting-automatic-beam-behavior">Establecer el comportamiento de las barras automáticas</a>        </li>
+        <li><a name="toc-Manual-beams-1" href="Beams.es.html#Manual-beams">Barras manuales</a>        </li>
+        <li><a name="toc-Feathered-beams-1" href="Beams.es.html#Feathered-beams">Barras progresivas</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Bars-1" href="Bars.es.html#Bars">1.2.5 Barras de compás</a>      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.es.html#Special-rhythmic-concerns">1.2.6 Asuntos rítmicos especiales</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

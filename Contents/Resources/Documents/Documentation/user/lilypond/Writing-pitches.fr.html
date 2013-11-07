@@ -1,0 +1,646 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.1.1 Écriture des hauteurs de note</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.1.1 Writing pitches">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.1.1 Writing pitches">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Pitches.fr.html#Pitches" rel="up" title="1.1 Pitches">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Pitches.fr.html#Pitches" rel="previous" title="1.1 Pitches">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Writing-pitches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Pitches.fr.html#Pitches" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Hauteurs&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Pitches.fr.html#Pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Hauteurs&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Absolute-octave-entry" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Hauteurs avec octave absolue &gt; </a>]</td></tr></table>
+<a name="Writing-pitches"></a>
+<h3 class="subsection">1.1.1 Écriture des hauteurs de note</h3>
+
+<p>Cette section explique la manière d&rsquo;indiquer les hauteurs de note.  Il
+y a deux modes d&rsquo;indiquer l&rsquo;octave des notes&nbsp;: le mode absolu, et le
+mode relatif.  Le dernier est le plus pratique lors de la saisie d&rsquo;un
+fichier source au clavier de l&rsquo;ordinateur.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Absolute-octave-entry" accesskey="1">Hauteurs avec octave absolue</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Relative-octave-entry" accesskey="2">Octaves relatives</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Accidentals" accesskey="3">Altérations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Note-names-in-other-languages" accesskey="4">Noms de note dans d&rsquo;autres langues</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Absolute-octave-entry"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Writing-pitches" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Relative-octave-entry" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Octaves relatives &gt; </a>]</td></tr></table>
+<a name="Absolute-octave-entry"></a>
+<h4 class="unnumberedsubsubsec">Hauteurs avec octave absolue</h4>
+
+<a name="index-noms-de-note"></a>
+<a name="index-hauteurs"></a>
+<a name="index-absolues_002c-hauteurs"></a>
+<a name="index-absolues_002c-octaves"></a>
+<a name="index-octaves-absolues"></a>
+
+<p>La hauteur s&rsquo;écrit &mdash; à moins de préciser une autre langue &mdash; avec la
+notation anglaise, en utilisant les lettres <code>a</code> à <code>g</code>.
+Une gamme ascendante de do majeur s&rsquo;écrit
+</p>
+<blockquote><pre class="verbatim">\clef bass
+c d e f g a b c'
+</pre><p>
+ <a href="../64/lily-9e18ed62.ly">
+  <img align="middle"
+       border="0"
+       src="../64/lily-9e18ed62.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La note <code>c</code> est écrite une octave sous le do central.
+</p>
+<blockquote><pre class="verbatim">\clef treble
+c1
+\clef bass
+c1
+</pre><p>
+ <a href="../f2/lily-4151ccc3.ly">
+  <img align="middle"
+       border="0"
+       src="../f2/lily-4151ccc3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_0027"></a>
+<a name="index-_0027-1"></a>
+<a name="index-_002c"></a>
+<a name="index-_002c-1"></a>
+
+<p>L&rsquo;octave peut être précisée sous forme d&rsquo;une série d&rsquo;apostrophes
+&lsquo;<samp>'</samp>&rsquo; ou d&rsquo;une série de virgules &lsquo;<samp>,</samp>&rsquo;.  Chaque &lsquo;<samp>'</samp>&rsquo; hausse la
+note d&rsquo;une octave, chaque &lsquo;<samp>,</samp>&rsquo; baisse la note d&rsquo;une octave.
+</p>
+<blockquote><pre class="verbatim">\clef treble
+c' c'' e' g d'' d' d c
+\clef bass
+c, c,, e, g d,, d, d c
+</pre><p>
+ <a href="../7c/lily-a08c0c16.ly">
+  <img align="middle"
+       border="0"
+       src="../7c/lily-a08c0c16.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Il existe une autre méthode pour préciser à quelle octave se situe la
+note à graver&nbsp;; cette méthode demande moins d&rsquo;indications d&rsquo;octave
+(<code>'</code> ou <code>,</code>) &mdash; voir <a href="#Relative-octave-entry">Octaves relatives</a>.
+</p>
+
+<hr size="6">
+<a name="Relative-octave-entry"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Absolute-octave-entry" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Hauteurs avec octave absolue&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Accidentals" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Altérations &gt; </a>]</td></tr></table>
+<a name="Relative-octave-entry"></a>
+<h4 class="unnumberedsubsubsec">Octaves relatives</h4>
+
+<a name="index-relatif"></a>
+<a name="index-indication-d_0027octave-relative"></a>
+<a name="index-_005crelative"></a>
+<a name="index-_005crelative-1"></a>
+
+<p>On spécifie les octaves en ajoutant <code>'</code> et <code>,</code> aux noms de
+hauteurs.  En recopiant de la musique, on a vite fait de mettre une note
+à la mauvaise octave, et ce genre d&rsquo;erreur est difficile à retrouver.
+Le mode d&rsquo;écriture \relative prévient ces erreurs dans la mesure où
+elles deviennent beaucoup plus évidentes&nbsp;: une seule erreur décale le
+reste de la pièce à une mauvaise octave.
+</p>
+
+<blockquote><pre class="example">\relative <var>startpitch</var> <var>musicexpr</var>
+</pre></blockquote>
+
+<p>ou
+</p>
+<blockquote><pre class="example">\relative <var>musicexpr</var>
+</pre></blockquote>
+
+<p><code>c'</code> est utilisé par défaut si aucune hauteur de départ n&rsquo;est
+définie.
+</p>
+<p>L&rsquo;octave des notes mentionnées dans <var>musicexpr</var> va être calculée de
+la manière suivante&nbsp;: si aucun signe de changement d&rsquo;octave n&rsquo;est
+utilisé, l&rsquo;intervalle de base entre la note actuelle et la précédente
+sera toujours au plus d&rsquo;une quarte.  Cet intervalle est déterminé sans
+tenir compte des altérations&nbsp;; ainsi un <code>fisis</code> après un
+<code>ceses</code> sera placé au-dessus du <code>ceses</code>.  En d&rsquo;autres termes,
+une quarte doublement augmentée demeure considérée comme un intervavlle
+plus petit qu&rsquo;une quinte diminuée, bien que la quarte doublement
+augmentée soit de sept demi-tons et la quinte diminuée de seulement six
+demi-tons.
+</p>
+<p>Les signes de changement d&rsquo;octave <code>'</code> et <code>,</code> peuvent être
+ajoutés pour hausser ou baisser la note d&rsquo;une octave supplémentaire.
+Lorsque l&rsquo;on entre en mode <code>\relative</code>, une hauteur absolue de
+départ peut être spécifiée, et agira dès lors comme si elle précédait la
+première note de <var>musicexpr</var>.  Si aucune hauteur de départ n&rsquo;est
+spécifiée, le do central sert de point de départ.
+</p>
+<p>Voici le mode \relative en action.
+</p><blockquote><pre class="verbatim">\relative c'' {
+  b c d c b c bes a
+}
+</pre><p>
+ <a href="../15/lily-4cb2f8a6.ly">
+  <img align="middle"
+       border="0"
+       src="../15/lily-4cb2f8a6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>On utilise les signes de changement d&rsquo;octave pour les intervalles
+dépassant la quarte.
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  c g c f, c' a, e''
+}
+</pre><p>
+ <a href="../e4/lily-8a5e1fd7.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-8a5e1fd7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si l&rsquo;expression précédente est un accord, c&rsquo;est la première note de
+l&rsquo;accord qui détermine l&rsquo;emplacement de la première note du prochain
+accord.
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  c &lt;c e g&gt;
+  &lt;c' e g&gt;
+  &lt;c, e' g&gt;
+}
+</pre><p>
+ <a href="../8d/lily-15120008.ly">
+  <img align="middle"
+       border="0"
+       src="../8d/lily-15120008.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La hauteur après <code>\relative</code> contient un nom de note.
+</p>
+<p>La conversion en mode \relative n&rsquo;affectera pas les sections <code>\transpose</code>,
+<code>\chordmode</code> ou <code>\relative</code> situées dans son argument.  Pour
+utiliser \relative dans de la musique transposée, un code
+<code>\relative</code> additionnel doit être placé dans <code>\transpose</code>.
+</p>
+
+<hr size="6">
+<a name="Accidentals"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Relative-octave-entry" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Octaves relatives&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Note-names-in-other-languages" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Noms de note dans d&rsquo;autres langues &gt; </a>]</td></tr></table>
+<a name="Accidentals"></a>
+<h4 class="unnumberedsubsubsec">Altérations</h4>
+
+<a name="index-noms-de-note_002c-hollandais"></a>
+<a name="index-noms-de-note_002c-par-defaut"></a>
+
+<p>Dans la notation par défaut, un dièse est formé en ajoutant <code>-is</code>
+après le nom de note, un bémol en ajoutant <code>-es</code>.  Les
+double-dièses et double-bémols sont obtenus en ajoutant <code>-isis</code>
+ou <code>-eses</code> au nom de note.
+</p>
+<blockquote><pre class="verbatim">a2 ais a aes
+a2 aisis a aeses
+</pre><p>
+ <a href="../c8/lily-cab39561.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-cab39561.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Ce sont les noms de note hollandais.  En hollandais, on élide <code>aes</code>
+pour écrire <code>as</code>, mais les deux formes sont acceptées.  De manière
+similaire, on accepte aussi bien <code>es</code> que <code>ees</code>.
+</p>
+<blockquote><pre class="verbatim">a2 as e es
+</pre><p>
+ <a href="../6d/lily-eaa625da.ly">
+  <img align="middle"
+       border="0"
+       src="../6d/lily-eaa625da.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Un bécarre annule l&rsquo;effet d&rsquo;une altération, qu&rsquo;elle soit accidentelle
+ou à l&rsquo;armure.  Cependant, dans la syntaxe des noms de note, les
+bécarres ne s&rsquo;écrivent pas avec un suffixe&nbsp;; un simple nom de note
+donnera une note bécarre.
+</p>
+<blockquote><pre class="verbatim">a4 aes a2
+</pre><p>
+ <a href="../de/lily-5cafda70.ly">
+  <img align="middle"
+       border="0"
+       src="../de/lily-5cafda70.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>LilyPond interprète l&rsquo;entrée <code>d e f</code> comme &laquo;&nbsp;imprimer un ré
+naturel, un mi naturel et un fa naturel&nbsp;&raquo;, sans tenir compte de l&rsquo;armure.
+Pour plus d&rsquo;information à propos de la distinction entre le contenu
+musical et sa représentation, voir <a name="index-Accidentals-and-key-signatures"></a>
+<a href="../lilypond-learning/Accidentals-and-key-signatures.fr.html#Accidentals-and-key-signatures">Altérations et armure</a>.
+</p>
+<blockquote><pre class="verbatim">\key d \major
+d e f g
+d e fis g
+</pre><p>
+ <a href="../d4/lily-5960b624.ly">
+  <img align="middle"
+       border="0"
+       src="../d4/lily-5960b624.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="index-quarts-de-ton"></a>
+<a name="index-demi_002dbemols_002c-demi_002ddieses"></a>
+
+<p>Les demi-bémols et demi-dièses s&rsquo;écrivent en ajoutant respectivement
+<code>-eh</code> et <code>-ih</code>. Voici une série de dos altérés en hauteurs
+croissantes&nbsp;:
+</p>
+<blockquote><pre class="verbatim">ceseh1 ces ceh c cih cis cisih
+</pre><p>
+ <a href="../39/lily-050a94ec.ly">
+  <img align="middle"
+       border="0"
+       src="../39/lily-050a94ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les micro-intervalles sont aussi exportés dans le fichier MIDI.
+</p>
+
+<a name="index-alteration_002c-de-precaution"></a>
+<a name="index-alteration_002c-entre-parentheses"></a>
+<a name="index-alteration-de-precaution"></a>
+<a name="index-_003f"></a>
+<a name="index-_003f-1"></a>
+<a name="index-alteration-entre-parentheses"></a>
+<a name="index-_0021"></a>
+<a name="index-_0021-1"></a>
+
+<p>Normalement, les altérations sont imprimées automatiquement, mais il se
+peut que vous vouliez les imprimer manuellement.  On peut forcer
+l&rsquo;impression d&rsquo;une altération , dite &laquo;&nbsp;de précaution&nbsp;&raquo;, en ajoutant un
+point d&rsquo;exclamation &lsquo;<samp>!</samp>&rsquo; après la hauteur de note.  Une altération
+entre parenthèses peut être obtenue en ajoutant un point d&rsquo;interrogation
+&lsquo;<samp>?</samp>&rsquo; après la hauteur de note.  Ces signes peuvent aussi être
+utilisés pour imprimer des bécarres.
+</p>
+<blockquote><pre class="verbatim">cis cis cis! cis? c c? c! c
+</pre><p>
+ <a href="../85/lily-2349e1ed.ly">
+  <img align="middle"
+       border="0"
+       src="../85/lily-2349e1ed.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Selected-Snippets-7"></a>
+<h4 class="subsubheading">Morceaux choisis</h4>
+
+
+<p>En accord avec les règles standards de l&rsquo;écriture musicale, on grave
+un bécarre avant un dièse ou un bémol si on a besoin d&rsquo;annuler une
+altération précédente.  Pour modifier ce comportement, assignez la propriété
+<code>extraNatural</code> du contexte <code>Staff</code> à la valeur <code>##f</code> (faux).
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  aeses4 aes ais a
+  \set Staff.extraNatural = ##f
+  aeses4 aes ais a
+}
+
+</pre><p>
+ <a href="../e2/lily-bbb4ec1a.ly">
+  <img align="middle"
+       border="0"
+       src="../e2/lily-bbb4ec1a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-27"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-LedgerLineSpanner"></a>
+<a href="../lilypond-internals/LedgerLineSpanner.fr.html#LedgerLineSpanner">LedgerLineSpanner</a>,
+<a name="index-NoteHead"></a>
+<a href="../lilypond-internals/NoteHead.fr.html#NoteHead">NoteHead</a>.
+</p>
+<p>L&rsquo;impression automatique des altérations peut être affinée de plusieurs
+manières.  Pour plus d&rsquo;information, voir <a href="Displaying-pitches.fr.html#Automatic-accidentals">Altérations accidentelles automatiques</a>.
+</p>
+
+<a name="Known-issues-and-warnings-43"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Il n&rsquo;y a pas de standard universellement accepté pour noter le bémol et
+demi (qui abaisse la hauteur trois quarts de ton), le symbole de
+LilyPond n&rsquo;est donc conforme à aucun standard.
+</p>
+
+
+<hr size="6">
+<a name="Note-names-in-other-languages"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Accidentals" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Altérations&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Changing-multiple-pitches.fr.html#Changing-multiple-pitches" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Modification de plusieurs hauteurs &gt; </a>]</td></tr></table>
+<a name="Note-names-in-other-languages"></a>
+<h4 class="unnumberedsubsubsec">Noms de note dans d&rsquo;autres langues</h4>
+
+<p>Vous disposez de jeux prédéfinis de noms de notes pour plusieurs autres
+langues.  Pour les utiliser, incluez le fichier d&rsquo;initialisation
+spécifique à la langue voulue.  Par exemple, pour les langues romanes,
+ajoutez <code>\include &quot;italiano.ly&quot;</code> au début du fichier source.  Les
+fichiers de langues disponibles ainsi que les noms de notes utilisés
+sont les suivants&nbsp;:
+</p>
+<a name="index-noms-de-note_002c-autres-langues"></a>
+<blockquote><pre class="example">                       Noms de note              dièse       bémol      double          double
+                                                                        dièse           bémol
+nederlands.ly  c   d   e   f   g   a   bes b   -is         -es          -isis           -eses
+english.ly     c   d   e   f   g   a   bf  b   -s/-sharp   -f/-flat     -ss/-x/         -ff/
+                                                                        -sharpshsarp    -flatflat
+deutsch.ly     c   d   e   f   g   a   b   h   -is         -es          -isis           -eses
+norsk.ly       c   d   e   f   g   a   b   h   -iss/-is    -ess/-es     -ississ/-isis   -essess/-eses
+svenska.ly     c   d   e   f   g   a   b   h   -iss        -ess         -ississ         -essess
+italiano.ly    do  re  mi  fa  sol la  sib si  -d          -b           -dd             -bb
+catalan.ly     do  re  mi  fa  sol la  sib si  -d/-s       -b           -dd/-ss         -bb
+espanol.ly     do  re  mi  fa  sol la  sib si  -s          -b           -ss             -bb
+</pre></blockquote>
+
+<p>Notez qu&rsquo;en hollandais, en allemand, en norvégien et en suédois, un
+&lsquo;<samp>la</samp>&rsquo; altéré de bemol se note <code>aes</code> et <code>aeses</code>.  Ces
+formes sont contractées en <code>as</code> et <code>ases</code> (ou plus communément
+<code>asas</code>).  Dans certains fichiers linguistiques, seules ces formes
+abrégées ont été définies&nbsp;; ceci s&rsquo;applique aussi aux suffixes pour les
+quarts de ton.
+</p>
+<p>Certaines musiques utilisent des microtonalités, pour lesquelles les
+altérations sont des fractions de dièse ou bémol &laquo;&nbsp;normaux&nbsp;&raquo;.  Le
+tableau suivant répertorie les noms de note en quart de ton, tels que
+définis dans plusieurs fichiers linguistiques. Les préfixes &lsquo;semi-&rsquo; et
+&lsquo;sesqui-&rsquo; correspondent au &lsquo;demi-&rsquo; et &lsquo;trois demis&rsquo;.  À noter
+qu&rsquo;aucune définition n&rsquo;existe à ce jour pour le norvégien, le suédois,
+le catalan et l&rsquo;espagnol.
+</p>
+
+<blockquote><pre class="example">                        Noms de note           semi-   semi-  sesqui-  sesqui-
+                                               dièse   bémol  dièse    bémol
+
+nederlands.ly  c   d   e   f   g   a   bes b   -ih     -eh    -isih    -eseh
+english.ly     c   d   e   f   g   a   bf  b   -qs     -qf    -tqs     -tqf
+deutsch.ly     c   d   e   f   g   a   b   h   -ih     -eh    -isih    -eseh
+norsk.ly       c   d   e   f   g   a   b   h   
+svenska.ly     c   d   e   f   g   a   b   h   
+italiano.ly    do  re  mi  fa  sol la  sib si  -sd     -sb    -dsd     -bsb
+catalan.ly     do  re  mi  fa  sol la  sib si  
+espanol.ly     do  re  mi  fa  sol la  sib si  
+</pre></blockquote>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Accidentals" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Altérations&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-pitches" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture des hauteurs de note&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Changing-multiple-pitches.fr.html#Changing-multiple-pitches" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Modification de plusieurs hauteurs &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Writing-pitches.html">English</a>, <a href="Writing-pitches.es.html">español</a>, <a href="Writing-pitches.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Writing-pitches-1" href="Writing-pitches.fr.html#Writing-pitches">1.1.1 Écriture des hauteurs de note</a>
+      <ul class="toc">
+        <li><a name="toc-Absolute-octave-entry-1" href="Writing-pitches.fr.html#Absolute-octave-entry">Hauteurs avec octave absolue</a>        </li>
+        <li><a name="toc-Relative-octave-entry-1" href="Writing-pitches.fr.html#Relative-octave-entry">Octaves relatives</a>        </li>
+        <li><a name="toc-Accidentals-1" href="Writing-pitches.fr.html#Accidentals">Altérations</a>        </li>
+        <li><a name="toc-Note-names-in-other-languages-1" href="Writing-pitches.fr.html#Note-names-in-other-languages">Noms de note dans d&rsquo;autres langues</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Changing-multiple-pitches-1" href="Changing-multiple-pitches.fr.html#Changing-multiple-pitches">1.1.2 Modification de plusieurs hauteurs</a>      </li>
+      <li><a name="toc-Displaying-pitches-1" href="Displaying-pitches.fr.html#Displaying-pitches">1.1.3 Gravure des hauteurs</a>      </li>
+      <li><a name="toc-Note-heads-1" href="Note-heads.fr.html#Note-heads">1.1.4 Têtes de note</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

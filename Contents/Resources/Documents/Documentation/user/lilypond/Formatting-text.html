@@ -1,0 +1,1368 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Notation Reference: 1.8.2 Formatting text</title>
+
+<meta name="description" content="GNU LilyPond Notation Reference: 1.8.2 Formatting text">
+<meta name="keywords" content="GNU LilyPond Notation Reference: 1.8.2 Formatting text">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.html#LilyPond-command-index" rel="index" title="F. LilyPond command index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Text.html#Text" rel="up" title="1.8 Text">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="G. LilyPond index">
+<link href="Writing-text.html#Writing-text" rel="previous" title="1.8.1 Writing text">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Formatting-text"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Writing-text.html#Separate-text" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Separate text&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Text.html#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Text-markup-introduction" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Text markup introduction &gt; </a>]</td></tr></table>
+<a name="Formatting-text"></a>
+<h3 class="subsection">1.8.2 Formatting text</h3>
+
+<p>This section presents basic and advanced text formatting,
+using the <code>\markup</code> mode specific syntax.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Text-markup-introduction" accesskey="1">Text markup introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Selecting-font-and-font-size" accesskey="2">Selecting font and font size</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Text-alignment" accesskey="3">Text alignment</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Graphic-notation-inside-markup" accesskey="4">Graphic notation inside markup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Music-notation-inside-markup" accesskey="5">Music notation inside markup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Multi_002dpage-markup" accesskey="6">Multi-page markup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Text-markup-introduction"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Formatting-text" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Formatting text&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Selecting-font-and-font-size" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Selecting font and font size &gt; </a>]</td></tr></table>
+<a name="Text-markup-introduction"></a>
+<h4 class="unnumberedsubsubsec">Text markup introduction</h4>
+
+<a name="index-markup"></a>
+<a name="index-text-markup"></a>
+<a name="index-markup-text"></a>
+<a name="index-typeset-text"></a>
+<a name="index-_005cmarkup-2"></a>
+<a name="index-_005cmarkup-3"></a>
+
+<p>A <code>\markup</code> block is used to typeset text with an extensible
+syntax called &ldquo;markup mode&rdquo;.
+</p>
+<a name="index-markup-expressions"></a>
+<a name="index-markup-syntax"></a>
+
+<p>The markup syntax is similar to LilyPond&rsquo;s usual syntax: a
+<code>\markup</code> expression is enclosed in curly braces <code>{
+&hellip; }</code>.  A single word is regarded as a minimal expression,
+and therefore does not need to be enclosed with braces.
+</p>
+<p>Unlike simple &ldquo;quoted text&rdquo; indications, <code>\markup</code> blocks
+may contain nested expressions or markup commands,
+entered using the backslash <code>\</code> character.
+Such commands only affect the first following expression.
+</p>
+<blockquote><pre class="verbatim">a1-\markup intenso
+a2^\markup { poco \italic più forte  }
+c e1
+d2_\markup { \italic &quot;string. assai&quot; }
+e
+b1^\markup { \bold { molto \italic  agitato } }
+c
+</pre><p>
+ <a href="../7f/lily-3ae76bac.ly">
+  <img align="middle"
+       border="0"
+       src="../7f/lily-3ae76bac.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-special-characters-in-markup-mode"></a>
+<a name="index-markup-mode_002c-special-characters"></a>
+<a name="index-reserved-characters_002c-printing"></a>
+<a name="index-printing-special-characters"></a>
+<a name="index-quoted-text-in-markup-mode"></a>
+
+<p>A <code>\markup</code> block may also contain quoted text strings.
+Such strings are treated as minimal text expressions, and
+therefore any markup command or special character (such as
+<code>\</code> and <code>#</code>) will be printed verbatim without affecting
+the formatting of the text.  Double quotation marks themselves
+may be printed by preceding them with backslashes.
+</p>
+<blockquote><pre class="verbatim">a1^&quot;\italic markup...&quot;
+a_\markup { \italic &quot;... prints \&quot;italic\&quot; letters!&quot; }
+a a
+</pre><p>
+ <a href="../67/lily-ff648bb9.ly">
+  <img align="middle"
+       border="0"
+       src="../67/lily-ff648bb9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>To be treated as a distinct expression, a list of words needs
+to be enclosed with double quotes or preceded by a command.
+The way markup expressions are defined affects how these
+expressions will be stacked, centered and aligned; in the
+following example, the second <code>\markup</code> expression is
+treated the same as the first one:
+</p>
+<blockquote><pre class="verbatim">c1^\markup { \center-column { a bbb c } }
+c1^\markup { \center-column { a { bbb c } } }
+c1^\markup { \center-column { a \line { bbb c } } }
+c1^\markup { \center-column { a &quot;bbb c&quot; } }
+</pre><p>
+ <a href="../16/lily-fff1a45c.ly">
+  <img align="middle"
+       border="0"
+       src="../16/lily-fff1a45c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Markups can be stored in variables.  Such variables may be
+directly attached to notes:
+</p>
+<blockquote><pre class="verbatim">allegro = \markup { \bold \large Allegro }
+
+{
+  d''8.^\allegro
+  d'16 d'4 r2
+}
+</pre><p>
+ <a href="../52/lily-c8fac87b.ly">
+  <img align="middle"
+       border="0"
+       src="../52/lily-c8fac87b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>An exhaustive list of <code>\markup</code>-specific commands can be found in
+<a href="Text-markup-commands.html#Text-markup-commands">Text markup commands</a>.
+</p>
+
+<a name="See-also-50"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Text-markup-commands.html#Text-markup-commands">Text markup commands</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/markup.scm</tt>&rsquo;.
+</p>
+
+<a name="Known-issues-and-warnings-69"></a>
+<h4 class="subsubheading">Known issues and warnings</h4>
+
+<p>Syntax errors for markup mode can be confusing.
+</p>
+
+<hr size="6">
+<a name="Selecting-font-and-font-size"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Text-markup-introduction" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Text markup introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Text-alignment" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Text alignment &gt; </a>]</td></tr></table>
+<a name="Selecting-font-and-font-size"></a>
+<h4 class="unnumberedsubsubsec">Selecting font and font size</h4>
+
+<a name="index-font-switching"></a>
+<a name="index-_005citalic"></a>
+<a name="index-_005citalic-1"></a>
+<a name="index-_005cbold"></a>
+<a name="index-_005cbold-1"></a>
+<a name="index-_005cunderline"></a>
+<a name="index-_005cunderline-1"></a>
+
+<p>Basic font switching is supported in markup mode:
+</p>
+<blockquote><pre class="verbatim">d1^\markup {
+  \bold { Più mosso }
+  \italic { non troppo \underline Vivo }
+}
+r2 r4 r8
+d,_\markup { \italic quasi \smallCaps Tromba }
+f1 d2 r
+</pre><p>
+ <a href="../ad/lily-c3e01037.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-c3e01037.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-font-size"></a>
+<a name="index-text-size"></a>
+<a name="index-_005cfontsize"></a>
+<a name="index-_005cfontsize-1"></a>
+<a name="index-_005csmaller"></a>
+<a name="index-_005csmaller-1"></a>
+<a name="index-_005clarger"></a>
+<a name="index-_005clarger-1"></a>
+<a name="index-_005cmagnify"></a>
+<a name="index-_005cmagnify-1"></a>
+
+<p>The size of the characters can also be altered in different ways:
+</p><ul>
+<li>
+the font size can be set to predefined standard sizes,
+
+</li><li>
+the font size can be set to an absolute value,
+
+</li><li>
+the font size can also be changed relatively to its previous value.
+</li></ul>
+
+<p>The following example demonstrates these three methods:
+</p>
+<blockquote><pre class="verbatim">f1_\markup {
+  \tiny espressivo
+  \large e
+  \normalsize intenso
+}
+a^\markup {
+  \fontsize #5 Sinfonia
+  \fontsize #2 da
+  \fontsize #3 camera
+}
+bes^\markup { (con
+  \larger grande
+  \smaller emozione
+  \magnify #0.6 { e sentimento } )
+}
+d c2 r8 c bes a g1
+</pre><p>
+ <a href="../ad/lily-89159f51.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-89159f51.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-subscript"></a>
+<a name="index-superscript"></a>
+<a name="index-_005csuper"></a>
+<a name="index-_005csuper-1"></a>
+<a name="index-_005csub"></a>
+<a name="index-_005csub-1"></a>
+
+<p>Text may be printed as subscript or superscript. By default
+these are printed in a smaller size, but a normal size can be used as well:
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \column {
+    \line { 1 \super st movement }
+    \line { 1 \normal-size-super st movement
+      \sub { (part two) }  }
+  }
+}
+</pre><p>
+ <a href="../c1/lily-2428dbd1.ly">
+  <img align="middle"
+       border="0"
+       src="../c1/lily-2428dbd1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-font-families"></a>
+
+<p>The markup mode provides an easy way to select alternate
+font families.  The default serif font, of roman type, is
+automatically selected unless specified otherwise; on the
+last line of the following example, there is no difference
+between the first and the second word.
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \column {
+    \line { Act \number 1 }
+    \line { \sans { Scene I. } }
+    \line { \typewriter { Verona. An open place. } }
+    \line { Enter \roman Valentine and Proteus. }
+  }
+}
+</pre><p>
+ <a href="../62/lily-81fb00a4.ly">
+  <img align="middle"
+       border="0"
+       src="../62/lily-81fb00a4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Some of these font families, used for specific items
+such as numbers or dynamics, do not provide all
+characters, as mentioned in <a href="Attached-to-notes.html#New-dynamic-marks">New dynamic marks</a> and
+<a href="Long-repeats.html#Manual-repeat-marks">Manual repeat marks</a>.
+</p>
+
+<p>When used inside a word, some font-switching or formatting
+commands may produce an unwanted blank space.  This can
+easily be solved by concatenating the text elements together:
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \column {
+    \line {
+      \concat { 1 \super st }
+      movement
+    }
+    \line {
+      \concat { \dynamic p , }
+      \italic { con dolce espressione }
+    }
+  }
+}
+</pre><p>
+ <a href="../7e/lily-b8d717c4.ly">
+  <img align="middle"
+       border="0"
+       src="../7e/lily-b8d717c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>An exhaustive list of font switching, and custom font usage
+commands can be found in <a href="Font.html#Font">Font</a>.
+</p>
+<p>Defining custom font sets is also possible, as explained in
+<a href="Fonts.html#Fonts">Fonts</a>.
+</p>
+
+<a name="Predefined-commands-22"></a>
+<h4 class="subsubheading">Predefined commands</h4>
+<a name="index-_005cteeny-2"></a>
+<a name="index-_005cteeny-3"></a>
+<p><code>\teeny</code>,
+<a name="index-_005ctiny-2"></a>
+<a name="index-_005ctiny-3"></a>
+<code>\tiny</code>,
+<a name="index-_005csmall-2"></a>
+<a name="index-_005csmall-3"></a>
+<code>\small</code>,
+<a name="index-_005cnormalsize-2"></a>
+<a name="index-_005cnormalsize-3"></a>
+<code>\normalsize</code>,
+<a name="index-_005clarge-2"></a>
+<a name="index-_005clarge-3"></a>
+<code>\large</code>,
+<a name="index-_005chuge-2"></a>
+<a name="index-_005chuge-3"></a>
+<code>\huge</code>,
+<a name="index-_005csmaller-2"></a>
+<a name="index-_005csmaller-3"></a>
+<code>\smaller</code>,
+<a name="index-_005clarger-2"></a>
+<a name="index-_005clarger-3"></a>
+<code>\larger</code>.
+</p>
+
+<a name="See-also-24"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Font.html#Font">Font</a>,
+<a href="Attached-to-notes.html#New-dynamic-marks">New dynamic marks</a>,
+<a href="Long-repeats.html#Manual-repeat-marks">Manual repeat marks</a>,
+<a href="Fonts.html#Fonts">Fonts</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Internals Reference:
+<a name="index-TextScript-3"></a>
+<a href="../lilypond-internals/TextScript.html#TextScript">TextScript</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/define-markup-commands.scm</tt>&rsquo;.
+</p>
+
+<hr size="6">
+<a name="Text-alignment"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Selecting-font-and-font-size" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Selecting font and font size&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Graphic-notation-inside-markup" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Graphic notation inside markup &gt; </a>]</td></tr></table>
+<a name="Text-alignment"></a>
+<h4 class="unnumberedsubsubsec">Text alignment</h4>
+
+<a name="index-text_002c-aligning"></a>
+<a name="index-aligning-text"></a>
+
+<p>This subsection discusses how to place text in markup mode.
+Markup objects can also be moved as a whole, using the syntax
+described in <a name="index-Moving-objects"></a>
+<a href="../lilypond-learning/Moving-objects.html#Moving-objects">Moving objects</a>.
+</p>
+
+<a name="index-text_002c-horizontal-alignment"></a>
+<a name="index-horizontal-text-alignment"></a>
+<a name="index-_005cleft_002dalign"></a>
+<a name="index-_005cleft_002dalign-1"></a>
+<a name="index-_005ccenter_002dalign"></a>
+<a name="index-_005ccenter_002dalign-1"></a>
+<a name="index-_005cright_002dalign"></a>
+<a name="index-_005cright_002dalign-1"></a>
+
+<p>Markup objects may be aligned in different ways.  By default,
+a text indication is aligned on its left edge: in the following
+example, there is no difference
+between the first and the second markup.
+</p>
+<blockquote><pre class="verbatim">d1-\markup { poco }
+f
+d-\markup { \left-align poco }
+f
+d-\markup { \center-align { poco } }
+f
+d-\markup { \right-align poco }
+</pre><p>
+ <a href="../4a/lily-8ddd44d3.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-8ddd44d3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005chalign"></a>
+<a name="index-_005chalign-1"></a>
+
+<p>Horizontal alignment may be fine-tuned
+using a numeric value:
+</p>
+<blockquote><pre class="verbatim">a1-\markup { \halign #-1 poco }
+e'
+a,-\markup { \halign #0 poco }
+e'
+a,-\markup { \halign #0.5 poco }
+e'
+a,-\markup { \halign #2 poco }
+</pre><p>
+ <a href="../e7/lily-c061e1c0.ly">
+  <img align="middle"
+       border="0"
+       src="../e7/lily-c061e1c0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Some objects may have alignment procedures of their own,
+and therefore are not affected by these commands.  It is
+possible to move such markup objects as a whole, as shown
+for instance in <a href="Writing-text.html#Text-marks">Text marks</a>.
+</p>
+<a name="index-text_002c-vertical-alignment"></a>
+<a name="index-vertical-text-alignment"></a>
+<a name="index-_005craise"></a>
+<a name="index-_005craise-1"></a>
+<a name="index-_005clower"></a>
+<a name="index-_005clower-1"></a>
+
+<p>Vertical alignment is a bit more complex.  As stated above,
+markup objects can be moved as a whole; however, it is also
+possible to move specific elements inside a markup block.
+In this case, the element to be moved needs to be preceded
+with an <em>anchor point</em>, that can be another markup element
+or an invisible object.  The following example demonstrates these
+two possibilities; the last markup in this example has no anchor
+point, and therefore is not moved.
+</p>
+<blockquote><pre class="verbatim">d2^\markup {
+  Acte I
+  \raise #2 { Scène 1 }
+}
+a'
+g_\markup {
+  \null
+  \lower #4 \bold { Très modéré }
+}
+a
+d,^\markup {
+  \raise #4 \italic { Une forêt. }
+}
+a'4 a g2 a
+</pre><p>
+ <a href="../d7/lily-c4231910.ly">
+  <img align="middle"
+       border="0"
+       src="../d7/lily-c4231910.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cgeneral_002dalign"></a>
+<a name="index-_005cgeneral_002dalign-1"></a>
+<a name="index-_005ctranslate"></a>
+<a name="index-_005ctranslate-1"></a>
+<a name="index-_005ctranslate_002dscaled"></a>
+<a name="index-_005ctranslate_002dscaled-1"></a>
+
+<p>Some commands can affect both the horizontal and vertical
+alignment of text objects in markup mode.  Any object
+affected by these commands must be preceded with an
+anchor point:
+</p>
+<blockquote><pre class="verbatim">d2^\markup {
+  Acte I
+  \translate #'(-1 . 2) &quot;Scène 1&quot;
+}
+a'
+g_\markup {
+  \null
+  \general-align #Y #3.2 \bold &quot;Très modéré&quot;
+}
+a
+d,^\markup {
+  \null
+  \translate-scaled #'(-1 . 2) \teeny &quot;Une forêt.&quot;
+}
+a'4 a g2 a
+</pre><p>
+ <a href="../c6/lily-1d76fe10.ly">
+  <img align="middle"
+       border="0"
+       src="../c6/lily-1d76fe10.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005ccolumn"></a>
+<a name="index-_005ccolumn-1"></a>
+<a name="index-_005ccenter_002dcolumn"></a>
+<a name="index-_005ccenter_002dcolumn-1"></a>
+
+<a name="index-multi_002dline-markup"></a>
+<a name="index-multi_002dline-text"></a>
+<a name="index-columns_002c-text"></a>
+
+<p>A markup object may include several lines of text.
+In the following example, each element or expression
+is placed on its own line, either left-aligned or centered:
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \column {
+    a
+    &quot;b c&quot;
+    \line { d e f }
+  }
+  \hspace #10
+  \center-column {
+    a
+    &quot;b c&quot;
+    \line { d e f }
+  }
+}
+</pre><p>
+ <a href="../cb/lily-2edd8a42.ly">
+  <img align="middle"
+       border="0"
+       src="../cb/lily-2edd8a42.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cfill_002dline"></a>
+<a name="index-_005cfill_002dline-1"></a>
+
+<a name="index-centering-text-on-the-page"></a>
+
+<p>Similarly, a list of elements or expressions may be
+spread to fill the entire horizontal line width (if there
+is only one element, it will be centered on the page).
+These expressions can, in turn, include multi-line text
+or any other markup expression:
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \fill-line {
+    \line { William S. Gilbert }
+    \center-column {
+      \huge \smallCaps &quot;The Mikado&quot;
+      or
+      \smallCaps &quot;The Town of Titipu&quot;
+    }
+    \line { Sir Arthur Sullivan }
+  }
+}
+\markup {
+  \fill-line { 1885 }
+}
+</pre><p>
+ <a href="../64/lily-c4b5ab06.ly">
+  <img align="middle"
+       border="0"
+       src="../64/lily-c4b5ab06.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cwordwrap"></a>
+<a name="index-_005cwordwrap-1"></a>
+<a name="index-_005cjustify"></a>
+<a name="index-_005cjustify-1"></a>
+
+<a name="index-wordwrapped-text"></a>
+<a name="index-justified-text"></a>
+
+<p>Long text indications can also be automatically wrapped
+accordingly to the given line width.  These will be
+either left-aligned or justified, as shown in
+the following example.
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \column {
+    \line  \smallCaps { La vida breve }
+    \line \bold { Acto I }
+    \wordwrap \italic {
+      (La escena representa el corral de una casa de
+      gitanos en el Albaicín de Granada. Al fondo una
+      puerta por la que se ve el negro interior de
+      una Fragua, iluminado por los rojos resplandores
+      del fuego.)
+    }
+    \hspace #0
+
+    \line \bold { Acto II }
+    \override #'(line-width . 50)
+    \justify \italic {
+      (Calle de Granada. Fachada de la casa de Carmela
+      y su hermano Manuel con grandes ventanas abiertas
+      a través de las que se ve el patio
+      donde se celebra una alegre fiesta)
+    }
+  }
+}
+</pre><p>
+ <a href="../ff/lily-b03280f5.ly">
+  <img align="middle"
+       border="0"
+       src="../ff/lily-b03280f5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>An exhaustive list of text alignment commands
+can be found in <a href="Align.html#Align">Align</a>.
+</p>
+
+<a name="See-also-17"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Learning Manual:
+<a name="index-Moving-objects-1"></a>
+<a href="../lilypond-learning/Moving-objects.html#Moving-objects">Moving objects</a>.
+</p>
+<p>Notation Reference:
+<a href="Align.html#Align">Align</a>,
+<a href="Writing-text.html#Text-marks">Text marks</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Internals Reference: <a name="index-TextScript-4"></a>
+<a href="../lilypond-internals/TextScript.html#TextScript">TextScript</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/define-markup-commands.scm</tt>&rsquo;.
+</p>
+
+<hr size="6">
+<a name="Graphic-notation-inside-markup"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Text-alignment" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Text alignment&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Music-notation-inside-markup" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Music notation inside markup &gt; </a>]</td></tr></table>
+<a name="Graphic-notation-inside-markup"></a>
+<h4 class="unnumberedsubsubsec">Graphic notation inside markup</h4>
+
+<a name="index-graphics_002c-embedding"></a>
+<a name="index-drawing-graphic-objects"></a>
+
+<p>Various graphic objects may be added to a score,
+using markup commands.
+</p>
+<a name="index-_005cbox"></a>
+<a name="index-_005cbox-1"></a>
+<a name="index-_005ccircle"></a>
+<a name="index-_005ccircle-1"></a>
+<a name="index-_005crounded_002dbox"></a>
+<a name="index-_005crounded_002dbox-1"></a>
+<a name="index-_005cbracket-2"></a>
+<a name="index-_005cbracket-3"></a>
+<a name="index-_005chbracket"></a>
+<a name="index-_005chbracket-1"></a>
+
+<a name="index-decorating-text"></a>
+<a name="index-framing-text"></a>
+
+<p>Some markup commands allow decoration of text elements
+with graphics, as demonstrated in the following example.
+</p>
+<blockquote><pre class="verbatim">\markup \fill-line {
+  \center-column {
+    \circle Jack
+    \box &quot;in the box&quot;
+    \null
+    \line {
+      Erik Satie
+      \hspace #3
+      \bracket &quot;1866 - 1925&quot;
+    }
+    \null
+    \rounded-box \bold Prelude
+  }
+}
+</pre><p>
+ <a href="../2c/lily-d124a4ca.ly">
+  <img align="middle"
+       border="0"
+       src="../2c/lily-d124a4ca.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cpad_002dmarkup"></a>
+<a name="index-_005cpad_002dmarkup-1"></a>
+<a name="index-_005cpad_002dx"></a>
+<a name="index-_005cpad_002dx-1"></a>
+<a name="index-_005cpad_002dto_002dbox"></a>
+<a name="index-_005cpad_002dto_002dbox-1"></a>
+<a name="index-_005cpad_002daround"></a>
+<a name="index-_005cpad_002daround-1"></a>
+
+<a name="index-padding-around-text"></a>
+<a name="index-text-padding"></a>
+
+<p>Some commands may require an increase in the padding around
+the text; this is achieved with some markup commands
+exhaustively described in <a href="Align.html#Align">Align</a>.
+</p>
+<blockquote><pre class="verbatim">\markup \fill-line {
+  \center-column {
+    \box &quot;Charles Ives (1874 - 1954)&quot;
+    \null
+    \box \pad-markup #2 &quot;THE UNANSWERED QUESTION&quot;
+    \box \pad-x #8 &quot;A Cosmic Landscape&quot;
+    \null
+  }
+}
+\markup \column {
+  \line {
+    \hspace #10
+    \box \pad-to-box #'(-5 . 20) #'(0 . 5)
+      \bold &quot;Largo to Presto&quot;
+  }
+  \pad-around #3
+      &quot;String quartet keeps very even time,
+Flute quartet keeps very uneven time.&quot;
+}
+</pre><p>
+ <a href="../9c/lily-ffde7429.ly">
+  <img align="middle"
+       border="0"
+       src="../9c/lily-ffde7429.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005ccombine"></a>
+<a name="index-_005ccombine-1"></a>
+<a name="index-_005cdraw_002dcircle"></a>
+<a name="index-_005cdraw_002dcircle-1"></a>
+<a name="index-_005cfilled_002dbox"></a>
+<a name="index-_005cfilled_002dbox-1"></a>
+<a name="index-_005ctriangle"></a>
+<a name="index-_005ctriangle-1"></a>
+<a name="index-_005cdraw_002dline"></a>
+<a name="index-_005cdraw_002dline-1"></a>
+<a name="index-_005carrow_002dhead"></a>
+<a name="index-_005carrow_002dhead-1"></a>
+
+<a name="index-graphic-notation"></a>
+<a name="index-symbols_002c-non_002dmusical"></a>
+
+<p>Other graphic elements or symbols may be printed
+without requiring any text.  As with any markup
+expression, such objects can be combined.
+</p>
+<blockquote><pre class="verbatim">\markup {
+  \combine
+    \draw-circle #4 #0.4 ##f
+    \filled-box #'(-4 . 4) #'(-0.5 . 0.5) #1
+  \hspace #5
+
+  \center-column {
+    \triangle ##t
+    \combine
+      \draw-line #'(0 . 4)
+      \arrow-head #Y #DOWN ##f
+  }
+}
+</pre><p>
+ <a href="../11/lily-3c10cbd6.ly">
+  <img align="middle"
+       border="0"
+       src="../11/lily-3c10cbd6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cepsfile"></a>
+<a name="index-_005cepsfile-1"></a>
+<a name="index-_005cpostscript"></a>
+<a name="index-_005cpostscript-1"></a>
+
+<a name="index-embedded-graphics"></a>
+<a name="index-images_002c-embedding"></a>
+<a name="index-graphics_002c-embedding-1"></a>
+<a name="index-postscript"></a>
+
+<p>Advanced graphic features include the ability to
+include external image files converted to the
+Encapsulated PostScript format (<em>eps</em>), or
+to directly embed graphics into the input file,
+using native PostScript code.  In such a case, it
+may be useful to explicitely specify the size of the
+drawing, as demonstrated below:
+</p>
+<blockquote><pre class="verbatim">c1^\markup {
+  \combine
+    \epsfile #X #10 #&quot;./context-example.eps&quot;
+    \with-dimensions #'(0 . 6) #'(0 . 10)
+    \postscript #&quot;
+      -2 3 translate
+      2.7 2 scale
+      newpath
+      2 -1 moveto
+      4 -2 4 1 1 arct
+      4 2 3 3 1 arct
+      0 4 0 3 1 arct
+      0 0 1 -1 1 arct
+      closepath
+      stroke&quot;
+  }
+c
+</pre><p>
+ <a href="../5e/lily-f12d820c.ly">
+  <img align="middle"
+       border="0"
+       src="../5e/lily-f12d820c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>An exhaustive list of graphics-specific commands
+can be found in <a href="Graphic.html#Graphic">Graphic</a>.
+</p>
+
+<a name="See-also-106"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Graphic.html#Graphic">Graphic</a>,
+<a href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Internals Reference: <a name="index-TextScript-5"></a>
+<a href="../lilypond-internals/TextScript.html#TextScript">TextScript</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/define-markup-commands.scm</tt>&rsquo;,
+&lsquo;<tt>scm/stencil.scm</tt>&rsquo;.
+</p>
+
+<hr size="6">
+<a name="Music-notation-inside-markup"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Graphic-notation-inside-markup" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Graphic notation inside markup&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Multi_002dpage-markup" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Multi-page markup &gt; </a>]</td></tr></table>
+<a name="Music-notation-inside-markup"></a>
+<h4 class="unnumberedsubsubsec">Music notation inside markup</h4>
+
+<p>Various musical notation elements may be added
+to a score, inside a markup object.
+</p>
+<p>Notes and accidentals can be entered using markup
+commands:
+</p>
+<blockquote><pre class="verbatim">a2 a^\markup {
+  \note #&quot;4&quot; #1
+  =
+  \note-by-number #1 #1 #1.5
+}
+b1_\markup {
+  \natural \semiflat \flat
+  \sesquiflat \doubleflat
+}
+\glissando
+a1_\markup {
+  \natural \semisharp \sharp
+  \sesquisharp \doublesharp
+}
+\glissando b
+</pre><p>
+ <a href="../8d/lily-5ecfdc97.ly">
+  <img align="middle"
+       border="0"
+       src="../8d/lily-5ecfdc97.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Other notation objects may also be printed
+in markup mode:
+</p>
+<blockquote><pre class="verbatim">g1 bes
+ees-\markup {
+  \finger 4
+  \tied-lyric #&quot;~&quot;
+  \finger 1
+}
+fis_\markup { \dynamic rf }
+bes^\markup {
+  \beam #8 #0.1 #0.5
+}
+cis
+d-\markup {
+  \markalphabet #8
+  \markletter #8
+}
+</pre><p>
+ <a href="../d2/lily-52de78c4.ly">
+  <img align="middle"
+       border="0"
+       src="../d2/lily-52de78c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>More generally, any available musical symbol may be
+included separately in a markup object, as demonstrated
+below; an exhaustive list of these symbols and their
+names can be found in <a href="The-Feta-font.html#The-Feta-font">The Feta font</a>.
+</p>
+<blockquote><pre class="verbatim">c2
+c'^\markup { \musicglyph #&quot;eight&quot; }
+c,4
+c,8._\markup { \musicglyph #&quot;clefs.G_change&quot; }
+c16
+c2^\markup { \musicglyph #&quot;timesig.neomensural94&quot; }
+</pre><p>
+ <a href="../66/lily-4ebca10f.ly">
+  <img align="middle"
+       border="0"
+       src="../66/lily-4ebca10f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Another way of printing non-text glyphs is described in
+<a href="Fonts.html#Fonts-explained">Fonts explained</a>.  This is useful for printing braces of
+various sizes.
+</p>
+<p>The markup mode also supports diagrams for specific
+instruments:
+</p>
+<blockquote><pre class="verbatim">c1^\markup {
+  \fret-diagram-terse #&quot;x;x;o;2;3;2;&quot;
+}
+c^\markup {
+  \harp-pedal #&quot;^-v|--ov^&quot;
+}
+c
+c^\markup {
+  \combine
+    \musicglyph #&quot;accordion.accDiscant&quot;
+    \combine
+      \raise #0.5 \musicglyph #&quot;accordion.accDot&quot;
+      \raise #1.5 \musicglyph #&quot;accordion.accDot&quot;
+}
+</pre><p>
+ <a href="../42/lily-cacd90a1.ly">
+  <img align="middle"
+       border="0"
+       src="../42/lily-cacd90a1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Such diagrams are documented in <a href="Instrument-Specific-Markup.html#Instrument-Specific-Markup">Instrument Specific Markup</a>.
+</p>
+<p>A whole score can even be nested inside a markup object.
+In such a case, the nested <code>\score</code> block must
+contain a <code>\layout</code> block, as demonstrated here:
+</p>
+<blockquote><pre class="verbatim">c4 d^\markup {
+  \score {
+    \relative c' { c4 d e f }
+    \layout { }
+  }
+}
+e f |
+c d e f
+</pre><p>
+ <a href="../3f/lily-7d661d1a.ly">
+  <img align="middle"
+       border="0"
+       src="../3f/lily-7d661d1a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>An exhaustive list of music notation related commands can be
+found in <a href="Music.html#Music">Music</a>.
+</p>
+
+<a name="See-also-61"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Music.html#Music">Music</a>,
+<a href="The-Feta-font.html#The-Feta-font">The Feta font</a>,
+<a href="Fonts.html#Fonts-explained">Fonts explained</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Internals Reference: <a name="index-TextScript-6"></a>
+<a href="../lilypond-internals/TextScript.html#TextScript">TextScript</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/define-markup-commands.scm</tt>&rsquo;,
+&lsquo;<tt>scm/fret-diagrams.scm</tt>&rsquo;,
+&lsquo;<tt>scm/harp-pedals.scm</tt>&rsquo;.
+</p>
+
+<hr size="6">
+<a name="Multi_002dpage-markup"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-notation-inside-markup" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Music notation inside markup&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fonts.html#Fonts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fonts &gt; </a>]</td></tr></table>
+<a name="Multi_002dpage-markup"></a>
+<h4 class="unnumberedsubsubsec">Multi-page markup</h4>
+
+<p>Although standard markup objects are not breakable, a
+specific syntax makes it possible to enter lines of text that can
+spread over multiple pages:
+</p>
+<blockquote><pre class="verbatim">\markuplines {
+  \justified-lines {
+    A very long text of justified lines.
+    ...
+  }
+  \wordwrap-lines {
+    Another very long paragraph.
+    ...
+  }
+  ...
+}
+</pre><p>
+ <a href="../2e/lily-6584f9df.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-6584f9df.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>This syntax accepts a list of markups, that can be
+</p><ul>
+<li>
+the result of a markup list command,
+</li><li>
+a list of markups,
+</li><li>
+a list of markup lists.
+</li></ul>
+
+<p>An exhaustive list of markup list commands can be found in
+<a href="Text-markup-list-commands.html#Text-markup-list-commands">Text markup list commands</a>.
+</p>
+
+<a name="See-also-31"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Text-markup-list-commands.html#Text-markup-list-commands">Text markup list commands</a>,
+<a href="New-markup-list-command-definition.html#New-markup-list-command-definition">New markup list command definition</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Text.html#Text">Text</a>.
+</p>
+<p>Internals Reference: <a name="index-TextScript-7"></a>
+<a href="../lilypond-internals/TextScript.html#TextScript">TextScript</a>.
+</p>
+<p>Installed files:
+&lsquo;<tt>scm/define-markup-commands.scm</tt>&rsquo;.
+</p>
+
+<a name="Predefined-commands-23"></a>
+<h4 class="subsubheading">Predefined commands</h4>
+<a name="index-_005cmarkuplines-2"></a>
+<a name="index-_005cmarkuplines-3"></a>
+<p><code>\markuplines</code>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.html#Musical-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Musical notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Next chapter">&nbsp;Specialist notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-notation-inside-markup" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Music notation inside markup&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Formatting-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Formatting text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fonts.html#Fonts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fonts &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Formatting-text.fr.html">français</a>, <a href="Formatting-text.es.html">español</a>, <a href="Formatting-text.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.html#Musical-notation">1. Musical notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">1.1 Pitches</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">1.2 Rhythms</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">1.3 Expressive marks</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">1.4 Repeats</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">1.5 Simultaneous notes</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">1.6 Staff notation</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">1.7 Editorial annotations</a>    </li>
+    <li class="toc_current"><a name="toc-Text-1" href="Text.html#Text">1.8 Text</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-text-1" href="Writing-text.html#Writing-text">1.8.1 Writing text</a>      </li>
+      <li class="toc_current"><a name="toc-Formatting-text-1" href="Formatting-text.html#Formatting-text">1.8.2 Formatting text</a>
+      <ul class="toc">
+        <li><a name="toc-Text-markup-introduction-1" href="Formatting-text.html#Text-markup-introduction">Text markup introduction</a>        </li>
+        <li><a name="toc-Selecting-font-and-font-size-1" href="Formatting-text.html#Selecting-font-and-font-size">Selecting font and font size</a>        </li>
+        <li><a name="toc-Text-alignment-1" href="Formatting-text.html#Text-alignment">Text alignment</a>        </li>
+        <li><a name="toc-Graphic-notation-inside-markup-1" href="Formatting-text.html#Graphic-notation-inside-markup">Graphic notation inside markup</a>        </li>
+        <li><a name="toc-Music-notation-inside-markup-1" href="Formatting-text.html#Music-notation-inside-markup">Music notation inside markup</a>        </li>
+        <li><a name="toc-Multi_002dpage-markup-1" href="Formatting-text.html#Multi_002dpage-markup">Multi-page markup</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Fonts-1" href="Fonts.html#Fonts">1.8.3 Fonts</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.html#Specialist-notation">2. Specialist notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">2.1 Vocal music</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Keyboard and other multi-staff instruments</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.html#Unfretted-string-instruments">2.3 Unfretted string instruments</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.html#Fretted-string-instruments">2.4 Fretted string instruments</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">2.5 Percussion</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.html#Wind-instruments">2.6 Wind instruments</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.html#Chord-notation">2.7 Chord notation</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">2.8 Ancient notation</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.html#World-music">2.9 World music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.html#General-input-and-output">3. General input and output</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.html#Input-structure">3.1 Input structure</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.html#Titles-and-headers">3.2 Titles and headers</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.html#Working-with-input-files">3.3 Working with input files</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.html#Controlling-output">3.4 Controlling output</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.html#MIDI-output">3.5 MIDI output</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.html#Spacing-issues">4. Spacing issues</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.html#Paper-and-pages">4.1 Paper and pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.html#Music-layout">4.2 Music layout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.html#Breaks">4.3 Breaks</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.html#Vertical-spacing">4.4 Vertical spacing</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.html#Horizontal-spacing">4.5 Horizontal spacing</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.html#Fitting-music-onto-fewer-pages">4.6 Fitting music onto fewer pages</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.html#Changing-defaults">5. Changing defaults</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.html#Interpretation-contexts">5.1 Interpretation contexts</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.html#Explaining-the-Internals-Reference">5.2 Explaining the Internals Reference</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.html#Modifying-properties">5.3 Modifying properties</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.html#Useful-concepts-and-properties">5.4 Useful concepts and properties</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.html#Advanced-tweaks">5.5 Advanced tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.html#Interfaces-for-programmers">6. Interfaces for programmers</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.html#Music-functions">6.1 Music functions</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.html#Programmer-interfaces">6.2 Programmer interfaces</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.html#Building-complicated-functions">6.3 Building complicated functions</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.html#Markup-programmer-interface">6.4 Markup programmer interface</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.html#Contexts-for-programmers">6.5 Contexts for programmers</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.html#Scheme-procedures-as-properties">6.6 Scheme procedures as properties</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Using Scheme code instead of <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.html#Difficult-tweaks">6.8 Difficult tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.html#Literature-list">A. Literature list</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.html#Notation-manual-tables">B. Notation manual tables</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.html#Chord-name-chart">B.1 Chord name chart</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.html#Common-chord-modifiers">B.2 Common chord modifiers</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.html#Predefined-fretboard-diagrams">B.3 Predefined fretboard diagrams</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.html#MIDI-instruments">B.4 MIDI instruments</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.html#List-of-colors">B.5 List of colors</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.html#The-Feta-font">B.6 The Feta font</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.html#Note-head-styles">B.7 Note head styles</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.html#List-of-articulations">B.10 List of articulations</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.html#Percussion-notes">B.11 Percussion notes</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.html#All-context-properties">B.12 All context properties</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.html#Layout-properties">B.13 Layout properties</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.html#Identifiers">B.14 Identifiers</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.html#Scheme-functions">B.15 Scheme functions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.html#Cheat-sheet">C. Cheat sheet</a>  </li>
+  <li><a name="toc-LilyPond-grammar-1" href="LilyPond-grammar.html#LilyPond-grammar">D. LilyPond grammar</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">E. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.html#LilyPond-command-index">F. LilyPond command index</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">G. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

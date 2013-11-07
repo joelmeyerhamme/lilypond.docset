@@ -1,0 +1,258 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond: manual de utilización del programa: 5.1 Invocar midi2ly</title>
+
+<meta name="description" content="GNU LilyPond: manual de utilización del programa: 5.1 Invoking midi2ly">
+<meta name="keywords" content="GNU LilyPond: manual de utilización del programa: 5.1 Invoking midi2ly">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de utilización del programa">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Converting-from-other-formats.es.html#Converting-from-other-formats" rel="up" title="5. Converting from other formats">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Converting-from-other-formats.es.html#Converting-from-other-formats" rel="previous" title="5. Converting from other formats">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Invoking-midi2ly"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License" title="Cap&iacute;tulo siguiente">&nbsp;GNU Free Documentation License &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-musicxml2ly.es.html#Invoking-musicxml2ly" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Invocar musicxml2ly &gt; </a>]</td></tr></table>
+<a name="Invoking-midi2ly"></a>
+<h2 class="section">5.1 Invocar <code>midi2ly</code></h2>
+
+<a name="index-MIDI"></a>
+
+<p><code>midi2ly</code> traduce un archivo MIDI de tipo&nbsp;1 a un acrhivo
+de código fuente de LilyPond.
+</p>
+<p>El MIDI (Music Instrument Digital Interface, Interfase Digital para
+Instrumentos Musicales) es un estándar para instrumentos digitales:
+especifica la interconexión física, un protocolo en serie y un formato
+de archivo.  El formato de archivo MIDI es un formato estándar de
+facto para exportar música de otros programas, por lo que esta
+posibilidad puede ser de utilidad al importar archivos de un programa
+que tiene un convertidor para un formato directo.
+</p>
+<p><code>midi2ly</code> convierte las pistas en contextos de
+<a name="index-Staff"></a>
+<a href="../lilypond-internals/Staff.es.html#Staff">Staff</a>) y los canales en contextos de
+<a name="index-Voice"></a>
+<a href="../lilypond-internals/Voice.es.html#Voice">Voice</a>.  Se utiliza el modo relativo para las alturas, y
+las duraciones se escriben solamente cuando es necesario.
+</p>
+<p>Es posible grabar un archivo MIDI usando un teclado digital y
+convertirlo después a &lsquo;<tt>.ly</tt>&rsquo;.  Sin embargo, los intérpretes
+humanos no son lo suficientemente exactos desde el punto de vista
+rítmico como para hacer que sea trivial la conversión de MIDI a LY.
+Si se invoca con las opciones de cuantización (<code>-s</code> y <code>-d</code>),
+<code>midi2ly</code> intenta compensar los errores de medida, pero no lo
+hace muy bien.  Por ello, no se recomienda usar <code>midi2ly</code> para
+archivos midi generados por seres humanos.
+</p>
+
+<p>Se invoca a partir de la línea de órdenes como sigue:
+</p><blockquote><pre class="example">midi2ly [<var>opción</var>]&hellip; <var>archivo_midi</var>
+</pre></blockquote>
+
+<p>Observe que al decir &lsquo;línea de órdenes&rsquo;, queremos decir la línea de
+órdenes del sistema operativo.  Consulte <a href="Converting-from-other-formats.es.html#Converting-from-other-formats">Conversión desde otros formatos</a> para ver más información sobre esto.
+</p>
+<p><code>midi2ly</code> contempla las siguientes opciones:
+</p>
+<dl compact="compact">
+<dt> <code>-a, --absolute-pitches</code></dt>
+<dd><p>Imprimir alturas absoultas.
+</p>
+</dd>
+<dt> <code>-d, --duration-quant=<var>DURACIÓN</var></code></dt>
+<dd><p>Cuantizar las duraciones a <var>DURACIÓN</var>.
+</p>
+</dd>
+<dt> <code>-e, --explicit-durations</code></dt>
+<dd><p>Imprimir valores de figura explícitos.
+</p>
+</dd>
+<dt> <code>-h,--help</code></dt>
+<dd><p>Mostrar un resumen de las instrucciones de utilización.
+</p>
+</dd>
+<dt> <code>-k, --key=<var>alteración</var>[:<var>minor</var>]</code></dt>
+<dd><p>Establecer la tonalidad predeterminada. <em><var>alteración</var> &gt; 0</em>
+establece el número de sostenidos; <em><var>alteración</var> &lt; 0</em>
+establece el número de bemoles.  Se indica una tonalidad menor
+mediante <code>:1</code>.
+</p>
+</dd>
+<dt> <code>-o, --output=<var>archivo</var></code></dt>
+<dd><p>Escribir la salida en <var>archivo</var>.
+</p>
+</dd>
+<dt> <code>-s, --start-quant=<var>DURACIÓN</var></code></dt>
+<dd><p>Cuantizar el inicio de las notas a <var>DURACIÓN</var>.
+</p>
+</dd>
+<dt> <code>-t, --allow-tuplet=<var>DURACIÓN</var>*<var>NUMERADOR</var>/<var>DENOMINADOR</var></code></dt>
+<dd><p>Permitir duraciones de grupos especiales <var>DURACIÓN</var>*<var>NUMERADOR</var>/<var>DENOMINADOR</var>.
+</p>
+</dd>
+<dt> <code>-v, --verbose</code></dt>
+<dd><p>Ser prolijo en comentarios.
+</p>
+</dd>
+<dt> <code>-V, --version</code></dt>
+<dd><p>Imprimir el número de la versión.
+</p>
+</dd>
+<dt> <code>-w, --warranty</code></dt>
+<dd><p>Presentar la garantía y el  copyright.
+</p>
+</dd>
+<dt> <code>-x, --text-lyrics</code></dt>
+<dd><p>Tratar todos los textos como letra de la canción.
+</p></dd>
+</dl>
+
+
+<a name="Advertencias-y-problemas-conocidos-5"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Las notas superpuestas en un arpegio no se procesarán correctamente.
+La primera nota se lee y el resto se ignoran.  Aplique la misma
+duración a todas las notas y añada marcas de fraseo o indicaciones de
+pedal.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License" title="Cap&iacute;tulo siguiente">&nbsp;GNU Free Documentation License &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Converting-from-other-formats.es.html#Converting-from-other-formats" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Conversión desde otros formatos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-musicxml2ly.es.html#Invoking-musicxml2ly" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Invocar musicxml2ly &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Invoking-midi2ly.html">English</a>, <a href="Invoking-midi2ly.fr.html">français</a>, <a href="Invoking-midi2ly.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de utilización del programa</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.es.html#Install">1. Instalación</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.es.html#Precompiled-binaries">1.1 Archivos binarios pre-compilados</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.es.html#Compiling-from-source">1.2 Compilar a partir del código fuente</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.es.html#Setup">2. Configuración</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.es.html#Setup-for-specific-Operating-Systems">2.1 Ajustes para sistemas operativos específicos</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.es.html#Text-editor-support">2.2 Apoyo respecto de los editores de texto</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.es.html#Point-and-click">2.3 Apuntar y pulsar</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.es.html#Running-LilyPond">3. Ejecutar LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.es.html#Normal-usage">3.1 Utilización normal</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.es.html#Command_002dline-usage">3.2 Utilización desde la línea de órdenes</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.es.html#Error-messages">3.3 Mensajes de error</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly">3.4 Actualizar ficheros con <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.es.html#Reporting-bugs">3.5 Informar de fallos</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.es.html#LilyPond_002dbook">4. <code>lilypond-book</code>: integrar texto y música</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.es.html#An-example-of-a-musicological-document">4.1 Un ejemplo de documento musicológico</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.es.html#Integrating-music-and-text">4.2 Integrar música y texto</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.es.html#Music-fragment-options">4.3 Opciones de fragmentos de música</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.es.html#Invoking-lilypond_002dbook">4.4 Invocar <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.es.html#Filename-extensions">4.5 Extensiones de nombres de archivo</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.es.html#Alternate-methods-of-mixing-text-and-music">4.6 Otros métodos para mezclar texto y música</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.es.html#Converting-from-other-formats">5. Conversión desde otros formatos</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.es.html#Invoking-midi2ly">5.1 Invocar <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.es.html#Invoking-musicxml2ly">5.2 Invocar <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.es.html#Invoking-abc2ly">5.3 Invocar <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.es.html#Invoking-etf2ly">5.4 Invocar <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.es.html#Generating-LilyPond-files">5.5 Generar archivos de LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">B. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

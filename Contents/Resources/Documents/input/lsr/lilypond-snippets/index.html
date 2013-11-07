@@ -1,0 +1,181 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: GNU LilyPond &mdash; Snippets List</title>
+
+<meta name="description" content="LilyPond snippets: GNU LilyPond &mdash; Snippets List">
+<meta name="keywords" content="LilyPond snippets: GNU LilyPond &mdash; Snippets List">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Top"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="center" colspan="3">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td></tr></table>
+<a name="Top"></a>
+<h1 class="settitle">GNU LilyPond &mdash; Snippets List</h1>
+
+<p>This document is also available as a
+<a href="../../../Documentation/user/lilypond-snippets.pdf">PDF</a> and as
+<a href="../../../input/lsr/lilypond-snippets-big-page.html">one big page</a>.
+</p>
+<p>This document shows a selected set of LilyPond snippets from the
+<a href="http://lsr.dsi.unimi.it">LilyPond Snippet Repository</a>
+(LSR). It is in the public domain.
+</p>
+<p>Please note that it is not an exact subset of LSR: some snippets come
+from &lsquo;<tt>input/new</tt>&rsquo; LilyPond sources directory, and snippets from LSR
+are converted through <code>convert-ly</code>, as LSR is based on a stable
+LilyPond version, and this document is for version 2.12.3.
+</p>
+<p>Snippets are grouped by tags; tags listed in the table of contents match
+a section of LilyPond notation manual.  Snippets may have several tags,
+and not all LSR tags may appear in this document.
+</p>
+<p>In the HTML version of this document, you can click on the file name
+or figure for each example to see the corresponding input file.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">Musical notation
+</pre></th></tr><tr><td align="left" valign="top"><a href="Pitches.html#Pitches" accesskey="1">Pitches</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Rhythms.html#Rhythms" accesskey="2">Rhythms</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expressive-marks.html#Expressive-marks" accesskey="3">Expressive marks</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Repeats.html#Repeats" accesskey="4">Repeats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Simultaneous-notes.html#Simultaneous-notes" accesskey="5">Simultaneous notes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Staff-notation.html#Staff-notation" accesskey="6">Staff notation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Editorial-annotations.html#Editorial-annotations" accesskey="7">Editorial annotations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Text.html#Text" accesskey="8">Text</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Specialist notation
+</pre></th></tr><tr><td align="left" valign="top"><a href="Vocal-music.html#Vocal-music" accesskey="9">Vocal music</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Chords.html#Chords">Chords</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Keyboards.html#Keyboards">Keyboards</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Percussion.html#Percussion">Percussion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Fretted-strings.html#Fretted-strings">Fretted strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Winds.html#Winds">Winds</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Ancient-notation.html#Ancient-notation">Ancient notation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="World-music.html#World-music">World music</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Other collections
+</pre></th></tr><tr><td align="left" valign="top"><a href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Titles.html#Titles">Titles</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Spacing.html#Spacing">Spacing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="MIDI.html#MIDI">MIDI</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Templates.html#Templates">Templates</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+<hr size="1">
+<table class="nav_table">
+<tr><td valign="middle" align="center" colspan="3">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

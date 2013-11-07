@@ -1,0 +1,846 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Percussion</title>
+
+<meta name="description" content="LilyPond snippets: Percussion">
+<meta name="keywords" content="LilyPond snippets: Percussion">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Keyboards.html#Keyboards" rel="previous" title="Keyboards">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Percussion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Keyboards.html#Keyboards" title="Beginning of this chapter or previous chapter"> &lt;&lt; Keyboards&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Keyboards.html#Piano-template-_0028simple_0029" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percussion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Percussion"></a>
+<h1 class="unnumbered">Percussion</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Percussion.html#Percussion">Percussion</a>.
+</p>
+
+<a name="adding-drum-parts.ly"></a>
+<hr size="6">
+<a name="Percussion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percussion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Adding drum parts</h2>
+
+
+<p>Using the powerful pre-configured tools such as the <code>\drummode</code>
+function and the <code>DrumStaff</code> context, inputting drum parts is
+quite easy: drums are placed at their own staff positions (with a
+special clef symbol) and have note heads according to the drum.
+Attaching an extra symbol to the drum or restricting the number of
+lines is possible. 
+</p>
+
+<pre class="verbatim">drh = \drummode { cymc4.^&quot;crash&quot; hhc16^&quot;h.h.&quot; hh hhc8 hho hhc8 hh16 hh hhc4 r4 r2 }
+drl = \drummode { bd4 sn8 bd bd4 &lt;&lt; bd ss &gt;&gt;  bd8 tommh tommh bd toml toml bd tomfh16 tomfh }
+timb = \drummode { timh4 ssh timl8 ssh r timh r4 ssh8 timl r4 cb8 cb }
+
+\score {
+  &lt;&lt;
+    \new DrumStaff \with {
+      drumStyleTable = #timbales-style
+      \override StaffSymbol #'line-count = #2
+      \override BarLine #'bar-size = #2
+    } &lt;&lt;
+      \set Staff.instrumentName = #&quot;timbales&quot;
+      \timb
+    &gt;&gt;
+    \new DrumStaff &lt;&lt;
+      \set Staff.instrumentName = #&quot;drums&quot;
+      \new DrumVoice { \stemUp \drh }
+      \new DrumVoice { \stemDown \drl }
+    &gt;&gt;
+  &gt;&gt;
+  \layout { }
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 120 4)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../04/lily-2d7e2c62.ly">
+  <img align="middle"
+       border="0"
+       src="../04/lily-2d7e2c62.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="heavily-customized-polymetric-time-signatures.ly"></a>
+<hr size="6">
+<a name="Percussion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percussion" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Heavily customized polymetric time signatures</h2>
+
+
+<p>Though the polymetric time signature shown was not the most essential
+item here, it has been included to show the beat of this piece (which
+is the template of a real Balkan song!).
+</p>
+
+<pre class="verbatim">#(define plus (markup #:vcenter &quot;+&quot;))
+#(define ((custom-time-signature one two three four five six
+           seven eight nine ten eleven num) grob)
+            (grob-interpret-markup grob
+              (markup #:override '(baseline-skip . 0) #:number
+                (#:line (
+                    (#:column (one num)) plus
+                    (#:column (two num)) plus
+                    (#:column (three num)) plus
+                    (#:column (four num)) plus
+                    (#:column (five num)) plus
+                    (#:column (six num)) plus
+                    (#:column (seven num)) plus
+                    (#:column (eight num)) plus
+                    (#:column (nine num)) plus
+                    (#:column (ten num)) plus
+                    (#:column (eleven num)))))))
+
+melody = \relative c'' {
+  \set Staff.instrumentName = #&quot;Bb Sop.&quot;
+  \key g \major
+  #(set-time-signature 25 8 '(3 2 2 3 2 2 2 2 3 2 2))
+  \override Staff.TimeSignature #'stencil =
+    #(custom-time-signature &quot;3&quot; &quot;2&quot; &quot;2&quot; &quot;3&quot; &quot;2&quot; &quot;2&quot;
+      &quot;2&quot; &quot;2&quot; &quot;3&quot; &quot;2&quot; &quot;2&quot; &quot;8&quot;)
+  c8 c c d4 c8 c b c b a4 g fis8 e d c b' c d e4-^ fis8 g \break
+  c,4. d4 c4 d4. c4 d c2 d4. e4-^ d4
+  c4. d4 c4 d4. c4 d c2 d4. e4-^ d4 \break
+  c4. d4 c4 d4. c4 d c2 d4. e4-^ d4
+  c4. d4 c4 d4. c4 d c2 d4. e4-^ d4 \break
+}
+
+drum = \new DrumStaff \drummode {
+  \bar &quot;|:&quot; bd4.^\markup { &quot;Drums&quot; } sn4 bd \bar &quot;:&quot; sn4.
+  bd4 sn \bar &quot;:&quot; bd sn bd4. sn4 bd \bar &quot;:|&quot;
+}
+
+{
+  \melody
+  \drum
+}
+</pre><p>
+ <a href="../03/lily-2d0e8e02.ly">
+  <img align="middle"
+       border="0"
+       src="../03/lily-2d0e8e02.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="jazz-combo-template.ly"></a>
+<hr size="6">
+<a name="Percussion"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percussion-beaters" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Percussion beaters &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Jazz combo template</h2>
+
+
+<p>This is quite an advanced template, for a jazz ensemble. Note that all
+instruments are notated in <code>\key c \major</code>. This refers to the
+key in concert pitch; the key will be automatically transposed if the
+music is within a <code>\transpose</code> section.
+</p>
+
+<pre class="verbatim">\header {
+  title = &quot;Song&quot;
+  subtitle = &quot;(tune)&quot;
+  composer = &quot;Me&quot;
+  meter = &quot;moderato&quot;
+  piece = &quot;Swing&quot;
+  tagline = \markup {
+    \column {
+      &quot;LilyPond example file by Amelie Zapf,&quot;
+      &quot;Berlin 07/07/2003&quot;
+    }
+  }
+}
+
+%#(set-global-staff-size 16)
+\include &quot;english.ly&quot;
+
+%%%%%%%%%%%% Some macros %%%%%%%%%%%%%%%%%%%
+
+sl = {
+  \override NoteHead #'style = #'slash
+  \override Stem #'transparent = ##t
+}
+nsl = {
+  \revert NoteHead #'style
+  \revert Stem #'transparent
+}
+crOn = \override NoteHead #'style = #'cross
+crOff = \revert NoteHead #'style
+
+%% insert chord name style stuff here.
+
+jazzChords = { }
+
+%%%%%%%%%%%% Keys'n'thangs %%%%%%%%%%%%%%%%%
+
+global = { \time 4/4 }
+
+Key = { \key c \major }
+
+% ############ Horns ############
+
+% ------ Trumpet ------
+trpt = \transpose c d \relative c'' {
+  \Key
+  c1 | c | c |
+}
+trpHarmony = \transpose c' d {
+  \jazzChords
+}
+trumpet = {
+  \global
+  \set Staff.instrumentName = #&quot;Trumpet&quot;
+  \clef treble
+  &lt;&lt;
+    \trpt
+  &gt;&gt;
+}
+
+% ------ Alto Saxophone ------
+alto = \transpose c a \relative c' {
+  \Key
+  c1 | c | c |
+}
+altoHarmony = \transpose c' a {
+  \jazzChords
+}
+altoSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Alto Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \alto
+  &gt;&gt;
+}
+
+% ------ Baritone Saxophone ------
+bari = \transpose c a' \relative c {
+  \Key
+  c1
+  c1
+  \sl
+  d4^&quot;Solo&quot; d d d
+  \nsl
+}
+bariHarmony = \transpose c' a \chordmode {
+  \jazzChords s1 s d2:maj e:m7
+}
+bariSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Bari Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \bari
+  &gt;&gt;
+}
+
+% ------ Trombone ------
+tbone = \relative c {
+  \Key
+  c1 | c | c
+}
+tboneHarmony = \chordmode {
+  \jazzChords
+}
+trombone = {
+  \global
+  \set Staff.instrumentName = #&quot;Trombone&quot;
+  \clef bass
+  &lt;&lt;
+    \tbone
+  &gt;&gt;
+}
+
+% ############ Rhythm Section #############
+
+% ------ Guitar ------
+gtr = \relative c'' {
+  \Key
+  c1
+  \sl
+  b4 b b b
+  \nsl
+  c1
+}
+gtrHarmony = \chordmode {
+  \jazzChords
+  s1 c2:min7+ d2:maj9
+}
+guitar = {
+  \global
+  \set Staff.instrumentName = #&quot;Guitar&quot;
+  \clef treble
+  &lt;&lt;
+    \gtr
+  &gt;&gt;
+}
+
+%% ------ Piano ------
+rhUpper = \relative c'' {
+  \voiceOne
+  \Key
+  c1 | c | c
+}
+rhLower = \relative c' {
+  \voiceTwo
+  \Key
+  e1 | e | e
+}
+
+lhUpper = \relative c' {
+  \voiceOne
+  \Key
+  g1 | g | g
+}
+lhLower = \relative c {
+  \voiceTwo
+  \Key
+  c1 | c | c
+}
+
+PianoRH = {
+  \clef treble
+  \global
+  \set Staff.midiInstrument = #&quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \rhUpper
+    \new Voice = &quot;two&quot; \rhLower
+  &gt;&gt;
+}
+PianoLH = {
+  \clef bass
+  \global
+  \set Staff.midiInstrument = &quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \lhUpper
+    \new Voice = &quot;two&quot; \lhLower
+  &gt;&gt;
+}
+
+piano = {
+  &lt;&lt;
+    \set PianoStaff.instrumentName = #&quot;Piano&quot;
+    \new Staff = &quot;upper&quot; \PianoRH
+    \new Staff = &quot;lower&quot; \PianoLH
+  &gt;&gt;
+}
+
+% ------ Bass Guitar ------
+Bass = \relative c {
+  \Key
+  c1 | c | c
+}
+bass = {
+  \global
+  \set Staff.instrumentName = #&quot;Bass&quot;
+  \clef bass
+  &lt;&lt;
+    \Bass
+  &gt;&gt;
+}
+
+% ------ Drums ------
+up = \drummode {
+  \voiceOne
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+}
+down = \drummode {
+  \voiceTwo
+  bd4 s bd s
+  bd4 s bd s
+  bd4 s bd s
+}
+
+drumContents = {
+  \global
+  &lt;&lt;
+    \set DrumStaff.instrumentName = #&quot;Drums&quot;
+    \new DrumVoice \up
+    \new DrumVoice \down
+  &gt;&gt;
+}
+
+%%%%%%%%% It All Goes Together Here %%%%%%%%%%%%%%%%%%%%%%
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = &quot;horns&quot; &lt;&lt;
+      \new Staff = &quot;trumpet&quot; \trumpet
+      \new Staff = &quot;altosax&quot; \altoSax
+      \new ChordNames = &quot;barichords&quot; \bariHarmony
+      \new Staff = &quot;barisax&quot; \bariSax
+      \new Staff = &quot;trombone&quot; \trombone
+    &gt;&gt;
+    
+    \new StaffGroup = &quot;rhythm&quot; &lt;&lt;
+      \new ChordNames = &quot;chords&quot; \gtrHarmony
+      \new Staff = &quot;guitar&quot; \guitar
+      \new PianoStaff = &quot;piano&quot; \piano
+      \new Staff = &quot;bass&quot; \bass
+      \new DrumStaff \drumContents
+    &gt;&gt;
+  &gt;&gt;
+  
+  \layout {
+    \context { \RemoveEmptyStaffContext }
+    \context {
+      \Score
+      \override BarNumber #'padding = #3
+      \override RehearsalMark #'padding = #2
+      skipBars = ##t
+    }
+  }
+  
+  \midi { }
+}
+
+</pre><p>
+ <a href="../4e/lily-20354a0d.ly">
+  <img align="middle"
+       border="0"
+       src="../4e/lily-20354a0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="percussion-beaters.ly"></a>
+<hr size="6">
+<a name="Percussion-beaters"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percussion-beaters" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Percussion-beaters"></a>
+<h2 class="unnumberedsec">Percussion beaters</h2>
+
+
+<p>Graphic symbols for percussion instruments are not natively supported;
+however it is possible to include such symbols, either as an external
+EPS file or as embedded PostScript code inside a markup, as
+demonstrated in this example.
+</p>
+
+<pre class="verbatim">stick = \markup { 
+  \with-dimensions #'(0 . 5) #'(0 . 5) 
+  \postscript #&quot;
+    0 6 translate
+    0.8 -0.8 scale
+    0 0 0 setrgbcolor
+    [] 0 setdash
+    1 setlinewidth
+    0 setlinejoin
+    0 setlinecap
+    gsave [1 0 0 1 0 0] concat
+    gsave [1 0 0 1 -3.5406095 -199.29342] concat
+    gsave
+    0 0 0 setrgbcolor
+    newpath
+    7.1434065 200.94354 moveto
+    7.2109628 200.90454 7.2785188 200.86554 7.3460747 200.82654 curveto
+    8.2056347 202.31535 9.0651946 203.80414 9.9247546 205.29295 curveto
+    9.8571989 205.33195 9.7896429 205.37095 9.7220864 205.40996 curveto
+    8.8625264 203.92115 8.0029664 202.43233 7.1434065 200.94354 curveto
+    closepath
+    eofill
+    grestore
+    gsave
+    0 0 0 setrgbcolor
+    newpath
+    4.9646672 203.10444 moveto
+    5.0036707 203.03688 5.0426744 202.96933 5.0816777 202.90176 curveto
+    6.5704792 203.76133 8.0592809 204.6209 9.5480824 205.48045 curveto
+    9.5090791 205.54801 9.4700754 205.61556 9.4310717 205.68311 curveto
+    7.94227 204.82356 6.4534687 203.96399 4.9646672 203.10444 curveto
+    closepath
+    eofill
+    grestore
+    gsave
+    &lt;&lt;
+    /ShadingType 3
+    /ColorSpace /DeviceRGB
+    /Coords [113.13708 207.87465 0 113.13708 207.87465 16.162441]
+    /Extend [true true]
+    /Domain [0 1]
+    /Function &lt;&lt;
+    /FunctionType 3
+    /Functions
+    [
+    &lt;&lt;
+    /FunctionType 2
+    /Domain [0 1]
+    /C0 [1 1 1]
+    /C1 [0.72941178 0.72941178 0.72941178]
+    /N 1
+    &gt;&gt;
+    ]
+    /Domain [0 1]
+    /Bounds [ ]
+    /Encode [ 0 1 ]
+    &gt;&gt;
+    &gt;&gt;
+    newpath
+    7.6422017 200.76488 moveto
+    7.6505696 201.02554 7.3905363 201.24867 7.1341335 201.20075 curveto
+    6.8759501 201.16916 6.6949602 200.87978 6.7801462 200.63381 curveto
+    6.8480773 200.39155 7.1438307 200.25377 7.3728389 200.35861 curveto
+    7.5332399 200.42458 7.6444521 200.59122 7.6422017 200.76488 curveto
+    closepath
+    clip
+    gsave [0.052859054 0.063089841 -0.020912282 0.017521108 5.7334261 189.76443] concat
+    shfill
+    grestore
+    grestore
+    0 0 0 setrgbcolor
+    [] 0 setdash
+    0.027282091 setlinewidth
+    0 setlinejoin
+    0 setlinecap
+    newpath
+    7.6422017 200.76488 moveto
+    7.6505696 201.02554 7.3905363 201.24867 7.1341335 201.20075 curveto
+    6.8759501 201.16916 6.6949602 200.87978 6.7801462 200.63381 curveto
+    6.8480773 200.39155 7.1438307 200.25377 7.3728389 200.35861 curveto
+    7.5332399 200.42458 7.6444521 200.59122 7.6422017 200.76488 curveto
+    closepath
+    stroke
+    gsave
+    &lt;&lt;
+    /ShadingType 3
+    /ColorSpace /DeviceRGB
+    /Coords [113.13708 207.87465 0 113.13708 207.87465 16.162441]
+    /Extend [true true]
+    /Domain [0 1]
+    /Function &lt;&lt;
+    /FunctionType 3
+    /Functions
+    [
+    &lt;&lt;
+    /FunctionType 2
+    /Domain [0 1]
+    /C0 [1 1 1]
+    /C1 [0.72941178 0.72941178 0.72941178]
+    /N 1
+    &gt;&gt;
+    ]
+    /Domain [0 1]
+    /Bounds [ ]
+    /Encode [ 0 1 ]
+    &gt;&gt;
+    &gt;&gt;
+    newpath
+    5.2721217 202.83181 moveto
+    5.2804896 203.09247 5.0204563 203.3156 4.7640539 203.26768 curveto
+    4.5058701 203.23609 4.3248803 202.94671 4.4100662 202.70074 curveto
+    4.4779975 202.45848 4.7737511 202.3207 5.0027593 202.42554 curveto
+    5.1631598 202.49149 5.2743721 202.65813 5.2721217 202.83181 curveto
+    closepath
+    clip
+    gsave [0.052859054 0.063089841 -0.020912282 0.017521108 3.363346 191.83136] concat
+    shfill
+    grestore
+    grestore
+    0 0 0 setrgbcolor
+    [] 0 setdash
+    0.027282091 setlinewidth
+    0 setlinejoin
+    0 setlinecap
+    newpath
+    5.2721217 202.83181 moveto
+    5.2804896 203.09247 5.0204563 203.3156 4.7640539 203.26768 curveto
+    4.5058701 203.23609 4.3248803 202.94671 4.4100662 202.70074 curveto
+    4.4779975 202.45848 4.7737511 202.3207 5.0027593 202.42554 curveto
+    5.1631598 202.49149 5.2743721 202.65813 5.2721217 202.83181 curveto
+    closepath
+    stroke
+    grestore
+    grestore
+  &quot;
+}
+
+\score {
+  b1^\stick
+}
+
+</pre><p>
+ <a href="../ae/lily-7b296036.ly">
+  <img align="middle"
+       border="0"
+       src="../ae/lily-7b296036.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-music-with-different-time-signatures.ly"></a>
+<hr size="6">
+<a name="Percussion-beaters"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion-beaters" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Percussion beaters&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fretted-strings.html#Fretted-strings" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fretted strings &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Printing music with different time signatures</h2>
+
+
+<p>In the following snippet, two parts have a completely different time
+signature, yet remain synchronized. The bar lines can no longer be
+printed at the <code>Score</code> level; to allow independent bar lines in
+each part, the <code>Default_barline_engraver</code> and
+<code>Timing_translator</code> are moved from the <code>Score</code> context to the
+<code>Staff</code> context. 
+</p>
+
+<pre class="verbatim">\paper {
+  indent = #0
+  ragged-right = ##t
+}
+
+global = { \time 3/4 { s2.*3 } \bar &quot;&quot; \break { s2.*3 } }
+
+\layout {
+  \context {
+    \Score
+    \remove &quot;Timing_translator&quot;
+    \remove &quot;Time_signature_engraver&quot;
+    \remove &quot;Default_bar_line_engraver&quot;
+    \override SpacingSpanner #'uniform-stretching = ##t
+    \override SpacingSpanner #'strict-note-spacing = ##t
+    proportionalNotationDuration = #(ly:make-moment 1 64)
+  }
+  \context {
+    \Staff
+    \consists &quot;Timing_translator&quot;
+    \consists &quot;Default_bar_line_engraver&quot;
+    \consists &quot;Time_signature_engraver&quot;
+  }
+  \context {
+    \Voice
+    \remove &quot;Forbid_line_break_engraver&quot;
+    tupletFullLength = ##t
+  }
+}
+
+Bassklarinette = \new Staff &lt;&lt;
+  \global {
+    \bar &quot;|&quot;
+    \clef treble
+    \time 3/8
+    d''4.
+    
+    \bar &quot;|&quot;
+    \time 3/4
+    r8 des''2( c''8)
+    
+    \bar &quot;|&quot;
+    \time 7/8
+    r4. ees''2 ~
+    
+    \bar &quot;|&quot;
+    \time 2/4
+    \tupletUp
+    \times 2/3 { ees''4 r4 d''4 ~ }
+    
+    \bar &quot;|&quot;
+    \time 3/8
+    \tupletUp
+    \times 3/4 { d''4 r4 }
+    
+    \bar &quot;|&quot;
+    \time 2/4
+    e''2
+    
+    \bar &quot;|&quot;
+    \time 3/8
+    es''4.
+    
+    \bar &quot;|&quot;
+    \time 3/4
+    r8 d''2 r8
+    \bar &quot;|&quot;
+  }
+&gt;&gt;
+
+Perkussion = \new StaffGroup &lt;&lt;
+  \new Staff &lt;&lt;
+    \global {
+      \bar &quot;|&quot;
+      \clef percussion
+      \time 3/4
+      r4 c'2 ~
+      
+      \bar &quot;|&quot;
+      c'2.
+      
+      \bar &quot;|&quot;
+      R2.
+      
+      \bar &quot;|&quot;
+      r2 g'4 ~
+      
+      \bar &quot;|&quot;
+      g'2. ~
+      
+      \bar &quot;|&quot;
+      g'2.
+    }
+  &gt;&gt;
+  \new Staff &lt;&lt;
+    \global {
+      \bar &quot;|&quot;
+      \clef percussion
+      \time 3/4
+      R2.
+      
+      \bar &quot;|&quot;
+      g'2. ~
+      
+      \bar &quot;|&quot;
+      g'2.
+      
+      \bar &quot;|&quot;
+      r4 g'2 ~
+      
+      \bar &quot;|&quot;
+      g'2 r4
+      
+      \bar &quot;|&quot;
+      g'2.
+    }
+  &gt;&gt;
+&gt;&gt;
+
+\score {
+  &lt;&lt;
+    \Bassklarinette
+    \Perkussion
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../c8/lily-62d01554.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-62d01554.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Percussion" title="Beginning of this chapter or previous chapter"> &lt;&lt; Percussion&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fretted-strings.html#Fretted-strings" title="Next chapter">&nbsp;Fretted strings &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percussion-beaters" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Percussion beaters&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Percussion" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Percussion&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fretted-strings.html#Fretted-strings" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fretted strings &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li class="toc_current"><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Adding-drum-parts-2" href="Percussion.html#Percussion">Adding drum parts</a>    </li>
+    <li class="toc_current"><a name="toc-Heavily-customized-polymetric-time-signatures-2" href="Percussion.html#Percussion">Heavily customized polymetric time signatures</a>    </li>
+    <li class="toc_current"><a name="toc-Jazz-combo-template-4" href="Percussion.html#Percussion">Jazz combo template</a>    </li>
+    <li><a name="toc-Percussion-beaters-1" href="Percussion.html#Percussion-beaters">Percussion beaters</a>    </li>
+    <li><a name="toc-Printing-music-with-different-time-signatures-1" href="Percussion.html#Percussion-beaters">Printing music with different time signatures</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

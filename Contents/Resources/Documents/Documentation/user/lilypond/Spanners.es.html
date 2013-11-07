@@ -1,0 +1,625 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 5.4.5 Objetos de extensión</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 5.4.5 Spanners">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 5.4.5 Spanners">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties" rel="up" title="5.4 Useful concepts and properties">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Staff-symbol-properties.es.html#Staff-symbol-properties" rel="previous" title="5.4.4 Staff symbol properties">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Spanners"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Staff-symbol-properties.es.html#Staff-symbol-properties" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Propiedades del símbolo del pentagrama&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Conceptos y propiedades útiles&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Spanners" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Spanners"></a>
+<h3 class="subsection">5.4.5 Objetos de extensión</h3>
+
+<p>Muchos objetos de notación musical abarcan varias notas o incluso
+varios compases.  Son ejemplos los crescendi, trinos, corchetes de
+grupo especial y corchetes de primera y segunda vez.  Estos objetos se
+llaman &ldquo;spanners&rdquo; u «objetos de extensión», y tienen propiedades
+especiales para controlar su apariencia y comportamiento.  Algunas de
+estas propiedades son comunes a todos los objetos de extensión; otras
+se limitan a un subconjunto de los extensores.
+</p>
+<p>Todos los objetos de extensión contemplan el interface
+<code>spanner-interface</code>.  Algunos, básicamente aquellos que trazan
+una línea recta entre los dos objetos, contemplan también el interface
+<code>line-spanner-interface</code>.
+</p>
+<hr size="6">
+<a name="Spanners"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Spanners" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Objetos de extensión&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Spanners" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Objetos de extensión&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Spanners" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h4 class="unnumberedsubsubsec">Uso del <code>spanner-interface</code></h4>
+
+<p>Este interface proporciona dos propiedades que se aplican a varios
+extensores.
+</p>
+<p><strong><i>La propiedad <code>minimum-length</code></i></strong>
+</p>
+<p>La longitud mínima del objeto de extensión se pesoecifica a través de
+la propiedad <code>minimum-length</code>.  Su aumento suele producir el
+efecto necesario de aumentar el espaciado de las notas entre los dos
+puntos extremos.  Sin embargo, esta sobreescritura no tiene ningún
+efecto sobre muchos extensores, pues su longitud está determinada por
+otras consideraciones.  Más abajo se muestran algunos ejemplos de
+dónde es efectiva.
+</p>
+
+<blockquote><pre class="verbatim">a~a
+a
+% aumentar la longitud de la ligadura
+-\tweak #'minimum-length #5
+~a
+</pre><p>
+ <a href="../46/lily-0ede87e9.ly">
+  <img align="middle"
+       border="0"
+       src="../46/lily-0ede87e9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<blockquote><pre class="verbatim">a1
+\compressFullBarRests
+R1*23
+% aumentar la longitud del compás en silencio
+\once \override MultiMeasureRest #'minimum-length = #20
+R1*23
+a1
+</pre><p>
+ <a href="../28/lily-1ea88321.ly">
+  <img align="middle"
+       border="0"
+       src="../28/lily-1ea88321.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<blockquote><pre class="verbatim">a \&lt; a a a \!
+% aumentar la longitud del regulador
+\override Hairpin #'minimum-length = #20
+a \&lt; a a a \!
+</pre><p>
+ <a href="../22/lily-74af9065.ly">
+  <img align="middle"
+       border="0"
+       src="../22/lily-74af9065.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Esta sobreescritura se puede usar también para aumentar la longitud de
+las ligaduras de expresión y de fraseo:
+</p>
+<blockquote><pre class="verbatim">a( a)
+a
+-\tweak #'minimum-length #5
+( a)
+
+a\( a\)
+a
+-\tweak #'minimum-length #5
+\( a\)
+</pre><p>
+ <a href="../4a/lily-dc118af9.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-dc118af9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Para algunos objetos de preesentación, la propiedad
+<code>minimum-length</code> es efectiva sólo si se llama explícitamente al
+procedimiento <code>set-spacing-rods</code>.  Para hacerlo, se debe fijar la
+propiedad <code>springs-and-rods</code> al valor
+<code>ly:spanner::set-spacing-rods</code>.  Por ejemplo, la longitud mínima
+de un glissando no tiene efecto a no ser que se establezca la
+propiedad <code>springs-and-rods</code>:
+</p>
+<blockquote><pre class="verbatim">% predeterminado
+e \glissando c'
+
+% no es efectivo por sí solo
+\once \override Glissando #'minimum-length = #20
+e, \glissando c'
+
+% es efectivo sólo cuando las dos sobreescrituras están presentes
+\once \override Glissando #'minimum-length = #20
+\once \override Glissando #'springs-and-rods = #ly:spanner::set-spacing-rods
+e, \glissando c'
+</pre><p>
+ <a href="../59/lily-1a18bfa5.ly">
+  <img align="middle"
+       border="0"
+       src="../59/lily-1a18bfa5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Lo mismo se puede decir del objeto <code>Beam</code>:
+</p>
+<blockquote><pre class="verbatim">% no es efectivo por sí solo
+\once \override Beam #'minimum-length = #20
+e8 e e e
+
+% es efectivo sólo cuando las dos sobreescrituras están presentes
+\once \override Beam #'minimum-length = #20
+\once \override Beam #'springs-and-rods = #ly:spanner::set-spacing-rods
+e8 e e e
+</pre><p>
+ <a href="../67/lily-3ad1a0c0.ly">
+  <img align="middle"
+       border="0"
+       src="../67/lily-3ad1a0c0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><strong><i>The <code>to-barline</code> property</i></strong>
+</p>
+<p>La segunda propiedad útil del <code>spanner-interface</code> es
+<code>to-barline</code>.  De forma predeterminada tiene el valor cierto,
+haciendo que los reguladores y otros objetos de extensión que terminan
+sobre la primera nota de un compás, en vez de eso terminen en la línea
+divisoria inmediatamente precedente.  Si se establece al valor falso,
+el extensor llegará más allá de la barra de compás y terminará
+excatamente sobre la nota:
+</p>
+<blockquote><pre class="verbatim">a \&lt; a a a a \! a a a \break
+\override Hairpin #'to-barline = ##f
+a \&lt; a a a a \! a a a
+</pre><p>
+ <a href="../ce/lily-43ab613c.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-43ab613c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Esta propiedad no es efectiva para todos los extensores.  Por ejemplo,
+su establecimiento a <code>#t</code> no tienen ningún efecto sobre las
+ligaduras de expresión o de fraseo, o sobre otros extensores para los
+que terminar en la barra de compás no tendría ningún significado.
+</p>
+<hr size="6">
+<a name="Spanners"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Spanners" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Spanners" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Objetos de extensión&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Visibility-of-objects.es.html#Visibility-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Visibilidad de los objetos &gt; </a>]</td></tr></table>
+<h4 class="unnumberedsubsubsec">Uso del <code>line-spanner-interface</code></h4>
+
+<p>Entre los objetos que contemplan el interface
+<code>line-spanner-interface</code> se encuentran
+</p>
+<ul>
+<li> <code>DynamicTextSpanner</code>
+</li><li> <code>Glissando</code>
+</li><li> <code>TextSpanner</code>
+</li><li> <code>TrillSpanner</code>
+</li><li> <code>VoiceFollower</code>
+</li></ul>
+
+<p>La rutina responsable de dibujar los sellos de estos extensores es
+<code>ly:line-interface::print</code>.  esta rutina determina la
+localización exacta de los dos puntos extremos y traza una línea entre
+ellos, en el estilo solicitado.  Las posiciones de los dos puntos
+extremos del extensor se calculan al vuelo, pero es posible
+sobreescribir sus coordenadas Y.  Las propiedades que se deben
+especificar están anidadas a dos niveles de profundidad en la
+jerarquía de propiedades, pero la sintaxis de la instrucción
+<code>\override</code> es bastante sencilla:
+</p>
+<blockquote><pre class="verbatim">e2 \glissando b
+\once \override Glissando #'(bound-details left Y) = #3
+\once \override Glissando #'(bound-details right Y) = #-2
+e2 \glissando b
+</pre><p>
+ <a href="../07/lily-0cf448b9.ly">
+  <img align="middle"
+       border="0"
+       src="../07/lily-0cf448b9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Las unidades para la propiedad <code>Y</code> son <code>staff-space</code>s,
+siendo el punto del cero la línea central del pentagrama.  Para el
+glissando, esto es el valor de <code>Y</code> en la coordenada X que
+corresponde al punto central de cada cabeza de nota si nos imaginamos
+que la línea se extiende hasta allí.
+</p>
+<p>Si no está fijado <code>Y</code>, su valor se calcula a partir de la
+posición vertical del punto de anclaje correspondiente del extensor.
+</p>
+<p>En caso de salto de línea, los valores para los puntos extremos se
+especifican por las sub-listas <code>left-broken</code> y
+<code>right-broken</code> de <code>bound-details</code>.  Por ejemplo:
+</p>
+<pre class="verbatim">\override Glissando #'breakable = ##t
+\override Glissando #'(bound-details right-broken Y) = #-3
+c1 \glissando \break
+f1
+</pre><p>
+ <a href="../7a/lily-b4e820ff.ly">
+  <img align="middle"
+       border="0"
+       src="../7a/lily-b4e820ff.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>Un número de propiedades adicionales de las sub-listas <code>left</code> y
+<code>right</code> de la propiedad <code>bound-details</code> se pueden
+especificar de la misma forma que <code>Y</code>:
+</p>
+<dl compact="compact">
+<dt> <code>Y</code></dt>
+<dd><p>Establece la coordenada Y del punto extremo, en desplazamientos de
+<code>staff-space</code>s desde la línea central del pentagrama.  De forma
+predeterminada es el centro del objeto ancla, y así un glissando
+apunta al centro vertical de la cabeza de la nota.
+</p>
+<p>Para extensores horizontales como los extensores de texto y los
+trinos, está inamoviblemente codificado como 0.
+</p>
+</dd>
+<dt> <code>attach-dir (dirección de anclaje)</code></dt>
+<dd><p>Determina dónde comienza y termina la línea en la dirección X, con
+relación al objeto ancla.  Sí, un valor de <code>-1</code> (o <code>LEFT</code>,
+izquierda) hace que la línea comienze o termine en el lado izquierdo
+de la cabeza de la nota a la que está anclado.
+</p>
+</dd>
+<dt> <code>X</code></dt>
+<dd><p>Es la coordenada X absoluta del punto extremo.  Se suele calcular al
+vuelo, y su sobreescritura no tiene un efecto útil.
+</p>
+</dd>
+<dt> <code>stencil (sello)</code></dt>
+<dd><p>Los extensores de línea pueden tener símbolos al comienzo o al final,
+lo que está contenido en esta sub-propiedad.  Esto es para uso
+interno; se recomienda en su lugar el uso de <code>text</code>.
+</p>
+</dd>
+<dt> <code>text (texto)</code></dt>
+<dd><p>Es un elemento de marcado que se evalúa para dar lugar al sello.  Se
+usa para escribir <i>cresc.</i>, <i>tr</i> y otros textos sobre los objetos
+de extensión horizontales.
+</p>
+<blockquote><pre class="verbatim">\override TextSpanner #'(bound-details left text)
+   = \markup { \small \bold Slower }
+c2\startTextSpan b c a\stopTextSpan
+</pre><p>
+ <a href="../03/lily-327751f8.ly">
+  <img align="middle"
+       border="0"
+       src="../03/lily-327751f8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+</dd>
+<dt> <code>stencil-align-dir-y (alineación del sello en y)</code></dt>
+<dt> <code>stencil-offset (desplazamiento del sello)</code></dt>
+<dd><p>Si no se modifican uno u otro, el sello se coloca sencillamente en el
+punto extremo, centrado sobrer la línea, como viene definido por las
+subpropiedades <code>X</code> e <code>Y</code>.  Si se fijan
+<code>stencil-align-dir-y</code> o <code>stencil-offset</code> se moverá el
+símbolo del borde verticalmente con relación al extremo de la línea:
+</p>
+<pre class="verbatim">\override TextSpanner
+  #'(bound-details left stencil-align-dir-y) = #-2
+\override TextSpanner
+  #'(bound-details right stencil-align-dir-y) = #UP
+
+\override TextSpanner
+  #'(bound-details left text) = #&quot;ggg&quot;
+\override TextSpanner
+  #'(bound-details right text) = #&quot;hhh&quot;
+c4^\startTextSpan c c c \stopTextSpan
+</pre><p>
+ <a href="../b5/lily-916428e4.ly">
+  <img align="middle"
+       border="0"
+       src="../b5/lily-916428e4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>Observe que los valores negativos mueven el texto <em>hacia arriba</em>,
+al contrario de lo que podríoa esperarse, pues el valor de <code>-1</code> o
+<code>DOWN</code> (abajo) significa alinear el bborde <em>inferior</em> del
+texto con la línea de extensión.  Un valor de <code>1</code> o <code>UP</code>
+(arriba) alinea el borde superior del texto con la línea extensora.
+</p>
+</dd>
+<dt> <code>arrow (flecha)</code></dt>
+<dd><p>Al establecer esta sub-propiedad a <code>#t</code> se produce una punta de
+flecha en el extremo de la línea.
+</p>
+</dd>
+<dt> <code>padding (relleno)</code></dt>
+<dd><p>Esta sub-propiedad controla el espacio entre el punto extremo
+especificado de la línea y el extremo real.  Sin relleno, un glissando
+empezaría y terminaría en el centro de la cabeza de las notas.
+</p>
+</dd>
+</dl>
+
+<p>La función musical <code>\endSpanners</code> finaliza de forma prematura el
+extensor que comienza sobre la nota que sigue inmediatamente a
+continuación.  Se termina después de una nota exactamente, o en la
+siguiente barra de compás si <code>to-barline</code> es verdadero y se
+produce una divisoria antes de la siguiente nota.
+</p>
+<blockquote><pre class="verbatim">\endSpanners
+c2 \startTextSpan c2 c2
+\endSpanners
+c2 \&lt; c2 c2
+</pre><p>
+ <a href="../ae/lily-68441e6e.ly">
+  <img align="middle"
+       border="0"
+       src="../ae/lily-68441e6e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si se usa <code>\endSpanners</code> no es necesario cerrar \startTextSpan
+con \stopTextSpan, ni cerrar los reguladores con <code>\!</code>.
+</p>
+
+<a name="Vease-tambien-102"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de funcionamiento interno:
+<a name="index-TextSpanner-1"></a>
+<a href="../lilypond-internals/TextSpanner.es.html#TextSpanner">TextSpanner</a>,
+<a name="index-Glissando-1"></a>
+<a href="../lilypond-internals/Glissando.es.html#Glissando">Glissando</a>,
+<a name="index-VoiceFollower-1"></a>
+<a href="../lilypond-internals/VoiceFollower.es.html#VoiceFollower">VoiceFollower</a>,
+<a name="index-TrillSpanner-1"></a>
+<a href="../lilypond-internals/TrillSpanner.es.html#TrillSpanner">TrillSpanner</a>,
+<a name="index-line_002dspanner_002dinterface"></a>
+<a href="../lilypond-internals/line_002dspanner_002dinterface.es.html#line_002dspanner_002dinterface">line-spanner-interface</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Spanners" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Spanners" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Objetos de extensión&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Visibility-of-objects.es.html#Visibility-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Visibilidad de los objetos &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Spanners.html">English</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li class="toc_current"><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>
+    <ul class="toc">
+      <li><a name="toc-Input-modes-1" href="Input-modes.es.html#Input-modes">5.4.1 Modos de entrada</a>      </li>
+      <li><a name="toc-Direction-and-placement-1" href="Direction-and-placement.es.html#Direction-and-placement">5.4.2 Dirección y posición</a>      </li>
+      <li><a name="toc-Distances-and-measurements-1" href="Distances-and-measurements.es.html#Distances-and-measurements">5.4.3 Distancias y medidas</a>      </li>
+      <li><a name="toc-Staff-symbol-properties-1" href="Staff-symbol-properties.es.html#Staff-symbol-properties">5.4.4 Propiedades del símbolo del pentagrama</a>      </li>
+      <li class="toc_current"><a name="toc-Spanners-1" href="Spanners.es.html#Spanners">5.4.5 Objetos de extensión</a>
+      <ul class="toc">
+        <li class="toc_current"><a name="toc-Using-the-spanner_002dinterface" href="Spanners.es.html#Spanners">Uso del <code>spanner-interface</code></a>        </li>
+        <li class="toc_current"><a name="toc-Using-the-line_002dspanner_002dinterface" href="Spanners.es.html#Spanners">Uso del <code>line-spanner-interface</code></a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Visibility-of-objects-1" href="Visibility-of-objects.es.html#Visibility-of-objects">5.4.6 Visibilidad de los objetos</a>      </li>
+      <li><a name="toc-Line-styles-1" href="Line-styles.es.html#Line-styles">5.4.7 Estilos de línea</a>      </li>
+      <li><a name="toc-Rotating-objects-1" href="Rotating-objects.es.html#Rotating-objects">5.4.8 Rotación de objetos</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

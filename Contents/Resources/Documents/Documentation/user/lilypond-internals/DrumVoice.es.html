@@ -1,0 +1,1070 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.1.6 DrumVoice</title>
+
+<meta name="description" content="LilyPond program-reference: 2.1.6 DrumVoice">
+<meta name="keywords" content="LilyPond program-reference: 2.1.6 DrumVoice">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.es.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.es.html#SEC_About" rel="help" title="About This Document">
+<link href="Contexts.es.html#Contexts" rel="up" title="2.1 Contexts">
+<link href="Indices.es.html#Indices" rel="next" title="A.2 Function index">
+<link href="DrumStaff.es.html#DrumStaff" rel="previous" title="2.1.5 DrumStaff">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="DrumVoice"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.es.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.es.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.es.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DrumStaff.es.html#DrumStaff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DrumStaff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.es.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="FiguredBass.es.html#FiguredBass" title="Next section in reading order" accesskey="n" rel="next">&nbsp;FiguredBass &gt; </a>]</td></tr></table>
+<a name="DrumVoice"></a>
+<h3 class="subsection">2.1.6 DrumVoice</h3>
+
+<p>A voice on a percussion staff.
+</p>
+<p>This context also accepts commands for the following context(s):
+</p>
+<p>Voice.
+</p>
+<p>This context creates the following layout object(s):
+</p>
+<p><a href="Beam.es.html#Beam">Beam</a>, <a href="BendAfter.es.html#BendAfter">BendAfter</a>, <a href="BreathingSign.es.html#BreathingSign">BreathingSign</a>, <a href="CombineTextScript.es.html#CombineTextScript">CombineTextScript</a>, <a href="Dots.es.html#Dots">Dots</a>, <a href="DoublePercentRepeatCounter.es.html#DoublePercentRepeatCounter">DoublePercentRepeatCounter</a>, <a href="DoublePercentRepeat.es.html#DoublePercentRepeat">DoublePercentRepeat</a>, <a href="DynamicLineSpanner.es.html#DynamicLineSpanner">DynamicLineSpanner</a>, <a href="DynamicTextSpanner.es.html#DynamicTextSpanner">DynamicTextSpanner</a>, <a href="DynamicText.es.html#DynamicText">DynamicText</a>, <a href="Hairpin.es.html#Hairpin">Hairpin</a>, <a href="InstrumentSwitch.es.html#InstrumentSwitch">InstrumentSwitch</a>, <a href="LaissezVibrerTieColumn.es.html#LaissezVibrerTieColumn">LaissezVibrerTieColumn</a>, <a href="LaissezVibrerTie.es.html#LaissezVibrerTie">LaissezVibrerTie</a>, <a href="MultiMeasureRestNumber.es.html#MultiMeasureRestNumber">MultiMeasureRestNumber</a>, <a href="MultiMeasureRestText.es.html#MultiMeasureRestText">MultiMeasureRestText</a>, <a href="MultiMeasureRest.es.html#MultiMeasureRest">MultiMeasureRest</a>, <a href="NoteColumn.es.html#NoteColumn">NoteColumn</a>, <a href="NoteHead.es.html#NoteHead">NoteHead</a>, <a href="NoteSpacing.es.html#NoteSpacing">NoteSpacing</a>, <a href="PercentRepeatCounter.es.html#PercentRepeatCounter">PercentRepeatCounter</a>, <a href="PercentRepeat.es.html#PercentRepeat">PercentRepeat</a>, <a href="PhrasingSlur.es.html#PhrasingSlur">PhrasingSlur</a>, <a href="RepeatSlash.es.html#RepeatSlash">RepeatSlash</a>, <a href="RepeatTieColumn.es.html#RepeatTieColumn">RepeatTieColumn</a>, <a href="RepeatTie.es.html#RepeatTie">RepeatTie</a>, <a href="Rest.es.html#Rest">Rest</a>, <a href="ScriptColumn.es.html#ScriptColumn">ScriptColumn</a>, <a href="Script.es.html#Script">Script</a>, <a href="Slur.es.html#Slur">Slur</a>, <a href="StemTremolo.es.html#StemTremolo">StemTremolo</a>, <a href="Stem.es.html#Stem">Stem</a>, <a href="TextScript.es.html#TextScript">TextScript</a>, <a href="TextSpanner.es.html#TextSpanner">TextSpanner</a>, <a href="TieColumn.es.html#TieColumn">TieColumn</a>, <a href="Tie.es.html#Tie">Tie</a>, <a href="TrillPitchAccidental.es.html#TrillPitchAccidental">TrillPitchAccidental</a>, <a href="TrillPitchGroup.es.html#TrillPitchGroup">TrillPitchGroup</a>, <a href="TrillPitchHead.es.html#TrillPitchHead">TrillPitchHead</a>, <a href="TrillSpanner.es.html#TrillSpanner">TrillSpanner</a>, <a href="TupletBracket.es.html#TupletBracket">TupletBracket</a> and <a href="TupletNumber.es.html#TupletNumber">TupletNumber</a>.
+</p>
+<p>This context sets the following properties:
+</p>
+<ul>
+<li> Set translator property <code>localKeySignature</code> to <code>'()</code>.
+</li></ul>
+
+
+<p>This context is a &lsquo;bottom&rsquo; context; it cannot contain other contexts.
+</p>
+<p>This context is built from the following engraver(s):
+</p><blockquote><dl compact="compact">
+<dt> <code><a href="Skip_005fevent_005fswallow_005ftranslator.es.html#Skip_005fevent_005fswallow_005ftranslator">Skip_event_swallow_translator</a></code></dt>
+<dd><p>Swallow <code>\skip</code>.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Drum_005fnotes_005fengraver.es.html#Drum_005fnotes_005fengraver">Drum_notes_engraver</a></code></dt>
+<dd><p>Generate drum note heads.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="note_002devent.es.html#note_002devent">note-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>drumStyleTable</code> (hash table)</dt>
+<dd><p>A hash table which maps drums to
+layout settings.  Predefined values: &lsquo;<samp>drums-style</samp>&rsquo;,
+&lsquo;<samp>timbales-style</samp>&rsquo;, &lsquo;<samp>congas-style</samp>&rsquo;, &lsquo;<samp>bongos-style</samp>&rsquo;, and
+&lsquo;<samp>percussion-style</samp>&rsquo;.
+</p>
+<p>The layout style is a hash table, containing the drum-pitches (e.g.,
+the symbol &lsquo;<samp>hihat</samp>&rsquo;) as keys, and a list
+<code>(<var>notehead-style</var> <var>script</var> <var>vertical-position</var>)</code> as
+values.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="NoteHead.es.html#NoteHead">NoteHead</a> and <a href="Script.es.html#Script">Script</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Grob_005fpq_005fengraver.es.html#Grob_005fpq_005fengraver">Grob_pq_engraver</a></code></dt>
+<dd><p>Administrate when certain grobs (e.g., note heads) stop playing.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Skip_005fevent_005fswallow_005ftranslator.es.html#Skip_005fevent_005fswallow_005ftranslator">Skip_event_swallow_translator</a></code></dt>
+<dd><p>Swallow <code>\skip</code>.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Instrument_005fswitch_005fengraver.es.html#Instrument_005fswitch_005fengraver">Instrument_switch_engraver</a></code></dt>
+<dd><p>Create a cue text for taking instrument.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>instrumentCueName</code> (markup)</dt>
+<dd><p>The name to print if another
+instrument is to be taken.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="InstrumentSwitch.es.html#InstrumentSwitch">InstrumentSwitch</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Grace_005fengraver.es.html#Grace_005fengraver">Grace_engraver</a></code></dt>
+<dd><p>Set font size and other properties for grace notes.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>graceSettings</code> (list)</dt>
+<dd><p>Overrides for grace notes.  This property
+should be manipulated through the <code>add-grace-property</code> function.
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Tuplet_005fengraver.es.html#Tuplet_005fengraver">Tuplet_engraver</a></code></dt>
+<dd><p>Catch tuplet events and generate appropriate bracket.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="tuplet_002dspan_002devent.es.html#tuplet_002dspan_002devent">tuplet-span-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>tupletFullLength</code> (boolean)</dt>
+<dd><p>If set, the tuplet is printed up to
+the start of the next note.
+</p></dd>
+<dt> <code>tupletFullLengthNote</code> (boolean)</dt>
+<dd><p>If set, end at the next note,
+otherwise end on the matter (time signatures, etc.) before the note.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TupletBracket.es.html#TupletBracket">TupletBracket</a> and <a href="TupletNumber.es.html#TupletNumber">TupletNumber</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Tie_005fengraver.es.html#Tie_005fengraver">Tie_engraver</a></code></dt>
+<dd><p>Generate ties between note heads of equal pitch.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="tie_002devent.es.html#tie_002devent">tie-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>tieWaitForNote</code> (boolean)</dt>
+<dd><p>If true, tied notes do not have to
+follow each other directly.  This can be used for writing out
+arpeggios.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>tieMelismaBusy</code> (boolean)</dt>
+<dd><p>Signal whether a tie is present.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Tie.es.html#Tie">Tie</a> and <a href="TieColumn.es.html#TieColumn">TieColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Slur_005fengraver.es.html#Slur_005fengraver">Slur_engraver</a></code></dt>
+<dd><p>Build slur grobs from slur events.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="slur_002devent.es.html#slur_002devent">slur-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>slurMelismaBusy</code> (boolean)</dt>
+<dd><p>Signal if a slur is present.
+</p></dd>
+<dt> <code>doubleSlurs</code> (boolean)</dt>
+<dd><p>If set, two slurs are created for every
+slurred note, one above and one below the chord.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Slur.es.html#Slur">Slur</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Phrasing_005fslur_005fengraver.es.html#Phrasing_005fslur_005fengraver">Phrasing_slur_engraver</a></code></dt>
+<dd><p>Print phrasing slurs.  Similar to <a href="Slur_005fengraver.es.html#Slur_005fengraver">Slur_engraver</a>.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="phrasing_002dslur_002devent.es.html#phrasing_002dslur_002devent">phrasing-slur-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="PhrasingSlur.es.html#PhrasingSlur">PhrasingSlur</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Spanner_005fbreak_005fforbid_005fengraver.es.html#Spanner_005fbreak_005fforbid_005fengraver">Spanner_break_forbid_engraver</a></code></dt>
+<dd><p>Forbid breaks in certain spanners.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Note_005fspacing_005fengraver.es.html#Note_005fspacing_005fengraver">Note_spacing_engraver</a></code></dt>
+<dd><p>Generate <code>NoteSpacing</code>, an object linking horizontal lines for use in spacing.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="NoteSpacing.es.html#NoteSpacing">NoteSpacing</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Rhythmic_005fcolumn_005fengraver.es.html#Rhythmic_005fcolumn_005fengraver">Rhythmic_column_engraver</a></code></dt>
+<dd><p>Generate <code>NoteColumn</code>, an object that groups stems, note heads, and rests.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="NoteColumn.es.html#NoteColumn">NoteColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Script_005fcolumn_005fengraver.es.html#Script_005fcolumn_005fengraver">Script_column_engraver</a></code></dt>
+<dd><p>Find potentially colliding scripts and put them into a <code>ScriptColumn</code> object; that will fix the collisions.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="ScriptColumn.es.html#ScriptColumn">ScriptColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Script_005fengraver.es.html#Script_005fengraver">Script_engraver</a></code></dt>
+<dd><p>Handle note scripted articulations.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="articulation_002devent.es.html#articulation_002devent">articulation-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>scriptDefinitions</code> (list)</dt>
+<dd><p>The description of scripts.  This is
+used by the <code>Script_engraver</code> for typesetting note-superscripts
+and subscripts.  See &lsquo;<tt>scm/script.scm</tt>&rsquo; for more information.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Script.es.html#Script">Script</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Bend_005fengraver.es.html#Bend_005fengraver">Bend_engraver</a></code></dt>
+<dd><p>Create fall spanners.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="bend_002dafter_002devent.es.html#bend_002dafter_002devent">bend-after-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BendAfter.es.html#BendAfter">BendAfter</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Dynamic_005falign_005fengraver.es.html#Dynamic_005falign_005fengraver">Dynamic_align_engraver</a></code></dt>
+<dd><p>Align hairpins and dynamic texts on a horizontal line
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentMusicalColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+non-breakable items (note heads, lyrics, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="DynamicLineSpanner.es.html#DynamicLineSpanner">DynamicLineSpanner</a>.
+</p>
+
+</dd>
+<dt> <code><a href="New_005fdynamic_005fengraver.es.html#New_005fdynamic_005fengraver">New_dynamic_engraver</a></code></dt>
+<dd><p>Create hairpins, dynamic texts, and their vertical alignments.  The symbols are collected onto a <code>DynamicLineSpanner</code> grob which takes care of vertical positioning.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="span_002ddynamic_002devent.es.html#span_002ddynamic_002devent">span-dynamic-event</a> and <a href="absolute_002ddynamic_002devent.es.html#absolute_002ddynamic_002devent">absolute-dynamic-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>crescendoSpanner</code> (symbol)</dt>
+<dd><p>The type of spanner to be used for
+crescendi.  Available values are &lsquo;<samp>hairpin</samp>&rsquo; and &lsquo;<samp>text</samp>&rsquo;.  If unset,
+a hairpin crescendo is used.
+</p></dd>
+<dt> <code>crescendoText</code> (markup)</dt>
+<dd><p>The text to print at start of non-hairpin
+crescendo, i.e., &lsquo;<samp>cresc.</samp>&rsquo;.
+</p></dd>
+<dt> <code>currentMusicalColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+non-breakable items (note heads, lyrics, etc.).
+</p></dd>
+<dt> <code>decrescendoSpanner</code> (symbol)</dt>
+<dd><p>The type of spanner to be used for
+decrescendi.  Available values are &lsquo;<samp>hairpin</samp>&rsquo; and &lsquo;<samp>text</samp>&rsquo;.  If
+unset, a hairpin decrescendo is used.
+</p></dd>
+<dt> <code>decrescendoText</code> (markup)</dt>
+<dd><p>The text to print at start of
+non-hairpin decrescendo, i.e., &lsquo;<samp>dim.</samp>&rsquo;.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="DynamicText.es.html#DynamicText">DynamicText</a>, <a href="DynamicTextSpanner.es.html#DynamicTextSpanner">DynamicTextSpanner</a> and <a href="Hairpin.es.html#Hairpin">Hairpin</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Text_005fengraver.es.html#Text_005fengraver">Text_engraver</a></code></dt>
+<dd><p>Create text scripts.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="text_002dscript_002devent.es.html#text_002dscript_002devent">text-script-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TextScript.es.html#TextScript">TextScript</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Part_005fcombine_005fengraver.es.html#Part_005fcombine_005fengraver">Part_combine_engraver</a></code></dt>
+<dd><p>Part combine engraver for orchestral scores: Print markings &lsquo;a2&rsquo;, &lsquo;Solo&rsquo;, &lsquo;Solo II&rsquo;, and &lsquo;unisono&rsquo;.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="part_002dcombine_002devent.es.html#part_002dcombine_002devent">part-combine-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>printPartCombineTexts</code> (boolean)</dt>
+<dd><p>Set &lsquo;Solo&rsquo; and &lsquo;A due&rsquo; texts
+in the part combiner?
+</p></dd>
+<dt> <code>soloText</code> (markup)</dt>
+<dd><p>The text for the start of a solo when
+part-combining.
+</p></dd>
+<dt> <code>soloIIText</code> (markup)</dt>
+<dd><p>The text for the start of a solo for
+voice &lsquo;two&rsquo; when part-combining.
+</p></dd>
+<dt> <code>aDueText</code> (markup)</dt>
+<dd><p>Text to print at a unisono passage.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="CombineTextScript.es.html#CombineTextScript">CombineTextScript</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Slash_005frepeat_005fengraver.es.html#Slash_005frepeat_005fengraver">Slash_repeat_engraver</a></code></dt>
+<dd><p>Make beat repeats.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="percent_002devent.es.html#percent_002devent">percent-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>measureLength</code> (moment)</dt>
+<dd><p>Length of one measure in the current
+time signature.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="RepeatSlash.es.html#RepeatSlash">RepeatSlash</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Percent_005frepeat_005fengraver.es.html#Percent_005frepeat_005fengraver">Percent_repeat_engraver</a></code></dt>
+<dd><p>Make whole bar and double bar repeats.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="percent_002devent.es.html#percent_002devent">percent-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>countPercentRepeats</code> (boolean)</dt>
+<dd><p>If set, produce counters for
+percent repeats.
+</p></dd>
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>measureLength</code> (moment)</dt>
+<dd><p>Length of one measure in the current
+time signature.
+</p></dd>
+<dt> <code>repeatCountVisibility</code> (procedure)</dt>
+<dd><p>A procedure taking as
+arguments an integer and context, returning whether the corresponding
+percent repeat number should be printed when <code>countPercentRepeats</code>
+is set.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>forbidBreak</code> (boolean)</dt>
+<dd><p>If set to <code>##t</code>, prevent a line break
+at this point.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="DoublePercentRepeat.es.html#DoublePercentRepeat">DoublePercentRepeat</a>, <a href="DoublePercentRepeatCounter.es.html#DoublePercentRepeatCounter">DoublePercentRepeatCounter</a>, <a href="PercentRepeat.es.html#PercentRepeat">PercentRepeat</a> and <a href="PercentRepeatCounter.es.html#PercentRepeatCounter">PercentRepeatCounter</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Chord_005ftremolo_005fengraver.es.html#Chord_005ftremolo_005fengraver">Chord_tremolo_engraver</a></code></dt>
+<dd><p>Generate beams for tremolo repeats.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="tremolo_002dspan_002devent.es.html#tremolo_002dspan_002devent">tremolo-span-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Beam.es.html#Beam">Beam</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Auto_005fbeam_005fengraver.es.html#Auto_005fbeam_005fengraver">Auto_beam_engraver</a></code></dt>
+<dd><p>Generate beams based on measure characteristics and observed Stems.  Uses <code>beatLength</code>, <code>measureLength</code>, and <code>measurePosition</code> to decide when to start and stop a beam.  Overriding beaming is done through <a href="Stem_005fengraver.es.html#Stem_005fengraver">Stem_engraver</a> properties <code>stemLeftBeamCount</code> and <code>stemRightBeamCount</code>.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="beam_002dforbid_002devent.es.html#beam_002dforbid_002devent">beam-forbid-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>autoBeaming</code> (boolean)</dt>
+<dd><p>If set to true then beams are generated
+automatically.
+</p></dd>
+<dt> <code>autoBeamSettings</code> (list)</dt>
+<dd><p>Specifies when automatically generated
+beams should begin and end.  See <a name="index-Setting-automatic-beam-1"></a>
+behavior
+<a href="../lilypond/Beams.es.html#Setting-automatic-beam-behavior">Setting automatic beam behavior</a> for more information.
+</p></dd>
+<dt> <code>beatLength</code> (moment)</dt>
+<dd><p>The length of one beat in this time
+signature.
+</p></dd>
+<dt> <code>subdivideBeams</code> (boolean)</dt>
+<dd><p>If set, multiple beams will be
+subdivided at beat positions by only drawing one beam over the beat.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Beam.es.html#Beam">Beam</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Grace_005fbeam_005fengraver.es.html#Grace_005fbeam_005fengraver">Grace_beam_engraver</a></code></dt>
+<dd><p>Handle <code>Beam</code> events by engraving beams.  If omitted, then notes are printed with flags instead of beams.  Only engraves beams when we are at grace points in time.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="beam_002devent.es.html#beam_002devent">beam-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>beamMelismaBusy</code> (boolean)</dt>
+<dd><p>Signal if a beam is present.
+</p></dd>
+<dt> <code>beatLength</code> (moment)</dt>
+<dd><p>The length of one beat in this time
+signature.
+</p></dd>
+<dt> <code>subdivideBeams</code> (boolean)</dt>
+<dd><p>If set, multiple beams will be
+subdivided at beat positions by only drawing one beam over the beat.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Beam.es.html#Beam">Beam</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Beam_005fengraver.es.html#Beam_005fengraver">Beam_engraver</a></code></dt>
+<dd><p>Handle <code>Beam</code> events by engraving beams.  If omitted, then notes are printed with flags instead of beams.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="beam_002devent.es.html#beam_002devent">beam-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>beamMelismaBusy</code> (boolean)</dt>
+<dd><p>Signal if a beam is present.
+</p></dd>
+<dt> <code>beatLength</code> (moment)</dt>
+<dd><p>The length of one beat in this time
+signature.
+</p></dd>
+<dt> <code>subdivideBeams</code> (boolean)</dt>
+<dd><p>If set, multiple beams will be
+subdivided at beat positions by only drawing one beam over the beat.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>forbidBreak</code> (boolean)</dt>
+<dd><p>If set to <code>##t</code>, prevent a line break
+at this point.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Beam.es.html#Beam">Beam</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Stem_005fengraver.es.html#Stem_005fengraver">Stem_engraver</a></code></dt>
+<dd><p>Create stems and single-stem tremolos.  It also works together with the beam engraver for overriding beaming.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="tremolo_002devent.es.html#tremolo_002devent">tremolo-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>tremoloFlags</code> (integer)</dt>
+<dd><p>The number of tremolo flags to add if no
+number is specified.
+</p></dd>
+<dt> <code>stemLeftBeamCount</code> (integer)</dt>
+<dd><p>Specify the number of beams to draw
+on the left side of the next note.  Overrides automatic beaming.  The
+value is only used once, and then it is erased.
+</p></dd>
+<dt> <code>stemRightBeamCount</code> (integer)</dt>
+<dd><p>See <code>stemLeftBeamCount</code>.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Stem.es.html#Stem">Stem</a> and <a href="StemTremolo.es.html#StemTremolo">StemTremolo</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Tweak_005fengraver.es.html#Tweak_005fengraver">Tweak_engraver</a></code></dt>
+<dd><p>Read the <code>tweaks</code> property from the originating event, and set properties.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Rest_005fengraver.es.html#Rest_005fengraver">Rest_engraver</a></code></dt>
+<dd><p>Engrave rests.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="rest_002devent.es.html#rest_002devent">rest-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>middleCPosition</code> (number)</dt>
+<dd><p>The place of the middle C, measured in
+half staff-spaces.  Usually determined by looking at
+<code>middleCClefPosition</code> and <code>middleCOffset</code>.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Rest.es.html#Rest">Rest</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Dots_005fengraver.es.html#Dots_005fengraver">Dots_engraver</a></code></dt>
+<dd><p>Create <a href="Dots.es.html#Dots">Dots</a> objects for <a href="rhythmic_002dhead_002dinterface.es.html#rhythmic_002dhead_002dinterface">rhythmic-head-interface</a>s.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Dots.es.html#Dots">Dots</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Breathing_005fsign_005fengraver.es.html#Breathing_005fsign_005fengraver">Breathing_sign_engraver</a></code></dt>
+<dd><p>Create a breathing sign.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="breathing_002devent.es.html#breathing_002devent">breathing-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BreathingSign.es.html#BreathingSign">BreathingSign</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Repeat_005ftie_005fengraver.es.html#Repeat_005ftie_005fengraver">Repeat_tie_engraver</a></code></dt>
+<dd><p>Create repeat ties.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="repeat_002dtie_002devent.es.html#repeat_002dtie_002devent">repeat-tie-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="RepeatTie.es.html#RepeatTie">RepeatTie</a> and <a href="RepeatTieColumn.es.html#RepeatTieColumn">RepeatTieColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Laissez_005fvibrer_005fengraver.es.html#Laissez_005fvibrer_005fengraver">Laissez_vibrer_engraver</a></code></dt>
+<dd><p>Create laissez vibrer items.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="laissez_002dvibrer_002devent.es.html#laissez_002dvibrer_002devent">laissez-vibrer-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="LaissezVibrerTie.es.html#LaissezVibrerTie">LaissezVibrerTie</a> and <a href="LaissezVibrerTieColumn.es.html#LaissezVibrerTieColumn">LaissezVibrerTieColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Forbid_005fline_005fbreak_005fengraver.es.html#Forbid_005fline_005fbreak_005fengraver">Forbid_line_break_engraver</a></code></dt>
+<dd><p>Forbid line breaks when note heads are still playing at some point.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>forbidBreak</code> (boolean)</dt>
+<dd><p>If set to <code>##t</code>, prevent a line break
+at this point.
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Grob_005fpq_005fengraver.es.html#Grob_005fpq_005fengraver">Grob_pq_engraver</a></code></dt>
+<dd><p>Administrate when certain grobs (e.g., note heads) stop playing.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Trill_005fspanner_005fengraver.es.html#Trill_005fspanner_005fengraver">Trill_spanner_engraver</a></code></dt>
+<dd><p>Create trill spanner from an event.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="trill_002dspan_002devent.es.html#trill_002dspan_002devent">trill-span-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>currentMusicalColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+non-breakable items (note heads, lyrics, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TrillSpanner.es.html#TrillSpanner">TrillSpanner</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Text_005fspanner_005fengraver.es.html#Text_005fspanner_005fengraver">Text_spanner_engraver</a></code></dt>
+<dd><p>Create text spanner from an event.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="text_002dspan_002devent.es.html#text_002dspan_002devent">text-span-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TextSpanner.es.html#TextSpanner">TextSpanner</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Multi_005fmeasure_005frest_005fengraver.es.html#Multi_005fmeasure_005frest_005fengraver">Multi_measure_rest_engraver</a></code></dt>
+<dd><p>Engrave multi-measure rests that are produced with &lsquo;<samp>R</samp>&rsquo;.  It reads <code>measurePosition</code> and <code>internalBarNumber</code> to determine what number to print over the <a href="MultiMeasureRest.es.html#MultiMeasureRest">MultiMeasureRest</a>.  Reads <code>measureLength</code> to determine whether it should use a whole rest or a breve rest to represent one measure.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="multi_002dmeasure_002dtext_002devent.es.html#multi_002dmeasure_002dtext_002devent">multi-measure-text-event</a> and <a href="multi_002dmeasure_002drest_002devent.es.html#multi_002dmeasure_002drest_002devent">multi-measure-rest-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>internalBarNumber</code> (integer)</dt>
+<dd><p>Contains the current barnumber.
+This property is used for internal timekeeping, among others by the
+<code>Accidental_engraver</code>.
+</p></dd>
+<dt> <code>restNumberThreshold</code> (number)</dt>
+<dd><p>If a multimeasure rest has more
+measures than this, a number is printed.
+</p></dd>
+<dt> <code>breakableSeparationItem</code> (layout object)</dt>
+<dd><p>The breakable items in this
+time step, for this staff.
+</p></dd>
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>measurePosition</code> (moment)</dt>
+<dd><p>How much of the current measure have
+we had.  This can be set manually to create incomplete measures.
+</p></dd>
+<dt> <code>measureLength</code> (moment)</dt>
+<dd><p>Length of one measure in the current
+time signature.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="MultiMeasureRest.es.html#MultiMeasureRest">MultiMeasureRest</a>, <a href="MultiMeasureRestNumber.es.html#MultiMeasureRestNumber">MultiMeasureRestNumber</a> and <a href="MultiMeasureRestText.es.html#MultiMeasureRestText">MultiMeasureRestText</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Output_005fproperty_005fengraver.es.html#Output_005fproperty_005fengraver">Output_property_engraver</a></code></dt>
+<dd><p>Apply a procedure to any grob acknowledged.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="apply_002doutput_002devent.es.html#apply_002doutput_002devent">apply-output-event</a>
+</p>
+
+
+
+</dd>
+<dt> <code><a href="Pitched_005ftrill_005fengraver.es.html#Pitched_005ftrill_005fengraver">Pitched_trill_engraver</a></code></dt>
+<dd><p>Print the bracketed note head after a note head with trill.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TrillPitchAccidental.es.html#TrillPitchAccidental">TrillPitchAccidental</a>, <a href="TrillPitchGroup.es.html#TrillPitchGroup">TrillPitchGroup</a> and <a href="TrillPitchHead.es.html#TrillPitchHead">TrillPitchHead</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Font_005fsize_005fengraver.es.html#Font_005fsize_005fengraver">Font_size_engraver</a></code></dt>
+<dd><p>Put <code>fontSize</code> into <code>font-size</code> grob property.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>fontSize</code> (number)</dt>
+<dd><p>The relative size of all grobs in a context.
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+</dl>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.es.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.es.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.es.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DrumStaff.es.html#DrumStaff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DrumStaff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.es.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="FiguredBass.es.html#FiguredBass" title="Next section in reading order" accesskey="n" rel="next">&nbsp;FiguredBass &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.es.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.es.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.es.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.es.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.es.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.es.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Contexts-1" href="Contexts.es.html#Contexts">2.1 Contexts</a>
+    <ul class="toc">
+      <li><a name="toc-ChoirStaff-1" href="ChoirStaff.es.html#ChoirStaff">2.1.1 ChoirStaff</a>      </li>
+      <li><a name="toc-ChordNames-1" href="ChordNames.es.html#ChordNames">2.1.2 ChordNames</a>      </li>
+      <li><a name="toc-CueVoice-1" href="CueVoice.es.html#CueVoice">2.1.3 CueVoice</a>      </li>
+      <li><a name="toc-Devnull-1" href="Devnull.es.html#Devnull">2.1.4 Devnull</a>      </li>
+      <li><a name="toc-DrumStaff-1" href="DrumStaff.es.html#DrumStaff">2.1.5 DrumStaff</a>      </li>
+      <li class="toc_current"><a name="toc-DrumVoice-1" href="DrumVoice.es.html#DrumVoice">2.1.6 DrumVoice</a>      </li>
+      <li><a name="toc-FiguredBass-1" href="FiguredBass.es.html#FiguredBass">2.1.7 FiguredBass</a>      </li>
+      <li><a name="toc-FretBoards-1" href="FretBoards.es.html#FretBoards">2.1.8 FretBoards</a>      </li>
+      <li><a name="toc-Global-1" href="Global.es.html#Global">2.1.9 Global</a>      </li>
+      <li><a name="toc-GrandStaff-1" href="GrandStaff.es.html#GrandStaff">2.1.10 GrandStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionStaff-1" href="GregorianTranscriptionStaff.es.html#GregorianTranscriptionStaff">2.1.11 GregorianTranscriptionStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionVoice-1" href="GregorianTranscriptionVoice.es.html#GregorianTranscriptionVoice">2.1.12 GregorianTranscriptionVoice</a>      </li>
+      <li><a name="toc-Lyrics-1" href="Lyrics.es.html#Lyrics">2.1.13 Lyrics</a>      </li>
+      <li><a name="toc-MensuralStaff-1" href="MensuralStaff.es.html#MensuralStaff">2.1.14 MensuralStaff</a>      </li>
+      <li><a name="toc-MensuralVoice-1" href="MensuralVoice.es.html#MensuralVoice">2.1.15 MensuralVoice</a>      </li>
+      <li><a name="toc-NoteNames-1" href="NoteNames.es.html#NoteNames">2.1.16 NoteNames</a>      </li>
+      <li><a name="toc-PianoStaff-1" href="PianoStaff.es.html#PianoStaff">2.1.17 PianoStaff</a>      </li>
+      <li><a name="toc-RhythmicStaff-1" href="RhythmicStaff.es.html#RhythmicStaff">2.1.18 RhythmicStaff</a>      </li>
+      <li><a name="toc-Score-1" href="Score.es.html#Score">2.1.19 Score</a>      </li>
+      <li><a name="toc-Staff-1" href="Staff.es.html#Staff">2.1.20 Staff</a>      </li>
+      <li><a name="toc-StaffGroup-1" href="StaffGroup.es.html#StaffGroup">2.1.21 StaffGroup</a>      </li>
+      <li><a name="toc-TabStaff-1" href="TabStaff.es.html#TabStaff">2.1.22 TabStaff</a>      </li>
+      <li><a name="toc-TabVoice-1" href="TabVoice.es.html#TabVoice">2.1.23 TabVoice</a>      </li>
+      <li><a name="toc-VaticanaStaff-1" href="VaticanaStaff.es.html#VaticanaStaff">2.1.24 VaticanaStaff</a>      </li>
+      <li><a name="toc-VaticanaVoice-1" href="VaticanaVoice.es.html#VaticanaVoice">2.1.25 VaticanaVoice</a>      </li>
+      <li><a name="toc-Voice-1" href="Voice.es.html#Voice">2.1.26 Voice</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.es.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.es.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.es.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.es.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.es.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.es.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.es.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.es.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.es.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.es.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.es.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

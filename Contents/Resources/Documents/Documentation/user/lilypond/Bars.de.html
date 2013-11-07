@@ -1,0 +1,951 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.2.5 Takte</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.2.5 Bars">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.2.5 Bars">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Rhythms.de.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Beams.de.html#Beams" rel="previous" title="1.2.4 Beams">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Bars"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Beams.de.html#Feathered-beams" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Gespreizte Balken&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.de.html#Rhythms" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Rhythmus&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-lines" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Taktstriche &gt; </a>]</td></tr></table>
+<a name="Bars"></a>
+<h3 class="subsection">1.2.5 Takte</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Bar-lines" accesskey="1">Taktstriche</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-numbers" accesskey="2">Taktzahlen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-and-bar-number-checks" accesskey="3">Takt- und Taktzahlüberprüfung</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Rehearsal-marks" accesskey="4">Übungszeichen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Bar-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bars" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Takte&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Takte&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-numbers" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Taktzahlen &gt; </a>]</td></tr></table>
+<a name="Bar-lines"></a>
+<h4 class="unnumberedsubsubsec">Taktstriche</h4>
+
+<a name="index-Taktlinien"></a>
+<a name="index-Taktstriche"></a>
+<a name="index-Doppellinie"></a>
+<a name="index-Wiederholungszeichen"></a>
+
+<a name="index-_005cbar"></a>
+<a name="index-_005cbar-1"></a>
+<a name="index-bar"></a>
+<a name="index-bar-1"></a>
+
+<p>Taktstriche trennen Takte voneinander, werden aber auch verwendet, 
+um Wiederholungen anzuzeigen. Normalerweise werden sie automatisch 
+nach Vorgabe der aktuellen Taktart eingefügt.
+</p>
+<p>Die einfachen, automatisch eingefügten Taktstriche können mit dem
+<code>\bar</code>-Befehl geändert werden.  Eine doppelter Tatkstrich etwa
+wird normalerweise am Ende eines Stückes gesetzt:
+</p>
+<blockquote><pre class="verbatim">e4 d c2 \bar &quot;|.&quot;
+</pre><p>
+ <a href="../ea/lily-53d61ae2.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-53d61ae2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Es ist kein Fehler, wenn die letzte Note in einem Takt nicht
+zum automatisch eingefügten Taktstrich aufhört: es wird angenommen,
+dass die Note im nächsten Takt weitergeht.  Wenn aber eine ganze
+Reihe solcher überlappenden Takte auftritt, können die Noten
+gedrungen aussehen oder sogar über den Seitenrand hinausragen.  Das
+kommt daher, dass Zeilenumbrüche nur dann vorgenommen werden, wenn
+ein vollständiger Takt auftritt, also ein Takt, an dem alle Noten
+vor dem Taktstrich zu Ende sind.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Achtung:</b> Eine falsche Dauer kann bewirken, dass Zeilenumbrüche
+verhindert werden, woraus resultiert, dass die Noten entweder
+sehr stark gedrängt auf der Zeile notiert werden, oder die Zeile
+über den Seitenrand hinausragt.
+</p></td></tr></table>
+
+<a name="index-Zeilenumbruche"></a>
+<a name="index-unsichtbare-Taktstriche"></a>
+<a name="index-Taktstriche_002c-unsichtbar"></a>
+<a name="index-Taktlinien_002c-unsichtbar"></a>
+
+<p>Zeilenumbrüche werden erlaubt, wenn ein Taktstrich manuell eingefügt
+wird, auch, wenn es sich um keinen vollständigen Takt handelt.  Um
+einen Zeilenumbruch zu erlauben, ohne den Taktstrich auszugeben,
+kann
+</p>
+<blockquote><pre class="example">\bar &quot;&quot;
+</pre></blockquote>
+
+<p>benutzt werden.  Damit wird ein unsichtbarer Taktstrich an dieser Stelle eingefügt 
+und damit ein Zeilenumbruch erlaubt (aber nicht erzwungen), ohne 
+dass sich die Anzahl der Takte erhöhen würde.  Um einen
+Zeilenumbruch zu erzwingen, siehe
+<a href="Line-breaking.de.html#Line-breaking">Zeilenumbrüche</a>.
+</p>
+<a name="index-manuelle-Taktstriche"></a>
+<a name="index-Taktstriche_002c-manuell"></a>
+<a name="index-Taktlinene_002c-manuell"></a>
+
+<p>Diese Art von Taktstrichen und auch andere besondere Taktstriche
+können manuell an jeder Stelle in der Partitur eingefügt werden.
+Wenn sie mit dem Ende eines Taktes übereinstimmen, wird der
+automatische Taktstrich durch den manuellen ersetzt.  Diese
+manuellen Einfügungen haben keine Auswirkung auf die Zählung und
+Position der folgenden automatischen Taktstriche.
+</p>
+<p>Manuell können der einfache Taktstrich und zusätzlich fünf Arten
+eines doppelten Taktstriches gesetzt werden:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;|&quot; g \bar &quot;||&quot; a \bar &quot;.|&quot; b \bar &quot;.|.&quot; c \bar &quot;|.|&quot; d \bar &quot;|.&quot; e
+</pre><p>
+ <a href="../4d/lily-4683fbab.ly">
+  <img align="middle"
+       border="0"
+       src="../4d/lily-4683fbab.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Zusätzlich gibt es noch punktierte und gestrichelte Taktstriche:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;:&quot; g \bar &quot;dashed&quot; a
+</pre><p>
+ <a href="../fc/lily-5eb082c3.ly">
+  <img align="middle"
+       border="0"
+       src="../fc/lily-5eb082c3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>und fünf unterschiedliche Wiederholungstaktstriche:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;|:&quot; g \bar &quot;:|:&quot; a \bar &quot;:|.|:&quot; b \bar &quot;:|.:&quot; c \bar &quot;:|&quot; d
+</pre><p>
+ <a href="../19/lily-6762f235.ly">
+  <img align="middle"
+       border="0"
+       src="../19/lily-6762f235.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Wiederholungen"></a>
+
+<p>Auch wenn die Taktlinien, die Wiederholungen angeben, manuell
+eingefügt werden können, wird die Wiederholung dadurch nicht von
+LilyPond erkannt.  Wiederholte Stellen werden besser notiert, indem
+man die Wiederholguns-Befehle einsetzt, die automatische die
+richtigen Taktlinien setzen.  Das ist beschrieben in<a href="Repeats.de.html#Repeats">Wiederholungszeichen</a>.
+</p>
+<p>Zusätzlich kann noch <code>&quot;||:&quot;</code> verwendet werden, dass sich
+genauso wie <code>&quot;|:&quot;</code> verhält, außer bei Zeilenumbrüchen, wo ein
+doppeltre Taktstrich am Ende der Zeile ausgegeben wird und ein
+öffnender Wiederholungsstrich am Anfang der nächsten Zeile.
+</p>
+<blockquote><pre class="verbatim">\override Score.RehearsalMark #'padding = #3
+c c c c
+\bar &quot;||:&quot;
+c c c c \break
+\bar &quot;||:&quot;
+c c c c
+</pre><p>
+ <a href="../e3/lily-c57e5e88.ly">
+  <img align="middle"
+       border="0"
+       src="../e3/lily-c57e5e88.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>In Partituren mit vielen Systemen wird ein <code>\bar</code>-Befehl in einem 
+System automatisch auf alle anderen Systeme angewendet. Die resultierenden 
+Taktstriche sind miteinander verbunden innerhalb einer Gruppe 
+(<code>StaffGroup</code>) oder einem Klaviersystem
+(<code>PianoStaff</code> bzw. (<code>GrandStaff</code>).
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new StaffGroup &lt;&lt;
+    \new Staff {
+      e'4 d'
+      \bar &quot;||&quot;
+      f' e'
+    }
+    \new Staff { \clef bass c4 g e g }
+  &gt;&gt;
+  \new Staff { \clef bass c2 c2 }
+&gt;&gt;
+</pre><p>
+ <a href="../dd/lily-a618c4d8.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-a618c4d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Selected-Snippets-42"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<a name="index-whichBar"></a>
+<a name="index-whichBar-1"></a>
+<a name="index-defaultBarType"></a>
+<a name="index-defaultBarType-1"></a>
+<a name="index-_005cbar-2"></a>
+<a name="index-_005cbar-3"></a>
+<a name="index-bar-2"></a>
+<a name="index-bar-3"></a>
+<a name="index-bartype"></a>
+<a name="index-bartype-1"></a>
+
+<p>Der Befehl <code>\bar </code><var>Taktart</var> ist eine Kurzform von:
+<code>\set Timing.whichBar = </code><var>Taktart</var>. Immer, wenn 
+<code>whichBar</code> auf einen Wert gesetzt wird, wird ein 
+Taktstrich dieses Typs erzeugt.
+</p>
+<p>Der automatisch erzeugte Taktstrich ist <code>&quot;|&quot;</code>.  Das kann
+jederzeit durch den Befehl <code>\set Timing.defaultBarType = </code>
+<var>Takstrichart</var> geändert werden.
+</p>
+<a name="See-also-99"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Line-breaking.de.html#Line-breaking">Zeilenumbrüche</a>,
+<a href="Repeats.de.html#Repeats">Wiederholungszeichen</a>,
+<a href="Displaying-staves.de.html#Grouping-staves">Systeme gruppieren</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-BarLine"></a>
+<a href="../lilypond-internals/BarLine.de.html#BarLine">BarLine</a> (created at
+<a name="index-Staff-3"></a>
+<a href="../lilypond-internals/Staff.de.html#Staff">Staff</a> level), <a name="index-SpanBar"></a>
+<a href="../lilypond-internals/SpanBar.de.html#SpanBar">SpanBar</a> (across
+staves), <a name="index-Timing_005ftranslator-3"></a>
+<a href="../lilypond-internals/Timing_005ftranslator.de.html#Timing_005ftranslator">Timing_translator</a> (for Timing
+properties).
+</p>
+
+
+<hr size="6">
+<a name="Bar-numbers"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-lines" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Taktstriche&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Takte&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-and-bar-number-checks" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Takt- und Taktzahlüberprüfung &gt; </a>]</td></tr></table>
+<a name="Bar-numbers"></a>
+<h4 class="unnumberedsubsubsec">Taktzahlen</h4>
+
+<a name="index-Taktnummern"></a>
+<a name="index-Nummierung-von-Takten"></a>
+<a name="index-Zahl-eines-Taktes"></a>
+<a name="index-Taktzahlen"></a>
+
+<a name="index-currentBarNumber"></a>
+<a name="index-currentBarNumber-1"></a>
+
+<p>Taktnummern werden standardmäßig zu Beginn eines jeden Systems
+ausgegeben, ausgenommen ist die erste Zeile.  Die Zahl selber
+wird in der <code>currentBarNumber</code>-Eigenschaft gespeichert, die
+normalerweise für jeden Takt aktualisiert wird.  Sie kann aber auch
+manuell gesetzt werden:
+</p>
+<blockquote><pre class="verbatim">c1 c c c
+\break
+\set Score.currentBarNumber = #50
+c1 c c c
+</pre><p>
+ <a href="../7b/lily-f4b46164.ly">
+  <img align="middle"
+       border="0"
+       src="../7b/lily-f4b46164.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Selected-Snippets-30"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<a name="index-barNumberVisibility"></a>
+<a name="index-barNumberVisibility-1"></a>
+
+<a name="index-Taktnummern_002c-regelmassiger-Abstand"></a>
+
+
+<p>Taktnummern können in regelmäßigem Abstand ausgegeben werden,
+anstatt dass sie nur am Beginn des Systems erscheinen.  Um das
+zu erreichen, muss die Standardeinstellung verändert werden, um
+zu erlauben, dass Taktnummern an anderen Stellen als dem
+Beginn von Systemen ausgegeben werden.  Das wird mit der
+Eigenschaft <code>break-visibility</code> von <code>BarNumber</code> vorgenommen.
+Sie braucht drei Werte, die auf <code>#t</code> (wahr) oder <code>#f</code>
+(falsch) gestellt werden können, womit angegeben wird, ob die
+Taktnummer an der entprechenden Stelle sichtbar ist.  Die
+Reihenfolge der Werte ist: <var>Ende der Zeile</var>, <var>Mitte
+der Zeile</var> und <var>Beginn der Zeile</var>.  Im folgenden
+Beispiel werden die Taktlinien überall ausgegeben:
+</p>
+<blockquote><pre class="verbatim">\override Score.BarNumber #'break-visibility = #'#(#t #t #t)
+\set Score.currentBarNumber = #11
+\bar &quot;&quot;  % Erste Taktnummer soll auch gesetzt werden
+c1 c c c
+\break
+c c c c
+</pre><p>
+ <a href="../bb/lily-23af41d2.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-23af41d2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Im nächsten Beispiel werden die Taktnummern nur für jeden
+zweiten Takt gesetzt, außer am Ende der Zeile:
+</p>
+<blockquote><pre class="verbatim">\override Score.BarNumber #'break-visibility = #'#(#f #t #t)
+\set Score.currentBarNumber = #11
+\bar &quot;&quot;  % Erste Taktnummer soll auch gesetzt werden
+% Jeden zweiten Takt eine Taktnummer setzen
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+c1 c c c c
+\break
+c c c c c
+</pre><p>
+ <a href="../ba/lily-c28c2811.ly">
+  <img align="middle"
+       border="0"
+       src="../ba/lily-c28c2811.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Taktnummer_002c-Form"></a>
+<a name="index-Aussehen-von-Taktnummern"></a>
+
+<p>Die Größe der Taktnummer kann geändert werden.  Das wird im folgenden
+Beispiel gezeigt, welches auch illustriert, wie man Taktnummern
+in Kästen oder Kreise einfasst und eine Alternative zeigt,
+wie man <code>#(#f #t #t)</code> für <code>break-visibility</code> definieren
+kann.
+</p>
+<blockquote><pre class="verbatim">% Taktnummern am Zeilenende verbieten und woanders erlauben
+\override Score.BarNumber #'break-visibility
+  = #end-of-line-invisible
+
+% Taktnummer um Faktor zwei vergrößern
+\override Score.BarNumber #'font-size = #2
+\repeat unfold 3 { c1 } \bar &quot;|&quot;
+
+% Einen Kasten um die folgenden Taktnummern zeichnen
+\override Score.BarNumber  #'stencil
+  = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+\repeat unfold 3 { c1 } \bar &quot;|&quot;
+
+% Einen Kreis um die folgenden Taktnummern zeichnen
+\override Score.BarNumber  #'stencil
+  = #(make-stencil-circler 0.1 0.25 ly:text-interface::print)
+\repeat unfold 4 { c1 } \bar &quot;|.&quot;
+</pre><p>
+ <a href="../f9/lily-c072a74d.ly">
+  <img align="middle"
+       border="0"
+       src="../f9/lily-c072a74d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Ausrichtung-von-Taktlinien"></a>
+<a name="index-Taktlinien_002c-Ausrichtung"></a>
+
+<p>Taktnummern sind standardmäßig links von ihrem Anker angeordnet.
+Der Anker ist meistens das linke Ende einer Zeile, oder, wenn die
+Zahlen innerhalb der Zeile gesetzt werden, die linke Taktlinie
+eines Taktes.  Die Nummern können auch direkt auf der Taktlinie
+positioniert oder rechts davon gesetzt werden:
+</p>
+<blockquote><pre class="verbatim">\set Score.currentBarNumber = #111
+\override Score.BarNumber #'break-visibility = #'#(#t #t #t)
+% Taktnummer um Faktor zwei vergrößern
+\override Score.BarNumber #'font-size = #2
+% Jeden zweiten Takt eine Taktnummer setzen
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+c1 c1
+% Taktnummern zentrieren
+\override Score.BarNumber #'self-alignment-X = #0
+c1 c1
+% Taktnummern rechtsbündig
+\override Score.BarNumber #'self-alignment-X = #-1
+c1 c1
+</pre><p>
+ <a href="../be/lily-5cd92686.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-5cd92686.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Taktnummern können vollständig entfernt werden, indem man den
+<code>Bar_number_engraver</code> aus dem <code>Score</code>-Kontext entfernt.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  \context {
+    \Score
+    \remove &quot;Bar_number_engraver&quot;
+  }
+}
+\relative c''{
+  c4 c c c \break
+  c4 c c c
+}
+</pre><p>
+ <a href="../8f/lily-4d939e4e.ly">
+  <img align="middle"
+       border="0"
+       src="../8f/lily-4d939e4e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-6"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-BarNumber"></a>
+<a href="../lilypond-internals/BarNumber.de.html#BarNumber">BarNumber</a>.
+</p>
+<a name="index-Taktnummern_002c-Zusammenstosse"></a>
+<a name="index-Zusammenstosse_002c-Taktnummern"></a>
+
+<a name="Known-issues-and-warnings-53"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Taktnummern können mit der oberen Ecke der Klammer zu Beginn des
+Systems zusammenstoßen.  Um das zu verhindert, kann die
+<code>padding</code>-Eigenschaft von <code>BarNumer</code> verwendet werden,
+um die Zahl zu verschieben.
+</p>
+
+<hr size="6">
+<a name="Bar-and-bar-number-checks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-numbers" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Taktzahlen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Takte&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Rehearsal-marks" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Übungszeichen &gt; </a>]</td></tr></table>
+<a name="Bar-and-bar-number-checks"></a>
+<h4 class="unnumberedsubsubsec">Takt- und Taktzahlüberprüfung</h4>
+
+<a name="index-Taktuberprufung"></a>
+<a name="index-barCheckSynchronize"></a>
+<a name="index-barCheckSynchronize-1"></a>
+<a name="index-_007c"></a>
+<a name="index-_007c-1"></a>
+
+<p>Die Taktüberprüfung hilft, Fehler in den Notendauern zu entdecken. 
+Eine Taktüberprüfung wird mit dem Taktstrichsymbol &bdquo;|&ldquo; (Taste AltGr+&lt;) 
+eingegeben. Immer, wenn LilyPond bei der Ausgabe des Notendrucks 
+auf dieses Zeichen stößt, sollte hier in den Noten auch ein 
+Taktstrich erscheinen. Wenn das nicht der Fall ist, wird eine Warnung 
+ausgegeben. Im nächsten Beispiel resultiert die zweite Taktüberprüfung 
+in einer Fehlermeldung.
+</p>
+<blockquote><pre class="example">\time 3/4 c2 e4 | g2 |
+</pre></blockquote>
+
+<p>Taktüberprüfungen können auch in Gesangstexten verwendet werden:
+</p>
+<blockquote><pre class="example">\lyricmode {
+  \time 2/4
+  Twin -- kle | Twin -- kle
+}
+</pre></blockquote>
+
+<p>Besonders in mehrstimmiger komplizierter Musik können 
+falschen Notenwerte die ganze Partitur durcheinander bringen. 
+Es lohnt sich also, die Fehlersuche damit zu beginnen, nicht bestandene 
+Taktüberprüfungen zu kontrollieren.
+</p>
+<p>Wenn aufeinander folgende Taktüberprüfungen mit dem gleichen
+Abstand Fehler produzieren, wird eventuell nur die erste Warnung
+ausgegeben.  Damit wird die Warnung auf den Ursprung de Fehlers
+fokussiert.
+</p>
+<a name="index-_007c-2"></a>
+<a name="index-_007c-3"></a>
+<a name="index-pipeSymbol"></a>
+<a name="index-pipeSymbol-1"></a>
+
+<p>Es ist auch möglich, die Bedeutung des Symbols <code>|</code> 
+umzudefinieren, so dass hiermit eine andere Aktion als eine
+Taktüberprüfung erreicht wird. 
+Das geschieht, indem man der Pipe (<code>pipeSymbol</code> einen musikalischen 
+Ausdruck zuweist.  Im nächsten Beispiel wird <code>|</code> dazu
+verwendet, eine doppelte Taktlinie auszugeben, woimmer man
+das Zeichen auchsetzt.  Gleichzeitig hört das Zeichen auf,
+als Taktüberprüfung zu funktionieren.
+</p>
+<blockquote><pre class="verbatim">pipeSymbol = \bar &quot;||&quot;
+{
+  c'2 c'2 |
+  c'2 c'2
+  c'2 | c'2
+  c'2 c'2
+}
+</pre><p>
+ <a href="../f9/lily-b06ef9d8.ly">
+  <img align="middle"
+       border="0"
+       src="../f9/lily-b06ef9d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cbarNumberCheck"></a>
+<a name="index-_005cbarNumberCheck-1"></a>
+<a name="index-barNumberCheck"></a>
+<a name="index-barNumberCheck-1"></a>
+
+<p>Wenn man größere Musikstücke kopiert, kann es hilfreich sein, wenn 
+LilyPond überprüft, ob die Taktnummer, in der Sie gerade kopieren, 
+mit der des Originales übereinstimmt. Das kann mit dem Befehl
+<code>\barNumberCheck</code> folgenderweise überprüft werden:
+</p>
+<pre class="verbatim">\barNumberCheck #123
+</pre>
+<p>Eine Warnung wird ausgegeben, wenn der interne Zähler 
+<code>currentBarNumber</code> von LilyPond
+nicht mit dem Wert 123 übereinstimmt.
+</p>
+
+
+<hr size="6">
+<a name="Rehearsal-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Takt- und Taktzahlüberprüfung&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Takte&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.de.html#Special-rhythmic-concerns" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Besondere rhythmische Fragen &gt; </a>]</td></tr></table>
+<a name="Rehearsal-marks"></a>
+<h4 class="unnumberedsubsubsec">Übungszeichen</h4>
+
+<a name="index-Ubungszeichen"></a>
+<a name="index-Abschnitte-markieren"></a>
+
+<a name="index-mark"></a>
+<a name="index-mark-1"></a>
+<a name="index-_005cmark"></a>
+<a name="index-_005cmark-1"></a>
+
+<p>Übungszeichen können mit dem <code>\mark</code>-Befehl ausgegeben werden:
+</p>
+<blockquote><pre class="verbatim">c1 \mark \default
+c1 \mark \default
+c1 \mark #8
+c1 \mark \default
+c1 \mark \default
+</pre><p>
+ <a href="../8c/lily-99a01870.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-99a01870.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Der Buchstabe&nbsp;&bdquo;I&ldquo; wird ausgelassen, was den allgemeinen
+Notensatzregeln entspricht. Wenn Sie dennoch den Buchstaben
+&bdquo;I&ldquo; benutzen, wollen, müssen Sie
+</p>
+<blockquote><pre class="example">\set Score.markFormatter = #format-mark-alphabet
+</pre></blockquote>
+
+<p>benutzen.
+</p>
+<p>Das Zeichen wird automatisch erhöht, wenn Sie <code>\mark
+\default</code> schreiben, aber Sie können auch eine beliebige
+Ganzzahl als Argument angeben.  Der Wert, der gesetzt werden
+soll, wird in der Eigenschaft <code>rehearsalMark</code> gespeichert.
+</p>
+<a name="index-Ubungszeichen-formatieren"></a>
+<a name="index-Stil-von-Ubungszeichen"></a>
+<a name="index-Ubungszeichenstil"></a>
+<a name="index-Art-der-Ubungszeichen"></a>
+<a name="index-Zeichen_002c-Ubung_003a-Formatierung"></a>
+<a name="index-manuelles-Ubungszeichen"></a>
+<a name="index-Formatierung-von-Ubungszeichen"></a>
+
+<p>Der Stil der Übungszeichen wird von der Eigenschaft <code>markFormatter</code> definiert.  Das ist eine Funktion, die
+das aktuelle Zeichen und den aktuellen Kontext als Argument
+annimmt.  Sie gibt dann ein Textbeschriftungsobjekt aus.  Im
+folgenden Beispiel ist <code>markFormatter</code> so definiert, dass
+eine Zahl ausgegeben wird.  In den folgenden Takten
+werden dann andere mögliche Einstellungen gezeigt.
+</p>
+<blockquote><pre class="verbatim">\set Score.markFormatter = #format-mark-numbers
+c1 \mark \default
+c1 \mark \default
+\set Score.markFormatter = #format-mark-box-numbers
+c1 \mark \default
+\set Score.markFormatter = #format-mark-circle-numbers
+c1 \mark \default
+\set Score.markFormatter = #format-mark-circle-letters
+c1
+</pre><p>
+ <a href="../65/lily-8f4211b3.ly">
+  <img align="middle"
+       border="0"
+       src="../65/lily-8f4211b3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die Datei &lsquo;<tt>scm/translation-functions.scm</tt>&rsquo; beinhaltet
+die Definitionen für <code>format-mark-numbers</code> (erstelle-Zeichen-Nummern),
+<code>format-mark-box-numbers</code> (erstelle-Zeichen-Kasten-Nummern),
+<code>format-mark-letters</code> (erstelle-Zeichen-Buchstaben) und
+<code>format-mark-box-letters</code> (erstelle-Zeichen-Kasten-Buchstaben).  Sie können als Anleitung
+für eigene Formatierungsfunktionen dienen.
+</p>
+<p>Die Funktionen <code>format-mark-barnumbers</code>,
+<code>format-mark-box-barnumbers</code>und
+<code>format-mark-circle-barnumbers</code> könenn eingesetzt werden,
+um Taktnummern anstelle der fortlaufenden Zahlen bzw. Buchstaben
+zu erhalten.
+</p>
+<p>Andere Übungszeichenstile können auch manuell gesetzt werden:
+</p>
+<blockquote><pre class="example">\mark &quot;A1&quot;
+</pre></blockquote>
+
+<p><code>Score.markFormatter</code> hat keine Auswirkungen auf solcherart
+definierte Zeichen.  Man kann aber auch mit <code>\markup</code>
+Textbeschriftungsobjekte zu dem selbstdefinierten Zeichen
+hinzufügen:
+</p>
+<blockquote><pre class="example">\mark \markup{ \box A1 }
+</pre></blockquote>
+
+<a name="index-Segno"></a>
+<a name="index-Coda"></a>
+<a name="index-D_002eS-al-Fine"></a>
+<a name="index-Dal-Segno"></a>
+<a name="index-Fermate"></a>
+<a name="index-Noten_002dSchriftzeichen"></a>
+<a name="index-Schriftzeichen_002c-Notenschrift"></a>
+<a name="index-Musikbuchstaben"></a>
+
+<a name="index-_005cmusicglyph"></a>
+<a name="index-_005cmusicglyph-1"></a>
+<a name="index-musicglyph"></a>
+<a name="index-musicglyph-1"></a>
+
+<p>Musikbuchstaben (wie etwa das Segno-Zeichen) können mit dem Befehl
+<code>\musicglyph</code> als ein
+<code>\mark</code>-Zeichen definierte werden:
+</p>
+<blockquote><pre class="verbatim">c1 \mark \markup { \musicglyph #&quot;scripts.segno&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.coda&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.ufermata&quot; }
+c1
+</pre><p>
+ <a href="../f1/lily-016b7fed.ly">
+  <img align="middle"
+       border="0"
+       src="../f1/lily-016b7fed.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Siehe <a href="The-Feta-font.de.html#The-Feta-font">Die Feta-Schriftart</a>, wo alle Symbole gezeigt sind, die
+mit dem Befehl <code>\musicglyph</code> ausgegeben werden können.
+</p>
+<p>Übliche Veränderungen der Positionierung von Übungszeichen finden
+sich in
+<a href="Formatting-text.de.html#Formatting-text">Text formatieren</a>.
+</p>
+<a name="See-also-94"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="The-Feta-font.de.html#The-Feta-font">Die Feta-Schriftart</a>,
+<a href="Formatting-text.de.html#Formatting-text">Text formatieren</a>.
+</p>
+<p>Installierte Dateien:
+&lsquo;<tt>scm/translation-functions.scm</tt>&rsquo; beinhaltet die Definition
+von <code>format-mark-numbers</code> und
+<code>format-mark-letters</code>.  Sie können als Anleitung für eigene
+Funktionen benutzt werden.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-RehearsalMark"></a>
+<a href="../lilypond-internals/RehearsalMark.de.html#RehearsalMark">RehearsalMark</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Takt- und Taktzahlüberprüfung&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Takte&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.de.html#Special-rhythmic-concerns" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Besondere rhythmische Fragen &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Bars.html">English</a>, <a href="Bars.fr.html">français</a>, <a href="Bars.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.de.html#Writing-rhythms">1.2.1 Rhythmen eingeben</a>      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.de.html#Writing-rests">1.2.2 Pausen eingeben</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.de.html#Displaying-rhythms">1.2.3 Rhythmen anzeigen lassen</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.de.html#Beams">1.2.4 Balken</a>      </li>
+      <li class="toc_current"><a name="toc-Bars-1" href="Bars.de.html#Bars">1.2.5 Takte</a>
+      <ul class="toc">
+        <li><a name="toc-Bar-lines-1" href="Bars.de.html#Bar-lines">Taktstriche</a>        </li>
+        <li><a name="toc-Bar-numbers-1" href="Bars.de.html#Bar-numbers">Taktzahlen</a>        </li>
+        <li><a name="toc-Bar-and-bar-number-checks-1" href="Bars.de.html#Bar-and-bar-number-checks">Takt- und Taktzahlüberprüfung</a>        </li>
+        <li><a name="toc-Rehearsal-marks-1" href="Bars.de.html#Rehearsal-marks">Übungszeichen</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.de.html#Special-rhythmic-concerns">1.2.6 Besondere rhythmische Fragen</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

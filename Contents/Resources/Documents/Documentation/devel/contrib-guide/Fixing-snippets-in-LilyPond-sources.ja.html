@@ -1,0 +1,200 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 5.5 Fixing snippets in LilyPond sources</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 5.5 Fixing snippets in LilyPond sources">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 5.5 Fixing snippets in LilyPond sources">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="LSR-work.ja.html#LSR-work" rel="up" title="5. LSR work">
+<link href="Making-a-release.ja.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="LSR-to-Git.ja.html#LSR-to-Git" rel="previous" title="5.4 LSR to Git">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Fixing-snippets-in-LilyPond-sources"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LSR-work.ja.html#LSR-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; LSR work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Issues.ja.html#Issues" title="Next chapter">&nbsp;Issues &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="LSR-to-Git.ja.html#LSR-to-Git" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; LSR to Git&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LSR-work.ja.html#LSR-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;LSR work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Updating-LSR-to-a-new-version.ja.html#Updating-LSR-to-a-new-version" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Updating LSR to a new version &gt; </a>]</td></tr></table>
+<a name="Fixing-snippets-in-LilyPond-sources"></a>
+<h2 class="section">5.5 Fixing snippets in LilyPond sources</h2>
+
+<p>In case some snippet from &lsquo;<tt>input/lsr</tt>&rsquo; cause the documentation
+compilation to fail, the following steps should be followed to fix it
+reliably.
+</p>
+<ol>
+<li>
+Look up the snippet filename &lsquo;<tt><var>foo</var>.ly</tt>&rsquo; in the error output
+or log, then fix the file &lsquo;<tt>input/lsr/<var>foo</var>.ly</tt>&rsquo; to make the
+documentation build succesfully.
+
+</li><li>
+Determine where it comes from by looking at its first line, e.g. run
+
+<blockquote><pre class="example">head -1 input/lsr/<var>foo</var>.ly
+</pre></blockquote>
+
+</li><li>
+<strong>In case the snippet comes from LSR</strong>, apply the fix to the
+snippet in LSR and send a notification email to a LSR editor with CC
+to the development list &ndash; see <a href="Adding-and-editing-snippets.ja.html#Adding-and-editing-snippets">Adding and editing snippets</a>.  The
+failure may sometimes not be caused by the snippet in LSR but by the
+syntax conversion made by <code>convert-ly</code>; in this case, try to
+fix <code>convert-ly</code> or report the problem on the development
+list, then run <code>makelsr.py</code> again, see <a href="LSR-to-Git.ja.html#LSR-to-Git">LSR to Git</a>.  In
+some cases, when some features has been introduced or vastly changed
+so it requires (or takes significant advantage of) important changes
+in the snippet, it is simpler and recommended to write a new version
+of the snippet in &lsquo;<tt>input/new</tt>&rsquo;, then run <code>makelsr.py</code>.
+
+</li><li>
+<strong>In case the snippet comes from</strong> &lsquo;<tt>input/new</tt>&rsquo;, apply in
+&lsquo;<tt>input/new/<var>foo</var>.ly</tt>&rsquo; the same fix you did in
+&lsquo;<tt>input/lsr/<var>foo</var>.ly</tt>&rsquo;.  In case the build failure was caused
+by a translation string, you may have to fix
+&lsquo;<tt>input/texidocs/<var>foo</var>.texidoc</tt>&rsquo; instead.
+
+</li><li>
+In any case, commit all changes to Git.
+
+</li></ol>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LSR-work.ja.html#LSR-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; LSR work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Issues.ja.html#Issues" title="Next chapter">&nbsp;Issues &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="LSR-to-Git.ja.html#LSR-to-Git" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; LSR to Git&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LSR-work.ja.html#LSR-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;LSR work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Updating-LSR-to-a-new-version.ja.html#Updating-LSR-to-a-new-version" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Updating LSR to a new version &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Starting-with-git-1" href="Starting-with-git.ja.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.ja.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.ja.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.ja.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.ja.html#Advanced-git-stuff">1.4 Advanced git stuff</a>    </li>
+    <li><a name="toc-Git-on-Windows-1" href="Git-on-Windows.ja.html#Git-on-Windows">1.5 Git on Windows</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.ja.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.ja.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.ja.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Documentation-work-1" href="Documentation-work.ja.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.ja.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.ja.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.ja.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li><a name="toc-Documentation-policy-1" href="Documentation-policy.ja.html#Documentation-policy">3.4 Documentation policy</a>    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.ja.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.ja.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.ja.html#Translating-the-documentation">3.7 Translating the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.ja.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.ja.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.ja.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-LSR-work-1" href="LSR-work.ja.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.ja.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.ja.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.ja.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.ja.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li class="toc_current"><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.ja.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.ja.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.ja.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.ja.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.ja.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.ja.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Programming-work-1" href="Programming-work.ja.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.ja.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.ja.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.ja.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.ja.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li><a name="toc-Code-style-1" href="Code-style.ja.html#Code-style">7.5 Code style</a>    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.ja.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.ja.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.ja.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.ja.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.ja.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.ja.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

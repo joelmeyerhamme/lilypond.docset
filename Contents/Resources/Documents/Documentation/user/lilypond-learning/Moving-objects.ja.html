@@ -1,0 +1,404 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 4.5.1 Moving objects</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 4.5.1 Moving objects">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 4.5.1 Moving objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Collisions-of-objects.ja.html#Collisions-of-objects" rel="up" title="4.5 Collisions of objects">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Collisions-of-objects.ja.html#Collisions-of-objects" rel="previous" title="4.5 Collisions of objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Moving-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Collisions-of-objects.ja.html#Collisions-of-objects" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Collisions of objects&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Collisions-of-objects.ja.html#Collisions-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Collisions of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fixing-overlapping-notation.ja.html#Fixing-overlapping-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fixing overlapping notation &gt; </a>]</td></tr></table>
+<a name="Moving-objects"></a>
+<h3 class="subsection">4.5.1 Moving objects</h3>
+
+<a name="index-moving-overlapping-objects"></a>
+<a name="index-moving-colliding-objects"></a>
+<a name="index-moving-colliding-grobs"></a>
+<a name="index-objects_002c-moving-colliding"></a>
+<a name="index-grobs_002c-moving-colliding"></a>
+
+<p>This may come as a surprise, but LilyPond is not perfect.  Some
+notation elements can overlap.  This is unfortunate, but in fact
+rather rare.  Usually the need to move objects is for clarity or
+aesthetic reasons &ndash; they would look better with a little more
+or a little less space around them.
+</p>
+<p>There are three main approaches to resolving overlapping
+notation.  They should be considered in the following order:
+</p>
+<ol>
+<li>
+The <strong>direction</strong> of one of the overlapping objects may
+be changed using the predefined commands listed above for
+within-staff objects (see <a href="Within_002dstaff-objects.ja.html#Within_002dstaff-objects">Within-staff objects</a>).
+Stems, slurs, beams, ties, dynamics, text and tuplets may be
+repositioned easily in this way.  The limitation is that you
+have a choice of only two positions, and neither may be
+suitable.
+
+</li><li>
+The <strong>object properties</strong>, which LilyPond uses when positioning
+layout objects, may be modified using <code>\override</code>.  The
+advantages of making changes to this type of property are (a) that
+some other objects will be moved automatically if necessary to make
+room and (b) the single override can apply to all instances of the
+same type of object.  Such properties include:
+
+<ul>
+<li>
+<code>direction</code>
+
+<p>This has already been covered in some detail &ndash; see
+<a href="Within_002dstaff-objects.ja.html#Within_002dstaff-objects">Within-staff objects</a>.
+</p>
+</li><li>
+<code>padding</code>, <code>left-padding</code>,
+<code>right-padding</code>, <code>staff-padding</code>
+
+<a name="index-padding"></a>
+<a name="index-left_002dpadding-property"></a>
+<a name="index-padding-property"></a>
+<a name="index-right_002dpadding-property"></a>
+<a name="index-staff_002dpadding-property"></a>
+
+<p>As an object is being positioned the value of its <code>padding</code>
+property specifies the gap that must be left between itself and the
+nearest edge of the object against which it is being positioned.  Note
+that it is the <code>padding</code> value of the object <strong>being
+placed</strong> that is used; the <code>padding</code> value of the object which is
+already placed is ignored.  Gaps specified by <code>padding</code> can be
+applied to all objects which support the
+<code>side-position-interface</code>.
+</p>
+<p>Instead of <code>padding</code>, the placement of groups of accidentals
+is controlled by <code>left-padding</code> and <code>right-padding</code>.
+These properties are to be found in the <code>AccidentalPlacement</code>
+object which, note, lives in the <strong>staff</strong> context.  In the
+type-setting process the note heads are type-set first and then
+the accidentals, if any, are added to the left of the note heads
+using the <code>right-padding</code> property to determine the separation
+from the note heads. So only the <code>right-padding</code> property of the
+<code>AccidentalPlacement</code> object has any effect on the placement
+of the accidentals.
+</p>
+<p>The <code>staff-padding</code> property is closely related to the
+<code>padding</code> property: <code>padding</code> controls the minimum amount of
+space between any object which supports the
+<code>side-position-interface</code> and the nearest other object (generally
+the note or the staff lines); <code>staff-padding</code> applies only to
+those objects which are always set outside the staff &ndash; it controls
+the minimum amount of space that should be inserted between that
+object and the staff.  Note that <code>staff-padding</code> has no effect on
+objects which are positioned relative to the note rather than the
+staff, even though it may be overridden without error for such objects
+&ndash; it is simply ignored.
+</p>
+<p>To discover which padding property is required for the object you wish
+to reposition, you need to return to the IR and look up the object&rsquo;s
+properties.  Be aware that the padding properties might not be located
+in the obvious object, so look in objects that appear to be related.
+</p>
+<p>All padding values are measured in staff spaces.  For most
+objects, this value is set by default to be around 1.0 or less
+(it varies with each object).  It may be overridden if a larger
+(or smaller) gap is required.
+</p>
+</li><li>
+<code>self-alignment-X</code>
+
+<a name="index-self_002dalignment_002dX-property"></a>
+
+<p>This property can be used to align the object to the left, to
+the right, or to center it with respect to the parent object&rsquo;s
+reference point.  It may be used with all objects which support
+the <code>self-alignment-interface</code>.  In general these are objects
+that contain text.  The values are <code>LEFT</code>, <code>RIGHT</code>
+or <code>CENTER</code>.  Alternatively, a numerical value between
+<code>-1</code> and <code>+1</code> may be specified, where <code>-1</code> is
+left-aligned, <code>+1</code> is right-aligned, and numbers in between
+move the text progressively from left-aligned to right-aligned.
+Numerical values greater than <code>1</code> may be specified to move
+the text even further to the left, or less than <code>-1</code> to
+move the text even further to the right.  A change of <code>1</code>
+in the value corresponds to a movement of half the text&rsquo;s length.
+</p>
+</li><li>
+<code>extra-spacing-width</code>
+
+<a name="index-extra_002dspacing_002dwidth-property"></a>
+
+<p>This property is available for all objects which support the
+<code>item-interface</code>.  It takes two numbers, the first is added
+to the leftmost extent and the second is added to the rightmost
+extent.  Negative numbers move the edge to the left, positive to
+the right, so to widen an object the first number must be negative,
+the second positive.  Note that not all objects honor both
+numbers.  For example, the <code>Accidental</code> object only takes
+notice of the first (left edge) number.
+</p>
+</li><li>
+<code>staff-position</code>
+
+<a name="index-staff_002dposition-property"></a>
+
+<p><code>staff-position</code> is a property of the
+<code>staff-symbol-referencer-interface</code>, which is supported by
+objects which are positioned relative to the staff.  It specifies
+the vertical position of the object relative to the center line
+of the staff in half staff-spaces.  It is useful in resolving
+collisions between layout objects like multi-measure rests, ties
+and notes in different voices.
+</p>
+</li><li>
+<code>force-hshift</code>
+
+<a name="index-force_002dhshift-property"></a>
+
+<p>Closely spaced notes in a chord, or notes occurring at the same
+time in different voices, are arranged in two, occasionally more,
+columns to prevent the note heads overlapping.  These are called
+note columns, and an object called <code>NoteColumn</code> is created
+to lay out the notes in that column.
+</p>
+<p>The <code>force-hshift</code> property is a property of a <code>NoteColumn</code>
+(actually of the <code>note-column-interface</code>).  Changing it permits a
+note column to be moved in units appropriate to a note column,
+viz. the note head width of the first voice note.  It should be used
+in complex situations where the normal <code>\shiftOn</code> commands (see
+<a href="Explicitly-instantiating-voices.ja.html#Explicitly-instantiating-voices">Explicitly instantiating voices</a>) do not resolve the note
+conflict.  It is preferable to the <code>extra-offset</code> property for
+this purpose as there is no need to work out the distance in
+staff-spaces, and moving the notes into or out of a <code>NoteColumn</code>
+affects other actions such as merging note heads.
+</p>
+</li></ul>
+
+</li><li>
+Finally, when all else fails, objects may be manually repositioned
+relative to the staff center line vertically, or by displacing them by
+any distance to a new position.  The disadvantages are that the
+correct values for the repositioning have to be worked out, often by
+trial and error, for every object individually, and, because the
+movement is done after LilyPond has placed all other objects, the user
+is responsible for avoiding any collisions that might ensue.  But the
+main difficulty with this approach is that the repositioning values
+may need to be reworked if the music is later modified.  The
+properties that can be used for this type of manual repositioning are:
+
+<dl compact="compact">
+<dt> <code>extra-offset</code></dt>
+<dd>
+<a name="index-extra_002doffset-property"></a>
+
+<p>This property applies to any layout object supporting the
+<code>grob-interface</code>.  It takes a pair of numbers which specify the
+extra displacement in the horizontal and vertical directions.
+Negative numbers move the object to the left or down.  The units are
+staff-spaces.  The extra displacement is made after the typesetting of
+objects is finished, so an object may be repositioned anywhere without
+affecting anything else.
+</p>
+</dd>
+<dt> <code>positions</code></dt>
+<dd>
+<a name="index-positions-property"></a>
+
+<p>This is most useful for manually adjusting the slope and height
+of beams, slurs, and tuplets.   It takes a pair of numbers
+giving the position of the left and right ends of the beam, slur,
+etc. relative to the center line of the staff.  Units are
+staff-spaces.  Note, though, that slurs and phrasing slurs cannot
+be repositioned by arbitrarily large amounts.  LilyPond first
+generates a list of possible positions for the slur and by default
+finds the slur that &ldquo;looks best&rdquo;.  If the <code>positions</code>
+property has been overridden the slur that is closest to the
+requested positions is selected from the list.
+</p></dd>
+</dl>
+
+</li></ol>
+
+<p>A particular object may not have all of these properties.
+It is necessary to go to the IR to look up which properties
+are available for the object in question.
+</p>
+<p>Here is a list of the objects which are most likely to be
+involved in collisions, together with the name of the object which
+should be looked up in the IR in order to discover which properties
+should be used to move them.
+</p>
+<table>
+<thead><tr><th width="50%"><p> Object type           </p></th><th width="50%"><p> Object name
+</p></th></tr></thead>
+<tr><td width="50%"><p> Articulations             </p></td><td width="50%"><p> <code>Script</code>
+</p></td></tr>
+<tr><td width="50%"><p> Beams                     </p></td><td width="50%"><p> <code>Beam</code>
+</p></td></tr>
+<tr><td width="50%"><p> Dynamics (vertically)     </p></td><td width="50%"><p> <code>DynamicLineSpanner</code>
+</p></td></tr>
+<tr><td width="50%"><p> Dynamics (horizontally)   </p></td><td width="50%"><p> <code>DynamicText</code>
+</p></td></tr>
+<tr><td width="50%"><p> Fingerings                </p></td><td width="50%"><p> <code>Fingering</code>
+</p></td></tr>
+<tr><td width="50%"><p> Rehearsal / Text marks    </p></td><td width="50%"><p> <code>RehearsalMark</code>
+</p></td></tr>
+<tr><td width="50%"><p> Slurs                     </p></td><td width="50%"><p> <code>Slur</code>
+</p></td></tr>
+<tr><td width="50%"><p> Text e.g. <code>^&quot;text&quot;</code>  </p></td><td width="50%"><p> <code>TextScript</code>
+</p></td></tr>
+<tr><td width="50%"><p> Ties                      </p></td><td width="50%"><p> <code>Tie</code>
+</p></td></tr>
+<tr><td width="50%"><p> Tuplets                   </p></td><td width="50%"><p> <code>TupletBracket</code>
+</p></td></tr>
+</table>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Collisions-of-objects.ja.html#Collisions-of-objects" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Collisions of objects&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Collisions-of-objects.ja.html#Collisions-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Collisions of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Fixing-overlapping-notation.ja.html#Fixing-overlapping-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fixing overlapping notation &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Moving-objects.fr.html">français</a>, <a href="Moving-objects.es.html">español</a>, <a href="Moving-objects.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.ja.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li class="toc_current"><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 Collisions of objects</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Moving-objects-1" href="Moving-objects.ja.html#Moving-objects">4.5.1 Moving objects</a>      </li>
+      <li><a name="toc-Fixing-overlapping-notation-1" href="Fixing-overlapping-notation.ja.html#Fixing-overlapping-notation">4.5.2 Fixing overlapping notation</a>      </li>
+      <li><a name="toc-Real-music-example-1" href="Real-music-example.ja.html#Real-music-example">4.5.3 Real music example</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.ja.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

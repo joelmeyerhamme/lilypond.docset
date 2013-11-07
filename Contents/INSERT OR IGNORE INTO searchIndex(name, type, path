@@ -1,0 +1,5 @@
+INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('Learning', 'Guide', 'Documentation/user/lilypond-learning/index.html');
+INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('Glossary', 'Guide', 'Documentation/user/music-glossary/index.html');
+INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('Notation', 'Guide', 'Documentation/user/lilypond/index.html');
+INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('Internals', 'Guide', 'Documentation/user/lilypond-internals/index.html');
+INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('Snippets', 'Guide', 'input/lsr/lilypond-snippets/index.html');

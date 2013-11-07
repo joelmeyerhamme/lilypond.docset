@@ -1,0 +1,230 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond program usage: 2.3 Point and click</title>
+
+<meta name="description" content="GNU LilyPond program usage: 2.3 Point and click">
+<meta name="keywords" content="GNU LilyPond program usage: 2.3 Point and click">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Application Usage">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Setup.ja.html#Setup" rel="up" title="2. Setup">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="LilyKDE.ja.html#LilyKDE" rel="previous" title="2.2.6 LilyKDE">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Point-and-click"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Setup.ja.html#Setup" title="Beginning of this chapter or previous chapter"> &lt;&lt; Setup&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Running-LilyPond.ja.html#Running-LilyPond" title="Next chapter">&nbsp;Running LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="LilyKDE.ja.html#LilyKDE" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; LilyKDE&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Setup.ja.html#Setup" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Setup&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Running-LilyPond.ja.html#Running-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Running LilyPond &gt; </a>]</td></tr></table>
+<a name="Point-and-click"></a>
+<h2 class="section">2.3 Point and click</h2>
+<a name="index-point-and-click"></a>
+
+
+<p>Point and click lets you find notes in the input by clicking on them
+in the PDF viewer.  This makes it easier to find input that causes
+some error in the sheet music.
+</p>
+<p>When this functionality is active, LilyPond adds hyperlinks to the PDF
+file.  These hyperlinks are sent to the web-browser, which opens a
+text-editor with the cursor in the right place.
+</p>
+<p>To make this chain work, you should configure your PDF viewer to
+follow hyperlinks using the &lsquo;<tt>lilypond-invoke-editor</tt>&rsquo; script
+supplied with LilyPond.
+</p>
+<p>For Xpdf on UNIX, the following should be present in
+&lsquo;<tt>xpdfrc</tt>&rsquo;<sup><a name="DOCF1" href="#FOOT1">1</a></sup>
+</p>
+<blockquote><pre class="example">urlCommand     &quot;lilypond-invoke-editor %s&quot;
+</pre></blockquote>
+
+<p>The program &lsquo;<tt>lilypond-invoke-editor</tt>&rsquo; is a small helper
+program.  It will invoke an editor for the special <code>textedit</code>
+URIs, and run a web browser for others.  It tests the environment
+variable <code>EDITOR</code> for the following patterns,
+</p>
+<dl compact="compact">
+<dt> <code>emacs</code></dt>
+<dd><p>  this will invoke
+</p><blockquote><pre class="example">emacsclient --no-wait +<var>line</var>:<var>column</var> <var>file</var>
+</pre></blockquote>
+</dd>
+<dt> <code>vim</code></dt>
+<dd><p>  this will invoke
+</p><blockquote><pre class="example">gvim --remote +:<var>line</var>:norm<var>char</var> <var>file</var>
+</pre></blockquote>
+
+</dd>
+<dt> <code>nedit</code></dt>
+<dd><p>this will invoke
+</p><blockquote><pre class="example">  nc -noask +<var>line</var> <var>file</var>'
+</pre></blockquote>
+</dd>
+</dl>
+
+<p>The environment variable <code>LYEDITOR</code> is used to override this.  It
+contains the command line to start the editor, where <code>%(file)s</code>,
+<code>%(column)s</code>, <code>%(line)s</code> is replaced with the file, column
+and line respectively.  The  setting
+</p>
+<blockquote><pre class="example">emacsclient --no-wait +%(line)s:%(column)s %(file)s
+</pre></blockquote>
+
+<p>for <code>LYEDITOR</code> is equivalent to the standard emacsclient
+invocation.
+</p>
+
+<a name="index-file-size_002c-output"></a>
+
+<p>The point and click links enlarge the output files significantly.  For
+reducing the size of PDF and PS files, point and click may be switched
+off by issuing
+</p>
+<blockquote><pre class="example">\pointAndClickOff
+</pre></blockquote>
+
+<p>in a &lsquo;<tt>.ly</tt>&rsquo; file.  Point and click may be explicitly enabled with
+</p>
+<blockquote><pre class="example">\pointAndClickOn
+</pre></blockquote>
+
+<p>Alternately, you may disable point and click with a command-line
+option:
+</p>
+<blockquote><pre class="example">lilypond -dno-point-and-click file.ly
+</pre></blockquote>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> You should always turn off point and click in any LilyPond
+files to be distributed to avoid including path information about
+your computer in the .pdf file, which can pose a security risk.
+</p></td></tr></table>
+
+
+
+<div class="footnote">
+<hr>
+<h3>Footnotes</h3>
+<p class="footnote"><small>[<a name="FOOT1" href="#DOCF1">1</a>]</small> On UNIX, this file is found either in
+&lsquo;<tt>/etc/xpdfrc</tt>&rsquo; or as &lsquo;<tt>.xpdfrc</tt>&rsquo; in your home directory.
+</p></div>
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Setup.ja.html#Setup" title="Beginning of this chapter or previous chapter"> &lt;&lt; Setup&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Running-LilyPond.ja.html#Running-LilyPond" title="Next chapter">&nbsp;Running LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="LilyKDE.ja.html#LilyKDE" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; LilyKDE&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Setup.ja.html#Setup" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Setup&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Running-LilyPond.ja.html#Running-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Running LilyPond &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Point-and-click.fr.html">français</a>, <a href="Point-and-click.es.html">español</a>, <a href="Point-and-click.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Application Usage</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.ja.html#Install">1. Install</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.ja.html#Precompiled-binaries">1.1 Precompiled binaries</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.ja.html#Compiling-from-source">1.2 Compiling from source</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Setup-1" href="Setup.ja.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.ja.html#Setup-for-specific-Operating-Systems">2.1 Setup for specific Operating Systems</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.ja.html#Text-editor-support">2.2 Text editor support</a>    </li>
+    <li class="toc_current"><a name="toc-Point-and-click-1" href="Point-and-click.ja.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.ja.html#Running-LilyPond">3. Running LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.ja.html#Normal-usage">3.1 Normal usage</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.ja.html#Command_002dline-usage">3.2 Command-line usage</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.ja.html#Error-messages">3.3 Error messages</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.ja.html#Updating-files-with-convert_002dly">3.4 Updating files with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.ja.html#Reporting-bugs">3.5 Reporting bugs</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.ja.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Integrating text and music</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.ja.html#An-example-of-a-musicological-document">4.1 An example of a musicological document</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.ja.html#Integrating-music-and-text">4.2 Integrating music and text</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.ja.html#Music-fragment-options">4.3 Music fragment options</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.ja.html#Invoking-lilypond_002dbook">4.4 Invoking <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.ja.html#Filename-extensions">4.5 Filename extensions</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.ja.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative methods of mixing text and music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.ja.html#Converting-from-other-formats">5. Converting from other formats</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.ja.html#Invoking-midi2ly">5.1 Invoking <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.ja.html#Invoking-musicxml2ly">5.2 Invoking <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.ja.html#Invoking-abc2ly">5.3 Invoking <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.ja.html#Invoking-etf2ly">5.4 Invoking <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.ja.html#Generating-LilyPond-files">5.5 Generating LilyPond files</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">B. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

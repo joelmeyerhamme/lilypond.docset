@@ -1,0 +1,439 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: A.6 Jazz combo</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: A.6 Jazz combo">
+<meta name="keywords" content="GNU LilyPond Learning Manual: A.6 Jazz combo">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Templates.html#Templates" rel="up" title="A. Templates">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Ancient-notation-templates.html#Ancient-notation-templates" rel="previous" title="A.5 Ancient notation templates">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Jazz-combo"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Templates.html#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Scheme-tutorial.html#Scheme-tutorial" title="Next chapter">&nbsp;Scheme tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Ancient-notation-templates.html#Ancient-notation-templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Templates.html#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="lilypond_002dbook-templates.html#lilypond_002dbook-templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp;lilypond-book templates &gt; </a>]</td></tr></table>
+<a name="Jazz-combo"></a>
+<h2 class="appendixsec">A.6 Jazz combo</h2>
+
+
+<p>This is quite an advanced template, for a jazz ensemble. Note that all
+instruments are notated in <code>\key c \major</code>. This refers to the
+key in concert pitch; the key will be automatically transposed if the
+music is within a <code>\transpose</code> section.
+</p>
+
+<blockquote><pre class="verbatim">\header {
+  title = &quot;Song&quot;
+  subtitle = &quot;(tune)&quot;
+  composer = &quot;Me&quot;
+  meter = &quot;moderato&quot;
+  piece = &quot;Swing&quot;
+  tagline = \markup {
+    \column {
+      &quot;LilyPond example file by Amelie Zapf,&quot;
+      &quot;Berlin 07/07/2003&quot;
+    }
+  }
+}
+
+%#(set-global-staff-size 16)
+\include &quot;english.ly&quot;
+
+%%%%%%%%%%%% Some macros %%%%%%%%%%%%%%%%%%%
+
+sl = {
+  \override NoteHead #'style = #'slash
+  \override Stem #'transparent = ##t
+}
+nsl = {
+  \revert NoteHead #'style
+  \revert Stem #'transparent
+}
+crOn = \override NoteHead #'style = #'cross
+crOff = \revert NoteHead #'style
+
+%% insert chord name style stuff here.
+
+jazzChords = { }
+
+%%%%%%%%%%%% Keys'n'thangs %%%%%%%%%%%%%%%%%
+
+global = { \time 4/4 }
+
+Key = { \key c \major }
+
+% ############ Horns ############
+
+% ------ Trumpet ------
+trpt = \transpose c d \relative c'' {
+  \Key
+  c1 | c | c |
+}
+trpHarmony = \transpose c' d {
+  \jazzChords
+}
+trumpet = {
+  \global
+  \set Staff.instrumentName = #&quot;Trumpet&quot;
+  \clef treble
+  &lt;&lt;
+    \trpt
+  &gt;&gt;
+}
+
+% ------ Alto Saxophone ------
+alto = \transpose c a \relative c' {
+  \Key
+  c1 | c | c |
+}
+altoHarmony = \transpose c' a {
+  \jazzChords
+}
+altoSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Alto Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \alto
+  &gt;&gt;
+}
+
+% ------ Baritone Saxophone ------
+bari = \transpose c a' \relative c {
+  \Key
+  c1
+  c1
+  \sl
+  d4^&quot;Solo&quot; d d d
+  \nsl
+}
+bariHarmony = \transpose c' a \chordmode {
+  \jazzChords s1 s d2:maj e:m7
+}
+bariSax = {
+  \global
+  \set Staff.instrumentName = #&quot;Bari Sax&quot;
+  \clef treble
+  &lt;&lt;
+    \bari
+  &gt;&gt;
+}
+
+% ------ Trombone ------
+tbone = \relative c {
+  \Key
+  c1 | c | c
+}
+tboneHarmony = \chordmode {
+  \jazzChords
+}
+trombone = {
+  \global
+  \set Staff.instrumentName = #&quot;Trombone&quot;
+  \clef bass
+  &lt;&lt;
+    \tbone
+  &gt;&gt;
+}
+
+% ############ Rhythm Section #############
+
+% ------ Guitar ------
+gtr = \relative c'' {
+  \Key
+  c1
+  \sl
+  b4 b b b
+  \nsl
+  c1
+}
+gtrHarmony = \chordmode {
+  \jazzChords
+  s1 c2:min7+ d2:maj9
+}
+guitar = {
+  \global
+  \set Staff.instrumentName = #&quot;Guitar&quot;
+  \clef treble
+  &lt;&lt;
+    \gtr
+  &gt;&gt;
+}
+
+%% ------ Piano ------
+rhUpper = \relative c'' {
+  \voiceOne
+  \Key
+  c1 | c | c
+}
+rhLower = \relative c' {
+  \voiceTwo
+  \Key
+  e1 | e | e
+}
+
+lhUpper = \relative c' {
+  \voiceOne
+  \Key
+  g1 | g | g
+}
+lhLower = \relative c {
+  \voiceTwo
+  \Key
+  c1 | c | c
+}
+
+PianoRH = {
+  \clef treble
+  \global
+  \set Staff.midiInstrument = #&quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \rhUpper
+    \new Voice = &quot;two&quot; \rhLower
+  &gt;&gt;
+}
+PianoLH = {
+  \clef bass
+  \global
+  \set Staff.midiInstrument = &quot;acoustic grand&quot;
+  &lt;&lt;
+    \new Voice = &quot;one&quot; \lhUpper
+    \new Voice = &quot;two&quot; \lhLower
+  &gt;&gt;
+}
+
+piano = {
+  &lt;&lt;
+    \set PianoStaff.instrumentName = #&quot;Piano&quot;
+    \new Staff = &quot;upper&quot; \PianoRH
+    \new Staff = &quot;lower&quot; \PianoLH
+  &gt;&gt;
+}
+
+% ------ Bass Guitar ------
+Bass = \relative c {
+  \Key
+  c1 | c | c
+}
+bass = {
+  \global
+  \set Staff.instrumentName = #&quot;Bass&quot;
+  \clef bass
+  &lt;&lt;
+    \Bass
+  &gt;&gt;
+}
+
+% ------ Drums ------
+up = \drummode {
+  \voiceOne
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+  hh4 &lt;hh sn&gt; hh &lt;hh sn&gt;
+}
+down = \drummode {
+  \voiceTwo
+  bd4 s bd s
+  bd4 s bd s
+  bd4 s bd s
+}
+
+drumContents = {
+  \global
+  &lt;&lt;
+    \set DrumStaff.instrumentName = #&quot;Drums&quot;
+    \new DrumVoice \up
+    \new DrumVoice \down
+  &gt;&gt;
+}
+
+%%%%%%%%% It All Goes Together Here %%%%%%%%%%%%%%%%%%%%%%
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = &quot;horns&quot; &lt;&lt;
+      \new Staff = &quot;trumpet&quot; \trumpet
+      \new Staff = &quot;altosax&quot; \altoSax
+      \new ChordNames = &quot;barichords&quot; \bariHarmony
+      \new Staff = &quot;barisax&quot; \bariSax
+      \new Staff = &quot;trombone&quot; \trombone
+    &gt;&gt;
+    
+    \new StaffGroup = &quot;rhythm&quot; &lt;&lt;
+      \new ChordNames = &quot;chords&quot; \gtrHarmony
+      \new Staff = &quot;guitar&quot; \guitar
+      \new PianoStaff = &quot;piano&quot; \piano
+      \new Staff = &quot;bass&quot; \bass
+      \new DrumStaff \drumContents
+    &gt;&gt;
+  &gt;&gt;
+  
+  \layout {
+    \context { \RemoveEmptyStaffContext }
+    \context {
+      \Score
+      \override BarNumber #'padding = #3
+      \override RehearsalMark #'padding = #2
+      skipBars = ##t
+    }
+  }
+  
+  \midi { }
+}
+
+</pre><p>
+ <a href="../fe/lily-2bad65e3.ly">
+  <img align="middle"
+       border="0"
+       src="../fe/lily-2bad65e3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Templates.html#Templates" title="Beginning of this chapter or previous chapter"> &lt;&lt; Templates&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Scheme-tutorial.html#Scheme-tutorial" title="Next chapter">&nbsp;Scheme tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Ancient-notation-templates.html#Ancient-notation-templates" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Templates.html#Templates" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Templates&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="lilypond_002dbook-templates.html#lilypond_002dbook-templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp;lilypond-book templates &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Jazz-combo.es.html">español</a>, <a href="Jazz-combo.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Templates-1" href="Templates.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li class="toc_current"><a name="toc-Jazz-combo-1" href="Jazz-combo.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

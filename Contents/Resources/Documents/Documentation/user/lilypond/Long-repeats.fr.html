@@ -1,0 +1,507 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.4.1 Répétition d&rsquo;un long passage</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.4.1 Long repeats">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.4.1 Long repeats">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Repeats.fr.html#Repeats" rel="up" title="1.4 Repeats">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Repeats.fr.html#Repeats" rel="previous" title="1.4 Repeats">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Long-repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Repeats.fr.html#Repeats" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Répétitions et reprises&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Repeats.fr.html#Repeats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Répétitions et reprises&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Repeat-types" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Types de répétitions &gt; </a>]</td></tr></table>
+<a name="Long-repeats"></a>
+<h3 class="subsection">1.4.1 Répétition d&rsquo;un long passage</h3>
+
+<p>Cette section présente la syntaxe des répétitions longues &mdash;
+c&rsquo;est-à-dire plusieurs mesures.  Ces répétitions peuvent prendre deux
+formes&nbsp;: encadrées par des barres de reprises, ou bien développées
+dans la partition.  Les barres et autres signe de reprise peuvent être
+contrôlés manuellement.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Repeat-types" accesskey="1">Types de répétitions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Repeat-syntax" accesskey="2">Syntaxe des répétitions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">               
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Manual-repeat-commands" accesskey="3">Commandes de reprise manuelles</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
+</td></tr>
+</table>
+
+<a name="index-barres-de-reprise-1"></a>
+<a name="index-reprise"></a>
+<a name="index-repetition-avec-barres-de-reprise"></a>
+<a name="index-volta"></a>
+<a name="index-fois_002c-pre"></a>
+<a name="index-premiere-fois"></a>
+<a name="index-seconde-fois"></a>
+<a name="index-_005crepeat"></a>
+<a name="index-_005crepeat-1"></a>
+
+
+<hr size="6">
+<a name="Repeat-types"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Long-repeats" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Répétition d&rsquo;un long passage&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Long-repeats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Répétition d&rsquo;un long passage&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Repeat-syntax" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Syntaxe des répétitions &gt; </a>]</td></tr></table>
+<a name="Repeat-types"></a>
+<h4 class="unnumberedsubsubsec">Types de répétitions</h4>
+
+<p>On peut indiquer des répétitions des façons suivantes&nbsp;:
+</p>
+<dl compact="compact">
+<dt> <code>bar</code></dt>
+<dd><p>baz
+</p></dd>
+</dl>
+
+<hr size="6">
+<a name="Repeat-syntax"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Repeat-types" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Types de répétitions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Long-repeats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Répétition d&rsquo;un long passage&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Manual-repeat-commands" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Commandes de reprise manuelles &gt; </a>]</td></tr></table>
+<a name="Repeat-syntax"></a>
+<h4 class="unnumberedsubsubsec">Syntaxe des répétitions</h4>
+
+<a name="index-volta-1"></a>
+
+<p>Tous les différents types de reprise se spécifient dans
+LilyPond avec une même construction syntaxique, qui est&nbsp;:
+</p>
+
+<blockquote><pre class="example">\repeat <var>type_de_la_reprise</var> <var>nombre_de_répétitions</var> <var>expression_à_répéter</var>
+</pre></blockquote>
+
+<p>On peut ajouter, pour indiquer une fin alternative&nbsp;:
+<a name="index-_005calternative"></a>
+<a name="index-_005calternative-1"></a>
+</p><blockquote><pre class="example">\alternative {
+ <var>alternative1</var>
+ <var>alternative2</var>
+ <var>alternative3</var>
+ &hellip;
+}
+</pre></blockquote>
+
+<p>chaque <var>alternative</var> étant une expression musicale.  Si l&rsquo;on donne
+trop peu d&rsquo;alternatives en regard du nombre de fois où le passage doit
+être rejoué, la première alternative sera jouée plusieurs fois.
+</p>
+
+<p>Les reprises courantes s&rsquo;indiquent comme ceci&nbsp;:
+</p>
+<blockquote><pre class="verbatim">c1
+\repeat volta 2 { c4 d e f }
+\repeat volta 2 { f e d c }
+</pre><p>
+ <a href="../58/lily-bea13d6b.ly">
+  <img align="middle"
+       border="0"
+       src="../58/lily-bea13d6b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Et avec des fins alternatives&nbsp;:
+</p>
+<blockquote><pre class="verbatim">c1
+\repeat volta 2 {c4 d e f}
+\alternative { {d2 d} {f f,} }
+</pre><p>
+ <a href="../0c/lily-34a2dc68.ly">
+  <img align="middle"
+       border="0"
+       src="../0c/lily-34a2dc68.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Il est possible de créer des répétitions avec une levée.
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  \partial 4 e |
+  \repeat volta 4 { c2 d2 | e2 f2 | }
+  \alternative { { g4 g g e } { a a a a | b2. } }
+}
+</pre><p>
+ <a href="../b2/lily-b4cfe707.ly">
+  <img align="middle"
+       border="0"
+       src="../b2/lily-b4cfe707.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>ou
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  \partial 4 
+  \repeat volta 4 { e | c2 d2 | e2 f2 | }
+  \alternative { { \partial 4*3 g4 g g } { a a a a | b2. } }
+}
+</pre><p>
+ <a href="../63/lily-6840f35d.ly">
+  <img align="middle"
+       border="0"
+       src="../63/lily-6840f35d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+<a name="index-_005crepeatTie-2"></a>
+<a name="index-_005crepeatTie-3"></a>
+<p>Des liaisons de tenue peuvent être ajoutées à toute alternative&nbsp;:
+</p>
+<blockquote><pre class="verbatim">c1
+\repeat volta 2 {c4 d e f ~ }
+\alternative { {f2 d} {f\repeatTie f,} }
+</pre><p>
+ <a href="../86/lily-4aa451db.ly">
+  <img align="middle"
+       border="0"
+       src="../86/lily-4aa451db.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>On peut raccourcir les crochets indiquant les fins alternatives,
+en définissant la propriété <code>voltaSpannerDuration</code>.  Dans 
+l&rsquo;exemple suivant, le crochet ne se prolonge que sur une mesure
+à 3/4.
+</p>
+<blockquote><pre class="verbatim">\relative c''{
+  \time 3/4
+  c c c
+  \set Staff.voltaSpannerDuration = #(ly:make-moment 3 4)
+  \repeat volta 5 { d d d }
+  \alternative { { e e e f f f }
+  { g g g } }
+}
+</pre><p>
+ <a href="../37/lily-5dfdc81e.ly">
+  <img align="middle"
+       border="0"
+       src="../37/lily-5dfdc81e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si l&rsquo;on souhaite à la fois terminer une ligne par une double barre et
+débuter la ligne suivante avec une section reprise, on peut utiliser
+</p><blockquote><pre class="example">&hellip; \bar &quot;||:&quot; \break
+\repeat volta 2 { &hellip;
+</pre></blockquote>
+
+<p>Consultez <a href="Bars.fr.html#Bar-lines">Barres de mesure</a> pour plus d&rsquo;informations.
+</p>
+
+<a name="See-also-41"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Program reference: <a name="index-VoltaBracket"></a>
+<a href="../lilypond-internals/VoltaBracket.fr.html#VoltaBracket">VoltaBracket</a>,
+<a name="index-RepeatedMusic"></a>
+<a href="../lilypond-internals/RepeatedMusic.fr.html#RepeatedMusic">RepeatedMusic</a>,
+<a name="index-VoltaRepeatedMusic"></a>
+<a href="../lilypond-internals/VoltaRepeatedMusic.fr.html#VoltaRepeatedMusic">VoltaRepeatedMusic</a>, et
+<a name="index-UnfoldedRepeatedMusic"></a>
+<a href="../lilypond-internals/UnfoldedRepeatedMusic.fr.html#UnfoldedRepeatedMusic">UnfoldedRepeatedMusic</a>.
+</p>
+
+<p>Exemples
+</p>
+<p>Les crochets précédant une reprise s&rsquo;impriment d&rsquo;ordinaire seulement
+au-dessus de la portée du haut.  On peut ajuster cela en déplaçant le
+graveur <code>Volta_engraver</code> vers les contextes de portée
+(<code>Staff</code>) qui doivent comporter ces crochets&nbsp;;
+voir <a href="Modifying-context-plug_002dins.fr.html#Modifying-context-plug_002dins">Modification des greffons de contexte</a>, et <a name="index-Repeats"></a>
+<a href="../../../input/lsr/lilypond-snippets/Repeats.html#Repeats">Répétitions et reprises</a>.
+</p>
+
+<a name="Known-issues-and-warnings-19"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<a name="index-reprises-ambigues"></a>
+
+<p>Des reprises imbriquées telles que
+</p>
+<blockquote><pre class="example">\repeat &hellip;
+\repeat &hellip;
+\alternative
+</pre></blockquote>
+
+<p>présentent une ambiguïté, dans la mesure où l&rsquo;on ne sait à quelle
+section <code>\repeat</code> attribuer la section <code>\alternative</code>.  Pour
+résoudre cette ambiguïté, il convient de toujours insérer la commande
+<code>\alternative</code> à l&rsquo;intérieur de la section <code>\repeat</code>.  Il est
+préférable, dans une telle situation, d&rsquo;utiliser des accolades pour plus
+de clarté.
+</p>
+<p>Lorsqu&rsquo;une alternative commence, les informations de métrique sont
+perdues, il faut donc les rappeler après une reprise, par exemple
+en définissant <code>Score.measurePosition</code> ou en invoquant la commande
+<code>\partial</code>.  De même, aucune liaison (de tenue ou autre)
+n&rsquo;est répétée.
+</p>
+<p>Les crochets qui indiquent les alternatives ne sont pas alignés 
+verticalement.
+</p>
+
+<hr size="6">
+<a name="Manual-repeat-commands"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Repeat-syntax" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Syntaxe des répétitions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Long-repeats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Répétition d&rsquo;un long passage&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Other-repeats.fr.html#Other-repeats" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Autres types de répétition &gt; </a>]</td></tr></table>
+<a name="Manual-repeat-commands"></a>
+<h4 class="unnumberedsubsubsec">Commandes de reprise manuelles</h4>
+
+<a name="index-repeatCommands-2"></a>
+<a name="index-repeatCommands-3"></a>
+
+<p>La propriété <code>repeatCommands</code> sert à contrôler la mise en forme des
+reprises.  On la définit par une suite de commandes de reprise Scheme.
+</p>
+<dl compact="compact">
+<dt> <code>start-repeat</code></dt>
+<dd><p>Pour imprimer une barre de reprise <code>|:</code>
+</p>
+</dd>
+<dt> <code>end-repeat</code></dt>
+<dd><p>Pour imprimer une barre de reprise <code>:|</code>
+</p>
+</dd>
+<dt> <code>(volta <var>texte</var>)</code></dt>
+<dd><p>Pour imprimer un crochet indiquant une alternative.  L&rsquo;argument
+<var>texte</var> mentionné dans le crochet peut être n&rsquo;importe quelle chaîne
+de caractères ou indication textuelle &mdash; voir <a href="Formatting-text.fr.html#Formatting-text">Mise en forme du texte</a>.
+Attention cependant à changer la police, car la police employée par
+défaut pour les chiffres ne contient aucun caractère alphabétique.
+</p>
+</dd>
+<dt> <code>(volta #f)</code></dt>
+<dd><p>Pour terminer un crochet indiquant une alternative.
+</p></dd>
+</dl>
+
+<blockquote><pre class="verbatim">c4
+  \set Score.repeatCommands = #'((volta &quot;93&quot;) end-repeat)
+c4 c4
+  \set Score.repeatCommands = #'((volta #f))
+c4 c4
+</pre><p>
+ <a href="../c8/lily-b066125a.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-b066125a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-21"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-VoltaBracket-1"></a>
+<a href="../lilypond-internals/VoltaBracket.fr.html#VoltaBracket">VoltaBracket</a>,
+<a name="index-RepeatedMusic-1"></a>
+<a href="../lilypond-internals/RepeatedMusic.fr.html#RepeatedMusic">RepeatedMusic</a>,
+<a name="index-VoltaRepeatedMusic-1"></a>
+<a href="../lilypond-internals/VoltaRepeatedMusic.fr.html#VoltaRepeatedMusic">VoltaRepeatedMusic</a>, et
+<a name="index-UnfoldedRepeatedMusic-1"></a>
+<a href="../lilypond-internals/UnfoldedRepeatedMusic.fr.html#UnfoldedRepeatedMusic">UnfoldedRepeatedMusic</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Repeat-syntax" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Syntaxe des répétitions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Long-repeats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Répétition d&rsquo;un long passage&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Other-repeats.fr.html#Other-repeats" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Autres types de répétition &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Long-repeats.html">English</a>, <a href="Long-repeats.es.html">español</a>, <a href="Long-repeats.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li class="toc_current"><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Long-repeats-1" href="Long-repeats.fr.html#Long-repeats">1.4.1 Répétition d&rsquo;un long passage</a>
+      <ul class="toc">
+        <li><a name="toc-Repeat-types-1" href="Long-repeats.fr.html#Repeat-types">Types de répétitions</a>        </li>
+        <li><a name="toc-Repeat-syntax-1" href="Long-repeats.fr.html#Repeat-syntax">Syntaxe des répétitions</a>        </li>
+        <li><a name="toc-Manual-repeat-commands-1" href="Long-repeats.fr.html#Manual-repeat-commands">Commandes de reprise manuelles</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Other-repeats-1" href="Other-repeats.fr.html#Other-repeats">1.4.2 Autres types de répétition</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

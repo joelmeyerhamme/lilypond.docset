@@ -1,0 +1,191 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 4.2 Le manuel des références internes</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 4.2 The Internals Reference manual">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 4.2 The Internals Reference manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Tweaking-output.fr.html#Tweaking-output" rel="up" title="4. Tweaking output">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Tweaking-methods.fr.html#Tweaking-methods" rel="previous" title="4.1.4 Tweaking methods">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="The-Internals-Reference-manual"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Tweaking-methods.fr.html#Tweaking-methods" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Méthodes de retouche&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Retouche de partition&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Propriétés des objets de rendu &gt; </a>]</td></tr></table>
+<a name="The-Internals-Reference-manual"></a>
+<h2 class="section">4.2 Le manuel des références internes</h2>
+
+<a name="index-References-internes"></a>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" accesskey="1">4.2.1 Propriétés des objets de rendu</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="Properties-found-in-interfaces.fr.html#Properties-found-in-interfaces" accesskey="2">4.2.2 Propriétés listées par interface</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="Types-of-properties.fr.html#Types-of-properties" accesskey="3">4.2.3 Types de propriétés</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">         
+</td></tr>
+</table>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Tweaking-methods.fr.html#Tweaking-methods" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Méthodes de retouche&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Retouche de partition&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Propriétés des objets de rendu &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="The-Internals-Reference-manual.html">English</a>, <a href="The-Internals-Reference-manual.es.html">español</a>, <a href="The-Internals-Reference-manual.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li class="toc_current"><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>
+    <ul class="toc">
+      <li><a name="toc-Properties-of-layout-objects-1" href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects">4.2.1 Propriétés des objets de rendu</a>      </li>
+      <li><a name="toc-Properties-found-in-interfaces-1" href="Properties-found-in-interfaces.fr.html#Properties-found-in-interfaces">4.2.2 Propriétés listées par interface</a>      </li>
+      <li><a name="toc-Types-of-properties-1" href="Types-of-properties.fr.html#Types-of-properties">4.2.3 Types de propriétés</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

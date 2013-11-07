@@ -1,0 +1,886 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 1.2.2 Escritura de silencios</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 1.2.2 Writing rests">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 1.2.2 Writing rests">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Rhythms.es.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Writing-rhythms.es.html#Writing-rhythms" rel="previous" title="1.2.1 Writing rhythms">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Writing-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Writing-rhythms.es.html#Ties" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Ligaduras de unión&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.es.html#Rhythms" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Duraciones&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Rests" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Silencios &gt; </a>]</td></tr></table>
+<a name="Writing-rests"></a>
+<h3 class="subsection">1.2.2 Escritura de silencios</h3>
+
+<p>Los silencios se escriben como parte de la música dentro de las
+expresiones musicales.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Rests" accesskey="1">Silencios</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Invisible-rests" accesskey="2">Silencios invisibles</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Full-measure-rests" accesskey="3">Silencios de compás completo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Writing-rests" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Escritura de silencios&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Escritura de silencios&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Invisible-rests" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Silencios invisibles &gt; </a>]</td></tr></table>
+<a name="Rests"></a>
+<h4 class="unnumberedsubsubsec">Silencios</h4>
+
+<a name="index-silencio"></a>
+<a name="index-silencios_002c-indocar-duraciones"></a>
+<a name="index-maxima_002c-silencio-de"></a>
+<a name="index-longa_002c-silencio-de"></a>
+<a name="index-breve_002c-silencio-de"></a>
+
+<a name="index-_005crest"></a>
+<a name="index-_005crest-1"></a>
+<a name="index-rest"></a>
+<a name="index-rest-1"></a>
+<a name="index-r"></a>
+<a name="index-r-1"></a>
+<a name="index-_005cmaxima-2"></a>
+<a name="index-_005cmaxima-3"></a>
+<a name="index-maxima-3"></a>
+<a name="index-maxima-4"></a>
+<a name="index-_005clonga-2"></a>
+<a name="index-_005clonga-3"></a>
+<a name="index-longa-3"></a>
+<a name="index-longa-4"></a>
+<a name="index-_005cbreve-2"></a>
+<a name="index-_005cbreve-3"></a>
+<a name="index-breve-3"></a>
+<a name="index-breve-4"></a>
+
+<p>Los silencios se introducen como notas con el nombre <code>r</code>.  Las
+duraciones mayores que la redonda utilizan las instrucciones
+predefinidas que se muestran aquí:
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  % Estas dos líneas son solamente para embellecer el ejemplo
+  \time 16/1
+  \override Staff.TimeSignature #'stencil = ##f
+  % Imprimir un silencio de máxima, equivalente a cuatro breves
+  r\maxima
+  % Imprimir un silencio de longa, igual a dos breves
+  r\longa
+  % Imprimir un silencio de breve
+  r\breve
+  r1 r2 r4 r8 r16 r32 r64 r128
+}
+</pre><p>
+ <a href="../ed/lily-66621a6a.ly">
+  <img align="middle"
+       border="0"
+       src="../ed/lily-66621a6a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-silencios-multicompas"></a>
+<a name="index-silencios-de-compas-completo"></a>
+
+<p>Los silencios de un compás, centrados en medio del compás, se deben
+hacer con silencios multicompás.  Se pueden usar para un solo compás
+así como para muchos compases, y se tratan en <a href="#Full-measure-rests">Silencios de compás completo</a>.
+</p>
+<a name="index-silencio_002c-especificar-la-posicion-vertical"></a>
+
+<p>Para especificar explícitamente la posición vertical de un silencio,
+escriba una nota seguida de <code>\rest</code>.  Se colocará un silencio en
+la posición en que debería aparecer la nota.  Esto posibilita la
+aplicación manual precisa de formato a la música polifónica, ya que el
+formateador automático de colisiones de silencios no mueve estos
+silencios.
+</p>
+<blockquote><pre class="verbatim">a4\rest d4\rest
+</pre><p>
+ <a href="../ea/lily-8bbfccc6.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-8bbfccc6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-32"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Estilos de silencios</em>
+</p>
+
+<p>Los silencios se pueden imprimir en distintos estilos.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  indent = 0.0
+  \context {
+    \Staff
+    \remove &quot;Time_signature_engraver&quot;
+  }
+}
+
+\new Staff \relative c {
+  \cadenzaOn
+  \override Staff.Rest #'style = #'mensural
+  r\maxima^\markup \typewriter { mensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'neomensural
+  r\maxima^\markup \typewriter { neomensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'classical
+  r\maxima^\markup \typewriter { classical }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest  #'style = #'default
+  r\maxima^\markup \typewriter { default }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+}
+
+</pre><p>
+ <a href="../ac/lily-4cc5b56b.ly">
+  <img align="middle"
+       border="0"
+       src="../ac/lily-4cc5b56b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-52"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-breve-5"></a>
+<a href="../music-glossary/breve.es.html#breve">breve</a>,
+<a name="index-longa-5"></a>
+<a href="../music-glossary/longa.es.html#longa">longa</a>,
+<a name="index-maxima-5"></a>
+<a href="../music-glossary/maxima.es.html#maxima">maxima</a>.
+</p>
+<p>Referencia de la notación:
+<a href="#Full-measure-rests">Silencios de compás completo</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-Rest"></a>
+<a href="../lilypond-internals/Rest.es.html#Rest">Rest</a>.
+</p>
+
+<a name="Advertencias-y-problemas-conocidos-56"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>No existe un límite fundamental respecto de las duraciones de los
+silencios (tanto para el más corto como para el más largo), pero el
+número de glifos es limitado: hay silencios desde la garrapatea (128)
+hasta la máxima (8 redondas).
+</p>
+
+<hr size="6">
+<a name="Invisible-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Rests" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Silencios&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Escritura de silencios&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Full-measure-rests" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Silencios de compás completo &gt; </a>]</td></tr></table>
+<a name="Invisible-rests"></a>
+<h4 class="unnumberedsubsubsec">Silencios invisibles</h4>
+
+<a name="index-desplazamiento"></a>
+<a name="index-silencio-invisible"></a>
+<a name="index-invisible_002c-silencio"></a>
+<a name="index-nota-de-espaciado"></a>
+<a name="index-silencio-de-separacion"></a>
+
+<a name="index-s"></a>
+<a name="index-s-1"></a>
+<a name="index-_005cskip"></a>
+<a name="index-_005cskip-1"></a>
+<a name="index-skip"></a>
+<a name="index-skip-1"></a>
+
+<p>Un silencio invisible (también conocido como &lsquo;skip&rsquo; o
+desplazamiento) se puede introducir como una nota con el
+nombre&nbsp;<code>s</code>:
+</p>
+<blockquote><pre class="verbatim">c4 c s c
+s2 c
+</pre><p>
+ <a href="../20/lily-6f228490.ly">
+  <img align="middle"
+       border="0"
+       src="../20/lily-6f228490.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-letra_002c-desplazamiento-de"></a>
+
+<p>Los silencios de separación sólo están disponible en el modo de notas
+y en el modo de acordes.  En otras situaciones, por ejemplo, cuando se
+introduce la letra, se usa la instrucción <code>\skip</code> para producir
+un desplazamiento de una cierta magnitud temporal.  <code>\skip</code>
+requiere una duración explícita.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  {
+    a2 \skip2 a2 a2
+  }
+  \new Lyrics {
+    \lyricmode {
+      foo2 \skip 1 bla2
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../81/lily-4399536f.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-4399536f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Un silencio de separación produce implícitamente contextos
+<code>Staff</code> y <code>Voice</code> si no existe ninguno, igual que las notas
+y los silencios normales:
+</p>
+<blockquote><pre class="verbatim">s1 s s
+</pre><p>
+ <a href="../14/lily-436d3315.ly">
+  <img align="middle"
+       border="0"
+       src="../14/lily-436d3315.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><code>\skip</code> tan sólo desplaza un tiempo musical; no produce ninguna
+salida, de ninguna clase.
+</p>
+<blockquote><pre class="verbatim">% Esto es una entrada válida, pero no hace nada
+\skip 1 \skip1 \skip 1
+</pre><p>
+ <a href="../42/lily-fd0ea497.ly">
+  <img align="middle"
+       border="0"
+       src="../42/lily-fd0ea497.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-40"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-SkipMusic"></a>
+<a href="../lilypond-internals/SkipMusic.es.html#SkipMusic">SkipMusic</a>.
+</p>
+
+<hr size="6">
+<a name="Full-measure-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Invisible-rests" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Silencios invisibles&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Escritura de silencios&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-rhythms.es.html#Displaying-rhythms" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Impresión de las duraciones &gt; </a>]</td></tr></table>
+<a name="Full-measure-rests"></a>
+<h4 class="unnumberedsubsubsec">Silencios de compás completo</h4>
+
+<a name="index-multicompas_002c-silencios"></a>
+<a name="index-compas-completo_002c-silencios-de"></a>
+<a name="index-silencios-multicompas-1"></a>
+<a name="index-silencios-de-compas-completo-1"></a>
+<a name="index-redonda_002c-silencios-de_002c-para-un-compas-completo"></a>
+<a name="index-silencios-de-redonda-para-un-compas-completo"></a>
+
+<a name="index-R"></a>
+<a name="index-R-1"></a>
+
+<p>Los silencios de uno o más compases completos se introducen como notas
+con el nombre <code>R</code> en mayúscula:
+</p>
+<blockquote><pre class="verbatim">% Compases en silencio contraídos a un solo compás
+\compressFullBarRests
+R1*4
+R1*24
+R1*4
+b2^&quot;Tutti&quot; b4 a4
+</pre><p>
+ <a href="../f6/lily-6b9bf514.ly">
+  <img align="middle"
+       border="0"
+       src="../f6/lily-6b9bf514.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La duración de los silencios de compás completo es idéntica a la
+notación de la duración que se usa para las notas.  La duración de un
+silencio multi-compás debe ser siempre un número entero de compases,
+por lo que con frecuencia han de utilizarse puntillos o fracciones:
+</p>
+<blockquote><pre class="verbatim">\compressFullBarRests
+\time 2/4
+R1 | R2 |
+\time 3/4
+R2. | R2.*2 |
+\time 13/8
+R1*13/8 | R1*13/8*12 |
+\time 10/8
+R4*5*4 |
+</pre><p>
+ <a href="../c9/lily-c1aeb5b4.ly">
+  <img align="middle"
+       border="0"
+       src="../c9/lily-c1aeb5b4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Un silencio de un compás completo se imprime como un silencio de
+redonda o de breve, centrado en el compás, según el tipo de compás
+vigente.
+</p>
+<blockquote><pre class="verbatim">\time 4/4
+R1 |
+\time 6/4
+R1*3/2 |
+\time 8/4
+R1*2 |
+</pre><p>
+ <a href="../64/lily-40c75257.ly">
+  <img align="middle"
+       border="0"
+       src="../64/lily-40c75257.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-multicompas_002c-silencios_002c-expansion-de"></a>
+<a name="index-multicompas_002c-silencios_002c-contraccion-de"></a>
+
+<a name="index-_005cexpandFullBarRests"></a>
+<a name="index-_005cexpandFullBarRests-1"></a>
+<a name="index-expandFullBarRests"></a>
+<a name="index-expandFullBarRests-1"></a>
+<a name="index-_005ccompressFullBarRests"></a>
+<a name="index-_005ccompressFullBarRests-1"></a>
+<a name="index-compressFullBarRests"></a>
+<a name="index-compressFullBarRests-1"></a>
+
+<p>De forma predeterminada un silencio multicompás se expande en la
+partitura impresa para mostrar explícitamente todos los compases de
+silencio.  De forma alternatica, un silencio multicompás se puede
+presentar como un solo compás que contiene un símbolo de silencio
+multicompás, con el número de compases impreso encima del compás:
+</p>
+<blockquote><pre class="verbatim">% Comportamiento predeterminado
+\time 3/4 r2. | R2.*2 |
+\time 2/4 R2 |
+\time 4/4
+% Compases en silencio contraídos a un solo compás
+\compressFullBarRests
+r1 | R1*17 | R1*4 |
+% Compases de silencio expandidos
+\expandFullBarRests
+\time 3/4
+R2.*2 |
+</pre><p>
+ <a href="../ca/lily-2307047e.ly">
+  <img align="middle"
+       border="0"
+       src="../ca/lily-2307047e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="index-texto-sobre-un-silencio-multicompas"></a>
+<a name="index-multicompas_002c-silencio_002c-adjuntar-texto"></a>
+<a name="index-inscripcion-sobre-un-silencio-multicompas"></a>
+<a name="index-multicompas_002c-silencios_002c-inscripcion-en"></a>
+<a name="index-calderon-sobre-un-silencio-multicompas"></a>
+<a name="index-multicompas_002c-silencio_002c-aplicar-un-calderon-a"></a>
+
+<a name="index-_005cfermataMarkup"></a>
+<a name="index-_005cfermataMarkup-1"></a>
+<a name="index-fermataMarkup"></a>
+<a name="index-fermataMarkup-1"></a>
+
+<p>Se pueden añadir elementos de marcado a los silencios multicompás.  Se
+proporciona la instrucción predefinida <code>\fermataMarkup</code> para
+añadir calderones.
+</p>
+<blockquote><pre class="verbatim">\compressFullBarRests
+\time 3/4
+R2.*10^\markup { \italic &quot;ad lib.&quot; }
+R2.^\fermataMarkup
+</pre><p>
+ <a href="../0c/lily-92bf5997.ly">
+  <img align="middle"
+       border="0"
+       src="../0c/lily-92bf5997.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Nota:</b> Los elementos de marcado que se añaden a un silencio
+multicompás son objetos del tipo <code>MultiMeasureRestText</code>, no
+<code>TextScript</code>.  Las sobreescrituras de propiedades deben ir
+dirigidas hacia el objeto correcto, o se ignorarán.  Véase el ejemplo
+siguiente.
+</p></td></tr></table>
+
+<blockquote><pre class="verbatim">% Esto no funciona, se ha especificado un nombre de objeto equivocado
+\override TextScript #'padding = #5
+R1^&quot;wrong&quot;
+% Esto es correcto y funciona
+\override MultiMeasureRestText #'padding = #5
+R1^&quot;right&quot;
+</pre><p>
+ <a href="../50/lily-5b95480b.ly">
+  <img align="middle"
+       border="0"
+       src="../50/lily-5b95480b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Cuando un silencio multicompás sigue inmediatamente al establecimiento
+de un compás parcial con <code>\partial</code>, es posible que no se emitan
+las advertencias correspondientes de comprobación de compás.
+</p>
+
+<a name="Instrucciones-predefinidas-34"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<p><code>\textLengthOn</code>,
+<code>\textLengthOff</code>,
+<code>\fermataMarkup</code>,
+<code>\compressFullBarRests</code>,
+<code>\expandFullBarRests</code>.
+</p>
+
+<a name="Fragmentos-de-codigo-seleccionados-34"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<a name="index-eclesiasticos_002c-silencios"></a>
+<a name="index-silencios-eclesiasticos"></a>
+<a name="index-kirchenpausen"></a>
+
+<p><em> Cambiar la forma de los silencios multicompás</em>
+</p>
+
+<p>Si hay diez compases de silencio o menos, se imprime en el pentagrama
+una serie de silencios de breve y longa (conocidos en alemán como
+&quot;Kirchenpausen&quot;, «silencios eclesiásticos»); en caso contrario se
+muestra una barra normal.  Este número predeterminado de diez se
+puede cambiar sobreescribiendo la propiedad <code>expand-limit</code>:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \compressFullBarRests
+  R1*2 | R1*5 | R1*9
+  \override MultiMeasureRest #'expand-limit = #3
+  R1*2 | R1*5 | R1*9
+}
+</pre><p>
+ <a href="../a1/lily-768d0fe9.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-768d0fe9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-multicompas_002c-posicionamiento-de-los-silencios"></a>
+<a name="index-colocacion-de-los-silencios-multicompas"></a>
+
+<p><em> Posicionar los silencios multicompás</em>
+</p>
+
+<p>A diferencia de los silencios normales, no existe una instrucción
+predefinida para modificar la posición predefinida de un símbolo
+multicompás sobre el pentagrama, adjuntándolo a una nota,
+independientemente de cuál sea su forma.  Sin embargo, en la música
+polifónica los silencios multicompás de las voces de numeración par e
+impar están separados verticalmente.  La colocación de los silencios
+multicompás se puede controlar como se ve a continuación:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  % Multi-measure rests by default are set under the fourth line
+  R1
+  % Se pueden mover con un override
+  \override MultiMeasureRest #'staff-position = #-2
+  R1
+  % Un valor de cero es la posición predeterminada;
+  % el truco siguiente mueve el silencio a la línea central
+  \override MultiMeasureRest #'staff-position = #-0.01
+  R1
+  % Los silencios multicompás de las voces impares están bajo la línea superior
+  &lt;&lt; { R1 } \\ { a1 } &gt;&gt;
+  % Los silencios multicompás de las voces pares están bajo la línea inferior
+  &lt;&lt; { c1 } \\ { R1 } &gt;&gt;
+  % Siguen estando separados incluso en compases vacíos
+  &lt;&lt; { R1 } \\ { R1 } &gt;&gt;
+  % Así los juntamos incluso si hay dos voces
+  \compressFullBarRests
+  &lt;&lt;
+    \revert MultiMeasureRest #'staff-position
+    { R1*3 }
+    \\
+    \revert MultiMeasureRest #'staff-position
+    { R1*3 }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../8b/lily-cc2b0d79.ly">
+  <img align="middle"
+       border="0"
+       src="../8b/lily-cc2b0d79.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Marcado de silencios multicompás</em>
+</p>
+
+<p>Los elementos de marcado aplicados a un silencio multicompás se
+centran encima o debajo de éste.  Los elementos de marcado extensos
+que se adjuntan a silencios multicompás no producen la expansión del
+compás.  Para expandir un silencio multicompás de forma que quepa todo
+el marcado, utilice un silencio de separación con un marcado aplicado
+antes del silencio multicompás.
+</p>
+<p>Observe que el silencio separador produce la inserción de un compás.
+El texto aplicado a un siencio sparador de esta forma se alinea por la
+izquierda a la posición en que la nota estaría situada dentro del
+compás, pero si la longitud del compás está determinada por la
+longitud del texto, éste aparecerá centrado.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \compressFullBarRests
+  \textLengthOn
+  s1*0^\markup { [MAJOR GENERAL] }
+  R1*19
+  s1*0_\markup { \italic { Cue: ... it is yours } }
+  s1*0^\markup { A }
+  R1*30^\markup { [MABEL] }
+  \textLengthOff
+  c4^\markup { CHORUS } d f c
+}
+</pre><p>
+ <a href="../05/lily-ffe88083.ly">
+  <img align="middle"
+       border="0"
+       src="../05/lily-ffe88083.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-76"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-multi_002dmeasure-rest"></a>
+<a href="../music-glossary/multi_002dmeasure-rest.es.html#multi_002dmeasure-rest">silencios multicompás</a>.
+</p>
+<p>Referencia de la notación:
+<a href="Writing-rhythms.es.html#Durations">Duraciones</a>,
+<a href="Text.es.html#Text">Texto</a>,
+<a href="Formatting-text.es.html#Formatting-text">Formatear el texto</a>,
+<a href="Writing-text.es.html#Text-scripts">Guiones de texto</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-MultiMeasureRest"></a>
+<a href="../lilypond-internals/MultiMeasureRest.es.html#MultiMeasureRest">MultiMeasureRest</a>,
+<a name="index-MultiMeasureRestNumber"></a>
+<a href="../lilypond-internals/MultiMeasureRestNumber.es.html#MultiMeasureRestNumber">MultiMeasureRestNumber</a>,
+<a name="index-MultiMeasureRestText"></a>
+<a href="../lilypond-internals/MultiMeasureRestText.es.html#MultiMeasureRestText">MultiMeasureRestText</a>.
+</p>
+<a name="index-digitaciones-y-silencios-multicompas"></a>
+<a name="index-multicompas_002c-silencios_002c-digitaciones-y"></a>
+
+<a name="Advertencias-y-problemas-conocidos-64"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Si se trata de usar digitaciones (p. ej., <code>R1*10-4</code>) para poner
+números encima de los silencios multicompás, la cifra de la digitación
+(el 4) puede chocar con el número del compás (aquí el 10).
+</p>
+<a name="index-condensar-silencios"></a>
+<a name="index-silencio-normal_002c-condensar"></a>
+
+<p>No hay ninguna forma de condensar automáticamente muchos silencios en
+un solo silencio multicompás.
+</p>
+<a name="index-silencio_002c-colisiones-de"></a>
+
+<p>Los silencios multicompás no toman parte en las colisiones de
+silencios.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Invisible-rests" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Silencios invisibles&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Escritura de silencios&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-rhythms.es.html#Displaying-rhythms" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Impresión de las duraciones &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Writing-rests.html">English</a>, <a href="Writing-rests.fr.html">français</a>, <a href="Writing-rests.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.es.html#Writing-rhythms">1.2.1 Escritura de las duraciones (valores rítmicos)</a>      </li>
+      <li class="toc_current"><a name="toc-Writing-rests-1" href="Writing-rests.es.html#Writing-rests">1.2.2 Escritura de silencios</a>
+      <ul class="toc">
+        <li><a name="toc-Rests-1" href="Writing-rests.es.html#Rests">Silencios</a>        </li>
+        <li><a name="toc-Invisible-rests-1" href="Writing-rests.es.html#Invisible-rests">Silencios invisibles</a>        </li>
+        <li><a name="toc-Full-measure-rests-1" href="Writing-rests.es.html#Full-measure-rests">Silencios de compás completo</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.es.html#Displaying-rhythms">1.2.3 Impresión de las duraciones</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.es.html#Beams">1.2.4 Barras</a>      </li>
+      <li><a name="toc-Bars-1" href="Bars.es.html#Bars">1.2.5 Barras de compás</a>      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.es.html#Special-rhythmic-concerns">1.2.6 Asuntos rítmicos especiales</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

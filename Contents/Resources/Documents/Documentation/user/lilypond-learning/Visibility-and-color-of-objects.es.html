@@ -1,0 +1,580 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Manual de aprendizaje de GNU LilyPond: 4.3.1 Visibilidad y color de los objetos</title>
+
+<meta name="description" content="Manual de aprendizaje de GNU LilyPond: 4.3.1 Visibility and color of objects">
+<meta name="keywords" content="Manual de aprendizaje de GNU LilyPond: 4.3.1 Visibility and color of objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de aprendizaje">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Appearance-of-objects.es.html#Appearance-of-objects" rel="up" title="4.3 Appearance of objects">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Appearance-of-objects.es.html#Appearance-of-objects" rel="previous" title="4.3 Appearance of objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Visibility-and-color-of-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.es.html#Size-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Tamaño de los objetos &gt; </a>]</td></tr></table>
+<a name="Visibility-and-color-of-objects"></a>
+<h3 class="subsection">4.3.1 Visibilidad y color de los objetos</h3>
+
+<p>Dentro de un uso educativo de la música, podríamos desear imprimir una
+partitura con ciertos elementos omitidos como ejercicio para el
+alumno, a quien se le pide que los complete.  A la manera de ejemplo
+sencillo, supongamos que el ejercicio es escribir las líneas
+divisorias que faltan en un fragmento musical.  Pero las líneas
+divisorias normalmente se insertan automáticamente. ¿Cómo hacemos para
+que no se impriman?
+</p>
+<p>Antes de enredarnos con esto, recordemos que las propiedades de los
+objetos se agrupan en lo que hemos llamado <em>interfaces</em> (véase
+<a href="Properties-found-in-interfaces.es.html#Properties-found-in-interfaces">Propiedades de los interfaces</a>).  Esto es simplemente agrupar
+las propiedades que se pueden usar juntas para trucar un objeto
+gráfico: si una de ellas se necesita para un objeto, también las
+otras.  Así, ciertos objetos usan las propiedades de algunos
+interfaces, otros usan las de otros interfaces.  Los interfaces que
+contienen las propiedades que un determinado grob necesita se
+encuentran relacionadas en el manual RFI al final de la página que
+describe dicho grob, y esas propiedades se pueden ver mirando dichos
+interfaces.
+</p>
+<p>Hemos explicado cómo encontrar información sobre los grobs en
+<a href="Properties-of-layout-objects.es.html#Properties-of-layout-objects">Propiedades de los objetos de presentación</a>.  Usando el mismo enfoque, vamos al
+RFI para buscar el objeto de presentación que imprime las líneas
+divisorias.  A través del enlace <em>Backend</em> y <em>All layout
+objects</em> encontramos que hay un objeto de presentación llamado
+<code>BarLine</code>.  Entre sus propiedades se encuentran dos que controlan
+la visibilidad: <code>break-visibility</code> y <code>stencil</code>.  Las líneas
+divisorias también contemplan un número de interfaces, entre ellos el
+<code>grob-interface</code>, donde podemos encontrar las propiedades
+<code>transparent</code> y <code>color</code>.  Todas ellas pueden afectar la
+visibilidad de las barras de compás (y, por supuesto, por extensión,
+también la de muchos otros objetos de presentación).  Vamos a
+considerar cada uno de ellos por orden.
+</p>
+<a name="stencil"></a>
+<h3 class="subheading">stencil (sello)</h3>
+
+<a name="index-stencil-_0028sello_0029_002c-propiedad"></a>
+
+<p>Esta propiedad controla la apariencia de las barras de compás mediante
+la especificación del símbolo (o «glifo») que se debe imprimir.  Igual
+que como otras muchas propiedades, se puede establecer de forma que no
+imprima nada ajustando su valor a <code>#f</code>.  Vamos a probarlo, como
+antes, omitiendo el Contexto implícito, <code>Voice</code>:
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura"></a>
+<a name="index-stencil_002c-propiedad_002c-ejemplo"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../a7/lily-1cc66621.ly">
+  <img align="middle"
+       border="0"
+       src="../a7/lily-1cc66621.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Las barras de compás todavía se imprimen.  ¿Qué es lo que está mal?
+Vuelva al RFI y mire de nuevo la página que ofrece las propiedades del
+objeto BarLine.  Al principio de la página dice &ldquo;Barline objects
+are created by: Bar_engraver&rdquo; (los objetos Barline se crean por el
+grabador Bar_engraver).  Vaya a la página del grabador
+<code>Bar_engraver</code> siguiendo el enlace.  Al final da una lista de
+contextos en los que el grabador de líneas divisorias opera.  Todos
+ellos son del tipo <code>Staff</code>, y así la razón de que la instrucción
+<code>\override</code> no funcionara como esperábamos, es porque
+<code>Barline</code> no se encuentra en el contexto predeterminado
+<code>Voice</code>.  Si el contexto se especifica mal, la instrucción
+simplemente no funciona.  No se produce ningún mensaje de error, y no
+se registra nada en el archivo log de registro.  Vamos a intentar
+corregirlo escribiendo el contexto correcto:
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-1"></a>
+<a name="index-stencil_002c-propiedad_002c-ejemplo-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../af/lily-22da988b.ly">
+  <img align="middle"
+       border="0"
+       src="../af/lily-22da988b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Ahora las barras de compás han desaparecido.
+</p>
+<a name="break_002dvisibility"></a>
+<h3 class="subheading">break-visibility (visibilidad en el salto)</h3>
+
+<a name="index-break_002dvisibility_002c-propiedad"></a>
+
+<p>Vemos en las propiedades de <code>BarLine</code> que aparecen en el RFI que
+la propiedad <code>break-visibility</code> requiere un vector de tres
+valores booleanos.  Controlan respectivamente si las barras de compás
+se imprimen al final de una línea, en mitad de una línea, y al
+principio de las líneas.  Para nuestro ejemplo, queremos que todas las
+barras de compás se supriman, por lo que el valor que necesitamos es
+<code>'#(#f #f #f)</code>.  Vamos a probarlo, recordando incluir el contexto
+de <code>Staff</code>.  Observe también que al escribir este valor tenemos
+<code>#'#</code> antes del paréntesis de apertura.  Se necesita <code>'#</code>
+como parte del valor para introducir un vector, y el primer símbolo de
+almohadilla <code>#</code> se necesita, como siempre, para preceder el valor
+en sí dentro de la instrucción <code>\override</code>.
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-2"></a>
+<a name="index-break_002dvisibility_002c-propiedad_002c-ejemplo"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'break-visibility = #'#(#f #f #f)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../db/lily-5a5a3823.ly">
+  <img align="middle"
+       border="0"
+       src="../db/lily-5a5a3823.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Y podemos ver que esto también quita todas las líneas divisorias.
+</p>
+<a name="transparent"></a>
+<h3 class="subheading">transparent (transparente)</h3>
+
+<a name="index-transparent_002c-propiedad"></a>
+<a name="index-transparencia"></a>
+
+<p>En la relación de propiedades que se especifican en la página del
+<code>grob-interface</code> del RFI podemos ver que la propiedad
+<code>transparent</code> es un valor booleano.  Esto se debe establecer a
+<code>#t</code> para hacer que el grob sea transparente.  En el ejemplo
+siguiente vamos a hacer que la indicación de compás, y no las líneas
+divisorias, sea transparente.  Para hacerlo tenemos que buscar el
+nombre del grob de la indicación de compás.  Volviendo a la página
+&lsquo;All layout objects&rsquo; del RFI, buscamos las propiedades del objeto de
+presentación <code>TimeSignature</code>.  Se produce por parte del grabador
+<code>Time_signature_engraver</code> que como puede comprobar vive dentro
+del contexto de <code>Staff</code> y también contempla el interface
+<code>grob-interface</code>.  Así pues, la instrucción que hace transparente
+a la indicación de compás es:
+</p>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura"></a>
+<a name="index-transparent_002c-propiedad_002c-ejemplo-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'transparent = ##t
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../98/lily-7a19ec15.ly">
+  <img align="middle"
+       border="0"
+       src="../98/lily-7a19ec15.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El compás ya no está, pero esta instrucción deja una separación en el
+lugar donde antes estaba la indicación de compás.  Quizá esto es lo
+que queremos para un ejercicio en que el alumno deba escribirlo, pero
+en otras circunstancias esta separación podría no ser deseable.  En
+vez de eso, para quitarla, el stencil o «sello» de la indicación de
+compás se debe establecer al valor <code>#f</code>:
+</p>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura-1"></a>
+<a name="index-stencil_002c-propiedad_002c-ejemplo-2"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6c/lily-6937aea0.ly">
+  <img align="middle"
+       border="0"
+       src="../6c/lily-6937aea0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>y la diferencia es obvia: al establecer el sello al valor <code>#f</code>
+quitamos el objeto por completo; al hacer el objeto <code>transparent</code>
+lo dejamos donde está, pero lo hacemos invisible.
+</p>
+<a name="color"></a>
+<h3 class="subheading">color</h3>
+
+<a name="index-color_002c-propiedad"></a>
+
+<p>Para finalizar, intentemos hacer invisibles las barras de compás
+pintándolas de color blanco (hay un problema relacionado, que consiste
+en que la línea divisoria blanca puede tapar o no tapar las líneas del
+pentagrama a las que cruza.  Podrá observar en algunos de los ejemplos
+que aparecen a continuación, que esto sucede de forma impredecible.
+Los detalles sobre por qué esto ocurre así, y cómo controlarlo, se
+estudian en <a name="index-Painting-objects-white"></a>
+<a href="../lilypond/Visibility-of-objects.es.html#Painting-objects-white">Pintar los objetos de blanco</a>; de momento estamos
+estudiando el color, por lo que le rogamos que acepte esta limitación
+por ahora).
+</p>
+<p>El interface <code>grob-interface</code> especifica que la propiedad del
+color es una lista, pero no hay ninguna explicación sobre lo que debe
+ir en esa lista.  La lista que requiere es realmente una lista de
+valores en unidades internas, pero para evitar tener que saber cuáles
+son, se ofrecen varias vías para la especificación de los colores.  La
+primera forma es utilizar uno de los colores &lsquo;normales&rsquo; que están
+relacionados en la primera tabla de la <a name="index-List-of-colors"></a>
+<a href="../lilypond/List-of-colors.es.html#List-of-colors">Lista de colores</a>.  Para
+poner las líneas divisorias de color blanco, escribimos:
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-3"></a>
+<a name="index-color_002c-propiedad_002c-ejemplo-5"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #white
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../24/lily-ead66fae.ly">
+  <img align="middle"
+       border="0"
+       src="../24/lily-ead66fae.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>y de nuevo podemos comprobar que las barras de compás no son visibles.
+Observe que <em>white</em> no viene precedido de un apóstrofo: no es un
+símbolo, sino una <em>función</em>.  Cuando se invoca, proporciona la
+lista de valores internos que se requieren para establecer el color a
+blanco.  Los otros colores de la lista normal también son funciones.
+Para convencerse de que esto funciona, quizá quiera cambiar el color a
+una de las otras funciones de la lista.
+</p>
+<a name="index-colores-de-X11"></a>
+<a name="index-X11_002c-colores-de"></a>
+
+<a name="index-x11_002dcolor"></a>
+<a name="index-x11_002dcolor-1"></a>
+
+<p>La segunda forma de cambiar el color es utilizar la lista de nombres
+de colores de X11 que aparecen en la segunda lista de <a name="index-List-of"></a>
+colors
+<a href="../lilypond/List-of-colors.es.html#List-of-colors">Lista de colores</a>.  Sin embargo, éstos deben ir precedidos de otra función, que
+convierte los nombres de colores de X11 en la lista de valores
+internos, <code>x11-color</code>, de la siguiente manera:
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-4"></a>
+<a name="index-color_002c-propiedad_002c-ejemplo-6"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(x11-color 'white)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6b/lily-7a8b71ec.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-7a8b71ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Observe que en este caso la función <code>x11-color</code> toma un símbolo
+como argumento, así que el símbolo debe ir precedido de un apóstrofo y
+los dos deben ir entre paréntesis.
+</p>
+<a name="index-rgb_002c-colores"></a>
+<a name="index-color_002c-rgb"></a>
+
+<a name="index-rgb_002dcolor"></a>
+<a name="index-rgb_002dcolor-1"></a>
+
+<p>Aún hay una tercera función, que convierte valores RGB en colores
+internos: la función <code>rgb-color</code>.  Toma tres argumentos que dan
+las intensidades de rojo, verde y azul.  Cada uno de ellos puede tomar
+valores entre 0 y 1.  Por lo tanto, para establecer el color a rojo el
+valor debe ser <code>(rgb-color 1 0 0)</code> y para blanco debe ser
+<code>(rgb-color 1 1 1)</code>:
+</p>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-5"></a>
+<a name="index-color_002c-propiedad_002c-ejemplo-7"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(rgb-color 1 1 1)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d2/lily-013d0e0d.ly">
+  <img align="middle"
+       border="0"
+       src="../d2/lily-013d0e0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Finalmente, existe también una escala de grises como parte del
+conjunto de colores de X11.  Varían desde el negro, <code>'grey0'</code>,
+hasta el blanco, <code>'grey100</code>, en pasos de 1.  Vamos a ilustrar esto
+estableciendo todos los objetos de presentación de nuestro ejemplo a
+varias gradaciones de gris:
+</p>
+<a name="index-StaffSymbol_002c-ejemplo-de-sobreescritura"></a>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura-2"></a>
+<a name="index-Clef_002c-ejemplo-de-sobreescritura"></a>
+<a name="index-NoteHead_002c-ejemplo-de-sobreescritura-4"></a>
+<a name="index-Stem_002c-ejemplo-de-sobreescritura"></a>
+<a name="index-BarLine_002c-ejemplo-de-sobreescritura-6"></a>
+<a name="index-color-property_002c-ejemplo"></a>
+<a name="index-x11_002dcolor_002c-ejemplo-de-utilizacion"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.StaffSymbol   #'color = #(x11-color 'grey30)
+  \override Staff.TimeSignature #'color = #(x11-color 'grey60)
+  \override Staff.Clef          #'color = #(x11-color 'grey60)
+  \override Voice.NoteHead      #'color = #(x11-color 'grey85)
+  \override Voice.Stem          #'color = #(x11-color 'grey85)
+  \override Staff.BarLine       #'color = #(x11-color 'grey10)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d4/lily-f6c92178.ly">
+  <img align="middle"
+       border="0"
+       src="../d4/lily-f6c92178.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Observe los contextos asociados con cada uno de los objetos de
+presentación.  Es importante que estén correctamente escritos, o las
+instrucciones ¡no funcionarán!  Recuerde que el contexto es aquel en
+que se encuentra el grabador correspondiente.  El contesto
+predeterminado para los grabadores puede encontrarse empezando por el
+objeto de presentación, de ahí al grabador que lo produce, y en la
+página del grabador del RFI aparece en qué contexto se puede encontrar
+normalmente el grabador.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.es.html#Size-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Tamaño de los objetos &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Visibility-and-color-of-objects.html">English</a>, <a href="Visibility-and-color-of-objects.fr.html">français</a>, <a href="Visibility-and-color-of-objects.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de aprendizaje</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.es.html#Preface">Preámbulo</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.es.html#Introduction">1. Introducción</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.es.html#Background">1.1 Antecedentes</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.es.html#About-the-documentation">1.2 Sobre la documentación</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.es.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.es.html#First-steps">2.1 Primeros pasos</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.es.html#Single-staff-notation">2.2 Notación en un solo pentagrama</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.es.html#Multiple-notes-at-once">2.3 Varias notas a la vez</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.es.html#Songs">2.4 Canciones</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.es.html#Final-touches">2.5 Retoques finales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.es.html#Fundamental-concepts">3. Conceptos fundamentales</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.es.html#How-LilyPond-input-files-work">3.1 Cómo funcionan los archivos de entrada de LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.es.html#Voices-contain-music">3.2 Las voces contienen música</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.es.html#Contexts-and-engravers">3.3 Contextos y grabadores</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.es.html#Extending-the-templates">3.4 Extender las plantillas</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.es.html#Tweaking-output">4. Trucar la salida</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.es.html#Tweaking-basics">4.1 Elementos de trucaje</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual">4.2 Manual de referencia de funcionamiento interno</a>    </li>
+    <li class="toc_current"><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.es.html#Appearance-of-objects">4.3 Apariencia de los objetos</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Visibility-and-color-of-objects-1" href="Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects">4.3.1 Visibilidad y color de los objetos</a>      </li>
+      <li><a name="toc-Size-of-objects-1" href="Size-of-objects.es.html#Size-of-objects">4.3.2 Tamaño de los objetos</a>      </li>
+      <li><a name="toc-Length-and-thickness-of-objects-1" href="Length-and-thickness-of-objects.es.html#Length-and-thickness-of-objects">4.3.3 Longitud y grosor de los objetos</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.es.html#Placement-of-objects">4.4 Colocación de los objetos</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.es.html#Collisions-of-objects">4.5 Colisiones de objetos</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.es.html#Further-tweaking">4.6 Trucajes adicionales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects">5. Trabajar en proyectos de LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-files-1" href="Suggestions-for-writing-LilyPond-files.es.html#Suggestions-for-writing-LilyPond-files">5.1 Suggestions for writing LilyPond files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.es.html#When-things-don_0027t-work">5.2 Cuando las cosas no van</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.es.html#Scores-and-parts">5.3 Partituras y particellas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.es.html#Templates">A. Plantillas</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.es.html#Single-staff">A.1 Pentagrama único</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.es.html#Piano-templates">A.2 Plantillas de piano</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.es.html#String-quartet">A.3 Cuarteto de cuerda</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.es.html#Vocal-ensembles">A.4 Conjuntos vocales</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.es.html#Ancient-notation-templates">A.5 Plantillas para notación antigua</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.es.html#Jazz-combo">A.6 Combo de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.es.html#lilypond_002dbook-templates">A.7 Plantillas de lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.es.html#Scheme-tutorial">B. Tutorial de Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.es.html#Tweaking-with-Scheme">B.1 Trucos con Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">D. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

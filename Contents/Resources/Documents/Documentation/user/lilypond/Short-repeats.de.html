@@ -1,0 +1,496 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.4.2 Kurze Wiederholungen</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.4.2 Short repeats">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.4.2 Short repeats">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Repeats.de.html#Repeats" rel="up" title="1.4 Repeats">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Long-repeats.de.html#Long-repeats" rel="previous" title="1.4.1 Long repeats">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Short-repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Long-repeats.de.html#Written_002dout-repeats" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Ausgeschriebene Wiederholungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Repeats.de.html#Repeats" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Wiederholungszeichen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percent-repeats" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Prozent-Wiederholungen &gt; </a>]</td></tr></table>
+<a name="Short-repeats"></a>
+<h3 class="subsection">1.4.2 Kurze Wiederholungen</h3>
+
+<p>Dieser Abschnitt zeigt, wie man kurze Wiederholungen notiert.
+Kurze Wiederholungen haben zwei grundlegende Formen: Wiederholungen
+von einer Note bis zu zwei Takten, die mit Schrägstrichen oder
+Prozentzeichen dargestellt werden, und Tremolos.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Percent-repeats" accesskey="1">Prozent-Wiederholungen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Tremolo-repeats" accesskey="2">Tremolo-Wiederholung</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Percent-repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Short-repeats" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Kurze Wiederholungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Short-repeats" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Kurze Wiederholungen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Tremolo-repeats" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Tremolo-Wiederholung &gt; </a>]</td></tr></table>
+<a name="Percent-repeats"></a>
+<h4 class="unnumberedsubsubsec">Prozent-Wiederholungen</h4>
+
+<a name="index-Prozent_002dWiederholungen"></a>
+<a name="index-Taktweise-Wiederholungen"></a>
+<a name="index-Wiederholung_002c-kurz"></a>
+<a name="index-Wiederholung_002c-taktweise"></a>
+<a name="index-Wiederholung_002c-Prozent"></a>
+<a name="index-_005crepeat-percent"></a>
+<a name="index-_005crepeat-percent-1"></a>
+<a name="index-percent"></a>
+<a name="index-percent-1"></a>
+
+<p>Kurze wiederholte Musikphrasen werden unterstützt. Dabei werden
+die Noten einmal gedruckt und dann durch 
+ein spezielles Zeichen ersetzt. Phrasen, 
+die kürzer als ein Takt sind, durch einen Schrägstrich dargestellt,
+Phrasen von ein oder zwei Takten Dauer 
+werden durch ein dem Prozentzeichen ähnlichen Zeichen markiert. 
+Die Syntax lautet
+</p>
+<blockquote><pre class="example"><code>\repeat percent <var>Wiederholungszahl</var> <var>musikAusdr</var></code>
+</pre></blockquote>
+
+<p>wobei <var>musikAusdr</var> ein musikalischer Ausdruck ist.
+</p>
+<blockquote><pre class="verbatim">\repeat percent 4 { c4 }
+\repeat percent 2 { b4 a g f }
+\repeat percent 2 { c2 es | f4 fis g c | }
+</pre><p>
+ <a href="../c7/lily-6535cd8a.ly">
+  <img align="middle"
+       border="0"
+       src="../c7/lily-6535cd8a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Selected-Snippets-33"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Percent repeat counter</em>
+</p>
+
+<p>Measure repeats of more than two repeats can get a counter when the
+convenient property is switched, as shown in this example:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \set countPercentRepeats = ##t
+  \repeat percent 4 { c1 }
+}
+
+</pre><p>
+ <a href="../4c/lily-0b106c96.ly">
+  <img align="middle"
+       border="0"
+       src="../4c/lily-0b106c96.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Percent repeat count visibility</em>
+</p>
+
+<p>Percent repeat counters can be shown at regular intervals by setting
+the context property <code>repeatCountVisibility</code>.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \set countPercentRepeats = ##t
+  \set repeatCountVisibility = #(every-nth-repeat-count-visible 5)
+  \repeat percent 10 { c1 } \break
+  \set repeatCountVisibility = #(every-nth-repeat-count-visible 2)
+  \repeat percent 6 { c1 d1 }
+}
+</pre><p>
+ <a href="../cd/lily-4c46a6a2.ly">
+  <img align="middle"
+       border="0"
+       src="../cd/lily-4c46a6a2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Isolated percent repeats</em>
+</p>
+
+<p>Isolated percents can also be printed.  This is done by entering a
+multi-measure rest with a different print function:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override MultiMeasureRest #'stencil
+    = #ly:multi-measure-rest::percent
+  \override MultiMeasureRest #'thickness = #0.48
+  R1
+}
+
+</pre><p>
+ <a href="../a5/lily-d1bb6b10.ly">
+  <img align="middle"
+       border="0"
+       src="../a5/lily-d1bb6b10.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-133"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-percent-repeat"></a>
+<a href="../music-glossary/percent-repeat.de.html#percent-repeat">Prozent-Wiederholung</a>, <a name="index-simile"></a>
+<a href="../music-glossary/simile.de.html#simile">gleichartig</a>.
+</p>
+<p>Schnipsel: <a href="../../../input/lsr/lilypond-snippets/Repeats.html#Repeats">Wiederholungszeichen</a>.
+</p>
+<p>Referenz der Interna: <a name="index-RepeatSlash"></a>
+<a href="../lilypond-internals/RepeatSlash.de.html#RepeatSlash">RepeatSlash</a>,
+<a name="index-PercentRepeat"></a>
+<a href="../lilypond-internals/PercentRepeat.de.html#PercentRepeat">PercentRepeat</a>, <a name="index-DoublePercentRepeat"></a>
+<a href="../lilypond-internals/DoublePercentRepeat.de.html#DoublePercentRepeat">DoublePercentRepeat</a>,
+<a name="index-DoublePercentRepeatCounter"></a>
+<a href="../lilypond-internals/DoublePercentRepeatCounter.de.html#DoublePercentRepeatCounter">DoublePercentRepeatCounter</a>,
+<a name="index-PercentRepeatCounter"></a>
+<a href="../lilypond-internals/PercentRepeatCounter.de.html#PercentRepeatCounter">PercentRepeatCounter</a>, <a name="index-PercentRepeatedMusic"></a>
+<a href="../lilypond-internals/PercentRepeatedMusic.de.html#PercentRepeatedMusic">PercentRepeatedMusic</a>.
+</p>
+<a name="Known-issues-and-warnings-9"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Nur drei Arten von Prozent-Wiederholungen sind unterstützt: ein
+einfacher Schrägstrich, der einen Taktschlag darstellt (unabhängig
+von der wirklichen Dauer der wiederholten Noten), ein einfacher
+Schrägstrich mit Punkten, der einen ganzen wiederholten Takt
+darstellt und zwei Schrägstriche mit Punkten über eine Taktlinie
+gedruckt, der zwei ganze Takte darstellt.  Weder können mehrere
+Schrägstriche für Taktwiederholungen von Sechzehntelnoten dargestellt
+werden, noch zwei Striche mit Punkten für nur einen Takt, der aus
+unterschiedlichen Notenwerten besteht.
+</p>
+
+
+<hr size="6">
+<a name="Tremolo-repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percent-repeats" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Prozent-Wiederholungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Short-repeats" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Kurze Wiederholungen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Simultaneous-notes.de.html#Simultaneous-notes" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Gleichzeitig erscheinende Noten &gt; </a>]</td></tr></table>
+<a name="Tremolo-repeats"></a>
+<h4 class="unnumberedsubsubsec">Tremolo-Wiederholung</h4>
+
+<a name="index-Tremolobalken"></a>
+<a name="index-Tremolo"></a>
+<a name="index-Wiederholung_002c-Tremolo"></a>
+<a name="index-_005crepeat-tremolo"></a>
+<a name="index-_005crepeat-tremolo-1"></a>
+<a name="index-tremolo"></a>
+<a name="index-tremolo-1"></a>
+
+<p>Tremolos können in zwei Arten notiert werden: als Wechsel zwischen
+zwei Noten oder Akkorden oder als schnelle Wiederholung einer einzigen
+Note.  Tremolos, die als Wechsel realisiert werden, werden dargestellt,
+indem Balken zwischen die Noten gesetzt werden, Tremolos, die
+eine schnelle Wiederholung darstellen, haben Balken oder Schrägstriche
+am Hals einer einzigen Note.
+</p>
+<p>Um Tremolobalken zwischen Noten zu setzen, kann der <code>\repeat</code>-Befehl
+mit dem Tremolo-Stil benutzt werden:
+</p>
+<blockquote><pre class="verbatim">\repeat tremolo 8 { c16 d }
+\repeat tremolo 6 { c16 d }
+\repeat tremolo 2 { c16 d }
+</pre><p>
+ <a href="../98/lily-aa2a563f.ly">
+  <img align="middle"
+       border="0"
+       src="../98/lily-aa2a563f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die <code>\repeat tremolo</code>-Syntax braucht genau zwei Noten innerhalb
+der geschweiften Klammern, und die Anzahl der Wiederholungen muss
+einem Wert entsprechen, der mit einfachen oder punktierten Noten
+ausgedrückt werden kann.  <code>\repeat tremolo 7</code> funktioniert und
+setzt Tremolo für die Dauer einer Doppeltpunktierten, aber
+<code>\repeat tremolo 9</code> funktioniert nicht.
+</p>
+<p>Die Dauer des Tremolos entspricht der Dauer der Wertes in Klammern,
+multipliziert mit der Zahl der Wiederholungen: <code>\repeat tremolo
+8 { c16 d16 }</code> ergibt ein Tremolo für eine Ganze, notiert als zwei
+Ganze, die zwei Tremolobalken zwischen sich haben.
+</p>
+<p>Es gibt zwei Möglichkeiten, ein Tremolozeichen zu einer einzelnen
+Noten hinzuzufügen.  Die <code>\repeat tremolo</code>-Syntax kann hier auch
+benutzt werden; in diesem Fall wird die Note allerdings nicht
+eingeklammert:
+</p>
+<blockquote><pre class="verbatim">\repeat tremolo 4 c'16
+</pre><p>
+ <a href="../4a/lily-5fb63ea2.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-5fb63ea2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Tremolozeichen"></a>
+<a name="index-tremoloFlags"></a>
+<a name="index-tremoloFlags-1"></a>
+<a name="index-_003a"></a>
+<a name="index-_003a-1"></a>
+
+<p>Die gleiche Darstellung wird erreicht, indem nach der Note
+&bdquo;<code>:</code>[<var>Zahl</var>]&ldquo; geschrieben wird.  Die Zahl zeigt
+die Dauer der Unterteilung an, und sie muss mindestens den
+Wert 8 haben.  Ein Wert von 8 ergibt einen Balken durch den
+Notenhals.  Wenn die Zahl ausgelassen wird, wird der letzte
+benutzte Wert eingesetzt (gespeichert in <code>tremoloFlags</code>):
+</p>
+<blockquote><pre class="verbatim">c2:8 c:32
+c: c:
+</pre><p>
+ <a href="../b4/lily-827a4a43.ly">
+  <img align="middle"
+       border="0"
+       src="../b4/lily-827a4a43.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-82"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Repeats.html#Repeats">Wiederholungszeichen</a>.
+</p>
+<a name="index-Tremolo-uber-Systeme"></a>
+<a name="index-Systeme_002c-Tremolo-zwischen"></a>
+<a name="index-Zwischensystem_002dTremolo"></a>
+
+<a name="Known-issues-and-warnings-38"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Tremolo über Notensysteme hinweg funktioniert nicht gut.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percent-repeats" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Prozent-Wiederholungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Short-repeats" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Kurze Wiederholungen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Simultaneous-notes.de.html#Simultaneous-notes" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Gleichzeitig erscheinende Noten &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Short-repeats.html">English</a>, <a href="Short-repeats.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li class="toc_current"><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>
+    <ul class="toc">
+      <li><a name="toc-Long-repeats-1" href="Long-repeats.de.html#Long-repeats">1.4.1 Lange Wiederholungen</a>      </li>
+      <li class="toc_current"><a name="toc-Short-repeats-1" href="Short-repeats.de.html#Short-repeats">1.4.2 Kurze Wiederholungen</a>
+      <ul class="toc">
+        <li><a name="toc-Percent-repeats-1" href="Short-repeats.de.html#Percent-repeats">Prozent-Wiederholungen</a>        </li>
+        <li><a name="toc-Tremolo-repeats-1" href="Short-repeats.de.html#Tremolo-repeats">Tremolo-Wiederholung</a>        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

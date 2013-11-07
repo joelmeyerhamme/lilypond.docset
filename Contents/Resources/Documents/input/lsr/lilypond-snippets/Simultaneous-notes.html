@@ -1,0 +1,576 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Simultaneous notes</title>
+
+<meta name="description" content="LilyPond snippets: Simultaneous notes">
+<meta name="keywords" content="LilyPond snippets: Simultaneous notes">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Repeats.html#Repeats" rel="previous" title="Repeats">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Simultaneous-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Repeats.html#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Repeats.html#Volta-text-markup-using-repeatCommands" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta text markup using repeatCommands&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Additional-voices-to-avoid-collisions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Additional voices to avoid collisions &gt; </a>]</td></tr></table>
+<a name="Simultaneous-notes"></a>
+<h1 class="unnumbered">Simultaneous notes</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>.
+</p>
+
+<a name="additional-voices-to-avoid-collisions.ly"></a>
+<hr size="6">
+<a name="Additional-voices-to-avoid-collisions"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Simultaneous-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-a-single-note_0027s-size-in-a-chord" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing a single note's size in a chord &gt; </a>]</td></tr></table>
+<a name="Additional-voices-to-avoid-collisions"></a>
+<h2 class="unnumberedsec">Additional voices to avoid collisions</h2>
+
+
+<p>In some instances of complex polyphonic music, additional voices are
+necessary to prevent collisions between notes.  If more than four
+parallel voices are needed, additional voices can be added by defining
+a variable using the Scheme function <code>context-spec-music</code>.
+</p>
+
+<pre class="verbatim">voiceFive = #(context-spec-music (make-voice-props-set 4) 'Voice)
+\relative c'' {
+  \time 3/4 \key d \minor \partial 2
+  &lt;&lt;
+    { \voiceOne
+      a4. a8
+      e'4 e4. e8
+      f4 d4. c8
+    } \\ {
+      \voiceThree
+      f,2
+      bes4 a2
+      a4 s2
+    } \\ {
+      \voiceFive
+      s2
+      g4 g2
+      f4 f2
+    } \\ {
+      \voiceTwo
+      d2
+      d4 cis2
+      d4 bes2
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../a6/lily-c76507f8.ly">
+  <img align="middle"
+       border="0"
+       src="../a6/lily-c76507f8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-a-single-notes-size-in-a-chord.ly"></a>
+<hr size="6">
+<a name="Changing-a-single-note_0027s-size-in-a-chord"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Additional-voices-to-avoid-collisions" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Additional voices to avoid collisions&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-partcombine-texts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing partcombine texts &gt; </a>]</td></tr></table>
+<a name="Changing-a-single-note_0027s-size-in-a-chord"></a>
+<h2 class="unnumberedsec">Changing a single note&rsquo;s size in a chord</h2>
+
+
+<p>Individual note heads in a chord can be modified with the
+<code>\tweak</code> command inside a chord, by altering the <code>font-size</code>
+property.
+</p>
+
+<p>Inside the chord (within the brackets <code>&lt; &gt;</code>), before the note to
+be altered, place the <code>\tweak</code> command, followed by
+<code>#'font-size</code> and define the proper size like <code>#-2</code> (a tiny
+notehead).
+</p>
+
+
+
+<pre class="verbatim">\relative {
+  &lt;\tweak #'font-size #+2 c e g c \tweak #'font-size #-2 e&gt;1^\markup { A tiny e }_\markup { A big c }
+}
+
+</pre><p>
+ <a href="../38/lily-725be418.ly">
+  <img align="middle"
+       border="0"
+       src="../38/lily-725be418.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-partcombine-texts.ly"></a>
+<hr size="6">
+<a name="Changing-partcombine-texts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-a-single-note_0027s-size-in-a-chord" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing a single note's size in a chord&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Clusters" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Clusters &gt; </a>]</td></tr></table>
+<a name="Changing-partcombine-texts"></a>
+<h2 class="unnumberedsec">Changing partcombine texts</h2>
+
+
+<p>When using the automatic part combining feature, the printed text for
+the solo and unison sections may be changed:
+</p>
+
+<pre class="verbatim">\new Staff &lt;&lt;
+  \set Staff.soloText = #&quot;girl&quot;
+  \set Staff.soloIIText = #&quot;boy&quot;
+  \set Staff.aDueText = #&quot;together&quot;
+  \partcombine
+    \relative c'' {
+      g4 g r r
+      a2 g
+    }
+    \relative c'' {
+      r4 r a( b)
+      a2 g
+    }
+&gt;&gt;
+
+</pre><p>
+ <a href="../c4/lily-23ff6ab2.ly">
+  <img align="middle"
+       border="0"
+       src="../c4/lily-23ff6ab2.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="clusters.ly"></a>
+<hr size="6">
+<a name="Clusters"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-partcombine-texts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing partcombine texts&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Combining-two-parts-on-the-same-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Combining two parts on the same staff &gt; </a>]</td></tr></table>
+<a name="Clusters"></a>
+<h2 class="unnumberedsec">Clusters</h2>
+
+
+<p>Clusters are a device to denote that a complete range of notes is to be
+played.
+</p>
+
+<pre class="verbatim">fragment = \relative c' {
+  c4 f &lt;e d'&gt;4
+  &lt;g a&gt;8 &lt;e a&gt; a4 c2 &lt;d b&gt;4
+  e2 c
+}
+
+&lt;&lt;
+  \new Staff \fragment
+  \new Staff \makeClusters \fragment
+&gt;&gt;
+
+</pre><p>
+ <a href="../3a/lily-c2b6b9c6.ly">
+  <img align="middle"
+       border="0"
+       src="../3a/lily-c2b6b9c6.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="combining-two-parts-on-the-same-staff.ly"></a>
+<hr size="6">
+<a name="Combining-two-parts-on-the-same-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clusters" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Clusters&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Displaying-complex-chords" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Displaying complex chords &gt; </a>]</td></tr></table>
+<a name="Combining-two-parts-on-the-same-staff"></a>
+<h2 class="unnumberedsec">Combining two parts on the same staff</h2>
+
+
+<p>The part combiner tool ( <code>\partcombine</code> command ) allows the
+combination of several different parts on the same staff.  Text
+directions such as &quot;solo&quot; or &quot;a2&quot; are added by default; to remove
+them, simply set the property <code>printPartCombineTexts</code> to
+&quot;false&quot;. For vocal scores (hymns), there is no need to add
+&quot;solo&quot;/&quot;a2&quot; texts, so they should be switched off.  However, it
+might be better not to use it if there are any solos, as they won&rsquo;t be
+indicated.  In such cases, standard polyphonic notation may be
+preferable.
+</p>
+<p>This snippet presents the three ways two parts can be printed on a same
+staff: standard polyphony, <code>\partcombine</code> without texts, and
+<code>\partcombine</code> with texts.
+</p>
+
+
+
+
+<pre class="verbatim">musicUp = \relative c'' {
+  \time 4/4
+  a4 c4.( g8) a4 |
+  g4 e' g,( a8 b) |
+  c b a2.
+}
+
+musicDown = \relative c'' {
+  g4 e4.( d8) c4 |
+  r2 g'4( f8 e) |
+  d2 \stemDown a
+}
+
+\score {
+  &lt;&lt;
+    &lt;&lt;
+    \new Staff {
+      \set Staff.instrumentName = &quot;Standard polyphony  &quot;
+      &lt;&lt; \musicUp \\ \musicDown &gt;&gt;
+    }
+    \new Staff \with { printPartCombineTexts = ##f } {
+      \set Staff.instrumentName = &quot;PartCombine without texts  &quot;
+      \partcombine \musicUp \musicDown
+    }
+    \new Staff {
+      \set Staff.instrumentName = &quot;PartCombine with texts  &quot;
+      \partcombine \musicUp \musicDown
+    }
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    indent = 6.0\cm
+    \context {
+      \Score
+      \override SystemStartBar #'collapse-height = #30
+    }
+  }
+}
+
+</pre><p>
+ <a href="../18/lily-eda6a95e.ly">
+  <img align="middle"
+       border="0"
+       src="../18/lily-eda6a95e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="displaying-complex-chords.ly"></a>
+<hr size="6">
+<a name="Displaying-complex-chords"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Combining-two-parts-on-the-same-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Combining two parts on the same staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Displaying-complex-chords" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Displaying-complex-chords"></a>
+<h2 class="unnumberedsec">Displaying complex chords</h2>
+
+
+<p>Here is a way to display a chord where the same note is played twice
+with different accidentals.
+</p>
+
+<pre class="verbatim">fixA = {
+  \once \override Stem #'length = #9
+  \once \override Accidental #'extra-offset = #'(0.3 . 0)
+}
+fixB = {
+  \once \override NoteHead #'extra-offset = #'(1.7 . 0)
+  \once \override Stem #'rotation = #'(45 0 0)
+  \once \override Stem #'extra-offset = #'(-0.2 . -0.2)
+  \once \override Stem #'flag-style = #'no-flag
+  \once \override Accidental #'extra-offset = #'(3.1 . 0)
+}
+
+\relative c' {
+  &lt;&lt; { \fixA &lt;b d!&gt;8 } \\ { \voiceThree \fixB dis } &gt;&gt; s
+}
+
+</pre><p>
+ <a href="../e9/lily-f6e42afa.ly">
+  <img align="middle"
+       border="0"
+       src="../e9/lily-f6e42afa.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="double-glissando.ly"></a>
+<hr size="6">
+<a name="Displaying-complex-chords"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Displaying-complex-chords" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Displaying complex chords&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Forcing-horizontal-shift-of-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Forcing horizontal shift of notes &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Double glissando</h2>
+
+
+<p>To connect chords with glissando lines, attach a second glissando to a
+hidden voice.
+</p>
+
+<pre class="verbatim">\relative c {
+  \clef bass
+  &lt;&lt;
+    {
+      % new voice ( = \voiceOne), hidden
+      \hideNotes
+      % attach glissando to note heads
+      e2\glissando g
+    }
+    \\
+    { 
+      % original voice with chords rearranged so that
+      % glissando is attached to a &amp; c
+      &lt;e a,&gt;2\glissando &lt;g c,&gt;
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../c0/lily-a0513eba.ly">
+  <img align="middle"
+       border="0"
+       src="../c0/lily-a0513eba.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="forcing-horizontal-shift-of-notes.ly"></a>
+<hr size="6">
+<a name="Forcing-horizontal-shift-of-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Displaying-complex-chords" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Forcing-horizontal-shift-of-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Forcing-horizontal-shift-of-notes"></a>
+<h2 class="unnumberedsec">Forcing horizontal shift of notes</h2>
+
+
+<p>When the typesetting engine cannot cope, the following syntax can be
+used to override typesetting decisions. The units of measure used here
+are staff spaces.
+</p>
+
+<pre class="verbatim">\relative c' &lt;&lt;
+  {
+    &lt;d g&gt;2 &lt;d g&gt;
+  }
+  \\
+  {
+    &lt;b f'&gt;2
+    \once \override NoteColumn #'force-hshift = #1.7
+    &lt;b f'&gt;2
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../5f/lily-606ba202.ly">
+  <img align="middle"
+       border="0"
+       src="../5f/lily-606ba202.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="making-an-object-invisible-with-the-transparent-property.ly"></a>
+<hr size="6">
+<a name="Forcing-horizontal-shift-of-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Forcing-horizontal-shift-of-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Forcing horizontal shift of notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Suppressing-warnings-for-clashing-note-columns" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Suppressing warnings for clashing note columns &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Making an object invisible with the &rsquo;transparent property</h2>
+
+
+<p>Setting the <code>transparent</code> property will cause an object to be
+printed in &quot;invisible ink&quot;: the object is not printed, but all its
+other behavior is retained.  The object still takes up space, it takes
+part in collisions, and slurs, ties and beams can be attached to it.
+</p>
+
+<p>This snippet demonstrates how to connect different voices using ties.
+Normally, ties only connect two notes in the same voice.  By
+introducing a tie in a different voice, and blanking the first up-stem
+in that voice, the tie appears to cross voices. 
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \time 2/4
+  &lt;&lt;
+    {
+      \once \override Stem #'transparent = ##t
+      \once \override Stem #'length = #8
+      b8 ~ b\noBeam
+      \once \override Stem #'transparent = ##t
+      \once \override Stem #'length = #8
+      g8 ~ g\noBeam
+    }
+    \\
+    {
+      b8 g g e
+    }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../0e/lily-a51bcbab.ly">
+  <img align="middle"
+       border="0"
+       src="../0e/lily-a51bcbab.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="suppressing-warnings-for-clashing-note-columns.ly"></a>
+<hr size="6">
+<a name="Suppressing-warnings-for-clashing-note-columns"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Forcing-horizontal-shift-of-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Staff-notation.html#Staff-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Staff notation &gt; </a>]</td></tr></table>
+<a name="Suppressing-warnings-for-clashing-note-columns"></a>
+<h2 class="unnumberedsec">Suppressing warnings for clashing note columns</h2>
+
+
+<p>If notes from two voices with stems in the same direction are placed at
+the same position, and both voices have no shift or the same shift
+specified, the error message &quot;warning: ignoring too many clashing note
+columns&quot; will appear when compiling the LilyPond file.  This message
+can be suppressed by setting the <code>'ignore-collision</code> property of
+the <code>NoteColumn</code> object to <code>#t</code>.
+</p>
+
+<pre class="verbatim">ignore = \override NoteColumn #'ignore-collision = ##t
+
+\relative c' {
+  &lt;&lt;
+    \ignore
+    { \stemDown f2 g }
+    \\
+    { c2 c, }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../3f/lily-98301536.ly">
+  <img align="middle"
+       border="0"
+       src="../3f/lily-98301536.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Staff-notation.html#Staff-notation" title="Next chapter">&nbsp;Staff notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Forcing-horizontal-shift-of-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Simultaneous-notes" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Staff-notation.html#Staff-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Staff notation &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li class="toc_current"><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>
+  <ul class="toc">
+    <li><a name="toc-Additional-voices-to-avoid-collisions-1" href="Simultaneous-notes.html#Additional-voices-to-avoid-collisions">Additional voices to avoid collisions</a>    </li>
+    <li><a name="toc-Changing-a-single-note_0027s-size-in-a-chord-1" href="Simultaneous-notes.html#Changing-a-single-note_0027s-size-in-a-chord">Changing a single note&rsquo;s size in a chord</a>    </li>
+    <li><a name="toc-Changing-partcombine-texts-1" href="Simultaneous-notes.html#Changing-partcombine-texts">Changing partcombine texts</a>    </li>
+    <li><a name="toc-Clusters-1" href="Simultaneous-notes.html#Clusters">Clusters</a>    </li>
+    <li><a name="toc-Combining-two-parts-on-the-same-staff-1" href="Simultaneous-notes.html#Combining-two-parts-on-the-same-staff">Combining two parts on the same staff</a>    </li>
+    <li><a name="toc-Displaying-complex-chords-1" href="Simultaneous-notes.html#Displaying-complex-chords">Displaying complex chords</a>    </li>
+    <li><a name="toc-Double-glissando-2" href="Simultaneous-notes.html#Displaying-complex-chords">Double glissando</a>    </li>
+    <li><a name="toc-Forcing-horizontal-shift-of-notes-1" href="Simultaneous-notes.html#Forcing-horizontal-shift-of-notes">Forcing horizontal shift of notes</a>    </li>
+    <li><a name="toc-Making-an-object-invisible-with-the-_0027transparent-property-2" href="Simultaneous-notes.html#Forcing-horizontal-shift-of-notes">Making an object invisible with the &rsquo;transparent property</a>    </li>
+    <li><a name="toc-Suppressing-warnings-for-clashing-note-columns-2" href="Simultaneous-notes.html#Suppressing-warnings-for-clashing-note-columns">Suppressing warnings for clashing note columns</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

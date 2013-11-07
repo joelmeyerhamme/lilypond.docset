@@ -1,0 +1,370 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond program usage: 4.3 Music fragment options</title>
+
+<meta name="description" content="GNU LilyPond program usage: 4.3 Music fragment options">
+<meta name="keywords" content="GNU LilyPond program usage: 4.3 Music fragment options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Application Usage">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="LilyPond_002dbook.fr.html#LilyPond_002dbook" rel="up" title="4. lilypond-book: Integrating text and music">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="DocBook.fr.html#DocBook" rel="previous" title="4.2.4 DocBook">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Music-fragment-options"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Beginning of this chapter or previous chapter"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Next chapter">&nbsp;Converting from other formats &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DocBook.fr.html#DocBook" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DocBook&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;LilyPond-book&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Invoking lilypond-book &gt; </a>]</td></tr></table>
+<a name="Music-fragment-options"></a>
+<h2 class="section">4.3 Music fragment options</h2>
+
+<p>In the following, a &lsquo;LilyPond command&rsquo; refers to any command described
+in the previous sections which is handled by <code>lilypond-book</code> to
+produce a music snippet.  For simplicity, LilyPond commands are only
+shown in LaTeX syntax.
+</p>
+<p>Note that the option string is parsed from left to right; if an option
+occurs multiple times, the last one is taken.
+</p>
+<p>The following options are available for LilyPond commands:
+</p>
+<dl compact="compact">
+<dt> <code>staffsize=<var>ht</var></code></dt>
+<dd><p>Set staff size to <var>ht</var>, which is measured in points.
+</p>
+</dd>
+<dt> <code>ragged-right</code></dt>
+<dd><p>Produce ragged-right lines with natural spacing, i.e.,
+<code>ragged-right = ##t</code> is added to the LilyPond snippet.  This is the
+default for the <code>\lilypond{}</code> command if no <code>line-width</code>
+option is present.  It is also the default for the <code>lilypond</code>
+environment if the <code>fragment</code> option is set, and no line width is
+explicitly specified.
+</p>
+</dd>
+<dt> <code>noragged-right</code></dt>
+<dd><p>For single-line snippets, allow the staff length to be stretched to
+equal that of the line width, i.e., <code>ragged-right = ##f</code> is
+added to the LilyPond snippet.
+</p>
+</dd>
+<dt> <code>line-width</code></dt>
+<dt> <code>line-width=<var>size</var>\<var>unit</var></code></dt>
+<dd><p>Set line width to <var>size</var>, using <var>unit</var> as units.  <var>unit</var> is
+one of the following strings: <code>cm</code>, <code>mm</code>, <code>in</code>, or
+<code>pt</code>.  This option affects LilyPond output (this is, the staff
+length of the music snippet), not the text layout.
+</p>
+<p>If used without an argument, set line width to a default value (as
+computed with a heuristic algorithm).
+</p>
+<p>If no <code>line-width</code> option is given, <code>lilypond-book</code> tries to
+guess a default for <code>lilypond</code> environments which don&rsquo;t use the
+<code>ragged-right</code> option.
+</p>
+</dd>
+<dt> <code>notime</code></dt>
+<dd><p>Do not print the time signature, and turns off the timing (time signature,
+bar lines) in the score.
+</p>
+</dd>
+<dt> <code>fragment</code></dt>
+<dd><p>Make <code>lilypond-book</code> add some boilerplate code so that you can
+simply enter, say,
+</p>
+<blockquote><pre class="example">c'4
+</pre></blockquote>
+
+<p>without <code>\layout</code>, <code>\score</code>, etc.
+</p>
+</dd>
+<dt> <code>nofragment</code></dt>
+<dd><p>Do not add additional code to complete LilyPond code in music snippets.
+Since this is the default, <code>nofragment</code> is redundant normally.
+</p>
+</dd>
+<dt> <code>indent=<var>size</var>\<var>unit</var></code></dt>
+<dd><p>Set indentation of the first music system to <var>size</var>, using
+<var>unit</var> as units. <var>unit</var> is one of the following strings:
+<code>cm</code>, <code>mm</code>, <code>in</code>, or <code>pt</code>.  This option affects
+LilyPond, not the text layout.
+</p>
+</dd>
+<dt> <code>noindent</code></dt>
+<dd><p>Set indentation of the first music system to zero.  This option affects
+LilyPond, not the text layout.  Since no indentation is the default,
+<code>noindent</code> is redundant normally.
+</p>
+</dd>
+<dt> <code>quote</code></dt>
+<dd><p>Reduce line length of a music snippet by <em>2*0.4</em>in and put
+the output into a quotation block.  The value &lsquo;0.4in&rsquo; can be
+controlled with the <code>exampleindent</code> option.
+</p>
+</dd>
+<dt> <code>exampleindent</code></dt>
+<dd><p>Set the amount by which the <code>quote</code> option indents a music snippet.
+</p>
+</dd>
+<dt> <code>relative</code></dt>
+<dt> <code>relative=<var>n</var></code></dt>
+<dd><p>Use relative octave mode.  By default, notes are specified relative to
+middle&nbsp;C.  The optional integer argument specifies the octave of
+the starting note, where the default <code>1</code> is middle C.
+<code>relative</code> option only works when <code>fragment</code> option is set,
+so <code>fragment</code> is automatically implied by <code>relative</code>,
+regardless of the presence of any <code>(no)fragment</code> option in the
+source.
+</p></dd>
+</dl>
+
+<p>LilyPond also uses <code>lilypond-book</code> to produce its own
+documentation.  To do that, some more obscure music fragment options are
+available.
+</p>
+<dl compact="compact">
+<dt> <code>verbatim</code></dt>
+<dd><p>The argument of a LilyPond command is copied to the output file and
+enclosed in a verbatim block, followed by any text given with the
+<code>intertext</code> option (not implemented yet); then the actual music is
+displayed.  This option does not work well with <code>\lilypond{}</code> if
+it is part of a paragraph.
+</p>
+<p>If <code>verbatim</code> is used in a <code>lilypondfile</code> command, it is
+possible to enclose verbatim only a part of the source file.  If the
+source file contain a comment containing &lsquo;<samp>begin verbatim</samp>&rsquo; (without
+quotes), quoting the source in the verbatim block will start after the
+last occurrence of such a comment; similarly, quoting the source verbatim
+will stop just before the first occurrence of a comment containing
+&lsquo;<samp>end verbatim</samp>&rsquo;, if there is any.  In the following source file
+example, the music will be interpreted in relative mode, but the
+verbatim quote will not show the <code>relative</code> block, i.e.
+</p>
+<blockquote><pre class="example">\relative c' { % begin verbatim
+  c4 e2 g4
+  f2 e % end verbatim
+}
+</pre></blockquote>
+
+<p>will be printed with a verbatim block like
+</p>
+<blockquote><pre class="example">  c4 e2 g4
+  f2 e
+</pre></blockquote>
+
+<p>If you would like to translate comments and variable names in verbatim
+output but not in the sources, you may set the environment variable
+<code>LYDOC_LOCALEDIR</code> to a directory path; the directory should
+contain a tree of &lsquo;<tt>.mo</tt>&rsquo; message catalogs with <code>lilypond-doc</code>
+as a domain.
+</p>
+</dd>
+<dt> <code>addversion</code></dt>
+<dd><p>(Only for Texinfo output.)  Prepend line <code>\version
+@w{&quot;@version{}&quot;}</code> to <code>verbatim</code> output.
+</p>
+</dd>
+<dt> <code>texidoc</code></dt>
+<dd><p>(Only for Texinfo output.)  If <code>lilypond</code> is called with the
+&lsquo;<samp>--header=texidoc</samp>&rsquo; option, and the file to be processed is
+called &lsquo;<tt>foo.ly</tt>&rsquo;, it creates a file &lsquo;<tt>foo.texidoc</tt>&rsquo; if there
+is a <code>texidoc</code> field in the <code>\header</code>.  The <code>texidoc</code>
+option makes <code>lilypond-book</code> include such files, adding its
+contents as a documentation block right before the music snippet.
+</p>
+<p>Assuming the file &lsquo;<tt>foo.ly</tt>&rsquo; contains
+</p>
+<blockquote><pre class="example">\header {
+  texidoc = &quot;This file demonstrates a single note.&quot;
+}
+{ c'4 }
+</pre></blockquote>
+
+<p>and we have this in our Texinfo document &lsquo;<tt>test.texinfo</tt>&rsquo;
+</p>
+<blockquote><pre class="example">@lilypondfile[texidoc]{foo.ly}
+</pre></blockquote>
+
+<p>the following command line gives the expected result
+</p>
+<blockquote><pre class="example">lilypond-book --pdf --process=&quot;lilypond \
+  -dbackend=eps --header=texidoc&quot; test.texinfo
+</pre></blockquote>
+
+<p>Most LilyPond test documents (in the &lsquo;<tt>input</tt>&rsquo; directory of the
+distribution) are small &lsquo;<tt>.ly</tt>&rsquo; files which look exactly like this.
+</p>
+<p>For localization purpose, if the Texinfo document contains
+<code>@documentlanguage <var>LANG</var></code> and &lsquo;<tt>foo.ly</tt>&rsquo; header
+contains a <code>texidoc<var>LANG</var></code> field, and if <code>lilypond</code>
+is called with &lsquo;<samp>--header=texidoc<var>LANG</var></samp>&rsquo;, then
+&lsquo;<tt>foo.texidoc<var>LANG</var></tt>&rsquo; will be included instead of
+&lsquo;<tt>foo.texidoc</tt>&rsquo;.
+</p>
+</dd>
+<dt> <code>lilyquote</code></dt>
+<dd><p>(Only for Texinfo output.)  This option is similar to quote, but only
+the music snippet (and the optional verbatim block implied by
+<code>verbatim</code> option) is put into a quotation block.  This option is
+useful if you want to <code>quote</code> the music snippet but not the
+<code>texidoc</code> documentation block.
+</p>
+</dd>
+<dt> <code>doctitle</code></dt>
+<dd><p>(Only for Texinfo output.) This option works similarly to
+<code>texidoc</code> option: if <code>lilypond</code> is called with the
+&lsquo;<samp>--header=doctitle</samp>&rsquo; option, and the file to be processed is
+called &lsquo;<tt>foo.ly</tt>&rsquo; and contains a <code>doctitle</code> field in the
+<code>\header</code>, it creates a file &lsquo;<tt>foo.doctitle</tt>&rsquo;.  When
+<code>doctitle</code> option is used, the contents of &lsquo;<tt>foo.doctitle</tt>&rsquo;,
+which should be a single line of <var>text</var>, is inserted in the
+Texinfo document as <code>@lydoctitle <var>text</var></code>.
+<code>@lydoctitle</code> should be a macro defined in the Texinfo document.
+The same remark about <code>texidoc</code> processing with localized
+languages also applies to <code>doctitle</code>.
+</p>
+</dd>
+<dt> <code>nogettext</code></dt>
+<dd><p>(Only for Texinfo output.) Do not translate comments and variable
+names in the snippet quoted verbatim.
+</p>
+</dd>
+<dt> <code>printfilename</code></dt>
+<dd><p>If a LilyPond input file is included with <code>\lilypondfile</code>, print
+the file name right before the music snippet.  For HTML output, this
+is a link.  Only the base name of the file is printed, i.e. the
+directory part of the file path is stripped.
+</p>
+</dd>
+<dt> <code>fontload</code></dt>
+<dd><p>This option includes fonts in all of the generated EPS-files for this
+snippet.  This should be used if the snippet uses any font that LaTeX
+cannot find on its own.
+</p>
+</dd>
+</dl>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Beginning of this chapter or previous chapter"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Next chapter">&nbsp;Converting from other formats &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DocBook.fr.html#DocBook" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DocBook&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;LilyPond-book&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Invoking lilypond-book &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Music-fragment-options.es.html">español</a>, <a href="Music-fragment-options.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Application Usage</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.fr.html#Install">1. Install</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.fr.html#Precompiled-binaries">1.1 Precompiled binaries</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.fr.html#Compiling-from-source">1.2 Compiling from source</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.fr.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.fr.html#Setup-for-specific-Operating-Systems">2.1 Setup for specific Operating Systems</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.fr.html#Text-editor-support">2.2 Text editor support</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.fr.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.fr.html#Running-LilyPond">3. Running LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.fr.html#Normal-usage">3.1 Normal usage</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.fr.html#Command_002dline-usage">3.2 Command-line usage</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.fr.html#Error-messages">3.3 Error messages</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.fr.html#Updating-files-with-convert_002dly">3.4 Updating files with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.fr.html#Reporting-bugs">3.5 Reporting bugs</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.fr.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Integrating text and music</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.fr.html#An-example-of-a-musicological-document">4.1 An example of a musicological document</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.fr.html#Integrating-music-and-text">4.2 Integrating music and text</a>    </li>
+    <li class="toc_current"><a name="toc-Music-fragment-options-1" href="Music-fragment-options.fr.html#Music-fragment-options">4.3 Music fragment options</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook">4.4 Invoking <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.fr.html#Filename-extensions">4.5 Filename extensions</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.fr.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative methods of mixing text and music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.fr.html#Converting-from-other-formats">5. Converting from other formats</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.fr.html#Invoking-midi2ly">5.1 Invoking <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly">5.2 Invoking <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.fr.html#Invoking-abc2ly">5.3 Invoking <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.fr.html#Invoking-etf2ly">5.4 Invoking <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.fr.html#Generating-LilyPond-files">5.5 Generating LilyPond files</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">B. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

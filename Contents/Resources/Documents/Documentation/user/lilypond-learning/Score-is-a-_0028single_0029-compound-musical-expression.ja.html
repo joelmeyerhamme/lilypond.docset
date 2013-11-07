@@ -1,0 +1,329 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 3.1.2 Score is a (single) compound musical expression</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 3.1.2 Score is a (single) compound musical expression">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 3.1.2 Score is a (single) compound musical expression">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work" rel="up" title="3.1 How LilyPond input files work">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Introduction-to-the-LilyPond-file-structure.ja.html#Introduction-to-the-LilyPond-file-structure" rel="previous" title="3.1.1 Introduction to the LilyPond file structure">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Score-is-a-_0028single_0029-compound-musical-expression"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.ja.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Introduction-to-the-LilyPond-file-structure.ja.html#Introduction-to-the-LilyPond-file-structure" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Introduction to the LilyPond file structure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;How LilyPond input files work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Nesting-music-expressions.ja.html#Nesting-music-expressions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Nesting music expressions &gt; </a>]</td></tr></table>
+<a name="Score-is-a-_0028single_0029-compound-musical-expression"></a>
+<h3 class="subsection">3.1.2 Score is a (single) compound musical expression</h3>
+
+<a name="index-_005cscore-2"></a>
+<a name="index-_005cscore-3"></a>
+<a name="index-score-3"></a>
+<a name="index-score-4"></a>
+<a name="index-score-5"></a>
+<a name="index-contents-of-a-score-block"></a>
+<a name="index-score-block_002c-contents-of"></a>
+<a name="index-compound-music-expression-1"></a>
+<a name="index-music-expression_002c-compound-1"></a>
+
+<p>We saw the general organization of LilyPond input files in the
+previous section, <a href="Introduction-to-the-LilyPond-file-structure.ja.html#Introduction-to-the-LilyPond-file-structure">Introduction to the LilyPond file structure</a>.
+But we seemed to skip over the most important part: how do we figure
+out what to write after <code>\score</code>?
+</p>
+<p>We didn&rsquo;t skip over it at all.  The big mystery is simply that
+there <em>is</em> no mystery.  This line explains it all:
+</p>
+<blockquote><p><em>A <code>\score</code> block must begin with a compound music expression.</em>
+</p></blockquote>
+
+<p>To understand what is meant by a music expression and a compound
+music expression, you may find it useful to review the tutorial,
+<a href="Music-expressions-explained.ja.html#Music-expressions-explained">Music expressions explained</a>.  In that section, we saw how to
+build big music expressions from small pieces &ndash; we started from
+notes, then chords, etc.  Now we&rsquo;re going to start from a big
+music expression and work our way down.
+</p>
+<blockquote><pre class="example">\score {
+  { % this brace begins the overall compound music expression
+    \new StaffGroup &lt;&lt;
+      <var>...insert the whole score of a Wagner opera in here...</var>
+    &gt;&gt;
+  } % this brace ends the overall compound music expression
+  \layout { }
+}
+</pre></blockquote>
+
+<p>A whole Wagner opera would easily double the length of this
+manual, so let&rsquo;s just add a singer and piano.  We don&rsquo;t need a
+<code>StaffGroup</code> for this ensemble, which simply groups a number
+of staves together with a bracket at the left, so we shall remove
+it.  We <em>do</em> need a singer and a piano, though.
+</p>
+<blockquote><pre class="example">\score {
+  &lt;&lt;
+    \new Staff = &quot;singer&quot; &lt;&lt;
+    &gt;&gt;
+    \new PianoStaff = &quot;piano&quot; &lt;&lt;
+    &gt;&gt;
+  &gt;&gt;
+  \layout { }
+}
+</pre></blockquote>
+
+<p>Remember that we use <code>&lt;&lt; ... &gt;&gt;</code> instead of <code>{ ... }</code> to
+show simultaneous music.  And we definitely want to show the vocal
+part and piano part at the same time, not one after the other!  Note
+that the <code>&lt;&lt; ... &gt;&gt;</code> construct is not really necessary for the
+Singer staff, as it contains only one sequential music expression;
+however, using <code>&lt;&lt; ... &gt;&gt;</code> instead of braces is still necessary
+if the music in the Staff is made of two simultaneous expressions,
+e.g. two simultaneous Voices, or a Voice with lyrics.  We&rsquo;ll add some
+real music later; for now let&rsquo;s just put in some dummy notes and
+lyrics.
+</p>
+<blockquote><pre class="verbatim">\score {
+  &lt;&lt;
+    \new Staff = &quot;singer&quot; &lt;&lt;
+      \new Voice = &quot;vocal&quot; { c'1 }
+      \addlyrics { And }
+    &gt;&gt;
+    \new PianoStaff = &quot;piano&quot; &lt;&lt;
+      \new Staff = &quot;upper&quot; { c'1 }
+      \new Staff = &quot;lower&quot; { c'1 }
+    &gt;&gt;
+  &gt;&gt;
+  \layout { }
+}
+</pre><p>
+ <a href="../6f/lily-73bfa928.ly">
+  <img align="middle"
+       border="0"
+       src="../6f/lily-73bfa928.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Now we have a lot more details.  We have the singer&rsquo;s staff: it
+contains a <code>Voice</code> (in LilyPond, this term refers to a set of
+notes, not necessarily vocal notes &ndash; for example, a violin
+generally plays one voice) and some lyrics.  We also have a piano
+staff: it contains an upper staff (right hand) and a lower staff
+(left hand).
+</p>
+<p>At this stage, we could start filling in notes.  Inside the curly
+braces next to <code>\new Voice = &quot;vocal&quot;</code>, we could start writing
+</p>
+<blockquote><pre class="example">\relative c'' {
+  r4 d8\noBeam g, c4 r
+}
+</pre></blockquote>
+
+<p>But if we did that, the <code>\score</code> section would get pretty
+long, and it would be harder to understand what was happening.  So
+let&rsquo;s use variables instead.  These were introduced at the end
+of the previous section, remember?  So, adding a few notes, we
+now have a piece of real music:
+</p>
+<blockquote><pre class="verbatim">melody = \relative c'' { r4 d8\noBeam g, c4 r }
+text   = \lyricmode { And God said, }
+upper  = \relative c'' { &lt;g d g,&gt;2~ &lt;g d g,&gt; }
+lower  = \relative c { b2 e2 }
+
+\score {
+  &lt;&lt;
+    \new Staff = &quot;singer&quot; &lt;&lt;
+      \new Voice = &quot;vocal&quot; { \melody }
+      \addlyrics { \text }
+    &gt;&gt;
+    \new PianoStaff = &quot;piano&quot; &lt;&lt;
+      \new Staff = &quot;upper&quot; { \upper }
+      \new Staff = &quot;lower&quot; {
+        \clef &quot;bass&quot;
+        \lower
+      }
+    &gt;&gt;
+  &gt;&gt;
+  \layout { }
+}
+</pre><p>
+ <a href="../02/lily-2cfcdf1a.ly">
+  <img align="middle"
+       border="0"
+       src="../02/lily-2cfcdf1a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Be careful about the difference between notes, which are introduced
+with <code>\relative</code> or which are directly included in a music
+expression, and lyrics, which are introduced with
+<code>\lyricmode</code>.  These are essential to tell LilyPond
+to interpret the following content as music and text
+respectively.
+</p>
+<p>When writing (or reading) a <code>\score</code> section, just take it
+slowly and carefully.  Start with the outer level, then work on
+each smaller level.  It also really helps to be strict with
+indentation &ndash; make sure that each item on the same level starts
+on the same horizontal position in your text editor.
+</p>
+
+<a name="See-also-21"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference: <a name="index-Structure-of-a-score"></a>
+<a href="../lilypond/Structure-of-a-score.ja.html#Structure-of-a-score">Structure of a score</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.ja.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Introduction-to-the-LilyPond-file-structure.ja.html#Introduction-to-the-LilyPond-file-structure" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Introduction to the LilyPond file structure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;How LilyPond input files work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Nesting-music-expressions.ja.html#Nesting-music-expressions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Nesting music expressions &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Score-is-a-_0028single_0029-compound-musical-expression.fr.html">français</a>, <a href="Score-is-a-_0028single_0029-compound-musical-expression.es.html">español</a>, <a href="Score-is-a-_0028single_0029-compound-musical-expression.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.ja.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>
+    <ul class="toc">
+      <li><a name="toc-Introduction-to-the-LilyPond-file-structure-1" href="Introduction-to-the-LilyPond-file-structure.ja.html#Introduction-to-the-LilyPond-file-structure">3.1.1 Introduction to the LilyPond file structure</a>      </li>
+      <li class="toc_current"><a name="toc-Score-is-a-_0028single_0029-compound-musical-expression-1" href="Score-is-a-_0028single_0029-compound-musical-expression.ja.html#Score-is-a-_0028single_0029-compound-musical-expression">3.1.2 Score is a (single) compound musical expression</a>      </li>
+      <li><a name="toc-Nesting-music-expressions-1" href="Nesting-music-expressions.ja.html#Nesting-music-expressions">3.1.3 Nesting music expressions</a>      </li>
+      <li><a name="toc-On-the-un_002dnestedness-of-brackets-and-ties-1" href="On-the-un_002dnestedness-of-brackets-and-ties.ja.html#On-the-un_002dnestedness-of-brackets-and-ties">3.1.4 On the un-nestedness of brackets and ties</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.ja.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

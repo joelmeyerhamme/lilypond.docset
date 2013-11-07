@@ -1,0 +1,674 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 5.4.6 Visibilidad de los objetos</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 5.4.6 Visibility of objects">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 5.4.6 Visibility of objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties" rel="up" title="5.4 Useful concepts and properties">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Spanners.es.html#Spanners" rel="previous" title="5.4.5 Spanners">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Visibility-of-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Spanners.es.html#Spanners" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Conceptos y propiedades útiles&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Removing-the-stencil" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Eliminar el sello &gt; </a>]</td></tr></table>
+<a name="Visibility-of-objects"></a>
+<h3 class="subsection">5.4.6 Visibilidad de los objetos</h3>
+
+<a name="index-objetos_002c-visibilidad-de"></a>
+<a name="index-grobs_002c-visibilidad-de"></a>
+<a name="index-visibilidad-de-los-objetos"></a>
+
+<p>Hay cuatro formas principales en que se puede controlar la visibilidad
+de los objetos de presentación: se puede eliminar su sello, se pueden
+volver transparentes, se pueden pintar de blanco, o se puede
+sobreescribir su propiedad <code>break-visibility</code>.  Las tres primeras
+se aplican a todos los objetos de presentación; la última sólo a unos
+pocos: los objetos <em>divisibles</em>.  El Manual de aprendizaje
+introduce estas cuatro técnicas, véase <a name="index-Visibility-and-color"></a>
+of objects
+<a href="../lilypond-learning/Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects">Visibilidad y color de los objetos</a>.
+</p>
+<p>Hay también algunas otras técnicas que son específicas de ciertos
+objetos de presentación.  Se estudian bajo Consideraciones especiales.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Removing-the-stencil" accesskey="1">Eliminar el sello</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Making-objects-transparent" accesskey="2">Hacer transparentes los objetos</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Painting-objects-white" accesskey="3">Pintar los objetos de blanco</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Using-break_002dvisibility" accesskey="4">Uso de break-visibility (visibilidad en el salto)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Special-considerations" accesskey="5">Consideraciones especiales</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Removing-the-stencil"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Visibility-of-objects" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Making-objects-transparent" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Hacer transparentes los objetos &gt; </a>]</td></tr></table>
+<a name="Removing-the-stencil"></a>
+<h4 class="unnumberedsubsubsec">Eliminar el sello</h4>
+
+<a name="index-sello_002c-eliminar"></a>
+
+<p>Todo objeto de presentación tiene una propiedad stencil (sello).  De
+forma predeterminada está establecida a la función específica que
+dibuja ese objeto.  Se se sobreescribe eesta propiedad a <code>#f</code> no
+se llama a ninguna función y el objeto no se dibuja.  La acción
+predeterminada se puede recuperar con <code>\revert</code>.
+</p>
+<blockquote><pre class="verbatim">a1 a
+\override Score.BarLine #'stencil = ##f
+a a
+\revert Score.BarLine #'stencil
+a a a
+</pre><p>
+ <a href="../d7/lily-56cfdf0b.ly">
+  <img align="middle"
+       border="0"
+       src="../d7/lily-56cfdf0b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<a name="Making-objects-transparent"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Removing-the-stencil" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Eliminar el sello&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Painting-objects-white" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Pintar los objetos de blanco &gt; </a>]</td></tr></table>
+<a name="Making-objects-transparent"></a>
+<h4 class="unnumberedsubsubsec">Hacer transparentes los objetos</h4>
+
+<a name="index-transparentes_002c-hacer-los-objetos"></a>
+
+<p>Todo objeto de presentación tiene una propiedad transparent
+(transparente) que de forma predeterminada está establecida a
+<code>#f</code>.  Si se fija a <code>#t</code> el objeto aún ocupa espacio pero es
+invisible.
+</p>
+<blockquote><pre class="verbatim">a4 a
+\once \override NoteHead #'transparent = ##t
+a a
+</pre><p>
+ <a href="../b0/lily-19388fa2.ly">
+  <img align="middle"
+       border="0"
+       src="../b0/lily-19388fa2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<a name="Painting-objects-white"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Making-objects-transparent" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Hacer transparentes los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Using-break_002dvisibility" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Uso de break-visibility (visibilidad en el salto) &gt; </a>]</td></tr></table>
+<a name="Painting-objects-white"></a>
+<h4 class="unnumberedsubsubsec">Pintar los objetos de blanco</h4>
+
+<a name="index-objetos_002c-coloreado-de"></a>
+<a name="index-coloreado-de-objetos"></a>
+<a name="index-capas"></a>
+<a name="index-impresion_002c-orden-de"></a>
+<a name="index-sobreescritura-de-objetos"></a>
+<a name="index-objetos_002c-sobreescritura-de"></a>
+<a name="index-grobs_002c-sobreescritura-de"></a>
+
+<p>Todo objeto de presentación tiene una propiedad de color que de forma
+predeterminada está establecida a <code>black</code> (negro).  Si se
+sobreescribe a <code>white</code> (blanco) el objeto será indistinguible del
+fondo blanco.  Sin embargo, si el objeto cruza a otros objetos, el
+color de los puntos de cruce queda determinado por el orden en que se
+dibujan estos objetos, lo que puede dejar una imagen fantasma del
+objeto blanco, como puede verse aquí:
+</p>
+<blockquote><pre class="verbatim">\override Staff.Clef #'color = #white
+a1
+</pre><p>
+ <a href="../78/lily-b2c7304d.ly">
+  <img align="middle"
+       border="0"
+       src="../78/lily-b2c7304d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Se puede evitar esto cambiando el orden de impresión de los objetos.
+Todos los objetos de presentación tienen una propiedad <code>layer</code>
+(capa) que se debe establecer a un valor entero.  Los objetos con el
+valor de <code>layer</code> más bajo se dibujan primero, después se dibujan
+los objetos con valores progresivamente mayores, y así los objetos con
+valores más altos se dibujan encima de los que tienen valores más
+bajos.  De forma predeterminada, casi todos los objetos tienen
+asignado un valor <code>layer</code> de <code>1</code>, aunque algunos objetos,
+entre ellos el pentagrama y las líneas divisorias, <code>StaffSymbol</code>
+y <code>BarLine</code>, tienen asignado un calor de <code>0</code>.  El orden de
+impresión de los objetos con el mismo valor de <code>layer</code> es
+indeterminado.
+</p>
+<p>En el ejemplo de arriba, la clave blanca, con un valor <code>layer</code>
+predeterminado de <code>1</code>, se dibuja después de las líneas del
+pentragrama (valor <code>layer</code> predeterminado de <code>0</code>),
+sobreimpresionándolas.  Para cambiarlo, se debe dar al objeto
+<code>Clef</code> un valor de <code>layer</code> más bajo, digamos <code>-1</code>, para
+que se dibuje antes:
+</p>
+<blockquote><pre class="verbatim">\override Staff.Clef #'color = #white
+\override Staff.Clef #'layer = #-1
+a1
+</pre><p>
+ <a href="../6f/lily-21660184.ly">
+  <img align="middle"
+       border="0"
+       src="../6f/lily-21660184.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<a name="Using-break_002dvisibility"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Painting-objects-white" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Pintar los objetos de blanco&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Special-considerations" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Consideraciones especiales &gt; </a>]</td></tr></table>
+<a name="Using-break_002dvisibility"></a>
+<h4 class="unnumberedsubsubsec">Uso de break-visibility (visibilidad en el salto)</h4>
+
+
+<a name="index-break_002dvisibility"></a>
+
+<p>Casi todos los objetos de presentación se imprimen una sola vez, pero
+algunos como las líneas divisorias, claves, indicaciones de compás y
+armaduras de tonalidad, se pueden tener que imprimir dos veces cuando
+se produce un salto de línea : una vez al final de la línea y otra al
+comienzo de la siguiente.  Estos objetos reciben el nombre de
+<em>divisibles</em>, y tienen una propiedad, <code>break-visibility</code>
+(visibilidad en el salto), para controlar su visibilidad en las tres
+posiciones en que pueden aparecer: al comienzo de una línea, dentro de
+la línea si se produce un cambio, y al final de la línea si el cambio
+se produce en ese lugar.
+</p>
+<p>Por ejemplo, la indicación de compás se imprime de forma
+predeterminada al comienzo de la primera línea y en ningún otro lugar
+a no ser que cambie, en cuyo caso se imprime en el punto en que se
+produce el cambio.  Si este cambio se produce al final de una línea,
+la nueva indicación de compás se imprime al principio de la línea
+siguiente y también al final de la línea anterior como indicación de
+precaución.
+</p>
+<p>Este comportamiento se controla por medio de la propiedad
+<code>break-visibility</code>, que se explica en
+<a name="index-Visibility-and-color-of-objects-1"></a>
+<a href="../lilypond-learning/Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects">Visibilidad y color de los objetos</a>.  Esta propiedad toma un
+vector de tres valores booleanos que, por orden, determinan si el
+objeto se imprime al final, dentro, o al principio de la línea.  O,
+para ser más exactos: antes del salto de línea, si no hay salto, o
+después del salto.
+</p>
+<p>Como alternativa se puede especificar cualquiera de las ocho
+combinaciones mediante funciones predefinidas cuya definición está en
+&lsquo;<tt>scm/output-lib.scm</tt>&rsquo;, donde las tres últimas columnas indican si
+los objetos de presentación serán visibles en las posiciones que se
+muestran en el encabezamiento de cada columna:
+</p>
+<table>
+<thead><tr><th><p> Forma                   </p></th><th><p> Forma                  </p></th><th><p> Antes del </p></th><th><p> Si no hay    </p></th><th><p> Después del
+</p></th></tr></thead>
+<thead><tr><th><p> de función              </p></th><th><p> de vector              </p></th><th><p> salto     </p></th><th><p> salto        </p></th><th><p> salto
+</p></th></tr></thead>
+<tr><td><p> <code>all-visible</code>             </p></td><td><p> <code>'#(#t #t #t)</code>     </p></td><td><p> sí     </p></td><td><p> sí       </p></td><td><p> sí
+</p></td></tr>
+<tr><td><p> <code>begin-of-line-visible</code>   </p></td><td><p> <code>'#(#f #f #t)</code>     </p></td><td><p> no     </p></td><td><p> no       </p></td><td><p> sí
+</p></td></tr>
+<tr><td><p> <code>center-visible</code>          </p></td><td><p> <code>'#(#f #t #f)</code>     </p></td><td><p> no     </p></td><td><p> sí       </p></td><td><p> no
+</p></td></tr>
+<tr><td><p> <code>end-of-line-visible</code>     </p></td><td><p> <code>'#(#t #f #f)</code>     </p></td><td><p> sí     </p></td><td><p> no       </p></td><td><p> no
+</p></td></tr>
+<tr><td><p> <code>begin-of-line-invisible</code> </p></td><td><p> <code>'#(#t #t #f)</code>     </p></td><td><p> sí     </p></td><td><p> sí       </p></td><td><p> no
+</p></td></tr>
+<tr><td><p> <code>center-invisible</code>        </p></td><td><p> <code>'#(#t #f #t)</code>     </p></td><td><p> sí     </p></td><td><p> no       </p></td><td><p> sí
+</p></td></tr>
+<tr><td><p> <code>end-of-line-invisible</code>   </p></td><td><p> <code>'#(#f #t #t)</code>     </p></td><td><p> no     </p></td><td><p> sí       </p></td><td><p> sí
+</p></td></tr>
+<tr><td><p> <code>all-invisible</code>           </p></td><td><p> <code>'#(#f #f #f)</code>     </p></td><td><p> no     </p></td><td><p> no       </p></td><td><p> no
+</p></td></tr>
+</table>
+
+<p>Los ajustes predeterminados de <code>break-visibility</code> dependen del
+objeto de presentación.  La tabla siguiente muestra todos los objetos
+de presentación de interés que resultan afectados por
+<code>break-visibility</code> y el ajuste predeterminado de esta propiedad:
+</p>
+<table>
+<thead><tr><th width="30%"><p> Objeto   </p></th><th width="30%"><p> Contexto usual  </p></th><th width="40%"><p> Valor predet.
+</p></th></tr></thead>
+<tr><td width="30%"><p> <code>BarLine</code>             </p></td><td width="30%"><p> <code>Score</code>          </p></td><td width="40%"><p> calculado
+</p></td></tr>
+<tr><td width="30%"><p> <code>BarNumber</code>           </p></td><td width="30%"><p> <code>Score</code>          </p></td><td width="40%"><p> <code>begin-of-line-visible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>BreathingSign</code>       </p></td><td width="30%"><p> <code>Voice</code>          </p></td><td width="40%"><p> <code>begin-of-line-invisible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>Clef</code>                </p></td><td width="30%"><p> <code>Staff</code>          </p></td><td width="40%"><p> <code>begin-of-line-visible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>Custos</code>              </p></td><td width="30%"><p> <code>Staff</code>          </p></td><td width="40%"><p> <code>end-of-line-visible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>DoublePercentRepeat</code> </p></td><td width="30%"><p> <code>Voice</code>          </p></td><td width="40%"><p> <code>begin-of-line-invisible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>KeySignature</code>        </p></td><td width="30%"><p> <code>Staff</code>          </p></td><td width="40%"><p> <code>begin-of-line-visible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>OctavateEight</code>       </p></td><td width="30%"><p> <code>Staff</code>          </p></td><td width="40%"><p> <code>begin-of-line-visible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>RehearsalMark</code>       </p></td><td width="30%"><p> <code>Score</code>          </p></td><td width="40%"><p> <code>end-of-line-invisible</code>
+</p></td></tr>
+<tr><td width="30%"><p> <code>TimeSignature</code>       </p></td><td width="30%"><p> <code>Staff</code>          </p></td><td width="40%"><p> <code>all-visible</code>
+</p></td></tr>
+</table>
+
+<p>El ejemplo de abajo muestra el uso de la forma de vector para
+controlar la visibilidad de las líneas divisorias:
+</p>
+<blockquote><pre class="verbatim">f4 g a b
+f4 g a b
+% Quitar la barra de compás al final de la línea en curso
+\once \override Score.BarLine #'break-visibility = #'#(#f #t #t)
+\break
+f4 g a b
+f4 g a b
+</pre><p>
+ <a href="../57/lily-65400d37.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-65400d37.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Aunque los tres componentes del vector utilizado para sobreescribir
+<code>break-visibility</code> deben estar presentes, no todos son efectivos
+para todos los objetos de presentación, y algunas combinaciones pueden
+incluso dar errores.  Son de aplicación las siguientes limitaciones:
+</p>
+<ul>
+<li> Las líneas divisorias no se pueden imprimir al principio de la línea.
+</li><li> No se puede imprimir el número de compás al principio de la primera
+línea a no ser que su valor establecido sea distinto de 1.
+</li><li> Clave: véase más abajo
+</li><li> Las repeticiones dobles de tipo porcentaje se imprimen completamente o
+se suprimen por completo.  Utilice begin-of line-invisible para
+imprimirlas y all-invisible para suprimirlas.
+</li><li> Armadura: véase más abajo
+</li><li> OctavateEight: véase más abajo
+</li></ul>
+
+<hr size="6">
+<a name="Special-considerations"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Using-break_002dvisibility" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Uso de break-visibility (visibilidad en el salto)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Line-styles.es.html#Line-styles" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Estilos de línea &gt; </a>]</td></tr></table>
+<a name="Special-considerations"></a>
+<h4 class="unnumberedsubsubsec">Consideraciones especiales</h4>
+
+<p><strong><em>Visibilidad después de un cambio explícito</em></strong>
+</p>
+<a name="index-armadura_002c-visibilidad-despues-de-un-cambio-explicito"></a>
+<a name="index-explicitKeySignatureVisibility"></a>
+<a name="index-clave_002c-visibilidad-despues-de-un-cambio-explicito"></a>
+<a name="index-explicitClefVisibility"></a>
+
+<p>La propiedad <code>break-visibility</code> controla la visibilidad de las
+armaduras y cambios de clave sólo al principio de las líneas, es
+decir, después de un salto.  No tiene ningún efecto sobre la
+visibilidad de la armadura o la clave después de un cambio explícito
+de tonalidad o de clave dentro o al final de una línea.  En el ejemplo
+siguiente la armadura que sigue al cambio explícito de tonalidad a Si
+bemol mayor es visible incluso con <code>all-invisible</code> establecido.
+</p>
+<blockquote><pre class="verbatim">\key g \major
+f4 g a b
+% Intentar quitar todas las armaduras
+\override Staff.KeySignature #'break-visibility = #all-invisible
+\key bes \major
+f4 g a b
+\break
+f4 g a b
+f4 g a b
+</pre><p>
+ <a href="../b9/lily-3b16af4c.ly">
+  <img align="middle"
+       border="0"
+       src="../b9/lily-3b16af4c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La visibilidad de estos cambios explícitos de tonalidad y de clave se
+controla por medio de las propiedades
+<code>explicitKeySignatureVisibility</code> y <code>explicitClefVisibility</code>.
+Son los equivalentes de la propiedad <code>break-visibility</code> y las dos
+toman un vector de tres valores booleanos o las funciones predefinidas
+relacionadas anteriormente, exactamente igual que
+<code>break-visibility</code>.  Las dos son propiedades del contexto Staff,
+no de los propios objetos de presentación, y por tanto se establecen
+utilizando la instrucción <code>\set</code>.  Las dos están establecidas de
+forma predeterminada al valor <code>all-visible</code>.  Estas propiedades
+controlan sólo la visibilidad de las armaduras y las claves que
+resultan de los cambios explícitos y no afectan a las armaduras y
+tonalidades que están al principio de las líneas; para quitarlas, aún
+se debe sobreescribir la propiedad <code>break-visibility</code> en el
+objeto correspondiente.
+</p>
+<blockquote><pre class="verbatim">\key g \major
+f4 g a b
+\set Staff.explicitKeySignatureVisibility = #all-invisible
+\override Staff.KeySignature #'break-visibility = #all-invisible
+\key bes \major
+f4 g a b \break
+f4 g a b
+f4 g a b
+</pre><p>
+ <a href="../2c/lily-f7e93f06.ly">
+  <img align="middle"
+       border="0"
+       src="../2c/lily-f7e93f06.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><strong><em>Visibilidad de las alteraciones de precaución</em></strong>
+</p>
+<p>Para eliminar las alteraciones de precaución que se imprimen en un
+cambio de tonalidad explícito, establezca la propiedad
+<code>printKeyCancellation</code> del contexto Staff a <code>#f</code>:
+</p>
+<blockquote><pre class="verbatim">\key g \major
+f4 g a b
+\set Staff.explicitKeySignatureVisibility = #all-invisible
+\set Staff.printKeyCancellation = ##f
+\override Staff.KeySignature #'break-visibility = #all-invisible
+\key bes \major
+f4 g a b \break
+f4 g a b
+f4 g a b
+</pre><p>
+ <a href="../c2/lily-827a9821.ly">
+  <img align="middle"
+       border="0"
+       src="../c2/lily-827a9821.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Con estas sobreescrituras solamente permanecen las alteraciones
+accidentales delante de las notas para indicar el cambio de tonalidad.
+</p>
+
+<p><strong><em>Automatic bars</em></strong>
+</p>
+<a name="index-automaticBars"></a>
+<a name="index-lineas-divisorias_002c-eliminacion"></a>
+
+<p>Como caso especial, la impresión de las líneas divisorias también se
+puede inhabilitar estableciendo la propiedad <code>automaticBars</code> en
+el contexto Score.  Si se fija a <code>#f</code>, las barras de compás no se
+imprimen automáticamente; se deben crear explícitamente con una
+instrucción <code>\bar</code>.  A diferencia de la instrucción predefinida
+<code>\cadenzaOn</code>, los compases se siguen contando.  La generación de
+compases continúa de acuerdo a esta cuenta si esta propiedad se
+establece posteriormente a <code>#t</code>.  Si se fija al valor <code>#f</code>,
+sólo pueden producirse saltos de línea en instrucciones <code>\bar</code>
+explícitas.
+</p>
+
+<p><strong><em>Octavated clefs</em></strong>
+</p>
+<a name="index-octavadas_002c-visibilidad-de-las-claves"></a>
+<a name="index-visibilidad-de-las-claves-octavadas"></a>
+<a name="index-claves_002c-visibilidad-de-la-octavacion"></a>
+
+<p>El pequeño símbolo de octava sobre las claves en octava alta o baja se
+produce por parte del objeto <code>OctavateEight</code>.  Su visibilidad se
+controla independientemente de la del objeto <code>Clef</code>, así que es
+necesario aplicar las sobreescrituras correspondientes
+<code>break-visibility</code> tanto a los objetos <code>Clef</code> como
+<code>OctavateEight</code> para suprimir completamente estos símbolos de
+clave al comienzo de cada línea.
+</p>
+<p>Para los cambios de clave explícitos, la propiedad
+<code>explicitClefVisibility</code> controla tanto el símbolo de clave como
+el símbolo de octava asociado.
+</p>
+
+<a name="Vease-tambien-45"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Manual de aprendizaje:
+<a name="index-Visibility-and-color-of-objects-2"></a>
+<a href="../lilypond-learning/Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects">Visibilidad y color de los objetos</a>
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Changing-defaults.es.html#Changing-defaults" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Cambiar los valores por omisión&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Interfaces-for-programmers.es.html#Interfaces-for-programmers" title="Cap&iacute;tulo siguiente">&nbsp;Interfaces para programadores &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Using-break_002dvisibility" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Uso de break-visibility (visibilidad en el salto)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Visibility-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Visibilidad de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Line-styles.es.html#Line-styles" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Estilos de línea &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Visibility-of-objects.html">English</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li class="toc_current"><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>
+    <ul class="toc">
+      <li><a name="toc-Input-modes-1" href="Input-modes.es.html#Input-modes">5.4.1 Modos de entrada</a>      </li>
+      <li><a name="toc-Direction-and-placement-1" href="Direction-and-placement.es.html#Direction-and-placement">5.4.2 Dirección y posición</a>      </li>
+      <li><a name="toc-Distances-and-measurements-1" href="Distances-and-measurements.es.html#Distances-and-measurements">5.4.3 Distancias y medidas</a>      </li>
+      <li><a name="toc-Staff-symbol-properties-1" href="Staff-symbol-properties.es.html#Staff-symbol-properties">5.4.4 Propiedades del símbolo del pentagrama</a>      </li>
+      <li><a name="toc-Spanners-1" href="Spanners.es.html#Spanners">5.4.5 Objetos de extensión</a>      </li>
+      <li class="toc_current"><a name="toc-Visibility-of-objects-1" href="Visibility-of-objects.es.html#Visibility-of-objects">5.4.6 Visibilidad de los objetos</a>
+      <ul class="toc">
+        <li><a name="toc-Removing-the-stencil-1" href="Visibility-of-objects.es.html#Removing-the-stencil">Eliminar el sello</a>        </li>
+        <li><a name="toc-Making-objects-transparent-1" href="Visibility-of-objects.es.html#Making-objects-transparent">Hacer transparentes los objetos</a>        </li>
+        <li><a name="toc-Painting-objects-white-1" href="Visibility-of-objects.es.html#Painting-objects-white">Pintar los objetos de blanco</a>        </li>
+        <li><a name="toc-Using-break_002dvisibility-1" href="Visibility-of-objects.es.html#Using-break_002dvisibility">Uso de break-visibility (visibilidad en el salto)</a>        </li>
+        <li><a name="toc-Special-considerations-1" href="Visibility-of-objects.es.html#Special-considerations">Consideraciones especiales</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Line-styles-1" href="Line-styles.es.html#Line-styles">5.4.7 Estilos de línea</a>      </li>
+      <li><a name="toc-Rotating-objects-1" href="Rotating-objects.es.html#Rotating-objects">5.4.8 Rotación de objetos</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

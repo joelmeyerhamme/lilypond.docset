@@ -1,0 +1,190 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond program usage: 4.2.3 HTML</title>
+
+<meta name="description" content="GNU LilyPond program usage: 4.2.3 HTML">
+<meta name="keywords" content="GNU LilyPond program usage: 4.2.3 HTML">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Application Usage">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Integrating-music-and-text.fr.html#Integrating-music-and-text" rel="up" title="4.2 Integrating music and text">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Texinfo.fr.html#Texinfo" rel="previous" title="4.2.2 Texinfo">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="HTML"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Beginning of this chapter or previous chapter"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Next chapter">&nbsp;Converting from other formats &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Texinfo.fr.html#Texinfo" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Texinfo&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Integrating-music-and-text.fr.html#Integrating-music-and-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Integrating music and text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="DocBook.fr.html#DocBook" title="Next section in reading order" accesskey="n" rel="next">&nbsp;DocBook &gt; </a>]</td></tr></table>
+<a name="HTML"></a>
+<h3 class="subsection">4.2.3 HTML</h3>
+
+<p>Music is entered using
+</p>
+<blockquote><pre class="example">&lt;lilypond fragment relative=2&gt;
+\key c \minor c4 es g2
+&lt;/lilypond&gt;
+</pre></blockquote>
+<p><code>lilypond-book</code> then produces an HTML file with appropriate image
+tags for the music fragments:
+</p>
+<p>
+ <a href="../eb/lily-76e844f5.ly">
+  <img align="middle"
+       border="0"
+       src="../eb/lily-76e844f5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>For inline pictures, use <code>&lt;lilypond ... /&gt;</code>, where the options
+are separated by a colon from the music, for example
+</p>
+<blockquote><pre class="example">Some music in &lt;lilypond relative=2: a b c/&gt; a line of text.
+</pre></blockquote>
+
+
+<p>To include separate files, say
+</p>
+<blockquote><pre class="example">&lt;lilypondfile <var>option1</var> <var>option2</var> ...&gt;<var>filename</var>&lt;/lilypondfile&gt;
+</pre></blockquote>
+
+<p>Additionally, <code>&lt;lilypondversion/&gt;</code> displays the current version
+of lilypond.
+</p>
+
+<a name="index-titling-in-HTML"></a>
+<a name="index-preview-image"></a>
+<a name="index-thumbnail"></a>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.fr.html#LilyPond_002dbook" title="Beginning of this chapter or previous chapter"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Next chapter">&nbsp;Converting from other formats &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Texinfo.fr.html#Texinfo" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Texinfo&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Integrating-music-and-text.fr.html#Integrating-music-and-text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Integrating music and text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="DocBook.fr.html#DocBook" title="Next section in reading order" accesskey="n" rel="next">&nbsp;DocBook &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="HTML.es.html">español</a>, <a href="HTML.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Application Usage</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.fr.html#Install">1. Install</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.fr.html#Precompiled-binaries">1.1 Precompiled binaries</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.fr.html#Compiling-from-source">1.2 Compiling from source</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.fr.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.fr.html#Setup-for-specific-Operating-Systems">2.1 Setup for specific Operating Systems</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.fr.html#Text-editor-support">2.2 Text editor support</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.fr.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.fr.html#Running-LilyPond">3. Running LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.fr.html#Normal-usage">3.1 Normal usage</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.fr.html#Command_002dline-usage">3.2 Command-line usage</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.fr.html#Error-messages">3.3 Error messages</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.fr.html#Updating-files-with-convert_002dly">3.4 Updating files with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.fr.html#Reporting-bugs">3.5 Reporting bugs</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.fr.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Integrating text and music</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.fr.html#An-example-of-a-musicological-document">4.1 An example of a musicological document</a>    </li>
+    <li class="toc_current"><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.fr.html#Integrating-music-and-text">4.2 Integrating music and text</a>
+    <ul class="toc">
+      <li><a name="toc-LaTeX-1" href="LaTeX.fr.html#LaTeX">4.2.1 LaTeX</a>      </li>
+      <li><a name="toc-Texinfo-1" href="Texinfo.fr.html#Texinfo">4.2.2 Texinfo</a>      </li>
+      <li class="toc_current"><a name="toc-HTML-1" href="HTML.fr.html#HTML">4.2.3 HTML</a>      </li>
+      <li><a name="toc-DocBook-1" href="DocBook.fr.html#DocBook">4.2.4 DocBook</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.fr.html#Music-fragment-options">4.3 Music fragment options</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook">4.4 Invoking <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.fr.html#Filename-extensions">4.5 Filename extensions</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.fr.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative methods of mixing text and music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.fr.html#Converting-from-other-formats">5. Converting from other formats</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.fr.html#Invoking-midi2ly">5.1 Invoking <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly">5.2 Invoking <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.fr.html#Invoking-abc2ly">5.3 Invoking <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.fr.html#Invoking-etf2ly">5.4 Invoking <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.fr.html#Generating-LilyPond-files">5.5 Generating LilyPond files</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">B. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

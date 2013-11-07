@@ -1,0 +1,1711 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Staff notation</title>
+
+<meta name="description" content="LilyPond snippets: Staff notation">
+<meta name="keywords" content="LilyPond snippets: Staff notation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Simultaneous-notes.html#Simultaneous-notes" rel="previous" title="Simultaneous notes">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Staff-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Beginning of this chapter or previous chapter"> &lt;&lt; Simultaneous notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Simultaneous-notes.html#Suppressing-warnings-for-clashing-note-columns" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Suppressing warnings for clashing note columns&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Staff-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Staff-notation"></a>
+<h1 class="unnumbered">Staff notation</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Staff-notation.html#Staff-notation">Staff notation</a>.
+</p>
+
+<a name="adding-ambitus-per-voice.ly"></a>
+<hr size="6">
+<a name="Staff-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Staff-notation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-an-extra-staff-at-a-line-break" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding an extra staff at a line break &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Adding ambitus per voice</h2>
+
+
+<p>Ambitus can be added per voice. In this case, the ambitus must be moved
+manually to prevent collisions. 
+</p>
+
+<pre class="verbatim">\new Staff &lt;&lt;
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c'' {
+    \override Ambitus #'X-offset = #2.0
+    \voiceOne
+    c4 a d e
+    f1
+  }
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c' {
+    \voiceTwo
+    es4 f g as
+    b1
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../22/lily-9f6c2419.ly">
+  <img align="middle"
+       border="0"
+       src="../22/lily-9f6c2419.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="adding-an-extra-staff-at-a-line-break.ly"></a>
+<hr size="6">
+<a name="Adding-an-extra-staff-at-a-line-break"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Staff-notation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-an-extra-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding an extra staff &gt; </a>]</td></tr></table>
+<a name="Adding-an-extra-staff-at-a-line-break"></a>
+<h2 class="unnumberedsec">Adding an extra staff at a line break</h2>
+
+
+<p>When adding a new staff at a line break, some extra space is
+unfortunately added at the end of the line before the break (to fit in
+a key signature change, which  will never be printed anyway).  The
+workaround is to add a setting of
+<code>Staff.explicitKeySignatureVisibility</code> as is shown in the example.
+In versions 2.10 and earlier, a similar setting for the time signatures
+is also required (see the example).
+</p>
+
+
+
+<pre class="verbatim">\score {
+  \new StaffGroup \relative c'' {
+    \new Staff
+    \key f \major
+    c1 c^&quot;Unwanted extra space&quot; \break
+    &lt;&lt; { c1 | c }
+       \new Staff {
+         \key f \major
+         \once \override Staff.TimeSignature #'stencil = ##f
+         c1 | c
+       } 
+    &gt;&gt;
+    c1 | c^&quot;Fixed here&quot; \break
+    &lt;&lt; { c1 | c }
+       \new Staff {
+         \once \set Staff.explicitKeySignatureVisibility = #end-of-line-invisible
+         % The next line is not needed in 2.11.x or later:
+         \once \override Staff.TimeSignature #'break-visibility = #end-of-line-invisible
+         \key f \major
+         \once \override Staff.TimeSignature #'stencil = ##f
+         c1 | c
+       }
+    &gt;&gt;
+  }
+}
+
+</pre><p>
+ <a href="../c8/lily-8dc5e571.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-8dc5e571.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="adding-an-extra-staff.ly"></a>
+<hr size="6">
+<a name="Adding-an-extra-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-an-extra-staff-at-a-line-break" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adding an extra staff at a line break&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-number-of-lines-in-a-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing the number of lines in a staff &gt; </a>]</td></tr></table>
+<a name="Adding-an-extra-staff"></a>
+<h2 class="unnumberedsec">Adding an extra staff</h2>
+
+
+<p>An extra staff can be added (possibly temporarily) after the start of a
+piece.  
+</p>
+
+<pre class="verbatim">\score {
+  &lt;&lt;
+    \new Staff \relative c'' { c1 | c | c | c | c }
+    \new StaffGroup \relative c'' {
+      \new Staff {
+        c1 | c &lt;&lt;
+          c1 \new Staff {
+            \once \override Staff.TimeSignature #'stencil = ##f
+            c1
+          }
+        &gt;&gt;
+        c1
+      }
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../ce/lily-370ca09a.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-370ca09a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-number-of-lines-in-a-staff.ly"></a>
+<hr size="6">
+<a name="Changing-the-number-of-lines-in-a-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-an-extra-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adding an extra staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-staff-size" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing the staff size &gt; </a>]</td></tr></table>
+<a name="Changing-the-number-of-lines-in-a-staff"></a>
+<h2 class="unnumberedsec">Changing the number of lines in a staff</h2>
+
+
+<p>The number of lines in a staff may changed by overriding the
+<code>StaffSymbol</code> property <code>line-count</code>.
+</p>
+
+
+
+
+<pre class="verbatim">upper = \relative c'' {
+  c4 d e f
+}
+
+lower = \relative c {
+  \clef bass
+  c4 b a g
+}
+
+\score {
+  \context PianoStaff &lt;&lt;
+    \new Staff {
+      \upper
+    }
+    \new Staff {
+      \override Staff.StaffSymbol #'line-count = #4 
+      \lower
+    }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../21/lily-e11e67b4.ly">
+  <img align="middle"
+       border="0"
+       src="../21/lily-e11e67b4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-staff-size.ly"></a>
+<hr size="6">
+<a name="Changing-the-staff-size"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-number-of-lines-in-a-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing the number of lines in a staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-tempo-without-a-metronome-mark" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing the tempo without a metronome mark &gt; </a>]</td></tr></table>
+<a name="Changing-the-staff-size"></a>
+<h2 class="unnumberedsec">Changing the staff size</h2>
+
+
+<p>Though the simplest way to resize staves is to use
+<code>#(set-global-staff-size xx)</code>, an individual staff&rsquo;s size can be
+changed by scaling the properties <code>'staff-space</code> and
+<code>fontSize</code>. 
+</p>
+
+<pre class="verbatim">&lt;&lt;
+  \new Staff {
+    \relative c'' {
+      \dynamicDown
+      c8\ff c c c c c c c
+    }
+  }
+  \new Staff \with {
+    fontSize = #-3
+    \override StaffSymbol #'staff-space = #(magstep -3)
+  } {
+    \clef bass
+    c8 c c c c\f c c c
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../44/lily-448b205b.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-448b205b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-tempo-without-a-metronome-mark.ly"></a>
+<hr size="6">
+<a name="Changing-the-tempo-without-a-metronome-mark"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-staff-size" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing the staff size&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Creating-blank-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Creating blank staves &gt; </a>]</td></tr></table>
+<a name="Changing-the-tempo-without-a-metronome-mark"></a>
+<h2 class="unnumberedsec">Changing the tempo without a metronome mark</h2>
+
+
+<p>To change the tempo in MIDI output without printing anything, make the
+metronome mark invisible.
+</p>
+
+<pre class="verbatim">\score {
+  \new Staff \relative c' {
+    \tempo 4 = 160
+    c4 e g b
+    c4 b d c
+    \set Score.tempoHideNote = ##t
+    \tempo 4 = 96
+    d,4 fis a cis
+    d4 cis e d
+  }
+  \layout { }
+  \midi { }
+}
+</pre><p>
+ <a href="../92/lily-90660573.ly">
+  <img align="middle"
+       border="0"
+       src="../92/lily-90660573.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-blank-staves.ly"></a>
+<hr size="6">
+<a name="Creating-blank-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-tempo-without-a-metronome-mark" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing the tempo without a metronome mark&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Creating-metronome-marks-in-markup-mode" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Creating metronome marks in markup mode &gt; </a>]</td></tr></table>
+<a name="Creating-blank-staves"></a>
+<h2 class="unnumberedsec">Creating blank staves</h2>
+
+
+<p>To create blank staves, generate empty measures then remove the
+<code>Bar_number_engraver</code> from the <code>Score</code> context, and the
+<code>Time_signature_engraver</code>, <code>Clef_engraver</code> and
+<code>Bar_engraver</code> from the <code>Staff</code> context. 
+</p>
+
+<pre class="verbatim">#(set-global-staff-size 20)
+
+\score {
+  { 
+    \repeat unfold 12 { s1 \break } 
+  }
+  \layout {
+    indent = 0\in
+    \context {
+      \Staff
+      \remove &quot;Time_signature_engraver&quot;
+      \remove &quot;Clef_engraver&quot;
+      \remove &quot;Bar_engraver&quot;
+    }
+    \context {
+      \Score
+      \remove &quot;Bar_number_engraver&quot;
+    }
+  }
+}
+
+\paper {
+  #(set-paper-size &quot;letter&quot;)
+  ragged-last-bottom = ##f
+  line-width = 7.5\in
+  left-margin = 0.5\in
+  bottom-margin = 0.25\in
+  top-margin = 0.25\in
+}
+
+</pre><p>
+ <a href="../d1/lily-160fd34d.ly">
+  <img align="middle"
+       border="0"
+       src="../d1/lily-160fd34d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-metronome-marks-in-markup-mode.ly"></a>
+<hr size="6">
+<a name="Creating-metronome-marks-in-markup-mode"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Creating-blank-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Creating blank staves&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Display-bracket-with-only-one-staff-in-a-system" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Display bracket with only one staff in a system &gt; </a>]</td></tr></table>
+<a name="Creating-metronome-marks-in-markup-mode"></a>
+<h2 class="unnumberedsec">Creating metronome marks in markup mode</h2>
+
+
+<p>New metronome marks can be created in markup mode, but they will not
+change the tempo in MIDI output.
+</p>
+
+<pre class="verbatim">\relative c' {
+  \tempo \markup {
+    \concat {
+      (
+      \smaller \general-align #Y #DOWN \note #&quot;16.&quot; #1
+      &quot; = &quot;
+      \smaller \general-align #Y #DOWN \note #&quot;8&quot; #1
+      )
+    }
+  }
+  c1
+  c4 c' c,2
+}
+</pre><p>
+ <a href="../95/lily-831ea2f6.ly">
+  <img align="middle"
+       border="0"
+       src="../95/lily-831ea2f6.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="display-bracket-with-only-one-staff-in-a-system.ly"></a>
+<hr size="6">
+<a name="Display-bracket-with-only-one-staff-in-a-system"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Creating-metronome-marks-in-markup-mode" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Creating metronome marks in markup mode&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Incipit" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Incipit &gt; </a>]</td></tr></table>
+<a name="Display-bracket-with-only-one-staff-in-a-system"></a>
+<h2 class="unnumberedsec">Display bracket with only one staff in a system</h2>
+
+
+<p>If there is only one staff in one of the staff types <code>ChoirStaff</code>
+or <code>StaffGroup</code>, the bracket and the starting bar line will not be
+displayed as standard behavior.  This can be changed by overriding the
+relevant properties.
+</p>
+<p>Note that in contexts such as <code>PianoStaff</code> and <code>GrandStaff</code>
+where the systems begin with a brace instead of a bracket, another
+property has to be set, as shown on the second system in the example. 
+</p>
+
+<pre class="verbatim">\markup \left-column {
+  \score {
+    \new StaffGroup &lt;&lt;
+      % Must be lower than the actual number of staff lines
+      \override StaffGroup.SystemStartBracket #'collapse-height = #1
+      \override Score.SystemStartBar #'collapse-height = #1
+      \new Staff {
+        c'1
+      }
+    &gt;&gt;
+    \layout { }
+  }
+  \null
+  \score {
+    \new PianoStaff &lt;&lt;
+      \override PianoStaff.SystemStartBrace #'collapse-height = #1
+      \override Score.SystemStartBar #'collapse-height = #1
+      \new Staff {
+        c'1
+      }
+    &gt;&gt;
+    \layout { }
+  }
+}
+</pre><p>
+ <a href="../a2/lily-746c1287.ly">
+  <img align="middle"
+       border="0"
+       src="../a2/lily-746c1287.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="incipit.ly"></a>
+<hr size="6">
+<a name="Incipit"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Display-bracket-with-only-one-staff-in-a-system" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Display bracket with only one staff in a system&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Inserting-score-fragments-above-a-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Inserting score fragments above a staff &gt; </a>]</td></tr></table>
+<a name="Incipit"></a>
+<h2 class="unnumberedsec">Incipit</h2>
+
+
+<p>Incipits can be added using the instrument name grob, but keeping
+separate the instrument name definition and the incipit definition.
+</p>
+
+<pre class="verbatim">incipit =
+#(define-music-function (parser location incipit-music) (ly:music?)
+  #{
+    \once \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \once \override Staff.InstrumentName #'self-alignment-Y = #UP
+    \once \override Staff.InstrumentName #'Y-offset = #4
+    \once \override Staff.InstrumentName #'padding = #0.3
+    \once \override Staff.InstrumentName #'stencil =
+    #(lambda (grob)
+       (let* ((instrument-name (ly:grob-property grob 'long-text))
+              (layout (ly:output-def-clone (ly:grob-layout grob)))
+              (music (make-music 'SequentialMusic
+                      'elements (list (make-music 'ContextSpeccedMusic
+                                        'context-type 'MensuralStaff
+                                        'element (make-music 'PropertySet
+                                                   'symbol 'instrumentName
+                                                   'value instrument-name))
+                                      $incipit-music)))
+              (score (ly:make-score music))
+              (mm (ly:output-def-lookup layout 'mm))
+              (indent (ly:output-def-lookup layout 'indent))
+              (width (ly:output-def-lookup layout 'incipit-width))
+              (incipit-width (if (number? width)
+                                 (* width mm)
+                                 (* indent 0.5))))
+         (ly:output-def-set-variable! layout 'indent (- indent incipit-width))
+         (ly:output-def-set-variable! layout 'line-width indent)
+         (ly:output-def-set-variable! layout 'ragged-right #f)
+         (ly:output-def-set-variable! layout 'ragged-last #f)
+         (ly:output-def-set-variable! layout 'system-count 1)
+         (ly:score-add-output-def! score layout)
+         (ly:grob-set-property! grob 'long-text
+               (markup #:score score))
+         (ly:system-start-text::print grob)))
+  #})
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+global = {
+  \set Score.skipBars = ##t
+  \key g \major
+  \time 4/4
+
+  % the actual music
+  \skip 1*8
+
+  % let finis bar go through all staves
+  \override Staff.BarLine #'transparent = ##f
+
+  % finis bar
+  \bar &quot;|.&quot;
+}
+
+discantusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;discantusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c1&quot;
+      \key f \major
+      \time 2/2
+      c''1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto discantusIncipit { IV- }
+&gt;&gt;
+
+discantusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    d'2. d'4 |
+    b e' d'2 |
+    c'4 e'4.( d'8 c' b |
+    a4) b a2 |
+    b4.( c'8 d'4) c'4 |
+    \once \override NoteHead #'transparent = ##t
+    c'1 |
+    b\breve |
+  }
+}
+
+discantusLyrics = \lyricmode {
+  Ju -- bi -- |
+  la -- te De -- |
+  o, om --
+  nis ter -- |
+  ra, __ om- |
+  &quot;...&quot; |
+  -us. |
+}
+
+altusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;altusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c3&quot;
+      \key f \major
+      \time 2/2
+      r1 f'1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto altusIncipit { IV- }
+&gt;&gt;
+
+altusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    % two measures
+    r2 g2. e4 fis g |
+    a2 g4 e |
+    fis g4.( fis16 e fis4) |
+    g1 |
+    \once \override NoteHead #'transparent = ##t
+    g1 |
+    g\breve |
+  }
+}
+
+altusLyrics = \lyricmode {
+  % two measures
+  Ju -- bi -- la -- te |
+  De -- o, om -- |
+  nis ter -- ra, |
+  &quot;...&quot; |
+  -us. |
+}
+
+tenorIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;tenorIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c4&quot;
+      \key f \major
+      \time 2/2
+      r\longa
+      r\breve
+      r1 c'1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto tenorIncipit { IV- }
+&gt;&gt;
+
+tenorNotes = {
+  \transpose c' c' {
+    \once \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-6 . 3)
+    \clef &quot;treble_8&quot;
+    R1 |
+    R1 |
+    R1 |
+    % two measures
+    r2 d'2. d'4 b e' |
+    \once \override NoteHead #'transparent = ##t
+    e'1 |
+    d'\breve |
+  }
+}
+
+tenorLyrics = \lyricmode {
+  % two measures
+  Ju -- bi -- la -- te |
+  &quot;...&quot; |
+  -us. 
+}
+
+bassusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;bassusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;bass&quot;
+      \key f \major
+      \time 2/2
+      %% incipit
+      r\maxima
+      f1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto bassusIncipit { IV- }
+&gt;&gt;
+
+bassusNotes = {
+  \transpose c' c' {
+    \clef &quot;bass&quot;
+    R1 |
+    R1 |
+    R1 |
+    R1 |
+    g2. e4 |
+    \once \override NoteHead #'transparent = ##t
+    e1 |
+    g\breve |
+  }
+}
+
+bassusLyrics = \lyricmode {
+  Ju -- bi- |
+  &quot;...&quot; |
+  -us.
+}
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = choirStaff &lt;&lt;
+      \new Voice = &quot;discantusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Discantus&quot;
+        \incipit \discantusIncipit
+        \discantusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;discantusLyrics&quot; \lyricsto discantusNotes { \discantusLyrics }
+      \new Voice = &quot;altusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Altus&quot;
+        \incipit \altusIncipit
+        \altusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;altusLyrics&quot; \lyricsto altusNotes { \altusLyrics }
+      \new Voice = &quot;tenorNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Tenor&quot;
+        \incipit \tenorIncipit
+        \tenorNotes
+      &gt;&gt;
+      \new Lyrics = &quot;tenorLyrics&quot; \lyricsto tenorNotes { \tenorLyrics }
+      \new Voice = &quot;bassusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Bassus&quot;
+        \incipit \bassusIncipit
+        \bassusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;bassusLyrics&quot; \lyricsto bassusNotes { \bassusLyrics }
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      %% no bar lines in staves or lyrics
+      \override BarLine #'transparent = ##t
+    }
+    %% the next two instructions keep the lyrics between the bar lines
+    \context {
+      \Lyrics
+      \consists &quot;Bar_engraver&quot;
+      \consists &quot;Separating_line_group_engraver&quot;
+    }
+    \context {
+      \Voice
+      %% no slurs
+      \override Slur #'transparent = ##t
+      %% Comment in the below &quot;\remove&quot; command to allow line
+      %% breaking also at those bar lines where a note overlaps
+      %% into the next measure.  The command is commented out in this
+      %% short example score, but especially for large scores, you
+      %% will typically yield better line breaking and thus improve
+      %% overall spacing if you comment in the following command.
+      %%\remove &quot;Forbid_line_break_engraver&quot;
+    }
+    indent = 6\cm
+    incipit-width = 4\cm
+  }
+}
+</pre><p>
+ <a href="../57/lily-748505f8.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-748505f8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="inserting-score-fragments-above-a-staff,-as-markups.ly"></a>
+<hr size="6">
+<a name="Inserting-score-fragments-above-a-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Incipit" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Incipit&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Letter-tablature-formatting" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Letter tablature formatting &gt; </a>]</td></tr></table>
+<a name="Inserting-score-fragments-above-a-staff"></a>
+<h2 class="unnumberedsec">Inserting score fragments above a staff, as markups</h2>
+
+
+<p>The <code>\markup</code> command is quite versatile.  In this snippet, it
+contains a <code>\score</code> block instead of texts or marks.
+</p>
+
+<pre class="verbatim">tuning = \markup {
+  \score {
+    \new Staff \with { \remove &quot;Time_signature_engraver&quot; }
+    {
+      \clef bass  &lt;c, g, d g&gt;1
+    }
+    \layout { ragged-right = ##t }
+  }
+}
+
+\header {
+  title = &quot;Solo Cello Suites&quot;
+  subtitle = &quot;Suite IV&quot;
+  subsubtitle = \markup { Originalstimmung: \general-align #Y #CENTER \tuning }
+}
+
+\layout { ragged-right = ##f }
+
+\relative c'' {
+  \time 4/8
+  \times 2/3 { c8 d e } \times 2/3 { c d e }
+  \times 2/3 { c8 d e } \times 2/3 { c d e }
+  g8 a g a
+  g8 a g a
+}
+
+</pre><p>
+ <a href="../b5/lily-0c674d3d.ly">
+  <img align="middle"
+       border="0"
+       src="../b5/lily-0c674d3d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="letter-tablature-formatting.ly"></a>
+<hr size="6">
+<a name="Letter-tablature-formatting"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Inserting-score-fragments-above-a-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Inserting score fragments above a staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Making-some-staff-lines-thicker-than-the-others" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Making some staff lines thicker than the others &gt; </a>]</td></tr></table>
+<a name="Letter-tablature-formatting"></a>
+<h2 class="unnumberedsec">Letter tablature formatting</h2>
+
+
+<p>Tablature can be formatted using letters instead of numbers. 
+</p>
+
+<pre class="verbatim">#(define (letter-tablature-format str context event)
+  (let ((tuning (ly:context-property context 'stringTunings))
+        (pitch (ly:event-property event 'pitch)))
+    (make-whiteout-markup
+     (make-vcenter-markup
+      (string (integer-&gt;char
+         (+ (char-&gt;integer #\a)
+            (- (ly:pitch-semitones pitch)
+            (list-ref tuning (- str 1))))))))))
+
+music = \relative c {
+  c4 d e f
+  g4 a b c
+  d4 e f g
+}
+
+&lt;&lt;
+  \new Staff {
+    \clef &quot;G_8&quot;
+    \music
+  }
+  \new TabStaff \with { 
+    tablatureFormat = #letter-tablature-format
+  }
+  {
+    \music
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../ae/lily-508b3ed8.ly">
+  <img align="middle"
+       border="0"
+       src="../ae/lily-508b3ed8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="making-some-staff-lines-thicker-than-the-others.ly"></a>
+<hr size="6">
+<a name="Making-some-staff-lines-thicker-than-the-others"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Letter-tablature-formatting" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Letter tablature formatting&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Making-some-staff-lines-thicker-than-the-others" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Making-some-staff-lines-thicker-than-the-others"></a>
+<h2 class="unnumberedsec">Making some staff lines thicker than the others</h2>
+
+
+<p>For pedagogical purposes, a staff line can be thickened (e.g., the
+middle line, or to emphasize the line of the G clef).  This can be
+achieved by adding extra lines very close to the line that should be
+emphasized, using the <code>line-positions</code> property of the
+<code>StaffSymbol</code> object. 
+</p>
+
+<pre class="verbatim">{
+  \override Staff.StaffSymbol #'line-positions = #'(-4 -2 -0.2 0 0.2 2 4)
+  d'4 e' f' g'
+}
+
+</pre><p>
+ <a href="../41/lily-3b553338.ly">
+  <img align="middle"
+       border="0"
+       src="../41/lily-3b553338.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="measure-counter.ly"></a>
+<hr size="6">
+<a name="Making-some-staff-lines-thicker-than-the-others"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Making-some-staff-lines-thicker-than-the-others" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Making some staff lines thicker than the others&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Mensurstriche-layout-_0028bar-lines-between-the-staves_0029" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Mensurstriche layout (bar lines between the staves) &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Measure counter</h2>
+
+
+<p>This snippet provides a workaround for emitting measure counters using
+transparent percent repeats. 
+</p>
+
+<pre class="verbatim">&lt;&lt;
+  \context Voice = &quot;foo&quot; {
+    \clef bass
+    c4 r g r
+    c4 r g r
+    c4 r g r
+    c4 r g r
+  }
+  \context Voice = &quot;foo&quot; {
+    \set countPercentRepeats = ##t
+    \override PercentRepeat #'transparent = ##t
+    \override PercentRepeatCounter #'staff-padding = #1
+    \repeat percent 4 { s1 }
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../6d/lily-d87bdf53.ly">
+  <img align="middle"
+       border="0"
+       src="../6d/lily-d87bdf53.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="mensurstriche-layout-bar-lines-between-the-staves.ly"></a>
+<hr size="6">
+<a name="Mensurstriche-layout-_0028bar-lines-between-the-staves_0029"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Making-some-staff-lines-thicker-than-the-others" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Modern-TAB-text-clef" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Modern TAB text clef &gt; </a>]</td></tr></table>
+<a name="Mensurstriche-layout-_0028bar-lines-between-the-staves_0029"></a>
+<h2 class="unnumberedsec">Mensurstriche layout (bar lines between the staves)</h2>
+
+
+<p>The mensurstriche-layout where the bar lines do not show on the staves
+but between staves can be achieved with a <code>StaffGroup</code> instead of
+a <code>ChoirStaff</code>.  The bar line on staves is blanked out by setting
+the <code>transparent</code> property.
+</p>
+
+<pre class="verbatim">global = {
+  \override Staff.BarLine #'transparent = ##t
+  s1 s
+  % the final bar line is not interrupted
+  \revert Staff.BarLine #'transparent
+  \bar &quot;|.&quot;
+}
+\new StaffGroup \relative c'' {
+  &lt;&lt;
+    \new Staff { &lt;&lt; \global { c1 c } &gt;&gt; }
+    \new Staff { &lt;&lt; \global { c c } &gt;&gt; }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../2b/lily-269072f3.ly">
+  <img align="middle"
+       border="0"
+       src="../2b/lily-269072f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="modern-tab-text-clef.ly"></a>
+<hr size="6">
+<a name="Modern-TAB-text-clef"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Mensurstriche-layout-_0028bar-lines-between-the-staves_0029" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Mensurstriche layout (bar lines between the staves)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Nesting-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Nesting staves &gt; </a>]</td></tr></table>
+<a name="Modern-TAB-text-clef"></a>
+<h2 class="unnumberedsec">Modern TAB text clef</h2>
+
+
+<p>Use a markup text to replace the (TAB) clef glyph with a modern font.
+</p>
+
+<pre class="verbatim">TAB = \markup {
+  \raise #1.5
+  \sans
+  \bold
+  \huge
+  \override #'(baseline-skip . 2.5)
+  \left-align
+  \center-column {
+    T
+    A
+    B
+  }
+}
+
+\new TabStaff {
+  \override Staff.Clef #'stencil = #(lambda (grob)
+    (grob-interpret-markup grob TAB))
+  a
+}
+</pre><p>
+ <a href="../0d/lily-6ac4c4f9.ly">
+  <img align="middle"
+       border="0"
+       src="../0d/lily-6ac4c4f9.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="nesting-staves.ly"></a>
+<hr size="6">
+<a name="Nesting-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Modern-TAB-text-clef" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Modern TAB text clef&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Nesting-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Nesting-staves"></a>
+<h2 class="unnumberedsec">Nesting staves</h2>
+
+
+<p>The property <code>systemStartDelimiterHierarchy</code> can be used to make
+more complex nested staff groups. The command <code>\set
+StaffGroup.systemStartDelimiterHierarchy</code> takes an alphabetical list of
+the number of staves produced. Before each staff a system start
+delimiter can be given. It has to be enclosed in brackets and takes as
+much staves as the brackets enclose. Elements in the list can be
+omitted, but the first bracket takes always the complete number of
+staves. The possibilities are <code>SystemStartBar</code>,
+<code>SystemStartBracket</code>, <code>SystemStartBrace</code>, and
+<code>SystemStartSquare</code>.
+</p>
+
+<pre class="verbatim">\new StaffGroup
+\relative c'' &lt;&lt;
+  \set StaffGroup.systemStartDelimiterHierarchy
+    = #'(SystemStartSquare (SystemStartBrace (SystemStartBracket a
+                             (SystemStartSquare b)  ) c ) d)
+  \new Staff { c1 }
+  \new Staff { c1 }
+  \new Staff { c1 }
+  \new Staff { c1 }
+  \new Staff { c1 }
+&gt;&gt;
+
+</pre><p>
+ <a href="../bb/lily-f30de31d.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-f30de31d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="non-traditional-key-signatures.ly"></a>
+<hr size="6">
+<a name="Nesting-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Nesting-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Nesting staves&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Nesting-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Non-traditional key signatures</h2>
+
+
+<p>The commonly used <code>\key</code> command sets the <code>keySignature</code>
+property, in the <code>Staff</code> context.
+</p>
+<p>To create non-standard key signatures, set this property directly. The
+format of this command is a list:
+</p>
+<p><code> \set Staff.keySignature = #`(((octave . step) . alter) ((octave
+. step) . alter) ...) </code> where, for each element in the list,
+<code>octave</code> specifies the octave (0 being the octave from middle C to
+the B above), <code>step</code> specifies the note within the octave (0 means
+C and 6 means B), and <code>alter</code> is <code>,SHARP ,FLAT ,DOUBLE-SHARP</code>
+etc. (Note the leading comma.) The accidentals in the key signature
+will appear in the reverse order to that in which they are specified.
+</p>
+
+<p>Alternatively, for each item in the list, using the more concise format
+<code>(step . alter)</code> specifies that the same alteration should hold in
+all octaves.
+</p>
+
+<p>For microtonal scales where a &quot;sharp&quot; is not 100 cents, <code>alter</code>
+refers to the alteration as a proportion of a 200-cent whole tone.
+</p>
+
+<p>Here is an example of a possible key signature for generating a
+whole-tone scale: 
+</p>
+
+<pre class="verbatim">\relative c' {
+  \set Staff.keySignature = #`(((0 . 3) . ,SHARP)
+                               ((0 . 5) . ,FLAT)
+                               ((0 . 6) . ,FLAT))
+  c4 d e fis
+  aes4 bes c2
+}
+</pre><p>
+ <a href="../16/lily-01f358a1.ly">
+  <img align="middle"
+       border="0"
+       src="../16/lily-01f358a1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-metronome-and-rehearsal-marks-below-the-staff.ly"></a>
+<hr size="6">
+<a name="Nesting-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Nesting-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Nesting-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Printing metronome and rehearsal marks below the staff</h2>
+
+
+<p>By default, metronome and rehearsal marks are printed above the staff. 
+To place them below the staff simply set the <code>direction</code> property
+of <code>MetronomeMark</code> or <code>RehearsalMark</code> appropriately.
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##f }
+
+{
+  % Metronome marks below the staff 
+  \override Score.MetronomeMark #'direction = #DOWN
+  \tempo 8. = 120
+  c''1
+
+  % Rehearsal marks below the staff
+  \override Score.RehearsalMark #'direction = #DOWN
+  \mark \default
+  c''1
+}
+
+</pre><p>
+ <a href="../c6/lily-d7c7a792.ly">
+  <img align="middle"
+       border="0"
+       src="../c6/lily-d7c7a792.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="quoting-another-voice-with-transposition.ly"></a>
+<hr size="6">
+<a name="Nesting-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Nesting-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Quoting-another-voice" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Quoting another voice &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Quoting another voice with transposition</h2>
+
+
+<p>Quotations take into account the transposition of both source and
+target.  In this example, all instruments play sounding middle C; the
+target is an instrument in F.  The target part may be transposed using
+<code>\transpose</code>.  In this case, all the pitches (including the
+quoted ones) are transposed.
+</p>
+
+<pre class="verbatim">\addQuote clarinet {
+  \transposition bes
+  \repeat unfold 8 { d'16 d' d'8 }
+}
+
+\addQuote sax {
+  \transposition es'
+  \repeat unfold 16 { a8 }
+}
+
+quoteTest = {
+  % french horn
+  \transposition f
+  g'4
+  &lt;&lt; \quoteDuring #&quot;clarinet&quot; { \skip 4 } s4^&quot;clar.&quot; &gt;&gt;
+  &lt;&lt; \quoteDuring #&quot;sax&quot; { \skip 4 } s4^&quot;sax.&quot; &gt;&gt;
+  g'4
+}
+
+{
+  \set Staff.instrumentName =
+    \markup {
+      \center-column { Horn \line { in F } }
+    }
+  \quoteTest
+  \transpose c' d' &lt;&lt; \quoteTest s4_&quot;up a tone&quot; &gt;&gt;
+}
+</pre><p>
+ <a href="../57/lily-f73ccb24.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-f73ccb24.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="quoting-another-voice.ly"></a>
+<hr size="6">
+<a name="Quoting-another-voice"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Nesting-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Removing-the-first-empty-line" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Removing the first empty line &gt; </a>]</td></tr></table>
+<a name="Quoting-another-voice"></a>
+<h2 class="unnumberedsec">Quoting another voice</h2>
+
+
+<p>The <code>quotedEventTypes</code> property determines the music event types
+that are quoted.  The default value is <code>(note-event rest-event)</code>,
+which means that only notes and rests of the quoted voice appear in the
+<code>\quoteDuring</code> expression. In the following example, a 16th rest
+is not quoted since <code>rest-event</code> is not in
+<code>quotedEventTypes</code>. 
+</p>
+
+<pre class="verbatim">quoteMe = \relative c' {
+  fis4 r16 a8.-&gt; b4\ff c
+}
+\addQuote quoteMe \quoteMe
+
+original = \relative c'' {
+  c8 d s2
+  \once \override NoteColumn #'ignore-collision = ##t
+  es8 gis8
+}
+
+&lt;&lt;
+  \new Staff {
+    \set Staff.instrumentName = #&quot;quoteMe&quot;
+    \quoteMe
+  }
+  \new Staff {
+    \set Staff.instrumentName = #&quot;orig&quot;
+    \original
+  }
+  \new Staff \relative c'' &lt;&lt;
+    \set Staff.instrumentName = #&quot;orig+quote&quot;
+    \set Staff.quotedEventTypes =
+      #'(note-event articulation-event)
+    \original
+    \new Voice {
+      s4
+      \set fontSize = #-4
+      \override Stem #'length-fraction = #(magstep -4)
+      \quoteDuring #&quot;quoteMe&quot; { \skip 2. }
+    }
+  &gt;&gt;
+&gt;&gt;
+</pre><p>
+ <a href="../24/lily-e136c315.ly">
+  <img align="middle"
+       border="0"
+       src="../24/lily-e136c315.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="removing-the-first-empty-line.ly"></a>
+<hr size="6">
+<a name="Removing-the-first-empty-line"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Quoting-another-voice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Quoting another voice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Tick-bar-lines" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Tick bar lines &gt; </a>]</td></tr></table>
+<a name="Removing-the-first-empty-line"></a>
+<h2 class="unnumberedsec">Removing the first empty line</h2>
+
+
+<p>The first empty staff can also be removed from the score by setting the
+<code>VerticalAxisGroup</code> property <code>remove-first</code>. This can be done
+globally inside the <code>\layout</code> block, or locally inside the
+specific staff that should be removed.  In the latter case, you have to
+specify the context (<code>Staff</code> applies only to the current staff) in
+front of the property.
+</p>
+<p>The lower staff of the second staff group is not removed, because the
+setting applies only to the specific staff inside of which it is
+written. 
+</p>
+
+<pre class="verbatim">\layout {
+  \context { 
+    \RemoveEmptyStaffContext 
+    % To use the setting globally, uncomment the following line:
+    % \override VerticalAxisGroup #'remove-first = ##t
+  }
+}
+\new StaffGroup &lt;&lt;
+  \new Staff \relative c' {
+    e4 f g a \break
+    c1
+  }
+  \new Staff {
+    % To use the setting globally, comment this line,
+    % uncomment the line in the \layout block above
+    \override Staff.VerticalAxisGroup #'remove-first = ##t
+    R1 \break
+    R
+  }
+&gt;&gt;
+\new StaffGroup &lt;&lt;
+  \new Staff \relative c' {
+    e4 f g a \break
+    c1
+  }
+  \new Staff {
+    R1 \break
+    R
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../98/lily-a844f544.ly">
+  <img align="middle"
+       border="0"
+       src="../98/lily-a844f544.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="tick-bar-lines.ly"></a>
+<hr size="6">
+<a name="Tick-bar-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Removing-the-first-empty-line" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Removing the first empty line&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Time-signature-in-parentheses" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Time signature in parentheses &gt; </a>]</td></tr></table>
+<a name="Tick-bar-lines"></a>
+<h2 class="unnumberedsec">Tick bar lines</h2>
+
+
+<p>&rsquo;Tick&rsquo; bar lines are often used in music where the bar line is used
+only for coordination and is not meant to imply any rhythmic stress.
+</p>
+
+<pre class="verbatim">\relative c' {
+  \set Score.defaultBarType = #&quot;'&quot;
+  c4 d e f
+  g4 f e d
+  c4 d e f
+  g4 f e d
+  \bar &quot;|.&quot;
+}
+</pre><p>
+ <a href="../34/lily-dc6700c4.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-dc6700c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="time-signature-in-parentheses.ly"></a>
+<hr size="6">
+<a name="Time-signature-in-parentheses"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Tick-bar-lines" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Tick bar lines&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Time-signature-in-parentheses" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Time-signature-in-parentheses"></a>
+<h2 class="unnumberedsec">Time signature in parentheses</h2>
+
+
+<p>The time signature can be enclosed within parentheses.
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \override Staff.TimeSignature #'stencil = #(lambda (grob)
+    (bracketify-stencil (ly:time-signature::print grob) Y 0.1 0.2 0.1))
+  \time 2/4
+  a4 b8 c
+}
+
+</pre><p>
+ <a href="../b7/lily-d877efef.ly">
+  <img align="middle"
+       border="0"
+       src="../b7/lily-d877efef.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="tweaking-clef-properties.ly"></a>
+<hr size="6">
+<a name="Time-signature-in-parentheses"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Time-signature-in-parentheses" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Time signature in parentheses&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Use square bracket at the start of a staff group &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Tweaking clef properties</h2>
+
+
+<p>The command <code>\clef &quot;treble_8&quot;</code> is equivalent to setting
+<code>clefGlyph</code>, <code>clefPosition</code> (which controls the vertical
+position of the clef), <code>middleCPosition</code> and
+<code>clefOctavation</code>. A clef is printed when any of the properties
+except <code>middleCPosition</code> are changed.
+</p>
+
+<p>Note that changing the glyph, the position of the clef, or the
+octavation does not in itself change the position of subsequent notes
+on the staff: the position of middle C must also be specified to do
+this. The positional parameters are relative to the staff center line,
+positive numbers displacing upwards, counting one for each line and
+space. The <code>clefOctavation</code> value would normally be set to 7, -7,
+15 or -15, but other values are valid.
+</p>
+
+<p>When a clef change takes place at a line break the new clef symbol is
+printed at both the end of the previous line and the beginning of the
+new line by default. If the warning clef at the end of the previous
+line is not required it can be suppressed by setting the <code>Staff</code>
+property <code>explicitClefVisibility</code> to the value
+<code>end-of-line-invisible</code>. The default behavior can be recovered
+with  <code>\unset Staff.explicitClefVisibility</code>.
+</p>
+<p>The following examples show the possibilities when setting these
+properties manually. On the first line, the manual changes preserve the
+standard relative positioning of clefs and notes, whereas on the second
+line, they do not. 
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##t }
+
+{
+  % The default treble clef
+  c'1
+  % The standard bass clef
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  \set Staff.middleCPosition = #6
+  c'1
+  % The baritone clef
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  \set Staff.clefPosition = #4
+  \set Staff.middleCPosition = #4
+  c'1
+  % The standard choral tenor clef
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  \set Staff.clefPosition = #-2
+  \set Staff.clefOctavation = #-7
+  \set Staff.middleCPosition = #1
+  c'1
+  % A non-standard clef
+  \set Staff.clefPosition = #0
+  \set Staff.clefOctavation = #0
+  \set Staff.middleCPosition = #-4
+  c'1 \break
+
+  % The following clef changes do not preserve
+  % the normal relationship between notes and clefs:
+
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  c'1
+  \set Staff.clefOctavation = #7
+  c'1
+  \set Staff.clefOctavation = #0
+  \set Staff.clefPosition = #0
+  c'1
+  
+  % Return to the normal clef:
+
+  \set Staff.middleCPosition = #0
+  c'1
+}
+
+</pre><p>
+ <a href="../0b/lily-b3c92d4b.ly">
+  <img align="middle"
+       border="0"
+       src="../0b/lily-b3c92d4b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="use-square-bracket-at-the-start-of-a-staff-group.ly"></a>
+<hr size="6">
+<a name="Use-square-bracket-at-the-start-of-a-staff-group"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Time-signature-in-parentheses" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Use-square-bracket-at-the-start-of-a-staff-group"></a>
+<h2 class="unnumberedsec">Use square bracket at the start of a staff group</h2>
+
+
+<p>The system start delimiter <code>SystemStartSquare</code> can be used by
+setting it explicitly in a <code>StaffGroup</code> or <code>ChoirStaffGroup</code>
+context. 
+</p>
+
+<pre class="verbatim">\score {
+  \new StaffGroup { &lt;&lt; 
+  \set StaffGroup.systemStartDelimiter = #'SystemStartSquare
+    \new Staff { c'4 d' e' f' }
+    \new Staff { c'4 d' e' f' }
+  &gt;&gt; }
+}
+
+</pre><p>
+ <a href="../bc/lily-1e783df1.ly">
+  <img align="middle"
+       border="0"
+       src="../bc/lily-1e783df1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-below-chords.ly"></a>
+<hr size="6">
+<a name="Use-square-bracket-at-the-start-of-a-staff-group"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Use square bracket at the start of a staff group&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Volta below chords</h2>
+
+
+<p>By adding the <code>Volta_engraver</code> to the relevant staff, volte can be
+put under chords.
+</p>
+
+<pre class="verbatim">\score {
+  &lt;&lt;
+    \chords {
+      c1
+      c1
+    }
+    \new Staff \with {
+      \consists &quot;Volta_engraver&quot;
+    }
+    {
+      \repeat volta 2 { c'1 }
+      \alternative { c' }
+    }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      \remove &quot;Volta_engraver&quot;
+    }
+  }
+}
+</pre><p>
+ <a href="../ea/lily-e9f422dd.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-e9f422dd.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-multi-staff.ly"></a>
+<hr size="6">
+<a name="Use-square-bracket-at-the-start-of-a-staff-group"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Editorial annotations &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Volta multi staff</h2>
+
+
+<p>By adding the <code>Volta_engraver</code> to the relevant staff, volte can be
+put over staves other than the topmost one in a score.
+</p>
+
+<pre class="verbatim">voltaMusic = \relative c'' {
+  \repeat volta 2 {
+    c1
+  }
+  \alternative {
+    d1
+    e
+  }
+}
+
+&lt;&lt;
+  \new StaffGroup &lt;&lt;
+    \new Staff \voltaMusic
+    \new Staff \voltaMusic
+  &gt;&gt;
+  \new StaffGroup &lt;&lt;
+    \new Staff \with { \consists &quot;Volta_engraver&quot; }
+      \voltaMusic
+    \new Staff \voltaMusic
+  &gt;&gt;
+&gt;&gt;
+</pre><p>
+ <a href="../ab/lily-444c1eb1.ly">
+  <img align="middle"
+       border="0"
+       src="../ab/lily-444c1eb1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Staff-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Staff notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next chapter">&nbsp;Editorial annotations &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Use-square-bracket-at-the-start-of-a-staff-group" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Staff-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Staff notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Editorial-annotations.html#Editorial-annotations" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Editorial annotations &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li class="toc_current"><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Adding-ambitus-per-voice-2" href="Staff-notation.html#Staff-notation">Adding ambitus per voice</a>    </li>
+    <li><a name="toc-Adding-an-extra-staff-at-a-line-break-1" href="Staff-notation.html#Adding-an-extra-staff-at-a-line-break">Adding an extra staff at a line break</a>    </li>
+    <li><a name="toc-Adding-an-extra-staff-2" href="Staff-notation.html#Adding-an-extra-staff">Adding an extra staff</a>    </li>
+    <li><a name="toc-Changing-the-number-of-lines-in-a-staff-1" href="Staff-notation.html#Changing-the-number-of-lines-in-a-staff">Changing the number of lines in a staff</a>    </li>
+    <li><a name="toc-Changing-the-staff-size-2" href="Staff-notation.html#Changing-the-staff-size">Changing the staff size</a>    </li>
+    <li><a name="toc-Changing-the-tempo-without-a-metronome-mark-1" href="Staff-notation.html#Changing-the-tempo-without-a-metronome-mark">Changing the tempo without a metronome mark</a>    </li>
+    <li><a name="toc-Creating-blank-staves-2" href="Staff-notation.html#Creating-blank-staves">Creating blank staves</a>    </li>
+    <li><a name="toc-Creating-metronome-marks-in-markup-mode-1" href="Staff-notation.html#Creating-metronome-marks-in-markup-mode">Creating metronome marks in markup mode</a>    </li>
+    <li><a name="toc-Display-bracket-with-only-one-staff-in-a-system-2" href="Staff-notation.html#Display-bracket-with-only-one-staff-in-a-system">Display bracket with only one staff in a system</a>    </li>
+    <li><a name="toc-Incipit-2" href="Staff-notation.html#Incipit">Incipit</a>    </li>
+    <li><a name="toc-Inserting-score-fragments-above-a-staff_002c-as-markups" href="Staff-notation.html#Inserting-score-fragments-above-a-staff">Inserting score fragments above a staff, as markups</a>    </li>
+    <li><a name="toc-Letter-tablature-formatting-2" href="Staff-notation.html#Letter-tablature-formatting">Letter tablature formatting</a>    </li>
+    <li><a name="toc-Making-some-staff-lines-thicker-than-the-others-1" href="Staff-notation.html#Making-some-staff-lines-thicker-than-the-others">Making some staff lines thicker than the others</a>    </li>
+    <li><a name="toc-Measure-counter-2" href="Staff-notation.html#Making-some-staff-lines-thicker-than-the-others">Measure counter</a>    </li>
+    <li><a name="toc-Mensurstriche-layout-_0028bar-lines-between-the-staves_0029-2" href="Staff-notation.html#Mensurstriche-layout-_0028bar-lines-between-the-staves_0029">Mensurstriche layout (bar lines between the staves)</a>    </li>
+    <li><a name="toc-Modern-TAB-text-clef-1" href="Staff-notation.html#Modern-TAB-text-clef">Modern TAB text clef</a>    </li>
+    <li><a name="toc-Nesting-staves-3" href="Staff-notation.html#Nesting-staves">Nesting staves</a>    </li>
+    <li><a name="toc-Non_002dtraditional-key-signatures-2" href="Staff-notation.html#Nesting-staves">Non-traditional key signatures</a>    </li>
+    <li><a name="toc-Printing-metronome-and-rehearsal-marks-below-the-staff-4" href="Staff-notation.html#Nesting-staves">Printing metronome and rehearsal marks below the staff</a>    </li>
+    <li><a name="toc-Quoting-another-voice-with-transposition-2" href="Staff-notation.html#Nesting-staves">Quoting another voice with transposition</a>    </li>
+    <li><a name="toc-Quoting-another-voice-1" href="Staff-notation.html#Quoting-another-voice">Quoting another voice</a>    </li>
+    <li><a name="toc-Removing-the-first-empty-line-1" href="Staff-notation.html#Removing-the-first-empty-line">Removing the first empty line</a>    </li>
+    <li><a name="toc-Tick-bar-lines-1" href="Staff-notation.html#Tick-bar-lines">Tick bar lines</a>    </li>
+    <li><a name="toc-Time-signature-in-parentheses-1" href="Staff-notation.html#Time-signature-in-parentheses">Time signature in parentheses</a>    </li>
+    <li><a name="toc-Tweaking-clef-properties-1" href="Staff-notation.html#Time-signature-in-parentheses">Tweaking clef properties</a>    </li>
+    <li><a name="toc-Use-square-bracket-at-the-start-of-a-staff-group-2" href="Staff-notation.html#Use-square-bracket-at-the-start-of-a-staff-group">Use square bracket at the start of a staff group</a>    </li>
+    <li><a name="toc-Volta-below-chords-3" href="Staff-notation.html#Use-square-bracket-at-the-start-of-a-staff-group">Volta below chords</a>    </li>
+    <li><a name="toc-Volta-multi-staff-2" href="Staff-notation.html#Use-square-bracket-at-the-start-of-a-staff-group">Volta multi staff</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.6.3 Écriture de parties séparées</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.6.3 Writing parts">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.6.3 Writing parts">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Staff-notation.fr.html#Staff-notation" rel="up" title="1.6 Staff notation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Modifying-single-staves.fr.html#Modifying-single-staves" rel="previous" title="1.6.2 Modifying single staves">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Writing-parts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Modifying-single-staves.fr.html#Hiding-staves" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Masquage de portées&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Staff-notation.fr.html#Staff-notation" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Notation sur la portée&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Metronome-marks" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Indications métronomiques &gt; </a>]</td></tr></table>
+<a name="Writing-parts"></a>
+<h3 class="subsection">1.6.3 Écriture de parties séparées</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Metronome-marks" accesskey="1">Indications métronomiques</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Instrument-names" accesskey="2">Noms d&rsquo;instrument</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">            
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Quoting-other-voices" accesskey="3">Citation d&rsquo;autres voix</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">        
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Formatting-cue-notes" accesskey="4">Mise en forme d&rsquo;une citation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">        
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Metronome-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Writing-parts" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-parts" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Instrument-names" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Noms d&rsquo;instrument &gt; </a>]</td></tr></table>
+<a name="Metronome-marks"></a>
+<h4 class="unnumberedsubsubsec">Indications métronomiques</h4>
+
+<a name="index-Tempo"></a>
+<a name="index-battements-par-minute"></a>
+<a name="index-indication-metronomique"></a>
+
+<p>Le métronome se règle de la manière suivante,
+</p><blockquote><pre class="example">\tempo <var>durée</var> = <var>par minute</var>
+</pre></blockquote>
+
+<p>Les indications métronomiques seront interprétées, dans le fichier
+MIDI, comme des changements de tempo.  Ils seront imprimés sur la
+partition comme ici&nbsp;:
+<a name="index-_005ctempo"></a>
+<a name="index-_005ctempo-1"></a>
+</p><blockquote><pre class="verbatim">\tempo 8.=120 c''1
+</pre><p>
+ <a href="../c0/lily-65382070.ly">
+  <img align="middle"
+       border="0"
+       src="../c0/lily-65382070.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Commonly-tweaked-properties-9"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<p>Vous pouvez indiquer un changement de tempo pour le fichier MIDI sans
+pour autant l&rsquo;imprimer.  Il suffit alors de le rendre invisible pour
+l&rsquo;impression&nbsp;:
+</p><blockquote><pre class="example">\once \override Score.MetronomeMark #'transparent = ##t
+</pre></blockquote>
+
+<p>Vous pouvez imprimer d&rsquo;autres indications métronomiques, telles que
+des équivalences, en utilisant ce type d&rsquo;étiquette textuelle&nbsp;:
+</p><blockquote><pre class="verbatim">c4^\markup {
+  (
+  \smaller \general-align #Y #DOWN \note #&quot;16.&quot; #1
+  =
+  \smaller \general-align #Y #DOWN \note #&quot;8&quot; #1
+  ) }
+</pre><p>
+ <a href="../bd/lily-95368e4e.ly">
+  <img align="middle"
+       border="0"
+       src="../bd/lily-95368e4e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Pour plus de détails, voir <a href="Formatting-text.fr.html#Formatting-text">Mise en forme du texte</a>.
+</p>
+
+<a name="See-also-64"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-MetronomeMark"></a>
+<a href="../lilypond-internals/MetronomeMark.fr.html#MetronomeMark">MetronomeMark</a>.
+</p>
+
+<a name="Known-issues-and-warnings-17"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Les risques de collision ne sont pas vérifiés.  Dans le cas où il y
+aurait des notes au dessus de la portée ou d&rsquo;autres objets
+(articulations, liaisons, texte, etc), l&rsquo;indication métronomique peut
+venir en surimpression.  Augmentez alors le décalage de cette
+indication par rapport à la portée&nbsp;:
+</p>
+<blockquote><pre class="example">\override Score.MetronomeMark #'padding = #2.5
+</pre></blockquote>
+
+
+<hr size="6">
+<a name="Instrument-names"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Metronome-marks" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Indications métronomiques&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-parts" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Quoting-other-voices" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Citation d&rsquo;autres voix &gt; </a>]</td></tr></table>
+<a name="Instrument-names"></a>
+<h4 class="unnumberedsubsubsec">Noms d&rsquo;instrument</h4>
+
+<p>Dans un conducteur, les noms d&rsquo;instrument sont portés en regard de
+chacune des portées.
+</p>
+<p>Ce résultat s&rsquo;obtient en spécifiant
+<a name="index-Staff-6"></a>
+<a href="../lilypond-internals/Staff.fr.html#Staff">Staff</a>.<code>instrumentName</code> et
+<a name="index-Staff-7"></a>
+<a href="../lilypond-internals/Staff.fr.html#Staff">Staff</a>.<code>shortInstrumentName</code>, ou
+<a name="index-PianoStaff-3"></a>
+<a href="../lilypond-internals/PianoStaff.fr.html#PianoStaff">PianoStaff</a>.<code>instrumentName</code> et 
+<a name="index-PianoStaff-4"></a>
+<a href="../lilypond-internals/PianoStaff.fr.html#PianoStaff">PianoStaff</a>.<code>shortInstrumentName</code>.  L&rsquo;argument
+textuel apparaîtra avant le début de la portée.  La première ligne
+affichera <code>instrumentName</code>, et les suivantes
+<code>shortInstrumentName</code>. 
+</p>
+<blockquote><pre class="verbatim">\set Staff.instrumentName = #&quot;Ploink &quot;
+\set Staff.shortInstrumentName = #&quot;Plk &quot;
+c1
+\break
+c''
+</pre><p>
+ <a href="../4f/lily-dc231f57.ly">
+  <img align="middle"
+       border="0"
+       src="../4f/lily-dc231f57.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Le recours à la commande <code>\markup</code> permet de construire des noms
+d&rsquo;instruments particuliers, tels que
+</p>
+<blockquote><pre class="verbatim">\set Staff.instrumentName = \markup {
+  \column { &quot;Clarinetti&quot;
+            \line { &quot;in B&quot; \smaller \flat } } }
+c''1
+</pre><p>
+ <a href="../17/lily-498c366b.ly">
+  <img align="middle"
+       border="0"
+       src="../17/lily-498c366b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si vous centrez le nom d&rsquo;un instrument, il faudra le faire pour tous
+</p>
+<blockquote><pre class="verbatim">{ &lt;&lt;
+\new Staff {
+  \set Staff.instrumentName = \markup {
+    \center-column { &quot;Clarinetti&quot;
+      \line { &quot;in B&quot; \smaller \flat } } }
+  c''1
+}
+\new Staff {
+  \set Staff.instrumentName = \markup{ \center-align { Vibraphone }}
+  c''1
+}
+&gt;&gt;
+}
+</pre><p>
+ <a href="../65/lily-ed4fca8c.ly">
+  <img align="middle"
+       border="0"
+       src="../65/lily-ed4fca8c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Losque le nom d&rsquo;un instrument est relativement long, il est judicieux
+d&rsquo;augmenter le retrait &mdash; <code>indent</code> &mdash; au sein du bloc
+<code>\layout</code>. 
+</p>
+<p>Procédez comme suit pour centrer des noms d&rsquo;instruments tout en
+préservant un décalage par rapport à la portée&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\new StaffGroup \relative
+&lt;&lt;
+  \new Staff {
+    \set Staff.instrumentName = \markup { \hcenter-in #10 &quot;blabla&quot; }
+    c1 c1
+  }
+  \new Staff {
+    \set Staff.instrumentName = \markup { \hcenter-in #10 &quot;blo&quot; }
+    c1 c1
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../a8/lily-d9a999a8.ly">
+  <img align="middle"
+       border="0"
+       src="../a8/lily-d9a999a8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Des noms d&rsquo;instruments peuvent s&rsquo;utiliser dans d&rsquo;autres contextes, tels
+que <code>GrandStaff</code>, <code>ChoirStaff</code>, ou <code>StaffGroup</code>, à
+condition de leur affecter le graveur approprié&nbsp;:
+</p>
+<blockquote><pre class="example">\layout{
+  \context {\GrandStaff \consists &quot;Instrument_name_engraver&quot;}
+}
+</pre></blockquote>
+
+<p>Pour de plus amples informations sur la manière d&rsquo;activer ou
+désactiver un graveur, voir <a href="Modifying-context-plug_002dins.fr.html#Modifying-context-plug_002dins">Modification des greffons de contexte</a>.
+</p>
+<p>Vous pouvez changer d&rsquo;instrument en cours de morceau&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\set Staff.instrumentName = #&quot;First&quot;
+\set Staff.shortInstrumentName = #&quot;one&quot;
+c1 c c c \break
+c1 c c c \break
+\set Staff.instrumentName = #&quot;Second&quot;
+\set Staff.shortInstrumentName = #&quot;two&quot;
+c1 c c c \break
+c1 c c c \break
+</pre><p>
+ <a href="../f6/lily-190b541d.ly">
+  <img align="middle"
+       border="0"
+       src="../f6/lily-190b541d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-52"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-InstrumentName"></a>
+<a href="../lilypond-internals/InstrumentName.fr.html#InstrumentName">InstrumentName</a>.
+</p>
+
+<hr size="6">
+<a name="Quoting-other-voices"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Instrument-names" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Noms d&rsquo;instrument&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-parts" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Formatting-cue-notes" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Mise en forme d&rsquo;une citation &gt; </a>]</td></tr></table>
+<a name="Quoting-other-voices"></a>
+<h4 class="unnumberedsubsubsec">Citation d&rsquo;autres voix</h4>
+
+<a name="index-cues"></a>
+<a name="index-citation"></a>
+
+<p>Grâce aux citations de répliques, vous pouvez insérer directement dans une partie
+des fragments d&rsquo;une autre partie.  Avant qu&rsquo;une partie ne puisse être
+mentionnée ailleurs, elle doit être considérée comme reproductible.
+C&rsquo;est le but de la commande <code>\addQuote</code>.
+</p>
+<blockquote><pre class="example">\addQuote <var>nom</var> <var>musique</var>
+</pre></blockquote>
+
+
+<p>Ici, <var>nom</var> représente une chaîne d&rsquo;identification, et
+<var>musique</var> n&rsquo;importe quelle musique.  Voici un exemple de
+<code>\addQuote</code>&nbsp;:
+</p>
+<blockquote><pre class="example">\addQuote clarinet \relative c' {
+  f4 fis g gis
+}
+</pre></blockquote>
+
+<p>Vous devez placer cette commande au niveau le plus haut, c&rsquo;est à dire
+en dehors de tout bloc de musique.
+</p>
+<p>Après avoir fait appel à <code>\addquote</code>, la citation interviendra
+en utilisant <code>\quoteDuring</code> ou <code>\cueDuring</code>&nbsp;:
+</p>
+<blockquote><pre class="example">\quoteDuring #<var>nom</var> <var>musique</var>
+</pre></blockquote>
+
+<p>Au cours d&rsquo;une partie, des extraits de répliques peuvent être cités en
+utilisant la commande <code>\quoteDuring</code>.
+</p>
+<blockquote><pre class="example">\quoteDuring #&quot;clarinet&quot; { s2. }
+</pre></blockquote>
+
+<p>Cela citera trois noires (la durée de <code>s2.</code>) appartenant à la
+voix <code>clarinette</code> précédemment générée.
+</p>
+<p>Plus précisément, on s&rsquo;arrête à cet instant de la partie en cours
+d&rsquo;impression, et l&rsquo;on extrait les notes à ce même instant dans la voix
+citée &mdash; celle qui contient <code>\addQuote</code>.  C&rsquo;est la raison pour
+laquelle l&rsquo;argument de <code>\addQuote</code> doit englober toute la voix en
+question, y compris les éventuels silences à son début.
+</p>
+<p>Les citations tiennent compte des transpositions, aussi bien celle de
+l&rsquo;instrument d&rsquo;origine que celle de la partie où elle intervient, dans
+la mesure où elles sont spécifiées par la commande <code>\transposition</code>.
+</p>
+<blockquote><pre class="verbatim">\addQuote clarinet \relative c' {
+  \transposition bes
+  f4 fis g gis
+}
+
+{
+  e'8 f'8 \quoteDuring #&quot;clarinet&quot; { s2 }
+}
+</pre><p>
+ <a href="../61/lily-58dc946e.ly">
+  <img align="middle"
+       border="0"
+       src="../61/lily-58dc946e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Le type d&rsquo;événements pris en charge pour la citation peut se régler
+avec la propriété <code>quotedEventTypes</code>.  Par défaut, sa valeur est
+fixée à <code>(note-event rest-event)</code>, ce qui signifie que seuls les
+notes et silences seront mentionnés par <code>\quoteDuring</code>.
+Définir
+</p>
+<blockquote><pre class="example">\set Staff.quotedEventTypes =
+       #'(note-event articulation-event dynamic-event)
+</pre></blockquote>
+
+<p>reproduira les notes (mais pas les silences), ainsi que les scripts
+et nuances.
+</p>
+<a name="Known-issues-and-warnings-35"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Seul le contenu de la première <a name="index-Voice-8"></a>
+<a href="../lilypond-internals/Voice.fr.html#Voice">Voice</a> rencontrée dans la
+partie marquée d&rsquo;une commande <code>\addQuote</code> pourra être retenu. Par
+voie de conséquence, <code>music</code> ne saurait comprendre de <code>\new</code>
+ou une instance <code>context Voice</code> qui la ferait passer à une autre voix.
+</p>
+<p>Citer des notes d&rsquo;ornement ne fonctionne pas, et peut même entraîner
+un blocage de LilyPond.
+</p>
+<p>Citer des triolets imbriqués peut entraîner un résultat de médiocre qualité.
+</p>
+
+<a name="See-also-22"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Dans ce manuel&nbsp;: <a href="Displaying-pitches.fr.html#Instrument-transpositions">Instruments transpositeurs</a>.
+</p>
+<p>Exemples&nbsp;: <a name="index-Staff-notation-2"></a>
+<a href="../../../input/lsr/lilypond-snippets/Staff-notation.html#Staff-notation">Notation sur la portée</a>.
+</p>
+<p>Référence du programme&nbsp;: <a name="index-QuoteMusic"></a>
+<a href="../lilypond-internals/QuoteMusic.fr.html#QuoteMusic">QuoteMusic</a>.
+</p>
+
+<hr size="6">
+<a name="Formatting-cue-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Quoting-other-voices" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Citation d&rsquo;autres voix&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-parts" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Editorial-annotations.fr.html#Editorial-annotations" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Notation éditoriale &gt; </a>]</td></tr></table>
+<a name="Formatting-cue-notes"></a>
+<h4 class="unnumberedsubsubsec">Mise en forme d&rsquo;une citation</h4>
+
+<a name="index-petites-notes_002c-formater-des"></a>
+
+<p>La section précédente indiquait comment insérer des notes d&rsquo;une autre
+voix.  Nous allons maintenant voir une fonction musicale avancée,
+<code>\cueDuring</code>, qui facilite le formatage des petites notes.
+</p>
+<p>Sa syntaxe est&nbsp;:
+</p>
+<blockquote><pre class="example">  \cueDuring #<var>nom</var> #<var>updown</var> <var>musique</var>
+</pre></blockquote>
+
+<p>Des notes issues de la partie <var>nom</var> s&rsquo;insèreront dans une
+<a name="index-Voice-9"></a>
+<a href="../lilypond-internals/Voice.fr.html#Voice">Voice</a> nommée <code>cue</code>, simultanément avec
+<var>musique</var> &mdash; habituellement un silence.  L&rsquo;apparition des petites
+notes initialise une polyphonie temporaire pour la portée concernée.  
+L&rsquo;argument <var>updown</var> détermine si ces petites notes seront
+attachées à la première ou à la seconde voix.
+</p>
+
+<pre class="verbatim">smaller = {
+  \set fontSize = #-2
+  \override Stem #'length-fraction = #0.8
+  \override Beam #'thickness = #0.384
+  \override Beam #'length-fraction = #0.8
+}
+
+\addQuote clarinet \relative {
+  R1*20
+  r2 r8 c' f f
+}
+
+\new Staff \relative  &lt;&lt;
+
+  % setup a context for cue notes.
+  \new Voice = &quot;cue&quot; { \smaller \skip 1*21 }
+
+  \set Score.skipBars = ##t
+
+  \new Voice {
+    R1*20
+    \cueDuring #&quot;clarinet&quot; #UP {
+      R1
+    }
+    g4 g2.
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../9b/lily-831e5089.ly">
+  <img align="middle"
+       border="0"
+       src="../9b/lily-831e5089.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<p>Quelques indications pour une citation efficace&nbsp;:
+</p>
+<ul>
+<li>
+ Les notes de la citation sont dans une police plus petite.
+</li><li>
+ La citation comporte une étiquette indiquant l&rsquo;instrument qui joue.
+</li><li>
+ Lorsque la partie originale reprend sa place, rappeler l&rsquo;instrument.
+
+
+
+
+<p>Tout autre modification introduite par la citation devrait être
+annulée.  Par exemple, si l&rsquo;instrument cité utilise une autre clé, il
+faudra revenir à la clé habituelle.
+</p>
+</li></ul>
+
+<p>La macro <code>\transposedCueDuring</code> est particulièrement adaptée pour
+des instrument ayant une tessiture éloignée, comme dans le cas d&rsquo;un
+piccolo cité dans une partie de contrebasson.
+</p>
+<blockquote><pre class="verbatim">picc = \relative c''' {
+  \clef &quot;treble^8&quot;
+  R1 |
+  c8 c c e g2 |
+  a4 g g2 |
+}
+\addQuote &quot;picc&quot; { \picc }
+
+cbsn = \relative c, {
+  \clef &quot;bass_8&quot;
+  c4 r g r
+  \transposedCueDuring #&quot;picc&quot; #UP c,, { R1 } |
+  c4 r g r |
+}
+
+&lt;&lt;
+  \context Staff = &quot;picc&quot; \picc
+  \context Staff = &quot;cbsn&quot; \cbsn
+&gt;&gt;
+</pre><p>
+ <a href="../39/lily-12a4e1da.ly">
+  <img align="middle"
+       border="0"
+       src="../39/lily-12a4e1da.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Quoting-other-voices" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Citation d&rsquo;autres voix&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-parts" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture de parties séparées&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Editorial-annotations.fr.html#Editorial-annotations" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Notation éditoriale &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Writing-parts.html">English</a>, <a href="Writing-parts.es.html">español</a>, <a href="Writing-parts.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li class="toc_current"><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>
+    <ul class="toc">
+      <li><a name="toc-Displaying-staves-1" href="Displaying-staves.fr.html#Displaying-staves">1.6.1 Gravure des portées</a>      </li>
+      <li><a name="toc-Modifying-single-staves-1" href="Modifying-single-staves.fr.html#Modifying-single-staves">1.6.2 Modification de portées individuelles</a>      </li>
+      <li class="toc_current"><a name="toc-Writing-parts-1" href="Writing-parts.fr.html#Writing-parts">1.6.3 Écriture de parties séparées</a>
+      <ul class="toc">
+        <li><a name="toc-Metronome-marks-1" href="Writing-parts.fr.html#Metronome-marks">Indications métronomiques</a>        </li>
+        <li><a name="toc-Instrument-names-1" href="Writing-parts.fr.html#Instrument-names">Noms d&rsquo;instrument</a>        </li>
+        <li><a name="toc-Quoting-other-voices-1" href="Writing-parts.fr.html#Quoting-other-voices">Citation d&rsquo;autres voix</a>        </li>
+        <li><a name="toc-Formatting-cue-notes-1" href="Writing-parts.fr.html#Formatting-cue-notes">Mise en forme d&rsquo;une citation</a>        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

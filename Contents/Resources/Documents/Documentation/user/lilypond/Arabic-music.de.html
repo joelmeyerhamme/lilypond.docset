@@ -1,0 +1,755 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 2.9.1 Arabische Musik</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 2.9.1 Arabic music">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 2.9.1 Arabic music">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="World-music.de.html#World-music" rel="up" title="2.9 World music">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="World-music.de.html#World-music" rel="previous" title="2.9 World music">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Arabic-music"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="World-music.de.html#World-music" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Weltmusik&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="World-music.de.html#World-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Weltmusik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#References-for-Arabic-music" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Referenz für arabische Musik &gt; </a>]</td></tr></table>
+<a name="Arabic-music"></a>
+<h3 class="subsection">2.9.1 Arabische Musik</h3>
+
+<p>Dieser Abschnitt zeigt Möglichkeiten, wie arabische Musik notiert
+werden kann.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#References-for-Arabic-music" accesskey="1">Referenz für arabische Musik</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Arabic-note-names" accesskey="2">Arabische Notenbezeichnungen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Arabic-key-signatures" accesskey="3">Arabische Tonarten</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Arabic-time-signatures" accesskey="4">Arabische Taktarten</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Arabic-music-example" accesskey="5">Arabische Notenbeispiele</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Further-reading" accesskey="6">Weitere Literatur</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="References-for-Arabic-music"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-music" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Musik&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-note-names" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Arabische Notenbezeichnungen &gt; </a>]</td></tr></table>
+<a name="References-for-Arabic-music"></a>
+<h4 class="unnumberedsubsubsec">Referenz für arabische Musik</h4>
+
+<a name="index-arabische-Musik"></a>
+<a name="index-Maqam"></a>
+
+<p>Arabische Musik wurde bisher vor allem mündlich tradiert.  Wenn
+Musik transkribiert wird, handelt es sich meistens um ein Gerüst,
+auf dem der Musiker eigene Improvisationen ausführt.  Mehr und mehr
+wird die westliche Notation mit einigen Veränderungen benutzt, um
+die arabische Musiktradition weiterzugeben und zu konservieren.
+</p>
+<p>Einige Elemente der westlichen Notation wie etwa die Transkription
+von Akkorden oder eigenständige Stimmen werden für die traditionelleren
+arabischen Noten nicht benötigt.  Es gibt allerdings einige andere
+Probleme, wie etwa die Notwendigkeit, Zwischenintervalle zu
+notieren, die sich irgendwo zwischen einem Halbton und einem
+Ganzton befinden.  Daneben werden auch die westlichen Halb- und
+Ganztöne eingesetzt.  Es muss auch möglich sein, eine große
+Anzahl an maqam (Modi) der arabischen Musik zu bezeichnen und zu
+gruppieren.
+</p>
+<p>Üblicherweise müssen Mikrotöne in der arabischen Musik nicht
+präzise notiert werden.
+</p>
+<p>Einige Bereiche, die für die arabische Notation wichtig sind, sind
+an anderer Stelle behandelt:
+</p>
+<ul>
+<li> Notenbezeichnungen und Versetzungszeichen (inklusive Vierteltöne)
+können angepasst werden, wie behandelt in
+<a href="Writing-pitches.de.html#Note-names-in-other-languages">Notenbezeichnungen in anderen Sprachen</a>.
+
+</li><li> Zusätzliche Taktarten können erstellt werden, siehe
+<a href="Displaying-pitches.de.html#Key-signature">Tonartbezeichnung</a>.
+
+</li><li> Komplexe Taktarten erfordern evtl., dass Noten manual gruppiert
+werden, wie gezeigt in
+<a href="Beams.de.html#Manual-beams">Manuelle Balken</a>.
+
+</li><li> <var>Takasim</var>, rhythmisch freie Improvisationen,
+können ohne Taktlinien notiert werden, siehe hierzu
+<a href="Displaying-rhythms.de.html#Unmetered-music">Musik ohne Metrum</a>.
+
+</li></ul>
+
+
+<a name="See-also-65"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Writing-pitches.de.html#Note-names-in-other-languages">Notenbezeichnungen in anderen Sprachen</a>,
+<a href="Displaying-pitches.de.html#Key-signature">Tonartbezeichnung</a>,
+<a href="Beams.de.html#Manual-beams">Manuelle Balken</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/World-music.html#World-music">Weltmusik</a>.
+</p>
+
+<hr size="6">
+<a name="Arabic-note-names"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#References-for-Arabic-music" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Referenz für arabische Musik&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-key-signatures" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Arabische Tonarten &gt; </a>]</td></tr></table>
+<a name="Arabic-note-names"></a>
+<h4 class="unnumberedsubsubsec">Arabische Notenbezeichnungen</h4>
+
+<a name="index-arabische-Notenbezeichnungen"></a>
+<a name="index-Notenbezeichnungen_002c-arabisch"></a>
+
+<p>An der arabischen Tradition orientierte Notenbezeichnungen können sehr
+land sein und eignen sich daher nicht gut für die Notation von Musik.
+Sie werden nicht benutzt.  Englische Notenbezeichnungen hingegen sind
+in der arabischen Musikerziehung recht unbekannt, weshalb italienische
+Notenbezeichnungen (<code>do, re, mi, fa, sol, la, si</code>) eingesetzt
+werden.  Modifikatoren (Versetzungszeichen) können auch benutzt werden,
+wie gezeigt in <a href="Writing-pitches.de.html#Note-names-in-other-languages">Notenbezeichnungen in anderen Sprachen</a>.
+</p>
+<p>Hier ein Beispiel der arabischen <var>rast</var>-Tonleiter:
+</p>
+<blockquote><pre class="verbatim">\include &quot;arabic.ly&quot;
+\relative do' {
+  do re misb fa sol la sisb do sisb la sol fa misb re do
+}
+</pre><p>
+ <a href="../a2/lily-9b06375f.ly">
+  <img align="middle"
+       border="0"
+       src="../a2/lily-9b06375f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-arabisches-Halb_002dB-Versetzungszeichen"></a>
+<a name="index-Halb_002dB_002dVersetzungszeichen_002c-arabische-Musik"></a>
+
+<p>Das Symbol für das Halb-B sieht anders aus als das Symbol, was
+üblicherweise in arabischer Notation benutzt wird.  Das
+<code>\dwn</code>-Symbol, das in der Datei <code>arabic.ly</code> definiert
+ist, kann als ein Workaround eingesetzt werden, wenn es notwendig
+ist, das arabische Symbol zu benutzen.  Das Aussehen des
+Halb-Bs in den Vorzeichen kann mit dieser methode nicht verändert
+werden.
+</p>
+<blockquote><pre class="verbatim">\include &quot;arabic.ly&quot;
+\relative do' {
+  \set Staff.extraNatural = ##f
+  dod dob dosd \dwn dob dobsb dodsd do do
+}
+</pre><p>
+ <a href="../8d/lily-6cc2ba07.ly">
+  <img align="middle"
+       border="0"
+       src="../8d/lily-6cc2ba07.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-142"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Writing-pitches.de.html#Note-names-in-other-languages">Notenbezeichnungen in anderen Sprachen</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/World-music.html#World-music">Weltmusik</a>.
+</p>
+
+
+<hr size="6">
+<a name="Arabic-key-signatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-note-names" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Notenbezeichnungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-time-signatures" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Arabische Taktarten &gt; </a>]</td></tr></table>
+<a name="Arabic-key-signatures"></a>
+<h4 class="unnumberedsubsubsec">Arabische Tonarten</h4>
+
+<a name="index-arabische-Tonarten"></a>
+<a name="index-arabische-Vorzeichen"></a>
+
+<p>Neben den westlichen Dur- und Moll-Tonarten sind folgende
+Tonarten in <code>arabic.ly</code> definiert: <var>bayati</var>,
+<var>rast</var>, <var>sikah</var>, <var>iraq</var> und
+<var>kurd</var>.  Diese Tonarten definieren eine kleine
+Gruppe von Maqams, die weitverbreitet sind.
+</p>
+<p>Ein Maqam kann die Tonart der Gruppe benutzen, zu der er gehört,
+oder die einer benachbarten Gruppe.  Zusätzlich können verschiedene
+Versetzungszeichen in den Noten markiert werden.
+</p>
+<p>Um also etwa die Tonart des Maqams &bdquo;muhayer&ldquo; folgendermaßen
+notiert:
+</p>
+<blockquote><pre class="example">\key re \bayati
+</pre></blockquote>
+
+<p><var>re</var> ist die Tonhöhe für den &bdquo;muhayer&ldquo;-Maqam und <var>bayati</var>
+ist die Bezeichnung des Basismaqams der Gruppe.
+</p>
+<p>Während die Vorzeichen eine Gruppe anzeigen, wird meistens der
+eigentliche Maqam im Titel definiert.  In diesem Beispiel müsste
+also der &bdquo;muhayer&ldquo;-Maqam im Titel erscheinen.
+</p>
+<p>Andere Maqams derselben Bayati-Gruppe, wie in der Tabelle unten
+gezeigt ((bayati, hussaini, saba und ushaq) können auf die gleiche
+Weise notiert werden.  Sie sind alle Variationen des
+Grundmaqams Bayati.  Sie unterscheiden sich üblicherweise vom
+grundlegenden Maqam in ihrem oberen Tetrachord oder in bestimmten
+Einzelheiten, die aber nicht ihre eigentliche Qualität verändern.
+</p>
+<p>Der andere Maqam der gleichen Gruppe (Nawa) ist mit bayati durch
+eine Modulation verwandt, deren Grundton in der Tabelle angezeigt
+wird, wenn es sich um einen Maqam handelt, der eine Modulation
+eines anderen Maqams darstellt.  Nawa kann folgenderweise
+notiert werden:
+</p>
+<blockquote><pre class="example">\key sol \bayati
+</pre></blockquote>
+
+<p>In der arabischen Musik ist ein Begriff wie bayati, der eine
+Maqam-Gruppe bezeichnet, gleichzeitig auch selber ein Maqam,
+meistens der häufigste dieser Gruppe.
+</p>
+<p>Hier ist eine Möglichkeit, Maqams zu gruppieren, womit die
+häufigsten Maqams bestimmten Vorzeichen zugeordnet werden:
+</p>
+<table>
+<thead><tr><th width="10%"><p> Maqam-Gruppe
+  </p></th><th width="10%"><p> Vorzeichen (<code>\key</code>)
+  </p></th><th width="10%"><p> Finalis
+  </p></th><th width="60%"><p> Andere Maqams der Gruppe (Finalis)
+</p></th></tr></thead>
+<tr><td width="10%"><p> ajam
+  </p></td><td width="10%"><p> major
+  </p></td><td width="10%"><p> sib
+  </p></td><td width="60%"><p> jaharka (fa)
+</p></td></tr>
+<tr><td width="10%"><p> bayati
+  </p></td><td width="10%"><p> bayati
+  </p></td><td width="10%"><p> re
+  </p></td><td width="60%"><p> hussaini, muhayer, saba, ushaq, nawa (sol)
+</p></td></tr>
+<tr><td width="10%"><p> hijaz
+  </p></td><td width="10%"><p> kurd
+  </p></td><td width="10%"><p> re
+  </p></td><td width="60%"><p> shahnaz, shad arban (sol), hijazkar (do)
+</p></td></tr>
+<tr><td width="10%"><p> iraq
+  </p></td><td width="10%"><p> iraq
+  </p></td><td width="10%"><p> sisb
+  </p></td><td width="60%"><p> -
+</p></td></tr>
+<tr><td width="10%"><p> kurd
+  </p></td><td width="10%"><p> kurd
+  </p></td><td width="10%"><p> re
+  </p></td><td width="60%"><p> hijazkar kurd (do)
+</p></td></tr>
+<tr><td width="10%"><p> nahawand
+  </p></td><td width="10%"><p> minor
+  </p></td><td width="10%"><p> do
+  </p></td><td width="60%"><p> busalik (re), farah faza (sol)
+</p></td></tr>
+<tr><td width="10%"><p> nakriz
+  </p></td><td width="10%"><p> minor
+  </p></td><td width="10%"><p> do
+  </p></td><td width="60%"><p> nawa athar, hisar (re)
+</p></td></tr>
+<tr><td width="10%"><p> rast
+  </p></td><td width="10%"><p> rast
+  </p></td><td width="10%"><p> do
+  </p></td><td width="60%"><p> mahur, yakah (sol)
+</p></td></tr>
+<tr><td width="10%"><p> sikah
+  </p></td><td width="10%"><p> sikah
+  </p></td><td width="10%"><p> misb
+  </p></td><td width="60%"><p> huzam
+</p></td></tr>
+</table>
+
+<a name="Selected-Snippets-10"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Untypische Tonarten</em>
+</p>
+
+<p>Der üblicherweise benutzte <code>\key</code>-Befehl setzt die
+<code>keySignature</code>-Eigenschaft im <code>Staff</code>-Kontext.
+</p>
+<p>Um untypische Tonartenvorzeichen zu erstellen, muss man diese Eigenschaft
+direkt setzen.  Das Format für den Befehl ist eine Liste: <code> \set
+Staff.keySignature = #`(((Oktave . Schritt) . Alteration) ((Oktave
+. Schritt) . Alteration) ...)</code> wobei für jedes Element in der Liste
+<code>Oktave</code> die Oktave angibt (0&nbsp;ist die Oktave vom
+eingestrichenen&nbsp;C bis zum eingestrichenen&nbsp;H), <code>Schritt</code> gibt
+die Note innerhalb der Oktave an (0&nbsp;heißt&nbsp;C und
+6&nbsp;heißt&nbsp;H), und <code>Alteration</code> ist <code>,SHARP ,FLAT
+,DOUBLE-SHARP</code> usw.  (Beachte das beginnende Komma.)
+</p>
+<p>Alternativ kann auch jedes Element der Liste mit dem allgemeineren Format
+<code>(Schritt . Alteration)</code> gesetzt werden, wobei dann die Einstellungen
+für alle Oktaven gelten.
+</p>
+<p>Hier ein Beispiel einer möglichen Tonart für eine Ganztonleiter:
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  \set Staff.keySignature = #`(((0 . 3) . ,SHARP)
+                               ((0 . 5) . ,FLAT)
+                               ((0 . 6) . ,FLAT))
+  c4 d e fis
+  aes4 bes c2
+}
+</pre><p>
+ <a href="../9b/lily-643a2443.ly">
+  <img align="middle"
+       border="0"
+       src="../9b/lily-643a2443.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-66"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Displaying-pitches.de.html#Key-signature">Tonartbezeichnung</a>.
+</p>
+<p>Handbuch zum Lernen:
+<a name="index-Accidentals-and-key-signatures-2"></a>
+<a href="../lilypond-learning/Accidentals-and-key-signatures.de.html#Accidentals-and-key-signatures">Versetzungszeichen und Tonartbezeichnung (Vorzeichen)</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-KeySignature-4"></a>
+<a href="../lilypond-internals/KeySignature.de.html#KeySignature">KeySignature</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/World-music.html#World-music">Weltmusik</a>,
+<a href="../../../input/lsr/lilypond-snippets/Pitches.html#Pitches">Tonhöhen</a>.
+</p>
+
+<hr size="6">
+<a name="Arabic-time-signatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-key-signatures" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Tonarten&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-music-example" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Arabische Notenbeispiele &gt; </a>]</td></tr></table>
+<a name="Arabic-time-signatures"></a>
+<h4 class="unnumberedsubsubsec">Arabische Taktarten</h4>
+
+<a name="index-Arabische-Taktarten"></a>
+<a name="index-Taktarten_002c-arabisch"></a>
+<a name="index-Semai_002dForm"></a>
+<a name="index-taqasim"></a>
+
+<p>Einige klassische Formen der arabischen und türkischen Musik
+wie etwa <var>Semai</var> haben ungewöhnliche Taktarten wie
+etwa 10/8.  Das kann dazu führen, dass die automatische
+Bebalkung der Noten nicht zu dem Ergebnis kommt, welches in
+der üblichen Notation dieser Musik eingesetzt wird.  Die Noten
+werden nicht anhand einer Taktzeit, sondern anhand von Kriterien
+gruppiert, die man schwer mit einer automatischen Balkenfunktion
+erfassen kann.  Das kann umgangen werden, indem die automatische
+Bebalkung ausgeschaltet wird und die Balken explizit gesetzt werden.
+Auch wenn es nicht darauf ankommen sollte, eine schon notierte
+Musik nachzuahmen, ist es in vielen Fällen dennoch erforderlich,
+die Bebalkung anzupassen und/oder zusammengesetzte Taktarten
+zu benutzen.
+</p>
+<a name="Selected-Snippets-27"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Zusammengesetzte Taktarten</em>
+</p>
+
+<p>Ungerade Taktarten werden (wie etwa &quot;5/8&quot;) werden oft als zusammengesetzte
+Taktarten interpretiert (bspw. &quot;3/8 + 2/8&quot;), in welchen zwei oder mehr
+Teiltakte unterschieden werden.  LilyPond kann derartige Noten produzieren,
+indem entsprechende Taktarten gesetzt werden und die automatische
+Bebalkung angepasst wird.
+</p>
+
+<blockquote><pre class="verbatim">#(define ((compound-time one two num) grob)
+  (grob-interpret-markup grob
+    (markup #:override '(baseline-skip . 0) #:number
+      (#:line (
+          (#:column (one num))
+          #:vcenter &quot;+&quot;
+          (#:column (two num)))))))
+
+\relative c' {
+  \override Staff.TimeSignature #'stencil = #(compound-time &quot;2&quot; &quot;3&quot; &quot;8&quot;)
+  \time 5/8
+  #(override-auto-beam-setting '(end 1 8 5 8) 1 4)
+  c8 d e fis gis
+  c8 fis, gis e d
+  c8 d e4 gis8
+}
+</pre><p>
+ <a href="../aa/lily-85a20455.ly">
+  <img align="middle"
+       border="0"
+       src="../aa/lily-85a20455.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Arabic improvisation</em>
+</p>
+
+<p>For improvisations or taqasim which are temporarily free, the time
+signature can be omitted and <code>\cadenzaOn</code> can be used.  Adjusting
+the accidental style might be required, since the absence of bar lines
+will cause the accidental to be marked only once.  Here is an example
+of what could be the start of a hijaz improvisation:
+</p>
+
+<blockquote><pre class="verbatim">\include &quot;arabic.ly&quot;
+
+\relative sol' {
+  \key re \kurd
+  #(set-accidental-style 'forget)
+  \cadenzaOn
+  sol4 sol sol sol fad mib sol1 fad8 mib re4. r8 mib1 fad sol
+}
+</pre><p>
+ <a href="../58/lily-b96b8bac.ly">
+  <img align="middle"
+       border="0"
+       src="../58/lily-b96b8bac.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-148"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Beams.de.html#Manual-beams">Manuelle Balken</a>,
+<a href="Beams.de.html#Automatic-beams">Automatische Balken</a>,
+<a href="Displaying-rhythms.de.html#Unmetered-music">Musik ohne Metrum</a>,
+<a href="Displaying-pitches.de.html#Automatic-accidentals">Automatische Versetzungszeichen</a>,
+<a href="Beams.de.html#Setting-automatic-beam-behavior">Einstellung von automatischen Balken</a>,
+<a href="Displaying-rhythms.de.html#Time-signature">Taktangabe</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/World-music.html#World-music">Weltmusik</a>.
+</p>
+
+<hr size="6">
+<a name="Arabic-music-example"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-time-signatures" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Taktarten&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Further-reading" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Weitere Literatur &gt; </a>]</td></tr></table>
+<a name="Arabic-music-example"></a>
+<h4 class="unnumberedsubsubsec">Arabische Notenbeispiele</h4>
+
+<a name="index-Beispiel-der-arabischen-Musik"></a>
+<a name="index-arabische-Musik_002c-Beispiel"></a>
+<a name="index-Vorlage_002c-arabische-Musik"></a>
+
+<p>Hier eine Vorlage, welche den Beginn eines türkischen Semai
+benutzt, der in der arabischen Musikerziehung oft herangezogen
+wird, um Besonderheiten der arabischen Musiknotation, wie
+etwa Zwischenintervalle und ungewöhnliche Modi, zu illustrieren.
+</p>
+<blockquote><pre class="verbatim">\include &quot;arabic.ly&quot;
+\score {
+  \relative re' {
+    \set Staff.extraNatural = ##f
+    \set Staff.autoBeaming = ##f
+    \key re \bayati
+    \time 10/8
+
+    re4 re'8 re16 [misb re do] sisb [la sisb do] re4 r8
+    re16 [misb do re] sisb [do] la [sisb sol8] la [sisb] do [re] misb
+    fa4 fa16 [misb] misb8. [re16] re8 [misb] re  [do] sisb
+    do4 sisb8 misb16 [re do sisb] la [do sisb la] la4 r8
+  }
+  \header {
+    title = &quot;Semai Muhayer&quot;
+    composer = &quot;Jamil Bek&quot;
+  }
+}
+</pre><p>
+ <a href="../0f/lily-e76f03c5.ly">
+  <img align="middle"
+       border="0"
+       src="../0f/lily-e76f03c5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-19"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/World-music.html#World-music">Weltmusik</a>
+</p>
+
+<hr size="6">
+<a name="Further-reading"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-music-example" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Notenbeispiele&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Allgemeine Eingabe und Ausgabe &gt; </a>]</td></tr></table>
+<a name="Further-reading"></a>
+<h4 class="unnumberedsubsubsec">Weitere Literatur</h4>
+
+<ol>
+<li>
+The Music of the Arabs von Habib Hassan Touma (Amadeus Press, 1996)
+enthält eine Beschreibung von Maqams und Methoden zu ihrer
+Gruppierung.
+
+<p>Es gibt auch einige Internetseiten, die Maqams erklären und
+teilweise auch Klangdateien zur Verfügung stellen:
+</p>
+<ul>
+<li>
+<a href="http://www.maqamworld.com/">http://www.maqamworld.com/</a>
+</li><li>
+<a href="http://www.turath.org/">http://www.turath.org/</a>
+</li></ul>
+
+<p>Die Maqam-Gruppierungen unterscheiden sich in einigen Details, auch
+wenn die allgemeinen Kriterien weithin anerkannt sind:
+gemeinsame untere Tetrachorde sowie Modulation.
+</p>
+</li><li>
+Es gibt keine Übereinstimmung darüber, wie die Vorzeichen für
+bestimmte Maqams angegeben werden sollen.  Oft wird eine
+Vorzeichenart für eine ganze Maqam-Gruppe verwendet, anstatt
+dass jeder Maqam eigene Vorzeichen hätte.
+
+<p>Oud-Lehrbücher folgender Autoren enthalten Beispiele vor
+allem türkischer und arabischer Kompositionen:
+</p>
+<ul>
+<li>
+Charbel Rouhana
+</li><li>
+George Farah
+</li><li>
+Ibrahim Ali Darwish Al-masri
+</li></ul>
+</li></ol>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Spezielle Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chstes Kapitel">&nbsp;Allgemeine Eingabe und Ausgabe &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-music-example" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Arabische Notenbeispiele&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Arabic-music" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Arabische Musik&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="General-input-and-output.de.html#General-input-and-output" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Allgemeine Eingabe und Ausgabe &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Arabic-music.html">English</a>, <a href="Arabic-music.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li class="toc_current"><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Arabic-music-1" href="Arabic-music.de.html#Arabic-music">2.9.1 Arabische Musik</a>
+      <ul class="toc">
+        <li><a name="toc-References-for-Arabic-music-1" href="Arabic-music.de.html#References-for-Arabic-music">Referenz für arabische Musik</a>        </li>
+        <li><a name="toc-Arabic-note-names-1" href="Arabic-music.de.html#Arabic-note-names">Arabische Notenbezeichnungen</a>        </li>
+        <li><a name="toc-Arabic-key-signatures-1" href="Arabic-music.de.html#Arabic-key-signatures">Arabische Tonarten</a>        </li>
+        <li><a name="toc-Arabic-time-signatures-1" href="Arabic-music.de.html#Arabic-time-signatures">Arabische Taktarten</a>        </li>
+        <li><a name="toc-Arabic-music-example-1" href="Arabic-music.de.html#Arabic-music-example">Arabische Notenbeispiele</a>        </li>
+        <li><a name="toc-Further-reading-1" href="Arabic-music.de.html#Further-reading">Weitere Literatur</a>        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

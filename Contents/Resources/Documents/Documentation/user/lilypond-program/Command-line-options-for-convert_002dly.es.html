@@ -1,0 +1,224 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond: manual de utilización del programa: 3.4.1 Opciones de la línea de órdenes para convert-ly</title>
+
+<meta name="description" content="GNU LilyPond: manual de utilización del programa: 3.4.1 Command line options for convert-ly">
+<meta name="keywords" content="GNU LilyPond: manual de utilización del programa: 3.4.1 Command line options for convert-ly">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de utilización del programa">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" rel="up" title="3.4 Updating files with convert-ly">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" rel="previous" title="3.4 Updating files with convert-ly">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Command-line-options-for-convert_002dly"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Running-LilyPond.es.html#Running-LilyPond" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Ejecutar LilyPond&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="LilyPond_002dbook.es.html#LilyPond_002dbook" title="Cap&iacute;tulo siguiente">&nbsp;LilyPond-book &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Actualizar ficheros con convert-ly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Actualizar ficheros con convert-ly&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Problems-with-convert_002dly.es.html#Problems-with-convert_002dly" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Problemas con convert-ly &gt; </a>]</td></tr></table>
+<a name="Command-line-options-for-convert_002dly"></a>
+<h3 class="subsection">3.4.1 Opciones de la línea de órdenes para <code>convert-ly</code></h3>
+
+<p><code>convert-ly</code> convierte siempre al últimmo cambio de sintaxis
+que puede manejar.  Eesto supone que el número de <code>\version</code> que
+aparece en el archivo convertido suele ser más bajo que la versión del
+propio programa <code>convert-ly</code>.
+</p>
+<p>Para actualizar fragmentos de LilyPond en archivos de texinfo, use
+</p>
+<blockquote><pre class="example">convert-ly --from=... --to=... --no-version *.itely
+</pre></blockquote>
+
+<p>Para ver los cambios en la sintaxis de LilyPond entre dos versiones,
+use
+</p>
+<blockquote><pre class="example">convert-ly --from=... --to=... -s
+</pre></blockquote>
+
+<p>Para actualizar muchos archivos de una vez, combine <code>convert-ly</code>
+con las instrucciones estándar de UNIX.  Este ejemplo actualiza todos
+los archivos <code>.ly</code> del directorio actual:
+</p>
+<blockquote><pre class="example">for f in *.ly; do convert-ly -e $f; done;
+</pre></blockquote>
+
+<p>En general, el programa se invoca de la manera siguiente:
+</p>
+<blockquote><pre class="example">convert-ly [<var>opción</var>]&hellip; <var>archivo</var>&hellip;
+</pre></blockquote>
+
+
+<p>Se pueden dar las siguientes opciones:
+</p>
+<dl compact="compact">
+<dt> <code>-e,--edit</code></dt>
+<dd><p>Hace una edición en línea del archivo de entrada.  Sobreescribe a
+<code>--output</code>.
+</p>
+</dd>
+<dt> <code>-f,--from=<var>versión_de_origen</var></code></dt>
+<dd><p>Establece la versión desde la que convertir.  Si no aparece esta
+opción, <code>convert-ly</code> tratará de adivinarla, basándose en el
+enunciado <code>\version</code> del archivo.
+</p>
+</dd>
+<dt> <code>-n,--no-version</code></dt>
+<dd><p>Normalmente <code>convert-ly</code> añade un indicador <code>\version</code> a
+la salida.  La especificación de esta opción lo suprime.
+</p>
+</dd>
+<dt> <code>-s, --show-rules</code></dt>
+<dd><p>Mostrar todas las conversiones conocidas y salir.
+</p>
+</dd>
+<dt> <code>--to=<var>versión_final</var></code></dt>
+<dd><p>Fijar la versión de destino de la conversión.  De forma predeterminada
+se convierte a la última versión disponible.
+</p>
+</dd>
+<dt> <code>-h, --help</code></dt>
+<dd><p>Imprimir la ayuda de la utilización.
+</p></dd>
+</dl>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Running-LilyPond.es.html#Running-LilyPond" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Ejecutar LilyPond&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="LilyPond_002dbook.es.html#LilyPond_002dbook" title="Cap&iacute;tulo siguiente">&nbsp;LilyPond-book &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Actualizar ficheros con convert-ly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Actualizar ficheros con convert-ly&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Problems-with-convert_002dly.es.html#Problems-with-convert_002dly" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Problemas con convert-ly &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Command-line-options-for-convert_002dly.html">English</a>, <a href="Command-line-options-for-convert_002dly.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de utilización del programa</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.es.html#Install">1. Instalación</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.es.html#Precompiled-binaries">1.1 Archivos binarios pre-compilados</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.es.html#Compiling-from-source">1.2 Compilar a partir del código fuente</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.es.html#Setup">2. Configuración</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.es.html#Setup-for-specific-Operating-Systems">2.1 Ajustes para sistemas operativos específicos</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.es.html#Text-editor-support">2.2 Apoyo respecto de los editores de texto</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.es.html#Point-and-click">2.3 Apuntar y pulsar</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Running-LilyPond-1" href="Running-LilyPond.es.html#Running-LilyPond">3. Ejecutar LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.es.html#Normal-usage">3.1 Utilización normal</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.es.html#Command_002dline-usage">3.2 Utilización desde la línea de órdenes</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.es.html#Error-messages">3.3 Mensajes de error</a>    </li>
+    <li class="toc_current"><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.es.html#Updating-files-with-convert_002dly">3.4 Actualizar ficheros con <code>convert-ly</code></a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Command-line-options-for-convert_002dly-1" href="Command-line-options-for-convert_002dly.es.html#Command-line-options-for-convert_002dly">3.4.1 Opciones de la línea de órdenes para <code>convert-ly</code></a>      </li>
+      <li><a name="toc-Problems-with-convert_002dly-1" href="Problems-with-convert_002dly.es.html#Problems-with-convert_002dly">3.4.2 Problemas con <code>convert-ly</code></a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.es.html#Reporting-bugs">3.5 Informar de fallos</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.es.html#LilyPond_002dbook">4. <code>lilypond-book</code>: integrar texto y música</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.es.html#An-example-of-a-musicological-document">4.1 Un ejemplo de documento musicológico</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.es.html#Integrating-music-and-text">4.2 Integrar música y texto</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.es.html#Music-fragment-options">4.3 Opciones de fragmentos de música</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.es.html#Invoking-lilypond_002dbook">4.4 Invocar <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.es.html#Filename-extensions">4.5 Extensiones de nombres de archivo</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.es.html#Alternate-methods-of-mixing-text-and-music">4.6 Otros métodos para mezclar texto y música</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.es.html#Converting-from-other-formats">5. Conversión desde otros formatos</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.es.html#Invoking-midi2ly">5.1 Invocar <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.es.html#Invoking-musicxml2ly">5.2 Invocar <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.es.html#Invoking-abc2ly">5.3 Invocar <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.es.html#Invoking-etf2ly">5.4 Invocar <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.es.html#Generating-LilyPond-files">5.5 Generar archivos de LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">B. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

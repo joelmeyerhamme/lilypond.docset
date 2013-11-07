@@ -1,0 +1,270 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.1.17 PianoStaff</title>
+
+<meta name="description" content="LilyPond program-reference: 2.1.17 PianoStaff">
+<meta name="keywords" content="LilyPond program-reference: 2.1.17 PianoStaff">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.ja.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Contexts.ja.html#Contexts" rel="up" title="2.1 Contexts">
+<link href="Indices.ja.html#Indices" rel="next" title="A.2 Function index">
+<link href="NoteNames.ja.html#NoteNames" rel="previous" title="2.1.16 NoteNames">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="PianoStaff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.ja.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.ja.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.ja.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="NoteNames.ja.html#NoteNames" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; NoteNames&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.ja.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="RhythmicStaff.ja.html#RhythmicStaff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;RhythmicStaff &gt; </a>]</td></tr></table>
+<a name="PianoStaff"></a>
+<h3 class="subsection">2.1.17 PianoStaff</h3>
+
+<p>Just like <code>GrandStaff</code> but with support for
+instrument names at the start of each system.
+</p>
+<p>This context also accepts commands for the following context(s):
+</p>
+<p>GrandStaff.
+</p>
+<p>This context creates the following layout object(s):
+</p>
+<p><a href="Arpeggio.ja.html#Arpeggio">Arpeggio</a>, <a href="InstrumentName.ja.html#InstrumentName">InstrumentName</a>, <a href="SpanBar.ja.html#SpanBar">SpanBar</a>, <a href="SystemStartBar.ja.html#SystemStartBar">SystemStartBar</a>, <a href="SystemStartBrace.ja.html#SystemStartBrace">SystemStartBrace</a>, <a href="SystemStartBracket.ja.html#SystemStartBracket">SystemStartBracket</a> and <a href="SystemStartSquare.ja.html#SystemStartSquare">SystemStartSquare</a>.
+</p>
+<p>This context sets the following properties:
+</p>
+<ul>
+<li> Set translator property <code>shortInstrumentName</code> to <code>'()</code>.
+</li><li> Set translator property <code>instrumentName</code> to <code>'()</code>.
+</li><li> Set translator property <code>systemStartDelimiter</code> to <code>'SystemStartBrace</code>.
+</li><li> Set translator property <code>localKeySignature</code> to <code>'()</code>.
+</li></ul>
+
+
+<p>Context PianoStaff can contain
+<a href="Staff.ja.html#Staff">Staff</a> and <a href="FiguredBass.ja.html#FiguredBass">FiguredBass</a>.
+</p>
+<p>This context is built from the following engraver(s):
+</p><blockquote><dl compact="compact">
+<dt> <code><a href="Instrument_005fname_005fengraver.ja.html#Instrument_005fname_005fengraver">Instrument_name_engraver</a></code></dt>
+<dd><p>Create a system start text for instrument or vocal names.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>shortInstrumentName</code> (markup)</dt>
+<dd><p>See <code>instrument</code>.
+</p></dd>
+<dt> <code>instrumentName</code> (markup)</dt>
+<dd><p>The name to print left of a staff.  The
+<code>instrument</code> property labels the staff in the first system, and
+the <code>instr</code> property labels following lines.
+</p></dd>
+<dt> <code>shortVocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line, short version.
+</p></dd>
+<dt> <code>vocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="InstrumentName.ja.html#InstrumentName">InstrumentName</a>.
+</p>
+
+</dd>
+<dt> <code><a href="System_005fstart_005fdelimiter_005fengraver.ja.html#System_005fstart_005fdelimiter_005fengraver">System_start_delimiter_engraver</a></code></dt>
+<dd><p>Create a system start delimiter (i.e., a <code>SystemStartBar</code>, <code>SystemStartBrace</code>, <code>SystemStartBracket</code> or <code>SystemStartSquare</code> spanner).
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>systemStartDelimiter</code> (symbol)</dt>
+<dd><p>Which grob to make for the start
+of the system/staff?  Set to <code>SystemStartBrace</code>,
+<code>SystemStartBracket</code> or <code>SystemStartBar</code>.
+</p></dd>
+<dt> <code>systemStartDelimiterHierarchy</code> (pair)</dt>
+<dd><p>A nested list, indicating
+the nesting of a start delimiters.
+</p></dd>
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="SystemStartBar.ja.html#SystemStartBar">SystemStartBar</a>, <a href="SystemStartBrace.ja.html#SystemStartBrace">SystemStartBrace</a>, <a href="SystemStartBracket.ja.html#SystemStartBracket">SystemStartBracket</a> and <a href="SystemStartSquare.ja.html#SystemStartSquare">SystemStartSquare</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Span_005farpeggio_005fengraver.ja.html#Span_005farpeggio_005fengraver">Span_arpeggio_engraver</a></code></dt>
+<dd><p>Make arpeggios that span multiple staves.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>connectArpeggios</code> (boolean)</dt>
+<dd><p>If set, connect arpeggios across
+piano staff.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Arpeggio.ja.html#Arpeggio">Arpeggio</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Span_005fbar_005fengraver.ja.html#Span_005fbar_005fengraver">Span_bar_engraver</a></code></dt>
+<dd><p>Make cross-staff bar lines: It catches all normal bar lines and draws a single span bar across them.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="SpanBar.ja.html#SpanBar">SpanBar</a>.
+</p>
+
+</dd>
+</dl>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.ja.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.ja.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.ja.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="NoteNames.ja.html#NoteNames" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; NoteNames&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.ja.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="RhythmicStaff.ja.html#RhythmicStaff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;RhythmicStaff &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.ja.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.ja.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.ja.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.ja.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.ja.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Contexts-1" href="Contexts.ja.html#Contexts">2.1 Contexts</a>
+    <ul class="toc">
+      <li><a name="toc-ChoirStaff-1" href="ChoirStaff.ja.html#ChoirStaff">2.1.1 ChoirStaff</a>      </li>
+      <li><a name="toc-ChordNames-1" href="ChordNames.ja.html#ChordNames">2.1.2 ChordNames</a>      </li>
+      <li><a name="toc-CueVoice-1" href="CueVoice.ja.html#CueVoice">2.1.3 CueVoice</a>      </li>
+      <li><a name="toc-Devnull-1" href="Devnull.ja.html#Devnull">2.1.4 Devnull</a>      </li>
+      <li><a name="toc-DrumStaff-1" href="DrumStaff.ja.html#DrumStaff">2.1.5 DrumStaff</a>      </li>
+      <li><a name="toc-DrumVoice-1" href="DrumVoice.ja.html#DrumVoice">2.1.6 DrumVoice</a>      </li>
+      <li><a name="toc-FiguredBass-1" href="FiguredBass.ja.html#FiguredBass">2.1.7 FiguredBass</a>      </li>
+      <li><a name="toc-FretBoards-1" href="FretBoards.ja.html#FretBoards">2.1.8 FretBoards</a>      </li>
+      <li><a name="toc-Global-1" href="Global.ja.html#Global">2.1.9 Global</a>      </li>
+      <li><a name="toc-GrandStaff-1" href="GrandStaff.ja.html#GrandStaff">2.1.10 GrandStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionStaff-1" href="GregorianTranscriptionStaff.ja.html#GregorianTranscriptionStaff">2.1.11 GregorianTranscriptionStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionVoice-1" href="GregorianTranscriptionVoice.ja.html#GregorianTranscriptionVoice">2.1.12 GregorianTranscriptionVoice</a>      </li>
+      <li><a name="toc-Lyrics-1" href="Lyrics.ja.html#Lyrics">2.1.13 Lyrics</a>      </li>
+      <li><a name="toc-MensuralStaff-1" href="MensuralStaff.ja.html#MensuralStaff">2.1.14 MensuralStaff</a>      </li>
+      <li><a name="toc-MensuralVoice-1" href="MensuralVoice.ja.html#MensuralVoice">2.1.15 MensuralVoice</a>      </li>
+      <li><a name="toc-NoteNames-1" href="NoteNames.ja.html#NoteNames">2.1.16 NoteNames</a>      </li>
+      <li class="toc_current"><a name="toc-PianoStaff-1" href="PianoStaff.ja.html#PianoStaff">2.1.17 PianoStaff</a>      </li>
+      <li><a name="toc-RhythmicStaff-1" href="RhythmicStaff.ja.html#RhythmicStaff">2.1.18 RhythmicStaff</a>      </li>
+      <li><a name="toc-Score-1" href="Score.ja.html#Score">2.1.19 Score</a>      </li>
+      <li><a name="toc-Staff-1" href="Staff.ja.html#Staff">2.1.20 Staff</a>      </li>
+      <li><a name="toc-StaffGroup-1" href="StaffGroup.ja.html#StaffGroup">2.1.21 StaffGroup</a>      </li>
+      <li><a name="toc-TabStaff-1" href="TabStaff.ja.html#TabStaff">2.1.22 TabStaff</a>      </li>
+      <li><a name="toc-TabVoice-1" href="TabVoice.ja.html#TabVoice">2.1.23 TabVoice</a>      </li>
+      <li><a name="toc-VaticanaStaff-1" href="VaticanaStaff.ja.html#VaticanaStaff">2.1.24 VaticanaStaff</a>      </li>
+      <li><a name="toc-VaticanaVoice-1" href="VaticanaVoice.ja.html#VaticanaVoice">2.1.25 VaticanaVoice</a>      </li>
+      <li><a name="toc-Voice-1" href="Voice.ja.html#Voice">2.1.26 Voice</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.ja.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.ja.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.ja.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.ja.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.ja.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.ja.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.ja.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.ja.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.ja.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.ja.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.ja.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.ja.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

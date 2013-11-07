@@ -1,0 +1,279 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.1.7 FiguredBass</title>
+
+<meta name="description" content="LilyPond program-reference: 2.1.7 FiguredBass">
+<meta name="keywords" content="LilyPond program-reference: 2.1.7 FiguredBass">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.fr.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Contexts.fr.html#Contexts" rel="up" title="2.1 Contexts">
+<link href="Indices.fr.html#Indices" rel="next" title="A.2 Function index">
+<link href="DrumVoice.fr.html#DrumVoice" rel="previous" title="2.1.6 DrumVoice">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="FiguredBass"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.fr.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.fr.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DrumVoice.fr.html#DrumVoice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DrumVoice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.fr.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="FretBoards.fr.html#FretBoards" title="Next section in reading order" accesskey="n" rel="next">&nbsp;FretBoards &gt; </a>]</td></tr></table>
+<a name="FiguredBass"></a>
+<h3 class="subsection">2.1.7 FiguredBass</h3>
+
+<p>(not documented)
+</p>
+<p>This context creates the following layout object(s):
+</p>
+<p><a href="BassFigureAlignment.fr.html#BassFigureAlignment">BassFigureAlignment</a>, <a href="BassFigureBracket.fr.html#BassFigureBracket">BassFigureBracket</a>, <a href="BassFigureContinuation.fr.html#BassFigureContinuation">BassFigureContinuation</a>, <a href="BassFigureLine.fr.html#BassFigureLine">BassFigureLine</a>, <a href="BassFigure.fr.html#BassFigure">BassFigure</a>, <a href="StaffSpacing.fr.html#StaffSpacing">StaffSpacing</a> and <a href="VerticalAxisGroup.fr.html#VerticalAxisGroup">VerticalAxisGroup</a>.
+</p>
+<p>This context sets the following properties:
+</p>
+<ul>
+<li> Set grob-property <code>minimum-Y-extent</code> in <a href="VerticalAxisGroup.fr.html#VerticalAxisGroup">VerticalAxisGroup</a> to <code>'(0 . 2)</code>.
+</li><li> Set grob-property <code>remove-first</code> in <a href="VerticalAxisGroup.fr.html#VerticalAxisGroup">VerticalAxisGroup</a> to <code>#t</code>.
+</li><li> Set grob-property <code>remove-empty</code> in <a href="VerticalAxisGroup.fr.html#VerticalAxisGroup">VerticalAxisGroup</a> to <code>#t</code>.
+</li></ul>
+
+
+<p>This context is a &lsquo;bottom&rsquo; context; it cannot contain other contexts.
+</p>
+<p>This context is built from the following engraver(s):
+</p><blockquote><dl compact="compact">
+<dt> <code><a href="Hara_005fkiri_005fengraver.fr.html#Hara_005fkiri_005fengraver">Hara_kiri_engraver</a></code></dt>
+<dd><p>Like <code>Axis_group_engraver</code>, but make a hara-kiri spanner, and add interesting items (i.e., note heads, lyric syllables, and normal rests).
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>keepAliveInterfaces</code> (list)</dt>
+<dd><p>A list of symbols, signifying grob
+interfaces that are worth keeping a staff with <code>remove-empty</code> set
+around for.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="VerticalAxisGroup.fr.html#VerticalAxisGroup">VerticalAxisGroup</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Separating_005fline_005fgroup_005fengraver.fr.html#Separating_005fline_005fgroup_005fengraver">Separating_line_group_engraver</a></code></dt>
+<dd><p>Generate objects for computing spacing parameters.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>createSpacing</code> (boolean)</dt>
+<dd><p>Create <code>StaffSpacing</code> objects?
+Should be set for staves.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>hasStaffSpacing</code> (boolean)</dt>
+<dd><p>True if the current
+<code>CommandColumn</code> contains items that will affect spacing.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="StaffSpacing.fr.html#StaffSpacing">StaffSpacing</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Skip_005fevent_005fswallow_005ftranslator.fr.html#Skip_005fevent_005fswallow_005ftranslator">Skip_event_swallow_translator</a></code></dt>
+<dd><p>Swallow <code>\skip</code>.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Note_005fswallow_005ftranslator.fr.html#Note_005fswallow_005ftranslator">Note_swallow_translator</a></code></dt>
+<dd><p>Swallow notes.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Figured_005fbass_005fengraver.fr.html#Figured_005fbass_005fengraver">Figured_bass_engraver</a></code></dt>
+<dd><p>Make figured bass numbers.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="bass_002dfigure_002devent.fr.html#bass_002dfigure_002devent">bass-figure-event</a> and <a href="rest_002devent.fr.html#rest_002devent">rest-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>figuredBassAlterationDirection</code> (direction)</dt>
+<dd><p>Where to put alterations
+relative to the main figure.
+</p></dd>
+<dt> <code>figuredBassCenterContinuations</code> (boolean)</dt>
+<dd><p>Whether to vertically
+center pairs of extender lines.  This does not work with three or more
+lines.
+</p></dd>
+<dt> <code>figuredBassFormatter</code> (procedure)</dt>
+<dd><p>A routine generating a markup
+for a bass figure.
+</p></dd>
+<dt> <code>implicitBassFigures</code> (list)</dt>
+<dd><p>A list of bass figures that are not
+printed as numbers, but only as extender lines.
+</p></dd>
+<dt> <code>useBassFigureExtenders</code> (boolean)</dt>
+<dd><p>Whether to use extender lines
+for repeated bass figures.
+</p></dd>
+<dt> <code>ignoreFiguredBassRest</code> (boolean)</dt>
+<dd><p>Don&rsquo;t swallow rest events.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BassFigure.fr.html#BassFigure">BassFigure</a>, <a href="BassFigureAlignment.fr.html#BassFigureAlignment">BassFigureAlignment</a>, <a href="BassFigureBracket.fr.html#BassFigureBracket">BassFigureBracket</a>, <a href="BassFigureContinuation.fr.html#BassFigureContinuation">BassFigureContinuation</a> and <a href="BassFigureLine.fr.html#BassFigureLine">BassFigureLine</a>.
+</p>
+
+</dd>
+</dl>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.fr.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.fr.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DrumVoice.fr.html#DrumVoice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; DrumVoice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.fr.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="FretBoards.fr.html#FretBoards" title="Next section in reading order" accesskey="n" rel="next">&nbsp;FretBoards &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.fr.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.fr.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.fr.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.fr.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.fr.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Contexts-1" href="Contexts.fr.html#Contexts">2.1 Contexts</a>
+    <ul class="toc">
+      <li><a name="toc-ChoirStaff-1" href="ChoirStaff.fr.html#ChoirStaff">2.1.1 ChoirStaff</a>      </li>
+      <li><a name="toc-ChordNames-1" href="ChordNames.fr.html#ChordNames">2.1.2 ChordNames</a>      </li>
+      <li><a name="toc-CueVoice-1" href="CueVoice.fr.html#CueVoice">2.1.3 CueVoice</a>      </li>
+      <li><a name="toc-Devnull-1" href="Devnull.fr.html#Devnull">2.1.4 Devnull</a>      </li>
+      <li><a name="toc-DrumStaff-1" href="DrumStaff.fr.html#DrumStaff">2.1.5 DrumStaff</a>      </li>
+      <li><a name="toc-DrumVoice-1" href="DrumVoice.fr.html#DrumVoice">2.1.6 DrumVoice</a>      </li>
+      <li class="toc_current"><a name="toc-FiguredBass-1" href="FiguredBass.fr.html#FiguredBass">2.1.7 FiguredBass</a>      </li>
+      <li><a name="toc-FretBoards-1" href="FretBoards.fr.html#FretBoards">2.1.8 FretBoards</a>      </li>
+      <li><a name="toc-Global-1" href="Global.fr.html#Global">2.1.9 Global</a>      </li>
+      <li><a name="toc-GrandStaff-1" href="GrandStaff.fr.html#GrandStaff">2.1.10 GrandStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionStaff-1" href="GregorianTranscriptionStaff.fr.html#GregorianTranscriptionStaff">2.1.11 GregorianTranscriptionStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionVoice-1" href="GregorianTranscriptionVoice.fr.html#GregorianTranscriptionVoice">2.1.12 GregorianTranscriptionVoice</a>      </li>
+      <li><a name="toc-Lyrics-1" href="Lyrics.fr.html#Lyrics">2.1.13 Lyrics</a>      </li>
+      <li><a name="toc-MensuralStaff-1" href="MensuralStaff.fr.html#MensuralStaff">2.1.14 MensuralStaff</a>      </li>
+      <li><a name="toc-MensuralVoice-1" href="MensuralVoice.fr.html#MensuralVoice">2.1.15 MensuralVoice</a>      </li>
+      <li><a name="toc-NoteNames-1" href="NoteNames.fr.html#NoteNames">2.1.16 NoteNames</a>      </li>
+      <li><a name="toc-PianoStaff-1" href="PianoStaff.fr.html#PianoStaff">2.1.17 PianoStaff</a>      </li>
+      <li><a name="toc-RhythmicStaff-1" href="RhythmicStaff.fr.html#RhythmicStaff">2.1.18 RhythmicStaff</a>      </li>
+      <li><a name="toc-Score-1" href="Score.fr.html#Score">2.1.19 Score</a>      </li>
+      <li><a name="toc-Staff-1" href="Staff.fr.html#Staff">2.1.20 Staff</a>      </li>
+      <li><a name="toc-StaffGroup-1" href="StaffGroup.fr.html#StaffGroup">2.1.21 StaffGroup</a>      </li>
+      <li><a name="toc-TabStaff-1" href="TabStaff.fr.html#TabStaff">2.1.22 TabStaff</a>      </li>
+      <li><a name="toc-TabVoice-1" href="TabVoice.fr.html#TabVoice">2.1.23 TabVoice</a>      </li>
+      <li><a name="toc-VaticanaStaff-1" href="VaticanaStaff.fr.html#VaticanaStaff">2.1.24 VaticanaStaff</a>      </li>
+      <li><a name="toc-VaticanaVoice-1" href="VaticanaVoice.fr.html#VaticanaVoice">2.1.25 VaticanaVoice</a>      </li>
+      <li><a name="toc-Voice-1" href="Voice.fr.html#Voice">2.1.26 Voice</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.fr.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.fr.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.fr.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.fr.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.fr.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.fr.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.fr.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.fr.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.fr.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.fr.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.fr.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

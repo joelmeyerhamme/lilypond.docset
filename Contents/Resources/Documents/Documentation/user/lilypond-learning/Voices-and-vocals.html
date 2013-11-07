@@ -1,0 +1,575 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 3.2.3 Voices and vocals</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 3.2.3 Voices and vocals">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 3.2.3 Voices and vocals">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Voices-contain-music.html#Voices-contain-music" rel="up" title="3.2 Voices contain music">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Explicitly-instantiating-voices.html#Explicitly-instantiating-voices" rel="previous" title="3.2.2 Explicitly instantiating voices">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Voices-and-vocals"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Explicitly-instantiating-voices.html#Explicitly-instantiating-voices" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Explicitly instantiating voices&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Voices-contain-music.html#Voices-contain-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Voices contain music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Contexts and engravers &gt; </a>]</td></tr></table>
+<a name="Voices-and-vocals"></a>
+<h3 class="subsection">3.2.3 Voices and vocals</h3>
+
+<p>Vocal music presents a special difficulty: we need to combine two
+expressions &ndash; notes and lyrics.
+</p>
+<a name="index-_005cnew-Lyrics"></a>
+<a name="index-_005cnew-Lyrics-1"></a>
+<a name="index-_005clyricsto"></a>
+<a name="index-_005clyricsto-1"></a>
+<a name="index-lyricsto"></a>
+<a name="index-lyricsto-1"></a>
+<a name="index-Lyrics-2"></a>
+<a name="index-Lyrics-3"></a>
+<a name="index-Lyrics-context_002c-creating"></a>
+<a name="index-lyrics_002c-linking-to-voice"></a>
+
+<p>You have already seen the <code>\addlyrics{}</code> command, which
+handles simple scores well.  However, this technique is
+quite limited.  For more complex music, you must introduce the
+lyrics in a <code>Lyrics</code> context using <code>\new Lyrics</code> and
+explicitly link
+the lyrics to the notes with <code>\lyricsto{}</code>, using the
+name assigned to the Voice.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Voice = &quot;one&quot; \relative c'' {
+    \autoBeamOff
+    \time 2/4
+    c4 b8. a16 g4. f8 e4 d c2
+  }
+  \new Lyrics \lyricsto &quot;one&quot; {
+    No more let sins and sor -- rows grow.
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../18/lily-39e03c61.ly">
+  <img align="middle"
+       border="0"
+       src="../18/lily-39e03c61.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Note that the lyrics must be linked to a <code>Voice</code> context,
+<em>not</em> a <code>Staff</code> context.  This is a case where it is
+necessary to create <code>Staff</code> and <code>Voice</code> contexts
+explicitly.
+</p>
+<a name="index-lyrics-and-beaming"></a>
+<a name="index-beaming-and-lyrics"></a>
+<a name="index-_005cautoBeamOff-2"></a>
+<a name="index-_005cautoBeamOff-3"></a>
+<a name="index-autoBeamOff-2"></a>
+<a name="index-autoBeamOff-3"></a>
+
+<p>The automatic beaming which LilyPond uses by default works well
+for instrumental music, but not so well for music with lyrics,
+where beaming is either not required at all or is used to indicate
+melismata in the lyrics.  In the example above we use the command
+<code>\autoBeamOff</code> to turn off the automatic beaming.
+</p>
+<a name="index-_005cnew-ChoirStaff"></a>
+<a name="index-_005cnew-ChoirStaff-1"></a>
+<a name="index-ChoirStaff-2"></a>
+<a name="index-ChoirStaff-3"></a>
+<a name="index-_005clyricmode"></a>
+<a name="index-_005clyricmode-1"></a>
+<a name="index-lyricmode"></a>
+<a name="index-lyricmode-1"></a>
+<a name="index-vocal-score-structure"></a>
+<a name="index-choir-staff-1"></a>
+
+<p>Let us reuse the earlier example from Judas Maccabæus to
+illustrate this more flexible technique.  We first recast
+it to use variables so the music and lyrics can be separated
+from the staff structure.  We also introduce a ChoirStaff
+bracket.  The lyrics themselves must be introduced with
+<code>\lyricmode</code> to ensure they are interpreted as lyrics
+rather than music.
+</p>
+<blockquote><pre class="verbatim">global = { \time 6/8 \partial 8 \key f \major}
+SopOneMusic = \relative c'' {
+  c8 | c([ bes)] a a([ g)] f | f'4. b, | c4.~ c4 }
+SopTwoMusic = \relative c' {
+  r8 | r4. r4 c8 | a'([ g)] f f([ e)] d | e([ d)] c bes' }
+SopOneLyrics = \lyricmode {
+  Let | flee -- cy flocks the | hills a -- dorn, __ }
+SopTwoLyrics = \lyricmode {
+  Let | flee -- cy flocks the | hills a -- dorn, }
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Staff &lt;&lt;
+      \new Voice = &quot;SopOne&quot; {
+        \global
+        \SopOneMusic
+      }
+      \new Lyrics \lyricsto &quot;SopOne&quot; {
+        \SopOneLyrics
+      }
+    &gt;&gt;
+    \new Staff &lt;&lt;
+      \new Voice = &quot;SopTwo&quot; {
+        \global
+        \SopTwoMusic
+      }
+      \new Lyrics \lyricsto &quot;SopTwo&quot; {
+        \SopTwoLyrics
+      }
+    &gt;&gt;
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../43/lily-6f4805f7.ly">
+  <img align="middle"
+       border="0"
+       src="../43/lily-6f4805f7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>This is the basic structure of all vocal scores.  More staves may be
+added as required, more voices may be added to the staves, more verses
+may be added to the lyrics, and the variables containing the music can
+easily be placed in separate files should they become too long.
+</p>
+<a name="index-hymn-structure"></a>
+<a name="index-SATB-structure"></a>
+<a name="index-vocal-scores-with-multiple-verses"></a>
+<a name="index-multiple-vocal-verses"></a>
+<a name="index-verses_002c-multiple-vocal"></a>
+
+<p>Here is an example of the first line of a hymn with four
+verses, set for SATB.  In this case the words for all four
+parts are the same.  Note how we use variables to separate the
+music notation and words from the staff structure.  See too
+how a variable, which we have chosen to call &lsquo;TimeKey&rsquo;, is used
+to hold several commands for use within the two staves.  In other
+examples this is often called &lsquo;global&rsquo;.
+</p>
+<blockquote><pre class="verbatim">TimeKey = { \time 4/4 \partial 4 \key c \major}
+SopMusic   = \relative c' { c4 | e4. e8 g4  g  | a a g }
+AltoMusic  = \relative c' { c4 | c4. c8 e4  e  | f f e }
+TenorMusic = \relative c  { e4 | g4. g8 c4. b8 | a8 b c d e4 }
+BassMusic  = \relative c  { c4 | c4. c8 c4  c  | f8 g a b c4 }
+VerseOne   = \lyricmode {
+  E -- | ter -- nal fa -- ther, | strong to save, }
+VerseTwo   = \lyricmode {
+  O | Christ, whose voice the | wa -- ters heard, }
+VerseThree = \lyricmode {
+  O | Ho -- ly Spi -- rit, | who didst brood }
+VerseFour  = \lyricmode {
+  O | Tri -- ni -- ty of | love and pow'r }
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Staff &lt;&lt;
+      \clef &quot;treble&quot;
+      \new Voice = &quot;Sop&quot;  { \voiceOne \TimeKey \SopMusic }
+      \new Voice = &quot;Alto&quot; { \voiceTwo \AltoMusic }
+      \new Lyrics \lyricsto &quot;Sop&quot; { \VerseOne   }
+      \new Lyrics \lyricsto &quot;Sop&quot; { \VerseTwo   }
+      \new Lyrics \lyricsto &quot;Sop&quot; { \VerseThree }
+      \new Lyrics \lyricsto &quot;Sop&quot; { \VerseFour  }
+    &gt;&gt;
+    \new Staff &lt;&lt;
+      \clef &quot;bass&quot;
+      \new Voice = &quot;Tenor&quot; { \voiceOne \TimeKey \TenorMusic }
+      \new Voice = &quot;Bass&quot;  { \voiceTwo \BassMusic  }
+    &gt;&gt;
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../38/lily-af8d5bef.ly">
+  <img align="middle"
+       border="0"
+       src="../38/lily-af8d5bef.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-verse-and-refrain"></a>
+
+<p>We end with an example to show how we might code a solo verse which
+continues into a two-part refrain in two staves.  The
+positioning of the sequential and simultaneous sections to achieve
+this within a single score is quite tricky, so follow the
+explanation carefully!
+</p>
+<p>Let&rsquo;s start with a score block containing a <code>ChoirStaff</code>, as
+we would like the brace to appear at the start of the chorus.
+Normally you would need angle brackets after <code>\new ChoirStaff</code>
+to bring in all the staves in parallel, but here we want to
+defer the parallelism during the solo so we use braces, although
+angle brackets here wouldn&rsquo;t hurt.  Inside the <code>ChoirStaff</code> we
+want first the staff which will contain the verse.  This must
+contain notes and lyrics in parallel, so here we need angle
+brackets around the <code>\new Voice</code> and <code>\new Lyrics</code> to
+start them at the same time:
+</p>
+<blockquote><pre class="verbatim">versenotes = \relative c'' {
+  \clef &quot;treble&quot;
+  \key g \major
+  \time 3/4 g g g b b b
+}
+versewords = \lyricmode {
+  One two three four five six
+}
+\score {
+  \new ChoirStaff {
+    \new Staff &lt;&lt;
+      \new Voice = &quot;verse&quot; {
+        \versenotes \break
+      }
+      \new Lyrics \lyricsto verse {
+        \versewords
+      }
+    &gt;&gt;
+  }
+}
+</pre><p>
+ <a href="../1c/lily-0c38bed1.ly">
+  <img align="middle"
+       border="0"
+       src="../1c/lily-0c38bed1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>That gives the verse line.
+</p>
+<p>Now we want to continue with refrainA on the same staff while a
+second staff is introduced in parallel with it for refrainB, so
+this is a parallel section which must be positioned immediately
+following the <code>\break</code> in the verse Voice.  Yes, <em>within</em>
+the verse Voice!  Here&rsquo;s that parallel section.  More staves
+could be introduced here in the same way.
+</p>
+<blockquote><pre class="example">&lt;&lt;
+  \refrainnotesA
+  \new Lyrics \lyricsto verse {
+    \refrainwordsA
+  }
+  \new Staff &lt;&lt;
+    \new Voice = &quot;refrainB&quot; {
+      \refrainnotesB
+    }
+    \new Lyrics \lyricsto &quot;refrainB&quot; {
+      \refrainwordsB
+    }
+  &gt;&gt;
+&gt;&gt;
+</pre></blockquote>
+
+<p>Here&rsquo;s the final result with two staves in the chorus showing
+how the parallel section is positioned within the verse Voice:
+</p>
+<blockquote><pre class="verbatim">versenotes = \relative c'' {
+  \clef &quot;treble&quot;
+  \key g \major
+  \time 3/4 g g g b b b
+}
+refrainnotesA = \relative c'' {
+  \time 2/4
+  c c g g \bar &quot;|.&quot;
+}
+refrainnotesB = \relative c {
+  \clef &quot;bass&quot;
+  \key g \major
+  c e d d
+}
+versewords = \lyricmode {
+  One two three four five six
+}
+refrainwordsA = \lyricmode {
+  la la la la
+}
+refrainwordsB = \lyricmode {
+  dum dum dum dum
+}
+\score {
+  \new ChoirStaff {
+    \new Staff &lt;&lt;
+      \new Voice = &quot;verse&quot; {
+        \versenotes \break
+        &lt;&lt;
+          \refrainnotesA
+          \new Lyrics \lyricsto &quot;verse&quot; {
+            \refrainwordsA
+          }
+          \new Staff &lt;&lt;
+            \new Voice = &quot;refrainB&quot; {
+              \refrainnotesB
+            }
+            \new Lyrics \lyricsto &quot;refrainB&quot; {
+              \refrainwordsB
+            }
+          &gt;&gt;
+        &gt;&gt;
+      }
+      \new Lyrics \lyricsto &quot;verse&quot; {
+        \versewords
+      }
+    &gt;&gt;
+  }
+}
+</pre><p>
+ <a href="../b3/lily-caccdb0d.ly">
+  <img align="middle"
+       border="0"
+       src="../b3/lily-caccdb0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-book_002c-example-of-using"></a>
+<a name="index-_005cbook-4"></a>
+<a name="index-_005cbook-5"></a>
+<a name="index-book-5"></a>
+<a name="index-book-6"></a>
+
+<p>However, although this is an interesting and useful exercise to
+help you to understand how sequential and simultaneous blocks work,
+in practice one would perhaps choose to code this as two
+<code>\score</code> blocks within an implicit <code>\book</code> block, as
+follows:
+</p>
+<blockquote><pre class="verbatim">versenotes = \relative c'' {
+  \clef &quot;treble&quot;
+  \key g \major
+  \time 3/4 g g g b b b
+}
+refrainnotesA = \relative c'' {
+  \time 2/4
+  c c g g \bar &quot;|.&quot;
+}
+refrainnotesB = \relative c {
+  \clef &quot;bass&quot;
+  \key g \major
+  c e d d
+}
+versewords = \lyricmode {
+  One two three four five six
+}
+refrainwordsA = \lyricmode {
+  la la la la
+}
+refrainwordsB = \lyricmode {
+  dum dum dum dum
+}
+\score {
+  \new Staff &lt;&lt;
+    \new Voice = &quot;verse&quot; {
+      \versenotes
+    }
+    \new Lyrics \lyricsto &quot;verse&quot; {
+      \versewords
+    }
+  &gt;&gt;
+}
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Staff &lt;&lt;
+      \new Voice = &quot;refrainA&quot; {
+        \refrainnotesA
+      }
+      \new Lyrics \lyricsto &quot;refrainA&quot; {
+        \refrainwordsA
+      }
+    &gt;&gt;
+    \new Staff &lt;&lt;
+      \new Voice = &quot;refrainB&quot; {
+        \refrainnotesB
+      }
+      \new Lyrics \lyricsto &quot;refrainB&quot; {
+        \refrainwordsB
+      }
+    &gt;&gt;
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../46/lily-f38529dd.ly">
+  <img align="middle"
+       border="0"
+       src="../46/lily-f38529dd.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-24"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference: <a name="index-Vocal-music-2"></a>
+<a href="../lilypond/Vocal-music.html#Vocal-music">Vocal music</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Explicitly-instantiating-voices.html#Explicitly-instantiating-voices" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Explicitly instantiating voices&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Voices-contain-music.html#Voices-contain-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Voices contain music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Contexts and engravers &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Voices-and-vocals.fr.html">français</a>, <a href="Voices-and-vocals.es.html">español</a>, <a href="Voices-and-vocals.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li class="toc_current"><a name="toc-Voices-contain-music-1" href="Voices-contain-music.html#Voices-contain-music">3.2 Voices contain music</a>
+    <ul class="toc">
+      <li><a name="toc-I_0027m-hearing-Voices-1" href="I_0027m-hearing-Voices.html#I_0027m-hearing-Voices">3.2.1 I&rsquo;m hearing Voices</a>      </li>
+      <li><a name="toc-Explicitly-instantiating-voices-1" href="Explicitly-instantiating-voices.html#Explicitly-instantiating-voices">3.2.2 Explicitly instantiating voices</a>      </li>
+      <li class="toc_current"><a name="toc-Voices-and-vocals-1" href="Voices-and-vocals.html#Voices-and-vocals">3.2.3 Voices and vocals</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 3.7 Translating the documentation</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 3.7 Translating the documentation">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 3.7 Translating the documentation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.es.html#SEC_About" rel="help" title="About This Document">
+<link href="Documentation-work.es.html#Documentation-work" rel="up" title="3. Documentation work">
+<link href="Making-a-release.es.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="Updating-docs-with-convert_002dly.es.html#Updating-docs-with-convert_002dly" rel="previous" title="3.6 Updating doc with convert-ly">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Translating-the-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Updating-docs-with-convert_002dly.es.html#Updating-docs-with-convert_002dly" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Updating docs with convert-ly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Getting-started-with-documentation-translation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Getting started with documentation translation &gt; </a>]</td></tr></table>
+<a name="Translating-the-documentation"></a>
+<h2 class="section">3.7 Translating the documentation</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Getting-started-with-documentation-translation" accesskey="1">3.7.1 Getting started with documentation translation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Documentation-translation-details" accesskey="2">3.7.2 Documentation translation details</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Documentation-translation-maintenance" accesskey="3">3.7.3 Documentation translation maintenance</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Translations-management-policies" accesskey="4">3.7.4 Translations management policies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Technical-background" accesskey="5">3.7.5 Technical background</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Translation-status" accesskey="6">3.7.6 Translation status</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Getting-started-with-documentation-translation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translating-the-documentation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translating the documentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translation-requirements" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translation requirements &gt; </a>]</td></tr></table>
+<a name="Getting-started-with-documentation-translation"></a>
+<h3 class="subsection">3.7.1 Getting started with documentation translation</h3>
+
+<p>First, get the sources from the Git repository, see <a href="Getting-the-source-code.es.html#Documentation-translations-source-code">Documentation translations source code</a>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Translation-requirements" accesskey="1">Translation requirements</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Which-documentation-can-be-translated" accesskey="2">Which documentation can be translated</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Starting-translation-in-a-new-language" accesskey="3">Starting translation in a new language</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Translation-requirements"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Getting-started-with-documentation-translation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Getting started with documentation translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Getting-started-with-documentation-translation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Getting started with documentation translation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Which-documentation-can-be-translated" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Which documentation can be translated &gt; </a>]</td></tr></table>
+<a name="Translation-requirements"></a>
+<h4 class="unnumberedsubsubsec">Translation requirements</h4>
+
+<p>Working on LilyPond documentation translations requires the following
+pieces of software, in order to make use of dedicated helper tools:
+</p>
+<ul>
+<li> Python 2.4 or higher,
+</li><li> GNU Make,
+</li><li> Gettext.
+</li></ul>
+
+<p>It is not required to build LilyPond and the documentation to
+translate the documentation.  However, if you have enough time and
+motivation and a suitable system, it can be very useful to build at
+least the documentation so that you can check the output yourself and
+more quickly; if you are interested, see <a href="Compiling-from-source.es.html#Compiling-from-source">Compiling from source</a>.
+</p>
+
+<hr size="6">
+<a name="Which-documentation-can-be-translated"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translation-requirements" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translation requirements&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Getting-started-with-documentation-translation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Getting started with documentation translation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Starting-translation-in-a-new-language" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Starting translation in a new language &gt; </a>]</td></tr></table>
+<a name="Which-documentation-can-be-translated"></a>
+<h4 class="unnumberedsubsubsec">Which documentation can be translated</h4>
+
+<p>The makefiles and scripts infrastructure currently supports translation
+of the following documentation:
+</p>
+<ul>
+<li> documentation index (HTML);
+</li><li> user manual and program usage &ndash; Texinfo source, PDF and HTML
+output; Info output might be added if there is enough demand for it;
+</li><li> the News document.
+</li></ul>
+
+<p>The following pieces of documentation should be added soon, by
+descending order of priority:
+</p>
+<ul>
+<li> automatically generated documentation: markup commands,
+predefined music functions;
+</li><li> the Snippets List;
+</li><li> the examples page;
+</li><li> the Internals Reference.
+</li></ul>
+
+
+<hr size="6">
+<a name="Starting-translation-in-a-new-language"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Which-documentation-can-be-translated" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Which documentation can be translated&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Getting-started-with-documentation-translation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Getting started with documentation translation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Documentation-translation-details" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Documentation translation details &gt; </a>]</td></tr></table>
+<a name="Starting-translation-in-a-new-language"></a>
+<h4 class="unnumberedsubsubsec">Starting translation in a new language</h4>
+
+<p>At top of the source directory, do
+</p>
+<blockquote><pre class="example">./autogen.sh
+</pre></blockquote>
+
+<p>or (if you want to install your self-compiled LilyPond locally)
+</p>
+<blockquote><pre class="example">./autogen.sh --prefix=$HOME
+</pre></blockquote>
+
+<p>If you want to compile LilyPond &ndash; which is almost required to build
+the documentation, but is not required to do translation only &ndash; fix
+all dependencies and rerun <code>./configure</code> (with the same
+options as for <code>autogen.sh</code>).
+</p>
+<p>Then <code>cd</code> into &lsquo;<tt>Documentation</tt>&rsquo; and run
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY-LANGUAGE</var> new-lang
+</pre></blockquote>
+
+<p>where <var>MY-LANGUAGE</var> is the ISO 639 language code.
+</p>
+<p>Finally, add a language definition for your language in
+&lsquo;<tt>python/langdefs.py</tt>&rsquo;.
+</p>
+<p>Before starting the real translation work, it is recommended to commit
+changes you made so far to Git, so e.g. you are able to get back to
+this state of the sources easily if needed; see <a href="Sharing-your-changes.es.html#Sharing-your-changes">Sharing your changes</a>.
+</p>
+
+<hr size="6">
+<a name="Documentation-translation-details"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Starting-translation-in-a-new-language" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Starting translation in a new language&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Files-to-be-translated" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Files to be translated &gt; </a>]</td></tr></table>
+<a name="Documentation-translation-details"></a>
+<h3 class="subsection">3.7.2 Documentation translation details</h3>
+
+<p>Please follow all the instructions with care to ensure quality work.
+</p>
+<p>All files should be encoded in UTF-8.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Files-to-be-translated" accesskey="1">Files to be translated</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Translating-the-Learning-Manual-and-other-Texinfo-documentation" accesskey="2">Translating the Learning Manual and other Texinfo documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Translating-the-Notation-Reference-and-Application-Usage" accesskey="3">Translating the Notation Reference and Application Usage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Translating-the-Documentation-index-index_002ehtml_002ein" accesskey="4">Translating the Documentation index &lsquo;<tt>index.html.in</tt>&rsquo;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Files-to-be-translated"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Documentation-translation-details" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Documentation translation details&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-details" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation details&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translating-the-Learning-Manual-and-other-Texinfo-documentation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translating the Learning Manual and other Texinfo documentation &gt; </a>]</td></tr></table>
+<a name="Files-to-be-translated"></a>
+<h4 class="unnumberedsubsubsec">Files to be translated</h4>
+
+
+<p>Translation of &lsquo;<tt>Documentation/foo/bar</tt>&rsquo; should be
+&lsquo;<tt>Documentation/<var>LANG</var>/foo/bar</tt>&rsquo;.  Unmentioned files should not
+be translated.
+</p>
+<p>Priorities:
+</p><ul>
+<li> 1. delivery,
+</li><li> 2. 3. 4. 5. later,
+</li><li> 6. optional.
+</li></ul>
+
+<p>Files marked with priority 3, 4 or 5 may be submitted individually.
+Word counts (excluding LilyPond snippets) are given for each file.
+</p>
+<blockquote><pre class="example">-1- Documentation index and Tutorial
+429   user/lilypond-learning.tely
+6343  user/tutorial.itely
+23    user/dedication.itely
+432   user/macros.itexi
+171   index.html.in
+161   translations.template.html.in
+6438  po/lilypond-doc.pot (translate to po/<var>MY_LANGUAGE</var>.po)
+---   ../lilypond-texi2html.init (section TRANSLATIONS)
+13997 total
+
+-2- Introduction and beginning of Application Usage
+411   user/preface.itely
+3855  user/introduction.itely
+407   user/lilypond-program.tely
+193   user/install.itely (partial translation)
+1149  user/setup.itely
+2827  user/running.itely
+8842  total
+
+-3- Learning manual
+10318 user/fundamental.itely -- Fundamental concepts
+14816 user/tweaks.itely -- Tweaking output
+4550  user/working.itely -- Working on LilyPond files
+498   user/templates.itely -- Templates
+30182 total
+
+-4- Notation reference
+724   user/lilypond.tely
+91    user/notation.itely -- Musical notation
+3145  user/pitches.itely
+4772  user/rhythms.itely
+1393  user/expressive.itely
+555   user/repeats.itely
+1456  user/simultaneous.itely
+1708  user/staff.itely
+905   user/editorial.itely
+2376  user/text.itely
+76    user/specialist.itely -- Specialist notation
+2725  user/vocal.itely
+1516  user/chords.itely
+702   user/piano.itely
+810   user/percussion.itely
+826   user/guitar.itely
+66    user/strings.itely
+242   user/bagpipes.itely
+4487  user/ancient.itely
+6024  user/input.itely -- Input syntax
+2164  user/non-music.itely -- Non-musical notation
+8663  user/spacing.itely -- Spacing issues
+11747 user/changing-defaults.itely -- Changing defaults
+5187  user/programming-interface.itely -- Interfaces for programmers
+1182  user/notation-appendices.itely -- Notation manual tables
+252   user/cheatsheet.itely -- Cheat sheet
+63794 total
+
+-5- Application usage
+3248  user/lilypond-book.itely -- LilyPond-book
+1171  user/converters.itely -- Converting from other formats
+4419  total
+
+-6- Appendices whose translation is optional
+310   user/literature.itely
+960   user/scheme-tutorial.itely (needs to be revised first)
+1270  total
+</pre></blockquote>
+
+<hr size="6">
+<a name="Translating-the-Learning-Manual-and-other-Texinfo-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Files-to-be-translated" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Files to be translated&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-details" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation details&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translating-the-Notation-Reference-and-Application-Usage" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translating the Notation Reference and Application Usage &gt; </a>]</td></tr></table>
+<a name="Translating-the-Learning-Manual-and-other-Texinfo-documentation"></a>
+<h4 class="unnumberedsubsubsec">Translating the Learning Manual and other Texinfo documentation</h4>
+
+<p>Any title which comes with one of the following commands must not be
+translated directly in the Texinfo source
+</p>
+<blockquote><pre class="example">@node                                                   @majorheading
+@chapter       @unnumbered          @appendix           @chapheading
+@section       @unnumberedsec       @appendixsec        @heading
+@subsection    @unnumberedsubsec    @appendixsubsec     @subheading
+@subsubsection @unnumberedsubsubsec @appendixsubsubsec  @subsubheading
+@ref  @rglos  @ruser  @rlearning  @rprogram  @rlsr
+</pre></blockquote>
+
+<p>The same applies to first argument of <code>@r<var>manual</var>named</code>
+commands; however, the second argument <var>Bar baz</var> of
+<code>@ref{<var>Foo</var>,<var>Bar baz</var>,,<var>info-file</var>}</code> and
+<code>@r<var>manual</var>named{<var>Foo</var>,<var>Bar baz</var>}</code> should be
+translated.
+</p>
+<p><code>@uref</code>&rsquo;s names are to be translated.
+</p>
+<p>In any section which looks like
+</p>
+<blockquote><pre class="example">@menu
+* <var>node1</var>:: <var>thing1</var>
+* <var>node2</var>:: <var>thing2</var>
+...
+@end menu
+</pre></blockquote>
+
+<p>the node names <var>nodeN</var> are <em>not</em> to be translated, whereas
+extra title information <var>thingN</var> is.
+</p>
+<p>Every node name or section title must from now on be translated
+separately in a &lsquo;<tt>.po</tt>&rsquo; file (just as well as LilyPond output
+messages) in &lsquo;<tt>Documentation/po</tt>&rsquo;.  The Gettext domain is named
+<code>lilypond-doc</code>, and unlike <code>lilypond</code> domain it is not
+managed through the Free Translation Project.
+</p>
+
+<p>Take care of using typographic rules for your language, especially in
+&lsquo;<tt>user/macros.itexi</tt>&rsquo;.
+</p>
+
+<p>Please keep verbatim copies of music snippets (in <code>@lilypond</code>
+blocs).  However, some music snippets containing text that shows in
+the rendered music, and sometimes translating this text really helps
+the user to understand the documentation; in this case, and only in
+this case, you may as an exception translate text in the music
+snippet, and then you must add a line immediately before the
+<code>@lilypond</code> block, starting with
+</p>
+<blockquote><pre class="example">@c KEEP LY
+</pre></blockquote>
+
+<p>Otherwise the music snippet would be reset to the same content as the
+English version at next <code>make snippet-update</code> run &ndash; see
+<a href="#Updating-documentation-translation">Updating documentation translation</a>.
+</p>
+<p>When you encounter
+</p>
+<blockquote><pre class="example">@lilypondfile[&lt;number of fragment options&gt;,texidoc]{<var>filename.ly</var>}
+</pre></blockquote>
+
+<p>in the source, open &lsquo;<tt>input/lsr/<var>filename</var>.ly</tt>&rsquo;, translate the
+<code>texidoc</code> header field it contains, enclose it with
+<code>texidoc<var>MY-LANGUAGE</var> = &quot;</code> and <code>&quot;</code>, and write it into
+&lsquo;<tt>input/texidocs/<var>filename</var>.texidoc</tt>&rsquo; &ndash; please keep possibly
+existing translations in other languages!  Additionnally, you may
+translate the snippet&rsquo;s title in <code>doctitle</code> header field, in case
+<code>doctitle</code> is a fragment option used in <code>@lilypondfile</code>;
+you can do this exactly the same way as <code>texidoc</code>.  For instance,
+&lsquo;<tt>input/texidocs/<var>filename</var>.texidoc</tt>&rsquo; may contain
+</p>
+<blockquote><pre class="example">doctitlees = &quot;Spanish title baz&quot;
+texidoces = &quot;
+Spanish translation blah
+&quot;
+doctitlede = &quot;German title bar&quot;
+texidocde = &quot;German translation foo
+&quot;
+</pre></blockquote>
+
+<p><code>@example</code> blocs need not be verbatim copies, e.g. variable
+names, file names and comments should be translated.
+</p>
+<p>Index entries (<code>@cindex</code> and so on) should be translated.
+</p>
+<p>Finally, please carefully apply every rule exposed in <a href="Texinfo-introduction-and-usage-policy.es.html#Texinfo-introduction-and-usage-policy">Texinfo introduction and usage policy</a>, and <a href="Documentation-policy.es.html#Documentation-policy">Documentation policy</a>.  If
+one of these rules conflicts with a rule specific to your language,
+please ask the Translation meister and/or the Documentation Editors on
+<a href="mailto:lilypond-devel@gnu.org">lilypond-devel@gnu.org</a>.
+</p>
+
+<hr size="6">
+<a name="Translating-the-Notation-Reference-and-Application-Usage"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translating-the-Learning-Manual-and-other-Texinfo-documentation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translating the Learning Manual and other Texinfo documentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-details" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation details&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translating-the-Documentation-index-index_002ehtml_002ein" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translating the Documentation index index.html.in &gt; </a>]</td></tr></table>
+<a name="Translating-the-Notation-Reference-and-Application-Usage"></a>
+<h4 class="unnumberedsubsubsec">Translating the Notation Reference and Application Usage</h4>
+
+<p>Copy &lsquo;<tt>user/lilypond.tely</tt>&rsquo; (or &lsquo;<tt>user/lilypond-program.tely</tt>&rsquo;,
+respectively) into &lsquo;<tt><var>MY-LANGUAGE</var>/user</tt>&rsquo;, then translate this
+file and run <code>skeleton-update</code> &ndash; see <a href="#Updating-documentation-translation">Updating documentation translation</a>.  Your are now ready to translate the Notation Reference
+(Application Usage, respectively) exactly like the Learning Manual.
+</p>
+
+<hr size="6">
+<a name="Translating-the-Documentation-index-index_002ehtml_002ein"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translating-the-Notation-Reference-and-Application-Usage" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translating the Notation Reference and Application Usage&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-details" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation details&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Documentation-translation-maintenance" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Documentation translation maintenance &gt; </a>]</td></tr></table>
+<a name="Translating-the-Documentation-index-index_002ehtml_002ein"></a>
+<h4 class="unnumberedsubsubsec">Translating the Documentation index &lsquo;<tt>index.html.in</tt>&rsquo;</h4>
+
+<p>Unlike almost all HTML pages in this documentation, links in this page
+are not tweaked by &lsquo;<tt>postprocess_html.py</tt>&rsquo;, so links should be
+manually edited to link to existing translations.
+</p>
+
+<hr size="6">
+<a name="Documentation-translation-maintenance"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translating-the-Documentation-index-index_002ehtml_002ein" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translating the Documentation index index.html.in&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Check-state-of-translation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Check state of translation &gt; </a>]</td></tr></table>
+<a name="Documentation-translation-maintenance"></a>
+<h3 class="subsection">3.7.3 Documentation translation maintenance</h3>
+
+<p>Several tools have been developed to make translations maintenance
+easier.  These helper scripts make use of the power of Git, the
+version control system used for LilyPond development.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Check-state-of-translation" accesskey="1">Check state of translation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Updating-documentation-translation" accesskey="2">Updating documentation translation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Check-state-of-translation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Documentation-translation-maintenance" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Documentation translation maintenance&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-maintenance" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation maintenance&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Updating-documentation-translation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Updating documentation translation &gt; </a>]</td></tr></table>
+<a name="Check-state-of-translation"></a>
+<h4 class="unnumberedsubsubsec">Check state of translation</h4>
+
+<p>First pull from Git, then cd into &lsquo;<tt>Documentation/</tt>&rsquo; (or at top of
+the source tree, replace <code>make</code> with <code>make -C
+Documentation</code>) and run
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> check-translation
+</pre></blockquote>
+
+<p>This presents a diff of the original files since the most recent
+revision of the translation.  To check a single file, cd into
+&lsquo;<tt>Documentation/</tt>&rsquo; and run
+</p>
+<blockquote><pre class="example">make CHECKED_FILES=<var>MY_LANGUAGE/user/foo.itely</var> check-translation
+</pre></blockquote>
+
+<p>To see only which files need to be updated, do
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> check-translation | grep 'diff --git'
+</pre></blockquote>
+
+<p>To avoid printing terminal colors control characters, which is often
+desirable when you redirect output to a file, run
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> NO_COLOR=1 check-translation
+</pre></blockquote>
+
+<p>Global state of the translation is recorded in
+&lsquo;<tt>Documentation/translations.html.in</tt>&rsquo;, which is used to generate
+Translations status page.  To update that page, do from
+&lsquo;<tt>Documentation/</tt>&rsquo;
+</p>
+<blockquote><pre class="example">make translation-status
+</pre></blockquote>
+
+<p>This will also leave &lsquo;<tt>out/translations-status.txt</tt>&rsquo;, which contains
+up-to-dateness percentages for each translated file, and update word
+counts of documentation files in this Guide.
+</p>
+<a name="See-also"></a>
+<h4 class="subsubheading">See also</h4>
+
+<p><a href="#Maintaining-without-updating-translations">Maintaining without updating translations</a>.
+</p>
+
+<hr size="6">
+<a name="Updating-documentation-translation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Check-state-of-translation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Check state of translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-translation-maintenance" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation translation maintenance&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translations-management-policies" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translations management policies &gt; </a>]</td></tr></table>
+<a name="Updating-documentation-translation"></a>
+<h4 class="unnumberedsubsubsec">Updating documentation translation</h4>
+
+<p>Instead of running <code>check-translation</code>, you may want to run
+<code>update-translation</code>, which will run your favorite text editor to
+update files.  First, make sure environment variable <code>EDITOR</code> is
+set to a text editor command, then run from &lsquo;<tt>Documentation/</tt>&rsquo;
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> update-translation
+</pre></blockquote>
+
+<p>or to update a single file
+</p>
+<blockquote><pre class="example">make CHECKED_FILES=<var>MY_LANGUAGE/user/foo.itely</var> update-translation
+</pre></blockquote>
+
+<p>For each file to be udpated, update-translation will open your text
+editor with this file and a diff of the file in English; if the diff
+cannot be generated or is bigger than the file in English itself, the
+full file in English will be opened instead.
+</p>
+<p>Texinfo skeleton files, i.e. &lsquo;<tt>.itely</tt>&rsquo; files not yet translated,
+containing only the Texinfo structure can be updated automatically:
+whenever <code>make check-translation</code> shows that such files should
+be updated, run from &lsquo;<tt>Documentation/</tt>&rsquo;
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> skeleton-update
+</pre></blockquote>
+
+<p>&lsquo;<tt>.po</tt>&rsquo; message catalogs in &lsquo;<tt>Documentation/po/</tt>&rsquo; may be updated
+by issuing from &lsquo;<tt>Documentation/</tt>&rsquo; or &lsquo;<tt>Documentation/po/</tt>&rsquo;
+</p>
+<blockquote><pre class="example">make po-update
+</pre></blockquote>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> if you run po-update and somebody else does the same and
+pushes before you push or send a patch to be applied, there will be a
+conflict when you pull.  Therefore, it is better that only the
+Translation meister runs this command.
+</p></td></tr></table>
+
+<p>Updating music snippets can quickly become cumbersome, as most
+snippets should be identical in all languages.  Fortunately, there is
+a script that can do this odd job for you (run from
+&lsquo;<tt>Documentation/</tt>&rsquo;):
+</p>
+<blockquote><pre class="example">make ISOLANG=<var>MY_LANGUAGE</var> snippet-update
+</pre></blockquote>
+
+<p>This script overwrites music snippets in
+&lsquo;<tt><var>MY_LANGUAGE/user/every.itely</var></tt>&rsquo; with music snippets from
+&lsquo;<tt><var>user/every.itely</var></tt>&rsquo;.  It ignores skeleton files, and keeps
+intact music snippets preceded with a line starting with <code>@c
+KEEP LY</code>; it reports an error for each &lsquo;<tt>.itely</tt>&rsquo; that has not the
+same music snippet count in both languages.  Always use this script
+with a lot of care, i.e. run it on a clean Git working tree, and check
+the changes it made with <code>git diff</code> before committing; if you
+don&rsquo;t do so, some <code>@lilypond</code> snippets might be broken or make
+no sense in their context.
+</p>
+<p>Finally, a command runs the three update processes above for all
+enabled languages (from &lsquo;<tt>Documentation/</tt>&rsquo;):
+</p>
+<blockquote><pre class="example">make all-translations-update
+</pre></blockquote>
+
+<p>Use this command with caution, and keep in mind it will not be really
+useful until translations are stabilized after the end of GDP.
+</p>
+<a name="See-also-1"></a>
+<h4 class="subsubheading">See also</h4>
+
+<p><a href="#Maintaining-without-updating-translations">Maintaining without updating translations</a>.
+</p>
+
+<hr size="6">
+<a name="Translations-management-policies"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Updating-documentation-translation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Updating documentation translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Maintaining-without-updating-translations" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Maintaining without updating translations &gt; </a>]</td></tr></table>
+<a name="Translations-management-policies"></a>
+<h3 class="subsection">3.7.4 Translations management policies</h3>
+
+<p>These policies show the general intent of how the translations should
+be managed, they aim at helping translators, developers and
+coordinators work efficiently.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Maintaining-without-updating-translations" accesskey="1">Maintaining without updating translations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Managing-documentation-translation-with-Git" accesskey="2">Managing documentation translation with Git</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Maintaining-without-updating-translations"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Translations-management-policies" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Translations management policies&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translations-management-policies" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translations management policies&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Managing-documentation-translation-with-Git" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Managing documentation translation with Git &gt; </a>]</td></tr></table>
+<a name="Maintaining-without-updating-translations"></a>
+<h4 class="unnumberedsubsubsec">Maintaining without updating translations</h4>
+
+<p>Keeping translations up to date under heavy changes in the
+documentation in English may be almost impossible, especially as
+during the former Grand Documentation Project (GDP) or the Grand
+Organization Project (GOP) when a lot of contributors brings changes.
+In addition, transloators may be (and that) involved in these porjects too.
+</p>
+<p>it is possible &ndash; and even recommended &ndash; to
+perform some maintaining that keeps translated documentation usable
+and eases future translation updating.  The rationale below the tasks
+list motivates this plan.  The rationale below the tasks
+list motivates this plan.
+</p>
+<p>The following tasks are listed in decreasing priority order.
+</p>
+<ol>
+<li> Update macros.itexi.
+For each obsolete macro definition, if it is possible to update macro
+usage in documentation with an automatic text or regexp substitution,
+do it and delete the macro definition from macros.itexi; otherwise,
+mark this macro definition as obsolete with a comment, and keep it in
+macros.itexi until the documentation translation has been updated and
+no longer uses this macro.
+
+</li><li> Update &lsquo;<tt>*.tely</tt>&rsquo; files completely with
+<code>make check-translation</code> &ndash; you may want to redirect ouptput
+to a file because of overwhelming output, or call check-translation.py
+on individual files, see <a href="#Check-state-of-translation">Check state of translation</a>.
+
+</li><li> In &lsquo;<tt>.itelys</tt>&rsquo;, match sections and .itely file names with those from
+English docs, which possibly involves moving nodes contents in block
+between files, without updating contents itself.  In other words, the
+game is catching where has gone each section.  In Learning manual, and
+in Notation Reference sections which have been revised in GDP, there
+may be completely new sections: in this case, copy <code>@node</code> and
+<code>@section</code>-command from English docs, and add the marker for
+untranslated status <code>@untranslated</code> on a single line.  Note that
+it is not possible to exactly match subsections or subsubsections of
+documentation in English, when contents has been deeply revised; in
+this case, keep obsolete (sub)subsections in the translation, marking
+them with a line <code>@c obsolete</code> just before the node.
+
+<p>Emacs with Texinfo mode makes this step easier:
+</p>
+<ul>
+<li> without Emacs AucTeX installed, &lt;C-c C-s&gt; shows structure of current
+Texinfo file in a new buffer *Occur*; to show structure of two files
+simultaneously, first split Emacs window in 4 tiles (with &lt;C-x 1&gt;
+and &lt;C-x 2&gt;), press &lt;C-c C-s&gt; to show structure of one file
+(e.g. the translated file), copy *Occur* contents into *Scratch*, then
+press &lt;C-c C-s&gt; for the other file.
+
+<p>If you happen to have installed AucTeX, you can either call the macro
+by doing &lt;M-x texinfo-show-structure&gt; or create a key binding in your
+&lsquo;<tt>~/.emacs</tt>&rsquo;, by adding the four following lines:
+</p>
+<blockquote><pre class="example">(add-hook 'Texinfo-mode-hook
+          '(lambda ()
+             (define-key Texinfo-mode-map &quot;\C-cs&quot;
+              'texinfo-show-structure)))
+</pre></blockquote>
+
+<p>and then obtain the structure in the *Occur* buffer with &lt;C-c s&gt;.
+</p>
+</li><li> Do not bother updating <code>@menu</code>s when all menu entries are in the same
+file, just do &lt;C-c C-u C-a&gt; (&quot;update all menus&quot;) when you have
+updated all the rest of the file.
+
+</li><li> Moving to next or previous node using incremental search: press
+&lt;C-s&gt; and type <code>node</code> (or &lt;C-s @node&gt; if the text
+contains the word &lsquo;node&rsquo;) then press &lt;C-s&gt; to move to next node
+or &lt;C-r&gt; to move to previous node.  Similar operation can be used
+to move to the next/previous section.  Note that every cursor move
+exits incremental search, and hitting &lt;C-s&gt; twice starts
+incremental search with the text entered in previous incremental
+search.
+
+</li><li> Moving a whole node (or even a sequence of nodes): jump to beginning
+of the node (quit incremental search by pressing an arrow), press
+&lt;C-SPACE&gt;, press &lt;C-s node&gt; and repeat &lt;C-s&gt; until you
+have selected enough text, cut it with &lt;C-w&gt; or &lt;C-x&gt;, jump to
+the right place (moving between nodes with the previous hint is often
+useful) and paste with &lt;C-y&gt; or &lt;C-v&gt;.
+</li></ul>
+
+</li><li> Update sections finished in the English documentation; check
+sections status at
+<a href="http://lilypondwiki.tuxfamily.org/index.php?title=Documentation_coordination">http://lilypondwiki.tuxfamily.org/index.php?title=Documentation_coordination</a>.
+
+</li><li> Update documentation PO.  It is recommended not to update
+strings which come from documentation that is currently deeply revised
+in English, to avoid doing the work more than once.
+
+</li><li> Fix broken cross-references by running (from &lsquo;<tt>Documentation/</tt>&rsquo;)
+
+<blockquote><pre class="example">make ISOLANG=<var>YOUR-LANGUAGE</var> fix-xrefs
+</pre></blockquote>
+
+<p>This step requires a sucessful documentation build (with <code>make
+doc</code>).  Some cross-references are broken because they point to a node
+that exists in the documentation in English, which has not been added
+to the translation; in this case, do not fix the cross-reference but
+keep it &quot;broken&quot;, so that the resulting HTML link will point to an
+existing page of documentation in English.
+</p></li></ol>
+
+<a name="Rationale"></a>
+<h4 class="subsubheading">Rationale</h4>
+
+<p>You may wonder if it would not be better to leave translations as-is
+until you can really start updating translations.  There are several
+reasons to do these maintenance tasks right now.
+</p>
+<ul>
+<li> This will have to be done sooner or later anyway, before updating
+translation of documentation contents, and this can already be done
+without needing to be redone later, as sections of documentation in
+English are mostly revised once.  However, note that not all
+documentation sectioning has been revised in one go, so all this
+maintenance plan has to be repeated whenever a big reorganization is
+made.
+
+</li><li> This just makes translated documentation take advantage of the new
+organization, which is better than the old one.
+
+</li><li> Moving and renaming sections to match sectioning of documentation in
+English simplify future updating work: it allows updating the
+translation by side-by-side comparison, without bothering whether
+cross-reference names already exist in the translation.
+
+</li><li> Each maintenance task except &lsquo;Updating PO files&rsquo; can be done by
+the same person for all languages, which saves overall time spent by
+translators to achieve this task: the node names and section titles
+are in English, so you can do.  It is important to take advantage of
+this now, as it will be more complicated (but still possible) to do
+step 3 in all languages when documentation is compiled with
+<code>texi2html</code> and node names are directly translated in source
+files.
+</li></ul>
+
+
+<hr size="6">
+<a name="Managing-documentation-translation-with-Git"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Maintaining-without-updating-translations" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Maintaining without updating translations&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translations-management-policies" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translations management policies&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Technical-background" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Technical background &gt; </a>]</td></tr></table>
+<a name="Managing-documentation-translation-with-Git"></a>
+<h4 class="unnumberedsubsubsec">Managing documentation translation with Git</h4>
+
+<p>This policy explains how to manage Git branches and commit
+translations to Git.
+</p>
+<ul>
+<li> Translation changes matching master branch are preferably made on
+<code>lilypond/translation</code> branch; they may be pushed directly to
+<code>master</code> only if they do not break compilation of LilyPond and
+its documentation, and in this case they should be pushed to
+<code>lilypond/translation</code> too.  Similarly, changes matching
+<code>stable/X.Y</code> are preferably made on
+<code>lilypond/X.Ytranslation</code>.
+
+</li><li> <code>lilypond/translation</code> Git branch may be merged into
+master only if LilyPond (<code>make all</code>) and documentation
+(<code>make doc</code>) compile succesfully.
+
+</li><li> <code>master</code> Git branch may be merged into
+<code>lilypond/translation</code> whenever <code>make</code> and <code>make
+doc</code> are succesful (in order to ease documentation compilation by
+translators), or when significant changes had been made in
+documentation in English in master branch.
+
+</li><li> General maintenance may be done by anybody who knows what he does
+in documentation in all languages, without informing translators
+first.  General maintenance include simple text substitutions
+(e.g. automated by sed), compilation fixes, updating Texinfo or
+lilypond-book commands, updating macros, updating ly code, fixing
+cross-references, and operations described in <a href="#Maintaining-without-updating-translations">Maintaining without updating translations</a>.
+</li></ul>
+
+
+<hr size="6">
+<a name="Technical-background"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Managing-documentation-translation-with-Git" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Managing documentation translation with Git&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Translation-status" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Translation status &gt; </a>]</td></tr></table>
+<a name="Technical-background"></a>
+<h3 class="subsection">3.7.5 Technical background</h3>
+
+<p>A number of Python scripts handle a part of the documentation
+translation process.  All scripts used to maintain the translations
+are located in &lsquo;<tt>scripts/auxiliar/</tt>&rsquo;.
+</p>
+<ul>
+<li> &lsquo;<tt>check_translation.py</tt>&rsquo;  &ndash; show diff to update a translation,
+</li><li> &lsquo;<tt>texi-langutils.py</tt>&rsquo;  &ndash; quickly and dirtily parse Texinfo files to
+make message catalogs and Texinfo skeleton files,
+</li><li> &lsquo;<tt>texi-skeleton-update.py</tt>&rsquo; &ndash; update Texinfo skeleton files,
+</li><li> &lsquo;<tt>update-snippets.py</tt>&rsquo; &ndash; synchronize ly snippets with those
+from English docs,
+</li><li> &lsquo;<tt>translations-status.py</tt>&rsquo; &ndash; update translations status pages and word
+counts in the file you are reading,
+</li><li> &lsquo;<tt>tely-gettext.py</tt>&rsquo; &ndash; gettext node names, section titles and references
+in the sources; WARNING only use this script once for each file, when support for
+&quot;makeinfo &ndash;html&quot; has been dropped.
+</li></ul>
+
+<p>Other scripts are used in the build process, in &lsquo;<tt>scripts/build/</tt>&rsquo;:
+</p>
+<ul>
+<li> &lsquo;<tt>html-gettext.py</tt>&rsquo; &ndash; translate node names, section titles and cross
+references in HTML files generated by <code>makeinfo</code>,
+</li><li> &lsquo;<tt>texi-gettext.py</tt>&rsquo; &ndash; gettext node names, section titles and references
+before calling <code>texi2pdf</code>,
+</li><li> &lsquo;<tt>mass-link.py</tt>&rsquo; &ndash; link or symlink files between English documentation
+and documentation in other languages.
+</li></ul>
+
+<p>Python modules used by scripts in &lsquo;<tt>scripts/auxiliar/</tt>&rsquo; or &lsquo;<tt>scripts/build/</tt>&rsquo; (but
+not by installed Python scripts) are located in &lsquo;<tt>python/auxiliar/</tt>&rsquo;:
+</p><ul>
+<li> &lsquo;<tt>manuals_definitions.py</tt>&rsquo; &ndash; define manual names and name of
+cross-reference Texinfo macros,
+</li><li> &lsquo;<tt>buildlib.py</tt>&rsquo; &ndash; common functions (read piped output
+of a shell command, use Git),
+</li><li> &lsquo;<tt>postprocess_html.py</tt>&rsquo; (module imported by &lsquo;<tt>www_post.py</tt>&rsquo;) &ndash; add footer and
+tweak links in HTML pages.
+</li></ul>
+
+<p>And finally
+</p><ul>
+<li> &lsquo;<tt>python/langdefs.py</tt>&rsquo;  &ndash; language definitions module
+</li></ul>
+
+
+<hr size="6">
+<a name="Translation-status"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Technical-background" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Technical background&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Website-work.es.html#Website-work" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Website work &gt; </a>]</td></tr></table>
+<a name="Translation-status"></a>
+<h3 class="subsection">3.7.6 Translation status</h3>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.es.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.es.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Technical-background" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Technical background&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Translating-the-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translating the documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Website-work.es.html#Website-work" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Website work &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.es.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Starting-with-git-1" href="Starting-with-git.es.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.es.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.es.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.es.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.es.html#Advanced-git-stuff">1.4 Advanced git stuff</a>    </li>
+    <li><a name="toc-Git-on-Windows-1" href="Git-on-Windows.es.html#Git-on-Windows">1.5 Git on Windows</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.es.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.es.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.es.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Documentation-work-1" href="Documentation-work.es.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.es.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.es.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.es.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li><a name="toc-Documentation-policy-1" href="Documentation-policy.es.html#Documentation-policy">3.4 Documentation policy</a>    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.es.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.es.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li class="toc_current"><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.es.html#Translating-the-documentation">3.7 Translating the documentation</a>
+    <ul class="toc">
+      <li><a name="toc-Getting-started-with-documentation-translation-1" href="Translating-the-documentation.es.html#Getting-started-with-documentation-translation">3.7.1 Getting started with documentation translation</a>      </li>
+      <li><a name="toc-Documentation-translation-details-1" href="Translating-the-documentation.es.html#Documentation-translation-details">3.7.2 Documentation translation details</a>      </li>
+      <li><a name="toc-Documentation-translation-maintenance-1" href="Translating-the-documentation.es.html#Documentation-translation-maintenance">3.7.3 Documentation translation maintenance</a>      </li>
+      <li><a name="toc-Translations-management-policies-1" href="Translating-the-documentation.es.html#Translations-management-policies">3.7.4 Translations management policies</a>      </li>
+      <li><a name="toc-Technical-background-1" href="Translating-the-documentation.es.html#Technical-background">3.7.5 Technical background</a>      </li>
+      <li><a name="toc-Translation-status-1" href="Translating-the-documentation.es.html#Translation-status">3.7.6 Translation status</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.es.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.es.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.es.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-LSR-work-1" href="LSR-work.es.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.es.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.es.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.es.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.es.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.es.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.es.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.es.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.es.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.es.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.es.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Programming-work-1" href="Programming-work.es.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.es.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.es.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.es.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.es.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li><a name="toc-Code-style-1" href="Code-style.es.html#Code-style">7.5 Code style</a>    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.es.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.es.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.es.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.es.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.es.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.es.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

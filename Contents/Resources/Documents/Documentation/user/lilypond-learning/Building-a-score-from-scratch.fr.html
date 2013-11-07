@@ -1,0 +1,371 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 3.4.3 Écriture d&rsquo;une partition à partir de zéro</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 3.4.3 Building a score from scratch">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 3.4.3 Building a score from scratch">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Extending-the-templates.fr.html#Extending-the-templates" rel="up" title="3.4 Extending the templates">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Four_002dpart-SATB-vocal-score.fr.html#Four_002dpart-SATB-vocal-score" rel="previous" title="3.4.2 Four-part SATB vocal score">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Building-a-score-from-scratch"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.fr.html#Fundamental-concepts" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Concepts fondamentaux&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Chapitre suivant">&nbsp;Retouche de partition &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Four_002dpart-SATB-vocal-score.fr.html#Four_002dpart-SATB-vocal-score" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Partition pour chœur à quatre voix mixtes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Extending-the-templates.fr.html#Extending-the-templates" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Extension des modèles&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Retouche de partition &gt; </a>]</td></tr></table>
+<a name="Building-a-score-from-scratch"></a>
+<h3 class="subsection">3.4.3 Écriture d&rsquo;une partition à partir de zéro</h3>
+
+<a name="index-modeles_002c-creation"></a>
+<a name="index-squelettes_002c-creation"></a>
+
+<p>Après avoir acquis une certaine dextérité dans l&rsquo;écriture de code
+LilyPond, vous devez vous sentir suffisament prêt à vous lancer dans
+la création d&rsquo;une partition à partir de zéro, autrement dit en ne
+partant pas d&rsquo;un exemple.  Vous pourrez ainsi vous construire vos
+propres patrons selon le type de musique que vous affectionnez plus
+particulièrement.  Pour voir comment procéder, nous allons monter la
+partition d&rsquo;un prélude pour orgue.
+</p>
+<p>Nous débutons par une section d&rsquo;en-tête&nbsp;; nous y mettrons entre autres
+le titre et le nom du compositeur.  Puis viennent toutes les définitions
+de toutes les variables. Nous terminons par le bloc <code>\score</code>.
+Attelons-nous pour cette aventure, en gardant bien à l&rsquo;esprit ce que
+nous venons de dire&nbsp;; nous nous occuperons des détails en temps voulu.
+</p>
+<p>Nous nous appuyons sur les deux premières mesures du prélude sur
+<em>Jesu, meine Freude</em>, écrit pour orgue avec pédalier.  Vous pouvez
+voir ces deux mesures au bas de cette page.  La main droite comporte
+deux voix, la main gauche et le pédalier une seule.  Il nous faut donc
+quatre définitions de musique, plus une qui contiendra la métrique et
+l&rsquo;armure&nbsp;:
+</p>
+<blockquote><pre class="example">\version &quot;2.12.3&quot;
+\header {
+  title = &quot;Jesu, meine Freude&quot;
+  composer = &quot;J S Bach&quot;
+}
+MetriqueArmure = { \time 4/4 \key c \minor }
+ManuelUnVoixUnMusique = {s1}
+ManuelUnVoixDeuxMusique = {s1}
+ManuelDeuxMusique = {s1}
+PedalierOrgueMusique = {s1}
+
+\score {
+}
+</pre></blockquote>
+
+<p>Pour l&rsquo;instant, nous utilisons des silences invisibles, <code>s1</code>, en
+lieu et place des notes réelles.  On verra plus tard.
+</p>
+<p>Passons maintenant au bloc <code>\score</code> et à ce qu&rsquo;il devrait contenir.
+Nous y recopions simplement la structure des portées que nous voulons.
+La musique pour orgue se présente généralement sous la forme de trois
+portées, une pour chaque main et une pour le pédalier.  Les portées du
+manuel sont regroupées, nous utiliserons donc un <code>PianoStaff</code>.  La
+première partie du manuel requiert deux voix et la seconde une seule.
+</p>
+<blockquote><pre class="example">  \new PianoStaff &lt;&lt;
+    \new Staff = &quot;ManuelUn&quot; &lt;&lt;
+      \new Voice { \ManuelUnVoixUnMusique }
+      \new Voice { \ManuelUnVoixDeuxMusique }
+    &gt;&gt;  % fin du contexte de portée ManuelUn
+    \new Staff = &quot;ManuelDeux&quot; &lt;&lt;
+      \new Voice { \ManuelDeuxMusique }
+    &gt;&gt;  % fin du contexte de portée ManuelDeux 
+  &gt;&gt;  % fin du contexte PianoStaff 
+</pre></blockquote>
+
+<p>Il nous faut ajouter à cela une portée pour le pédalier.  Elle se place
+sous le système de piano, mais puisqu&rsquo;elle doit rester synchrone avec
+lui, nous utilisons des doubles chevrons pour les regrouper.
+Négliger ceci nous renverrait une erreur, et personne n&rsquo;est à l&rsquo;abri de
+cette faute<font size="-4">&nbsp;</font>! Pour preuve, il vous suffit de copier l&rsquo;exemple complet en
+fin de chapitre, de supprimer ces <code>&lt;&lt;</code> et <code>&gt;&gt;</code>, et de le
+compiler, pour voir de quoi il retourne.
+</p>
+<blockquote><pre class="example">&lt;&lt;  % Système pianistique et portée de pédalier sont synchrones 
+  \new PianoStaff &lt;&lt;
+    \new Staff = &quot;ManuelUn&quot; &lt;&lt;
+      \new Voice { \ManuelUnVoixUnMusique }
+      \new Voice { \ManuelUnVoixDeuxMusique }
+    &gt;&gt;  % fin du contexte de portée ManuelUn
+    \new Staff = &quot;ManualDeux&quot; &lt;&lt;
+      \new Voice { \ManuelDeuxMusique }
+    &gt;&gt;  % fin du contexte de portée ManuelDeux 
+  &gt;&gt;  % fin du contexte PianoStaff 
+  \new Staff = &quot;PedalierOrgue&quot; &lt;&lt;
+    \new Voice { \PedalierOrgueMusique }
+  &gt;&gt;
+&gt;&gt;
+</pre></blockquote>
+
+<p>La construction en simultané &ndash; <code>&lt;&lt; .. &gt;&gt;</code> &ndash; n&rsquo;est pas strictement
+obligatoire pour les portées manuel deux et pédalier, qui ne contiennent
+chacune qu&rsquo;une seule expression musicale&nbsp;; mais cela ne mange pas de
+pain, et c&rsquo;est une bonne habitude que de toujours encadrer par des
+doubles chevrons gauche/droite ce qui suit une commande <code>\new
+Staff</code> au cas où il y aurait plusieurs voix.  Il en va autrement pour
+les contextes <code>Voice</code>&nbsp;: ils doivent être toujours suivis
+d&rsquo;accolades &ndash;  <code>{ .. }</code> &ndash;  au cas où vous auriez employé
+plusieurs variables qui doivent intervenir consécutivement.
+</p>
+<p>Ajoutons donc cette structure au bloc <code>\score</code>, tout en fignolant
+l&rsquo;indentation.  Nous en profitons pour ajouter les clés appropriées,
+effectuer les réglages concernant les hampes et liaisons de la portée
+supérieure grâce à <code>\voiceOne</code> et <code>\voiceTwo</code>, et mettre en
+place la métrique et l&rsquo;armure de chaque portée grâce à notre variable
+<code>\MetriqueArmure</code>. 
+</p>
+<blockquote><pre class="example">\score {
+  &lt;&lt;  % Système pianistique et portée de pédalier sont synchrones 
+    \new PianoStaff &lt;&lt;
+      \new Staff = &quot;ManuelUn&quot; &lt;&lt;
+        \TimeKey  % définition de la métrique et de l'armure
+        \clef &quot;treble&quot;
+        \new Voice { \voiceOne \ManuelUnVoixUnMusique }
+        \new Voice { \voiceTwo \ManuelUnVoixDeuxMusique }
+      &gt;&gt;  % fin du contexte de la portée ManuelUn
+      \new Staff = &quot;ManuelDeux&quot; &lt;&lt;
+        \TimeKey
+        \clef &quot;bass&quot;
+        \new Voice { \ManuelDeuxMusique }
+      &gt;&gt;  % fin du contexte de la portée ManuelDeux
+    &gt;&gt;  % fin du contexte PianoStaff
+    \new Staff = &quot;PedalierOrgue&quot; &lt;&lt;
+      \TimeKey
+      \clef &quot;bass&quot;
+      \new Voice { \PedalierOrgueMusique }
+    &gt;&gt;  % fin du contexte de la portée PedalOrgan
+  &gt;&gt;
+}  % fin du contexte Score
+</pre></blockquote>
+
+<p>Nous en avons fini avec la structure.  Toutes les partitions pour orgue
+auront cette structure, même si le nombre de voix peut changer.  Tout ce
+qui nous reste à faire maintenant consiste à saisir la musique et à
+regrouper toutes les parties.
+</p>
+<blockquote><blockquote><pre class="example">\version &quot;2.12.3&quot;
+</pre></blockquote>
+<pre class="verbatim">\header {
+  title = &quot;Jesu, meine Freude&quot;
+  composer = &quot;J S Bach&quot;
+}
+MetriqueArmure = { \time 4/4 \key c \minor }
+MusiqueManuelUnVoixUn = \relative g' {
+  g4 g f ees | d2 c2 |
+}
+MusiqueManuelUnVoixDeux = \relative c' {
+  ees16 d ees8~ ees16 f ees d c8 d~ d c~ |
+  c c4 b8 c8. g16 c b c d |
+}
+MusiqueManuelDeux = \relative c' {
+  c16 b c8~ c16 b c g a8 g~ g16 g aes ees |
+  f ees f d g aes g f ees d e8~ ees16 f ees d |
+}
+MusiquePedalierOrgue = \relative c {
+  r8 c16 d ees d ees8~ ees16 a, b g c b c8 |
+  r16 g ees f g f g8 c,2 |
+  }
+
+\score {
+  &lt;&lt;  % système pianistique et portée de pédalier simultanés
+    \new PianoStaff &lt;&lt;
+      \new Staff = &quot;ManuelUn&quot; &lt;&lt;
+        \MetriqueArmure  % définition de la métrique et de l'armure
+        \clef &quot;treble&quot;
+        \new Voice { \voiceOne \MusiqueManuelUnVoixUn }
+        \new Voice { \voiceTwo \MusiqueManuelUnVoixDeux }
+      &gt;&gt;  % fin du contexte de portée ManuelUn
+      \new Staff = &quot;ManuelDeux&quot; &lt;&lt;
+        \MetriqueArmure
+        \clef &quot;bass&quot;
+        \new Voice { \MusiqueManuelDeux }
+      &gt;&gt;  % fin du contexte de portée ManuelDeux
+    &gt;&gt;  % fin du contexte PianoStaff
+    \new Staff = &quot;PedalierOrgue&quot; &lt;&lt;
+      \MetriqueArmure
+      \clef &quot;bass&quot;
+      \new Voice { \MusiquePedalierOrgue }
+    &gt;&gt;  % fin du contexte de portée PedalierOrgue
+  &gt;&gt;
+}  % fin du contexte Score
+</pre><p>
+ <a href="../bb/lily-25a97e74.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-25a97e74.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.fr.html#Fundamental-concepts" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Concepts fondamentaux&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Chapitre suivant">&nbsp;Retouche de partition &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Four_002dpart-SATB-vocal-score.fr.html#Four_002dpart-SATB-vocal-score" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Partition pour chœur à quatre voix mixtes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Extending-the-templates.fr.html#Extending-the-templates" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Extension des modèles&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tweaking-output.fr.html#Tweaking-output" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Retouche de partition &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Building-a-score-from-scratch.html">English</a>, <a href="Building-a-score-from-scratch.es.html">español</a>, <a href="Building-a-score-from-scratch.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li class="toc_current"><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>
+    <ul class="toc">
+      <li><a name="toc-Soprano-and-cello-1" href="Soprano-and-cello.fr.html#Soprano-and-cello">3.4.1 Soprano et violoncelle</a>      </li>
+      <li><a name="toc-Four_002dpart-SATB-vocal-score-1" href="Four_002dpart-SATB-vocal-score.fr.html#Four_002dpart-SATB-vocal-score">3.4.2 Partition pour chœur à quatre voix mixtes</a>      </li>
+      <li class="toc_current"><a name="toc-Building-a-score-from-scratch-1" href="Building-a-score-from-scratch.fr.html#Building-a-score-from-scratch">3.4.3 Écriture d&rsquo;une partition à partir de zéro</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

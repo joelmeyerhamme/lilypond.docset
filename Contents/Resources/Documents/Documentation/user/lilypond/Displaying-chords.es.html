@@ -1,0 +1,784 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 2.7.2 Imprimir los acordes</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 2.7.2 Displaying chords">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 2.7.2 Displaying chords">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Chord-notation.es.html#Chord-notation" rel="up" title="2.7 Chord notation">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Chord-mode.es.html#Chord-mode" rel="previous" title="2.7.1 Chord mode">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Displaying-chords"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación especializada&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.es.html#General-input-and-output" title="Cap&iacute;tulo siguiente">&nbsp;Entrada y salida generales &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Chord-mode.es.html#Extended-and-altered-chords" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Acordes extendidos y alterados&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Chord-notation.es.html#Chord-notation" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Notación de acordes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Printing-chord-names" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Impresión de los nombres de acorde &gt; </a>]</td></tr></table>
+<a name="Displaying-chords"></a>
+<h3 class="subsection">2.7.2 Imprimir los acordes</h3>
+
+<p>Los acordes se pueden imprimir por su nombre, además de la impresión
+estándar como notas sobre un pentagrama.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Printing-chord-names" accesskey="1">Impresión de los nombres de acorde</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Customizing-chord-names" accesskey="2">Nombres de acorde personalizados</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Printing-chord-names"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación especializada&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.es.html#General-input-and-output" title="Cap&iacute;tulo siguiente">&nbsp;Entrada y salida generales &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Displaying-chords" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Imprimir los acordes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-chords" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Imprimir los acordes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Customizing-chord-names" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Nombres de acorde personalizados &gt; </a>]</td></tr></table>
+<a name="Printing-chord-names"></a>
+<h4 class="unnumberedsubsubsec">Impresión de los nombres de acorde</h4>
+
+<a name="index-impresion-de-los-nombres-de-acorde"></a>
+<a name="index-acordes_002c-nombres-de-1"></a>
+<a name="index-acordes-1"></a>
+
+<p>Los nombres de acorde se imprimen dentro del contexto
+<code>ChordNames</code>:
+</p>
+<blockquote><pre class="verbatim">\new ChordNames {
+  \chordmode {
+    c2 f4. g8
+  }
+}
+</pre><p>
+ <a href="../9c/lily-2c3ece76.ly">
+  <img align="middle"
+       border="0"
+       src="../9c/lily-2c3ece76.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Los acordes se pueden escribir como notas simultáneas o a través del
+uso del modo de acordes.  El nombre de acorde que se imprime es el
+mismo independientemente del modo de entrada, a no ser que existan
+inversiones o bajos añadidos:
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new ChordNames {
+    &lt;c e g&gt;2  &lt;f bes c&gt;
+    &lt;f c' e g&gt;1
+    \chordmode {
+      c2 f:sus4 c1:/f
+    }
+  }
+  {
+    &lt;c e g&gt;2  &lt;f bes c&gt;
+    &lt;f, c' e g&gt;1
+    \chordmode {
+      c2 f:sus4 c1:/f
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../4f/lily-c6c35541.ly">
+  <img align="middle"
+       border="0"
+       src="../4f/lily-c6c35541.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-chords"></a>
+<a name="index-chords-1"></a>
+
+<p><code>\chords { ... }</code> es una forma abreviada de escribir
+<code>\new ChordNames { \chordmode { ... } }</code>.
+</p>
+<blockquote><pre class="verbatim">\chords {
+  c2 f4.:m g8:maj7
+}
+</pre><p>
+ <a href="../1a/lily-5e3dc61d.ly">
+  <img align="middle"
+       border="0"
+       src="../1a/lily-5e3dc61d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<blockquote><pre class="verbatim">\new ChordNames {
+  \chordmode {
+    c2 f4.:m g8:maj7
+  }
+}
+</pre><p>
+ <a href="../51/lily-a2d37d0f.ly">
+  <img align="middle"
+       border="0"
+       src="../51/lily-a2d37d0f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-59"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Imprimir los acordes cuando se produce un cambio</em>
+</p>
+
+<p>Se pueden imprimir los acordes exclusivamente al comienzo de las
+líneas y cuando cambia el acorde.
+</p>
+
+<blockquote><pre class="verbatim">armonias = \chordmode {
+  c1:m c:m \break c:m c:m d
+}
+&lt;&lt;
+  \new ChordNames {
+    \set chordChanges = ##t
+    \armonias
+  }
+  \new Staff {
+    \relative c' { \armonias }
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../83/lily-e691bc20.ly">
+  <img align="middle"
+       border="0"
+       src="../83/lily-e691bc20.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p><em> Hoja guía de acordes o «lead sheet» sencilla</em>
+</p>
+
+<p>Al juntar nombres de acorde en cifrado americano, melodía y letra,
+obtenemos una hoja guía de acordes o «lead sheet»:
+</p>
+
+<blockquote><pre class="verbatim">&lt;&lt;
+  \chords { c2 g:sus4 f e }
+  \relative c'' {
+    a4 e c8 e r4
+    b2 c4( d)
+  }
+  \addlyrics { One day this shall be free __ }
+&gt;&gt;
+
+</pre><p>
+ <a href="../41/lily-b9cdd548.ly">
+  <img align="middle"
+       border="0"
+       src="../41/lily-b9cdd548.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-151"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-chord-2"></a>
+<a href="../music-glossary/chord.es.html#chord">acorde</a>.
+</p>
+<p>Referencia de la notación:
+<a href="Multiple-voices.es.html#Writing-music-in-parallel">Escribir música en paralelo</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Chords.html#Chords">Chords</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-ChordNames-3"></a>
+<a href="../lilypond-internals/ChordNames.es.html#ChordNames">ChordNames</a>,
+<a name="index-ChordName"></a>
+<a href="../lilypond-internals/ChordName.es.html#ChordName">ChordName</a>,
+<a name="index-Chord_005fname_005fengraver"></a>
+<a href="../lilypond-internals/Chord_005fname_005fengraver.es.html#Chord_005fname_005fengraver">Chord_name_engraver</a>,
+<a name="index-Volta_005fengraver"></a>
+<a href="../lilypond-internals/Volta_005fengraver.es.html#Volta_005fengraver">Volta_engraver</a>,
+<a name="index-Bar_005fengraver"></a>
+<a href="../lilypond-internals/Bar_005fengraver.es.html#Bar_005fengraver">Bar_engraver</a>.
+</p>
+
+<a name="Advertencias-y-problemas-conocidos-9"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Los acordes que contienen inversiones o bajos alterados no reciben un
+nombre adecuado si se escriben usando música simultánea.
+</p>
+<hr size="6">
+<a name="Customizing-chord-names"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación especializada&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.es.html#General-input-and-output" title="Cap&iacute;tulo siguiente">&nbsp;Entrada y salida generales &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-chord-names" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Impresión de los nombres de acorde&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-chords" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Imprimir los acordes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Figured-bass.es.html#Figured-bass" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Bajo cifrado &gt; </a>]</td></tr></table>
+<a name="Customizing-chord-names"></a>
+<h4 class="unnumberedsubsubsec">Nombres de acorde personalizados</h4>
+
+<a name="index-personalizacion-de-los-nombres-de-acorde"></a>
+
+<p>No hay un sistema único para nombrar acordes.  Las distintas
+tradiciones musicales usan distintos nombres para el mismo conjunto de
+acordes.  Tabién hay distintos símbolos impresos para un nombre de
+acorde dado.  Los nombres y símbolos que se imprimen para los nombres
+de acorde dados se pueden personalizar.
+</p>
+<a name="index-Banter"></a>
+<a name="index-jazz_002c-acordes-de-1"></a>
+<a name="index-acordes-de-jazz-1"></a>
+
+<p>El esquema de nomenclatura de acordes predeterminado es un sistema
+para música de Jazz, propuesto por Klaus Ignatzek (véase
+<a href="Literature-list.es.html#Literature-list">Lista bibliográfica</a>).  También funcionan otros dos esquemas de
+nomenclatura de acordes: una notación de acordes de Jazz alternativa y
+un esquema sistemático llamado Acordes de Banter.  La notación de Jazz
+alternativa también se puede ver en el cuadro <a href="Chord-name-chart.es.html#Chord-name-chart">Carta de nombres de acordes</a>.
+</p>
+
+<p>Además de los distintos sistemas de nomenclatura, se usan diferentes
+nombres de nota para la fundamental en los distintos idiomas.  Las
+variables predefinidas <code>\germanChords</code>, <code>\semiGermanChords</code>,
+<code>\italianChords</code> y <code>\frenchChords</code> establecen el valor de
+estas variables.  El efecto se muestra aquí:
+</p>
+<p>
+ <a href="../5b/lily-71071dce.ly">
+  <img align="middle"
+       border="0"
+       src="../5b/lily-71071dce.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>Si ninguno de los ajustes predeterminados proporciona el resultado
+deseado, se puede afinar la presentación de los nombres de acorde a
+través de las siguientes propiedades.
+</p>
+<dl compact="compact">
+<dd>
+<a name="index-chordRootNamer"></a>
+<a name="index-chordRootNamer-1"></a>
+
+</dd>
+<dt> <code>chordRootNamer</code></dt>
+<dd>
+<p>El nombre de acorde se imprime normalmente como una letra para la
+fundamental con una alteración opcional.  La transformación de la nota
+en la letra se realiza por parte de esta función.  Los nombres de nota
+especiales (por ejemplo, la &lsquo;H&rsquo; alemana para un acorde de Si) se
+pueden producir almacenando una cunción nueva en esta propiedad.
+</p>
+<a name="index-majorSevenSymbol"></a>
+<a name="index-majorSevenSymbol-1"></a>
+
+</dd>
+<dt> <code>majorSevenSymbol</code></dt>
+<dd>
+<p>Esta propiedad contiene el objeto de marcado que se usa para hacer el
+seguimiento de la salida de <code>chordRootNamer</code> para identificar un
+acorde de séptima mayor. Las opciones predefinidas son
+<code>whiteTriangleMarkup</code> (triángulo blanco) y
+<code>blackTriangleMarkup</code> (triángulo negro).
+</p>
+<a name="index-chordNoteNamer"></a>
+<a name="index-chordNoteNamer-1"></a>
+
+</dd>
+<dt> <code>chordNoteNamer</code></dt>
+<dd>
+<p>Cuando el nombre del acorde contiene notas adicionales aparte de la
+fundamental (p.ej., un bajo añadido), se utiliza esta función para
+imprimir la nota adicional.  De forma predeterminada se imprime la
+nota usando <code>chordRootNamer</code>.  La propiedad <code>chordNoteNamer</code>
+se puede establecer a una función especializada para cambiar este
+comportamiento.  Por ejemplo, el bajo se puede imprimir en minúscula.
+</p>
+<a name="index-chordNameSeparator"></a>
+<a name="index-chordNameSeparator-1"></a>
+
+</dd>
+<dt> <code>chordNameSeparator</code></dt>
+<dd>
+<p>Las diferentes partes del nombre de un acorde se separan normalmente
+mediante una barra inclinada.  Mediante el ajuste de
+<code>chordNameSeparator</code>, podemos usar cualquier marcado que deseemos
+como separador.
+</p>
+<a name="index-chordNameExceptions"></a>
+<a name="index-chordNameExceptions-1"></a>
+
+</dd>
+<dt> <code>chordNameExceptions</code></dt>
+<dd>
+<p>Esta propiedad es una lista de parejas.  El primer elemento de cada
+pareja es un conjunto de notas utilizadas para identificar los
+elementos presentes en el acorde.  El segundo elemento es un elemento
+de marcado que sigue a la salida de <code>chordRootNamer</code> para crear
+el nombre del acorde.
+</p>
+<a name="index-chordPrefixSpacer"></a>
+<a name="index-chordPrefixSpacer-1"></a>
+</dd>
+<dt> <code>chordPrefixSpacer</code></dt>
+<dd>
+<p>La &lsquo;m&rsquo; de los acordes menores se imprime por lo general
+imediatamente a la derecha de la fundamental.  Se puede insertar un
+símbolo separador entre la fundamental y &lsquo;m&rsquo; estableciendo
+<code>chordPrefixSpacer</code>.  El símbolo separador no se usa cuando el
+acorde está alterado.
+</p>
+</dd>
+</dl>
+
+
+<a name="Instrucciones-predefinidas-23"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<a name="index-major-seven-symbols"></a>
+<a name="index-major-seven-symbols-1"></a>
+<p><code>\whiteTriangleMarkup</code>,
+<code>\blackTriangleMarkup</code>,
+<a name="index-_005cgermanChords"></a>
+<a name="index-_005cgermanChords-1"></a>
+<code>\germanChords</code>,
+<a name="index-_005csemiGermanChords"></a>
+<a name="index-_005csemiGermanChords-1"></a>
+<code>\semiGermanChords</code>,
+<a name="index-_005citalianChords"></a>
+<a name="index-_005citalianChords-1"></a>
+<code>\italianChords</code>,
+<a name="index-_005cfrenchChords"></a>
+<a name="index-_005cfrenchChords-1"></a>
+<code>\frenchChords</code>.
+</p>
+
+<a name="Fragmentos-de-codigo-seleccionados-48"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<a name="index-excepciones_002c-nombres-de-acorde"></a>
+<p><em> Excepciones para los nombres de acorde</em>
+</p>
+
+<p>Se puede usar la propiedad <code>chordNameExceptions</code> para
+almacenar una lista de notaciones espaciales para acordes
+específicos.
+</p>
+
+<blockquote><pre class="verbatim">% cambiar maj9 y 6(add9)
+% la Música de Excepciones son acordes con marcados
+cambiaMusicaExcepciones = {
+  &lt;c e g b d'&gt;1-\markup { \super &quot;maj9&quot; }
+  &lt;c e g a d'&gt;1-\markup { \super &quot;6(add9)&quot; }
+}
+
+% Convertir la música en una lista y añadirla a las excepciones existentes.
+cambiaExcepciones = #( append
+  ( sequential-music-to-chord-exceptions cambiaMusicaExcepciones #t)
+  ignatzekExceptions)
+
+laMusica = \chordmode {
+  g1:maj9 g1:6.9
+  \set chordNameExceptions = #cambiaExcepciones
+  g1:maj9 g1:6.9
+}
+
+\layout {
+  ragged-right = ##t 
+}
+
+&lt;&lt; \context ChordNames \laMusica
+   \context Voice \laMusica
+&gt;&gt;  
+
+</pre><p>
+ <a href="../3c/lily-21a45a94.ly">
+  <img align="middle"
+       border="0"
+       src="../3c/lily-21a45a94.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> chord name major7</em>
+</p>
+
+<p>The layout of the major 7 can be tuned with <code>majorSevenSymbol</code>. 
+</p>
+
+<blockquote><pre class="verbatim">\chords {
+  c:7+
+  \set majorSevenSymbol = \markup { j7 }
+  c:7+
+}
+
+</pre><p>
+ <a href="../bb/lily-11191344.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-11191344.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Añadir barras de compás al contexto de nombres de acorde (ChordNames)</em>
+</p>
+
+<p>Para añadir indicaciones de línea divisoria dentro del contexto de
+los nombres de acorde <code>ChordNames</code>, incluya el grabador
+<code>Bar_engraver</code>.
+</p>
+
+<blockquote><pre class="verbatim">\new ChordNames \with {
+  \override BarLine #'bar-size = #4
+  \consists &quot;Bar_engraver&quot;
+}
+\chordmode {
+  f1:maj7 f:7 bes:7 
+}
+
+
+</pre><p>
+ <a href="../4b/lily-deeb780f.ly">
+  <img align="middle"
+       border="0"
+       src="../4b/lily-deeb780f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Corchetes de primera y segunda vez debajo de los acordes</em>
+</p>
+
+<p>Mediante la adición del grabador <code>Volta_engraver</code> al
+pentagrama pertinente, se pueden poner los corchetes de primera y
+segunda vez debajo de los acordes.
+</p>
+
+<blockquote><pre class="verbatim">\score {
+  &lt;&lt;
+    \chords {
+      c1
+      c1
+    }
+    \new Staff \with {
+      \consists &quot;Volta_engraver&quot;
+    }
+    {
+      \repeat volta 2 { c'1 }
+      \alternative { c' }
+    }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      \remove &quot;Volta_engraver&quot;
+    }
+  }
+}
+</pre><p>
+ <a href="../f2/lily-0a56da40.ly">
+  <img align="middle"
+       border="0"
+       src="../f2/lily-0a56da40.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Modificación del separador de acordes</em>
+</p>
+
+<p>Se puede establecer el separador entre las distintas partes del
+nombre de un acorde para que sea cualquier elemento de marcado.
+</p>
+
+<blockquote><pre class="verbatim">\chords {
+  c:7sus4
+  \set chordNameSeparator
+    = \markup { \typewriter | }
+  c:7sus4
+}
+
+</pre><p>
+ <a href="../03/lily-5350caad.ly">
+  <img align="middle"
+       border="0"
+       src="../03/lily-5350caad.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+<a name="Vease-tambien-192"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de la notación:
+<a href="Chord-name-chart.es.html#Chord-name-chart">Carta de nombres de acordes</a>,
+<a href="Common-chord-modifiers.es.html#Common-chord-modifiers">Modificadores de acorde más usuales</a>.
+</p>
+<p>Archivos instalados:
+&lsquo;<tt>scm/chords-ignatzek.scm</tt>&rsquo;,
+&lsquo;<tt>scm/chord-entry.scm</tt>&rsquo;,
+&lsquo;<tt>ly/chord-modifier-init.ly</tt>&rsquo;.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Chords.html#Chords">Chords</a>.
+</p>
+
+
+<a name="Advertencias-y-problemas-conocidos-39"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Los nombres de acorde se determinan a partir de las notas que están
+presentes en el mismo y de la información acerca de la estructura del
+acorde que ha podido ser introducida en <code>\chordmode</code>.  Si el
+método de las notas simultáneas se usa para introducir los acordes,
+pueden resultar nombres no deseados a partir de las inversiones o de
+las notas del bajo.
+</p>
+<blockquote><pre class="verbatim">misAcordes = \relative c' {
+  \chordmode { c1 c/g c/f }
+  &lt;c e g&gt;1 &lt;g c e&gt; &lt;f c' e g&gt;
+}
+&lt;&lt;
+  \new ChordNames { \misAcordes }
+  \new Staff { \misAcordes }
+&gt;&gt;
+</pre><p>
+ <a href="../7c/lily-1070bf18.ly">
+  <img align="middle"
+       border="0"
+       src="../7c/lily-1070bf18.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación especializada&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.es.html#General-input-and-output" title="Cap&iacute;tulo siguiente">&nbsp;Entrada y salida generales &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-chord-names" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Impresión de los nombres de acorde&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Displaying-chords" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Imprimir los acordes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Figured-bass.es.html#Figured-bass" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Bajo cifrado &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Displaying-chords.html">English</a>, <a href="Displaying-chords.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li class="toc_current"><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>
+    <ul class="toc">
+      <li><a name="toc-Chord-mode-1" href="Chord-mode.es.html#Chord-mode">2.7.1 Modo de acordes</a>      </li>
+      <li class="toc_current"><a name="toc-Displaying-chords-1" href="Displaying-chords.es.html#Displaying-chords">2.7.2 Imprimir los acordes</a>
+      <ul class="toc">
+        <li><a name="toc-Printing-chord-names-1" href="Displaying-chords.es.html#Printing-chord-names">Impresión de los nombres de acorde</a>        </li>
+        <li><a name="toc-Customizing-chord-names-1" href="Displaying-chords.es.html#Customizing-chord-names">Nombres de acorde personalizados</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Figured-bass-1" href="Figured-bass.es.html#Figured-bass">2.7.3 Bajo cifrado</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1130 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.3.1 An Noten angehängt</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.3.1 Attached to notes">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.3.1 Attached to notes">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Expressive-marks.de.html#Expressive-marks" rel="up" title="1.3 Expressive marks">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Expressive-marks.de.html#Expressive-marks" rel="previous" title="1.3 Expressive marks">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Attached-to-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Expressive-marks.de.html#Expressive-marks" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Ausdrucksbezeichnungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Expressive-marks.de.html#Expressive-marks" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Ausdrucksbezeichnungen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Articulations-and-ornamentations" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Artikulationszeichen und Verzierungen &gt; </a>]</td></tr></table>
+<a name="Attached-to-notes"></a>
+<h3 class="subsection">1.3.1 An Noten angehängt</h3>
+
+<p>Dieser Abschnitt erklärt, wie man Ausdrucksbezeichnungen erstellt,
+die an Noten gebunden sind: Artikulationszeichen, Ornamente und
+Dynamikzeichen.  Es werden auch Methoden gezeigt, eigene
+Ausdrucksbezeichnungen zu erstellen.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Articulations-and-ornamentations" accesskey="1">Artikulationszeichen und Verzierungen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">               
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Dynamics" accesskey="2">Dynamik</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#New-dynamic-marks" accesskey="3">Neue Lautstärkezeichen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">           
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Articulations-and-ornamentations"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Attached-to-notes" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; An Noten angehängt&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Attached-to-notes" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;An Noten angehängt&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Dynamics" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Dynamik &gt; </a>]</td></tr></table>
+<a name="Articulations-and-ornamentations"></a>
+<h4 class="unnumberedsubsubsec">Artikulationszeichen und Verzierungen</h4>
+
+<a name="index-Artikulationszeichen"></a>
+<a name="index-Beschriftung"></a>
+<a name="index-Zeichen"></a>
+<a name="index-Ornament"></a>
+<a name="index-Espressivo"></a>
+<a name="index-Fermate-1"></a>
+<a name="index-Anstrich"></a>
+<a name="index-Abstrich"></a>
+<a name="index-Pedal_002dBezeichnung"></a>
+<a name="index-Orgelpedal_002dBezeichnung"></a>
+<a name="index-Doppelschlag"></a>
+<a name="index-offen"></a>
+<a name="index-gestopft"></a>
+<a name="index-gedampft"></a>
+<a name="index-Flageolet"></a>
+<a name="index-Triller"></a>
+<a name="index-Praller"></a>
+<a name="index-Mordent"></a>
+<a name="index-Daumenbezeichnung"></a>
+<a name="index-Segno-1"></a>
+<a name="index-Coda-1"></a>
+<a name="index-Varcoda"></a>
+<a name="index-D_0027al-Segno"></a>
+
+<a name="index-_002d"></a>
+<a name="index-_002d-1"></a>
+
+<p>Eine Vielfalt an Symbolen kann über und unter den Noten erscheinen, 
+um zu markieren, auf welche Art die Note ausgeführt werden soll. 
+Hierzu wird folgende Syntax benutzt:
+</p>
+<blockquote><pre class="example"><var>Note</var>\<var>Bezeichnung</var>
+</pre></blockquote>
+
+<p>Die möglichen Werte für <var>Bezeichnung</var> sind aufgelistet in
+<a href="List-of-articulations.de.html#List-of-articulations">Liste der Arktikulationszeichen</a>.  Ein Beispiel:
+</p>
+<blockquote><pre class="verbatim">c4\staccato c\mordent b2\turn
+c1\fermata
+</pre><p>
+ <a href="../0b/lily-81151afd.ly">
+  <img align="middle"
+       border="0"
+       src="../0b/lily-81151afd.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Akzent"></a>
+<a name="index-Marcato"></a>
+<a name="index-Staccatissimo"></a>
+<a name="index-Espressivo-1"></a>
+<a name="index-Staccato"></a>
+<a name="index-Portato"></a>
+<a name="index-Tenuto"></a>
+
+<p>Einige dieser Artikulationszeichen haben eine Abkürzung, damit
+es einfacher ist, sie zu schreiben.  Die Abkürzung wird an die
+Notenbezeichnung gehängt, wobei ihre Syntax aus einem Minuszeichen
+<code>-</code> besteht, gefolgt von dem Symbol, das dem
+Artikultationszeichen zugeordnet ist.  Es gibt diese Abkürzungen
+für <var>marcato</var>,
+<var>stopped</var> (gedämpft), <var>tenuto</var>,
+<var>staccatissimo</var>, <var>accent</var>, <var>staccato</var>,
+and <var>portato</var>.  Die ihnen entsprchenden Symbole
+werden also folgendermaßen notiert:
+</p>
+<blockquote><pre class="verbatim">c4-^  c-+  c--  c-|
+c4-&gt;  c-.  c2-_
+</pre><p>
+ <a href="../77/lily-a16716c0.ly">
+  <img align="middle"
+       border="0"
+       src="../77/lily-a16716c0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die Regeln für die standardmäßige Platzierung von
+Artikulationszeichen werden in der Datei &lsquo;<tt>scm/script.scm</tt>&rsquo;
+definiert.  Artikulationszeichen und Onrnamente können manuell
+über oder unter dem System gesetzt werden, siehe
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>.
+</p>
+<a name="Selected-Snippets-46"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Die Standardwerte für Arkkikulationsabkürzungen verändern</em>
+</p>
+
+<p>Die Abkürzungen sind in der Datei &lsquo;<samp>ly/script-init.ly</samp>&rsquo; definiert, wo
+den Variablen <code>dashHat</code>, <code>dashPlus</code>, <code>dashDash</code>,
+<code>dashBar</code>, <code>dashLarger</code>, <code>dashDot</code> und
+<code>dashUnderscore</code> Standardwerte zugewiesen werden.  Diese Standardwerte
+können verändert werden.  Um zum Beispiel die Abkürzung
+<code>-+</code> (<code>dashPlus</code>) mit dem Triller anstatt mit dem +-Symbol zu
+assoziieren, muss der Wert <code>trill</code> der Variable
+<code>dashPlus</code> zugewiesen werden:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' { c1-+ }
+dashPlus = &quot;trill&quot;
+\relative c'' { c1-+ }
+
+</pre><p>
+ <a href="../af/lily-a0935ff4.ly">
+  <img align="middle"
+       border="0"
+       src="../af/lily-a0935ff4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Die vertikale Anordnung von Beschriftungen kontrollieren</em>
+</p>
+
+<p>Die vertikale Anordnung von Beschriftungen wird mit der
+<code>'script-priority</code>-Eigenschaft kontrolliert.  Um so kleiner die
+Zahl, umso näher wird die Beschriftung in Bezug auf die Note gesetzt.  In
+diesem Beispiel hat das <code>TextScript</code>-Objekt (das Kreuz) zuerst
+die niedrigste Priorität, wird also auch am niedrigsten in dem ersten
+Beispiel gesetzt.  Im zweiten Fall hat der Praller (das <code>Script</code>) 
+die niedrigste Priorität, darum wird er am nächsten zum System gesetzt.
+Wenn zwei Objekte die gleiche Priorität haben, wird ihre Reihenfolge
+anhand ihres Auftretens in der Quelldatei entschieden.
+</p>
+
+<blockquote><pre class="verbatim">\relative c''' {
+  \once \override TextScript #'script-priority = #-100
+  a2^\prall^\markup { \sharp }
+  
+  \once \override Script #'script-priority = #-100
+  a2^\prall^\markup { \sharp }
+}
+
+</pre><p>
+ <a href="../2f/lily-68dac2df.ly">
+  <img align="middle"
+       border="0"
+       src="../2f/lily-68dac2df.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Creating a delayed turn</em>
+</p>
+
+<p>Creating a delayed turn, where the lower note of the turn uses the
+accidental, requires several overrides.  The
+<code>outside-staff-priority</code> property must be set to <code>#f</code>, as
+otherwise this would take precedence over the <code>avoid-slur
+property</code>.  The value of <code>halign</code> is used to position the turn
+horizontally.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \once \override TextScript #'avoid-slur = #'inside
+  \once \override TextScript #'outside-staff-priority = ##f
+  c2(^\markup \tiny \override #'(baseline-skip . 1) {
+    \halign #-4
+    \center-column {
+      \sharp
+      \musicglyph #&quot;scripts.turn&quot;
+    }
+  }
+  d4.) c8
+}
+</pre><p>
+ <a href="../81/lily-ccc84acf.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-ccc84acf.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-15"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-tenuto"></a>
+<a href="../music-glossary/tenuto.de.html#tenuto">Tenuto</a>,
+<a name="index-accent"></a>
+<a href="../music-glossary/accent.de.html#accent">Akzent</a>,
+<a name="index-staccato"></a>
+<a href="../music-glossary/staccato.de.html#staccato">Staccato</a>,
+<a name="index-portato"></a>
+<a href="../music-glossary/portato.de.html#portato">Portato</a>.
+</p>
+<p>Notationsreferenz:
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>,
+<a href="List-of-articulations.de.html#List-of-articulations">Liste der Arktikulationszeichen</a>,
+<a href="Lines.de.html#Trills">Triller</a>.
+</p>
+<p>Installierte Dateien:
+&lsquo;<tt>scm/script.scm</tt>&rsquo;.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Ausdrucksbezeichnungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Script"></a>
+<a href="../lilypond-internals/Script.de.html#Script">Script</a>,
+<a name="index-TextScript"></a>
+<a href="../lilypond-internals/TextScript.de.html#TextScript">TextScript</a>.
+</p>
+
+<hr size="6">
+<a name="Dynamics"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Articulations-and-ornamentations" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Artikulationszeichen und Verzierungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Attached-to-notes" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;An Noten angehängt&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#New-dynamic-marks" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Neue Lautstärkezeichen &gt; </a>]</td></tr></table>
+<a name="Dynamics"></a>
+<h4 class="unnumberedsubsubsec">Dynamik</h4>
+
+<a name="index-Lautstarke"></a>
+<a name="index-Dynamik"></a>
+<a name="index-absolute-Lautstarke"></a>
+
+<a name="index-_005cppppp"></a>
+<a name="index-_005cppppp-1"></a>
+<a name="index-ppppp"></a>
+<a name="index-ppppp-1"></a>
+<a name="index-_005cpppp"></a>
+<a name="index-_005cpppp-1"></a>
+<a name="index-pppp"></a>
+<a name="index-pppp-1"></a>
+<a name="index-_005cppp"></a>
+<a name="index-_005cppp-1"></a>
+<a name="index-ppp"></a>
+<a name="index-ppp-1"></a>
+<a name="index-_005cpp"></a>
+<a name="index-_005cpp-1"></a>
+<a name="index-pp"></a>
+<a name="index-pp-1"></a>
+<a name="index-_005cp"></a>
+<a name="index-_005cp-1"></a>
+<a name="index-p"></a>
+<a name="index-p-1"></a>
+<a name="index-_005cmp"></a>
+<a name="index-_005cmp-1"></a>
+<a name="index-mp"></a>
+<a name="index-mp-1"></a>
+<a name="index-_005cmf"></a>
+<a name="index-_005cmf-1"></a>
+<a name="index-mf"></a>
+<a name="index-mf-1"></a>
+<a name="index-_005cf"></a>
+<a name="index-_005cf-1"></a>
+<a name="index-f"></a>
+<a name="index-f-1"></a>
+<a name="index-_005cff"></a>
+<a name="index-_005cff-1"></a>
+<a name="index-ff"></a>
+<a name="index-ff-1"></a>
+<a name="index-_005cfff"></a>
+<a name="index-_005cfff-1"></a>
+<a name="index-fff"></a>
+<a name="index-fff-1"></a>
+<a name="index-_005cffff"></a>
+<a name="index-_005cffff-1"></a>
+<a name="index-ffff"></a>
+<a name="index-ffff-1"></a>
+<a name="index-_005cfp"></a>
+<a name="index-_005cfp-1"></a>
+<a name="index-fp"></a>
+<a name="index-fp-1"></a>
+<a name="index-_005csf"></a>
+<a name="index-_005csf-1"></a>
+<a name="index-sf"></a>
+<a name="index-sf-1"></a>
+<a name="index-_005csff"></a>
+<a name="index-_005csff-1"></a>
+<a name="index-sff"></a>
+<a name="index-sff-1"></a>
+<a name="index-_005csp"></a>
+<a name="index-_005csp-1"></a>
+<a name="index-sp"></a>
+<a name="index-sp-1"></a>
+<a name="index-_005cspp"></a>
+<a name="index-_005cspp-1"></a>
+<a name="index-spp"></a>
+<a name="index-spp-1"></a>
+<a name="index-_005csfz"></a>
+<a name="index-_005csfz-1"></a>
+<a name="index-sfz"></a>
+<a name="index-sfz-1"></a>
+<a name="index-_005crfz"></a>
+<a name="index-_005crfz-1"></a>
+<a name="index-rfz"></a>
+<a name="index-rfz-1"></a>
+
+<p>Absolute Dynamikbezeichnung wird mit Befehlen nach den Noten 
+angezeigt, etwa <code>c4\ff</code>.  Die vordefinierten Befehle lauten:
+<code>\ppppp</code>, <code>\pppp</code>, <code>\ppp</code>,
+<code>\pp</code>, <code>\p</code>, <code>\mp</code>, <code>\mf</code>, <code>\f</code>, <code>\ff</code>,
+<code>\fff</code>, <code>\ffff</code>, <code>\fp</code>, <code>\sf</code>, <code>\sff</code>,
+<code>\sp</code>, <code>\spp</code>, <code>\sfz</code>, and <code>\rfz</code>.  Die
+Dynamikzeichen können manuell unter- oder oberhalb des Systems
+platziert werden, siehe <a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>.
+</p>
+<blockquote><pre class="verbatim">c2\ppp c\mp
+c2\rfz c^\mf
+c2_\spp c^\ff
+</pre><p>
+ <a href="../b2/lily-cd219a8a.ly">
+  <img align="middle"
+       border="0"
+       src="../b2/lily-cd219a8a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Crescendo_002dKlammer"></a>
+<a name="index-Klammer_002c-Crescendo"></a>
+<a name="index-Crescendo"></a>
+<a name="index-Decrescendo"></a>
+<a name="index-Diminuendo"></a>
+
+<a name="index-_005c_003c"></a>
+<a name="index-_005c_003c-1"></a>
+<a name="index-_005c_003e"></a>
+<a name="index-_005c_003e-1"></a>
+<a name="index-_005c_0021"></a>
+<a name="index-_005c_0021-1"></a>
+<a name="index-_005ccr"></a>
+<a name="index-_005ccr-1"></a>
+<a name="index-cr"></a>
+<a name="index-cr-1"></a>
+<a name="index-_005cdecr"></a>
+<a name="index-_005cdecr-1"></a>
+<a name="index-decr"></a>
+<a name="index-decr-1"></a>
+
+<p>Eine <var>Crescendo</var>-Klammer wird mit dem Befehl
+<code>\&lt;</code> begonnen und mit <code>\!</code>, einem absoluten Dynamikbefehl oder einer weiteren Crescento- oder
+Decrescendo-Klammer beendet.  Ein <var>Decrescendo</var>
+beginnt mit <code>\&gt;</code> und wird auch beendet mit <code>\!</code>,
+einem absoluten Dynamikbefehl oder einem weiteren
+Crescendo oder Decrescendo.  <code>\cr</code> und <code>\decr</code> können
+anstelle von <code>\&lt;</code> und 
+<code>\&gt;</code> benutzt werden.  Die Befehle ergeben standardmäßig
+Crescendo-Klammern.
+</p>
+<blockquote><pre class="verbatim">c2\&lt; c\!
+d2\&lt; d\f
+e2\&lt; e\&gt;
+f2\&gt; f\!
+e2\&gt; e\mp
+d2\&gt; d\&gt;
+c1\!
+</pre><p>
+ <a href="../78/lily-3465a5c9.ly">
+  <img align="middle"
+       border="0"
+       src="../78/lily-3465a5c9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Unsichtbare Pausen werden benötigt, um mehrere Zeichen einer
+Note zuzuweisen.
+</p>
+<a name="index-mehre-Dynamikzeichen-an-einer-Note"></a>
+<a name="index-Dynamik_002c-mehrere-Zeichen-an-einer-Note"></a>
+
+<blockquote><pre class="verbatim">c4\&lt; c\! d\&gt; e\!
+&lt;&lt; f1 { s4 s4\&lt; s4\&gt; s4\! } &gt;&gt;
+</pre><p>
+ <a href="../2b/lily-961d684b.ly">
+  <img align="middle"
+       border="0"
+       src="../2b/lily-961d684b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Espressivo_002dArtikulation"></a>
+
+<a name="index-_005cespressivo"></a>
+<a name="index-_005cespressivo-1"></a>
+<a name="index-espressivo"></a>
+<a name="index-espressivo-1"></a>
+
+<p>In manchen Situationen kann auch der <code>\espressivo</code>-Befehl 
+geeignet sein, ein An- und Abschwellen einer Note anzuzeigen.
+</p>
+<blockquote><pre class="verbatim">c2 b4 a
+g1\espressivo
+</pre><p>
+ <a href="../21/lily-a2c18501.ly">
+  <img align="middle"
+       border="0"
+       src="../21/lily-a2c18501.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005ccrescTextCresc"></a>
+<a name="index-_005ccrescTextCresc-1"></a>
+<a name="index-crescTextCresc"></a>
+<a name="index-crescTextCresc-1"></a>
+<a name="index-_005cdimTextDecresc"></a>
+<a name="index-_005cdimTextDecresc-1"></a>
+<a name="index-dimTextDecresc"></a>
+<a name="index-dimTextDecresc-1"></a>
+<a name="index-_005cdimTextDecr"></a>
+<a name="index-_005cdimTextDecr-1"></a>
+<a name="index-dimTextDecr"></a>
+<a name="index-dimTextDecr-1"></a>
+<a name="index-_005cdimTextDim"></a>
+<a name="index-_005cdimTextDim-1"></a>
+<a name="index-dimTextDim"></a>
+<a name="index-dimTextDim-1"></a>
+<a name="index-_005ccrescHairpin"></a>
+<a name="index-_005ccrescHairpin-1"></a>
+<a name="index-crescHairpin"></a>
+<a name="index-crescHairpin-1"></a>
+<a name="index-_005cdimHairpin"></a>
+<a name="index-_005cdimHairpin-1"></a>
+<a name="index-dimHairpin"></a>
+<a name="index-dimHairpin-1"></a>
+
+<p>Crescendo und Decrescendo kann auch mit Text anstelle der
+Klammern angezeigt werden.  Gestrichelte Linien werden ausgegeben,
+um die Dauer des Crescendos oder Decrescendos anzuzeigen.  Die
+vorgegebenen Befehle, mit denen dieses Verhalten erreicht
+werden kann, sind <code>\crescTextCresc</code>, <code>\dimTextDecresc</code>,
+<code>\dimTextDecr</code> und <code>\dimTextDim</code>.  Die entsprechenden
+Befehle <code>\crescHairpin</code> und <code>\dimHairpin</code> stellen
+wieder die spitzen Klammern ein:
+</p>
+<blockquote><pre class="verbatim">\crescTextCresc
+c2\&lt; d | e f\!
+\dimTextDecresc
+e2\&gt; d | c b\!
+\crescHairpin
+c2\&lt; d | e f\!
+\dimHairpin
+e2\&gt; d\!
+</pre><p>
+ <a href="../f0/lily-8e25f251.ly">
+  <img align="middle"
+       border="0"
+       src="../f0/lily-8e25f251.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Um neue absolute Dynamikzeichen oder Text, der mit ihnen
+angeordnet wird, zu erstellen, siehe <a href="#New-dynamic-marks">Neue Lautstärkezeichen</a>.
+</p>
+<a name="index-Dynamik_002c-vertikale-Position"></a>
+<a name="index-vertikale-Position-von-Dynamik"></a>
+
+<p>Vertikale Position der Zeichen wird von der Funktion 
+<a name="index-DynamicLineSpanner"></a>
+<a href="../lilypond-internals/DynamicLineSpanner.de.html#DynamicLineSpanner">DynamicLineSpanner</a> verwaltet.
+<a name="index-_005cdynamicUp"></a>
+<a name="index-_005cdynamicUp-1"></a>
+<a name="index-dynamicUp"></a>
+<a name="index-dynamicUp-1"></a>
+<a name="index-_005cdynamicDown"></a>
+<a name="index-_005cdynamicDown-1"></a>
+<a name="index-dynamicDown"></a>
+<a name="index-dynamicDown-1"></a>
+<a name="index-_005cdynamicNeutral"></a>
+<a name="index-_005cdynamicNeutral-1"></a>
+<a name="index-dynamicNeutral"></a>
+<a name="index-dynamicNeutral-1"></a>
+</p>
+<a name="Predefined-commands-19"></a>
+<h4 class="subsubheading">Vordefinierte Befehle</h4>
+<p><code>\dynamicUp</code>,
+<code>\dynamicDown</code>,
+<code>\dynamicNeutral</code>,
+<code>\crescTextCresc</code>,
+<code>\dimTextDim</code>,
+<code>\dimTextDecr</code>,
+<code>\dimTextDecresc</code>,
+<code>\crescHairpin</code>,
+<code>\dimHairpin</code>.
+</p>
+<a name="Selected-Snippets-35"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Das Verhalten von Crescendo-Klammern an Taktlinien beeinflussen</em>
+</p>
+
+<p>Wenn die Note, an welcher eine Crescendo-Klammer endet, die erste Note
+eines Taktes ist, wird die Klammer an der vorhergehenden Tatklinie
+beendet.  Dieses Verhalten kann auch mit der Eigenschaft
+<code>'to-barline</code> geändert werden:
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  e4\&lt; e2.
+  e1\!
+  \override Hairpin #'to-barline = ##f
+  e4\&lt; e2.
+  e1\!
+}
+</pre><p>
+ <a href="../11/lily-788ee73e.ly">
+  <img align="middle"
+       border="0"
+       src="../11/lily-788ee73e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Die Mindestlänge von Crescendo-Klammern bestimmen</em>
+</p>
+
+<p>Wenn Crescendo-Klammern zu kurz sind, können sie verlängert werden, indem
+die <code>minimum-length</code>-Eigenschaft des <code>Hairpin</code>-Objektes
+verändert wird. 
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  c4\&lt; c\! d\&gt; e\!
+  \override Hairpin #'minimum-length = #5
+  &lt;&lt; f1 { s4 s\&lt; s\&gt; s\! } &gt;&gt;
+}
+
+</pre><p>
+ <a href="../4a/lily-3d299aad.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-3d299aad.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-al-niente"></a>
+<a name="index-niente_002c-al"></a>
+
+<p><em> Crescendo Klammern al niente schreiben</em>
+</p>
+
+<p> Crescendo-Klammern können mit einem kleinen Kreis vor der Spitze
+ notiert werden (al niente = bis zum Nichts), indem die
+<code>circled-tip</code>-Eigenschaft des <code>Hairpin</code>-Objekts auf
+<code>#t</code> gesetzt wird.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override Hairpin #'circled-tip = ##t
+  c2\&lt; c\!
+  c4\&gt; c\&lt; c2\!
+}
+
+</pre><p>
+ <a href="../7b/lily-31d99360.ly">
+  <img align="middle"
+       border="0"
+       src="../7b/lily-31d99360.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Vertikale Ausrichtung von Dynamik und Textbeschriftung beeinflussen</em>
+</p>
+
+<p>Indem man die <code>'Y-extent</code>-Eigenschaft auf einen passenden Wert setzt,
+können alle <code>DynamicLineSpanner</code>-Objekte (Crescendo-Klammern und
+Dynamik-Texte)  (hairpins and dynamic texts) unabhängig von ihrer
+wirklichen Ausdehnung an einem gemeinsamen Referenzpunkt ausgerichtet werden.
+Auf diese Weise ist jedes Element vertikal ausgerichtet und der Notensatz
+sieht ansprechender aus.
+</p>
+<p>Die gleiche Idee wird benutzt, um Textbeschriftungen an ihrer
+Grundlinie auszurichten.
+</p>
+
+<blockquote><pre class="verbatim">Noten = \relative c'' {
+  c2\p^\markup { gorgeous } c\f^\markup { fantastic }
+  c4\p c\f\&gt; c c\!\p
+}
+
+{
+  \Noten \break
+  \override DynamicLineSpanner #'staff-padding = #2.0
+  \override DynamicLineSpanner #'Y-extent = #'(-1.5 . 1.5)
+  \override TextScript #'Y-extent = #'(-1.5 . 1.5)
+  \Noten
+}
+
+</pre><p>
+ <a href="../66/lily-e25cbc5a.ly">
+  <img align="middle"
+       border="0"
+       src="../66/lily-e25cbc5a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Crescendo-Linien von Dynamik-Texten unterdrücken</em>
+</p>
+
+<p>Dynamik-Texte (wie cresc. und dim.) werden mit einer gestrichelten Linie
+gesetzt, die ihre Dauer anzeigt.  Diese Linie kann auf foldenge Weise
+unterdrückt werden:
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override DynamicTextSpanner #'dash-period = #-1.0
+  \crescTextCresc
+  c1\&lt; | d | b | c\!
+}
+
+</pre><p>
+ <a href="../4a/lily-593b50ba.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-593b50ba.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Text und Strecker-Stile für Dynamik-Texte ändern</em>
+</p>
+
+<p>Der Text, der für Crescendo und Decrescendo gestzt wird, kann geändert
+werden, indem man die Eigenschaften <code>crescendoText</code> und
+<code>decrescendoText</code> verändert.  Der Stil des Streckers kann auch
+geändert werden, indem die <code>'style</code>-Eigenschaft des
+<code>DynamicTextSpanner</code> beeinflusst wird.  Der Standardwert ist
+<code>'hairpin</code>, ander Möglichkeiten sind <code>'line</code>, <code>'dashed-line</code>
+und <code>'dotted-line</code>:
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  \set crescendoText = \markup { \italic { cresc. poco } }
+  \set crescendoSpanner = #'text
+  \override DynamicTextSpanner #'style = #'dotted-line
+  a2\&lt; a
+  a2 a
+  a2 a
+  a2 a\mf
+}
+</pre><p>
+ <a href="../56/lily-e7928417.ly">
+  <img align="middle"
+       border="0"
+       src="../56/lily-e7928417.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-34"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-al-niente-1"></a>
+<a href="../music-glossary/al-niente.de.html#al-niente">al niente</a>,
+<a name="index-crescendo"></a>
+<a href="../music-glossary/crescendo.de.html#crescendo">Crescendo</a>,
+<a name="index-decrescendo"></a>
+<a href="../music-glossary/decrescendo.de.html#decrescendo">Decrescendo</a>,
+<a name="index-hairpin"></a>
+<a href="../music-glossary/hairpin.de.html#hairpin">Gabel</a>.
+Handbuch zum Lernen:
+<a name="index-Articulation-and-dynamics"></a>
+<a href="../lilypond-learning/Articulation-and-dynamics.de.html#Articulation-and-dynamics">Artikulationszeichen und Lautstärke</a>.
+</p>
+<p>Notationsreferenz:
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>,
+<a href="#New-dynamic-marks">Neue Lautstärkezeichen</a>,
+<a href="What-goes-into-the-MIDI-output_003f.de.html#What-goes-into-the-MIDI-output_003f">Was geht in die MIDI-Ausgabe</a>,
+<a href="Controlling-MIDI-dynamics.de.html#Controlling-MIDI-dynamics">MIDI-Lautstärke kontrollieren</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Ausdrucksbezeichnungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-DynamicText"></a>
+<a href="../lilypond-internals/DynamicText.de.html#DynamicText">DynamicText</a>,
+<a name="index-Hairpin"></a>
+<a href="../lilypond-internals/Hairpin.de.html#Hairpin">Hairpin</a>,
+<a name="index-DynamicLineSpanner-1"></a>
+<a href="../lilypond-internals/DynamicLineSpanner.de.html#DynamicLineSpanner">DynamicLineSpanner</a>.
+</p>
+
+
+<hr size="6">
+<a name="New-dynamic-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Dynamics" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Dynamik&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Attached-to-notes" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;An Noten angehängt&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Curves.de.html#Curves" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Bögen &gt; </a>]</td></tr></table>
+<a name="New-dynamic-marks"></a>
+<h4 class="unnumberedsubsubsec">Neue Lautstärkezeichen</h4>
+
+<a name="index-neue-Dynamikzeichen"></a>
+<a name="index-eigene-Dynamikzeichen"></a>
+<a name="index-Dynamikzeichen_002c-eigene"></a>
+
+<p>Die einfachste ARt, eigene Dynamikbezeichnungen zu erstellen,
+ist die Benutzung von <code>\markup</code>-(Textbeschriftungs)-Objekten.
+</p>
+<blockquote><pre class="verbatim">moltoF = \markup { molto \dynamic f }
+
+\relative c' {
+  &lt;d e&gt;16_\moltoF &lt;d e&gt;
+  &lt;d e&gt;2..
+}
+</pre><p>
+ <a href="../4a/lily-3b2eefeb.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-3b2eefeb.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Dynamikzeichen_002c-Anmerkung"></a>
+<a name="index-Dynamikzeichen_002c-Klammer"></a>
+<a name="index-editorische-Dynamikzeichen"></a>
+<a name="index-_005cbracket"></a>
+<a name="index-_005cbracket-1"></a>
+<a name="index-bracket"></a>
+<a name="index-bracket-1"></a>
+<a name="index-_005cdynamic"></a>
+<a name="index-_005cdynamic-1"></a>
+<a name="index-dynamic"></a>
+<a name="index-dynamic-1"></a>
+
+<p>Mit einer Textbeschriftung können editorische Dynamikzeichen
+(in runden oder eckigen Klammern) erstellt werden.  Die Syntax
+für den Textbeschriftungsmodus wird erklärt in
+<a href="Formatting-text.de.html#Formatting-text">Text formatieren</a>.
+</p>
+<blockquote><pre class="verbatim">rundF = \markup { \center-align \concat { \bold { \italic ( }
+           \dynamic f \bold { \italic ) } } }
+KastenF = \markup { \bracket { \dynamic f } }
+\relative c' {
+  c1_\rundF
+  c1_\KastenF
+}
+</pre><p>
+ <a href="../d0/lily-146fd1b3.ly">
+  <img align="middle"
+       border="0"
+       src="../d0/lily-146fd1b3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-make_002ddynamic_002dscript"></a>
+<a name="index-make_002ddynamic_002dscript-1"></a>
+<a name="index-make_002ddynamic_002dscript-2"></a>
+
+<p>Einfache, mittig gesetzte Dynamikzeichen können schnell mit der
+<code>make-dynamic-script</code>-Funktion erstellt werden.  Die
+Schriftart für Dynamikzeichen enthält nur die Buchstaben
+<code>f,m,p,r,s</code> sowie <code>z</code>.
+</p>
+<blockquote><pre class="verbatim">sfzp = #(make-dynamic-script &quot;sfzp&quot;)
+\relative c' {
+  c4 c c\sfzp c
+}
+</pre><p>
+ <a href="../b5/lily-a33eb74e.ly">
+  <img align="middle"
+       border="0"
+       src="../b5/lily-a33eb74e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Allgemein gesagt kann <code>make-dynamic-script</code> jegliches
+Textbeschriftungsobjekt als Argument haben.  Im nächsten
+Beispiel wird die vertikale Ausrichtung von den Beschriftungen
+(engl. markup) und den spitzen Klammern an der selben Linie
+durch <code>make-dynamic-script</code> gewährleistet, wenn beide
+an die selbe Note angehängt werden.
+</p>
+<blockquote><pre class="verbatim">rundF = \markup { \center-align \concat {
+           \normal-text { \bold { \italic ( } }
+           \dynamic f
+           \normal-text { \bold { \italic ) } } } }
+KastenF = \markup { \bracket { \dynamic f } }
+rundFDynamik = #(make-dynamic-script rundF)
+KastenFDynamik = #(make-dynamic-script KastenF)
+\relative c' {
+  c4_\rundFDynamik\&lt; d e f
+  g,1_\KastenFDynamik
+}
+</pre><p>
+ <a href="../0f/lily-c6d49453.ly">
+  <img align="middle"
+       border="0"
+       src="../0f/lily-c6d49453.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Anstelle dessen kann auch die Scheme-Form des Beschriftungs-Modus
+verwendet werden.  Seine Syntax ist erklärt in
+<a href="Markup-construction-in-Scheme.de.html#Markup-construction-in-Scheme">Beschriftungskonstruktionen in Scheme</a>.
+</p>
+<blockquote><pre class="verbatim">moltoF = #(make-dynamic-script
+            (markup #:normal-text &quot;molto&quot;
+                    #:dynamic &quot;f&quot;))
+\relative c' {
+  &lt;d e&gt;16 &lt;d e&gt;
+  &lt;d e&gt;2..\moltoF
+}
+</pre><p>
+ <a href="../ea/lily-924571a1.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-924571a1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die Auswahl von Schriftarten in Textbeschriftungen ist erklärt in
+<a href="Formatting-text.de.html#Selecting-font-and-font-size">Überblick über die wichtigsten Textbeschriftungsbefehle</a>.
+</p>
+
+<a name="See-also-53"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Formatting-text.de.html#Formatting-text">Text formatieren</a>,
+<a href="Formatting-text.de.html#Selecting-font-and-font-size">Überblick über die wichtigsten Textbeschriftungsbefehle</a>,
+<a href="Markup-construction-in-Scheme.de.html#Markup-construction-in-Scheme">Beschriftungskonstruktionen in Scheme</a>,
+<a href="What-goes-into-the-MIDI-output_003f.de.html#What-goes-into-the-MIDI-output_003f">Was geht in die MIDI-Ausgabe</a>,
+<a href="Controlling-MIDI-dynamics.de.html#Controlling-MIDI-dynamics">MIDI-Lautstärke kontrollieren</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Ausdrucksbezeichnungen</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Dynamics" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Dynamik&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Attached-to-notes" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;An Noten angehängt&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Curves.de.html#Curves" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Bögen &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Attached-to-notes.html">English</a>, <a href="Attached-to-notes.fr.html">français</a>, <a href="Attached-to-notes.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>    </li>
+    <li class="toc_current"><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Attached-to-notes-1" href="Attached-to-notes.de.html#Attached-to-notes">1.3.1 An Noten angehängt</a>
+      <ul class="toc">
+        <li><a name="toc-Articulations-and-ornamentations-1" href="Attached-to-notes.de.html#Articulations-and-ornamentations">Artikulationszeichen und Verzierungen</a>        </li>
+        <li><a name="toc-Dynamics-1" href="Attached-to-notes.de.html#Dynamics">Dynamik</a>        </li>
+        <li><a name="toc-New-dynamic-marks-1" href="Attached-to-notes.de.html#New-dynamic-marks">Neue Lautstärkezeichen</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Curves-1" href="Curves.de.html#Curves">1.3.2 Bögen</a>      </li>
+      <li><a name="toc-Lines-1" href="Lines.de.html#Lines">1.3.3 Linien</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

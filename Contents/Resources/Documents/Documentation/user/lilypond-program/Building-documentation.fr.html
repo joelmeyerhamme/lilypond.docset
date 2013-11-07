@@ -1,0 +1,312 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond program usage: 1.2.4 Building documentation</title>
+
+<meta name="description" content="GNU LilyPond program usage: 1.2.4 Building documentation">
+<meta name="keywords" content="GNU LilyPond program usage: 1.2.4 Building documentation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Application Usage">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Compiling-from-source.fr.html#Compiling-from-source" rel="up" title="1.2 Compiling from source">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Building-LilyPond.fr.html#Building-LilyPond" rel="previous" title="1.2.3 Building LilyPond">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Building-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Install.fr.html#Install" title="Beginning of this chapter or previous chapter"> &lt;&lt; Install&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Setup.fr.html#Setup" title="Next chapter">&nbsp;Setup &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Building-LilyPond.fr.html#Building-LilyPond" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Compiling-from-source.fr.html#Compiling-from-source" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Compiling from source&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Commands-for-building-documentation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Commands for building documentation &gt; </a>]</td></tr></table>
+<a name="Building-documentation"></a>
+<h3 class="subsection">1.2.4 Building documentation</h3>
+
+<p>This requires a successful compile of LilyPond, or using an external
+LilyPond binary.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Commands-for-building-documentation" accesskey="1">Commands for building documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"> Compiling and installing the documentation.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Building-documentation-without-compiling-LilyPond" accesskey="2">Building documentation without compiling LilyPond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"> Using a LilyPond binary already installed.
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Commands-for-building-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Install.fr.html#Install" title="Beginning of this chapter or previous chapter"> &lt;&lt; Install&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Setup.fr.html#Setup" title="Next chapter">&nbsp;Setup &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Building-documentation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Building documentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Building-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Building documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Building-documentation-without-compiling-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Building documentation without compiling LilyPond &gt; </a>]</td></tr></table>
+<a name="Commands-for-building-documentation"></a>
+<h4 class="unnumberedsubsubsec">Commands for building documentation</h4>
+
+<p>The documentation is built by issuing
+</p>
+<blockquote><pre class="example">make doc
+</pre></blockquote>
+
+<p>After compilation, the HTML documentation tree is available in
+&lsquo;<tt>out-www/offline-root/</tt>&rsquo;, and can be browsed locally.
+</p>
+<p>The HTML, PDF and if available Info files can be installed into the
+standard documentation path by issuing
+</p>
+<blockquote><pre class="example">make install-doc
+</pre></blockquote>
+
+<p>This also installs Info documentation with images if the installation
+prefix is properly set; otherwise, instructions to complete proper
+installation of Info documentation are printed on standard output.
+</p>
+<p>Compilation of documentation in Info format with images can be done
+separately by issuing
+</p>
+<blockquote><pre class="example">make info
+</pre></blockquote>
+
+<p>Separate installation of this documentation is done by issuing
+</p>
+<blockquote><pre class="example">make install-info
+</pre></blockquote>
+
+<p>Note that to get the images in Info documentation, <code>install-doc</code>
+target creates symbolic links to HTML and PDF installed documentation
+tree in &lsquo;<tt><var>prefix</var>/share/info</tt>&rsquo;, in order to save disk space,
+whereas <code>install-info</code> copies images in
+&lsquo;<tt><var>prefix</var>/share/info</tt>&rsquo; subdirectories.
+</p>
+<p>It is possible to build a documentation tree in
+&lsquo;<tt>out-www/online-root/</tt>&rsquo;, with special processing, so it can be
+used on a website with content negotiation for automatic language
+selection; this can be achieved by issuing
+</p>
+<blockquote><pre class="example">make WEB_TARGETS=online doc
+</pre></blockquote>
+
+<p>and both &lsquo;offline&rsquo; and &lsquo;online&rsquo; targets can be generated by issuing
+</p>
+<blockquote><pre class="example">make WEB_TARGETS=&quot;offline online&quot; doc
+</pre></blockquote>
+
+<p>Several targets are available to clean the documentation build and
+help with maintaining documentation; an overview of these targets is
+available with
+</p>
+<blockquote><pre class="example">make help
+</pre></blockquote>
+
+<p>from every directory in the build tree.  Most targets for
+documentation maintenance are available from &lsquo;<tt>Documentation/</tt>&rsquo;;
+for more information, see the Contributors&rsquo; Guide, section
+<em>Documentation work</em>.
+</p>
+<p>The makefile variable <code>QUIET_BUILD</code> may be set to <code>1</code> for a
+less verbose build output, just like for building the programs.
+</p>
+
+<a name="Known-issues-and-warnings-1"></a>
+<h4 class="subsubheading">Known issues and warnings</h4>
+
+<p>The most time consuming task for building the documentation is running
+LilyPond to build images of music, and there cannot be several
+simultaneously running <code>lilypond-book</code> instances, so <code>-j</code>
+<code>make</code> option does not significantly speed up the build process.
+To help speed it up, the makefile variable <var>CPU_COUNT</var> may be set
+in &lsquo;<tt>local.make</tt>&rsquo; or on the command line to the number of
+<code>.ly</code> files that LilyPond should process simultaneously, e.g. on
+a bi-processor or dual core machine
+</p>
+<blockquote><pre class="example">make -j3 CPU_COUNT=3 doc
+</pre></blockquote>
+
+<p>The recommended value of <var>CPU_COUNT</var> is one plus the number of
+cores or processors, but it is advisable to set it to a smaller value
+if your system has not enough RAM to run that many simultaneous
+LilyPond instances.
+</p>
+<p>If source files have changed since last documentation build, output
+files that need to be rebuilt are normally rebuilt, even if you do not
+run <code>make doc-clean</code> first.  However, building dependencies in the
+documentation are so complex that rebuilding of some targets may not
+be triggered as they should be; a workaround is to force rebuilding
+by touching appropriate files, e.g.
+</p>
+<blockquote><pre class="example">touch Documentation/user/*.itely
+touch input/lsr/*.ly
+</pre></blockquote>
+
+
+<hr size="6">
+<a name="Building-documentation-without-compiling-LilyPond"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Install.fr.html#Install" title="Beginning of this chapter or previous chapter"> &lt;&lt; Install&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Setup.fr.html#Setup" title="Next chapter">&nbsp;Setup &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Commands-for-building-documentation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Commands for building documentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Building-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Building documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Testing-LilyPond.fr.html#Testing-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Testing LilyPond &gt; </a>]</td></tr></table>
+<a name="Building-documentation-without-compiling-LilyPond"></a>
+<h4 class="unnumberedsubsubsec">Building documentation without compiling LilyPond</h4>
+
+<p>The documentation can be built locally without compiling LilyPond
+binary, if LilyPond is already installed on your system.
+</p>
+<p>From a fresh Git checkout, do
+</p>
+<blockquote><pre class="example">./autogen.sh   # ignore any warning messages
+cp GNUmakefile.in GNUmakefile
+make -C python
+nice make LILYPOND_EXTERNAL_BINARY=/path/to/bin/lilypond doc
+</pre></blockquote>
+
+<p>Please note that this may break sometimes &ndash; for example, if a new
+feature is added with a test file in input/regression, even the latest
+development release of LilyPond will fail to build the docs.
+</p>
+<p>You may build the manual without building all the &lsquo;<tt>input/*</tt>&rsquo;
+stuff: change directory, for example to &lsquo;<tt>Documentation/user</tt>&rsquo;,
+issue <code>make doc</code>, which will build documentation in a
+subdirectory &lsquo;<tt>out-www</tt>&rsquo; from the source files in current
+directory.  In this case, if you also want to browse the documentation
+in its post-processed form, change back to top directory and issue
+</p>
+<blockquote><pre class="example">make out=www WWW-post
+</pre></blockquote>
+
+<a name="Known-issues-and-warnings-5"></a>
+<h4 class="subsubheading">Known issues and warnings</h4>
+
+<p>You may also need to create a script for <code>pngtopnm</code> and
+<code>pnmtopng</code>.  On GNU/Linux, I use this:
+</p>
+<pre class="verbatim">export LD_LIBRARY_PATH=/usr/lib
+exec /usr/bin/pngtopnm &quot;$@&quot;
+</pre>
+<p>On MacOS&nbsp;X, I use this:
+</p>
+<pre class="verbatim">export DYLD_LIBRARY_PATH=/sw/lib
+exec /sw/bin/pngtopnm &quot;$@&quot;
+</pre>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Install.fr.html#Install" title="Beginning of this chapter or previous chapter"> &lt;&lt; Install&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Setup.fr.html#Setup" title="Next chapter">&nbsp;Setup &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Commands-for-building-documentation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Commands for building documentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Building-documentation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Building documentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Testing-LilyPond.fr.html#Testing-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Testing LilyPond &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Application Usage</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Install-1" href="Install.fr.html#Install">1. Install</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.fr.html#Precompiled-binaries">1.1 Precompiled binaries</a>    </li>
+    <li class="toc_current"><a name="toc-Compiling-from-source-1" href="Compiling-from-source.fr.html#Compiling-from-source">1.2 Compiling from source</a>
+    <ul class="toc">
+      <li><a name="toc-Downloading-source-code-1" href="Downloading-source-code.fr.html#Downloading-source-code">1.2.1 Downloading source code</a>      </li>
+      <li><a name="toc-Requirements-1" href="Requirements.fr.html#Requirements">1.2.2 Requirements</a>      </li>
+      <li><a name="toc-Building-LilyPond-1" href="Building-LilyPond.fr.html#Building-LilyPond">1.2.3 Building LilyPond</a>      </li>
+      <li class="toc_current"><a name="toc-Building-documentation-1" href="Building-documentation.fr.html#Building-documentation">1.2.4 Building documentation</a>
+      <ul class="toc">
+        <li><a name="toc-Commands-for-building-documentation-1" href="Building-documentation.fr.html#Commands-for-building-documentation">Commands for building documentation</a>        </li>
+        <li><a name="toc-Building-documentation-without-compiling-LilyPond-1" href="Building-documentation.fr.html#Building-documentation-without-compiling-LilyPond">Building documentation without compiling LilyPond</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Testing-LilyPond-1" href="Testing-LilyPond.fr.html#Testing-LilyPond">1.2.5 Testing LilyPond</a>      </li>
+      <li><a name="toc-Problems-1" href="Problems.fr.html#Problems">1.2.6 Problems</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.fr.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.fr.html#Setup-for-specific-Operating-Systems">2.1 Setup for specific Operating Systems</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.fr.html#Text-editor-support">2.2 Text editor support</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.fr.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.fr.html#Running-LilyPond">3. Running LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.fr.html#Normal-usage">3.1 Normal usage</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.fr.html#Command_002dline-usage">3.2 Command-line usage</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.fr.html#Error-messages">3.3 Error messages</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.fr.html#Updating-files-with-convert_002dly">3.4 Updating files with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.fr.html#Reporting-bugs">3.5 Reporting bugs</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.fr.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Integrating text and music</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.fr.html#An-example-of-a-musicological-document">4.1 An example of a musicological document</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.fr.html#Integrating-music-and-text">4.2 Integrating music and text</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.fr.html#Music-fragment-options">4.3 Music fragment options</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook">4.4 Invoking <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.fr.html#Filename-extensions">4.5 Filename extensions</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.fr.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative methods of mixing text and music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.fr.html#Converting-from-other-formats">5. Converting from other formats</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.fr.html#Invoking-midi2ly">5.1 Invoking <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly">5.2 Invoking <code>musicxml2ly</code></a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.fr.html#Invoking-abc2ly">5.3 Invoking <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.fr.html#Invoking-etf2ly">5.4 Invoking <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.fr.html#Generating-LilyPond-files">5.5 Generating LilyPond files</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">B. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

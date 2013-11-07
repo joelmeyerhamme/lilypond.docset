@@ -1,0 +1,696 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Repeats</title>
+
+<meta name="description" content="LilyPond snippets: Repeats">
+<meta name="keywords" content="LilyPond snippets: Repeats">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Expressive-marks.html#Expressive-marks" rel="previous" title="Expressive marks">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Expressive-marks.html#Expressive-marks" title="Beginning of this chapter or previous chapter"> &lt;&lt; Expressive marks&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Expressive-marks.html#Vertically-aligning-dynamics-across-multiple-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Vertically aligning dynamics across multiple notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-volta-brackets-to-additional-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding volta brackets to additional staves &gt; </a>]</td></tr></table>
+<a name="Repeats"></a>
+<h1 class="unnumbered">Repeats</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Repeats.html#Repeats">Repeats</a>.
+</p>
+
+<a name="adding-volta-brackets-to-additional-staves.ly"></a>
+<hr size="6">
+<a name="Adding-volta-brackets-to-additional-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Repeats" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-volta-brackets-to-additional-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Adding-volta-brackets-to-additional-staves"></a>
+<h2 class="unnumberedsec">Adding volta brackets to additional staves</h2>
+
+
+<p>The <code>Volta_engraver</code> by default resides in the <code>Score</code>
+context, and brackets for the repeat are thus normally only printed
+over the topmost staff. This can be adjusted by adding the
+<code>Volta_engraver</code> to the <code>Staff</code> context where the brackets
+should appear; see also the &quot;Volta multi staff&quot; snippet.
+</p>
+
+<pre class="verbatim">&lt;&lt;
+  \new Staff { \repeat volta 2 { c'1 } \alternative { c' } }
+  \new Staff { \repeat volta 2 { c'1 } \alternative { c' } }
+  \new Staff \with { \consists &quot;Volta_engraver&quot; } { c'2 g' e' a' }
+  \new Staff { \repeat volta 2 { c'1 } \alternative { c' } }
+&gt;&gt;
+
+</pre><p>
+ <a href="../25/lily-4b93a8ac.ly">
+  <img align="middle"
+       border="0"
+       src="../25/lily-4b93a8ac.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="engraving-tremolos-with-floating-beams.ly"></a>
+<hr size="6">
+<a name="Adding-volta-brackets-to-additional-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-volta-brackets-to-additional-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adding volta brackets to additional staves&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Isolated-percent-repeats" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Isolated percent repeats &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Engraving tremolos with floating beams</h2>
+
+
+<p>If a tremolo&rsquo;s total duration is less than a quarter-note, or exactly a
+half-note, or between a half-note and a whole-note, it is normally
+typeset with all beams touching the stems.  Certain engraving styles
+typeset some of these beams as centered floating beams that do not
+touch the stems.  The number of floating beams in this type of tremolo
+is controlled with the <code>'gap-count </code> property of the <code>Beam</code>
+object, and the size of the gaps between beams and stems is set with
+the <code>'gap</code> property.
+</p>
+
+
+
+<pre class="verbatim">\relative c'' {
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap-count = #1
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap-count = #2
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap-count = #3
+  \repeat tremolo 8 { a32 f }
+
+  \override Beam #'gap-count = #3
+  \override Beam #'gap = #1.33
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap = #1
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap = #0.67
+  \repeat tremolo 8 { a32 f }
+  \override Beam #'gap = #0.33
+  \repeat tremolo 8 { a32 f }
+}
+
+
+
+
+</pre><p>
+ <a href="../97/lily-ec24eea4.ly">
+  <img align="middle"
+       border="0"
+       src="../97/lily-ec24eea4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="isolated-percent-repeats.ly"></a>
+<hr size="6">
+<a name="Isolated-percent-repeats"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-volta-brackets-to-additional-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Measure-counter" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Measure counter &gt; </a>]</td></tr></table>
+<a name="Isolated-percent-repeats"></a>
+<h2 class="unnumberedsec">Isolated percent repeats</h2>
+
+
+<p>Isolated percents can also be printed.  This is done by entering a
+multi-measure rest with a different print function:
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \override MultiMeasureRest #'stencil
+    = #ly:multi-measure-rest::percent
+  \override MultiMeasureRest #'thickness = #0.48
+  R1
+}
+
+</pre><p>
+ <a href="../8f/lily-fbd5ce38.ly">
+  <img align="middle"
+       border="0"
+       src="../8f/lily-fbd5ce38.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="measure-counter.ly"></a>
+<hr size="6">
+<a name="Measure-counter"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Isolated-percent-repeats" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Isolated percent repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percent-repeat-count-visibility" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Percent repeat count visibility &gt; </a>]</td></tr></table>
+<a name="Measure-counter"></a>
+<h2 class="unnumberedsec">Measure counter</h2>
+
+
+<p>This snippet provides a workaround for emitting measure counters using
+transparent percent repeats. 
+</p>
+
+<pre class="verbatim">&lt;&lt;
+  \context Voice = &quot;foo&quot; {
+    \clef bass
+    c4 r g r
+    c4 r g r
+    c4 r g r
+    c4 r g r
+  }
+  \context Voice = &quot;foo&quot; {
+    \set countPercentRepeats = ##t
+    \override PercentRepeat #'transparent = ##t
+    \override PercentRepeatCounter #'staff-padding = #1
+    \repeat percent 4 { s1 }
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../6d/lily-d87bdf53.ly">
+  <img align="middle"
+       border="0"
+       src="../6d/lily-d87bdf53.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="percent-repeat-count-visibility.ly"></a>
+<hr size="6">
+<a name="Percent-repeat-count-visibility"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Measure-counter" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Measure counter&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Percent-repeat-counter" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Percent repeat counter &gt; </a>]</td></tr></table>
+<a name="Percent-repeat-count-visibility"></a>
+<h2 class="unnumberedsec">Percent repeat count visibility</h2>
+
+
+<p>Percent repeat counters can be shown at regular intervals by setting
+the context property <code>repeatCountVisibility</code>.
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \set countPercentRepeats = ##t
+  \set repeatCountVisibility = #(every-nth-repeat-count-visible 5)
+  \repeat percent 10 { c1 } \break
+  \set repeatCountVisibility = #(every-nth-repeat-count-visible 2)
+  \repeat percent 6 { c1 d1 }
+}
+</pre><p>
+ <a href="../bf/lily-f3b62c0d.ly">
+  <img align="middle"
+       border="0"
+       src="../bf/lily-f3b62c0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="percent-repeat-counter.ly"></a>
+<hr size="6">
+<a name="Percent-repeat-counter"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percent-repeat-count-visibility" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Percent repeat count visibility&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Positioning-segno-and-coda-_0028with-line-break_0029" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Positioning segno and coda (with line break) &gt; </a>]</td></tr></table>
+<a name="Percent-repeat-counter"></a>
+<h2 class="unnumberedsec">Percent repeat counter</h2>
+
+
+<p>Measure repeats of more than two repeats can get a counter when the
+convenient property is switched, as shown in this example:
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \set countPercentRepeats = ##t
+  \repeat percent 4 { c1 }
+}
+
+</pre><p>
+ <a href="../e2/lily-e35a4e90.ly">
+  <img align="middle"
+       border="0"
+       src="../e2/lily-e35a4e90.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="positioning-segno-and-coda-with-line-break.ly"></a>
+<hr size="6">
+<a name="Positioning-segno-and-coda-_0028with-line-break_0029"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Percent-repeat-counter" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Percent repeat counter&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Printing-a-repeat-sign-at-the-beginning-of-a-piece" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Printing a repeat sign at the beginning of a piece &gt; </a>]</td></tr></table>
+<a name="Positioning-segno-and-coda-_0028with-line-break_0029"></a>
+<h2 class="unnumberedsec">Positioning segno and coda (with line break)</h2>
+
+
+<p>If you want to place an exiting segno sign and add text like &quot;D.S. al
+Coda&quot; next to it where usually the staff lines are you can use this
+snippet. The coda will resume in a new line. There is a variation
+documented in this snippet, where the coda will remain on the same
+line.
+</p>
+
+<pre class="verbatim">{ 
+  \clef treble
+  \key g \major
+  \time 4/4
+  \relative c'' {
+    \repeat unfold 2 {
+      | c4 c c c
+    }
+    
+    % Set segno sign as rehearsal mark and adjust size if needed
+    % \once \override Score.RehearsalMark #'font-size = #3
+    \mark \markup { \musicglyph #&quot;scripts.segno&quot; }
+    \repeat unfold 2 {
+      | c4 c c c
+    }
+    
+    % Set coda sign as rehearsal mark and adjust size if needed
+    \once \override Score.RehearsalMark #'font-size = #4
+    \mark \markup { \musicglyph #&quot;scripts.coda&quot; }
+    \repeat unfold 2 {
+      | c4 c c c
+    }
+    
+    % Should Coda be on anew line?
+    % Coda NOT on new line: use \nobreak
+    % Coda on new line: DON'T use \nobreak
+    % \noBreak
+    
+    \bar &quot;||&quot;
+    
+    % Set segno sign as rehearsal mark and adjust size if needed
+    \once \override Score.RehearsalMark #'break-visibility = #begin-of-line-invisible
+    % \once \override Score.RehearsalMark #'font-size = #3
+    \mark \markup { \musicglyph #&quot;scripts.segno&quot; }
+    
+    % Here begins the trickery! 
+    % \cadenzaOn will suppress the bar count and \stopStaff removes the staff lines.
+    \cadenzaOn 
+      \stopStaff 
+        % Some examples of possible text-displays 
+        
+        % text line-aligned
+        % ==================
+        % Move text to the desired position
+        % \once \override TextScript #'extra-offset = #'( 2 . -3.5 )
+        % | s1*0^\markup { D.S. al Coda } }
+        
+        % text center-aligned
+        % ====================
+        % Move text to the desired position
+        % \once \override TextScript #'extra-offset = #'( 6 . -5.0 )
+        % | s1*0^\markup { \center-column { D.S. &quot;al Coda&quot; } }
+        
+        % text and symbols center-aligned
+        % ===============================
+        % Move text to the desired position and tweak spacing for optimum text alignment
+        %\once \override TextScript #'extra-offset = #'( 8 . -5.5 )
+        \once \override TextScript #'word-space = #1.5
+        \once \override TextScript #'X-offset = #8
+        \once \override TextScript #'Y-offset = #1.5
+        | s1*0^\markup { \center-column { &quot;D.S. al Coda&quot; \line { \musicglyph #&quot;scripts.coda&quot; \musicglyph #&quot;scripts.tenuto&quot; \musicglyph #&quot;scripts.coda&quot;} } }
+        
+        % Increasing the unfold counter will expand the staff-free space
+        \repeat unfold 4 {
+          s4 s4 s4 s4
+          \bar &quot;&quot;
+        }
+        % Resume bar count and show staff lines again
+     \startStaff
+   \cadenzaOff
+   
+   % Should Coda be on new line?
+   % Coda NOT on new line: DON'T use \break
+   % Coda on new line: use \break
+   \break 
+   
+   % Show up, you clef and key!
+   \once \override Staff.KeySignature #'break-visibility = #end-of-line-invisible
+   \once \override Staff.Clef #'break-visibility = #end-of-line-invisible
+
+   % Set coda sign as rehearsal mark and adjust size and position
+   
+   % Put the coda sign ontop of the (treble-)clef dependend on coda's line-position
+      
+     % Coda NOT on new line, use this:
+     % \once \override Score.RehearsalMark #'extra-offset = #'( -2 . 1.75 )
+     
+     % Coda on new line, use this:
+     \once \override Score.RehearsalMark #'extra-offset = #'( -8.42 . 1.75 )
+   
+   \once \override Score.RehearsalMark #'font-size = #5
+   \mark \markup { \musicglyph #&quot;scripts.coda&quot; }
+
+   % The coda
+   \repeat unfold 5 {
+      | c4 c c c
+    }
+    \bar&quot;|.&quot;
+  }
+}
+
+</pre><p>
+ <a href="../96/lily-a9c2c234.ly">
+  <img align="middle"
+       border="0"
+       src="../96/lily-a9c2c234.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-a-repeat-sign-at-the-beginning-of-a-piece.ly"></a>
+<hr size="6">
+<a name="Printing-a-repeat-sign-at-the-beginning-of-a-piece"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Positioning-segno-and-coda-_0028with-line-break_0029" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Positioning segno and coda (with line break)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Shortening-volta-brackets" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Shortening volta brackets &gt; </a>]</td></tr></table>
+<a name="Printing-a-repeat-sign-at-the-beginning-of-a-piece"></a>
+<h2 class="unnumberedsec">Printing a repeat sign at the beginning of a piece</h2>
+
+
+<p>A <code>|:</code> bar line can be printed at the beginning of a piece, by
+overriding the relevant property:
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \once \override Score.BreakAlignment #'break-align-orders =
+        #(make-vector 3 '(instrument-name
+                          left-edge
+                          ambitus
+                          span-bar
+                          breathing-sign
+                          clef
+                          key-signature
+                          time-signature
+                          staff-bar
+                          custos
+                          span-bar))
+  \bar &quot;|:&quot;
+  c1
+  d1
+  d4 e f g
+}
+
+</pre><p>
+ <a href="../a7/lily-e2d43206.ly">
+  <img align="middle"
+       border="0"
+       src="../a7/lily-e2d43206.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="shortening-volta-brackets.ly"></a>
+<hr size="6">
+<a name="Shortening-volta-brackets"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-a-repeat-sign-at-the-beginning-of-a-piece" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Printing a repeat sign at the beginning of a piece&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Volta-below-chords" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Volta below chords &gt; </a>]</td></tr></table>
+<a name="Shortening-volta-brackets"></a>
+<h2 class="unnumberedsec">Shortening volta brackets</h2>
+
+
+<p>By default, the volta brackets will be drawn over all of the
+alternative music, but it is possible to shorten them by setting
+<code>voltaSpannerDuration</code>.  In the next example, the bracket only
+lasts one measure, which is a duration of 3/4. 
+</p>
+
+<pre class="verbatim">\relative c'' {
+  \time 3/4
+  c4 c c
+  \set Score.voltaSpannerDuration = #(ly:make-moment 3 4)
+  \repeat volta 5 { d4 d d }
+  \alternative {
+    {
+      e4 e e
+      f4 f f
+    }
+    { g4 g g }
+  }
+}
+
+</pre><p>
+ <a href="../0e/lily-ce598c50.ly">
+  <img align="middle"
+       border="0"
+       src="../0e/lily-ce598c50.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-below-chords.ly"></a>
+<hr size="6">
+<a name="Volta-below-chords"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Shortening-volta-brackets" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Shortening volta brackets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Volta-multi-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Volta multi staff &gt; </a>]</td></tr></table>
+<a name="Volta-below-chords"></a>
+<h2 class="unnumberedsec">Volta below chords</h2>
+
+
+<p>By adding the <code>Volta_engraver</code> to the relevant staff, volte can be
+put under chords.
+</p>
+
+<pre class="verbatim">\score {
+  &lt;&lt;
+    \chords {
+      c1
+      c1
+    }
+    \new Staff \with {
+      \consists &quot;Volta_engraver&quot;
+    }
+    {
+      \repeat volta 2 { c'1 }
+      \alternative { c' }
+    }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      \remove &quot;Volta_engraver&quot;
+    }
+  }
+}
+</pre><p>
+ <a href="../ea/lily-e9f422dd.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-e9f422dd.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-multi-staff.ly"></a>
+<hr size="6">
+<a name="Volta-multi-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Volta-below-chords" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta below chords&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Volta-text-markup-using-repeatCommands" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Volta text markup using repeatCommands &gt; </a>]</td></tr></table>
+<a name="Volta-multi-staff"></a>
+<h2 class="unnumberedsec">Volta multi staff</h2>
+
+
+<p>By adding the <code>Volta_engraver</code> to the relevant staff, volte can be
+put over staves other than the topmost one in a score.
+</p>
+
+<pre class="verbatim">voltaMusic = \relative c'' {
+  \repeat volta 2 {
+    c1
+  }
+  \alternative {
+    d1
+    e
+  }
+}
+
+&lt;&lt;
+  \new StaffGroup &lt;&lt;
+    \new Staff \voltaMusic
+    \new Staff \voltaMusic
+  &gt;&gt;
+  \new StaffGroup &lt;&lt;
+    \new Staff \with { \consists &quot;Volta_engraver&quot; }
+      \voltaMusic
+    \new Staff \voltaMusic
+  &gt;&gt;
+&gt;&gt;
+</pre><p>
+ <a href="../ab/lily-444c1eb1.ly">
+  <img align="middle"
+       border="0"
+       src="../ab/lily-444c1eb1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-text-markup-using-repeatcommands.ly"></a>
+<hr size="6">
+<a name="Volta-text-markup-using-repeatCommands"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Volta-multi-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta multi staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Simultaneous notes &gt; </a>]</td></tr></table>
+<a name="Volta-text-markup-using-repeatCommands"></a>
+<h2 class="unnumberedsec">Volta text markup using repeatCommands</h2>
+
+
+<p>Though volte are best specified using <code>\repeat volta</code>, the
+context property <code>repeatCommands</code> must be used in cases where the
+volta text needs more advanced formatting with <code>\markup</code>.
+</p>
+<p>Since <code>repeatCommands</code> takes a list, the simplest method of
+including markup is to use an identifier for the text and embed it in
+the command list using the Scheme syntax <code>#(list (list 'volta
+textIdentifier))</code>. Start- and end-repeat commands can be added as
+separate list elements: 
+</p>
+
+<pre class="verbatim">voltaAdLib = \markup { 1. 2. 3... \text \italic { ad lib. } }
+
+\relative c'' {
+  c1
+  \set Score.repeatCommands = #(list (list 'volta voltaAdLib) 'start-repeat)
+  c4 b d e
+  \set Score.repeatCommands = #'((volta #f) (volta &quot;4.&quot;) end-repeat)
+  f1
+  \set Score.repeatCommands = #'((volta #f))
+}
+</pre><p>
+ <a href="../be/lily-3c93e1a8.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-3c93e1a8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Repeats" title="Beginning of this chapter or previous chapter"> &lt;&lt; Repeats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next chapter">&nbsp;Simultaneous notes &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Volta-multi-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta multi staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Repeats" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Repeats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Simultaneous-notes.html#Simultaneous-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Simultaneous notes &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li class="toc_current"><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>
+  <ul class="toc">
+    <li><a name="toc-Adding-volta-brackets-to-additional-staves-1" href="Repeats.html#Adding-volta-brackets-to-additional-staves">Adding volta brackets to additional staves</a>    </li>
+    <li><a name="toc-Engraving-tremolos-with-floating-beams-1" href="Repeats.html#Adding-volta-brackets-to-additional-staves">Engraving tremolos with floating beams</a>    </li>
+    <li><a name="toc-Isolated-percent-repeats-1" href="Repeats.html#Isolated-percent-repeats">Isolated percent repeats</a>    </li>
+    <li><a name="toc-Measure-counter-1" href="Repeats.html#Measure-counter">Measure counter</a>    </li>
+    <li><a name="toc-Percent-repeat-count-visibility-1" href="Repeats.html#Percent-repeat-count-visibility">Percent repeat count visibility</a>    </li>
+    <li><a name="toc-Percent-repeat-counter-1" href="Repeats.html#Percent-repeat-counter">Percent repeat counter</a>    </li>
+    <li><a name="toc-Positioning-segno-and-coda-_0028with-line-break_0029-1" href="Repeats.html#Positioning-segno-and-coda-_0028with-line-break_0029">Positioning segno and coda (with line break)</a>    </li>
+    <li><a name="toc-Printing-a-repeat-sign-at-the-beginning-of-a-piece-2" href="Repeats.html#Printing-a-repeat-sign-at-the-beginning-of-a-piece">Printing a repeat sign at the beginning of a piece</a>    </li>
+    <li><a name="toc-Shortening-volta-brackets-1" href="Repeats.html#Shortening-volta-brackets">Shortening volta brackets</a>    </li>
+    <li><a name="toc-Volta-below-chords-1" href="Repeats.html#Volta-below-chords">Volta below chords</a>    </li>
+    <li><a name="toc-Volta-multi-staff-1" href="Repeats.html#Volta-multi-staff">Volta multi staff</a>    </li>
+    <li><a name="toc-Volta-text-markup-using-repeatCommands-2" href="Repeats.html#Volta-text-markup-using-repeatCommands">Volta text markup using repeatCommands</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

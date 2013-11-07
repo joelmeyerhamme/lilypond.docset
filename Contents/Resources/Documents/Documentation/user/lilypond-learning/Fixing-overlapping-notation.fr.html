@@ -1,0 +1,673 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 4.5.2 Correction des collisions d&rsquo;objets</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 4.5.2 Fixing overlapping notation">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 4.5.2 Fixing overlapping notation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Collisions-of-objects.fr.html#Collisions-of-objects" rel="up" title="4.5 Collisions of objects">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Moving-objects.fr.html#Moving-objects" rel="previous" title="4.5.1 Moving objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Fixing-overlapping-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Moving-objects.fr.html#Moving-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Déplacement d&rsquo;objets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Collisions-of-objects.fr.html#Collisions-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Collisions d&rsquo;objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Real-music-example.fr.html#Real-music-example" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Exemple concret &gt; </a>]</td></tr></table>
+<a name="Fixing-overlapping-notation"></a>
+<h3 class="subsection">4.5.2 Correction des collisions d&rsquo;objets</h3>
+
+<p>Voyons maintenant comment les propriétés décrites dans la section 
+précédente peuvent nous aider à résoudre les collisions. 
+</p>
+<a name="padding-property"></a>
+<h3 class="subheading">la propriété padding</h3>
+
+<a name="index-padding-1"></a>
+<a name="index-fixing-overlapping-notation"></a>
+<a name="index-overlapping-notation"></a>
+
+<p>En jouant sur la propriété <code>padding</code> (littéralement 
+&lsquo;rembourrage&rsquo;), on augmente (ou on diminue) la distance entre 
+des symboles qui sont imprimés au-dessus ou en dessous des notes. 
+</p>
+<a name="index-Script_002c-example-of-overriding"></a>
+<a name="index-padding-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">c2\fermata
+\override Script #'padding = #3
+b2\fermata
+</pre><p>
+ <a href="../e5/lily-5c063b1d.ly">
+  <img align="middle"
+       border="0"
+       src="../e5/lily-5c063b1d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-MetronomeMark_002c-example-of-overriding"></a>
+<a name="index-padding-property_002c-example-1"></a>
+
+<blockquote><pre class="verbatim">% La commande suivante est sans résultat&nbsp;; voir plus loin.
+\override MetronomeMark #'padding = #3
+\tempo 4=120
+c1
+% Celle-ci produit le résultat escompté
+\override Score.MetronomeMark #'padding = #3
+\tempo 4=80
+d1
+</pre><p>
+ <a href="../4a/lily-470d8b8d.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-470d8b8d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vous remarquerez dans le second exemple à quel point il est important de 
+préciser le nom du contexte qui contient l&rsquo;objet. Puisque l&rsquo;objet 
+<code>MetronomeMark</code> appartient au contexte <code>Score</code>, le fait de 
+modifier la propriété dans le contexte <code>Voice</code> passera inaperçu. 
+Pour plus de détails, voir <a name="index-Modifying-properties"></a>
+<a href="../lilypond/Modifying-properties.fr.html#Modifying-properties">Modification de propriétés</a>.
+</p>
+<p>Si on augmente la propriété <code>padding</code> d&rsquo;un objet alors que celui-ci 
+fait partie d&rsquo;un ensemble d&rsquo;objets positionnés en fonction de leur 
+<code>outside-staff-priority</code>, cet objet sera déplacé, ainsi que tous les 
+autres objets du groupe. 
+</p>
+<a name="left_002dpadding-and-right_002dpadding"></a>
+<h3 class="subheading">left-padding et right-padding</h3>
+
+<a name="index-left_002dpadding-property-1"></a>
+<a name="index-right_002dpadding-property-1"></a>
+
+<p>La propriété <code>right-padding</code> joue sur l&rsquo;espacement entre une 
+altération et la note sur laquelle elle porte. On ne l&rsquo;utilise pas souvent, 
+mais l&rsquo;exemple ci-dessous montre une situation où elle est nécessaire. 
+Imaginons que nous voulions faire apparaître un accord qui contienne 
+à la fois un si bécarre et un si bémol. Pour qu&rsquo;il n&rsquo;y ait pas de doute, 
+nous chercherions à précéder la note d&rsquo;un signe bécarre et d&rsquo;un signe 
+bémol. Voici différentes tentatives pour y parvenir&nbsp;: 
+</p>
+<blockquote><pre class="verbatim">&lt;b bes&gt;
+&lt;b! bes&gt;
+&lt;b? bes&gt;
+</pre><p>
+ <a href="../db/lily-e37502f3.ly">
+  <img align="middle"
+       border="0"
+       src="../db/lily-e37502f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Pas une ne convient, et la seconde se solde même par une collision 
+entre les deux signes. 
+</p>
+<p>Une solution pour arriver à nos fins consiste à retoucher le stencil des 
+altérations grâce à un markup qui contient les symboles bécarre et 
+bémol, dans l&rsquo;ordre que nous souhaitons, comme ceci&nbsp;:
+</p>
+<a name="index-Accidental_002c-example-of-overriding"></a>
+<a name="index-text-property_002c-example"></a>
+<a name="index-stencil-property_002c-example"></a>
+<a name="index-AccidentalPlacement_002c-example-of-overriding"></a>
+<a name="index-right_002dpadding-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">becarreplusbemol = \markup { \natural \flat }
+\relative c'' {
+  \once \override Accidental
+    #'stencil = #ly:text-interface::print
+  \once \override Accidental #'text = #becarreplusbemol
+  \once \override Score.AccidentalPlacement #'right-padding = #1.5
+  &lt;b bes&gt;
+}
+</pre><p>
+ <a href="../29/lily-c0cb897b.ly">
+  <img align="middle"
+       border="0"
+       src="../29/lily-c0cb897b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Cette méthode utilise, pour le stencil des altérations, une retouche 
+qui ne sera par reprise par la suite. Le type de stencil est obligatoirement 
+une procédure, qui consiste ici à imprimer le contenu de la propriété 
+<code>text</code> de <code>Accidental</code>, déclaré comme étant un signe 
+bécarre suivi d&rsquo;un signe bémol. Celui-ci est ensuite repoussé devant la 
+tête de note par la retouche de <code>right-padding</code>.
+</p>
+
+<a name="staff_002dpadding-property"></a>
+<h3 class="subheading">la propriété staff-padding</h3>
+
+<a name="index-aligning-objects-on-a-baseline"></a>
+<a name="index-objects_002c-aligning-on-a-baseline"></a>
+
+<p><code>staff-padding</code> sert à aligner des objets tels que des nuances 
+sur une ligne fictive à une hauteur donnée par rapport à la portée, plutôt 
+qu&rsquo;à une hauteur qui varie en fonction de la position de la note sur laquelle 
+porte l&rsquo;objet. Ce n&rsquo;est pas une propriété de <code>DynamicText</code> mais de 
+<code>DynamicLineSpanner</code>. Car la ligne fictive est destinée à s&rsquo;appliquer 
+autant à <strong>toutes</strong> les nuances, notamment celles qui sont créées 
+comme des bandeaux en longueur (en anglais &lsquo;Spanners&rsquo;). Tel est donc 
+le moyen d&rsquo;aligner les indications de nuances, comme dans cet exemple 
+repris de la section précédente&nbsp;: 
+</p>
+<a name="index-DynamicText_002c-example-of-overriding-2"></a>
+<a name="index-extra_002dspacing_002dwidth-property_002c-example-2"></a>
+<a name="index-DynamicLineSpanner_002c-example-of-overriding"></a>
+<a name="index-staff_002dpadding-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">\dynamicUp
+% Élargissement d'une unité
+\override DynamicText #'extra-spacing-width = #'(-0.5 . 0.5)
+% Alignement des nuances sur une ligne de base à 2 unités au-dessus de la portée
+\override DynamicLineSpanner #'staff-padding = #2
+a4\f b\mf c\mp b\p
+</pre><p>
+ <a href="../7e/lily-d91822e2.ly">
+  <img align="middle"
+       border="0"
+       src="../7e/lily-d91822e2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="self_002dalignment_002dX-property"></a>
+<h3 class="subheading">la propriété self-alignment-X</h3>
+<p>L&rsquo;exemple suivant montre comment résoudre une collision entre une indication 
+de corde et une queue de note, en alignant le coin droit sur le point de 
+référence de la note parente&nbsp;:
+</p>
+<a name="index-StringNumber_002c-example-of-overriding"></a>
+<a name="index-self_002dalignment_002dX-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">\voiceOne
+&lt; a \2 &gt;
+\once \override StringNumber #'self-alignment-X = #RIGHT
+&lt; a \2 &gt;
+</pre><p>
+ <a href="../0a/lily-c077f631.ly">
+  <img align="middle"
+       border="0"
+       src="../0a/lily-c077f631.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="staff_002dposition-property"></a>
+<h3 class="subheading">la propriété staff-position</h3>
+
+<a name="index-object-collision-within-a-staff"></a>
+<p>Dans une voix, un silence valant une mesure entière peut chevaucher les 
+notes d&rsquo;une autre voix. Vu que ces silences sont centrés entre les deux 
+barres de mesure, il serait très compliqué de programmer LilyPond pour repérer 
+ces risques de collisions, dans la mesure où, normalement, toutes les collisions 
+entre notes ou entre notes et silences se produisent sur des notes et silences 
+simultanés. Voici un exemple de collision de ce type&nbsp;:
+</p>
+<blockquote><pre class="verbatim">&lt;&lt; {c c c c} \\ {R1} &gt;&gt;
+</pre><p>
+ <a href="../cf/lily-714425f7.ly">
+  <img align="middle"
+       border="0"
+       src="../cf/lily-714425f7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Ici, la meilleure solution consiste à déplacer le symbole de pause vers
+le bas &ndash; puisque cette pause appartient à la voix deux.  Par défaut, dans la 
+<code>\voiceTwo</code> (c&rsquo;est-à-dire dans la seconde voix d&rsquo;une construction 
+<code>&lt;&lt;{...} \\ {...}&gt;&gt;</code>), la propriété <code>staff-position</code> est 
+réglée sur -4 pour les MultiMeasureRest&nbsp;; nous avons donc besoin de la 
+déplacer, disons, de quatre demi-intervalles vers le bas, ce qui donne
+<code>-8</code>.
+</p>
+
+<a name="index-MultiMeasureRest_002c-example-of-overriding"></a>
+<a name="index-staff_002dposition-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">&lt;&lt;
+  {c c c c}
+\\
+  \override MultiMeasureRest #'staff-position = #-8
+  {R1}
+&gt;&gt;
+</pre><p>
+ <a href="../71/lily-b1e84be6.ly">
+  <img align="middle"
+       border="0"
+       src="../71/lily-b1e84be6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>C&rsquo;est mieux que d&rsquo;utiliser, par exemple, <code>extra-offset</code>, 
+car la ligne supplémentaire au-dessus du silence est insérée 
+automatiquement. 
+</p>
+<a name="extra_002doffset-property"></a>
+<h3 class="subheading">la propriété extra-offset</h3>
+
+<a name="index-positioning-objects"></a>
+<a name="index-positioning-grobs"></a>
+<a name="index-objects_002c-positioning"></a>
+<a name="index-grobs_002c-positioning"></a>
+
+<p>La propriété <code>extra-offset</code>
+La propriété <code>extra-offset</code> offre la possibilité de contrôler 
+entièrement le placement d&rsquo;un objet, aussi bien horizontalement que 
+verticalement. 
+</p>
+<p>Dans l&rsquo;exemple suivant, la seconde indication de doigté est déplacée 
+légèrement vers la gauche et de 1.8 intervalle de lignes vers le bas&nbsp;:
+</p>
+<a name="index-Fingering_002c-example-of-overriding"></a>
+<a name="index-extra_002doffset-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">\stemUp
+f-5
+\once \override Fingering
+    #'extra-offset = #'(-0.3 . -1.8)
+f-5
+</pre><p>
+ <a href="../c8/lily-d8df21f7.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-d8df21f7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="positions-property"></a>
+<h3 class="subheading">la propriété positions</h3>
+
+<a name="index-controlling-tuplets_002c-slurs_002c-phrasing-slurs_002c-and-beams-manually"></a>
+<a name="index-manually-controlling-tuplets_002c-slurs_002c-phrasing-slurs_002c-and-beams"></a>
+<a name="index-tuplet-beams_002c-controlling-manually"></a>
+<a name="index-slurs_002c-controlling-manually"></a>
+<a name="index-phrasing-slurs_002c-controlling-manually"></a>
+<a name="index-beams_002c-controlling-manually"></a>
+
+<p>La propriété <code>positions</code> permet de contrôler manuellement la 
+position et l&rsquo;inclinaison des nolets, coulés, liaisons de phrasé et barres 
+de croches. Voici un exemple avec une horrible liaison de phrasé &ndash; 
+horrible pour avoir tenté de contourner la liaison de l&rsquo;acciaccature.
+</p>
+<blockquote><pre class="verbatim">r4  \acciaccatura e8\( d8 c ~c d c d\)
+</pre><p>
+ <a href="../f7/lily-c1e3be68.ly">
+  <img align="middle"
+       border="0"
+       src="../f7/lily-c1e3be68.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Nous pourrions tout simplement déplacer la liaison de phrasé au-dessus des
+notes, et ce serait la meilleure solution&nbsp;:
+</p>
+<blockquote><pre class="verbatim">r4
+\phrasingSlurUp
+\acciaccatura e8\( d8 c ~c d c d\)
+</pre><p>
+ <a href="../b1/lily-3fb34c45.ly">
+  <img align="middle"
+       border="0"
+       src="../b1/lily-3fb34c45.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Mais si, pour une quelconque raison, cette solution n&rsquo;était pas 
+envisageable, l&rsquo;autre solution consiste à déplacer légèrement vers le 
+bas l&rsquo;extrémité gauche de la liaison de phrasé, grâce à la propriété 
+<code>positions</code>. Cela corrige en même temps la forme plutôt 
+disgracieuse de la liaison.
+</p>
+<a name="index-PhrasingSlur_002c-example-of-overriding"></a>
+<a name="index-positions-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">r4
+\once \override PhrasingSlur #'positions = #'(-4 . -3)
+\acciaccatura
+e8\( d8 c ~c d c d\)
+</pre><p>
+ <a href="../3f/lily-3aa6043a.ly">
+  <img align="middle"
+       border="0"
+       src="../3f/lily-3aa6043a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Voici un autre exemple, tiré du début de la partie de main gauche 
+du Prélude de Chopin, Op. 28, No 2. Comme nous pouvons le 
+constater, les barres de croches chevauchent les notes les plus hautes&nbsp;:
+</p>
+<blockquote><pre class="verbatim">{
+\clef &quot;bass&quot;
+&lt;&lt; {b,8 ais, b, g,} \\ {e, g e, g} &gt;&gt;
+&lt;&lt; {b,8 ais, b, g,} \\ {e, g e, g} &gt;&gt;
+}
+</pre><p>
+ <a href="../68/lily-044d10c6.ly">
+  <img align="middle"
+       border="0"
+       src="../68/lily-044d10c6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>On peut y remédier en déplaçant manuellement vers le haut les deux 
+extrémités des barres de croches, non plus à 2 intervalles au-dessus 
+de la ligne médiane mais, disons, à 3&nbsp;:
+</p>
+<a name="index-Beam_002c-example-of-overriding"></a>
+<a name="index-positions-property_002c-example-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \clef &quot;bass&quot;
+  &lt;&lt;
+    \override Beam #'positions = #'(3 . 3)
+    {b,8 ais, b, g,}
+  \\
+    {e, g e, g}
+  &gt;&gt;
+  &lt;&lt; {b,8 ais, b, g,} \\ {e, g e, g} &gt;&gt;
+}
+</pre><p>
+ <a href="../ed/lily-58d56dce.ly">
+  <img align="middle"
+       border="0"
+       src="../ed/lily-58d56dce.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vous remarquerez que la retouche continue à s&rsquo;appliquer au 
+second bloc de croches de la première voix mais qu&rsquo;il ne s&rsquo;applique 
+à aucune barre de la deuxième voix.
+</p>
+<a name="force_002dhshift-property"></a>
+<h3 class="subheading">la propriété force-hshift</h3>
+
+
+<p>Maintenant, nous sommes prêts à appliquer les dernières corrections  à
+l&rsquo;exemple de Chopin présenté à la fin de <a href="I_0027m-hearing-Voices.fr.html#I_0027m-hearing-Voices">J&rsquo;entends des Voix</a>, que 
+nous avions laissé dans cet état&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\new Staff \relative c'' {
+  \key aes \major
+  &lt;&lt;
+    { c2 aes4. bes8 } \\
+    { aes2 f4 fes   } \\
+    { \voiceFour
+      &lt;ees c&gt;2
+      des2
+    }
+  &gt;&gt; |
+  &lt;c ees aes c&gt;1 |
+}
+</pre><p>
+ <a href="../88/lily-71120d6a.ly">
+  <img align="middle"
+       border="0"
+       src="../88/lily-71120d6a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les deux plus basses notes du premier accord (c&rsquo;est-à-dire celles de la 
+troisième voix) ne devraient pas être décalées de la colonne des deux 
+plus hautes notes. Pour y remédier, nous réglons le <code>force-hshift</code> 
+&ndash; qui est une propriété de <code>NoteColumn</code> &ndash; de ces notes sur zéro. 
+Ensuite, la note la plus basse du second accord serait mieux à droite des 
+notes plus hautes. Pour cela, nous réglons le <code>force-hshift</code> de cette 
+note sur 0.5 &ndash; c&rsquo;est-à-dire la moitié de la largeur d&rsquo;une tête de note vers la 
+droite de la colonne des notes plus hautes.
+</p>
+<p>Et voici le résultat final&nbsp;:
+</p>
+<a name="index-NoteColumn_002c-example-of-overriding"></a>
+<a name="index-force_002dhshift-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">\new Staff \relative c'' {
+  \key aes \major
+  &lt;&lt;
+    { c2 aes4. bes8 } \\
+    { aes2 f4 fes   } \\
+    { \voiceFour
+      \once \override NoteColumn #'force-hshift = #0 &lt;ees c&gt;2
+      \once \override NoteColumn #'force-hshift = #0.5 des2
+    }
+  &gt;&gt; |
+  &lt;c ees aes c&gt;1 |
+}
+</pre><p>
+ <a href="../5e/lily-1b6c9a6e.ly">
+  <img align="middle"
+       border="0"
+       src="../5e/lily-1b6c9a6e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Moving-objects.fr.html#Moving-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Déplacement d&rsquo;objets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Collisions-of-objects.fr.html#Collisions-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Collisions d&rsquo;objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Real-music-example.fr.html#Real-music-example" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Exemple concret &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Fixing-overlapping-notation.html">English</a>, <a href="Fixing-overlapping-notation.es.html">español</a>, <a href="Fixing-overlapping-notation.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li class="toc_current"><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>
+    <ul class="toc">
+      <li><a name="toc-Moving-objects-1" href="Moving-objects.fr.html#Moving-objects">4.5.1 Déplacement d&rsquo;objets</a>      </li>
+      <li class="toc_current"><a name="toc-Fixing-overlapping-notation-1" href="Fixing-overlapping-notation.fr.html#Fixing-overlapping-notation">4.5.2 Correction des collisions d&rsquo;objets</a>      </li>
+      <li><a name="toc-Real-music-example-1" href="Real-music-example.fr.html#Real-music-example">4.5.3 Exemple concret</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

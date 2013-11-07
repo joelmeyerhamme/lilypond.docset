@@ -1,0 +1,477 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 3.4 Documentation policy</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 3.4 Documentation policy">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 3.4 Documentation policy">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Documentation-work.html#Documentation-work" rel="up" title="3. Documentation work">
+<link href="Making-a-release.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="Texinfo-introduction-and-usage-policy.html#Texinfo-introduction-and-usage-policy" rel="previous" title="3.3 Texinfo introduction and usage policy">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Documentation-policy"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Texinfo-introduction-and-usage-policy.html#Other-text-concerns" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Other text concerns&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Books" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Books &gt; </a>]</td></tr></table>
+<a name="Documentation-policy"></a>
+<h2 class="section">3.4 Documentation policy</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Books" accesskey="1">3.4.1 Books</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Section-organization" accesskey="2">3.4.2 Section organization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Checking-cross_002dreferences" accesskey="3">3.4.3 Checking cross-references</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#General-writing" accesskey="4">3.4.4 General writing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Technical-writing-style" accesskey="5">3.4.5 Technical writing style</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Books"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Documentation-policy" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Documentation policy&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Section-organization" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Section organization &gt; </a>]</td></tr></table>
+<a name="Books"></a>
+<h3 class="subsection">3.4.1 Books</h3>
+
+<p>There are four parts to the documentation: the Learning Manual,
+the Notation Reference, the Program Reference, and the Music
+Glossary.
+</p>
+<ul>
+<li>
+Learning Manual:
+
+<p>The LM is written in a tutorial style which introduces the most
+important concepts, structure and syntax of the elements of a
+LilyPond score in a carefully graded sequence of steps.
+Explanations of all musical concepts used in the Manual can be
+found in the Music Glossary, and readers are assumed to have no
+prior knowledge of LilyPond.  The objective is to take readers to
+a level where the Notation Reference can be understood and
+employed to both adapt the templates in the Appendix to their
+needs and to begin to construct their own scores.  Commonly used
+tweaks are introduced and explained.  Examples are provided
+throughout which, while being focussed on the topic being
+introduced, are long enough to seem real in order to retain the
+readers&rsquo; interest.  Each example builds on the previous material,
+and comments are used liberally.  Every new aspect is thoroughly
+explained before it is used.
+</p>
+<p>Users are encouraged to read the complete Learning Manual from
+start-to-finish.
+</p>
+
+</li><li>
+Notation Reference: a (hopefully complete) description of LilyPond
+input notation.  Some material from here may be duplicated in the
+Learning Manual (for teaching), but consider the NR to be the
+&quot;definitive&quot; description of each notation element, with the LM
+being an &quot;extra&quot;.  The goal is _not_ to provide a step-by-step
+learning environment &ndash; do not avoid using notation that has not
+be introduced previously in the NR  (for example, use \break if
+appropriate).  This section is written in formal technical writing
+style.
+
+<p>Avoid duplication.  Although users are not expected to read this
+manual from start to finish, they should be familiar with the
+material in the Learning Manual (particularly &ldquo;Fundamental
+Concepts&rdquo;), so do not repeat that material in each section of
+this book.  Also watch out for common constructs, like ^ - _ for
+directions &ndash; those are explained in NR 3.  In NR 1, you can
+write: DYNAMICS may be manually placed above or below the staff,
+see @ref{Controlling direction and placement}.
+</p>
+<p>Most tweaks should be added to LSR and not placed directly in the
+.itely file.  In some cases, tweaks may be placed in the main
+text, but ask about this first.
+</p>
+<p>Finally, you should assume that users know what the notation
+means; explaining musical concepts happens in the Music Glossary.
+</p>
+
+</li><li>
+Application Usage: information about using the program lilypond
+with other programs (lilypond-book, operating systems, GUIs,
+convert-ly, etc).  This section is written in formal technical
+writing style.
+
+<p>Users are not expected to read this manual from start to finish.
+</p>
+
+</li><li>
+Music Glossary: information about the music notation itself.
+Explanations and translations about notation terms go here.
+
+<p>Users are not expected to read this manual from start to finish.
+</p>
+</li><li>
+Internals Reference: not really a documentation book, since it is
+automagically generated from the source, but this is its name.
+
+</li></ul>
+
+
+<hr size="6">
+<a name="Section-organization"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Books" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Books&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Checking-cross_002dreferences" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Checking cross-references &gt; </a>]</td></tr></table>
+<a name="Section-organization"></a>
+<h3 class="subsection">3.4.2 Section organization</h3>
+
+<ul>
+<li>
+The order of headings inside documentation sections should
+be:
+
+<blockquote><pre class="example">main docs
+@predefined
+@endpredefined
+@snippets
+@seealso
+@knownissues
+</pre></blockquote>
+
+</li><li>
+You <em>must</em> include a @seealso.
+
+<ul>
+<li>
+The order of items inside the @seealso section is
+
+<blockquote><pre class="example">Music Glossary:
+@rglos{foo},
+@rglos{bar}.
+
+Learning Manual:
+@rlearning{baz},
+@rlearning{foozle}.
+
+Notation Reference:
+@ruser{faazle},
+@ruser{boo}.
+
+Application Usage:
+@rprogram{blah}.
+
+Installed Files:
+@file{path/to/dir/blahz}.
+
+Snippets: @rlsr{section}.
+
+Internals Reference:
+@rinternals{fazzle},
+@rinternals{booar}.
+</pre></blockquote>
+
+</li><li>
+If there are multiple entries, separate them by commas but do not
+include an &lsquo;and&rsquo;.
+
+</li><li>
+Always end with a period.
+
+</li><li>
+Place each link on a new line as above; this makes it much easier
+to add or remove links.  In the output, they appear on a single
+line.
+
+<p>(&quot;Snippets&quot; is REQUIRED; the others are optional)
+</p>
+</li><li>
+Any new concepts or links which require an explanation should go
+as a full sentence(s) in the main text.
+
+</li><li>
+Don&rsquo;t insert an empty line between @seealso and the first entry!
+Otherwise there is excessive vertical space in the PDF output.
+
+</li></ul>
+
+</li><li>
+To create links, use @ref{} if the link is within the same
+manual.
+
+</li><li>
+@predefined ... @endpredefined is for commands in ly/*-init.ly
+FIXME?
+
+</li><li>
+Do not include any real info in second-level sections (ie 1.1
+Pitches).  A first-level section may have introductory material,
+but other than that all material goes into third-level sections
+(ie 1.1.1 Writing Pitches).
+
+</li></ul>
+
+
+<hr size="6">
+<a name="Checking-cross_002dreferences"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Section-organization" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Section organization&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#General-writing" title="Next section in reading order" accesskey="n" rel="next">&nbsp;General writing &gt; </a>]</td></tr></table>
+<a name="Checking-cross_002dreferences"></a>
+<h3 class="subsection">3.4.3 Checking cross-references</h3>
+
+<p>Cross-references between different manuals are heavily used in the
+documentation, but they are not checked during compilation.
+However, if you compile the documentation, a script called
+check_texi_refs can help you with checking and fixing these
+cross-references; for information on usage, cd into a source tree
+where documentation has been built, cd into Documentation and look
+for check-xrefs and fix-xrefs targets in &rsquo;make help&rsquo; output.  Note
+that you have to find yourself the source files to fix
+cross-references in the generated documentation such as the
+Internals Reference; e.g. you can grep scm/ and lily/.
+</p>
+
+<hr size="6">
+<a name="General-writing"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Checking-cross_002dreferences" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Checking cross-references&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Technical-writing-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Technical writing style &gt; </a>]</td></tr></table>
+<a name="General-writing"></a>
+<h3 class="subsection">3.4.4 General writing</h3>
+
+<ul>
+<li>
+Do not forget to create @cindex entries for new sections of text.
+Enter commands with @funindex, i.e.
+
+<blockquote><pre class="example">@cindex pitches, writing in different octaves
+@funindex \relative
+</pre></blockquote>
+
+<p>do not bother with the @code{} (they are added automatically).
+These items are added to both the command index and the unified
+index.
+</p>
+<p>Both index commands should go in front of the actual material.
+</p>
+<p>@cindex entries should not be capitalized, ie
+</p>
+<blockquote><pre class="example">@cindex time signature
+</pre></blockquote>
+
+<p>is preferred instead of &ldquo;Time signature&rdquo;,   Only use capital
+letters for musical terms which demand them, like D.S. al Fine.
+</p>
+<p>For scheme functions, only include the final part, i.e.,
+</p>
+<blockquote><pre class="example">@funindex modern-voice-cautionary
+     and NOT
+@funindex #(set-accidental-style modern-voice-cautionary)
+</pre></blockquote>
+
+</li><li>
+Preferred terms:
+
+<ul>
+<li>
+In general, use the American spellings.  The internal lilypond
+property names use this spelling.
+
+</li><li>
+List of specific terms:
+
+<blockquote><pre class="example">canceled
+simultaneous    NOT concurrent
+measure: the unit of music
+bar line: the symbol delimiting a measure   NOT barline
+note head   NOT notehead
+chord construct   NOT chord (when referring to &lt;&gt;)
+</pre></blockquote>
+
+</li></ul>
+
+</li></ul>
+
+
+<hr size="6">
+<a name="Technical-writing-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#General-writing" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; General writing&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tips-for-writing-docs.html#Tips-for-writing-docs" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Tips for writing docs &gt; </a>]</td></tr></table>
+<a name="Technical-writing-style"></a>
+<h3 class="subsection">3.4.5 Technical writing style</h3>
+
+<p>These refer to the NR.  The LM uses a more gentle, colloquial
+style.
+</p>
+<ul>
+<li>
+Do not refer to LilyPond in the text.  The reader knows what the
+manual is about.  If you do, capitalization is LilyPond.
+
+</li><li>
+If you explicitly refer to &lsquo;lilypond&rsquo; the program (or any other
+command to be executed), write <code>@command{lilypond}</code>.
+
+</li><li>
+Do not explicitly refer to the reader/user.  There is no one else
+besides the reader and the writer.
+
+</li><li>
+Avoid contractions (don&rsquo;t, won&rsquo;t, etc.).  Spell the words out completely.
+
+</li><li>
+Avoid abbreviations, except for commonly used abbreviations of foreign
+language terms such as etc. and i.e.
+
+</li><li>
+Avoid fluff (&ldquo;Notice that,&rdquo; &ldquo;as you can see,&rdquo;
+&ldquo;Currently,&rdquo;).
+
+</li><li>
+The use of the word &lsquo;illegal&rsquo; is inappropriate in most cases.
+Say &lsquo;invalid&rsquo; instead.
+
+</li></ul>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Documentation-work.html#Documentation-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Documentation work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Website-work.html#Website-work" title="Next chapter">&nbsp;Website work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#General-writing" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; General writing&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Documentation-policy" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Documentation policy&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tips-for-writing-docs.html#Tips-for-writing-docs" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Tips for writing docs &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Starting-with-git-1" href="Starting-with-git.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.html#Advanced-git-stuff">1.4 Advanced git stuff</a>    </li>
+    <li><a name="toc-Git-on-Windows-1" href="Git-on-Windows.html#Git-on-Windows">1.5 Git on Windows</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Documentation-work-1" href="Documentation-work.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li class="toc_current"><a name="toc-Documentation-policy-1" href="Documentation-policy.html#Documentation-policy">3.4 Documentation policy</a>
+    <ul class="toc">
+      <li><a name="toc-Books-1" href="Documentation-policy.html#Books">3.4.1 Books</a>      </li>
+      <li><a name="toc-Section-organization-1" href="Documentation-policy.html#Section-organization">3.4.2 Section organization</a>      </li>
+      <li><a name="toc-Checking-cross_002dreferences-1" href="Documentation-policy.html#Checking-cross_002dreferences">3.4.3 Checking cross-references</a>      </li>
+      <li><a name="toc-General-writing-1" href="Documentation-policy.html#General-writing">3.4.4 General writing</a>      </li>
+      <li><a name="toc-Technical-writing-style-1" href="Documentation-policy.html#Technical-writing-style">3.4.5 Technical writing style</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.html#Translating-the-documentation">3.7 Translating the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-LSR-work-1" href="LSR-work.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Programming-work-1" href="Programming-work.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li><a name="toc-Code-style-1" href="Code-style.html#Code-style">7.5 Code style</a>    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

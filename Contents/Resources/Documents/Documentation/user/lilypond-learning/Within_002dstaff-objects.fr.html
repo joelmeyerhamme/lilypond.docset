@@ -1,0 +1,498 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 4.4.2 Objets inclus dans la portée</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 4.4.2 Within-staff objects">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 4.4.2 Within-staff objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Placement-of-objects.fr.html#Placement-of-objects" rel="up" title="4.4 Placement of objects">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Automatic-behavior.fr.html#Automatic-behavior" rel="previous" title="4.4.1 Automatic behavior">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Within_002dstaff-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Automatic-behavior.fr.html#Automatic-behavior" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Comportement automatique&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Placement-of-objects.fr.html#Placement-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Positionnement des objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside-staff-objects.fr.html#Outside-staff-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Objets hors de la portée &gt; </a>]</td></tr></table>
+<a name="Within_002dstaff-objects"></a>
+<h3 class="subsection">4.4.2 Objets inclus dans la portée</h3>
+
+<p>Nous avons vu que les commandes <code>\voiceXXX</code> jouent sur la 
+direction des liaisons, des doigtés et sur toute autre chose liée à 
+l&rsquo;orientation des queues de notes. Ces commandes sont essentielles dans 
+la musique polyphonique pour distinguer des lignes mélodiques 
+entremêlées.  Mais il arrive qu&rsquo;on ait besoin de modifier ce comportement 
+automatique.  On peut le faire pour toutes les parties de la musique ou 
+juste pour une note.  La propriété qui contrôle ce comportement est la 
+propriété <code>direction</code> de chaque objet.  Expliquons d&rsquo;abord ce 
+qu&rsquo;elle fait, puis nous présenterons un certain nombre de commandes 
+déjà prêtes qui évitent, pour les modifications les plus courantes, 
+d&rsquo;avoir à encoder les retouches. 
+</p>
+<p>Certains objets comme les traits des liaisons se recourbent tantôt 
+vers le haut, tantôt vers le bas&nbsp;; d&rsquo;autres encore, comme les hampes 
+et les crochets, peuvent se décaler vers la gauche ou vers la droite 
+selon qu&rsquo;ils pointent vers le haut ou vers le bas.  Ce comportement est 
+géré automatiquement dès lors que <code>direction</code> est activé. 
+</p>
+<a name="index-down"></a>
+<a name="index-up"></a>
+<a name="index-center"></a>
+<a name="index-neutral"></a>
+
+<p>L&rsquo;exemple ci-dessous montre dans la première mesure le comportement par 
+défaut des hampes &ndash; celles des notes les plus hautes pointant vers le
+bas et celles des notes les plus basses pointant vers le haut&nbsp;; viennent
+ensuite quatre notes avec les hampes forcées vers le bas, puis quatre
+autres avec les hampes forcées vers le haut, et pour finir quatre notes
+de nouveau avec le comportement par défaut. 
+</p>
+<a name="index-Stem_002c-exemple-de-derogation-1"></a>
+<a name="index-direction_002c-exemple-de-propriete-1"></a>
+
+<blockquote><pre class="verbatim">a4 g c a
+\override Stem #'direction = #DOWN
+a g c a
+\override Stem #'direction = #UP
+a g c a
+\revert Stem #'direction
+a g c a
+</pre><p>
+ <a href="../43/lily-26b5f6d6.ly">
+  <img align="middle"
+       border="0"
+       src="../43/lily-26b5f6d6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Nous utilisons ici les directions <code>DOWN</code> et <code>UP</code>.  Elles 
+correspondent respectivement aux valeurs <code>-1</code> et <code>+1</code>, 
+que l&rsquo;on peut utiliser à la place.  La valeur <code>0</code> peut aussi être 
+utilisée dans certains cas.  Elle est interprétée comme un <code>UP</code> 
+pour les hampes, et comme un &lsquo;centré&rsquo; pour d&rsquo;autres objets.  Il
+existe une direction, <code>CENTER</code>, qui correspond à la valeur
+<code>0</code>. 
+</p>
+<p>Quoi qu&rsquo;il en soit, ces retouches manuelles sont rarement utilisées car
+il existe des équivalents sous forme de commandes prédéfinies.  Voici un
+tableau des plus courantes.  Lorsque ce n&rsquo;est pas évident, leur
+signification est précisée. 
+</p>
+<table>
+<thead><tr><th width="20%"><p> Bas/Gauche
+  </p></th><th width="20%"><p> Haut/Droite
+  </p></th><th width="25%"><p> Annulation
+  </p></th><th width="35%"><p> Effet
+</p></th></tr></thead>
+<tr><td width="20%"><p> <code>\arpeggioArrowDown</code>
+  </p></td><td width="20%"><p> <code>\arpeggioArrowUp</code>
+  </p></td><td width="25%"><p> <code>\arpeggioNormal</code>
+  </p></td><td width="35%"><p> Flèche en bas, en haut, ou pas de flèche
+</p></td></tr>
+<tr><td width="20%"><p> <code>\dotsDown</code>
+  </p></td><td width="20%"><p> <code>\dotsUp</code>
+  </p></td><td width="25%"><p> <code>\dotsNeutral</code>
+  </p></td><td width="35%"><p> Déplacement des points pour éviter les lignes de portée
+</p></td></tr>
+<tr><td width="20%"><p> <code>\dynamicDown</code>
+  </p></td><td width="20%"><p> <code>\dynamicUp</code>
+  </p></td><td width="25%"><p> <code>\dynamicNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\phrasingSlurDown</code>
+  </p></td><td width="20%"><p> <code>\phrasingSlurUp</code>
+  </p></td><td width="25%"><p> <code>\phrasingSlurNeutral</code>
+  </p></td><td width="35%"><p> Attention&nbsp;: à distinguer des commandes de liaison ci-dessous
+</p></td></tr>
+<tr><td width="20%"><p> <code>\slurDown</code>
+  </p></td><td width="20%"><p> <code>\slurUp</code>
+  </p></td><td width="25%"><p> <code>\slurNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\stemDown</code>
+  </p></td><td width="20%"><p> <code>\stemUp</code>
+  </p></td><td width="25%"><p> <code>\stemNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\textSpannerDown</code>
+  </p></td><td width="20%"><p> <code>\textSpannerUp</code>
+  </p></td><td width="25%"><p> <code>\textSpannerNeutral</code>
+  </p></td><td width="35%"><p> Le texte saisi en tant qu&rsquo;extension est au-dessous/au-dessus de la portée
+</p></td></tr>
+<tr><td width="20%"><p> <code>\tieDown</code>
+  </p></td><td width="20%"><p> <code>\tieUp</code>
+  </p></td><td width="25%"><p> <code>\tieNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\tupletDown</code>
+  </p></td><td width="20%"><p> <code>\tupletUp</code>
+  </p></td><td width="25%"><p> <code>\tupletNeutral</code>
+  </p></td><td width="35%"><p> Les nolets sont au-dessous/au-dessus des notes
+</p></td></tr>
+</table>
+
+<p>Attention&nbsp;: ces commandes prédéfinies <strong>ne doivent pas</strong> être
+précédées de <code>\once</code>.  Pour limiter l&rsquo;effet à une seule note, il
+faut soit utiliser la commande équivalente <code>\once \override</code>, soit
+utiliser la commande prédéfinie, suivie, après la note à modifier, de la
+commande <code>\xxxNeutral</code> correspondante. 
+</p>
+<a name="Fingering"></a>
+<h3 class="subheading">Doigtés</h3>
+
+<a name="index-doigtes_002c-positionnement"></a>
+<a name="index-doigtes_002c-accords"></a>
+
+<p>Le placement des doigtés sur des notes simples peut aussi être contrôlé
+par la propriété <code>direction</code>, mais le changement de
+<code>direction</code> n&rsquo;a pas d&rsquo;effet sur les accords.  Comme nous le
+verrons, il existe des commandes qui permettent de contrôler le doigté
+sur chaque note d&rsquo;un accord, en plaçant l&rsquo;indication de doigté
+au-dessus, en dessous, à gauche ou à droite de chaque note. 
+</p>
+<p>Tout d&rsquo;abord, voici l&rsquo;effet de <code>direction</code> sur le doigté lié à une
+note simple.  La première mesure montre le comportement par défaut, et
+les deux suivantes montrent l&rsquo;effet lorsqu&rsquo;on indique <code>DOWN</code> et
+<code>UP</code>&nbsp;: 
+</p>
+<a name="index-doigtes_002c-exemple-de-derogation"></a>
+<a name="index-direction_002c-exemple-de-propriete-2"></a>
+
+<blockquote><pre class="verbatim">c-5 a-3 f-1 c'-5
+\override Fingering #'direction = #DOWN
+c-5 a-3 f-1 c'-5
+\override Fingering #'direction = #UP
+c-5 a-3 f-1 c'-5
+</pre><p>
+ <a href="../25/lily-7de8e3f4.ly">
+  <img align="middle"
+       border="0"
+       src="../25/lily-7de8e3f4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Le fait d&rsquo;intervenir sur la propriété <code>direction</code> n&rsquo;est sûrement
+pas la façon la plus simple de placer manuellement les doigtés au-dessus
+ou en dessous des notes&nbsp;; mieux vaut utiliser <code>_</code> ou <code>^</code>
+devant le chiffre de doigté plutôt que <code>-</code>.  Voici ce que donne
+l&rsquo;exemple précédent avec cette méthode&nbsp;: 
+</p>
+<a name="index-doigtes_002c-exemple"></a>
+
+<blockquote><pre class="verbatim">c-5 a-3 f-1 c'-5
+c_5 a_3 f_1 c'_5
+c^5 a^3 f^1 c'^5
+</pre><p>
+ <a href="../60/lily-2f7d2e09.ly">
+  <img align="middle"
+       border="0"
+       src="../60/lily-2f7d2e09.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La propriété <code>direction</code> ne fonctionne pas pour les accords alors
+que les préfixes de direction, <code>_</code> et <code>^</code>, fonctionnent.  Par
+défaut, le doigté est placé automatiquement à la fois au-dessus et
+au-dessous des notes d&rsquo;un accord, comme ceci&nbsp;: 
+</p>
+<a name="index-doigtes_002c-exemple-1"></a>
+
+<blockquote><pre class="verbatim">&lt;c-5 g-3&gt;
+&lt;c-5 g-3 e-2&gt;
+&lt;c-5 g-3 e-2 c-1&gt;
+</pre><p>
+ <a href="../dc/lily-ca2c476e.ly">
+  <img align="middle"
+       border="0"
+       src="../dc/lily-ca2c476e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>mais il est possible de forcer manuellement vers le haut ou vers le bas le 
+placement de tous ou certains chiffres de doigté, comme ceci&nbsp;:
+</p>
+<a name="index-doigtes_002c-exemple-2"></a>
+
+<blockquote><pre class="verbatim">&lt;c-5 g-3 e-2 c-1&gt;
+&lt;c^5 g_3 e_2 c_1&gt;
+&lt;c^5 g^3 e^2 c_1&gt;
+</pre><p>
+ <a href="../8c/lily-b920601e.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-b920601e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>On peut aller encore plus loin dans le positionnement des doigtés pour
+chacune des notes d&rsquo;un accord grâce à la commande <code>\set
+fingeringOrientations</code>.  La syntaxe de cette commande est&nbsp;:
+</p>
+<blockquote><pre class="example"><code>\set fingeringOrientations = #'([up] [left/right] [down])</code>
+</pre></blockquote>
+
+<p>On utilise <code>\set</code> car <code>fingeringOrientations</code> est une propriété 
+du contexte <code>Voice</code>, créée et utilisée par le graveur 
+<code>New_fingering_engraver</code>.
+</p>
+<p>On peut attribuer à cette propriété une liste composée de une à trois 
+valeurs.  Celles-ci déterminent si l&rsquo;indication de doigté doit être
+placée au-dessus (lorsque <code>up</code> apparaît dans la liste), au-dessous
+(lorsque <code>down</code> apparaît), à gauche (lorsque <code>left</code> apparaît)
+ou à droite (lorsque <code>right</code> apparaît).  En revanche, si une valeur
+n&rsquo;est pas sur la liste, aucun doigté n&rsquo;ira à cet emplacement.  LilyPond
+garde ces contraintes en mémoire et recherche le meilleur emplacement
+pour le doigté des notes des accords suivants.  Vous remarquerez que
+<code>left</code> et <code>right</code> s&rsquo;excluent l&rsquo;un l&rsquo;autre &ndash; l&rsquo;indication de
+doigté ne peut être placée que d&rsquo;un côté ou de l&rsquo;autre, pas des deux. 
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note&nbsp;:</b> Ppour contrôler à l&rsquo;aide de cette commande le placement du
+doigté sur une note simple, il faut la saisir comme un accord composé
+d&rsquo;une note unique, en l&rsquo;encadrant de chevrons.
+</p></td></tr></table>
+
+<p>Voici quelques exemples&nbsp;: 
+</p>
+<a name="index-doigtes_002c-exemple-3"></a>
+<a name="index-_005cset_002c-exemple-d_0027utilisation"></a>
+<a name="index-fingeringOrientations_002c-exemple-de-propriete"></a>
+
+<blockquote><pre class="verbatim">\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left down)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(right)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+</pre><p>
+ <a href="../91/lily-02580353.ly">
+  <img align="middle"
+       border="0"
+       src="../91/lily-02580353.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si les indications de doigtés paraissent un peu serrées, on peut 
+toujours réduire la taille de police (<code>font-size</code>).  La valeur 
+par défaut donnée dans la RPI à la page de l&rsquo;objet 
+<code>Fingering</code> étant <code>-5</code>, essayons <code>-7</code>&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\override Fingering #'font-size = #-7
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left down)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(right)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+</pre><p>
+ <a href="../44/lily-6c73088a.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-6c73088a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Automatic-behavior.fr.html#Automatic-behavior" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Comportement automatique&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Placement-of-objects.fr.html#Placement-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Positionnement des objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside-staff-objects.fr.html#Outside-staff-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Objets hors de la portée &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Within_002dstaff-objects.html">English</a>, <a href="Within_002dstaff-objects.es.html">español</a>, <a href="Within_002dstaff-objects.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li class="toc_current"><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>
+    <ul class="toc">
+      <li><a name="toc-Automatic-behavior-1" href="Automatic-behavior.fr.html#Automatic-behavior">4.4.1 Comportement automatique</a>      </li>
+      <li class="toc_current"><a name="toc-Within_002dstaff-objects-1" href="Within_002dstaff-objects.fr.html#Within_002dstaff-objects">4.4.2 Objets inclus dans la portée</a>      </li>
+      <li><a name="toc-Outside-staff-objects-1" href="Outside-staff-objects.fr.html#Outside-staff-objects">4.4.3 Objets hors de la portée</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

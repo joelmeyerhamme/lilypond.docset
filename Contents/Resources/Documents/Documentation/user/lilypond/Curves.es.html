@@ -1,0 +1,777 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 1.3.2 Curvas</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 1.3.2 Curves">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 1.3.2 Curves">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Expressive-marks.es.html#Expressive-marks" rel="up" title="1.3 Expressive marks">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Attached-to-notes.es.html#Attached-to-notes" rel="previous" title="1.3.1 Attached to notes">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Curves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Attached-to-notes.es.html#New-dynamic-marks" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Indicaciones dinámicas contemporáneas&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Expressive-marks.es.html#Expressive-marks" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Expresiones&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Slurs" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Ligaduras de expresión &gt; </a>]</td></tr></table>
+<a name="Curves"></a>
+<h3 class="subsection">1.3.2 Curvas</h3>
+
+<p>Esta sección explica cómo crear varias marcas expresivas de forma
+curva: ligaduras de expresión y de fraseo, respiraciones, caídas y
+elevaciones de tono.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Slurs" accesskey="1">Ligaduras de expresión</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Phrasing-slurs" accesskey="2">Ligaduras de fraseo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Breath-marks" accesskey="3">Marcas de respiración</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Falls-and-doits" accesskey="4">Caídas y elevaciones</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Slurs"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Curves" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Curvas&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Curves" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Curvas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Phrasing-slurs" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Ligaduras de fraseo &gt; </a>]</td></tr></table>
+<a name="Slurs"></a>
+<h4 class="unnumberedsubsubsec">Ligaduras de expresión</h4>
+
+<a name="index-ligaduras-de-expresion"></a>
+
+<p>Las <var>Ligaduras de expresión</var> se introducen utilizando paréntesis:
+</p>
+<blockquote><pre class="verbatim">f4( g a) a8 b(
+a4 g2 f4)
+&lt;c e&gt;2( &lt;b d&gt;2)
+</pre><p>
+ <a href="../a6/lily-2e9f714e.ly">
+  <img align="middle"
+       border="0"
+       src="../a6/lily-2e9f714e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-ligaduras-de-expresion_002c-posicionamiento-manual"></a>
+<a name="index-ligaduras-de-expresion_002c-debajo-de-las-notas"></a>
+<a name="index-ligaduras-de-expresion_002c-encima-de-las-notas"></a>
+<a name="index-_005cslurDown"></a>
+<a name="index-_005cslurDown-1"></a>
+<a name="index-slurDown"></a>
+<a name="index-slurDown-1"></a>
+<a name="index-_005cslurNeutral"></a>
+<a name="index-_005cslurNeutral-1"></a>
+<a name="index-slurNeutral"></a>
+<a name="index-slurNeutral-1"></a>
+
+<p>Las ligaduras de expresión se pueden colocar manualmente por encima o
+por debajo de las notas, véase <a href="Direction-and-placement.es.html#Direction-and-placement">Dirección y posición</a>.
+</p>
+<blockquote><pre class="verbatim">c2( d)
+\slurDown
+c2( d)
+\slurNeutral
+c2( d)
+</pre><p>
+ <a href="../ea/lily-d911a365.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-d911a365.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-fraseo_002c-ligadura-de"></a>
+<a name="index-varias-ligaduras-de-expresion"></a>
+<a name="index-simultaneas_002c-ligaduras-de-expresion"></a>
+<a name="index-ligadura-de-fraseo"></a>
+<a name="index-ligaduras-de-expresion_002c-varias"></a>
+<a name="index-ligaduras-de-expresion-simultaneas"></a>
+
+<p>No están permitidas las ligaduras de expresión simultáneas o
+solapadas, pero una ligadura de fraseo se puede solapar con una
+ligadura de expresión.  Esto hace posible imprimir dos ligaduras
+distintas al mismo tiempo.  Para ver más detalles, consulte
+<a href="#Phrasing-slurs">Ligaduras de fraseo</a>.
+</p>
+<a name="index-ligadura-de-expresion_002c-estilo"></a>
+<a name="index-continua_002c-ligadura"></a>
+<a name="index-puntos_002c-ligadura-de"></a>
+<a name="index-discontinua_002c-ligadura"></a>
+<a name="index-ligadura-continua"></a>
+<a name="index-ligadura-de-puntos"></a>
+<a name="index-ligadura-discontinua"></a>
+<a name="index-estilo-de-la-ligadura"></a>
+<a name="index-_005cslurDashed"></a>
+<a name="index-_005cslurDashed-1"></a>
+<a name="index-slurDashed"></a>
+<a name="index-slurDashed-1"></a>
+<a name="index-_005cslurDotted"></a>
+<a name="index-_005cslurDotted-1"></a>
+<a name="index-slurDotted"></a>
+<a name="index-slurDotted-1"></a>
+<a name="index-_005cslurSolid"></a>
+<a name="index-_005cslurSolid-1"></a>
+<a name="index-slurSolid"></a>
+<a name="index-slurSolid-1"></a>
+
+<p>Las ligaduras de expresión pueden ser continuas, discontinuas o de
+puntos.  El estilo predeterminado de las ligaduras de expresión es el
+continuo:
+</p>
+<blockquote><pre class="verbatim">c4( e g2)
+\slurDashed
+g4( e c2)
+\slurDotted
+c4( e g2)
+\slurSolid
+g4( e c2)
+</pre><p>
+ <a href="../cb/lily-ed1beffc.ly">
+  <img align="middle"
+       border="0"
+       src="../cb/lily-ed1beffc.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cslurUp"></a>
+<a name="index-_005cslurUp-1"></a>
+<a name="index-slurUp"></a>
+<a name="index-slurUp-1"></a>
+
+
+<a name="Instrucciones-predefinidas-18"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<p><code>\slurUp</code>,
+<code>\slurDown</code>,
+<code>\slurNeutral</code>,
+<code>\slurDashed</code>,
+<code>\slurDotted</code>,
+<code>\slurSolid</code>.
+</p>
+
+<a name="Fragmentos-de-codigo-seleccionados-10"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Utilizar ligaduras dobles para acordes legato</em>
+</p>
+
+<p>Algunos compositores escriben dos ligaduras cuando quieren acordes
+legato.  Esto se puede conseguir estableciendo <code>doubleSlurs</code>.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \set doubleSlurs = ##t
+  &lt;c e&gt;4( &lt;d f&gt; &lt;c e&gt; &lt;d f&gt;)
+}
+
+</pre><p>
+ <a href="../ce/lily-52761046.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-52761046.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Situar los elementos de marcado de texto por dentro de las ligaduras</em>
+</p>
+
+
+<p>Los elementos de marcado de texto deben tener la propiedad
+<code>outside-staff-priority</code> establecida al valor falso para que se
+impriman por dentro de las ligaduras de expresión.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override TextScript #'avoid-slur = #'inside
+  \override TextScript #'outside-staff-priority = ##f
+  c2(^\markup { \halign #-10 \natural } d4.) c8
+}
+
+
+</pre><p>
+ <a href="../7a/lily-6ba5d317.ly">
+  <img align="middle"
+       border="0"
+       src="../7a/lily-6ba5d317.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Vease-tambien-4"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-slur"></a>
+<a href="../music-glossary/slur.es.html#slur">ligadura de expresión</a>.
+</p>
+<p>Manual de aprendizaje:
+<a name="index-On-the-un_002dnestedness-of-brackets-and-ties"></a>
+<a href="../lilypond-learning/On-the-un_002dnestedness-of-brackets-and-ties.es.html#On-the-un_002dnestedness-of-brackets-and-ties">Acerca de la no anidabilidad de llaves y ligaduras</a>.
+</p>
+<p>Referencia de la notación:
+<a href="Direction-and-placement.es.html#Direction-and-placement">Dirección y posición</a>,
+<a href="#Phrasing-slurs">Ligaduras de fraseo</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Expresiones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-Slur"></a>
+<a href="../lilypond-internals/Slur.es.html#Slur">Slur</a>.
+</p>
+
+<hr size="6">
+<a name="Phrasing-slurs"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Slurs" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Ligaduras de expresión&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Curves" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Curvas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Breath-marks" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Marcas de respiración &gt; </a>]</td></tr></table>
+<a name="Phrasing-slurs"></a>
+<h4 class="unnumberedsubsubsec">Ligaduras de fraseo</h4>
+
+<a name="index-ligaduras-de-fraseo"></a>
+<a name="index-marcas-de-fraseo"></a>
+<a name="index-fraseo_002c-ligaduras-de"></a>
+<a name="index-fraseo_002c-marcas-de"></a>
+<a name="index-_005c_0028"></a>
+<a name="index-_005c_0028-1"></a>
+<a name="index-_005c_0029"></a>
+<a name="index-_005c_0029-1"></a>
+
+<p>Las <var>ligaduras de fraseo</var> (o marcas de fraseo) que indican
+una frase musical se escriben usando las instrucciones <code>\(</code> y
+<code>\)</code> respectivamente:
+</p>
+<blockquote><pre class="verbatim">c4\( d( e) f(
+e2) d\)
+</pre><p>
+ <a href="../15/lily-d20f40a5.ly">
+  <img align="middle"
+       border="0"
+       src="../15/lily-d20f40a5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cphrasingSlurUp"></a>
+<a name="index-_005cphrasingSlurUp-1"></a>
+<a name="index-phrasingSlurUp"></a>
+<a name="index-phrasingSlurUp-1"></a>
+<a name="index-_005cphrasingSlurDown"></a>
+<a name="index-_005cphrasingSlurDown-1"></a>
+<a name="index-phrasingSlurDown"></a>
+<a name="index-phrasingSlurDown-1"></a>
+<a name="index-_005cphrasingSlurNeutral"></a>
+<a name="index-_005cphrasingSlurNeutral-1"></a>
+<a name="index-phrasingSlurNeutral"></a>
+<a name="index-phrasingSlurNeutral-1"></a>
+<a name="index-phrasingSlurDashed"></a>
+<a name="index-phrasingSlurDashed-1"></a>
+<a name="index-_005cphrasingSlurDashed"></a>
+<a name="index-_005cphrasingSlurDashed-1"></a>
+<a name="index-_005cphrasingSlurDotted"></a>
+<a name="index-_005cphrasingSlurDotted-1"></a>
+<a name="index-phrasingSlurDotted"></a>
+<a name="index-phrasingSlurDotted-1"></a>
+<a name="index-_005cphrasingSlurSolid"></a>
+<a name="index-_005cphrasingSlurSolid-1"></a>
+<a name="index-phrasingSlurSolid"></a>
+<a name="index-phrasingSlurSolid-1"></a>
+
+<p>Tipográficamente, la ligadura de fraseo se comporta casi exactamente
+igual que una ligadura de expresión normal.  Sin embargo, se tratan
+como objetos diferentes.  Una <code>\slurUp</code> no tendrá ningún efecto
+sobre una ligadura de fraseo.  Las ligaduras de fraseo se pueden
+situar manualmente por encima o por debajo de las notas, véase
+<a href="Direction-and-placement.es.html#Direction-and-placement">Dirección y posición</a>.
+</p>
+<blockquote><pre class="verbatim">c4\( g' c,( b) | c1\)
+\phrasingSlurUp
+c4\( g' c,( b) | c1\)
+</pre><p>
+ <a href="../14/lily-8f09ba86.ly">
+  <img align="middle"
+       border="0"
+       src="../14/lily-8f09ba86.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-simultaneous-phrasing-slurs"></a>
+<a name="index-multiple-phrasing-slurs"></a>
+<a name="index-slurs_002c-simultaneous-phrasing"></a>
+<a name="index-slurs_002c-multiple-phrasing"></a>
+<a name="index-phrasing-slurs_002c-simultaneous"></a>
+<a name="index-phrasing-slurs_002c-multiple"></a>
+
+<p>No se pueden tener varias ligaduras de fraseo simultáneas o solapadas.
+</p>
+<p>Las ligaduras de fraseo pueden ser continuas, de puntos o de rayas.
+El estilo predeterminado para las ligaduras de fraseo es el continuo:
+</p>
+<blockquote><pre class="verbatim">c4\( e g2\)
+\phrasingSlurDashed
+g4\( e c2\)
+\phrasingSlurDotted
+c4\( e g2\)
+\phrasingSlurSolid
+g4\( e c2\)
+</pre><p>
+ <a href="../8b/lily-70c45c20.ly">
+  <img align="middle"
+       border="0"
+       src="../8b/lily-70c45c20.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Instrucciones-predefinidas-12"></a>
+<h4 class="subsubheading">Instrucciones predefinidas</h4>
+<p><code>\phrasingSlurUp</code>,
+<code>\phrasingSlurDown</code>,
+<code>\phrasingSlurNeutral</code>,
+<code>\phrasingSlurDashed</code>,
+<code>\phrasingSlurDotted</code>,
+<code>\phrasingSlurSolid</code>.
+</p>
+
+<a name="Vease-tambien-43"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Manual de aprendizaje:
+<a name="index-On-the-un_002dnestedness-of-brackets-and-ties-1"></a>
+<a href="../lilypond-learning/On-the-un_002dnestedness-of-brackets-and-ties.es.html#On-the-un_002dnestedness-of-brackets-and-ties">Acerca de la no anidabilidad de llaves y ligaduras</a>.
+</p>
+<p>Referencia de la notación:
+<a href="Direction-and-placement.es.html#Direction-and-placement">Dirección y posición</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Expresiones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-PhrasingSlur"></a>
+<a href="../lilypond-internals/PhrasingSlur.es.html#PhrasingSlur">PhrasingSlur</a>.
+</p>
+
+<hr size="6">
+<a name="Breath-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Phrasing-slurs" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Ligaduras de fraseo&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Curves" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Curvas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Falls-and-doits" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Caídas y elevaciones &gt; </a>]</td></tr></table>
+<a name="Breath-marks"></a>
+<h4 class="unnumberedsubsubsec">Marcas de respiración</h4>
+
+<a name="index-respiraciones"></a>
+<a name="index-pausa_002c-marcas-de"></a>
+<a name="index-_005cbreathe"></a>
+<a name="index-_005cbreathe-1"></a>
+<a name="index-breathe"></a>
+<a name="index-breathe-1"></a>
+
+<p>Las respiraciones se introducen utilizando <code>\breathe</code>:
+</p>
+<blockquote><pre class="verbatim">c2. \breathe d4
+</pre><p>
+ <a href="../a1/lily-33a6af2e.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-33a6af2e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Están contemplados los indicadores musicales para las marcas de
+respiración en la notación antigua, o divisiones.  Para ver más
+detalles, consulte <a href="Typesetting-Gregorian-chant.es.html#Divisiones">Divisiones</a>.
+</p>
+<a name="Fragmentos-de-codigo-seleccionados-63"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Cambiar el símbolo de la marca de respiración</em>
+</p>
+
+<p>El glifo de la marca de respiración se puede ajustar
+sobreescribiendo la propiedad de texto del objeto de presentación
+<code>BreathingSign</code>, con cualquier otro texto de marcado.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  c2
+  \override BreathingSign #'text = \markup { \musicglyph #&quot;scripts.rvarcomma&quot; }
+  \breathe
+  d2
+}
+</pre><p>
+ <a href="../a2/lily-48826e2d.ly">
+  <img align="middle"
+       border="0"
+       src="../a2/lily-48826e2d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-caesura"></a>
+
+<p><em> Insertar una cesura</em>
+</p>
+
+<p>Las marcas de cesura se pueden crear sobreescribiendo la propiedad
+<code>'text</code> del objeto <code>BreathingSign</code>.  También está disponible
+una marca de cesura curva.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override BreathingSign #'text = \markup {
+    \musicglyph #&quot;scripts.caesura.straight&quot;
+  }
+  c8 e4. \breathe g8. e16 c4
+
+  \override BreathingSign #'text = \markup {
+    \musicglyph #&quot;scripts.caesura.curved&quot;
+  }
+  g8 e'4. \breathe g8. e16 c4
+}
+</pre><p>
+ <a href="../74/lily-44ad8655.ly">
+  <img align="middle"
+       border="0"
+       src="../74/lily-44ad8655.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-121"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-caesura-1"></a>
+<a href="../music-glossary/caesura.es.html#caesura">cesura</a>.
+</p>
+<p>Referencia de la notación:
+<a href="Typesetting-Gregorian-chant.es.html#Divisiones">Divisiones</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Expresiones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-BreathingSign"></a>
+<a href="../lilypond-internals/BreathingSign.es.html#BreathingSign">BreathingSign</a>.
+</p>
+
+<hr size="6">
+<a name="Falls-and-doits"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Breath-marks" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Marcas de respiración&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Curves" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Curvas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Lines.es.html#Lines" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Líneas &gt; </a>]</td></tr></table>
+<a name="Falls-and-doits"></a>
+<h4 class="unnumberedsubsubsec">Caídas y elevaciones</h4>
+
+<a name="index-falls-_0028caidas-de-tono_0029"></a>
+<a name="index-doits-_0028elevaciones-de-tono_0029"></a>
+<a name="index-caidas-de-tono-_0028falls_0029"></a>
+<a name="index-elevaciones-de-tono-_0028doits_0029"></a>
+<a name="index-_005cbendAfter"></a>
+<a name="index-_005cbendAfter-1"></a>
+<a name="index-bendAfter"></a>
+<a name="index-bendAfter-1"></a>
+
+<p>Se pueden expresar <var>caídas</var> y <var>subidas</var> de tono
+(falls y doits) añadidas a las notas mediante la instrucción
+<code>\bendAfter</code>. La dirección de la caída o elevación se indica con
+un signo más o menos (arriba o abajo).  El número indica el intervalo
+de alturas sobre el que se extiende la caída o elevación
+<em>partiendo de</em> la nota principal.
+</p>
+<blockquote><pre class="verbatim">c2-\bendAfter #+4
+c2-\bendAfter #-4
+c2-\bendAfter #+8
+c2-\bendAfter #-8
+</pre><p>
+ <a href="../3d/lily-03700815.ly">
+  <img align="middle"
+       border="0"
+       src="../3d/lily-03700815.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El guión <code>-</code> que sigue al nombre de la nota es <em>necesario</em>
+al escribir caídas y elevaciones.
+</p>
+<a name="Fragmentos-de-codigo-seleccionados-28"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<p><em> Ajustar la forma de las subidas y caídas de tono</em>
+</p>
+
+<p>Puede ser necesario trucar la propiedad
+<code>shortest-duration-space</code> para poder ajustar el tamaño de las
+caídas y subidas de tono («falls» y «doits»).
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  \override Score.SpacingSpanner #'shortest-duration-space = #4.0
+  c2-\bendAfter #+5
+  c2-\bendAfter #-3
+  c2-\bendAfter #+8
+  c2-\bendAfter #-6
+}
+
+</pre><p>
+ <a href="../34/lily-2ac5e6fb.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-2ac5e6fb.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-167"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Glosario musical:
+<a name="index-fall"></a>
+<a href="../music-glossary/fall.es.html#fall">caída</a>,
+<a name="index-doit"></a>
+<a href="../music-glossary/doit.es.html#doit">elevación</a>.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Expresiones</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Breath-marks" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Marcas de respiración&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Curves" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Curvas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Lines.es.html#Lines" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Líneas &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Curves.html">English</a>, <a href="Curves.fr.html">français</a>, <a href="Curves.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>    </li>
+    <li class="toc_current"><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>
+    <ul class="toc">
+      <li><a name="toc-Attached-to-notes-1" href="Attached-to-notes.es.html#Attached-to-notes">1.3.1 Adosado a las notas</a>      </li>
+      <li class="toc_current"><a name="toc-Curves-1" href="Curves.es.html#Curves">1.3.2 Curvas</a>
+      <ul class="toc">
+        <li><a name="toc-Slurs-1" href="Curves.es.html#Slurs">Ligaduras de expresión</a>        </li>
+        <li><a name="toc-Phrasing-slurs-1" href="Curves.es.html#Phrasing-slurs">Ligaduras de fraseo</a>        </li>
+        <li><a name="toc-Breath-marks-1" href="Curves.es.html#Breath-marks">Marcas de respiración</a>        </li>
+        <li><a name="toc-Falls-and-doits-1" href="Curves.es.html#Falls-and-doits">Caídas y elevaciones</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Lines-1" href="Lines.es.html#Lines">1.3.3 Líneas</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

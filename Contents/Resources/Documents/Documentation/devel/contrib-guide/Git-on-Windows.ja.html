@@ -1,0 +1,550 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 1.5 Git on Windows</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 1.5 Git on Windows">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 1.5 Git on Windows">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Starting-with-git.ja.html#Starting-with-git" rel="up" title="1. Starting with git">
+<link href="Making-a-release.ja.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="Advanced-git-stuff.ja.html#Advanced-git-stuff" rel="previous" title="1.4 Advanced git stuff">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Advanced-git-stuff.ja.html#Applying-git-patches" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Applying git patches&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Starting with git&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Git-on-Windows"></a>
+<h2 class="section">1.5 Git on Windows</h2>
+
+
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Git on Windows&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.1 Background to nomenclature</h3>
+
+<p>Git is a system for tracking the changes made to source files by
+a distributed set of editors.  It is designed to work without a
+master repository, but we have chosen to have a master respository
+for LilyPond files.  Editors hold local copies of the master
+repository together with any changes they have made locally.  Local
+changes are held in a local &lsquo;branch&rsquo;, of which there may be
+several, but these instructions assume you are using just one.  The
+files visible in the local repository always correspond to those
+on the currently &lsquo;checked out&rsquo; local branch.
+</p>
+<p>Files are edited on a local branch, and in that state the
+changes are said to be &lsquo;unstaged&rsquo;.  When editing is complete, the
+changes are moved to being &lsquo;staged for commit&rsquo;, and finally the
+changes are &lsquo;committed&rsquo; to the local branch.  Once
+committed, the changes are given a unique reference number called the
+&lsquo;Committish&rsquo; which identifies them to Git.  Such committed changes
+can be sent to the master repository by &lsquo;pushing&rsquo; them (if you
+have write permission) or by sending them by email to someone who
+has, either complete or as a &lsquo;diff&rsquo; or &lsquo;patch&rsquo; (which send
+just the differences from master).
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.2 Installing git</h3>
+
+<p>Obtain Git from
+<a href="http://code.google.com/p/msysgit/downloads/list">http://code.google.com/p/msysgit/downloads/list</a>
+(note, not msysGit, which is for Git developers and not PortableGit,
+which is not a full git installation) and
+install it.
+</p>
+<p>Note that most users will not need to install SSH.  That is not
+required until you have been granted direct push permissions to
+the master git repository.
+</p>
+<p>Start Git by clicking on the desktop icon.
+This will bring up a command line bash shell.  This may be
+unfamiliar to Windows users.  If so, follow these
+instructions carefully.  Commands are entered at a $ prompt
+and are terminated by keying a newline.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.3 Initialising Git</h3>
+
+<p>Decide where you wish to place your local Git repository,
+creating the folders in Windows as necessary.  Here we
+call the folder to contain the repository [path]/Git.
+You will need to have space for around 150Mbytes.
+</p>
+<p>Start the Git bash shell by clicking on the desk-top icon installed
+with Git and type
+</p>
+<blockquote><pre class="example">cd [path]/Git
+</pre></blockquote>
+
+<p>to position the shell at your new Git repository.
+</p>
+<p>Note: if [path] contains folders with names containing
+spaces use
+</p>
+<blockquote><pre class="example">cd &quot;[path]/Git&quot;
+</pre></blockquote>
+
+<p>Then type
+</p>
+<blockquote><pre class="example">git init
+</pre></blockquote>
+
+<p>to initialize your Git repository.
+</p>
+<p>Then type (all on one line; the shell will wrap automatically)
+</p>
+<blockquote><pre class="example">git remote add -f -t master origin git://git.sv.gnu.org/lilypond.git
+</pre></blockquote>
+
+<p>to download the lilypond master files.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> Be patient!  Even on a broadband connection this can take
+10 minutes or more.  Wait for lots of [new tag] messages
+and the $ prompt.
+</p></td></tr></table>
+
+<p>We now need to generate a local copy of the downloaded files
+in a new local branch.  Your local branch needs to have a
+name, here we call it &lsquo;lily-local&rsquo; - you may wish to make up
+your own.
+</p>
+<p>Then, finally, type
+</p>
+<blockquote><pre class="example">git checkout -b lily-local origin/master
+</pre></blockquote>
+
+<p>to create the lily-local branch containing the local copies of the
+master files.  You will be advised your local branch has been set
+up to track the remote branch.
+</p>
+<p>Return to Windows Explorer and look in your Git repository.  You
+should see lots of folders.  For example, the LilyPond documentation
+can be found in Git/Documentation/user.
+</p>
+<p>Terminate the Git bash shell by typing <code>exit</code>.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.4 Git GUI</h3>
+
+<p>Almost all subsequent work will use the Git Graphical User
+Interface, which avoids having to type command line
+commands. To start Git GUI first start the Git bash shell by
+clicking on the desktop icon, and type
+</p>
+<blockquote><pre class="example">cd [path]/Git
+git gui
+</pre></blockquote>
+
+<p>The Git GUI will open in a new window.  It contains four panels
+and 7 pull-down menus.  At this stage do not use any of the
+commands under Branch, Commit, Merge or Remote.  These will
+be explained later.
+</p>
+<p>The two panels on the left contain the names of files which
+you are in the process of editing (Unstaged Changes), and
+files you have finished editing and have staged ready for
+committing (Staged Changes).  At this stage these panels will
+be empty as you have not yet made any changes to any file.
+After a file has been edited and saved the top panel on the right
+will display the differences between the edited file selected
+in one of the panels on the left and the last version committed.
+</p>
+<p>The final panel at bottom right is used to enter a descriptive
+message about the change before committing it.
+</p>
+<p>The Git GUI is terminated by entering CNTL-Q while it is the
+active window or by clicking on the usual Windows close-window
+widget.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.5 Personalising your local git repository</h3>
+
+<p>Open the Git GUI, click on
+</p>
+<blockquote><pre class="example">Edit -&gt; Options
+</pre></blockquote>
+
+<p>and enter your name and email address in the
+left-hand (Git Repository) panel.  Leave everything
+else unchanged and save it.
+</p>
+<p>Note that Windows users must leave the default setting for line
+endings unchanged.  All files in a git repository must have lines
+terminated by just a LF, as this is required for Merge to work, but
+Windows files are terminated by CRLF by default.  The git default
+setting causes the line endings of files in a Windows git repository
+to be flipped automatically between LF and CRLF as required.  This
+enables files to be edited by any Windows editor without causing
+problems in the git repository.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.6 Checking out a branch</h3>
+
+<p>At this stage you have two branches in your local repository,
+both identical.  To see them click on
+</p>
+<blockquote><pre class="example">Branch -&gt; Checkout
+</pre></blockquote>
+
+<p>You should have one local branch called lily-local and one
+tracking branch called origin/master.  The latter is your
+local copy of the remote/origin/master branch in the master
+LilyPond repository.  The lily-local branch is where you
+will make your local changes.
+</p>
+<p>When a particular branch is selected, i.e., checked out, the
+files visible in your repository are changed to reflect the
+state of the files on that branch.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.7 Updating files from remote/origin/master</h3>
+
+<p>Before starting the editing of a file, ensure your local branches
+contain the latest version in remote/origin/master by first
+clicking
+</p>
+<blockquote><pre class="example">Remote -&gt; Fetch from -&gt; origin
+</pre></blockquote>
+
+<p>in the Git GUI.
+</p>
+<p>This will place the latest version of every file, including all the
+changes made by others,
+into the &lsquo;origin/master&rsquo; branch of the tracking branches
+in your git repository.  You can see these files by checking
+out this branch.  This will not affect any files you have
+modified in your local branch.
+</p>
+<p>You then need to merge these fetched files into your local
+branch by clicking on
+</p>
+<blockquote><pre class="example">Merge -&gt; Local Merge
+</pre></blockquote>
+
+<p>and if necessary select the local branch into which the merge
+is to be made.
+</p>
+<p>Note that a merge cannot be completed if there are any local
+uncommitted changes on the lily-local branch.
+</p>
+<p>This will update all the files in that branch to reflect the
+current state of the origin/master branch.  If any of the
+changes conflict with changes you have made yourself recently
+you will be notified of the conflict (see below).
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.8 Editing files</h3>
+
+<p>First ensure your lily-local branch is checked out, then
+simply edit the files in your local Git repository with your
+favourite editor and save them back there.  If any file contains
+non-ASCII characters ensure you save it in UTF-8 format.  Git will
+detect any changes whenever you restart Git GUI and the file names
+will then be listed in the Unstaged Changes panel.
+Or you can click the Rescan button to refresh the panel
+contents at any time.  You may break off and resume at
+editing any time.
+</p>
+<p>The changes you have made may be displayed in diff form
+in the top right-hand panel by clicking on the name in
+Git GUI.
+</p>
+<p>When your editing is complete, move the files from being
+Unstaged to Staged by clicking the document symbol to
+the left of each name.  If you change your mind it can
+be moved back by clicking on the ticked box to the
+left of the name.
+</p>
+<p>Finally the changes you have made may be committed to
+your lily-local branch by entering a brief message in
+the Commit Message box and clicking the Commit button.
+</p>
+<p>If you wish to amend your changes after a commit has been
+made, the original version and the changes you made in that
+commit may be recovered by selecting
+</p>
+<blockquote><pre class="example">Commit -&gt; Amend Last Commit
+</pre></blockquote>
+
+<p>or by checking the Amend Last Commit radio button at bottom left.
+This will return the changes to the Staged state, so further
+editing made be carried out within that commit.  This must only be
+done <em>before</em> the changes have been Pushed or sent to your
+mentor for Pushing - after that it is too late and corrections
+have to be made as a separate commit.
+</p>
+
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.9 Sending changes to remote/origin/master</h3>
+
+<p>If you do not have write access to remote/origin/master you will
+need to send your changes by email to someone who does.
+</p>
+<p>First you need to create a diff or patch file containing
+your changes.  To create this, the file must first be
+committed.  Then terminate the Git GUI.  In the
+git bash shell first cd to your Git repository with
+</p>
+<blockquote><pre class="example">cd [path]/Git
+</pre></blockquote>
+
+<p>if necessary, then produce the patch with
+</p>
+<blockquote><pre class="example">git format-patch origin
+</pre></blockquote>
+
+<p>This will create a patch file for all the locally committed files
+which differ from origin/master.  The patch file can be found
+in [path]/Git and will have a name formed from n and the commit
+message.
+</p>
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.10 Resolving merge conflicts</h3>
+
+<p>As soon as you have committed a changed file your local
+branch has diverged from origin/master, and will
+remain diverged until your changes have been committed
+in remote/origin/master and Fetched back into your
+origin/master.  Similarly, if a new commit has been made
+to remote/origin/master by someone else and Fetched, your
+lily-local branch is divergent.  You can detect a divergent
+branch by clicking on
+</p>
+<blockquote><pre class="example">Repository -&gt; Visualise all branch history
+</pre></blockquote>
+
+<p>This opens up a very useful new window called &lsquo;gitk&rsquo;.
+Use this to browse all the commits made by others.
+</p>
+<p>If the diagram at top left of the resulting window
+does not show your branch&rsquo;s tag on the same node as
+the remote/origins/master tag your branch has diverged from
+origin/master.  This is quite normal if files you have modified
+yourself have not yet been Pushed to remote/origin/master and
+Fetched, or if files modified and committed by others have been
+Fetched since you last Merged origin/master into your lily-local
+branch.
+</p>
+<p>If a file being merged from origin/master differs from
+one you have modified in a way that cannot be resolved
+automatically by git, Merge will report a Conflict
+which you must resolve by editing the file to create the
+version you wish to keep.
+</p>
+<p>This could happen if the person updating remote/origin/master
+for you has added some changes of his own before
+committing your changes to remote/origin/master, or if someone
+else has changed the same file since you last
+fetched the file from remote/origin/master.
+</p>
+<p>Open the file in your editor and look for sections which
+are delimited with ...
+</p>
+<p>[to be completed when I next have a merge conflict to be
+sure I give the right instructions  -td]
+</p>
+
+<hr size="6">
+<a name="Git-on-Windows"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Compiling LilyPond &gt; </a>]</td></tr></table>
+<h3 class="subsection">1.5.11 Other actions</h3>
+
+<p>The instructions above describe the simplest way of using
+git on Windows.  Other git facilities which may usefully
+supplement these include
+</p>
+<ul>
+<li> Using multiple local branches (Create, Rename, Delete)
+</li><li> Resetting branches
+</li><li> Cherry-picking commits
+</li><li> Pushing commits to remote/origin/master
+</li><li> Using gitk to review history
+
+</li></ul>
+
+<p>Once familiarity with using git on Windows has been gained the
+standard git manuals can be used to learn about these.
+</p>
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.ja.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-on-Windows" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Git-on-Windows" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Git on Windows&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Compiling-LilyPond.ja.html#Compiling-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Compiling LilyPond &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Starting-with-git-1" href="Starting-with-git.ja.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.ja.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.ja.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.ja.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.ja.html#Advanced-git-stuff">1.4 Advanced git stuff</a>    </li>
+    <li class="toc_current"><a name="toc-Git-on-Windows-1" href="Git-on-Windows.ja.html#Git-on-Windows">1.5 Git on Windows</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Background-to-nomenclature" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.1 Background to nomenclature</a>      </li>
+      <li class="toc_current"><a name="toc-Installing-git" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.2 Installing git</a>      </li>
+      <li class="toc_current"><a name="toc-Initialising-Git" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.3 Initialising Git</a>      </li>
+      <li class="toc_current"><a name="toc-Git-GUI" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.4 Git GUI</a>      </li>
+      <li class="toc_current"><a name="toc-Personalising-your-local-git-repository" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.5 Personalising your local git repository</a>      </li>
+      <li class="toc_current"><a name="toc-Checking-out-a-branch" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.6 Checking out a branch</a>      </li>
+      <li class="toc_current"><a name="toc-Updating-files-from-remote_002forigin_002fmaster" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.7 Updating files from remote/origin/master</a>      </li>
+      <li class="toc_current"><a name="toc-Editing-files" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.8 Editing files</a>      </li>
+      <li class="toc_current"><a name="toc-Sending-changes-to-remote_002forigin_002fmaster" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.9 Sending changes to remote/origin/master</a>      </li>
+      <li class="toc_current"><a name="toc-Resolving-merge-conflicts" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.10 Resolving merge conflicts</a>      </li>
+      <li class="toc_current"><a name="toc-Other-actions" href="Git-on-Windows.ja.html#Git-on-Windows">1.5.11 Other actions</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.ja.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.ja.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.ja.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Documentation-work-1" href="Documentation-work.ja.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.ja.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.ja.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.ja.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li><a name="toc-Documentation-policy-1" href="Documentation-policy.ja.html#Documentation-policy">3.4 Documentation policy</a>    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.ja.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.ja.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.ja.html#Translating-the-documentation">3.7 Translating the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.ja.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.ja.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.ja.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-LSR-work-1" href="LSR-work.ja.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.ja.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.ja.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.ja.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.ja.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.ja.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.ja.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.ja.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.ja.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.ja.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.ja.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Programming-work-1" href="Programming-work.ja.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.ja.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.ja.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.ja.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.ja.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li><a name="toc-Code-style-1" href="Code-style.ja.html#Code-style">7.5 Code style</a>    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.ja.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.ja.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.ja.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.ja.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.ja.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.ja.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

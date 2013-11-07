@@ -1,0 +1,2173 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Notation Reference: 2.4.1 Common notation for fretted strings</title>
+
+<meta name="description" content="GNU LilyPond Notation Reference: 2.4.1 Common notation for fretted strings">
+<meta name="keywords" content="GNU LilyPond Notation Reference: 2.4.1 Common notation for fretted strings">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.html#LilyPond-command-index" rel="index" title="F. LilyPond command index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Fretted-string-instruments.html#Fretted-string-instruments" rel="up" title="2.4 Fretted string instruments">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="G. LilyPond index">
+<link href="Fretted-string-instruments.html#Fretted-string-instruments" rel="previous" title="2.4 Fretted string instruments">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Common-notation-for-fretted-strings"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Fretted-string-instruments.html#Fretted-string-instruments" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Fretted string instruments&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Fretted-string-instruments.html#Fretted-string-instruments" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Fretted string instruments&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#References-for-fretted-strings" title="Next section in reading order" accesskey="n" rel="next">&nbsp;References for fretted strings &gt; </a>]</td></tr></table>
+<a name="Common-notation-for-fretted-strings"></a>
+<h3 class="subsection">2.4.1 Common notation for fretted strings</h3>
+
+<p>This section discusses common notation that is unique
+to fretted string instruments.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#References-for-fretted-strings" accesskey="1">References for fretted strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#String-number-indications" accesskey="2">String number indications</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Default-tablatures" accesskey="3">Default tablatures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Custom-tablatures" accesskey="4">Custom tablatures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Fret-diagram-markups" accesskey="5">Fret diagram markups</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Predefined-fret-diagrams" accesskey="6">Predefined fret diagrams</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Automatic-fret-diagrams" accesskey="7">Automatic fret diagrams</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Right_002dhand-fingerings" accesskey="8">Right-hand fingerings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="References-for-fretted-strings"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Common-notation-for-fretted-strings" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#String-number-indications" title="Next section in reading order" accesskey="n" rel="next">&nbsp;String number indications &gt; </a>]</td></tr></table>
+<a name="References-for-fretted-strings"></a>
+<h4 class="unnumberedsubsubsec">References for fretted strings</h4>
+
+<p>Music for fretted string instruments is normally notated on
+a single staff, either in traditional music notation or in
+tablature.  Sometimes the two types are combined, and it is
+especially common in popular music to use chord diagrams above
+a staff of traditional notation.  The guitar and the banjo are
+transposing instruments, sounding an octave lower than written.
+Scores for these instruments should use the <code>&quot;treble_8&quot;</code> clef.
+Some other elements pertinent to fretted string instruments
+are covered elsewhere:
+</p>
+<ul>
+<li> Fingerings are indicated as shown in <a href="Inside-the-staff.html#Fingering-instructions">Fingering instructions</a>.
+
+</li><li> Instructions for <var>Laissez vibrer</var> ties
+as well as ties on arpeggios and tremolos can be found in
+<a href="Writing-rhythms.html#Ties">Ties</a>.
+
+</li><li> Instructions for handling multiple voices can be found
+in <a href="Multiple-voices.html#Collision-resolution">Collision resolution</a>.
+
+</li><li> Instructions for indicating harmonics can be found in
+<a href="Common-notation-for-unfretted-strings.html#Harmonics">Harmonics</a>.
+
+</li></ul>
+
+
+<a name="See-also-206"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Inside-the-staff.html#Fingering-instructions">Fingering instructions</a>,
+<a href="Writing-rhythms.html#Ties">Ties</a>,
+<a href="Multiple-voices.html#Collision-resolution">Collision resolution</a>,
+<a href="Writing-parts.html#Instrument-names">Instrument names</a>,
+<a href="Multiple-voices.html#Writing-music-in-parallel">Writing music in parallel</a>,
+<a href="Lines.html#Arpeggio">Arpeggio</a>,
+<a href="List-of-articulations.html#List-of-articulations">List of articulations</a>,
+<a href="Displaying-pitches.html#Clef">Clef</a>.
+</p>
+
+<hr size="6">
+<a name="String-number-indications"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#References-for-fretted-strings" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; References for fretted strings&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Default-tablatures" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Default tablatures &gt; </a>]</td></tr></table>
+<a name="String-number-indications"></a>
+<h4 class="unnumberedsubsubsec">String number indications</h4>
+
+<a name="index-string-numbers"></a>
+<a name="index-string-vs_002e-fingering-numbers"></a>
+<a name="index-fingering-vs_002e-string-numbers"></a>
+
+<p>The string on which a note should be played may be indicated by
+appending <code>\<var>number</var></code> to a note inside a chord construct
+<code>&lt;&gt;</code>.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> String numbers <strong>must</strong> be defined inside a chord
+construct even if there is only a single note.
+</p></td></tr></table>
+
+<blockquote><pre class="verbatim">\clef &quot;treble_8&quot;
+&lt;c\5&gt;4 &lt;e\4&gt; &lt;g\3&gt;2
+&lt;c,\5 e\4 g\3&gt;1
+</pre><p>
+ <a href="../ce/lily-e22742fe.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-e22742fe.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>When fingerings and string indications are used together, their
+placement is controlled by the order in which the two items appear
+in the code:
+</p>
+<blockquote><pre class="verbatim">\clef &quot;treble_8&quot;
+&lt;g\3-0&gt;2
+&lt;g-0\3&gt;
+</pre><p>
+ <a href="../84/lily-1c3d8549.ly">
+  <img align="middle"
+       border="0"
+       src="../84/lily-1c3d8549.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Selected-Snippets-44"></a>
+<h4 class="subsubheading">Selected Snippets</h4>
+
+<p><em> Controlling the placement of chord fingerings</em>
+</p>
+
+<p>The placement of fingering numbers can be controlled precisely.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \set fingeringOrientations = #'(left)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(down)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(down right up)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(up)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(left)
+  &lt;c-1&gt;2
+  \set fingeringOrientations = #'(down)
+  &lt;e-3&gt;2
+}
+
+
+</pre><p>
+ <a href="../28/lily-6caf9b70.ly">
+  <img align="middle"
+       border="0"
+       src="../28/lily-6caf9b70.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Allowing fingerings to be printed inside the staff</em>
+</p>
+
+<p>By default, vertically oriented fingerings are positioned outside the
+staff.  However, this behavior can be canceled.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  &lt;c-1 e-2 g-3 b-5&gt;2
+  \once \override Fingering #'staff-padding = #'()
+  &lt;c-1 e-2 g-3 b-5&gt;2
+}
+
+</pre><p>
+ <a href="../74/lily-a512bc73.ly">
+  <img align="middle"
+       border="0"
+       src="../74/lily-a512bc73.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-54"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Inside-the-staff.html#Fingering-instructions">Fingering instructions</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-StringNumber"></a>
+<a href="../lilypond-internals/StringNumber.html#StringNumber">StringNumber</a>,
+<a name="index-Fingering-1"></a>
+<a href="../lilypond-internals/Fingering.html#Fingering">Fingering</a>.
+</p>
+
+<hr size="6">
+<a name="Default-tablatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#String-number-indications" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; String number indications&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Custom-tablatures" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Custom tablatures &gt; </a>]</td></tr></table>
+<a name="Default-tablatures"></a>
+<h4 class="unnumberedsubsubsec">Default tablatures</h4>
+
+<a name="index-tablatures_002c-basic"></a>
+<a name="index-tablatures_002c-default"></a>
+
+<a name="index-TabStaff-1"></a>
+<a name="index-TabStaff-2"></a>
+<a name="index-TabVoice"></a>
+<a name="index-TabVoice-1"></a>
+
+<p>Tablature notation is used for notating music for plucked string
+instruments.  Pitches are not denoted with note heads, but by
+numbers indicating on which string and fret a note must be played.
+LilyPond offers limited support for tablature.
+</p>
+<p>The string number associated with a note is given as a backslash
+followed by a number.  By default, string 1 is the highest,
+and the tuning defaults to the standard guitar tuning (with 6 strings).
+The notes are printed as tablature, by using <code>TabStaff</code> and
+<code>TabVoice</code> contexts
+</p>
+<blockquote><pre class="verbatim">\new TabStaff {
+  a,4\5 c'\2 a\3 e'\1
+  e\4 c'\2 a\3 e'\1
+}
+</pre><p>
+ <a href="../c7/lily-b7e058c3.ly">
+  <img align="middle"
+       border="0"
+       src="../c7/lily-b7e058c3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-minimumFret"></a>
+<a name="index-minimumFret-1"></a>
+
+<a name="index-fret"></a>
+
+
+<p>When no string is specified for a note, the note is assigned to
+the highest string that can generate the note with a fret number
+greater than or equal to the value of <code>minimumFret</code>.
+The default value for <code>minimumFret</code> is 0.
+</p>
+
+<blockquote><pre class="verbatim">\new StaffGroup &lt;&lt;
+   \new Staff \relative c {
+     \clef &quot;treble_8&quot;
+     c16 d e f g4
+     c,16 d e f g4
+   }
+   \new TabStaff \relative c {
+     c16 d e f g4
+     \set TabStaff.minimumFret = #5
+     c,16 d e f g4
+   }
+&gt;&gt;
+</pre><p>
+ <a href="../5b/lily-e934a9d3.ly">
+  <img align="middle"
+       border="0"
+       src="../5b/lily-e934a9d3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-harmonic-indications-in-tablature-notation"></a>
+<a name="index-tablature-and-harmonic-indications"></a>
+<a name="index-slides-in-tablature-notation"></a>
+<a name="index-tablature-and-slides"></a>
+
+<p>Harmonic indications and slides can be added to tablature
+notation.
+</p>
+<blockquote><pre class="verbatim">\new TabStaff {
+  \new TabVoice {
+    &lt;c g'\harmonic&gt; d\2\glissando e\2
+  }
+}
+</pre><p>
+ <a href="../3d/lily-903e9345.ly">
+  <img align="middle"
+       border="0"
+       src="../3d/lily-903e9345.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Selected-Snippets-61"></a>
+<h4 class="subsubheading">Selected Snippets</h4>
+
+<p><em> Stem and beam behavior in tablature</em>
+</p>
+
+<p>The direction of stems is controlled the same way in tablature as in
+traditional notation. Beams can be made horizontal, as shown in this
+example.
+</p>
+
+<blockquote><pre class="verbatim">\new TabStaff {
+  \relative c {
+    g16 b d g b d g b
+    \stemDown
+    \override Beam #'damping = #+inf.0
+    g,,16 b d g b d g b
+  }
+}
+
+</pre><p>
+ <a href="../21/lily-8b73395d.ly">
+  <img align="middle"
+       border="0"
+       src="../21/lily-8b73395d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Polyphony in tablature</em>
+</p>
+
+<p>Polyphony is created the same way in a <code>TabStaff</code> as in a regular
+staff.
+</p>
+
+<blockquote><pre class="verbatim">upper = \relative c' {
+  \time 12/8
+  \key e \minor
+  \voiceOne
+  r4. r8 e, fis g16 b g e e' b c b a g fis e
+}
+
+lower = \relative c {
+  \key e \minor
+  \voiceTwo
+  r16 e d c b a g4 fis8 e fis g a b c
+}
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = &quot;tab with traditional&quot; &lt;&lt;
+      \new Staff = &quot;guitar traditional&quot; &lt;&lt;
+        \clef &quot;treble_8&quot;
+        \context Voice = &quot;upper&quot; \upper
+        \context Voice = &quot;lower&quot; \lower
+      &gt;&gt;
+      \new TabStaff = &quot;guitar tab&quot; &lt;&lt;
+        \context TabVoice = &quot;upper&quot; \upper
+        \context TabVoice = &quot;lower&quot; \lower
+      &gt;&gt;
+    &gt;&gt;
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../a1/lily-1cbea764.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-1cbea764.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-57"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Inside-the-staff.html#Stems">Stems</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-TabNoteHead"></a>
+<a href="../lilypond-internals/TabNoteHead.html#TabNoteHead">TabNoteHead</a>,
+<a name="index-TabStaff-3"></a>
+<a href="../lilypond-internals/TabStaff.html#TabStaff">TabStaff</a>,
+<a name="index-TabVoice-2"></a>
+<a href="../lilypond-internals/TabVoice.html#TabVoice">TabVoice</a>,
+<a name="index-Beam-2"></a>
+<a href="../lilypond-internals/Beam.html#Beam">Beam</a>.
+</p>
+
+<a name="Known-issues-and-warnings-40"></a>
+<h4 class="subsubheading">Known issues and warnings</h4>
+
+<p>Chords are not handled in a special way, and hence the automatic
+string selector may easily select the same string for two notes in
+a chord.
+</p>
+<p>In order to handle <code>\partcombine</code>, a <code>TabStaff</code> must use
+specially-created voices:
+</p>
+<blockquote><pre class="verbatim">melodia = \partcombine { e4 g g g }{ e4 e e e }
+&lt;&lt;
+  \new TabStaff &lt;&lt;
+    \new TabVoice = &quot;one&quot; s1
+    \new TabVoice = &quot;two&quot; s1
+    \new TabVoice = &quot;shared&quot; s1
+    \new TabVoice = &quot;solo&quot; s1
+    { \melodia }
+  &gt;&gt;
+&gt;&gt;
+</pre><p>
+ <a href="../c7/lily-d8591837.ly">
+  <img align="middle"
+       border="0"
+       src="../c7/lily-d8591837.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Guitar special effects are limited to harmonics and slides.
+</p>
+<hr size="6">
+<a name="Custom-tablatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Default-tablatures" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Default tablatures&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Fret-diagram-markups" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Fret diagram markups &gt; </a>]</td></tr></table>
+<a name="Custom-tablatures"></a>
+<h4 class="unnumberedsubsubsec">Custom tablatures</h4>
+
+<a name="index-tablatures_002c-custom"></a>
+<a name="index-tablature_002c-banjo-1"></a>
+<a name="index-tablature_002c-mandolin"></a>
+<a name="index-tablature_002c-bass-guitar"></a>
+<a name="index-tablature_002c-predefined-string-tunings"></a>
+<a name="index-fretted-instruments_002c-predefined-string-tunings"></a>
+<a name="index-predefined-string-tunings-for-fretted-instruments"></a>
+
+<a name="index-StringTunings"></a>
+<a name="index-StringTunings-1"></a>
+
+<p>LilyPond tabulature automatically calculates the fret for
+a note based on the string to which the note is assigned.
+In order to do this, the tuning of the strings must be
+specified.  The tuning of the strings is given in the
+<code>StringTunings</code> property.
+</p>
+<p>LilyPond comes with predefined string tunings for banjo, mandolin,
+guitar and bass guitar.  Lilypond automatically sets the correct
+transposition for predefined tunings.  The following example is
+for bass guitar, which sounds an octave lower than written.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Staff {
+    \clef &quot;bass_8&quot;
+    \relative c, {
+      c4 d e f
+    }
+  }
+  \new TabStaff {
+    \set TabStaff.stringTunings = #bass-tuning
+    \relative c, {
+      c4 d e f
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../e2/lily-fd82f405.ly">
+  <img align="middle"
+       border="0"
+       src="../e2/lily-fd82f405.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The default string tuning is <code>guitar-tuning</code>, which
+is the standard EADGBE tuning.  Some other predefined tunings are
+<code>guitar-open-g-tuning</code>, <code>mandolin-tuning</code> and
+<code>banjo-open-g-tuning</code>.  The predefined string tunings
+are found in <code>scm/output-lib.scm</code>.
+</p>
+<p>A string tuning is a Scheme list of string pitches,
+one for each string, ordered by string number from 1 to N,
+where string 1 is at the top of the tablature staff and
+string N is at the bottom.  This ordinarily results in ordering
+from highest pitch to lowest pitch, but some instruments
+(e.g. ukulele) do not have strings ordered by pitch.
+</p>
+<p>A string pitch in a string tuning list is the pitch difference
+of the open string from middle C measured in semitones.  The
+string pitch must be an integer.  Lilypond calculates the actual
+pitch of the string by adding the string tuning pitch to the
+actual pitch for middle C.
+</p>
+<p>LilyPond automatically calculates the number of strings in the
+<code>TabStaff</code> as the number of elements in <code>stringTunings</code>.
+</p>
+<p>Any desired string tuning can be created.  For example, we can
+define a string tuning for a four-string instrument with pitches
+of <code>a''</code>,  <code>d''</code>,  <code>g'</code>, and <code>c'</code>:
+</p>
+
+<blockquote><pre class="verbatim">mynotes = {
+    c'4 e' g' c'' |
+    e'' g'' b'' c'''
+}
+
+&lt;&lt;
+  \new Staff {
+    \clef treble
+    \mynotes
+  }
+  \new TabStaff {
+    \set TabStaff.stringTunings = #'(21 14 7 0)
+    \mynotes
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../37/lily-21b4f77e.ly">
+  <img align="middle"
+       border="0"
+       src="../37/lily-21b4f77e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-202"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Installed Files:
+&lsquo;<tt>scm/output-lib.scm</tt>&rsquo;.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-Tab_005fnote_005fheads_005fengraver"></a>
+<a href="../lilypond-internals/Tab_005fnote_005fheads_005fengraver.html#Tab_005fnote_005fheads_005fengraver">Tab_note_heads_engraver</a>.
+</p>
+
+<hr size="6">
+<a name="Fret-diagram-markups"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Custom-tablatures" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Custom tablatures&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Predefined-fret-diagrams" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Predefined fret diagrams &gt; </a>]</td></tr></table>
+<a name="Fret-diagram-markups"></a>
+<h4 class="unnumberedsubsubsec">Fret diagram markups</h4>
+
+<a name="index-fret-diagrams"></a>
+<a name="index-chord-diagrams"></a>
+<a name="index-diagrams_002c-fret"></a>
+<a name="index-diagrams_002c-chord-for-fretted-instruments"></a>
+<a name="index-fret-diagrams_002c-custom"></a>
+<a name="index-custom-fret-diagrams"></a>
+
+<p>Fret diagrams can be added to music as a markup to the desired
+note.  The markup contains information about the desired fret
+diagram.  There are three different fret-diagram markup
+interfaces: standard, terse, and verbose.  The three interfaces
+produce equivalent markups, but have varying amounts of
+information in the markup string.  Details about the markup
+interfaces are found at <a href="Text-markup-commands.html#Text-markup-commands">Text markup commands</a>.
+</p>
+<p>The standard fret diagram markup string indicates the string
+number and the fret number for each dot to be placed on the string.
+In addition, open and unplayed (muted) strings can be indicated.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram #&quot;6-x;5-3;4-2;3-o;2-1;1-o;&quot;
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram #&quot;6-x;5-x;4-o;3-2;2-3;1-1;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../1c/lily-1bbaa11a.ly">
+  <img align="middle"
+       border="0"
+       src="../1c/lily-1bbaa11a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-barre-indications"></a>
+
+<p>Barre indications can be added to the diagram from
+the fret-diagram markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       f1 g
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; f, c f a c' f'&gt;1 ^\markup
+      \fret-diagram #&quot;c:6-1-1;6-1;5-3;4-3;3-2;2-1;1-1;&quot;
+    &lt; g, d g b d' g'&gt; ^\markup
+      \fret-diagram #&quot;c:6-1-3;6-3;5-5;4-5;3-4;2-3;1-3;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../d5/lily-fb9b0e79.ly">
+  <img align="middle"
+       border="0"
+       src="../d5/lily-fb9b0e79.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-fret_002ddiagram-markup"></a>
+
+<a name="index-fret_002ddiagram"></a>
+<a name="index-fret_002ddiagram-1"></a>
+<a name="index-_005cfret_002ddiagram"></a>
+<a name="index-_005cfret_002ddiagram-1"></a>
+
+<p>The size of the fret diagram, and the number of frets in the diagram
+can be changed in the fret-diagram markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       f1 g
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; f, c f a c' f'&gt;1 ^\markup
+      \fret-diagram #&quot;s:1.5;c:6-1-1;6-1;5-3;4-3;3-2;2-1;1-1;&quot;
+    &lt; g, b, d g b g'&gt; ^\markup
+      \fret-diagram #&quot;h:6;6-3;5-2;4-o;3-o;2-o;1-3;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../1d/lily-5944169b.ly">
+  <img align="middle"
+       border="0"
+       src="../1d/lily-5944169b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The number of strings in a fret diagram can be changed to accomodate
+different instruments such as banjos and ukeleles with the fret-diagram
+markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       a1
+     }
+  }
+  \context Staff {
+        %% A chord for ukelele
+    a'1 ^\markup \fret-diagram #&quot;w:4;4-2-2;3-1-1;2-o;1-o;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../be/lily-11555ff2.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-11555ff2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Fingering indications can be added, and the location of fingering labels
+can be controlled by the fret-diagram markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram #&quot;f:1;6-x;5-3-3;4-2-2;3-o;2-1-1;1-o;&quot;
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram #&quot;f:2;6-x;5-x;4-o;3-2-2;2-3-3;1-1-1;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../18/lily-ee6b77f2.ly">
+  <img align="middle"
+       border="0"
+       src="../18/lily-ee6b77f2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Dot radius and dot position can be controlled with the fret-diagram
+markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram #&quot;d:0.35;6-x;5-3;4-2;3-o;2-1;1-o;&quot;
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram #&quot;p:0.2;6-x;5-x;4-o;3-2;2-3;1-1;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../30/lily-61bd657d.ly">
+  <img align="middle"
+       border="0"
+       src="../30/lily-61bd657d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-fret_002ddiagram_002dterse-markup"></a>
+
+<a name="index-fret_002ddiagram_002dterse"></a>
+<a name="index-fret_002ddiagram_002dterse-1"></a>
+<a name="index-_005cfret_002ddiagram_002dterse"></a>
+<a name="index-_005cfret_002ddiagram_002dterse-1"></a>
+
+<p>The fret-diagram-terse markup string omits string numbers; the string
+number is implied by the presence of semicolons.  There is one semicolon
+for each string in the diagram.  The first semicolon corresponds to the
+highest string number and the last semicolon corresponds to the first string.
+Mute strings, open strings, and fret numbers can be indicated.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram-terse #&quot;x;3;2;o;1;o;&quot;
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram-terse #&quot;x;x;o;2;3;1;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../aa/lily-4b31bf08.ly">
+  <img align="middle"
+       border="0"
+       src="../aa/lily-4b31bf08.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Barre indicators can be included in the fret-diagram-terse markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       f1 g
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; f, c f a c' f'&gt;1 ^\markup
+      \fret-diagram-terse #&quot;1-(;3;3;2;1;1-);&quot;
+    &lt; g, d g b d' g'&gt; ^\markup
+      \fret-diagram-terse #&quot;3-(;5;5;4;3;3-);&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../b7/lily-c2664f83.ly">
+  <img align="middle"
+       border="0"
+       src="../b7/lily-c2664f83.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Fingering indications can be included in the fret-diagram-terse markup string.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \override Voice.TextScript
+      #'(fret-diagram-details finger-code) = #'below-string
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram-terse #&quot;x;3-3;2-2;o;1-1;o;&quot;
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram-terse #&quot;x;x;o;2-2;3-3;1-1;&quot;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../ab/lily-4b3b0cdf.ly">
+  <img align="middle"
+       border="0"
+       src="../ab/lily-4b3b0cdf.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Other fret diagram properties must be adjusted using <code>\override</code> when using
+the fret-diagram-terse markup.
+</p>
+<a name="index-fret_002ddiagram_002dverbose-markup"></a>
+
+<a name="index-fret_002ddiagram_002dverbose"></a>
+<a name="index-fret_002ddiagram_002dverbose-1"></a>
+<a name="index-_005cfret_002ddiagram_002dverbose"></a>
+<a name="index-_005cfret_002ddiagram_002dverbose-1"></a>
+
+<p>The fret-diagram-verbose markup string is in the format of a Scheme list.  Each
+element of the list indicates an item to be placed on the fret diagram.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1 ^\markup
+      \fret-diagram-verbose #'(
+        (mute 6)
+        (place-fret 5 3)
+        (place-fret 4 2)
+        (open 3)
+        (place-fret 2 1)
+        (open 1)
+      )
+    &lt; d a d' f'&gt; ^\markup
+      \fret-diagram-verbose #'(
+        (mute 6)
+        (mute 5)
+        (open 4)
+        (place-fret 3 2)
+        (place-fret 2 3)
+        (place-fret 1 1)
+      )
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../24/lily-69db2e3f.ly">
+  <img align="middle"
+       border="0"
+       src="../24/lily-69db2e3f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Fingering indications and barres can be included in a
+fret-diagram-verbose markup string.  Unique to the 
+fret-diagram-verbose interface is a capo indication that 
+can be placed on the fret diagram.  The capo indication is
+a thick bar that covers all strings.  The fret with the
+capo will be the lowest fret in the fret diagram.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       f1 g c
+     }
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    \override Voice.TextScript
+      #'(fret-diagram-details finger-code) = #'below-string
+
+    &lt; f, c f a c' f'&gt;1 ^\markup
+      \fret-diagram-verbose #'(
+        (place-fret 6 1)
+        (place-fret 5 3)
+        (place-fret 4 3)
+        (place-fret 3 2)
+        (place-fret 2 1)
+        (place-fret 1 1)
+        (barre 6 1 1)
+      )
+    &lt; g, b, d g b g'&gt; ^\markup
+      \fret-diagram-verbose #'(
+        (place-fret 6 3 2)
+        (place-fret 5 2 1)
+        (open 4)
+        (open 3)
+        (open 2)
+        (place-fret 1 3 3)
+      )
+    &lt; c e g c' e'&gt; ^\markup
+      \fret-diagram-verbose #'(
+        (capo 3)
+        (mute 6)
+        (place-fret 4 5 1)
+        (place-fret 3 5 2)
+        (place-fret 2 5 3)
+      )
+   }
+&gt;&gt;
+</pre><p>
+ <a href="../41/lily-ba619a2a.ly">
+  <img align="middle"
+       border="0"
+       src="../41/lily-ba619a2a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>All other fret diagram properties must be adjusted using <code>\override</code>
+when using the fret-diagram-verbose markup.
+</p>
+
+<a name="index-customized-fret-diagram"></a>
+<a name="index-fret-diagram_002c-customized"></a>
+<a name="index-diagram_002c-fret_002c-customized"></a>
+
+<a name="index-fret_002ddiagram_002dinterface"></a>
+<a name="index-fret_002ddiagram_002dinterface-1"></a>
+
+<p>The graphical layout of a fret diagram can be customized according to
+user preference through the properties of the <code>fret-diagram-interface</code>.
+Details are found at <a name="index-fret_002ddiagram_002dinterface-2"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.  For a fret diagram
+markup, the interface properties belong to <code>Voice.TextScript</code>.
+</p>
+<a name="Selected-Snippets-11"></a>
+<h4 class="subsubheading">Selected Snippets</h4>
+
+<p><em> Customizing markup fret diagrams</em>
+</p>
+
+<p>Fret diagram properties can be set through
+<code>'fret-diagram-details</code>.  For markup fret diagrams, overrides can
+be applied to the <code>Voice.TextScript</code> object or directly to the
+markup.
+</p>
+
+<blockquote><pre class="verbatim">&lt;&lt;
+  \chords { c1 | c | c | d }
+  
+  \new Voice = &quot;mel&quot; {
+    \textLengthOn
+    % Set global properties of fret diagram
+    \override TextScript #'size = #'1.2
+    \override TextScript
+      #'(fret-diagram-details finger-code) = #'in-dot
+    \override TextScript
+      #'(fret-diagram-details dot-color) = #'white
+
+    %% C major for guitar, no barre, using defaults
+       % terse style
+    c'1^\markup { \fret-diagram-terse #&quot;x;3-3;2-2;o;1-1;o;&quot; }
+
+    %% C major for guitar, barred on third fret
+       % verbose style
+       % size 1.0
+       % roman fret label, finger labels below string, straight barre
+    c'1^\markup {
+      % standard size
+      \override #'(size . 1.0) {
+        \override #'(fret-diagram-details . (
+                     (number-type . roman-lower)
+                     (finger-code . in-dot)
+                     (barre-type . straight))) {
+          \fret-diagram-verbose #'((mute 6)
+                                   (place-fret 5 3 1)
+                                   (place-fret 4 5 2)
+                                   (place-fret 3 5 3)
+                                   (place-fret 2 5 4)
+                                   (place-fret 1 3 1)
+                                   (barre 5 1 3))
+        }
+      }
+    }
+
+    %% C major for guitar, barred on third fret
+       % verbose style
+       % landscape orientation, arabic numbers, M for mute string
+       % no barre, fret label down or left, small mute label font
+    c'1^\markup {
+      \override #'(fret-diagram-details . (
+                   (finger-code . below-string)
+                   (number-type . arabic)
+                   (label-dir . -1)
+                   (mute-string . &quot;M&quot;)
+                   (orientation . landscape)
+                   (barre-type . none)
+                   (xo-font-magnification . 0.4)
+                   (xo-padding . 0.3))) {
+        \fret-diagram-verbose #'((mute 6)
+                                 (place-fret 5 3 1)
+                                 (place-fret 4 5 2)
+                                 (place-fret 3 5 3)
+                                 (place-fret 2 5 4)
+                                 (place-fret 1 3 1)
+                                 (barre 5 1 3))
+      }
+    }
+
+    %% simple D chord
+       % terse style
+       % larger dots, centered dots, fewer frets
+       % label below string
+    d'1^\markup {
+      \override #'(fret-diagram-details . (
+                   (finger-code . below-string)
+                   (dot-radius . 0.35)
+                   (dot-position . 0.5)
+                   (fret-count . 3))) {
+        \fret-diagram-terse #&quot;x;x;o;2-1;3-2;2-3;&quot;
+      }
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../13/lily-ea560f9f.ly">
+  <img align="middle"
+       border="0"
+       src="../13/lily-ea560f9f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-189"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="Text-markup-commands.html#Text-markup-commands">Text markup commands</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-fret_002ddiagram_002dinterface-3"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Predefined-fret-diagrams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Fret-diagram-markups" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Fret diagram markups&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automatic-fret-diagrams" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Automatic fret diagrams &gt; </a>]</td></tr></table>
+<a name="Predefined-fret-diagrams"></a>
+<h4 class="unnumberedsubsubsec">Predefined fret diagrams</h4>
+
+
+<a name="index-fret-diagrams-1"></a>
+<a name="index-chord-diagrams-1"></a>
+
+<a name="index-FretBoards"></a>
+<a name="index-FretBoards-1"></a>
+<a name="index-stringTunings"></a>
+<a name="index-stringTunings-1"></a>
+
+<p>Fret diagrams can be displayed using the <code>FretBoards</code> context.  By
+default, the <code>FretBoards</code> context will display fret diagrams that
+are stored in a lookup table:
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+\context FretBoards {
+  \chordmode {
+    c1 d
+  }
+}
+</pre><p>
+ <a href="../d0/lily-c10c8747.ly">
+  <img align="middle"
+       border="0"
+       src="../d0/lily-c10c8747.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The default predefined fret diagrams are contained in the file
+<code>predefined-guitar-fretboards.ly</code>.  Fret diagrams are
+stored based on the pitches of a chord and the value of
+<code>stringTunings</code> that is currently in use.
+<code>predefined-guitar-fretboards.ly</code> contains predefined
+fret diagrams only for <code>guitar-tuning</code>.  Predefined fret
+diagrams can be added for other instruments or other tunings
+by following the examples found in
+<code>predefined-guitar-fretboards.ly</code>.
+</p>
+<p>Chord pitches can be entered
+either as simultaneous music or using chord mode (see
+<a href="Chord-mode.html#Chord-mode-overview">Chord mode overview</a>).
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+\context FretBoards {
+  \chordmode {c1}
+  &lt;c' e' g'&gt;1
+}
+</pre><p>
+ <a href="../bb/lily-4ef0ea07.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-4ef0ea07.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-chord-names-with-fret-diagrams"></a>
+<a name="index-fret-diagrams-with-chord-names"></a>
+
+<a name="index-ChordNames-1"></a>
+<a name="index-ChordNames-2"></a>
+<a name="index-chordmode-4"></a>
+<a name="index-chordmode-5"></a>
+<a name="index-_005cchordmode-4"></a>
+<a name="index-_005cchordmode-5"></a>
+
+<p>It is common that both chord names and fret diagrams are displayed together.
+This is achieved by putting a <code>ChordNames</code> context in parallel with
+a <code>FretBoards</code> context and giving both contexts the same music.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+mychords = \chordmode{
+  c1 f g
+}
+
+&lt;&lt;
+  \context ChordNames {
+    \mychords
+  }
+  \context FretBoards {
+    \mychords
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../aa/lily-31c78ae2.ly">
+  <img align="middle"
+       border="0"
+       src="../aa/lily-31c78ae2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-transposing-fret-diagrams"></a>
+<a name="index-fret-diagrams_002c-transposing"></a>
+<a name="index-diagrams_002c-fret_002c-transposing"></a>
+
+<p>Predefined fret diagrams are transposable, as long as a diagram for the
+transposed chord is stored in the fret diagram table.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+mychords = \chordmode{
+  c1 f g
+}
+
+mychordlist = {
+  \mychords
+  \transpose c e { \mychords}
+}
+&lt;&lt;
+  \context ChordNames {
+    \mychordlist
+  }
+  \context FretBoards {
+    \mychordlist
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../5d/lily-4f028c60.ly">
+  <img align="middle"
+       border="0"
+       src="../5d/lily-4f028c60.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>The predefined fret diagram table contains seven chords (major, minor,
+augmented, diminished, dominant seventh, major seventh, minor seventh)
+for each of 17 keys.  A complete list of the predefined fret diagrams is
+shown in <a href="Predefined-fretboard-diagrams.html#Predefined-fretboard-diagrams">Predefined fretboard diagrams</a>.  If there is no entry in
+the table for a chord, the FretBoards engraver will calculate a
+fret-diagram using the automatic fret diagram functionality described in
+<a href="#Automatic-fret-diagrams">Automatic fret diagrams</a>.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+mychords = \chordmode{
+  c1 c:9
+}
+
+&lt;&lt;
+  \context ChordNames {
+    \mychords
+  }
+  \context FretBoards {
+    \mychords
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../48/lily-0d53da70.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-0d53da70.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-fret-diagrams_002c-adding-custom"></a>
+<a name="index-custom-fret-diagrams_002c-adding"></a>
+<a name="index-adding-custom-fret-diagrams"></a>
+
+<p>Fret diagrams can be added to the fret diagram table.  To add a diagram,
+you must specify the chord for the diagram, the tuning to be used, and 
+a definition for the diagram.  The diagram definition can be either a
+fret-diagram-terse definition string or a fret-diagram-verbose
+marking list.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+
+\storePredefinedDiagram \chordmode {c:9}
+                        #guitar-tuning
+                        #&quot;x;3-2;2-1;3-3;3-4;x;&quot;
+
+mychords = \chordmode{
+  c1 c:9
+}
+
+&lt;&lt;
+  \context ChordNames {
+    \mychords
+  }
+  \context FretBoards {
+    \mychords
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../49/lily-0877103e.ly">
+  <img align="middle"
+       border="0"
+       src="../49/lily-0877103e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Different fret diagrams for the same chord name can be stored using different
+octaves of pitches.  The different octave should be at least two octaves
+above or below the default octave, because the octaves above and  below the
+default octave are used for transposing fretboards.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+
+\storePredefinedDiagram \chordmode {c''}
+                        #guitar-tuning
+                        #(offset-fret 2 (chord-shape 'bes guitar-tuning))
+
+mychords = \chordmode{
+  c1 c''
+}
+
+&lt;&lt;
+  \context ChordNames {
+    \mychords
+  }
+  \context FretBoards {
+    \mychords
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../a1/lily-5ecb755f.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-5ecb755f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-fretted-instruments_002c-chord-shapes"></a>
+<a name="index-chord-shapes-for-fretted-instruments"></a>
+
+<a name="index-_005caddChordShape"></a>
+<a name="index-_005caddChordShape-1"></a>
+<a name="index-add-ChordShape"></a>
+<a name="index-add-ChordShape-1"></a>
+<a name="index-storePredefinedDiagram"></a>
+<a name="index-storePredefinedDiagram-1"></a>
+<a name="index-_005cstorePredefinedDiagram"></a>
+<a name="index-_005cstorePredefinedDiagram-1"></a>
+
+<p>In addition to fret diagrams, LilyPond stores an internal list of chord
+shapes.  The chord shapes are fret diagrams that can be shifted along
+the neck to different posistions to provide different chords.  Chord
+shapes can be added to the internal list and then used to define
+predefined fret diagrams.  Because they can be moved to various
+positions on the neck, chord shapes will normally not contain
+any open strings.  Like fret diagrams, chord shapes can be
+entered as either fret-diagram-terse strings or fret-diagram-verbose
+marking lists.
+</p>
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+
+% add a new chord shape
+
+\addChordShape #'powerf #guitar-tuning #&quot;1-1;3-3;3-4;x;x;x;&quot;
+
+% add some new chords based on the power chord shape
+
+\storePredefinedDiagram \chordmode {f''}
+                        #guitar-tuning
+                        #(chord-shape 'powerf guitar-tuning) 
+\storePredefinedDiagram \chordmode {g''}
+                        #guitar-tuning
+                        #(offset-fret 2 (chord-shape 'powerf guitar-tuning))
+
+mychords = \chordmode{
+  f1 f'' g g''
+}
+
+&lt;&lt;
+  \context ChordNames {
+    \mychords
+  }
+  \context FretBoards {
+    \mychords
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../50/lily-aae1f24f.ly">
+  <img align="middle"
+       border="0"
+       src="../50/lily-aae1f24f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The graphical layout of a fret diagram can be customized according to
+user preference through the properties of the <code>fret-diagram-interface</code>.
+Details are found at <a name="index-fret_002ddiagram_002dinterface-4"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.  For a
+predefined fret diagram, the interface properties belong to
+<code>FretBoards.FretBoard</code>.
+</p>
+<a name="Selected-Snippets-51"></a>
+<h4 class="subsubheading">Selected Snippets</h4>
+
+<p><em> Customizing fretboard fret diagrams</em>
+</p>
+
+<p>Fret diagram properties can be set through
+<code>'fret-diagram-details</code>.  For FretBoard fret diagrams, overrides
+are applied to the <code>FretBoards.FretBoard</code> object. Like
+<code>Voice</code>, <code>FretBoards</code> is a bottom level context, therefore
+can be omitted in property overrides.
+</p>
+
+<blockquote><pre class="verbatim">\include &quot;predefined-guitar-fretboards.ly&quot;
+\storePredefinedDiagram \chordmode { c' }
+                        #guitar-tuning
+                        #&quot;x;1-1-(;3-2;3-3;3-4;1-1-);&quot;
+&lt;&lt;
+  \new ChordNames {
+    \chordmode { c1 | c | c | d }
+  }
+  \new FretBoards {
+    % Set global properties of fret diagram
+    \override FretBoards.FretBoard #'size = #'1.2
+    \override FretBoard
+      #'(fret-diagram-details finger-code) = #'in-dot
+    \override FretBoard
+      #'(fret-diagram-details dot-color) = #'white
+    \chordmode {
+      c
+      \once \override FretBoard #'size = #'1.0
+      \once \override FretBoard
+        #'(fret-diagram-details barre-type) = #'straight
+      \once \override FretBoard
+        #'(fret-diagram-details dot-color) = #'black
+      \once \override FretBoard
+        #'(fret-diagram-details finger-code) = #'below-string
+      c'
+      \once \override FretBoard
+        #'(fret-diagram-details barre-type) = #'none
+      \once \override FretBoard
+        #'(fret-diagram-details number-type) = #'arabic
+      \once \override FretBoard
+        #'(fret-diagram-details orientation) = #'landscape
+      \once \override FretBoard
+        #'(fret-diagram-details mute-string) = #&quot;M&quot;
+      \once \override FretBoard
+        #'(fret-diagram-details label-dir) = #LEFT
+      \once \override FretBoard
+        #'(fret-diagram-details dot-color) = #'black
+      c'
+      \once \override FretBoard
+        #'(fret-diagram-details finger-code) = #'below-string
+      \once \override FretBoard
+        #'(fret-diagram-details dot-radius) = #0.35
+      \once \override FretBoard
+        #'(fret-diagram-details dot-position) = #0.5
+      \once \override FretBoard
+        #'(fret-diagram-details fret-count) = #3
+      d
+    }
+  }
+  \new Voice {
+    c'1 | c' | c' | d'
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../27/lily-6ca47459.ly">
+  <img align="middle"
+       border="0"
+       src="../27/lily-6ca47459.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Defining predefined fretboards for other instruments</em>
+</p>
+
+<p>Predefined fret diagrams can be added for new instruments in addition
+to the standards used for guitar.  This file shows how this is done by
+defining a new string-tuning and a few predefined fretboards for the
+Venezuelan cuatro.
+</p>
+<p>This file also shows how fingerings can be included in the chords used
+as reference points for the chord lookup, and displayed in  the fret
+diagram and the <code>TabStaff</code>, but not the music.
+</p>
+
+<p>These fretboards are not transposable because they contain string
+information.  This is planned to be corrected in the future. 
+</p>
+
+<blockquote><pre class="verbatim">% add FretBoards for the Cuatro
+%   Note: This section could be put into a separate file
+%      predefined-cuatro-fretboards.ly
+%      and \included into each of your compositions
+
+cuatroTuning = #'(11 18 14 9)
+
+dSix = { &lt;a\4 b\1 d\3 fis\2&gt; }
+dMajor = { &lt;a\4 d\1 d\3 fis \2&gt; }
+aMajSeven = { &lt;a\4 cis\1 e\3 g\2&gt; }
+dMajSeven = { &lt;a\4 c\1 d\3 fis\2&gt; }
+gMajor = { &lt;b\4 b\1 d\3 g\2&gt; }
+
+\storePredefinedDiagram \dSix
+                        #cuatroTuning
+                        #&quot;o;o;o;o;&quot;
+\storePredefinedDiagram \dMajor
+                        #cuatroTuning
+                        #&quot;o;o;o;3-3;&quot;
+\storePredefinedDiagram \aMajSeven
+                        #cuatroTuning
+                        #&quot;o;2-2;1-1;2-3;&quot;
+\storePredefinedDiagram \dMajSeven
+                        #cuatroTuning
+                        #&quot;o;o;o;1-1;&quot;
+\storePredefinedDiagram \gMajor
+                        #cuatroTuning
+                        #&quot;2-2;o;1-1;o;&quot;
+
+% end of potential include file /predefined-cuatro-fretboards.ly
+
+
+#(set-global-staff-size 16)
+
+primerosNames = \chordmode {
+  d:6 d a:maj7 d:maj7 
+  g
+}
+primeros = {
+  \dSix \dMajor \aMajSeven \dMajSeven
+  \gMajor
+}
+
+\score {
+  &lt;&lt;
+    \new ChordNames {
+      \set chordChanges = ##t
+      \primerosNames
+    }
+
+    \new Staff {
+      \new Voice \with {
+        \remove &quot;New_fingering_engraver&quot;
+      } 
+      \relative c'' {
+        \primeros
+      }
+    }
+
+    \new FretBoards {
+      \set stringTunings = #cuatroTuning
+      \override FretBoard
+        #'(fret-diagram-details string-count) = #'4
+      \override FretBoard
+        #'(fret-diagram-details finger-code) = #'in-dot
+      \primeros
+    }
+
+    \new TabStaff \relative c'' {
+      \set TabStaff.stringTunings = #cuatroTuning
+      \primeros
+    }
+    
+  &gt;&gt;
+
+  \layout { 
+    \context {
+      \Score
+      \override SpacingSpanner
+        #'base-shortest-duration = #(ly:make-moment 1 16)
+    }
+  }
+  \midi { }
+}
+</pre><p>
+ <a href="../e4/lily-04daa4b7.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-04daa4b7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-185"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="#Custom-tablatures">Custom tablatures</a>,
+<a href="#Automatic-fret-diagrams">Automatic fret diagrams</a>,
+<a href="Chord-mode.html#Chord-mode-overview">Chord mode overview</a>,
+<a href="Predefined-fretboard-diagrams.html#Predefined-fretboard-diagrams">Predefined fretboard diagrams</a>.
+</p>
+<p>Installed Files:
+&lsquo;<tt>ly/predefined-guitar-fretboards.ly</tt>&rsquo;,
+&lsquo;<tt>ly/predefined-guitar-ninth-fretboards.ly</tt>&rsquo;.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-fret_002ddiagram_002dinterface-5"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Automatic-fret-diagrams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Predefined-fret-diagrams" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Predefined fret diagrams&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Right_002dhand-fingerings" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Right-hand fingerings &gt; </a>]</td></tr></table>
+<a name="Automatic-fret-diagrams"></a>
+<h4 class="unnumberedsubsubsec">Automatic fret diagrams</h4>
+
+<a name="index-fret-diagrams_002c-automatic"></a>
+<a name="index-chord-diagrams_002c-automatic"></a>
+<a name="index-automatic-fret-diagrams"></a>
+<a name="index-automatic-chord-diagrams"></a>
+
+<p>Fret diagrams can be automatically created from entered notes using the
+<code>FretBoards</code> context.  If no predefined diagram is available for
+the entered notes in the active <code>stringTunings</code>, this context
+calculates strings and frets that can be used to play the notes.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       f1 g
+     }
+  }
+  \context FretBoards {
+    &lt; f, c f a c' f'&gt;1
+    &lt; g,\6 b, d g b g'&gt;
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; f, c f a c' f'&gt;1
+    &lt; g, b, d g b' g'&gt;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../37/lily-346d6bd6.ly">
+  <img align="middle"
+       border="0"
+       src="../37/lily-346d6bd6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-predefinedFretboardsOff"></a>
+<a name="index-predefinedFretboardsOff-1"></a>
+<a name="index-_005cpredefinedFretboardsOff"></a>
+<a name="index-_005cpredefinedFretboardsOff-1"></a>
+<a name="index-predefinedFretboardsOn"></a>
+<a name="index-predefinedFretboardsOn-1"></a>
+<a name="index-_005cpredefinedFretboardsOn"></a>
+<a name="index-_005cpredefinedFretboardsOn-1"></a>
+
+<p>As no predefined diagrams are loaded by default, automatic calculation
+of fret diagrams is the default behavior.  Once default diagrams are
+loaded, automatic calculation can be enabled and disabled with predefined
+commands:
+</p>
+<blockquote><pre class="verbatim">
+\storePredefinedDiagram &lt;c e g c' e'&gt;
+                        #guitar-tuning
+                        #&quot;x;3-1-(;5-2;5-3;5-4;3-1-1);&quot;
+&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 c c
+     }
+  }
+  \context FretBoards {
+    &lt;c e g c' e'&gt;1
+    \predefinedFretboardsOff
+    &lt;c e g c' e'&gt;
+    \predefinedFretboardsOn
+    &lt;c e g c' e'&gt;
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt;c e g c' e'&gt;1
+    &lt;c e g c' e'&gt;
+    &lt;c e g c' e'&gt;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../ff/lily-4431c0d6.ly">
+  <img align="middle"
+       border="0"
+       src="../ff/lily-4431c0d6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+<p>Sometimes the fretboard calculator will be unable to find
+an accceptable diagram.  This can often be remedied by
+manually assigning a note to a string.  In many cases, only one
+note need be manually placed on a string; the rest of
+the notes will then be placed appropriately by the <code>FretBoards</code>
+context.
+</p>
+<a name="index-fret-diagrams_002c-adding-fingerings"></a>
+<a name="index-fingerings_002c-adding-to-fret-diagrams"></a>
+
+<p>Fingerings can be added to FretBoard fret diagrams.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       c1 d:m
+     }
+  }
+  \context FretBoards {
+    &lt; c-3 e-2 g c'-1 e' &gt; 1
+    &lt; d a-2 d'-3 f'-1&gt;
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; c e g c' e' &gt; 1
+    &lt; d a d' f'&gt;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../36/lily-90e0fa42.ly">
+  <img align="middle"
+       border="0"
+       src="../36/lily-90e0fa42.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The minimum fret to be used in calculating strings and frets for
+the FretBoard context can be set with the <code>minimumFret</code>
+property.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \context ChordNames {
+     \chordmode {
+       d1:m d:m
+     }
+  }
+  \context FretBoards {
+    &lt; d a d' f'&gt;
+    \set FretBoards.minimumFret = #5
+    &lt; d a d' f'&gt;
+  }
+  \context Staff {
+    \clef &quot;treble_8&quot;
+    &lt; d a d' f'&gt;
+    &lt; d a d' f'&gt;
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../7b/lily-1d8fb2a5.ly">
+  <img align="middle"
+       border="0"
+       src="../7b/lily-1d8fb2a5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The strings and frets for the <code>FretBoards</code> context depend
+on the <code>stringTunings</code> property, which has the same meaning
+as in the TabStaff context.  See <a href="#Custom-tablatures">Custom tablatures</a> for
+information on the <code>stringTunings</code> property.
+</p>
+<p>The graphical layout of a fret diagram can be customized according to
+user preference through the properties of the <code>fret-diagram-interface</code>.
+Details are found at <a name="index-fret_002ddiagram_002dinterface-6"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.  For a
+<code>FretBoards</code> fret diagram, the interface properties belong to
+<code>FretBoards.FretBoard</code>.
+</p>
+
+<a name="Predefined-commands-29"></a>
+<h4 class="subsubheading">Predefined commands</h4>
+<p><code>\predefinedFretboardsOff</code>,
+<code>\predefinedFretboardsOn</code>.
+</p>
+
+<a name="See-also-85"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a href="#Custom-tablatures">Custom tablatures</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-fret_002ddiagram_002dinterface-7"></a>
+<a href="../lilypond-internals/fret_002ddiagram_002dinterface.html#fret_002ddiagram_002dinterface">fret-diagram-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Right_002dhand-fingerings"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-fret-diagrams" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Automatic fret diagrams&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Guitar.html#Guitar" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Guitar &gt; </a>]</td></tr></table>
+<a name="Right_002dhand-fingerings"></a>
+<h4 class="unnumberedsubsubsec">Right-hand fingerings</h4>
+
+<a name="index-fretted-instruments_002c-right-hand-fingerings"></a>
+<a name="index-fingerings_002c-right-hand-for-fretted-instruments"></a>
+<a name="index-right-hand-fingerings-for-fretted-instruments"></a>
+
+<a name="index-rightHandFinger"></a>
+<a name="index-rightHandFinger-1"></a>
+<a name="index-_005crightHandFinger"></a>
+<a name="index-_005crightHandFinger-1"></a>
+
+<p>Right-hand fingerings <var>p-i-m-a</var> must be entered within a
+chord construct <code>&lt;&gt;</code> for them to be printed in the score,
+even when applied to a single note.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> There <strong>must</strong> be a hyphen after the note and a space
+before the closing <code>&gt;</code>.
+</p></td></tr></table>
+
+<blockquote><pre class="verbatim">\clef &quot;treble_8&quot;
+&lt;c-\rightHandFinger #1 &gt;4
+&lt;e-\rightHandFinger #2 &gt;
+&lt;g-\rightHandFinger #3 &gt;
+&lt;c-\rightHandFinger #4 &gt;
+&lt;c,-\rightHandFinger #1 e-\rightHandFinger #2
+  g-\rightHandFinger #3 c-\rightHandFinger #4 &gt;1
+</pre><p>
+ <a href="../9f/lily-92d607a6.ly">
+  <img align="middle"
+       border="0"
+       src="../9f/lily-92d607a6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>For convenience, you can abbreviate <code>\rightHandFinger</code> to something
+short, for example <code>RH</code>,
+</p>
+<blockquote><pre class="example">#(define RH rightHandFinger)
+</pre></blockquote>
+
+
+<a name="Selected-Snippets-53"></a>
+<h4 class="subsubheading">Selected Snippets</h4>
+
+<p><em> Placement of right-hand fingerings</em>
+</p>
+
+<p>It is possible to exercise greater control over the placement of
+right-hand fingerings by setting a specific property, as demonstrated
+in the following example.
+</p>
+
+<blockquote><pre class="verbatim">#(define RH rightHandFinger)
+
+\relative c {
+  \clef &quot;treble_8&quot;
+  
+  \set strokeFingerOrientations = #'(up down)
+  &lt;c-\RH #1 e-\RH #2 g-\RH #3 c-\RH #4 &gt;4
+  
+  \set strokeFingerOrientations = #'(up right down)
+  &lt;c-\RH #1 e-\RH #2 g-\RH #3 c-\RH #4 &gt;4
+  
+  \set strokeFingerOrientations = #'(left)
+  &lt;c-\RH #1 e-\RH #2 g-\RH #3 c-\RH #4 &gt;2
+}
+
+</pre><p>
+ <a href="../7a/lily-b8c367b3.ly">
+  <img align="middle"
+       border="0"
+       src="../7a/lily-b8c367b3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Fingerings, string indications, and right-hand fingerings</em>
+</p>
+
+<p>This example combines left-hand fingering, string indications, and
+right-hand fingering.
+</p>
+
+<blockquote><pre class="verbatim">#(define RH rightHandFinger)
+
+\relative c {
+  \clef &quot;treble_8&quot;
+  &lt;c-3\5-\RH #1 &gt;4
+  &lt;e-2\4-\RH #2 &gt;4
+  &lt;g-0\3-\RH #3 &gt;4
+  &lt;c-1\2-\RH #4 &gt;4
+}
+
+</pre><p>
+ <a href="../b0/lily-23f7073a.ly">
+  <img align="middle"
+       border="0"
+       src="../b0/lily-23f7073a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-151"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Fretted-strings.html#Fretted-strings">Fretted strings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-StrokeFinger"></a>
+<a href="../lilypond-internals/StrokeFinger.html#StrokeFinger">StrokeFinger</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Specialist-notation.html#Specialist-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Specialist notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="General-input-and-output.html#General-input-and-output" title="Next chapter">&nbsp;General input and output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-fret-diagrams" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Automatic fret diagrams&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Common-notation-for-fretted-strings" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Common notation for fretted strings&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Guitar.html#Guitar" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Guitar &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Common-notation-for-fretted-strings.fr.html">français</a>, <a href="Common-notation-for-fretted-strings.es.html">español</a>, <a href="Common-notation-for-fretted-strings.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.html#Musical-notation">1. Musical notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">1.1 Pitches</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">1.2 Rhythms</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">1.3 Expressive marks</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">1.4 Repeats</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">1.5 Simultaneous notes</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">1.6 Staff notation</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">1.7 Editorial annotations</a>    </li>
+    <li><a name="toc-Text-1" href="Text.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Specialist-notation-1" href="Specialist-notation.html#Specialist-notation">2. Specialist notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">2.1 Vocal music</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Keyboard and other multi-staff instruments</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.html#Unfretted-string-instruments">2.3 Unfretted string instruments</a>    </li>
+    <li class="toc_current"><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.html#Fretted-string-instruments">2.4 Fretted string instruments</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Common-notation-for-fretted-strings-1" href="Common-notation-for-fretted-strings.html#Common-notation-for-fretted-strings">2.4.1 Common notation for fretted strings</a>
+      <ul class="toc">
+        <li><a name="toc-References-for-fretted-strings-1" href="Common-notation-for-fretted-strings.html#References-for-fretted-strings">References for fretted strings</a>        </li>
+        <li><a name="toc-String-number-indications-1" href="Common-notation-for-fretted-strings.html#String-number-indications">String number indications</a>        </li>
+        <li><a name="toc-Default-tablatures-1" href="Common-notation-for-fretted-strings.html#Default-tablatures">Default tablatures</a>        </li>
+        <li><a name="toc-Custom-tablatures-1" href="Common-notation-for-fretted-strings.html#Custom-tablatures">Custom tablatures</a>        </li>
+        <li><a name="toc-Fret-diagram-markups-1" href="Common-notation-for-fretted-strings.html#Fret-diagram-markups">Fret diagram markups</a>        </li>
+        <li><a name="toc-Predefined-fret-diagrams-1" href="Common-notation-for-fretted-strings.html#Predefined-fret-diagrams">Predefined fret diagrams</a>        </li>
+        <li><a name="toc-Automatic-fret-diagrams-1" href="Common-notation-for-fretted-strings.html#Automatic-fret-diagrams">Automatic fret diagrams</a>        </li>
+        <li><a name="toc-Right_002dhand-fingerings-1" href="Common-notation-for-fretted-strings.html#Right_002dhand-fingerings">Right-hand fingerings</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Guitar-1" href="Guitar.html#Guitar">2.4.2 Guitar</a>      </li>
+      <li><a name="toc-Banjo-1" href="Banjo.html#Banjo">2.4.3 Banjo</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">2.5 Percussion</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.html#Wind-instruments">2.6 Wind instruments</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.html#Chord-notation">2.7 Chord notation</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">2.8 Ancient notation</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.html#World-music">2.9 World music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.html#General-input-and-output">3. General input and output</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.html#Input-structure">3.1 Input structure</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.html#Titles-and-headers">3.2 Titles and headers</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.html#Working-with-input-files">3.3 Working with input files</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.html#Controlling-output">3.4 Controlling output</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.html#MIDI-output">3.5 MIDI output</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.html#Spacing-issues">4. Spacing issues</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.html#Paper-and-pages">4.1 Paper and pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.html#Music-layout">4.2 Music layout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.html#Breaks">4.3 Breaks</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.html#Vertical-spacing">4.4 Vertical spacing</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.html#Horizontal-spacing">4.5 Horizontal spacing</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.html#Fitting-music-onto-fewer-pages">4.6 Fitting music onto fewer pages</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.html#Changing-defaults">5. Changing defaults</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.html#Interpretation-contexts">5.1 Interpretation contexts</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.html#Explaining-the-Internals-Reference">5.2 Explaining the Internals Reference</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.html#Modifying-properties">5.3 Modifying properties</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.html#Useful-concepts-and-properties">5.4 Useful concepts and properties</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.html#Advanced-tweaks">5.5 Advanced tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.html#Interfaces-for-programmers">6. Interfaces for programmers</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.html#Music-functions">6.1 Music functions</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.html#Programmer-interfaces">6.2 Programmer interfaces</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.html#Building-complicated-functions">6.3 Building complicated functions</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.html#Markup-programmer-interface">6.4 Markup programmer interface</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.html#Contexts-for-programmers">6.5 Contexts for programmers</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.html#Scheme-procedures-as-properties">6.6 Scheme procedures as properties</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Using Scheme code instead of <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.html#Difficult-tweaks">6.8 Difficult tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.html#Literature-list">A. Literature list</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.html#Notation-manual-tables">B. Notation manual tables</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.html#Chord-name-chart">B.1 Chord name chart</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.html#Common-chord-modifiers">B.2 Common chord modifiers</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.html#Predefined-fretboard-diagrams">B.3 Predefined fretboard diagrams</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.html#MIDI-instruments">B.4 MIDI instruments</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.html#List-of-colors">B.5 List of colors</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.html#The-Feta-font">B.6 The Feta font</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.html#Note-head-styles">B.7 Note head styles</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.html#List-of-articulations">B.10 List of articulations</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.html#Percussion-notes">B.11 Percussion notes</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.html#All-context-properties">B.12 All context properties</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.html#Layout-properties">B.13 Layout properties</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.html#Identifiers">B.14 Identifiers</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.html#Scheme-functions">B.15 Scheme functions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.html#Cheat-sheet">C. Cheat sheet</a>  </li>
+  <li><a name="toc-LilyPond-grammar-1" href="LilyPond-grammar.html#LilyPond-grammar">D. LilyPond grammar</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">E. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.html#LilyPond-command-index">F. LilyPond command index</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">G. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

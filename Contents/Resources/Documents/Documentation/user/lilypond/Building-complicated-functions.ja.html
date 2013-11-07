@@ -1,0 +1,209 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Notation Reference: 6.3 Building complicated functions</title>
+
+<meta name="description" content="GNU LilyPond Notation Reference: 6.3 Building complicated functions">
+<meta name="keywords" content="GNU LilyPond Notation Reference: 6.3 Building complicated functions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.ja.html#LilyPond-command-index" rel="index" title="F. LilyPond command index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers" rel="up" title="6. Interfaces for programmers">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="G. LilyPond index">
+<link href="Internal-music-representation.ja.html#Internal-music-representation" rel="previous" title="6.2.2 Internal music representation">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Building-complicated-functions"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers" title="Beginning of this chapter or previous chapter"> &lt;&lt; Interfaces for programmers&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.ja.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Literature-list.ja.html#Literature-list" title="Next chapter">&nbsp;Literature list &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Internal-music-representation.ja.html#Internal-music-representation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Internal music representation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Interfaces for programmers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-music-expressions.ja.html#Displaying-music-expressions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Displaying music expressions &gt; </a>]</td></tr></table>
+<a name="Building-complicated-functions"></a>
+<h2 class="section">6.3 Building complicated functions</h2>
+
+<p>This section explains how to gather the information necessary
+to create complicated music functions.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="Displaying-music-expressions.ja.html#Displaying-music-expressions" accesskey="1">6.3.1 Displaying music expressions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Music-properties.ja.html#Music-properties" accesskey="2">6.3.2 Music properties</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Doubling-a-note-with-slurs-_0028example_0029.ja.html#Doubling-a-note-with-slurs-_0028example_0029" accesskey="3">6.3.3 Doubling a note with slurs (example)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Adding-articulation-to-notes-_0028example_0029.ja.html#Adding-articulation-to-notes-_0028example_0029" accesskey="4">6.3.4 Adding articulation to notes (example)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers" title="Beginning of this chapter or previous chapter"> &lt;&lt; Interfaces for programmers&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.ja.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Literature-list.ja.html#Literature-list" title="Next chapter">&nbsp;Literature list &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Internal-music-representation.ja.html#Internal-music-representation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Internal music representation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Interfaces for programmers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-music-expressions.ja.html#Displaying-music-expressions" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Displaying music expressions &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Building-complicated-functions.es.html">español</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.ja.html#Musical-notation">1. Musical notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.ja.html#Pitches">1.1 Pitches</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.ja.html#Rhythms">1.2 Rhythms</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.ja.html#Expressive-marks">1.3 Expressive marks</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.ja.html#Repeats">1.4 Repeats</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.ja.html#Simultaneous-notes">1.5 Simultaneous notes</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.ja.html#Staff-notation">1.6 Staff notation</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.ja.html#Editorial-annotations">1.7 Editorial annotations</a>    </li>
+    <li><a name="toc-Text-1" href="Text.ja.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.ja.html#Specialist-notation">2. Specialist notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.ja.html#Vocal-music">2.1 Vocal music</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.ja.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Keyboard and other multi-staff instruments</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.ja.html#Unfretted-string-instruments">2.3 Unfretted string instruments</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.ja.html#Fretted-string-instruments">2.4 Fretted string instruments</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.ja.html#Percussion">2.5 Percussion</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.ja.html#Wind-instruments">2.6 Wind instruments</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.ja.html#Chord-notation">2.7 Chord notation</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.ja.html#Ancient-notation">2.8 Ancient notation</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.ja.html#World-music">2.9 World music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.ja.html#General-input-and-output">3. General input and output</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.ja.html#Input-structure">3.1 Input structure</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.ja.html#Titles-and-headers">3.2 Titles and headers</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.ja.html#Working-with-input-files">3.3 Working with input files</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.ja.html#Controlling-output">3.4 Controlling output</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.ja.html#MIDI-output">3.5 MIDI output</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.ja.html#Spacing-issues">4. Spacing issues</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.ja.html#Paper-and-pages">4.1 Paper and pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.ja.html#Music-layout">4.2 Music layout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.ja.html#Breaks">4.3 Breaks</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.ja.html#Vertical-spacing">4.4 Vertical spacing</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.ja.html#Horizontal-spacing">4.5 Horizontal spacing</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.ja.html#Fitting-music-onto-fewer-pages">4.6 Fitting music onto fewer pages</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.ja.html#Changing-defaults">5. Changing defaults</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.ja.html#Interpretation-contexts">5.1 Interpretation contexts</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.ja.html#Explaining-the-Internals-Reference">5.2 Explaining the Internals Reference</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.ja.html#Modifying-properties">5.3 Modifying properties</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.ja.html#Useful-concepts-and-properties">5.4 Useful concepts and properties</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.ja.html#Advanced-tweaks">5.5 Advanced tweaks</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.ja.html#Interfaces-for-programmers">6. Interfaces for programmers</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.ja.html#Music-functions">6.1 Music functions</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.ja.html#Programmer-interfaces">6.2 Programmer interfaces</a>    </li>
+    <li class="toc_current"><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.ja.html#Building-complicated-functions">6.3 Building complicated functions</a>
+    <ul class="toc">
+      <li><a name="toc-Displaying-music-expressions-1" href="Displaying-music-expressions.ja.html#Displaying-music-expressions">6.3.1 Displaying music expressions</a>      </li>
+      <li><a name="toc-Music-properties-1" href="Music-properties.ja.html#Music-properties">6.3.2 Music properties</a>      </li>
+      <li><a name="toc-Doubling-a-note-with-slurs-_0028example_0029-1" href="Doubling-a-note-with-slurs-_0028example_0029.ja.html#Doubling-a-note-with-slurs-_0028example_0029">6.3.3 Doubling a note with slurs (example)</a>      </li>
+      <li><a name="toc-Adding-articulation-to-notes-_0028example_0029-1" href="Adding-articulation-to-notes-_0028example_0029.ja.html#Adding-articulation-to-notes-_0028example_0029">6.3.4 Adding articulation to notes (example)</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.ja.html#Markup-programmer-interface">6.4 Markup programmer interface</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.ja.html#Contexts-for-programmers">6.5 Contexts for programmers</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.ja.html#Scheme-procedures-as-properties">6.6 Scheme procedures as properties</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.ja.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Using Scheme code instead of <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.ja.html#Difficult-tweaks">6.8 Difficult tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.ja.html#Literature-list">A. Literature list</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.ja.html#Notation-manual-tables">B. Notation manual tables</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.ja.html#Chord-name-chart">B.1 Chord name chart</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.ja.html#Common-chord-modifiers">B.2 Common chord modifiers</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.ja.html#Predefined-fretboard-diagrams">B.3 Predefined fretboard diagrams</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.ja.html#MIDI-instruments">B.4 MIDI instruments</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.ja.html#List-of-colors">B.5 List of colors</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.ja.html#The-Feta-font">B.6 The Feta font</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.ja.html#Note-head-styles">B.7 Note head styles</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.ja.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.ja.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.ja.html#List-of-articulations">B.10 List of articulations</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.ja.html#Percussion-notes">B.11 Percussion notes</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.ja.html#All-context-properties">B.12 All context properties</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.ja.html#Layout-properties">B.13 Layout properties</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.ja.html#Identifiers">B.14 Identifiers</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.ja.html#Scheme-functions">B.15 Scheme functions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.ja.html#Cheat-sheet">C. Cheat sheet</a>  </li>
+  <li><a name="toc-LilyPond-grammar-1" href="LilyPond-grammar.ja.html#LilyPond-grammar">D. LilyPond grammar</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">E. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.ja.html#LilyPond-command-index">F. LilyPond command index</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">G. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

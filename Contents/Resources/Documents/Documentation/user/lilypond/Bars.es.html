@@ -1,0 +1,953 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referencia de la notación de GNU LilyPond: 1.2.5 Barras de compás</title>
+
+<meta name="description" content="Referencia de la notación de GNU LilyPond: 1.2.5 Bars">
+<meta name="keywords" content="Referencia de la notación de GNU LilyPond: 1.2.5 Bars">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond: Manual de referencia de la notación">
+<link href="LilyPond-command-index.es.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Rhythms.es.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Beams.es.html#Beams" rel="previous" title="1.2.4 Beams">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Bars"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Beams.es.html#Feathered-beams" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras progresivas&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.es.html#Rhythms" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Duraciones&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-lines" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Barras de compás &gt; </a>]</td></tr></table>
+<a name="Bars"></a>
+<h3 class="subsection">1.2.5 Barras de compás</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Bar-lines" accesskey="1">Barras de compás</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-numbers" accesskey="2">Numeración de compases</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-and-bar-number-checks" accesskey="3">Comprobación de compás y de número de compás</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Rehearsal-marks" accesskey="4">Llamadas de ensayo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Bar-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bars" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras de compás&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras de compás&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-numbers" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Numeración de compases &gt; </a>]</td></tr></table>
+<a name="Bar-lines"></a>
+<h4 class="unnumberedsubsubsec">Barras de compás</h4>
+
+<a name="index-barras-de-compas"></a>
+<a name="index-lineas-divisorias"></a>
+<a name="index-repeticion_002c-barras-de"></a>
+
+<a name="index-_005cbar"></a>
+<a name="index-_005cbar-1"></a>
+<a name="index-bar"></a>
+<a name="index-bar-1"></a>
+
+<p>Las líneas divisorias delimitan a los compases pero también se pueden
+usar para indicar las repeticiones.  Normalmente, las líneas
+divisorias normales se insertan de manera automática en la salida
+impresa en lugares que están basados en el compás actual.
+</p>
+<p>Las barras de compás sencillas insertadas automáticamente se pueden
+cambiar por otros tipos con la instrucción <code>\bar</code>.  Por ejemplo,
+se suele poner una doble barra de cierre al final de la pieza:
+</p>
+<blockquote><pre class="verbatim">e4 d c2 \bar &quot;|.&quot;
+</pre><p>
+ <a href="../ea/lily-53d61ae2.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-53d61ae2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>No deja de ser válida la última nota de un compás si no termina sobre
+la línea divisoria automática: se supone que la nota se prolonga sobre
+el compás siguiente.  Pero una secuencia larga de dichos compases
+prolongados puede hacer que la música aparezca comprimida o incluso
+que se salga de la página.  Esto es a causa de que los saltos de línea
+automáticos solamente se producen al final de compases completos, es
+decir, cuando todas las notas han finalizado antes de que el compás
+termine.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Nota:</b> Una duración incorrecta puede hacer que se trate de evitar la
+producción de saltos de línea, dando como resultado una línea de
+música con una compresión exagerada o música que se sale de la
+página.
+</p></td></tr></table>
+
+<a name="index-linea_002c-saltos"></a>
+<a name="index-lineas-divisorias-invisibles"></a>
+<a name="index-compas_002c-barras-invisibles-de"></a>
+
+<p>También se permiten saltos de línea en las barras insertadas
+manualmente incluso dentro de compases incompletos.  Para permitir un
+salto de línea donde no hay ninguna línea divisoria visible, utilice
+</p>
+<blockquote><pre class="example">\bar &quot;&quot;
+</pre></blockquote>
+
+<p>De esta manera se insertará una barra invisible de compás y se hará
+posible el salto de línea en este punto, sin forzarlo. No se
+incrementa el contador de los números de compás.  Para forzar un salto
+de línea, consulte <a href="Line-breaking.es.html#Line-breaking">Saltos de línea</a>.
+</p>
+<a name="index-manuales_002c-lineas-divisorias"></a>
+<a name="index-manuales_002c-barras-de-compas"></a>
+<a name="index-barras-de-compas-manuales"></a>
+<a name="index-lineas-divisorias-manuales"></a>
+
+<p>Este y otras líneas divisorias especiales se pueden insertar
+manualmente en cualquier punto.  Cuando coinciden con el final de un
+compás, sustituyen a la línea divisoria simple que se habría insertado
+automáticamente en dicho lugar.  Cuando no coinciden con el final de
+un compás, se inserta la línea especificada en ese punto en la salida
+impresa.  Dichas inserciones no afectan al cálculo y colocación de las
+líneas divisorias automáticas subsiguientes.
+</p>
+<p>Están disponibles para su inserción manual la línea divisoria simple y
+cinco tipos de doble barra:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;|&quot; g \bar &quot;||&quot; a \bar &quot;.|&quot; b \bar &quot;.|.&quot; c \bar &quot;|.|&quot; d \bar &quot;|.&quot; e
+</pre><p>
+ <a href="../4d/lily-4683fbab.ly">
+  <img align="middle"
+       border="0"
+       src="../4d/lily-4683fbab.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>así como la barra de puntos y la discontinua:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;:&quot; g \bar &quot;dashed&quot; a
+</pre><p>
+ <a href="../fc/lily-5eb082c3.ly">
+  <img align="middle"
+       border="0"
+       src="../fc/lily-5eb082c3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>y cinco tipos de barra de repetición:
+</p>
+<blockquote><pre class="verbatim">f1 \bar &quot;|:&quot; g \bar &quot;:|:&quot; a \bar &quot;:|.|:&quot; b \bar &quot;:|.:&quot; c \bar &quot;:|&quot; d
+</pre><p>
+ <a href="../19/lily-6762f235.ly">
+  <img align="middle"
+       border="0"
+       src="../19/lily-6762f235.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-repeats"></a>
+
+<p>Aunque se pueden insertar manualmente barras de compás con significado
+de repeticiones, no se reconocen como repeticiones por parte de
+LilyPond.  Las secciones repetidas se introducen mejor utilizando las
+diversas instrucciones de repetición (véase <a href="Repeats.es.html#Repeats">Repeticiones</a>), que
+imprimen automáticamente las barras correspondientes.
+</p>
+<p>Además se puede especificar <code>&quot;||:&quot;</code>, que equivale a <code>&quot;|:&quot;</code>
+excepto en los saltos de línea, en que produce una doble barra al
+final de la línea y una repetición izquierda (de comienzo) al
+principio de la línea siguiente.
+</p>
+<blockquote><pre class="verbatim">\override Score.RehearsalMark #'padding = #3
+c c c c
+\bar &quot;||:&quot;
+c c c c \break
+\bar &quot;||:&quot;
+c c c c
+</pre><p>
+ <a href="../e3/lily-c57e5e88.ly">
+  <img align="middle"
+       border="0"
+       src="../e3/lily-c57e5e88.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>En las partituras con muchos pentagramas, una instrucción <code>\bar</code>
+en uno de ellos se aplica automáticamente a todos los demás.  Las
+líneas resultantes se conectan entre los distintos pentagramas de un
+<code>StaffGroup</code>, <code>PianoStaff</code> o <code>GrandStaff</code>.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new StaffGroup &lt;&lt;
+    \new Staff {
+      e'4 d'
+      \bar &quot;||&quot;
+      f' e'
+    }
+    \new Staff { \clef bass c4 g e g }
+  &gt;&gt;
+  \new Staff { \clef bass c2 c2 }
+&gt;&gt;
+</pre><p>
+ <a href="../dd/lily-a618c4d8.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-a618c4d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-45"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<a name="index-whichBar"></a>
+<a name="index-whichBar-1"></a>
+<a name="index-defaultBarType"></a>
+<a name="index-defaultBarType-1"></a>
+<a name="index-_005cbar-2"></a>
+<a name="index-_005cbar-3"></a>
+<a name="index-bar-2"></a>
+<a name="index-bar-3"></a>
+<a name="index-bartype"></a>
+<a name="index-bartype-1"></a>
+
+<p>La instrucción <code>\bar </code><var>tipo_de_barra</var> es una forma corta de
+hacer <code>\set Timing.whichBar = </code><var>tipo_de_barra</var>.  Cuando
+<code>whichBar</code> se establece con el valor de una cadena, se crea una
+línea divisoria de ese tipo.
+</p>
+<p>El tipo de barra predeterminado que se usa para las líneas divisorias
+insertadas automáticamente es <code>&quot;|&quot;</code>.  Se puede cambiar en
+cualquier momento con <code>\set Timing.defaultBarType =
+</code><var>bartype</var>.
+</p>
+
+<a name="Vease-tambien-84"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de la notación:
+<a href="Line-breaking.es.html#Line-breaking">Saltos de línea</a>,
+<a href="Repeats.es.html#Repeats">Repeticiones</a>,
+<a href="Displaying-staves.es.html#Grouping-staves">Agrupar pentagramas</a>.
+</p>
+
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+</p>
+<a name="index-BarLine"></a>
+<p><a href="../lilypond-internals/BarLine.es.html#BarLine">BarLine</a> (creada al nivel de <a name="index-Staff-3"></a>
+<a href="../lilypond-internals/Staff.es.html#Staff">Staff</a> (pentagrama)),
+<a name="index-SpanBar"></a>
+<a href="../lilypond-internals/SpanBar.es.html#SpanBar">SpanBar</a> (a través de los pentagramas),
+<a name="index-Timing_005ftranslator-3"></a>
+<a href="../lilypond-internals/Timing_005ftranslator.es.html#Timing_005ftranslator">Timing_translator</a> (para las propiedades del contador de tiempo Timing).
+</p>
+
+<hr size="6">
+<a name="Bar-numbers"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-lines" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Barras de compás&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras de compás&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Comprobación de compás y de número de compás &gt; </a>]</td></tr></table>
+<a name="Bar-numbers"></a>
+<h4 class="unnumberedsubsubsec">Numeración de compases</h4>
+
+<a name="index-compas_002c-numeros-de"></a>
+<a name="index-numeros-de-compas"></a>
+
+<a name="index-currentBarNumber"></a>
+<a name="index-currentBarNumber-1"></a>
+
+<p>Por defecto, los números de compás se imprimen al principio de la
+línea, excepto la primera.  El número propiamente dicho se almacena en
+la propiedad <code>currentBarNumber</code>, que normalmente se actualiza
+automáticamente para cada compás.  También se puede establecer
+manualmente:
+</p>
+<blockquote><pre class="verbatim">c1 c c c
+\break
+\set Score.currentBarNumber = #50
+c1 c c c
+</pre><p>
+ <a href="../7b/lily-f4b46164.ly">
+  <img align="middle"
+       border="0"
+       src="../7b/lily-f4b46164.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Fragmentos-de-codigo-seleccionados-3"></a>
+<h4 class="subsubheading">Fragmentos de código seleccionados</h4>
+
+<a name="index-bar-numbers_002c-regular-spacing"></a>
+
+<a name="index-barNumberVisibility"></a>
+<a name="index-barNumberVisibility-1"></a>
+
+
+<p>Los números de compás se pueden tipografiar a intervalos regulares en
+vez de al principio de cada línea.  Para hacerlo se debe sobreescribir
+el comportamiento predeterminado de forma que se puedan imprimir en
+otros lugares.  Esto viene controlado por la propiedad
+<code>break-visibility</code> de <code>BarNumber</code>.  Toma tres valores que se
+pueden fijar al valor <code>#t</code> o <code>#f</code> para especificar si el
+número de compás correspondiente es visible o no.  El orden de los
+tres valores es <code>visible al final de la línea</code>, <code>visible en
+mitad de la línea</code>, <code>visible al principio de la línea</code>.  En el
+ejemplo siguiente se imprimen los números de compás en todos los
+sitios posibles:
+</p>
+<blockquote><pre class="verbatim">\override Score.BarNumber #'break-visibility = #'#(#t #t #t)
+\set Score.currentBarNumber = #11
+\bar &quot;&quot;  % Habilitar la impresión del número del primer compás
+c1 c c c
+\break
+c c c c
+</pre><p>
+ <a href="../bb/lily-23af41d2.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-23af41d2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>y aquí los números de compás se imprimen cada dos compases excepto al
+final de la línea:
+</p>
+<blockquote><pre class="verbatim">\override Score.BarNumber #'break-visibility = #'#(#f #t #t)
+\set Score.currentBarNumber = #11
+\bar &quot;&quot;  % Habilitar la impresión del número del primer compás
+% Imprimir el número de compás cada dos compases
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+c1 c c c c
+\break
+c c c c c
+</pre><p>
+ <a href="../ba/lily-c28c2811.ly">
+  <img align="middle"
+       border="0"
+       src="../ba/lily-c28c2811.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-compas_002c-numero-de_002c-formato"></a>
+<a name="index-numero-de-compases_002c-formato-de"></a>
+
+<p>Se puede cambiar el tamaño del número de compás.  Esto queda ilustrado
+en el siguiente ejemplo, que también muestra cómo encerrar los números
+de compás en rectángulos y circunferencias, y ofrece una forma
+alternativa de especificar <code>#(#f #t #t)</code> para
+<code>break-visibility</code>.
+</p>
+<blockquote><pre class="verbatim">% No poner números de compás al final de la línea, pero sí en otros lugares
+\override Score.BarNumber #'break-visibility
+  = #end-of-line-invisible
+
+% Aumentar en 2 el tamaño del número de compás
+\override Score.BarNumber #'font-size = #2
+\repeat unfold 3 { c1 } \bar &quot;|&quot;
+
+% Pintar una caja rodeando al siguiente(s) número de compás
+\override Score.BarNumber  #'stencil
+  = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+\repeat unfold 3 { c1 } \bar &quot;|&quot;
+
+% Rodear con un círculo el siguiente(s) número de compás
+\override Score.BarNumber  #'stencil
+  = #(make-stencil-circler 0.1 0.25 ly:text-interface::print)
+\repeat unfold 4 { c1 } \bar &quot;|.&quot;
+</pre><p>
+ <a href="../f9/lily-c072a74d.ly">
+  <img align="middle"
+       border="0"
+       src="../f9/lily-c072a74d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-bar-number-alignment"></a>
+
+<p>Los números de compás están alineados de forma predeterminada por la
+izquierda a su objeto padre.  Esto suele corresponder al límite
+izquierdo de una línea o, si los números se imprimen dentro de la
+línea, la divisoria izquierda del compás.  Los números también se
+pueden colocar directamente sobre la línea divisoria o alinearse por
+la derecha con ella:
+</p>
+<blockquote><pre class="verbatim">\set Score.currentBarNumber = #111
+\override Score.BarNumber #'break-visibility = #'#(#t #t #t)
+% Aumentar en 2 el tamaño del número de compás
+\override Score.BarNumber #'font-size = #2
+% Imprimir el número de compás cada dos compases
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+c1 c1
+% Alinear números de compás al centro
+\override Score.BarNumber #'self-alignment-X = #0
+c1 c1
+% Right-align bar numbers
+\override Score.BarNumber #'self-alignment-X = #-1
+c1 c1
+</pre><p>
+ <a href="../be/lily-5cd92686.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-5cd92686.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Los números de compás se pueden suprimir completamente quitando el
+grabador <code>Bar_number_engraver</code> de números de compás del contexto
+de partitura <code>Score</code>.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  \context {
+    \Score
+    \remove &quot;Bar_number_engraver&quot;
+  }
+}
+\relative c''{
+  c4 c c c \break
+  c4 c c c
+}
+</pre><p>
+ <a href="../8f/lily-4d939e4e.ly">
+  <img align="middle"
+       border="0"
+       src="../8f/lily-4d939e4e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-201"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-BarNumber"></a>
+<a href="../lilypond-internals/BarNumber.es.html#BarNumber">BarNumber</a>.
+</p>
+<a name="index-numero-de-compas_002c-colision"></a>
+<a name="index-colision-del-numero-de-compas"></a>
+
+<a name="Advertencias-y-problemas-conocidos-40"></a>
+<h4 class="subsubheading">Advertencias y problemas conocidos</h4>
+
+<p>Los números de compás pueden colisionar con el corchete
+<a name="index-StaffGroup"></a>
+<a href="../lilypond-internals/StaffGroup.es.html#StaffGroup">StaffGroup</a>, si hay uno en la parte de arriba.  Para
+solucionarlo, se puede usar la propiedad de relleno <code>padding</code> de
+<a name="index-BarNumber-1"></a>
+<a href="../lilypond-internals/BarNumber.es.html#BarNumber">BarNumber</a> para colocar el número correctamente.
+</p>
+
+<hr size="6">
+<a name="Bar-and-bar-number-checks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-numbers" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Numeración de compases&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras de compás&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Rehearsal-marks" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Llamadas de ensayo &gt; </a>]</td></tr></table>
+<a name="Bar-and-bar-number-checks"></a>
+<h4 class="unnumberedsubsubsec">Comprobación de compás y de número de compás</h4>
+
+<a name="index-compas_002c-comprobacion-de"></a>
+<a name="index-numero-de-compas_002c-comprobacion-de"></a>
+
+<a name="index-barCheckSynchronize"></a>
+<a name="index-barCheckSynchronize-1"></a>
+<a name="index-_007c"></a>
+<a name="index-_007c-1"></a>
+
+<p>Las comprobaciones de compás ayudan a detectar errores en las
+duraciones.  Una comprobación de compás se escribe usando el símbolo
+de la barra vertical, <code>|</code>, en cualquier lugar donde se espera que
+caiga una línea divisoria.  Si se encuentran líneas de comprobación de
+compás en otros lugares, se imprime una lista de advertencias en el
+archivo log de registro, mostrando los números de línea y columna en
+que han fallado las comprobaciones de compás.  En el siguiente
+ejemplo, la segunda comprobación de compás avisará de un error
+</p>
+<blockquote><pre class="example">\time 3/4 c2 e4 | g2 |
+</pre></blockquote>
+
+<p>Las comprobaciones de compás también se pueden usar en la letra de las
+canciones, por ejemplo
+</p>
+<blockquote><pre class="example">\lyricmode {
+  \time 2/4
+  Bri -- lla | Bri -- lla |
+}
+</pre></blockquote>
+
+<p>Las duraciones incorrectas a menudo desbaratan la partitura
+completamente, sobre todo si la música es polifónica, por ello el
+mejor sitio para empezar a corregir la entrada es hacer un barrido en
+busca de comprobaciones de compás fallidas y duraciones incorrectas.
+</p>
+<p>Si varias comprobaciones de compás corresponden al mismo intervalo
+musical, sólo se imprime el primer mensaje de advertencia.  Esto
+permite que la advertencia se centre en la fuente del error de cuenta
+de tiempo.
+</p>
+<a name="index-_007c-2"></a>
+<a name="index-_007c-3"></a>
+<a name="index-pipeSymbol"></a>
+<a name="index-pipeSymbol-1"></a>
+
+<p>También es posible redefinir la acción que se lleva a cabo cuando se
+encuentra un símbolo de comprobación de compás o «símbolo de tubería»,
+<code>|</code>, en el código de entrada, de forma que haga algo distinto a
+una comprobación de compás.  Se hace asignando una expresión musical a
+<code>pipeSymbol</code> («símbolo de tubería»).  En el ejemplo siguiente se
+establece <code>|</code> de forma que inserte una doble línea divisoria
+cuando aparece en el código de entrada, en vez de comprobar el final
+de un compás.
+</p>
+<blockquote><pre class="verbatim">simboloTubo = \bar &quot;||&quot;
+{
+  c'2 c'2 |
+  c'2 c'2
+  c'2 | c'2
+  c'2 c'2
+}
+</pre><p>
+ <a href="../f9/lily-b06ef9d8.ly">
+  <img align="middle"
+       border="0"
+       src="../f9/lily-b06ef9d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-_005cbarNumberCheck"></a>
+<a name="index-_005cbarNumberCheck-1"></a>
+<a name="index-barNumberCheck"></a>
+<a name="index-barNumberCheck-1"></a>
+
+<p>Al copiar piezas musicales grandes puede servir de ayuda comprobar que
+el número de compás de LilyPond corresponde al original desde el que
+está copiando.  Esto se puede comprobar con <code>\barNumberCheck</code>,
+por ejemplo:
+</p>
+<pre class="verbatim">\barNumberCheck #123
+</pre>
+<p>imprimirá una advertencia si el <code>currentBarNumber</code> (número del
+compás actual) no es 123 cuando se procesa.
+</p>
+
+<a name="Vease-tambien-72"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+
+<hr size="6">
+<a name="Rehearsal-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Comprobación de compás y de número de compás&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras de compás&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.es.html#Special-rhythmic-concerns" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Asuntos rítmicos especiales &gt; </a>]</td></tr></table>
+<a name="Rehearsal-marks"></a>
+<h4 class="unnumberedsubsubsec">Llamadas de ensayo</h4>
+
+<a name="index-ensayo_002c-letras-de"></a>
+<a name="index-letras-de-ensayo"></a>
+
+<a name="index-_005cmark"></a>
+<a name="index-_005cmark-1"></a>
+<a name="index-mark"></a>
+<a name="index-mark-1"></a>
+
+<p>Para imprimir una letra de ensayo, utilice la orden <code>\mark</code>
+</p>
+<blockquote><pre class="verbatim">c1 \mark \default
+c1 \mark \default
+c1 \mark #8
+c1 \mark \default
+c1 \mark \default
+</pre><p>
+ <a href="../8c/lily-99a01870.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-99a01870.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La letra&nbsp;&lsquo;I&rsquo; se salta de acuerdo con las tradiciones de
+grabado.  Si quiere incluir la letra &lsquo;I&rsquo;, use
+</p>
+<blockquote><pre class="example">\set Score.markFormatter = #format-mark-alphabet
+</pre></blockquote>
+
+<p>La letra de ensayo se incrementa automáticamente si usa <code>\mark
+\default</code>, pero también puede utilizar un número entero como argumento
+para establecer la indicación manualmente.  El valor que se utilizará
+se almacena dentro de la propiedad <code>rehearsalMark</code>.
+</p>
+<a name="index-ensayo_002c-letra-de_002c-formato"></a>
+<a name="index-ensayo_002c-letra-de_002c-estilo"></a>
+<a name="index-estilo-de-la-letra-de-ensayo"></a>
+<a name="index-formato-de-la-letra-de-ensayo"></a>
+<a name="index-letra-de-ensayo_002c-estilo"></a>
+<a name="index-letra-de-ensayo_002c-formato"></a>
+<a name="index-marca-de-ensayo_002c-estilo"></a>
+<a name="index-marca-de-ensayo_002c-formato"></a>
+<a name="index-ensayo_002c-letra-de_002c-manual"></a>
+<a name="index-marca-de-ensayo-manual"></a>
+<a name="index-personalizada_002c-marca-de-ensayo"></a>
+
+<p>El estilo se define por medio de la propiedad <code>markFormatter</code>.
+Es una función que toma como argumentos la marca en curso (un número
+entero) y el contexto actual.  Debe devolver un objeto de marcado.  En
+el ejemplo siguiente, se establece <code>markFormatter</code> con el valor
+de un procedimiento enlatado.  Después de algunos compases, se
+establece con el valor de una función que produce un número encerrado
+en una caja.
+</p>
+<blockquote><pre class="verbatim">\set Score.markFormatter = #format-mark-numbers
+c1 \mark \default
+c1 \mark \default
+\set Score.markFormatter = #format-mark-box-numbers
+c1 \mark \default
+\set Score.markFormatter = #format-mark-circle-numbers
+c1 \mark \default
+\set Score.markFormatter = #format-mark-circle-letters
+c1
+</pre><p>
+ <a href="../65/lily-8f4211b3.ly">
+  <img align="middle"
+       border="0"
+       src="../65/lily-8f4211b3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El archivo &lsquo;<tt>scm/translation-functions.scm</tt>&rsquo; contiene las
+definiciones de <code>format-mark-numbers</code> (el formato por omisión),
+<code>format-mark-box-numbers</code>, <code>format-mark-letters</code> y
+<code>format-mark-box-letters</code>.  Se pueden usar éstos como inspiración
+para otras funciones de formateo.
+</p>
+<p>Podemos utilizar <code>format-mark-barnumbers</code>,
+<code>format-mark-box-barnumbers</code> y
+<code>format-mark-circle-barnumbers</code> para obtener números de compás en
+lugar de números o letras secuenciales.
+</p>
+<p>Se pueden especificar otros estilos de letra de ensayo de forma
+manual:
+</p>
+<blockquote><pre class="example">\mark &quot;A1&quot;
+</pre></blockquote>
+
+<p><code>Score.markFormatter</code> no afecta a las marcas que se especifican
+de esta forma.  Sin embargo, es posible aplicar un elemento
+<code>\markup</code> a la cadena.
+</p>
+<blockquote><pre class="example">\mark \markup{ \box A1 }
+</pre></blockquote>
+
+<a name="index-segno"></a>
+<a name="index-coda"></a>
+<a name="index-D_002eS-al-Fine"></a>
+<a name="index-calderon"></a>
+<a name="index-musicales_002c-glifos"></a>
+<a name="index-glifos-musicales"></a>
+
+<a name="index-_005cmusicglyph"></a>
+<a name="index-_005cmusicglyph-1"></a>
+<a name="index-musicglyph"></a>
+<a name="index-musicglyph-1"></a>
+
+<p>Los glifos musicales (como el segno) se pueden imprimir dentro de un
+elemento <code>\mark</code>
+</p>
+<blockquote><pre class="verbatim">c1 \mark \markup { \musicglyph #&quot;scripts.segno&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.coda&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.ufermata&quot; }
+c1
+</pre><p>
+ <a href="../f1/lily-016b7fed.ly">
+  <img align="middle"
+       border="0"
+       src="../f1/lily-016b7fed.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Consulte <a href="The-Feta-font.es.html#The-Feta-font">La tipografía Feta</a> para ver una lista de los símbolos que se
+pueden imprimir con <code>\musicglyph</code>.
+</p>
+<p>Para ver formas comunes de trucar la colocación de las letras de
+ensayo, consulte <a href="Writing-text.es.html#Text-marks">Indicaciones de texto</a>.
+</p>
+
+<a name="Vease-tambien-188"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de la notación:
+<a href="The-Feta-font.es.html#The-Feta-font">La tipografía Feta</a>,
+<a href="Formatting-text.es.html#Formatting-text">Formatear el texto</a>.
+</p>
+<p>Archivos de inicio: &lsquo;<tt>scm/translation-functions.scm</tt>&rsquo;
+contiene la definición de <code>format-mark-numbers</code> y de
+<code>format-mark-letters</code>.  Se pueden usar como inspiración para
+escribir otras funciones de formateo.
+</p>
+<p>Fragmentos de código:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Duraciones</a>.
+</p>
+<p>Referencia de funcionamiento interno:
+<a name="index-RehearsalMark"></a>
+<a href="../lilypond-internals/RehearsalMark.es.html#RehearsalMark">RehearsalMark</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.es.html#Musical-notation" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Notación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-command-index.es.html#LilyPond-command-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.es.html#Specialist-notation" title="Cap&iacute;tulo siguiente">&nbsp;Notación especializada &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Comprobación de compás y de número de compás&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Barras de compás&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.es.html#Special-rhythmic-concerns" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Asuntos rítmicos especiales &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Bars.html">English</a>, <a href="Bars.fr.html">français</a>, <a href="Bars.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#index" title="Start of the manual">Manual de referencia de la notación</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.es.html#Musical-notation">1. Notación musical</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.es.html#Pitches">1.1 Alturas</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.es.html#Rhythms">1.2 Duraciones</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.es.html#Writing-rhythms">1.2.1 Escritura de las duraciones (valores rítmicos)</a>      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.es.html#Writing-rests">1.2.2 Escritura de silencios</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.es.html#Displaying-rhythms">1.2.3 Impresión de las duraciones</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.es.html#Beams">1.2.4 Barras</a>      </li>
+      <li class="toc_current"><a name="toc-Bars-1" href="Bars.es.html#Bars">1.2.5 Barras de compás</a>
+      <ul class="toc">
+        <li><a name="toc-Bar-lines-1" href="Bars.es.html#Bar-lines">Barras de compás</a>        </li>
+        <li><a name="toc-Bar-numbers-1" href="Bars.es.html#Bar-numbers">Numeración de compases</a>        </li>
+        <li><a name="toc-Bar-and-bar-number-checks-1" href="Bars.es.html#Bar-and-bar-number-checks">Comprobación de compás y de número de compás</a>        </li>
+        <li><a name="toc-Rehearsal-marks-1" href="Bars.es.html#Rehearsal-marks">Llamadas de ensayo</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.es.html#Special-rhythmic-concerns">1.2.6 Asuntos rítmicos especiales</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.es.html#Expressive-marks">1.3 Expresiones</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.es.html#Repeats">1.4 Repeticiones</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.es.html#Simultaneous-notes">1.5 Notas simultáneas</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.es.html#Staff-notation">1.6 Notación de los pentagramas</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.es.html#Editorial-annotations">1.7 Anotaciones editoriales</a>    </li>
+    <li><a name="toc-Text-1" href="Text.es.html#Text">1.8 Texto</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.es.html#Specialist-notation">2. Notación especializada</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.es.html#Vocal-music">2.1 Música vocal</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.es.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Teclados y otros instrumentos de varios pentagramas</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.es.html#Unfretted-string-instruments">2.3 Instrumentos de cuerda sin trastes</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.es.html#Fretted-string-instruments">2.4 Instrumentos de cuerda con trastes</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.es.html#Percussion">2.5 Percusión</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.es.html#Wind-instruments">2.6 Instrumentos de viento</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.es.html#Chord-notation">2.7 Notación de acordes</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.es.html#Ancient-notation">2.8 Notación antigua</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.es.html#World-music">2.9 Músicas del mundo</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.es.html#General-input-and-output">3. Entrada y salida generales</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.es.html#Input-structure">3.1 Estructura del código de entrada</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.es.html#Titles-and-headers">3.2 Títulos y cabeceras</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.es.html#Working-with-input-files">3.3 Trabajar sobre los archivos de entrada</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.es.html#Controlling-output">3.4 Controlar la salida</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.es.html#MIDI-output">3.5 Salida MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.es.html#Spacing-issues">4. Problemas de espaciado</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.es.html#Paper-and-pages">4.1 El papel y las páginas</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.es.html#Music-layout">4.2 Disposición de la música</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.es.html#Breaks">4.3 Saltos</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.es.html#Vertical-spacing">4.4 Espaciado vertical</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.es.html#Horizontal-spacing">4.5 Espaciado horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.es.html#Fitting-music-onto-fewer-pages">4.6 Encajar la música en menos páginas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.es.html#Changing-defaults">5. Cambiar los valores por omisión</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.es.html#Interpretation-contexts">5.1 Contextos de interpretación</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.es.html#Explaining-the-Internals-Reference">5.2 Explicación del Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.es.html#Modifying-properties">5.3 Modificar las propiedades</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.es.html#Useful-concepts-and-properties">5.4 Conceptos y propiedades útiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.es.html#Advanced-tweaks">5.5 Trucos avanzados</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.es.html#Interfaces-for-programmers">6. Interfaces para programadores</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.es.html#Music-functions">6.1 Funciones musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.es.html#Programmer-interfaces">6.2 Interfaces para el programador</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.es.html#Building-complicated-functions">6.3 Construcción de funciones complejas</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.es.html#Markup-programmer-interface">6.4 Interfaz de marcado para el programador</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.es.html#Contexts-for-programmers">6.5 Contextos para programadores</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.es.html#Scheme-procedures-as-properties">6.6 Procedimientos de Scheme como propiedades</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.es.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Usar código de Scheme en lugar de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.es.html#Difficult-tweaks">6.8 Trucos difíciles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.es.html#Literature-list">A. Lista bibliográfica</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.es.html#Notation-manual-tables">B. Tablas del manual sobre notación</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.es.html#Chord-name-chart">B.1 Carta de nombres de acordes</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.es.html#Common-chord-modifiers">B.2 Modificadores de acorde más usuales</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.es.html#Predefined-fretboard-diagrams">B.3 Diagramas predefinidos de trastes</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.es.html#MIDI-instruments">B.4 Instrumentos MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.es.html#List-of-colors">B.5 Lista de colores</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.es.html#The-Feta-font">B.6 La tipografía Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.es.html#Note-head-styles">B.7 Estilos de cabezas de nota</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.es.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.es.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.es.html#List-of-articulations">B.10 Lista de articulaciones</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.es.html#Percussion-notes">B.11 Notas de percusión</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.es.html#All-context-properties">B.12 Todas las propiedades de contexto</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.es.html#Layout-properties">B.13 Propiedades de disposición</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.es.html#Identifiers">B.14 Identificadores</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">B.15 Funciones de Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.es.html#Cheat-sheet">C. Hoja de referencia rápida</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.es.html#LilyPond-command-index">E. Índice de instrucciones de LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">F. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

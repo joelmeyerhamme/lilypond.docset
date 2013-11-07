@@ -1,0 +1,522 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 3.3.4 Modifying context properties</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 3.3.4 Modifying context properties">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 3.3.4 Modifying context properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Contexts-and-engravers.ja.html#Contexts-and-engravers" rel="up" title="3.3 Contexts and engravers">
+<link href="LilyPond-index.ja.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Engravers-explained.ja.html#Engravers-explained" rel="previous" title="3.3.3 Engravers explained">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Modifying-context-properties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.ja.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Engravers-explained.ja.html#Engravers-explained" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Engravers explained&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts-and-engravers.ja.html#Contexts-and-engravers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts and engravers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Adding-and-removing-engravers.ja.html#Adding-and-removing-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding and removing engravers &gt; </a>]</td></tr></table>
+<a name="Modifying-context-properties"></a>
+<h3 class="subsection">3.3.4 Modifying context properties</h3>
+
+<a name="index-context-properties"></a>
+<a name="index-context-properties_002c-modifying"></a>
+<a name="index-modifying-context-properties"></a>
+<a name="index-_005cset"></a>
+<a name="index-_005cset-1"></a>
+<a name="index-set"></a>
+<a name="index-set-1"></a>
+<a name="index-_005cunset"></a>
+<a name="index-_005cunset-1"></a>
+<a name="index-unset"></a>
+<a name="index-unset-1"></a>
+
+<p>Contexts are responsible for holding the values of a number of
+context <em>properties</em>.  Many of them can be changed to
+influence the interpretation of the input and so change the
+appearance of the output.  They are changed by the
+<code>\set</code> command.  This takes the form
+</p>
+<blockquote><pre class="example">\set <em>ContextName</em>.<em>propertyName</em> = #<em>value</em>
+</pre></blockquote>
+
+<p>Where the <em>ContextName</em> is usually <code>Score</code>,
+<code>Staff</code> or <code>Voice</code>.  It may be omitted,
+in which case <code>Voice</code> is assumed.
+</p>
+<p>The names of context properties consist of words joined
+together with no hyphens or underscores, all except the
+first having a capital letter.  Here are a few examples
+of some commonly used ones.  There are many more.
+</p>
+<table>
+<thead><tr><th width="25%"><p> propertyName
+  </p></th><th width="15%"><p> Type
+  </p></th><th width="45%"><p> Function
+  </p></th><th width="15%"><p> Example Value
+</p></th></tr></thead>
+<tr><td width="25%"><p> extraNatural
+  </p></td><td width="15%"><p> Boolean
+  </p></td><td width="45%"><p> If true, set extra natural signs before accidentals
+  </p></td><td width="15%"><p> <code>#t</code>, <code>#f</code>
+</p></td></tr>
+<tr><td width="25%"><p> currentBarNumber
+  </p></td><td width="15%"><p> Integer
+  </p></td><td width="45%"><p> Set the current bar number
+  </p></td><td width="15%"><p> <code>50</code>
+</p></td></tr>
+<tr><td width="25%"><p> doubleSlurs
+  </p></td><td width="15%"><p> Boolean
+  </p></td><td width="45%"><p> If true, print slurs both above and below notes
+  </p></td><td width="15%"><p> <code>#t</code>, <code>#f</code>
+</p></td></tr>
+<tr><td width="25%"><p> instrumentName
+  </p></td><td width="15%"><p> Text
+  </p></td><td width="45%"><p> Set the name to be placed at the start of the staff
+  </p></td><td width="15%"><p> <code>&quot;Cello I&quot;</code>
+</p></td></tr>
+<tr><td width="25%"><p> fontSize
+  </p></td><td width="15%"><p> Real
+  </p></td><td width="45%"><p> Increase or decrease the font size
+  </p></td><td width="15%"><p> <code>2.4</code>
+</p></td></tr>
+<tr><td width="25%"><p> stanza
+  </p></td><td width="15%"><p> Text
+  </p></td><td width="45%"><p> Set the text to print before the start of a verse
+  </p></td><td width="15%"><p> <code>&quot;2&quot;</code>
+</p></td></tr>
+</table>
+
+<p>where a Boolean is either True (<code>#t</code>) or False (<code>#f</code>),
+an Integer is a positive whole number, a Real is a positive
+or negative decimal number, and text is enclosed in double
+apostrophes.  Note the occurrence of hash signs,
+(<code>#</code>), in two different places &ndash; as part of the Boolean
+value before the <code>t</code> or <code>f</code>, and before <em>value</em>
+in the <code>\set</code> statement.  So when a Boolean is being
+entered you need to code two hash signs, e.g., <code>##t</code>.
+</p>
+<a name="index-properties-operating-in-contexts"></a>
+<a name="index-setting-properties-within-contexts"></a>
+
+<p>Before we can set any of these properties we need to know
+in which context they operate.  Sometimes this is obvious,
+but occasionally it can be tricky.  If the wrong context
+is specified, no error message is produced, but the expected
+action will not take place.  For example, the
+<code>instrumentName</code> clearly lives in the <code>Staff</code> context, since
+it is the staff that is to be named.
+In this example the first staff is labelled, but not the second,
+because we omitted the context name.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Staff \relative c'' {
+    \set Staff.instrumentName = #&quot;Soprano&quot;
+    c4 c
+ }
+  \new Staff \relative c' {
+  \set instrumentName = #&quot;Alto&quot;  % Wrong!
+  d4 d
+ }
+&gt;&gt;
+</pre><p>
+ <a href="../29/lily-9e13c984.ly">
+  <img align="middle"
+       border="0"
+       src="../29/lily-9e13c984.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Remember the default context name is <code>Voice</code>, so the second
+<code>\set</code> command set the property <code>instrumentName</code> in the
+<code>Voice</code> context to &ldquo;Alto&rdquo;, but as LilyPond does not look
+for any such property in the <code>Voice</code> context, no
+further action took place.  This is not an error, and no error
+message is logged in the log file.
+</p>
+<p>Similarly, if the property name is mis-spelt no error message is
+produced, and clearly the expected action cannot be performed.  In
+fact, you can set any (fictitious) &lsquo;property&rsquo; using any name you
+like in any context that exists by using the <code>\set</code> command.  But
+if the name is not known to LilyPond it will not cause any action to
+be taken.  Some text editors with special support for LilyPond input
+files document property names with bullets when you hover them with
+the mouse, like JEdit with LilyPondTool, or highlight unknown property
+names differently, like ConTEXT.  If you do not use an editor with
+such features, it is recommended to check the property name in the
+Internals Reference: see <a name="index-Tunable-context-properties"></a>
+<a href="../lilypond-internals/Tunable-context-properties.ja.html#Tunable-context-properties">Tunable context properties</a>, or
+<a name="index-Contexts-1"></a>
+<a href="../lilypond-internals/Contexts.ja.html#Contexts">Contexts</a>.
+</p>
+<p>The <code>instrumentName</code> property will take effect only
+if it is set in the <code>Staff</code> context, but
+some properties can be set in more than one context.
+For example, the property <code>extraNatural</code> is by
+default set to ##t (true) for all staves.
+If it is set to ##f (false) in one particular <code>Staff</code>
+context it applies just to the accidentals on that staff.
+If it is set to false in the <code>Score</code> context
+it applies to all staves.
+</p>
+<p>So this turns off extra naturals in one staff:
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Staff \relative c'' {
+    ais4 aes
+ }
+  \new Staff \relative c'' {
+    \set Staff.extraNatural = ##f
+    ais4 aes
+ }
+&gt;&gt;
+</pre><p>
+ <a href="../5b/lily-d0a3125b.ly">
+  <img align="middle"
+       border="0"
+       src="../5b/lily-d0a3125b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>and this turns them off in all staves:
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Staff \relative c'' {
+    ais4 aes
+ }
+  \new Staff \relative c'' {
+    \set Score.extraNatural = ##f
+    ais4 aes
+ }
+&gt;&gt;
+</pre><p>
+ <a href="../c2/lily-ce8468f7.ly">
+  <img align="middle"
+       border="0"
+       src="../c2/lily-ce8468f7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>As another example, if <code>clefOctavation</code> is set in
+the <code>Score</code> context this immediately changes the value
+of the octavation in all current staves and sets a new default
+value which will be applied to all staves.
+</p>
+<p>The opposite command, <code>\unset</code>, effectively removes the
+property from the context, which causes most properties to
+revert to their default value.  Usually <code>\unset</code> is not
+required as a new <code>\set</code> command will achieve what is
+wanted.
+</p>
+<p>The <code>\set</code> and <code>\unset</code> commands can appear anywhere
+in the input file and will take effect from the time they are
+encountered until the end of the score or until the property is
+<code>\set</code> or <code>\unset</code> again.  Let&rsquo;s try changing the
+font size, which affects the size of the note heads (among
+other things) several times.  The change is from the default
+value, not the most recently set value.
+</p>
+<blockquote><pre class="verbatim">c4
+% make note heads smaller
+\set fontSize = #-4
+d e
+% make note heads larger
+\set fontSize = #2.5
+f g
+% return to default size
+\unset fontSize
+a b
+</pre><p>
+ <a href="../c7/lily-499a61d2.ly">
+  <img align="middle"
+       border="0"
+       src="../c7/lily-499a61d2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>We have now seen how to set the values of several different types of
+property.  Note that integers and numbers are always preceded by a
+hash sign, <code>#</code>, while a true or false value is specified by
+<code>##t</code> and <code>##f</code>, with two hash signs.  A text property
+should be enclosed in double quotation signs, as above, although we
+shall see later that text can actually be specified in a much more
+general way by using the very powerful <code>markup</code> command.
+</p>
+<a name="Setting-context-properties-with-_005cwith"></a>
+<h4 class="subsubheading">Setting context properties with <code>\with</code></h4>
+
+<a name="index-_005cwith"></a>
+<a name="index-_005cwith-1"></a>
+<a name="index-with"></a>
+<a name="index-with-1"></a>
+<a name="index-context-properties_002c-setting-with-_005cwith"></a>
+
+<p>Context properties may also be set at the time the context is
+created.  Sometimes this is a clearer way of specifying a
+property value if it is to remain fixed for the duration of
+the context.  When a context is created with a <code>\new</code>
+command it may be followed immediately by a
+<code>\with { .. }</code> block in which the property values are
+set.  For example, if we wish to suppress the printing of
+extra naturals for the duration of a staff we would write:
+</p>
+<blockquote><pre class="example">\new Staff \with { extraNatural = ##f }
+</pre></blockquote>
+
+<p>like this:
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new Staff
+  \relative c'' {
+    gis ges aes ais
+  }
+  \new Staff \with { extraNatural = ##f }
+  \relative c'' {
+    gis ges aes ais
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../7f/lily-609e50dc.ly">
+  <img align="middle"
+       border="0"
+       src="../7f/lily-609e50dc.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Properties set in this way may still be changed dynamically using
+<code>\set</code> and returned to their default value with <code>\unset</code>.
+</p>
+<a name="index-fontSize_002c-default-and-setting"></a>
+
+<p>The <code>fontSize</code> property is treated differently.  If this is
+set in a <code>\with</code> clause it effectively resets the default
+value of the font size.  If it is later changed with <code>\set</code>,
+this new default value may be restored with the
+<code>\unset fontSize</code> command.
+</p>
+<a name="Setting-context-properties-with-_005ccontext"></a>
+<h4 class="subsubheading">Setting context properties with <code>\context</code></h4>
+
+<a name="index-context-properties_002c-setting-with-_005ccontext"></a>
+<a name="index-_005ccontext"></a>
+<a name="index-_005ccontext-1"></a>
+<a name="index-context-1"></a>
+<a name="index-context-2"></a>
+
+<p>The values of context properties may be set in <em>all</em> contexts
+of a particular type, such as all <code>Staff</code> contexts, with a single
+command.  The context type is identified by using its
+type name, like <code>Staff</code>, prefixed by a back-slash: <code>\Staff</code>.
+The statement which sets the property value is the same as that in a
+<code>\with</code> block, introduced above.  It is placed in a
+<code>\context</code> block within a <code>\layout</code> block.  Each
+<code>\context</code> block will affect all contexts of the type specified
+throughout the <code>\score</code> or <code>\book</code> block in which the
+<code>\layout</code> block appears.  Here is a example to show the format:
+</p>
+<blockquote><pre class="verbatim">\score {
+  \new Staff {
+    \relative c'' {
+      cis4 e d ces
+    }
+  }
+  \layout {
+    \context {
+      \Staff
+      extraNatural = ##t
+    }
+  }
+}
+</pre><p>
+ <a href="../e5/lily-dcb98145.ly">
+  <img align="middle"
+       border="0"
+       src="../e5/lily-dcb98145.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Context properties set in this way may be overridden for particular
+instances of contexts by statements in a <code>\with</code> block, and by
+<code>\set</code> commands embedded in music statements.
+</p>
+
+<a name="See-also-20"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Notation Reference:
+<a name="index-Changing-context-default-settings"></a>
+<a href="../lilypond/Changing-context-default-settings.ja.html#Changing-context-default-settings">Changing context default settings</a>.
+</p>
+<p>Internals Reference:
+<a name="index-Contexts-2"></a>
+<a href="../lilypond-internals/Contexts.ja.html#Contexts">Contexts</a>,
+<a name="index-Tunable-context-properties-1"></a>
+<a href="../lilypond-internals/Tunable-context-properties.ja.html#Tunable-context-properties">Tunable context properties</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Fundamental-concepts.ja.html#Fundamental-concepts" title="Beginning of this chapter or previous chapter"> &lt;&lt; Fundamental concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.ja.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tweaking-output.ja.html#Tweaking-output" title="Next chapter">&nbsp;Tweaking output &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Engravers-explained.ja.html#Engravers-explained" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Engravers explained&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts-and-engravers.ja.html#Contexts-and-engravers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts and engravers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Adding-and-removing-engravers.ja.html#Adding-and-removing-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding and removing engravers &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ 他の言語: <a href="Modifying-context-properties.fr.html">français</a>, <a href="Modifying-context-properties.es.html">español</a>, <a href="Modifying-context-properties.de.html">deutsch</a>
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.ja.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.ja.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.ja.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.ja.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.ja.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.ja.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.ja.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.ja.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.ja.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.ja.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.ja.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.ja.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.ja.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li class="toc_current"><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.ja.html#Contexts-and-engravers">3.3 Contexts and engravers</a>
+    <ul class="toc">
+      <li><a name="toc-Contexts-explained-1" href="Contexts-explained.ja.html#Contexts-explained">3.3.1 Contexts explained</a>      </li>
+      <li><a name="toc-Creating-contexts-1" href="Creating-contexts.ja.html#Creating-contexts">3.3.2 Creating contexts</a>      </li>
+      <li><a name="toc-Engravers-explained-1" href="Engravers-explained.ja.html#Engravers-explained">3.3.3 Engravers explained</a>      </li>
+      <li class="toc_current"><a name="toc-Modifying-context-properties-1" href="Modifying-context-properties.ja.html#Modifying-context-properties">3.3.4 Modifying context properties</a>      </li>
+      <li><a name="toc-Adding-and-removing-engravers-1" href="Adding-and-removing-engravers.ja.html#Adding-and-removing-engravers">3.3.5 Adding and removing engravers</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.ja.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.ja.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.ja.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.ja.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.ja.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.ja.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.ja.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.ja.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.ja.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.ja.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.ja.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.ja.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.ja.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.ja.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.ja.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.ja.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.ja.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.ja.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.ja.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.ja.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.ja.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.ja.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.ja.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.ja.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,808 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 1.1 Background</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 1.1 Background">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 1.1 Background">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Introduction.html#Introduction" rel="up" title="1. Introduction">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Introduction.html#Introduction" rel="previous" title="1. Introduction">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Background"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Introduction.html#Introduction" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Introduction.html#Introduction" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Introduction&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Engraving" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Engraving &gt; </a>]</td></tr></table>
+<a name="Background"></a>
+<h2 class="section">1.1 Background</h2>
+
+<p>This section covers the overall goals and architecture of
+LilyPond.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Engraving" accesskey="1">Engraving</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Automated-engraving" accesskey="2">Automated engraving</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#What-symbols-to-engrave_003f" accesskey="3">What symbols to engrave?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Music-representation" accesskey="4">Music representation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Example-applications" accesskey="5">Example applications</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Background" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Background&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automated-engraving" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Automated engraving &gt; </a>]</td></tr></table>
+<a name="Engraving"></a>
+<h3 class="unnumberedsubsec">Engraving</h3>
+
+<a name="index-engraving"></a>
+<a name="index-typography_002c-music"></a>
+<a name="index-music-typography"></a>
+<a name="index-plate-engraving"></a>
+<a name="index-music-engraving"></a>
+
+<p>The art of music typography is called <em>(plate) engraving</em>.
+The term derives from the traditional process of music printing.
+Just a few decades ago, sheet music was made by cutting and
+stamping the music into a zinc or pewter plate in mirror image.
+The plate would be inked, the depressions caused by the cutting
+and stamping would hold ink.  An image was formed by pressing
+paper to the plate.  The stamping and cutting was completely done
+by hand.  Making a correction was cumbersome, if possible at all,
+so the engraving had to be perfect in one go.  Engraving was a
+highly specialized skill; a craftsman had to complete around five
+years of training before earning the title of master engraver, and
+another five years of experience were necessary to become truly
+skilled.
+</p>
+<p>Nowadays, all newly printed music is produced with computers.
+This has obvious advantages; prints are cheaper to make, and
+editorial work can be delivered by email.  Unfortunately, the
+pervasive use of computers has also decreased the graphical
+quality of scores.  Computer printouts have a bland, mechanical
+look, which makes them unpleasant to play from.
+</p>
+
+<p>The images below illustrate the difference between traditional
+engraving and typical computer output, and the third picture shows
+how LilyPond mimics the traditional look.  The left picture shows
+a scan of a flat symbol from an edition published in 2000.  The
+center depicts a symbol from a hand-engraved Bärenreiter edition
+of the same music.  The left scan illustrates typical flaws of
+computer print: the staff lines are thin, the weight of the flat
+symbol matches the light lines and it has a straight layout with
+sharp corners.  By contrast, the Bärenreiter flat has a bold,
+almost voluptuous rounded look.  Our flat symbol is designed
+after, among others, this one.  It is rounded, and its weight
+harmonizes with the thickness of our staff lines, which are also
+much thicker than lines in the computer edition.
+</p>
+<table>
+<tr><td width="12%"></td><td width="25%"><img src="../henle-flat-gray.png" alt="png"></td><td width="25%"><img src="../baer-flat-gray.png" alt="png"></td><td width="25%"><img src="../lily-flat-bw.png" alt="png"></td></tr>
+<tr><td width="12%"></td><td width="25%"><p>Henle (2000)
+</p></td><td width="25%"><p>Bärenreiter (1950)
+</p></td><td width="25%"><p>LilyPond Feta font (2003)
+</p></td></tr>
+</table>
+
+
+<a name="index-musical-symbols"></a>
+<a name="index-font"></a>
+<a name="index-blackness"></a>
+<a name="index-balance"></a>
+
+<p>In spacing, the distribution of space should reflect the durations
+between notes.  However, many modern scores adhere to the
+durations with mathematical precision, which leads to poor
+results.  In the next example a motive is printed twice: once
+using exact mathematical spacing, and once with corrections.  Can
+you spot which fragment is which?
+</p>
+<a name="index-optical-spacing"></a>
+<p>
+ <a href="../90/lily-35e012eb.ly">
+  <img align="middle"
+       border="0"
+       src="../90/lily-35e012eb.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>
+ <a href="../1c/lily-f9b0aa77.ly">
+  <img align="middle"
+       border="0"
+       src="../1c/lily-f9b0aa77.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<a name="index-regular-rhythms"></a>
+<a name="index-regular-spacing"></a>
+<a name="index-spacing_002c-regular"></a>
+
+<p>Each bar in the fragment only uses notes that are played in a
+constant rhythm.  The spacing should reflect that.  Unfortunately,
+the eye deceives us a little; not only does it notice the distance
+between note heads, it also takes into account the distance
+between consecutive stems.  As a result, the notes of an
+up-stem/down-stem combination should be put farther apart, and
+the notes of a down-stem/up-stem combination should be put
+closer together, all depending on the combined vertical positions
+of the notes.  The upper two measures are printed with this
+correction, the lower two measures without, forming
+down-stem/up-stem clumps of notes.
+</p>
+
+<p>Musicians are usually more absorbed with performing than with
+studying the looks of a piece of music, so nitpicking about
+typographical details may seem academical.  But it is not.  In
+larger pieces with monotonous rhythms, spacing corrections lead to
+subtle variations in the layout of every line, giving each one a
+distinct visual signature.  Without this signature all lines would
+look the same, and they become like a labyrinth.  If a musician
+looks away once or has a lapse in concentration, the lines might
+lose their place on the page.
+</p>
+<p>Similarly, the strong visual look of bold symbols on heavy staff
+lines stands out better when the music is far away from the
+reader, for example, if it is on a music stand.  A careful
+distribution of white space allows music to be set very tightly
+without cluttering symbols together.  The result minimizes the
+number of page turns, which is a great advantage.
+</p>
+<p>This is a common characteristic of typography.  Layout should be
+pretty, not only for its own sake, but especially because it helps
+the reader in her task.  For performance material like sheet
+music, this is of double importance: musicians have a limited
+amount of attention.  The less attention they need for reading,
+the more they can focus on playing the music.  In other words,
+better typography translates to better performances.
+</p>
+<p>These examples demonstrate that music typography is an art that is
+subtle and complex, and that producing it requires considerable
+expertise, which musicians usually do not have.  LilyPond is our
+effort to bring the graphical excellence of hand-engraved music to
+the computer age, and make it available to normal musicians.  We
+have tuned our algorithms, font-designs, and program settings to
+produce prints that match the quality of the old editions we love
+to see and love to play from.
+</p>
+
+<hr size="6">
+<a name="Automated-engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Engraving" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Engraving&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="Next section in reading order" accesskey="n" rel="next">&nbsp;What symbols to engrave? &gt; </a>]</td></tr></table>
+<a name="Automated-engraving"></a>
+<h3 class="unnumberedsubsec">Automated engraving</h3>
+
+<a name="index-engraving_002c-automated"></a>
+<a name="index-automated-engraving"></a>
+
+<p>How do we go about implementing typography?  If craftsmen need
+over ten years to become true masters, how could we simple hackers
+ever write a program to take over their jobs?
+</p>
+<p>The answer is: we cannot.  Typography relies on human judgment of
+appearance, so people cannot be replaced completely.  However,
+much of the dull work can be automated.  If LilyPond solves most
+of the common situations correctly, this will be a huge
+improvement over existing software.  The remaining cases can be
+tuned by hand.  Over the course of years, the software can be
+refined to do more and more things automatically, so manual
+overrides are less and less necessary.
+</p>
+<p>When we started, we wrote the LilyPond program entirely in the C++
+programming language; the program&rsquo;s functionality was set in stone
+by the developers.  That proved to be unsatisfactory for a number
+of reasons:
+</p>
+<ul>
+<li> When LilyPond makes mistakes, users need to override
+formatting decisions.  Therefore, the user must have access to the
+formatting engine.  Hence, rules and settings cannot be fixed by
+us at compile-time but must be accessible for users at run-time.
+
+</li><li> Engraving is a matter of visual judgment, and therefore a
+matter of taste.  As knowledgeable as we are, users can disagree
+with our personal decisions.  Therefore, the definitions of
+typographical style must also be accessible to the user.
+
+</li><li> Finally, we continually refine the formatting algorithms, so
+we need a flexible approach to rules.  The C++ language forces a
+certain method of grouping rules that do not match well with how
+music notation works.
+
+</li></ul>
+
+<a name="index-Scheme-programming-language"></a>
+
+<p>These problems have been addressed by integrating an interpreter
+for the Scheme programming language and rewriting parts of
+LilyPond in Scheme.  The current formatting architecture is built
+around the notion of graphical objects, described by Scheme
+variables and functions.  This architecture encompasses formatting
+rules, typographical style and individual formatting decisions.
+The user has direct access to most of these controls.
+</p>
+<p>Scheme variables control layout decisions.  For example, many
+graphical objects have a direction variable that encodes the
+choice between up and down (or left and right).  Here you see two
+chords, with accents and arpeggios.  In the first chord, the
+graphical objects have all directions down (or left).  The second
+chord has all directions up (right).
+</p>
+<blockquote><p>
+ <a href="../ad/lily-a808e181.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-a808e181.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-score-formatting"></a>
+<a name="index-formatting-a-score"></a>
+<a name="index-formatting-rules"></a>
+
+<p>The process of formatting a score consists of reading and writing
+the variables of graphical objects.  Some variables have a preset
+value.  For example, the thickness of many lines &ndash; a
+characteristic of typographical style &ndash; is a variable with a
+preset value.  You are free to alter this value, giving your score
+a different typographical impression.
+</p>
+<blockquote><p>
+ <a href="../45/lily-b8e84cc1.ly">
+  <img align="middle"
+       border="0"
+       src="../45/lily-b8e84cc1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Formatting rules are also preset variables: each object has
+variables containing procedures.  These procedures perform the
+actual formatting, and by substituting different ones, we can
+change the appearance of objects.  In the following example, the
+rule which note head objects are used to produce their symbol is
+changed during the music fragment.
+</p>
+<blockquote><p>
+ <a href="../dd/lily-4ee665c7.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-4ee665c7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<a name="What-symbols-to-engrave_003f"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automated-engraving" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Automated engraving&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Music-representation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Music representation &gt; </a>]</td></tr></table>
+<a name="What-symbols-to-engrave_003f"></a>
+<h3 class="unnumberedsubsec">What symbols to engrave?</h3>
+
+<a name="index-engraving-1"></a>
+<a name="index-typography"></a>
+<a name="index-engraver"></a>
+<a name="index-plug_002din"></a>
+
+<p>The formatting process decides where to place symbols.  However,
+this can only be done once it is decided <em>what</em> symbols
+should be printed, in other words what notation to use.
+</p>
+<p>Common music notation is a system of recording music that has
+evolved over the past 1000 years.  The form that is now in common
+use dates from the early renaissance.  Although the basic form
+(i.e., note heads on a 5-line staff) has not changed, the details
+still evolve to express the innovations of contemporary notation.
+Hence, it encompasses some 500 years of music.  Its applications
+range from monophonic melodies to monstrous counterpoints for
+large orchestras.
+</p>
+<p>How can we get a grip on such a many-headed beast, and force it
+into the confines of a computer program?  Our solution is to break
+up the problem of notation (as opposed to engraving, i.e.,
+typography) into digestible and programmable chunks: every type of
+symbol is handled by a separate module, a so-called plug-in.  Each
+plug-in is completely modular and independent, so each can be
+developed and improved separately.  Such plug-ins are called
+<code>engraver</code>s, by analogy with craftsmen who translate musical
+ideas to graphic symbols.
+</p>
+<p>In the following example, we see how we start out with a plug-in
+for note heads, the <code>Note_heads_engraver</code>.
+</p>
+<blockquote><p>
+ <a href="../38/lily-e26fb32e.ly">
+  <img align="middle"
+       border="0"
+       src="../38/lily-e26fb32e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Then a <code>Staff_symbol_engraver</code> adds the staff
+</p>
+<blockquote><p>
+ <a href="../2e/lily-09b3a4db.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-09b3a4db.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>the <code>Clef_engraver</code> defines a reference point for the staff
+</p>
+<blockquote><p>
+ <a href="../ad/lily-b7b430b0.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-b7b430b0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>and the <code>Stem_engraver</code> adds stems.
+</p>
+<blockquote><p>
+ <a href="../de/lily-dde85252.ly">
+  <img align="middle"
+       border="0"
+       src="../de/lily-dde85252.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The <code>Stem_engraver</code> is notified of any note head coming
+along.  Every time one (or more, for a chord) note head is seen, a
+stem object is created and connected to the note head.  By adding
+engravers for beams, slurs, accents, accidentals, bar lines, time
+signature, and key signature, we get a complete piece of notation.
+</p>
+<blockquote><p>
+ <a href="../48/lily-aa409614.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-aa409614.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-polyphony"></a>
+<a name="index-engraving-multiple-voices"></a>
+<a name="index-contexts"></a>
+
+<p>This system works well for monophonic music, but what about
+polyphony?  In polyphonic notation, many voices can share a staff.
+</p>
+<blockquote><p>
+ <a href="../81/lily-ac7b5eb7.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-ac7b5eb7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>In this situation, the accidentals and staff are shared, but the
+stems, slurs, beams, etc., are private to each voice.  Hence,
+engravers should be grouped.  The engravers for note heads, stems,
+slurs, etc., go into a group called &lsquo;Voice context,&rsquo; while the
+engravers for key, accidental, bar, etc., go into a group called
+&lsquo;Staff context.&rsquo;  In the case of polyphony, a single Staff
+context contains more than one Voice context.  Similarly, multiple
+Staff contexts can be put into a single Score context.  The Score
+context is the top level notation context.
+</p>
+
+<a name="See-also-15"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Internals Reference: <a name="index-Contexts"></a>
+<a href="../lilypond-internals/Contexts.html#Contexts">Contexts</a>.
+</p>
+
+<blockquote><p>
+ <a href="../d5/lily-4da76545.ly">
+  <img align="middle"
+       border="0"
+       src="../d5/lily-4da76545.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<hr size="6">
+<a name="Music-representation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; What symbols to engrave?&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Example-applications" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Example applications &gt; </a>]</td></tr></table>
+<a name="Music-representation"></a>
+<h3 class="unnumberedsubsec">Music representation</h3>
+
+<a name="index-syntax"></a>
+<a name="index-recursive-structures"></a>
+
+<p>Ideally, the input format for any high-level formatting system is
+an abstract description of the content.  In this case, that would
+be the music itself.  This poses a formidable problem: how can we
+define what music really is? Instead of trying to find an answer,
+we have reversed the question.  We write a program capable of
+producing sheet music, and adjust the format to be as lean as
+possible.  When the format can no longer be trimmed down, by
+definition we are left with content itself.  Our program serves as
+a formal definition of a music document.
+</p>
+<p>The syntax is also the user-interface for LilyPond, hence it is
+easy to type:
+</p>
+<blockquote><pre class="example">{
+  c'4 d'8
+}
+</pre></blockquote>
+
+<p>to create a quarter note C1 (middle C) and an eighth note D1 (D
+above middle C).
+</p>
+<blockquote><p>
+ <a href="../a3/lily-4ac8db18.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-4ac8db18.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>On a microscopic scale, such syntax is easy to use.  On a larger
+scale, syntax also needs structure.  How else can you enter
+complex pieces like symphonies and operas?  The structure is
+formed by the concept of music expressions: by combining small
+fragments of music into larger ones, more complex music can be
+expressed.  For example
+</p>
+<blockquote><pre class="verbatim">f4
+</pre><p>
+ <a href="../71/lily-4525b349.ly">
+  <img align="middle"
+       border="0"
+       src="../71/lily-4525b349.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Simultaneous notes can be constructed by enclosing them with
+<code>&lt;&lt;</code> and <code>&gt;&gt;</code>:
+</p>
+<blockquote><pre class="example">&lt;&lt;c4 d4 e4&gt;&gt;
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../ca/lily-8d9298b5.ly">
+  <img align="middle"
+       border="0"
+       src="../ca/lily-8d9298b5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>This expression is put in sequence by enclosing it in curly braces
+<code>{&nbsp;&hellip;&nbsp;}</code>:
+</p>
+<blockquote><pre class="example">{ f4 &lt;&lt;c4 d4 e4&gt;&gt; }
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../48/lily-f2a8b3f3.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-f2a8b3f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The above is also an expression, and so it may be combined again
+with another simultaneous expression (a half note) using
+<code>&lt;&lt;</code>, <code>\\</code>, and <code>&gt;&gt;</code>:
+</p>
+<blockquote><pre class="example">&lt;&lt; g2 \\ { f4 &lt;&lt;c4 d4 e4&gt;&gt; } &gt;&gt;
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../a0/lily-41ba6474.ly">
+  <img align="middle"
+       border="0"
+       src="../a0/lily-41ba6474.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Such recursive structures can be specified neatly and formally in
+a context-free grammar.  The parsing code is also generated from
+this grammar.  In other words, the syntax of LilyPond is clearly
+and unambiguously defined.
+</p>
+<p>User-interfaces and syntax are what people see and deal with most.
+They are partly a matter of taste, and also subject of much
+discussion.  Although discussions on taste do have their merit,
+they are not very productive.  In the larger picture of LilyPond,
+the importance of input syntax is small: inventing neat syntax is
+easy, while writing decent formatting code is much harder.  This
+is also illustrated by the line-counts for the respective
+components: parsing and representation take up less than 10% of
+the source code.
+</p>
+
+<hr size="6">
+<a name="Example-applications"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Music representation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.html#About-the-documentation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;About the documentation &gt; </a>]</td></tr></table>
+<a name="Example-applications"></a>
+<h3 class="unnumberedsubsec">Example applications</h3>
+
+<a name="index-simple-examples"></a>
+<a name="index-examples_002c-simple"></a>
+
+<p>We have written LilyPond as an experiment of how to condense the
+art of music engraving into a computer program.  Thanks to all
+that hard work, the program can now be used to perform useful
+tasks.  The simplest application is printing notes.
+</p>
+<blockquote><p>
+ <a href="../63/lily-bbccbca9.ly">
+  <img align="middle"
+       border="0"
+       src="../63/lily-bbccbca9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>By adding chord names and lyrics we obtain a lead sheet.
+</p>
+<blockquote><p>
+ <a href="../34/lily-1f1cc0c4.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-1f1cc0c4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Polyphonic notation and piano music can also be printed.  The
+following example combines some more exotic constructs.
+</p>
+<blockquote><p>
+ <a href="../2c/lily-647cf69c.ly">
+  <img align="middle"
+       border="0"
+       src="../2c/lily-647cf69c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The fragments shown above have all been written by hand, but that
+is not a requirement.  Since the formatting engine is mostly
+automatic, it can serve as an output means for other programs that
+manipulate music.  For example, it can also be used to convert
+databases of musical fragments to images for use on websites and
+multimedia presentations.
+</p>
+<p>This manual also shows an application: the input format is text,
+and can therefore be easily embedded in other text-based formats
+such as LaTeX, HTML, or in the case of this manual, Texinfo.
+By means of a special program, the input fragments can be replaced
+by music images in the resulting PDF or HTML output files.  This
+makes it easy to mix music and text in documents.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; Introduction&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.html#Tutorial" title="Next chapter">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Music representation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Background&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.html#About-the-documentation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;About the documentation &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Background.fr.html">français</a>, <a href="Background.es.html">español</a>, <a href="Background.de.html">deutsch</a>, <a href="Background.ja.html">japanese</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.html#Preface">Preface</a>  </li>
+  <li class="toc_current"><a name="toc-Introduction-1" href="Introduction.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Background-1" href="Background.html#Background">1.1 Background</a>
+    <ul class="toc">
+      <li><a name="toc-Engraving-1" href="Background.html#Engraving">Engraving</a>      </li>
+      <li><a name="toc-Automated-engraving-1" href="Background.html#Automated-engraving">Automated engraving</a>      </li>
+      <li><a name="toc-What-symbols-to-engrave_003f-1" href="Background.html#What-symbols-to-engrave_003f">What symbols to engrave?</a>      </li>
+      <li><a name="toc-Music-representation-1" href="Background.html#Music-representation">Music representation</a>      </li>
+      <li><a name="toc-Example-applications-1" href="Background.html#Example-applications">Example applications</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.html#Placement-of-objects">4.4 Placement of objects</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

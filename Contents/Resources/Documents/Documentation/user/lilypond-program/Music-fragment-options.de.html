@@ -1,0 +1,401 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung 
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber 
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne 
+Invariante Abschnitte), 
+zu kopieren, verbreiten und/oder
+zu verändern. Eine Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Programmbenutzung: 4.3 Die Musikfragment-Optionen</title>
+
+<meta name="description" content="GNU LilyPond Programmbenutzung: 4.3 Music fragment options">
+<meta name="keywords" content="GNU LilyPond Programmbenutzung: 4.3 Music fragment options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#Top" rel="start" title="GNU LilyPond &ndash; Programmbenutzung">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="LilyPond_002dbook.de.html#LilyPond_002dbook" rel="up" title="4. lilypond-book: Integrating text and music">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="DocBook.de.html#DocBook" rel="previous" title="4.2.4 DocBook">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Music-fragment-options"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.de.html#Converting-from-other-formats" title="N&auml;chstes Kapitel">&nbsp;Von anderen Formaten konvertieren &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DocBook.de.html#DocBook" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; DocBook&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;LilyPond-book&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-lilypond_002dbook.de.html#Invoking-lilypond_002dbook" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;lilypond-book aufrufen &gt; </a>]</td></tr></table>
+<a name="Music-fragment-options"></a>
+<h2 class="section">4.3 Die Musikfragment-Optionen</h2>
+
+<p>Im Folgenden meint &sbquo;LilyPond-Kommando&lsquo; ein beliebiges in den vorgehenden
+Abschnitten beschriebenes Kommando, welches ein LilyPond-Fragment in eine Datei
+einfügt und von <code>lilypond-book</code> verarbeitet wird. Der Einfachheit
+halber werden hier alle LilyPond-Kommandos in der Syntax von LaTeX 
+dargestellt.
+</p>
+<p>Zu beachten ist, dass die Optionen eines LilyPond-Kommandos von links
+nach rechts verarbeitet werden. Wenn eine Option also mehrfach angegeben
+wird, wird nur die letzte benutzt.
+</p>
+<p>Die folgenden Optionen können für LilyPond-Kommandos benutzt werden:
+</p>
+<dl compact="compact">
+<dt> <code>staffsize=<var>ht</var></code></dt>
+<dd><p>Setzt die Höhe einer Notenzeile auf <var>ht</var>, angegeben in Punkten.
+</p>
+</dd>
+<dt> <code>ragged-right</code></dt>
+<dd><p>Erzeugt Notenzeilen im Flattersatz mit natürlichem Abstand der Noten. In
+anderen Worten: <code>ragged-right = ##t</code> wird in das Musikfragment 
+eingefügt. Dies ist die Standardeinstellung für das <code>\lilypond{}</code>
+Kommando, wenn die Option <code>line-width</code> nicht angegeben wird.
+Ebenso ist dies die Standardeinstellung für die <code>lilypond</code>-Umgebung,
+wenn die Option <code>fragment</code>, aber keine Zeilenlänge 
+explizit angegeben ist.
+</p>
+</dd>
+<dt> <code>noragged-right</code></dt>
+<dd><p>Streckt Musikfragmente mit nur einer Notenzeile auf die volle Breite,
+es wird also <code>ragged-right = ##f</code> in das Musikfragment eingefügt.
+</p>
+</dd>
+<dt> <code>line-width</code></dt>
+<dt> <code>line-width=<var>Breite</var>\<var>Einheit</var></code></dt>
+<dd><p>Setzt die Breite der Notenzeilen auf <var>Breite</var>, gemessen in Vielfachen
+der <var>Einheit</var>. Als Einheit können die folgenden Zeichenfolgen angegeben
+werden: <code>cm</code>, <code>mm</code>, <code>in</code> oder <code>pt</code>. Diese Option hat 
+nur Einfluss auf die Breite von Notenzeilen und Text im Musikfragment, nicht
+jedoch auf den restlichen Text des Dokuments.
+</p>
+<p>Wird diese Option ohne einen Wert angegeben, wird die Zeilenbreite auf
+einen Standardwert gesetzt, der durch einen heuristischen Algorithmus 
+bestimmt wird.
+</p>
+<p>Wenn die <code>line-width</code> Option nicht angegeben wird, versucht
+<code>lilypond-book</code> einen geeigneten Standardwert für alle 
+<code>lilypond</code>-Umgebungen zu finden, die die <code>ragged-right</code> Option 
+nicht benutzen.
+</p>
+</dd>
+<dt> <code>notime</code></dt>
+<dd><p>Verhindert die Ausgabe der Taktangabe am Anfang des Fragments und schaltet
+Taktstriche und alle Taktangaben im Fragment ab.
+</p>
+</dd>
+<dt> <code>fragment</code></dt>
+<dd><p>Bewirkt, dass <code>lilypond-book</code> Standardcode um das Fragment herum einfügt, sodass z. B.
+</p>
+<blockquote><pre class="example">c'4
+</pre></blockquote>
+
+<p>ohne <code>\layout</code>, <code>\score</code>, etc. eingegeben werden kann.
+</p>
+</dd>
+<dt> <code>nofragment</code></dt>
+<dd><p>Verhindert das Einfügen von Standardcode um das Fragment herum. Dies ist
+die Standardeinstellung, insofern ist diese Option im Normalfall unnötig.
+</p>
+</dd>
+<dt> <code>indent=<var>Einzug</var>\<var>Einheit</var></code></dt>
+<dd><p>Setzt den Einzug des ersten Notensystems auf <var>Einzug</var>, gemessen in
+Vielfachen der <var>Einheit</var>. Als Einheit können die folgenden Zeichenfolgen
+angegeben werden: <code>cm</code>, <code>mm</code>, <code>in</code> oder <code>pt</code>. Diese
+Option hat nur Einfluss auf den Einzug von Notenzeilen und Text im 
+Musikfragment, nicht jedoch auf den restlichen Text des Dokuments.
+</p>
+</dd>
+<dt> <code>noindent</code></dt>
+<dd><p>Setzt den Einzug des ersten Notensystems auf 0. Diese
+Option hat nur Einfluss auf den Einzug von Notenzeilen und Text im 
+Musikfragment, nicht jedoch auf den restlichen Text des Dokuments. Dies 
+ist die Standardeinstellung, insofern ist diese Option im Normalfall 
+unnötig.
+</p>
+</dd>
+<dt> <code>quote</code></dt>
+<dd><p>Verringert die Zeilenlänge des Musikfragments um <em>2*0.4</em>in
+und setzt das Fragment in einen Zitat-Block. Der Wert von &sbquo;0.4in&lsquo;
+kann durch die <code>exampleindent</code> Option angepasst werden.
+</p>
+</dd>
+<dt> <code>exampleindent</code></dt>
+<dd><p>Setzt den Betrag, um den das Fragment bei Benutzung der <code>quote</code>
+Option eingerückt wird.
+</p>
+</dd>
+<dt> <code>relative</code></dt>
+<dt> <code>relative=<var>n</var></code></dt>
+<dd><p>Benutzt relative Oktavenbezeichnungen. Standardmäßig werden Noten relativ
+zum mittleren C angegeben. Das optionale ganzzahlige Argument 
+gibt die Oktave der ersten Note an, wobei die Standardeinstellung von 
+<code>1</code> das mittlere C bedeutet. Die <code>relative</code> Option macht nur
+Sinn in Verbindung mit der <code>fragment</code> Option, weshalb <code>fragment</code>
+automatisch durch die Angabe der <code>relative</code> Option impliziert wird. 
+Eine explizite Angabe der <code>(no)fragment</code> Option hat keinen Effekt.
+</p></dd>
+</dl>
+
+<p>LilyPond benutzt zur Erzeugung seiner eigenen Dokumentation ebenfalls
+<code>lilypond-book</code>. Zu diesem Zweck stehen noch zahlreiche
+spezialisierte Optionen zur Verfügung:
+</p>
+<dl compact="compact">
+<dt> <code>verbatim</code></dt>
+<dd><p>Der LilyPond-Code im LilyPond-Kommando wird zum einen benutzt, um das
+Musikfragment in eine Grafik mit schönem Notensatz zu konvertieren,
+andererseits aber auch wörtlich in das Dokument eingefügt. Dies 
+geschieht in einem &sbquo;verbatim&lsquo;-Block, gefolgt vom Text einer 
+möglicherweise angegebenen <code>intertext</code> Option<sup><a name="DOCF4" href="#FOOT4">1</a></sup> und der 
+Grafik des tatsächlichen Notensatzes. Diese Option funktioniert nur
+fehlerhaft, wenn <code>\lilypond{}</code> im Fließtext benutzt wird.
+</p>
+<p>Wird <code>verbatim</code> in Verbindung mit einem <code>lilypondfile</code>-Kommando
+benutzt, so ist es auch möglich, nur ein Teil der Datei wörtlich einfügen 
+zu lassen: Wenn die eingebundene LilyPond-Datei ein Kommentar mit dem Inhalt
+&lsquo;<samp>begin verbatim</samp>&rsquo; (ohne Anführungszeichen) enthält, wird nur der 
+Dateiinhalt ab dieser Position eingefügt. Enthält die Datei mehrere
+solche Kommentare, wirkt nur das letzte. Analog wird nur der Dateiinhalt
+bis zu einem etwaigen Kommentar mit dem Inhalt &lsquo;<samp>end verbatim</samp>&rsquo; 
+eingefügt. Im folgenden Beispiel wird das gesamte Musik für die 
+Erzeugung der Grafik im relativen Oktavenmodus interpretiert, der 
+wörtlich in das Dokument kopierte LilyPond-Code zeigt den <code>relative</code>-Befehl jedoch nicht.
+</p>
+<blockquote><pre class="example">\relative c' { % begin verbatim
+  c4 e2 g4
+  f2 e % end verbatim
+}
+</pre></blockquote>
+
+<p>erzeugt ein Zitat der Form
+</p>
+<blockquote><pre class="example">  c4 e2 g4
+  f2 e
+</pre></blockquote>
+
+<p>Wenn Kommentare und Variablen im Zitat, aber nicht im Quelltext
+übersetzt werden sollen, kann die Umgebungsvariable <code>LYDOC_LOCALEDIR</code>
+auf einen Verzeichnispfad gesetzt werden.  Das Verzeichnis sollte
+einen Baum an &lsquo;<tt>.mo</tt>&rsquo;-Nachrichtenkatalogen beinhalten mit
+<code>lilypond-doc</code> als Domain.
+</p>
+</dd>
+<dt> <code>addversion</code></dt>
+<dd><p>(Nur innerhalb von Texinfo-Dateien.) Stellt <code>\version
+@w{&quot;@version{}&quot;}</code> an den Beginn des Fragments der Ausgabe mit
+<code>verbatim</code>.
+</p>
+</dd>
+<dt> <code>texidoc</code></dt>
+<dd><p>(Nur innerhalb von Texinfo-Dateien.) Wird <code>lilypond</code> mit der 
+Kommandozeilenoption &lsquo;<samp>--header=texidoc</samp>&rsquo; für eine Datei
+&lsquo;<tt>foo.ly</tt>&rsquo; und enthält die Datei ein <code>texidoc</code>-Feld im 
+<code>\header</code>-Block, so wird dessen Inhalt in die Datei 
+&lsquo;<tt>foo.texidoc</tt>&rsquo; ausgegeben. Die <code>texidoc</code> Option veranlasst 
+<code>lilypond-book</code>, den Inhalt dieser &lsquo;<tt>.texidoc</tt>&rsquo; Dateien innerhalb 
+eines Dokumentationsblocks direkt vor dem Musikfragment in das aktuelle 
+Dokument einzufügen.
+</p>
+<p>Enthält also die Datei &lsquo;<tt>foo.ly</tt>&rsquo; etwa den LilyPond-Code
+</p>
+<blockquote><pre class="example">\header {
+  texidoc = &quot;Dieses Beispiel zeigt eine einzelne Note.&quot;
+}
+{ c'4 }
+</pre></blockquote>
+
+<p>und das Texinfo-Dokument &lsquo;<tt>text.texinfo</tt>&rsquo;
+</p>
+<blockquote><pre class="example">@lilypondfile[texidoc]{foo.ly}
+</pre></blockquote>
+
+<p>so liefert der folgende Aufruf von <code>lilypond-book</code> das gewünschte
+Ergebnis:
+</p>
+<blockquote><pre class="example">lilypond-book --pdf --process=&quot;lilypond \
+  -dbackend=eps --header=texidoc&quot; test.texinfo
+</pre></blockquote>
+
+<p>Die meisten Test-Dateien (im &lsquo;<tt>input/</tt>&rsquo; Verzeichnis von LilyPond)
+sind kleine &lsquo;<tt>.ly</tt>&rsquo; Dateien von genau dieser Form.
+</p>
+<p>Auch die Übersetzung dieser zusätzlichen Kommentare ist möglich: 
+Dazu muss das Texinfo-Dokument den Befehl <code>@documentlanguage <var>LANG</var></code>
+und der <code>\header</code> Block in der Datei &lsquo;<tt>foo.ly</tt>&rsquo;
+die Übersetzung im Feld <code>texidoc<var>LANG</var></code> enthalten. Wird nun 
+<code>lilypond</code> mit der Option &lsquo;<samp>--header=texidoc<var>LANG</var></samp>&rsquo;
+aufgerufen, so wird der Inhalt der Datei &lsquo;<tt>foo.texidoc<var>LANG</var></tt>&rsquo; anstelle von &lsquo;<tt>foo.texidoc</tt>&rsquo; eingefügt.
+</p>
+</dd>
+<dt> <code>lilyquote</code></dt>
+<dd><p>(Nur innerhalb von Texinfo-Dateien.) Diese Option wirkt wie die <code>quote</code> Option, außer dass nur das Musikfragment (und natürlich optional der
+gesamte LilyPond-Code bei Benutzung von <code>verbatim</code>) in den Zitatblock eingefügt wird. Dies ist nützlich, wenn Sie ein Musikfragment zitieren möchten, nicht aber dessen <code>texidoc</code> Dokumentationsblock.
+</p>
+</dd>
+<dt> <code>doctitle</code></dt>
+<dd><p>(Nur innerhalb von Texinfo-Dateien.) Diese Option wirkt ähnlich wie die
+<code>texidoc</code> Option: Wenn <code>lilypond</code> mit der Option 
+&lsquo;<samp>--header=doctitle</samp>&rsquo; aufgerufen wird und die Eingabedatei 
+&lsquo;<tt>foo.ly</tt>&rsquo; ein Feld <code>doctitle</code> im <code>\header</code>-Block enthält, 
+wird dessen Wert in die Datei &lsquo;<tt>foo.doctitle</tt>&rsquo; geschrieben. Wird die 
+<code>doctitle</code> Option für ein Musikfragment benutzt, so wird der Inhalt 
+dieser Datei, der eine einzelne Textzeile sein sollte, im Texinfo-Dokument 
+als <code>@lydoctitle <var>Text</var></code> eingefügt. <code>@lydoctitle</code> muss 
+allerdings in Ihrem Texinfo-Dokument als Makro selbst definiert werden.
+Die Übersetzung funktioniert völlig analog zu <code>texidoc</code>.
+</p>
+</dd>
+<dt> <code>nogettext</code></dt>
+<dd><p>Nur für Texinfo-Ausgabe: Kommentare und Variablenbezeichnungen im
+zitierten Quelltext des Schnipsel werden nicht übersetzt.
+</p>
+</dd>
+<dt> <code>printfilename</code></dt>
+<dd><p>Wenn eine LilyPond-Datei mittels <code>\lilypondfile</code> und dieser Option
+eingebunden wird, wird der Dateiname (ohne die Pfadangabe) unmittelbar vor 
+dem Musikfragment ausgegeben. In HTML-Dateien ist er außerdem ein Link
+auf die LilyPond-Datei.
+</p>
+</dd>
+<dt> <code>fontload</code></dt>
+<dd><p>Diese Option inkludiert die Schriftarten in allen EPS-Dateien, die von
+diesem Fragment erzeugt werden. Dies ist nötig, wenn das Fragment
+Schriftarten benutzt, die LaTeX nicht selbst findet.
+</p>
+</dd>
+</dl>
+
+
+<div class="footnote">
+<hr>
+<h3>Fu&szlig;noten</h3>
+<p class="footnote"><small>[<a name="FOOT4" href="#DOCF4">1</a>]</small> Die
+<code>intertext</code> Option ist noch nicht implementiert.
+</p></div>
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; LilyPond-book&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Converting-from-other-formats.de.html#Converting-from-other-formats" title="N&auml;chstes Kapitel">&nbsp;Von anderen Formaten konvertieren &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="DocBook.de.html#DocBook" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; DocBook&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="LilyPond_002dbook.de.html#LilyPond_002dbook" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;LilyPond-book&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-lilypond_002dbook.de.html#Invoking-lilypond_002dbook" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;lilypond-book aufrufen &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Music-fragment-options.html">English</a>, <a href="Music-fragment-options.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#Top" title="Start of the manual">Programmbenutzung</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.de.html#Install">1. Installieren</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.de.html#Precompiled-binaries">1.1 Vorkompilierte Binär-Pakete</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.de.html#Compiling-from-source">1.2 Aus den Quellen übersetzen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.de.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.de.html#Setup-for-specific-Operating-Systems">2.1 Setup für bestimmte Betriebssysteme</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.de.html#Text-editor-support">2.2 Unterstützung von Texteditoren</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.de.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.de.html#Running-LilyPond">3. LilyPond starten</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.de.html#Normal-usage">3.1 Übliche Programmbenutzung</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.de.html#Command_002dline-usage">3.2 Benutzung auf der Kommandozeile</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.de.html#Error-messages">3.3 Fehlermeldungen</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.de.html#Updating-files-with-convert_002dly">3.4 Dateien mit <code>convert-ly</code> aktualisieren</a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.de.html#Reporting-bugs">3.5 Fehler melden</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.de.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Noten in den Text integrieren</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.de.html#An-example-of-a-musicological-document">4.1 Ein musikwissenschaftlicher Text als Beispiel</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.de.html#Integrating-music-and-text">4.2 Noten in Text integrieren</a>    </li>
+    <li class="toc_current"><a name="toc-Music-fragment-options-1" href="Music-fragment-options.de.html#Music-fragment-options">4.3 Die Musikfragment-Optionen</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.de.html#Invoking-lilypond_002dbook">4.4 <code>lilypond-book</code> aufrufen</a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.de.html#Filename-extensions">4.5 Dateiendungen</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.de.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative Methoden, Text mit Musik zu kombinieren</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.de.html#Converting-from-other-formats">5. Von anderen Formaten konvertieren</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.de.html#Invoking-midi2ly">5.1 <code>midi2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.de.html#Invoking-musicxml2ly">5.2 <code>muscxml2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.de.html#Invoking-abc2ly">5.3 <code>abc2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.de.html#Invoking-etf2ly">5.4 <code>etf2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.de.html#Generating-LilyPond-files">5.5 LilyPond-Dateien erstellen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">B. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Manual de aprendizaje de GNU LilyPond: 4.3.2 Tamaño de los objetos</title>
+
+<meta name="description" content="Manual de aprendizaje de GNU LilyPond: 4.3.2 Size of objects">
+<meta name="keywords" content="Manual de aprendizaje de GNU LilyPond: 4.3.2 Size of objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de aprendizaje">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Appearance-of-objects.es.html#Appearance-of-objects" rel="up" title="4.3 Appearance of objects">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects" rel="previous" title="4.3.1 Visibility and color of objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Size-of-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Visibilidad y color de los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Length-and-thickness-of-objects.es.html#Length-and-thickness-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Longitud y grosor de los objetos &gt; </a>]</td></tr></table>
+<a name="Size-of-objects"></a>
+<h3 class="subsection">4.3.2 Tamaño de los objetos</h3>
+
+<a name="index-cambiar-el-tamano-de-los-objetos"></a>
+<a name="index-tamano-de-los-objetos"></a>
+<a name="index-objetos_002c-tamano-de"></a>
+<a name="index-objetos_002c-cambiar-el-tamano-de"></a>
+
+<p>Empezaremos examinando de nuevo un ejemplo anterior (véase
+<a href="Nesting-music-expressions.es.html#Nesting-music-expressions">Anidado de expresiones musicales</a>) que nos mostraba cómo introducir un
+pentagrama temporal, como en un <a name="index-ossia-1"></a>
+<a href="../music-glossary/ossia.es.html#ossia">ossia</a>.
+</p>
+<a name="index-alignAboveContext_002c-propiedad_002c-ejemplo"></a>
+<a name="index-_005cwith_002c-ejemplo"></a>
+
+<blockquote><pre class="verbatim">\new Staff =&quot;main&quot; {
+       \relative g' {
+         r4 g8 g c4 c8 d |
+         e4 r8
+         &lt;&lt;
+           { f c c }
+           \new Staff \with {
+             alignAboveContext = #&quot;main&quot; }
+           { f8 f c }
+         &gt;&gt;
+         r4 |
+       }
+     }
+</pre><p>
+ <a href="../f7/lily-3b599688.ly">
+  <img align="middle"
+       border="0"
+       src="../f7/lily-3b599688.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Los fragmentos de Ossia se escriben normalmente sin clave ni compás, y
+por lo normal se imprimen más pequeños que el pentagrama principal.
+Ya sabemos cómo quitar la clave y el compás: simplemente establecemos
+el sello de cada uno de ellos a <code>#f</code>, como sigue:
+</p>
+<a name="index-alignAboveContext_002c-propiedad_002c-ejemplo-1"></a>
+<a name="index-_005cwith_002c-ejemplo-1"></a>
+<a name="index-stencil_002c-propiedad_002c-ejemplo-3"></a>
+<a name="index-Clef_002c-ejemplo-de-sobreescritura-1"></a>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura-3"></a>
+
+<blockquote><pre class="verbatim">\new Staff =&quot;main&quot; {
+  \relative g' {
+    r4 g8 g c4 c8 d |
+    e4 r8
+    &lt;&lt;
+      { f c c }
+      \new Staff \with {
+        alignAboveContext = #&quot;main&quot;
+      }
+      {
+        \override Staff.Clef #'stencil = ##f
+        \override Staff.TimeSignature #'stencil = ##f
+        { f8 f c }
+      }
+    &gt;&gt;
+    r4 |
+  }
+}
+</pre><p>
+ <a href="../e9/lily-a0bf21a4.ly">
+  <img align="middle"
+       border="0"
+       src="../e9/lily-a0bf21a4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>donde el par de llaves adicional después de la cláusula <code>\with</code>
+es necesario para asegurar que la sobreescritura encerrada y la música
+se aplican al pentagrama de ossia.
+</p>
+<p>Pero ¿cuál es la diferencia entre modificar el contexto de pentagrama
+usando <code>\with</code> y modificar los sellos de clave y de compás con
+\override?  La diferencia principal es que los cambios que se realizan
+en una cláusula <code>\with</code> se hacen en el momento en que se crea el
+contexto, y permanecen activos como valores <strong>predeterminados</strong>
+durante toda la duración de dicho contexto, mientras que las
+instrucciones <code>\set</code> o <code>\override</code> incluidas dentro de la
+música son dinámicas: hacen cambios sincronizados con un punto
+concreto de la música.  Si los cambios se deshacen o se devuelven
+mediante <code>\unset</code> o <code>\revert</code> volverán a su valor
+predeterminado que será el establecido en la cláusula <code>\with</code>, o
+si no se ha establecido ninguno en este lugar, los valores
+predeterminados normales.
+</p>
+<p>Ciertas propiedades de contexto se pueden modificar solamente dentro
+de cláusulas <code>\with</code>.  Son aquellas propiedades que no se pueden
+cambiar después de que el contexto se ha creado.
+<code>alignAboveContext</code> y su compañero, <code>alignBelowContext</code>, son
+dos de tales propiedades: una vez que el pentagrama se ha creado, su
+alineación está decidida y no tendría sentido intentar cambiarla más
+tarde.
+</p>
+<p>Los valores predeterminados de las propiedades de los objetos de
+presentación también se pueden establecer dentro de cláusulas
+<code>\with</code>.  Simplemente utilice la instrucción <code>\override</code>
+normal dejando aparte el nombre del contexto, ya que está definido sin
+ambigüedad como el contexto que la cláusula <code>\with</code> está
+modificando.  De hecho, se producirá un error si se especifica un
+contexto en este lugar.
+</p>
+<p>Así pues, podemos reemplazar el ejemplo anterior con
+</p>
+<a name="index-alignAboveContext_002c-propiedad_002c-ejemplo-2"></a>
+<a name="index-_005cwith_002c-example"></a>
+<a name="index-Clef_002c-ejemplo-de-sobreescritura-2"></a>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura-4"></a>
+
+<blockquote><pre class="verbatim">\new Staff =&quot;main&quot; {
+  \relative g' {
+    r4 g8 g c4 c8 d |
+    e4 r8
+    &lt;&lt;
+      { f c c }
+      \new Staff \with {
+        alignAboveContext = #&quot;main&quot;
+        % No imprimir la clave en este pentagrama
+        \override Clef #'stencil = ##f
+        % No imprimir el compás en este pentagrama
+        \override TimeSignature #'stencil = ##f
+      }
+        { f8 f c }
+    &gt;&gt;
+    r4 |
+  }
+}
+</pre><p>
+ <a href="../95/lily-b2d26044.ly">
+  <img align="middle"
+       border="0"
+       src="../95/lily-b2d26044.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Finalmente llegamos a la forma de cambiar el tamaño de los objetos de
+presentación.
+</p>
+<p>Ciertos objetos de presentación se crean como glifos sacados de una
+fuente tipográfica.  Entre ellos se encuentran las cabezas,
+alteraciones, elementos de marcado, claves, indicaciones de compás,
+indicaciones dinámicas y la letra de las canciones.  Su tamaño se
+cambia mediante la modificación de la propiedad <code>font-size</code>, como
+veremos en breve.  Otros objetos de presentación como ligaduras de
+unión y de expresión (en general, objetos de extensión) se trazan
+individualmente, por lo que no hay un tamaño de tipografía
+<code>font-size</code> asociado a ellos.  Estos objetos generalmente derivan
+su tamaño de los objetos a los que están adosados, y por ello
+normalmente no hay necesidad de cambiarles el tamaño manualmente.  Aún
+otras propiedades como la longitud de las plicas y las barras de
+compás, el grosor de las barras de corchea y otras líneas, y la
+separación de las líneas del pentagrama se deben modificar de otras
+formas especiales.
+</p>
+<p>Volviendo al ejemplo del ossia, vamos a cambiar en primer lugar el
+tamaño de la tipografía.  Podemos hacerlo de dos formas.  Podemos
+cambiar el tamaño de las tipografías de cada uno de los tipos de
+objeto como las cabezas (<code>NoteHead</code>s) con instrucciones como
+</p>
+<blockquote><pre class="example">\override NoteHead #'font-size = #-2
+</pre></blockquote>
+
+<p>o podemos cambiar el tamaño de todas las tipografías estableciendo una
+propiedad especial, <code>fontSize</code>, utilizando <code>\set</code>, o
+mediante su inclusión dentro de una cláusula <code>\with</code> (pero sin el
+<code>\set</code>).
+</p>
+<blockquote><pre class="example">\set fontSize = #-2
+</pre></blockquote>
+
+<p>Los dos enunciados producirían una reducción del tamaño de la
+tipografía en dos pasos a partir de su valor previo, donde cada paso
+reduce o aumenta el tamaño aproximadamente en un 12%.
+</p>
+<p>Vamos a probarlo en nuestro ejemplo del ossia:
+</p>
+<a name="index-alignAboveContext_002c-propiedad_002c-ejemplo-3"></a>
+<a name="index-_005cwith_002c-ejemplo-2"></a>
+<a name="index-Clef_002c-ejemplo-de-sobreescritura-3"></a>
+<a name="index-TimeSignature_002c-ejemplo-de-sobreescritura-5"></a>
+<a name="index-fontSize_002c-propiedad_002c-ejemplo"></a>
+
+<blockquote><pre class="verbatim">\new Staff =&quot;main&quot; {
+  \relative g' {
+    r4 g8 g c4 c8 d |
+    e4 r8
+    &lt;&lt;
+      { f c c }
+      \new Staff \with {
+        alignAboveContext = #&quot;main&quot;
+        \override Clef #'stencil = ##f
+        \override TimeSignature #'stencil = ##f
+        % Reducir el tamaño de la fuente en un 24% aprox.
+        fontSize = #-2
+      }
+        { f8 f c }
+    &gt;&gt;
+    r4 |
+  }
+}
+</pre><p>
+ <a href="../c3/lily-6370cb6c.ly">
+  <img align="middle"
+       border="0"
+       src="../c3/lily-6370cb6c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Aún no está demasiado bien.  Las cabezas y los corchetes de las notas
+son más pequeños, pero las plicas son demasiado largas en proporción,
+y las líneas del pentagrama están demasiado separadas entre sí.  Se
+debe reducir su escala en proporción a la reducción de la tipografía.
+El siguiente apartado trata sobre cómo se hace esto.
+</p>
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Visibilidad y color de los objetos&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.es.html#Appearance-of-objects" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Apariencia de los objetos&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Length-and-thickness-of-objects.es.html#Length-and-thickness-of-objects" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Longitud y grosor de los objetos &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Size-of-objects.html">English</a>, <a href="Size-of-objects.fr.html">français</a>, <a href="Size-of-objects.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de aprendizaje</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.es.html#Preface">Preámbulo</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.es.html#Introduction">1. Introducción</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.es.html#Background">1.1 Antecedentes</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.es.html#About-the-documentation">1.2 Sobre la documentación</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.es.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.es.html#First-steps">2.1 Primeros pasos</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.es.html#Single-staff-notation">2.2 Notación en un solo pentagrama</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.es.html#Multiple-notes-at-once">2.3 Varias notas a la vez</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.es.html#Songs">2.4 Canciones</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.es.html#Final-touches">2.5 Retoques finales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.es.html#Fundamental-concepts">3. Conceptos fundamentales</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.es.html#How-LilyPond-input-files-work">3.1 Cómo funcionan los archivos de entrada de LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.es.html#Voices-contain-music">3.2 Las voces contienen música</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.es.html#Contexts-and-engravers">3.3 Contextos y grabadores</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.es.html#Extending-the-templates">3.4 Extender las plantillas</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.es.html#Tweaking-output">4. Trucar la salida</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.es.html#Tweaking-basics">4.1 Elementos de trucaje</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual">4.2 Manual de referencia de funcionamiento interno</a>    </li>
+    <li class="toc_current"><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.es.html#Appearance-of-objects">4.3 Apariencia de los objetos</a>
+    <ul class="toc">
+      <li><a name="toc-Visibility-and-color-of-objects-1" href="Visibility-and-color-of-objects.es.html#Visibility-and-color-of-objects">4.3.1 Visibilidad y color de los objetos</a>      </li>
+      <li class="toc_current"><a name="toc-Size-of-objects-1" href="Size-of-objects.es.html#Size-of-objects">4.3.2 Tamaño de los objetos</a>      </li>
+      <li><a name="toc-Length-and-thickness-of-objects-1" href="Length-and-thickness-of-objects.es.html#Length-and-thickness-of-objects">4.3.3 Longitud y grosor de los objetos</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.es.html#Placement-of-objects">4.4 Colocación de los objetos</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.es.html#Collisions-of-objects">4.5 Colisiones de objetos</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.es.html#Further-tweaking">4.6 Trucajes adicionales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects">5. Trabajar en proyectos de LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-files-1" href="Suggestions-for-writing-LilyPond-files.es.html#Suggestions-for-writing-LilyPond-files">5.1 Suggestions for writing LilyPond files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.es.html#When-things-don_0027t-work">5.2 Cuando las cosas no van</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.es.html#Scores-and-parts">5.3 Partituras y particellas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.es.html#Templates">A. Plantillas</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.es.html#Single-staff">A.1 Pentagrama único</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.es.html#Piano-templates">A.2 Plantillas de piano</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.es.html#String-quartet">A.3 Cuarteto de cuerda</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.es.html#Vocal-ensembles">A.4 Conjuntos vocales</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.es.html#Ancient-notation-templates">A.5 Plantillas para notación antigua</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.es.html#Jazz-combo">A.6 Combo de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.es.html#lilypond_002dbook-templates">A.7 Plantillas de lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.es.html#Scheme-tutorial">B. Tutorial de Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.es.html#Tweaking-with-Scheme">B.1 Trucos con Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">D. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

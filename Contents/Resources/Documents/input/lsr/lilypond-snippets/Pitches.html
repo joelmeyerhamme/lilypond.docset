@@ -1,0 +1,1065 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Pitches</title>
+
+<meta name="description" content="LilyPond snippets: Pitches">
+<meta name="keywords" content="LilyPond snippets: Pitches">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="index.html#Top" rel="previous" title="GNU LilyPond &mdash; Snippets List">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Pitches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="index.html#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; Top&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="index.html#Top" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Top&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-ambitus-per-voice" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding ambitus per voice &gt; </a>]</td></tr></table>
+<a name="Pitches"></a>
+<h1 class="unnumbered">Pitches</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Pitches.html#Pitches">Pitches</a>.
+</p>
+
+<a name="adding-ambitus-per-voice.ly"></a>
+<hr size="6">
+<a name="Adding-ambitus-per-voice"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Pitches" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ambitus-with-multiple-voices" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ambitus with multiple voices &gt; </a>]</td></tr></table>
+<a name="Adding-ambitus-per-voice"></a>
+<h2 class="unnumberedsec">Adding ambitus per voice</h2>
+
+
+<p>Ambitus can be added per voice. In this case, the ambitus must be moved
+manually to prevent collisions. 
+</p>
+
+<pre class="verbatim">\new Staff &lt;&lt;
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c'' {
+    \override Ambitus #'X-offset = #2.0
+    \voiceOne
+    c4 a d e
+    f1
+  }
+  \new Voice \with {
+    \consists &quot;Ambitus_engraver&quot;
+  } \relative c' {
+    \voiceTwo
+    es4 f g as
+    b1
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../22/lily-9f6c2419.ly">
+  <img align="middle"
+       border="0"
+       src="../22/lily-9f6c2419.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ambitus-with-multiple-voices.ly"></a>
+<hr size="6">
+<a name="Ambitus-with-multiple-voices"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-ambitus-per-voice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adding ambitus per voice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ambitus" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ambitus &gt; </a>]</td></tr></table>
+<a name="Ambitus-with-multiple-voices"></a>
+<h2 class="unnumberedsec">Ambitus with multiple voices</h2>
+
+
+<p>Adding the <code>Ambitus_engraver</code> to the <code>Staff</code> context creates
+a single ambitus per staff, even in the case of staves with multiple
+voices. 
+</p>
+
+<pre class="verbatim">\new Staff \with {
+  \consists &quot;Ambitus_engraver&quot;
+  }
+&lt;&lt;
+  \new Voice \relative c'' {
+    \voiceOne
+    c4 a d e
+    f1
+  }
+  \new Voice \relative c' {
+    \voiceTwo
+    es4 f g as
+    b1
+  }
+&gt;&gt;
+
+
+</pre><p>
+ <a href="../11/lily-12cd208a.ly">
+  <img align="middle"
+       border="0"
+       src="../11/lily-12cd208a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ambitus.ly"></a>
+<hr size="6">
+<a name="Ambitus"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ambitus-with-multiple-voices" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ambitus with multiple voices&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Applying-note-head-styles-depending-on-the-step-of-the-scale" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Applying note head styles depending on the step of the scale &gt; </a>]</td></tr></table>
+<a name="Ambitus"></a>
+<h2 class="unnumberedsec">Ambitus</h2>
+
+
+<p>Ambitus indicate pitch ranges for voices.
+</p>
+
+<p>Accidentals only show up if they are not part of the key signature. 
+<code>AmbitusNoteHead</code> grobs also have ledger lines. 
+</p>
+
+<pre class="verbatim">\layout {
+  \context {
+    \Voice
+    \consists &quot;Ambitus_engraver&quot;
+  }
+}
+
+&lt;&lt;
+  \new Staff {
+    \relative c' {
+      \time 2/4
+      c4 f'
+    }
+  }
+  \new Staff {
+    \relative c' {
+      \time  2/4
+      \key d \major
+      cis4 as'
+    }
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../0f/lily-94e65d7e.ly">
+  <img align="middle"
+       border="0"
+       src="../0f/lily-94e65d7e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="applying-note-head-styles-depending-on-the-step-of-the-scale.ly"></a>
+<hr size="6">
+<a name="Applying-note-head-styles-depending-on-the-step-of-the-scale"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ambitus" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ambitus&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Coloring-notes-depending-on-their-pitch" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Coloring notes depending on their pitch &gt; </a>]</td></tr></table>
+<a name="Applying-note-head-styles-depending-on-the-step-of-the-scale"></a>
+<h2 class="unnumberedsec">Applying note head styles depending on the step of the scale</h2>
+
+
+<p>The <code>shapeNoteStyles</code> property can be used to define various note
+head styles for each step of the scale (as set by the key signature or
+the &quot;tonic&quot; property). This property requires a set of symbols, which
+can be purely arbitrary (geometrical expressions such as
+<code>triangle</code>, <code>cross</code>, and <code>xcircle</code> are allowed) or based
+on old American engraving tradition (some latin note names are also
+allowed).
+</p>
+<p>That said, to imitate old American song books, there are several
+predefined note head styles available through shortcut commands such as
+<code>\aikenHeads</code> or <code>\sacredHarpHeads</code>.
+</p>
+<p>This example shows different ways to obtain shape note heads, and
+demonstrates the ability to transpose a melody without losing the
+correspondence between harmonic functions and note head styles. 
+</p>
+
+<pre class="verbatim">fragment = {
+  \key c \major
+  c2 d
+  e2 f
+  g2 a
+  b2 c
+}
+
+\score {
+  \new Staff {
+    \transpose c d 
+    \relative c' {
+      \set shapeNoteStyles = #'#(do re mi fa
+                                 #f la ti)
+      \fragment
+    }
+
+    \break
+
+    \relative c' {
+      \set shapeNoteStyles = #'#(cross triangle fa #f
+                                 mensural xcircle diamond)
+      \fragment
+    }
+  }
+  \layout { ragged-right = ##t }
+}
+
+</pre><p>
+ <a href="../a8/lily-06f2ab7d.ly">
+  <img align="middle"
+       border="0"
+       src="../a8/lily-06f2ab7d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="coloring-notes-depending-on-their-pitch.ly"></a>
+<hr size="6">
+<a name="Coloring-notes-depending-on-their-pitch"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Applying-note-head-styles-depending-on-the-step-of-the-scale" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Applying note head styles depending on the step of the scale&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Creating-a-sequence-of-notes-on-various-pitches" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Creating a sequence of notes on various pitches &gt; </a>]</td></tr></table>
+<a name="Coloring-notes-depending-on-their-pitch"></a>
+<h2 class="unnumberedsec">Coloring notes depending on their pitch</h2>
+
+
+<p>It is possible to color note heads depending on their pitch and/or
+their names: the function used in this example even makes it possible
+to distinguish enharmonics. 
+</p>
+
+<pre class="verbatim">%Association list of pitches to colors.
+#(define color-mapping
+  (list
+    (cons (ly:make-pitch 0 0 0) (x11-color 'red))
+    (cons (ly:make-pitch 0 0 1/2) (x11-color 'green))
+    (cons (ly:make-pitch 0 1 -1/2) (x11-color 'green))
+    (cons (ly:make-pitch 0 2 0) (x11-color 'red))
+    (cons (ly:make-pitch 0 2 1/2) (x11-color 'green))
+    (cons (ly:make-pitch 0 3 -1/2) (x11-color 'red))
+    (cons (ly:make-pitch 0 3 0) (x11-color 'green))
+    (cons (ly:make-pitch 0 4 1/2) (x11-color 'red))
+    (cons (ly:make-pitch 0 5 0) (x11-color 'green))
+    (cons (ly:make-pitch 0 5 -1/2) (x11-color 'red))
+    (cons (ly:make-pitch 0 6 1/2) (x11-color 'red))
+    (cons (ly:make-pitch 0 1 0) (x11-color 'blue))
+    (cons (ly:make-pitch 0 3 1/2) (x11-color 'blue))
+    (cons (ly:make-pitch 0 4 -1/2) (x11-color 'blue))
+    (cons (ly:make-pitch 0 5 1/2) (x11-color 'blue))
+    (cons (ly:make-pitch 0 6 -1/2) (x11-color 'blue))))
+
+%Compare pitch and alteration (not octave).
+#(define (pitch-equals? p1 p2)
+  (and
+    (= (ly:pitch-alteration p1) (ly:pitch-alteration p2))
+    (= (ly:pitch-notename p1) (ly:pitch-notename p2))))
+
+#(define (pitch-to-color pitch)
+  (let ((color (assoc pitch color-mapping pitch-equals?)))
+    (if color
+      (cdr color))))
+
+#(define (color-notehead grob)
+  (pitch-to-color
+    (ly:event-property (event-cause grob) 'pitch)))
+
+\score {
+  \new Staff \relative c' {
+    \override NoteHead #'color = #color-notehead
+    c8 b d dis ees f g aes
+  }
+}
+</pre><p>
+ <a href="../2f/lily-71e98e19.ly">
+  <img align="middle"
+       border="0"
+       src="../2f/lily-71e98e19.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-a-sequence-of-notes-on-various-pitches.ly"></a>
+<hr size="6">
+<a name="Creating-a-sequence-of-notes-on-various-pitches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Coloring-notes-depending-on-their-pitch" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Coloring notes depending on their pitch&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Dodecaphonic-style accidentals for each note including naturals &gt; </a>]</td></tr></table>
+<a name="Creating-a-sequence-of-notes-on-various-pitches"></a>
+<h2 class="unnumberedsec">Creating a sequence of notes on various pitches</h2>
+
+
+<p>In music that contains many occurrences of the same sequence of notes
+at different pitches, the following music function may prove useful. 
+It takes a note, of which only the pitch is used.  The supporting
+Scheme functions were borrowed from the &quot;Tips and tricks&quot; document in
+the manual for version 2.10.   This example creates the rhythm used
+throughout Mars, from Gustav Holst&rsquo;s The Planets. 
+</p>
+
+<pre class="verbatim">#(define (make-note-req p d)
+   (make-music 'NoteEvent
+	       'duration d
+	       'pitch p))
+
+#(define (make-note p d)
+   (make-music 'EventChord
+	       'elements (list (make-note-req p d))))
+
+#(define (make-triplet elt)
+   (make-music 'TimeScaledMusic
+	       'denominator 3
+	       'numerator 2
+	       'element elt))
+
+rhythm =
+#(define-music-function (parser location note) (ly:music?)
+   &quot;Make the rhythm in Mars (the Planets) at the given note's pitch&quot;
+   (let ((p (ly:music-property
+             (car (ly:music-property note 'elements))
+             'pitch)))
+     (make-sequential-music
+      (list
+       (make-triplet (make-sequential-music
+                      (list
+                       (make-note p (ly:make-duration 3 0 2 3))
+                       (make-note p (ly:make-duration 3 0 2 3))
+                       (make-note p (ly:make-duration 3 0 2 3)))))
+       (make-note p (ly:make-duration 2 0))
+       (make-note p (ly:make-duration 2 0))
+       (make-note p (ly:make-duration 3 0))
+       (make-note p (ly:make-duration 3 0))
+       (make-note p (ly:make-duration 2 0))))))
+
+\new Staff {
+  \time 5/4
+  \rhythm c'
+  \rhythm c''
+  \rhythm g
+}
+</pre><p>
+ <a href="../3e/lily-1f155039.ly">
+  <img align="middle"
+       border="0"
+       src="../3e/lily-1f155039.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="dodecaphonic-style-accidentals-for-each-note-including-naturals.ly"></a>
+<hr size="6">
+<a name="Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Creating-a-sequence-of-notes-on-various-pitches" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Creating a sequence of notes on various pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Generating-random-notes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Generating random notes &gt; </a>]</td></tr></table>
+<a name="Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals"></a>
+<h2 class="unnumberedsec">Dodecaphonic-style accidentals for each note including naturals</h2>
+
+
+<p>In early 20th century works, starting with Schoenberg, Berg and Webern
+(the &quot;Second&quot; Viennese school), every pitch in the twelve-tone scale
+has to be regarded as equal, without any hierarchy such as the
+classical (tonal) degrees. Therefore, these composers print one
+accidental for each note, even at natural pitches, to emphasize their
+new approach to music theory and language.
+</p>
+<p>This snippet shows how to achieve such notation rules. 
+</p>
+
+<pre class="verbatim">\score {
+  \new Staff {
+    #(set-accidental-style 'dodecaphonic)
+    c'4 dis' cis' cis'
+    c'4 dis' cis' cis'
+    c'4 c' dis' des'
+  }
+  \layout {
+    \context {
+      \Staff
+      \remove &quot;Key_engraver&quot;
+    }
+  }
+}
+
+</pre><p>
+ <a href="../68/lily-3c286cf8.ly">
+  <img align="middle"
+       border="0"
+       src="../68/lily-3c286cf8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="generating-random-notes.ly"></a>
+<hr size="6">
+<a name="Generating-random-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Dodecaphonic-style accidentals for each note including naturals&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Makam-example" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Makam example &gt; </a>]</td></tr></table>
+<a name="Generating-random-notes"></a>
+<h2 class="unnumberedsec">Generating random notes</h2>
+
+
+<p>This Scheme-based snippet generates 24 random notes (or as many as
+required), based on the current time (or any randomish number specified
+instead, in order to obtain the same random notes each time): i.e., to
+get different random note patterns, just change this number.
+</p>
+
+<pre class="verbatim">\score {
+  {
+    #(let ((random-state (seed-&gt;random-state (current-time))))
+       (ly:export
+        (make-sequential-music
+         (map (lambda (x)
+                (let ((idx (random 12 random-state)))
+                  (make-event-chord
+                   (list
+                    (make-music 'NoteEvent
+                                'duration (ly:make-duration 2 0 1 1)
+                                'pitch (ly:make-pitch
+                                        (quotient idx 7)
+                                        (remainder idx 7)
+                                        0))))))
+              (make-list 24)))))
+  }
+}
+</pre><p>
+ <a href="../9b/lily-b3b41669.ly">
+  <img align="middle"
+       border="0"
+       src="../9b/lily-b3b41669.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="makam-example.ly"></a>
+<hr size="6">
+<a name="Makam-example"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Generating-random-notes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Generating random notes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Non_002dtraditional-key-signatures" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Non-traditional key signatures &gt; </a>]</td></tr></table>
+<a name="Makam-example"></a>
+<h2 class="unnumberedsec">Makam example</h2>
+
+
+<p>Makam is a type of melody from Turkey using 1/9th-tone microtonal
+alterations. Consult the initialization file &lsquo;<samp>ly/makam.ly</samp>&rsquo; for
+details of pitch names and alterations. 
+</p>
+
+<pre class="verbatim">% Initialize makam settings
+\include &quot;makam.ly&quot;
+
+\relative c' {
+  \set Staff.keySignature = #`((3 . ,BAKIYE) (6 . ,(- KOMA)))
+  c4 cc db fk
+  gbm4 gfc gfb efk
+  fk4 db cc c
+}
+</pre><p>
+ <a href="../e8/lily-d6dd9777.ly">
+  <img align="middle"
+       border="0"
+       src="../e8/lily-d6dd9777.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="non-traditional-key-signatures.ly"></a>
+<hr size="6">
+<a name="Non_002dtraditional-key-signatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Makam-example" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Makam example&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ottava-text" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ottava text &gt; </a>]</td></tr></table>
+<a name="Non_002dtraditional-key-signatures"></a>
+<h2 class="unnumberedsec">Non-traditional key signatures</h2>
+
+
+<p>The commonly used <code>\key</code> command sets the <code>keySignature</code>
+property, in the <code>Staff</code> context.
+</p>
+<p>To create non-standard key signatures, set this property directly. The
+format of this command is a list:
+</p>
+<p><code> \set Staff.keySignature = #`(((octave . step) . alter) ((octave
+. step) . alter) ...) </code> where, for each element in the list,
+<code>octave</code> specifies the octave (0 being the octave from middle C to
+the B above), <code>step</code> specifies the note within the octave (0 means
+C and 6 means B), and <code>alter</code> is <code>,SHARP ,FLAT ,DOUBLE-SHARP</code>
+etc. (Note the leading comma.) The accidentals in the key signature
+will appear in the reverse order to that in which they are specified.
+</p>
+
+<p>Alternatively, for each item in the list, using the more concise format
+<code>(step . alter)</code> specifies that the same alteration should hold in
+all octaves.
+</p>
+
+<p>For microtonal scales where a &quot;sharp&quot; is not 100 cents, <code>alter</code>
+refers to the alteration as a proportion of a 200-cent whole tone.
+</p>
+
+<p>Here is an example of a possible key signature for generating a
+whole-tone scale: 
+</p>
+
+<pre class="verbatim">\relative c' {
+  \set Staff.keySignature = #`(((0 . 3) . ,SHARP)
+                               ((0 . 5) . ,FLAT)
+                               ((0 . 6) . ,FLAT))
+  c4 d e fis
+  aes4 bes c2
+}
+</pre><p>
+ <a href="../16/lily-01f358a1.ly">
+  <img align="middle"
+       border="0"
+       src="../16/lily-01f358a1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ottava-text.ly"></a>
+<hr size="6">
+<a name="Ottava-text"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Non_002dtraditional-key-signatures" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Non-traditional key signatures&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Preventing-extra-naturals-from-being-automatically-added" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Preventing extra naturals from being automatically added &gt; </a>]</td></tr></table>
+<a name="Ottava-text"></a>
+<h2 class="unnumberedsec">Ottava text</h2>
+
+
+<p>Internally, <code>\ottava</code> sets the properties <code>ottavation</code> (for
+example, to <code>&quot;8va&quot;</code> or <code>&quot;8vb&quot;</code>) and
+<code>middleCPosition</code>.  To override the text of the bracket, set
+<code>ottavation</code> after invoking <code>\ottava</code>.
+</p>
+
+<pre class="verbatim">{
+  \ottava #1
+  \set Staff.ottavation = #&quot;8&quot;
+  c''1
+  \ottava #0
+  c'1
+  \ottava #1
+  \set Staff.ottavation = #&quot;Text&quot;
+  c''1
+}
+
+</pre><p>
+ <a href="../26/lily-af63d2eb.ly">
+  <img align="middle"
+       border="0"
+       src="../26/lily-af63d2eb.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="preventing-extra-naturals-from-being-automatically-added.ly"></a>
+<hr size="6">
+<a name="Preventing-extra-naturals-from-being-automatically-added"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ottava-text" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ottava text&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Preventing-natural-signs-from-being-printed-when-the-key-signature-changes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Preventing natural signs from being printed when the key signature changes &gt; </a>]</td></tr></table>
+<a name="Preventing-extra-naturals-from-being-automatically-added"></a>
+<h2 class="unnumberedsec">Preventing extra naturals from being automatically added</h2>
+
+
+<p>In accordance with standard typesetting rules, a natural sign is
+printed before a sharp or flat if a previous accidental on the same
+note needs to be canceled.  To change this behavior, set the
+<code>extraNatural</code> property to &quot;false&quot; in the <code>Staff</code> context.
+</p>
+
+
+
+<pre class="verbatim">\relative c'' {
+  aeses4 aes ais a
+  \set Staff.extraNatural = ##f
+  aeses4 aes ais a
+}
+
+</pre><p>
+ <a href="../25/lily-5155fa55.ly">
+  <img align="middle"
+       border="0"
+       src="../25/lily-5155fa55.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="preventing-natural-signs-from-being-printed-when-the-key-signature-changes.ly"></a>
+<hr size="6">
+<a name="Preventing-natural-signs-from-being-printed-when-the-key-signature-changes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Preventing-extra-naturals-from-being-automatically-added" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Preventing extra naturals from being automatically added&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Quoting-another-voice-with-transposition" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Quoting another voice with transposition &gt; </a>]</td></tr></table>
+<a name="Preventing-natural-signs-from-being-printed-when-the-key-signature-changes"></a>
+<h2 class="unnumberedsec">Preventing natural signs from being printed when the key signature changes</h2>
+
+
+<p>When the key signature changes, natural signs are automatically printed
+to cancel any accidentals from previous key signatures.  This may be
+prevented by setting to &quot;false&quot; the <code>printKeyCancellation</code>
+property in the <code>Staff</code> context. 
+</p>
+
+<pre class="verbatim">\relative c' {
+  \key d \major
+  a4 b cis d
+  \key g \minor
+  a4 bes c d
+  \set Staff.printKeyCancellation = ##f
+  \key d \major
+  a4 b cis d
+  \key g \minor
+  a4 bes c d
+}
+
+</pre><p>
+ <a href="../2d/lily-c65e6504.ly">
+  <img align="middle"
+       border="0"
+       src="../2d/lily-c65e6504.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="quoting-another-voice-with-transposition.ly"></a>
+<hr size="6">
+<a name="Quoting-another-voice-with-transposition"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Preventing-natural-signs-from-being-printed-when-the-key-signature-changes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Preventing natural signs from being printed when the key signature changes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Separating-key-cancellations-from-key-signature-changes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Separating key cancellations from key signature changes &gt; </a>]</td></tr></table>
+<a name="Quoting-another-voice-with-transposition"></a>
+<h2 class="unnumberedsec">Quoting another voice with transposition</h2>
+
+
+<p>Quotations take into account the transposition of both source and
+target.  In this example, all instruments play sounding middle C; the
+target is an instrument in F.  The target part may be transposed using
+<code>\transpose</code>.  In this case, all the pitches (including the
+quoted ones) are transposed.
+</p>
+
+<pre class="verbatim">\addQuote clarinet {
+  \transposition bes
+  \repeat unfold 8 { d'16 d' d'8 }
+}
+
+\addQuote sax {
+  \transposition es'
+  \repeat unfold 16 { a8 }
+}
+
+quoteTest = {
+  % french horn
+  \transposition f
+  g'4
+  &lt;&lt; \quoteDuring #&quot;clarinet&quot; { \skip 4 } s4^&quot;clar.&quot; &gt;&gt;
+  &lt;&lt; \quoteDuring #&quot;sax&quot; { \skip 4 } s4^&quot;sax.&quot; &gt;&gt;
+  g'4
+}
+
+{
+  \set Staff.instrumentName =
+    \markup {
+      \center-column { Horn \line { in F } }
+    }
+  \quoteTest
+  \transpose c' d' &lt;&lt; \quoteTest s4_&quot;up a tone&quot; &gt;&gt;
+}
+</pre><p>
+ <a href="../57/lily-f73ccb24.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-f73ccb24.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="separating-key-cancellations-from-key-signature-changes.ly"></a>
+<hr size="6">
+<a name="Separating-key-cancellations-from-key-signature-changes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Quoting-another-voice-with-transposition" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Quoting another voice with transposition&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Transposing pitches with minimum accidentals (&quot;Smart&quot; transpose) &gt; </a>]</td></tr></table>
+<a name="Separating-key-cancellations-from-key-signature-changes"></a>
+<h2 class="unnumberedsec">Separating key cancellations from key signature changes</h2>
+
+
+<p>By default, the accidentals used for key cancellations are placed
+adjacent to those for key signature changes.  This behavior can be
+changed by overriding the <code>'break-align-orders</code> property of the
+<code>BreakAlignment</code> grob.
+</p>
+
+<p>The value of <code>'break-align-orders</code> is a vector of length 3, with
+quoted lists of breakable items as elements.  This example only
+modifies the second list, moving <code>key-cancellation</code> before
+<code>staff-bar</code>; by modifying the second list, break alignment
+behavior only changes in the middle of a system, not at the beginning
+or the end. 
+</p>
+
+<pre class="verbatim">\new Staff {
+  \override Score.BreakAlignment #'break-align-orders =
+    #'#((left-edge ambitus breathing-sign clef staff-bar
+                   key-cancellation key-signature time-signature custos)
+      
+        (left-edge ambitus breathing-sign clef key-cancellation
+                   staff-bar key-signature time-signature custos)
+      
+        (left-edge ambitus breathing-sign clef key-cancellation
+                   key-signature staff-bar time-signature custos))
+
+  \key des \major
+  c'1
+  \bar &quot;||&quot;
+  \key bes \major
+  c'1
+}
+</pre><p>
+ <a href="../52/lily-a1e4742f.ly">
+  <img align="middle"
+       border="0"
+       src="../52/lily-a1e4742f.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="transposing-pitches-with-minimum-accidentals-smart-transpose.ly"></a>
+<hr size="6">
+<a name="Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Separating-key-cancellations-from-key-signature-changes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Separating key cancellations from key signature changes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Tweaking-clef-properties" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Tweaking clef properties &gt; </a>]</td></tr></table>
+<a name="Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029"></a>
+<h2 class="unnumberedsec">Transposing pitches with minimum accidentals (&quot;Smart&quot; transpose)</h2>
+
+
+<p>This example uses some Scheme code to enforce enharmonic modifications
+for notes in order to have the minimum number of accidentals.  In this
+case, the following rules apply:
+</p>
+<p>Double accidentals should be removed
+</p>
+
+<p>B sharp -&gt; C
+</p>
+
+<p>E sharp -&gt; F
+</p>
+
+<p>C flat -&gt; B
+</p>
+
+<p>F flat -&gt; E
+</p>
+
+<p>In this manner, the most natural enharmonic notes are chosen. 
+</p>
+
+<pre class="verbatim">#(define (naturalize-pitch p)
+  (let ((o (ly:pitch-octave p))
+        (a (* 4 (ly:pitch-alteration p)))
+        ;; alteration, a, in quarter tone steps,
+        ;; for historical reasons
+        (n (ly:pitch-notename p)))
+    (cond
+     ((and (&gt; a 1) (or (eq? n 6) (eq? n 2)))
+      (set! a (- a 2))
+      (set! n (+ n 1)))
+     ((and (&lt; a -1) (or (eq? n 0) (eq? n 3)))
+      (set! a (+ a 2))
+      (set! n (- n 1))))
+    (cond
+     ((&gt; a 2) (set! a (- a 4)) (set! n (+ n 1)))
+     ((&lt; a -2) (set! a (+ a 4)) (set! n (- n 1))))
+    (if (&lt; n 0) (begin (set! o (- o 1)) (set! n (+ n 7))))
+    (if (&gt; n 6) (begin (set! o (+ o 1)) (set! n (- n 7))))
+    (ly:make-pitch o n (/ a 4))))
+
+#(define (naturalize music)
+  (let ((es (ly:music-property music 'elements))
+        (e (ly:music-property music 'element))
+        (p (ly:music-property music 'pitch)))
+    (if (pair? es)
+       (ly:music-set-property!
+         music 'elements
+         (map (lambda (x) (naturalize x)) es)))
+    (if (ly:music? e)
+       (ly:music-set-property!
+         music 'element
+         (naturalize e)))
+    (if (ly:pitch? p)
+       (begin
+         (set! p (naturalize-pitch p))
+         (ly:music-set-property! music 'pitch p)))
+    music))
+
+naturalizeMusic =
+#(define-music-function (parser location m)
+  (ly:music?)
+  (naturalize m))
+
+music = \relative c' { c4 d e g }
+
+\score {
+  \new Staff {
+    \transpose c ais { \music }
+    \naturalizeMusic \transpose c ais { \music }
+    \transpose c deses { \music }
+    \naturalizeMusic \transpose c deses { \music }
+  }
+  \layout { }
+}
+</pre><p>
+ <a href="../4f/lily-3de48283.ly">
+  <img align="middle"
+       border="0"
+       src="../4f/lily-3de48283.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="tweaking-clef-properties.ly"></a>
+<hr size="6">
+<a name="Tweaking-clef-properties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Transposing pitches with minimum accidentals (&quot;Smart&quot; transpose)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Rhythms.html#Rhythms" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Rhythms &gt; </a>]</td></tr></table>
+<a name="Tweaking-clef-properties"></a>
+<h2 class="unnumberedsec">Tweaking clef properties</h2>
+
+
+<p>The command <code>\clef &quot;treble_8&quot;</code> is equivalent to setting
+<code>clefGlyph</code>, <code>clefPosition</code> (which controls the vertical
+position of the clef), <code>middleCPosition</code> and
+<code>clefOctavation</code>. A clef is printed when any of the properties
+except <code>middleCPosition</code> are changed.
+</p>
+
+<p>Note that changing the glyph, the position of the clef, or the
+octavation does not in itself change the position of subsequent notes
+on the staff: the position of middle C must also be specified to do
+this. The positional parameters are relative to the staff center line,
+positive numbers displacing upwards, counting one for each line and
+space. The <code>clefOctavation</code> value would normally be set to 7, -7,
+15 or -15, but other values are valid.
+</p>
+
+<p>When a clef change takes place at a line break the new clef symbol is
+printed at both the end of the previous line and the beginning of the
+new line by default. If the warning clef at the end of the previous
+line is not required it can be suppressed by setting the <code>Staff</code>
+property <code>explicitClefVisibility</code> to the value
+<code>end-of-line-invisible</code>. The default behavior can be recovered
+with  <code>\unset Staff.explicitClefVisibility</code>.
+</p>
+<p>The following examples show the possibilities when setting these
+properties manually. On the first line, the manual changes preserve the
+standard relative positioning of clefs and notes, whereas on the second
+line, they do not. 
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##t }
+
+{
+  % The default treble clef
+  c'1
+  % The standard bass clef
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  \set Staff.middleCPosition = #6
+  c'1
+  % The baritone clef
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  \set Staff.clefPosition = #4
+  \set Staff.middleCPosition = #4
+  c'1
+  % The standard choral tenor clef
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  \set Staff.clefPosition = #-2
+  \set Staff.clefOctavation = #-7
+  \set Staff.middleCPosition = #1
+  c'1
+  % A non-standard clef
+  \set Staff.clefPosition = #0
+  \set Staff.clefOctavation = #0
+  \set Staff.middleCPosition = #-4
+  c'1 \break
+
+  % The following clef changes do not preserve
+  % the normal relationship between notes and clefs:
+
+  \set Staff.clefGlyph = #&quot;clefs.F&quot;
+  \set Staff.clefPosition = #2
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.G&quot;
+  c'1
+  \set Staff.clefGlyph = #&quot;clefs.C&quot;
+  c'1
+  \set Staff.clefOctavation = #7
+  c'1
+  \set Staff.clefOctavation = #0
+  \set Staff.clefPosition = #0
+  c'1
+  
+  % Return to the normal clef:
+
+  \set Staff.middleCPosition = #0
+  c'1
+}
+
+</pre><p>
+ <a href="../0b/lily-b3c92d4b.ly">
+  <img align="middle"
+       border="0"
+       src="../0b/lily-b3c92d4b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Pitches" title="Beginning of this chapter or previous chapter"> &lt;&lt; Pitches&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Rhythms.html#Rhythms" title="Next chapter">&nbsp;Rhythms &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Transposing pitches with minimum accidentals (&quot;Smart&quot; transpose)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Pitches" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Pitches&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Rhythms.html#Rhythms" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Rhythms &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>
+  <ul class="toc">
+    <li><a name="toc-Adding-ambitus-per-voice-3" href="Pitches.html#Adding-ambitus-per-voice">Adding ambitus per voice</a>    </li>
+    <li><a name="toc-Ambitus-with-multiple-voices-2" href="Pitches.html#Ambitus-with-multiple-voices">Ambitus with multiple voices</a>    </li>
+    <li><a name="toc-Ambitus-2" href="Pitches.html#Ambitus">Ambitus</a>    </li>
+    <li><a name="toc-Applying-note-head-styles-depending-on-the-step-of-the-scale-1" href="Pitches.html#Applying-note-head-styles-depending-on-the-step-of-the-scale">Applying note head styles depending on the step of the scale</a>    </li>
+    <li><a name="toc-Coloring-notes-depending-on-their-pitch-1" href="Pitches.html#Coloring-notes-depending-on-their-pitch">Coloring notes depending on their pitch</a>    </li>
+    <li><a name="toc-Creating-a-sequence-of-notes-on-various-pitches-1" href="Pitches.html#Creating-a-sequence-of-notes-on-various-pitches">Creating a sequence of notes on various pitches</a>    </li>
+    <li><a name="toc-Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals-1" href="Pitches.html#Dodecaphonic_002dstyle-accidentals-for-each-note-including-naturals">Dodecaphonic-style accidentals for each note including naturals</a>    </li>
+    <li><a name="toc-Generating-random-notes-1" href="Pitches.html#Generating-random-notes">Generating random notes</a>    </li>
+    <li><a name="toc-Makam-example-2" href="Pitches.html#Makam-example">Makam example</a>    </li>
+    <li><a name="toc-Non_002dtraditional-key-signatures-1" href="Pitches.html#Non_002dtraditional-key-signatures">Non-traditional key signatures</a>    </li>
+    <li><a name="toc-Ottava-text-2" href="Pitches.html#Ottava-text">Ottava text</a>    </li>
+    <li><a name="toc-Preventing-extra-naturals-from-being-automatically-added-1" href="Pitches.html#Preventing-extra-naturals-from-being-automatically-added">Preventing extra naturals from being automatically added</a>    </li>
+    <li><a name="toc-Preventing-natural-signs-from-being-printed-when-the-key-signature-changes-1" href="Pitches.html#Preventing-natural-signs-from-being-printed-when-the-key-signature-changes">Preventing natural signs from being printed when the key signature changes</a>    </li>
+    <li><a name="toc-Quoting-another-voice-with-transposition-1" href="Pitches.html#Quoting-another-voice-with-transposition">Quoting another voice with transposition</a>    </li>
+    <li><a name="toc-Separating-key-cancellations-from-key-signature-changes-1" href="Pitches.html#Separating-key-cancellations-from-key-signature-changes">Separating key cancellations from key signature changes</a>    </li>
+    <li><a name="toc-Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029-1" href="Pitches.html#Transposing-pitches-with-minimum-accidentals-_0028_0022Smart_0022-transpose_0029">Transposing pitches with minimum accidentals (&quot;Smart&quot; transpose)</a>    </li>
+    <li><a name="toc-Tweaking-clef-properties-2" href="Pitches.html#Tweaking-clef-properties">Tweaking clef properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

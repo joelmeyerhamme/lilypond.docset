@@ -1,0 +1,990 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.7.1 Innerhalb des Systems</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.7.1 Inside the staff">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.7.1 Inside the staff">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Editorial-annotations.de.html#Editorial-annotations" rel="up" title="1.7 Editorial annotations">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Editorial-annotations.de.html#Editorial-annotations" rel="previous" title="1.7 Editorial annotations">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Inside-the-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Editorial-annotations.de.html#Editorial-annotations" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Anmerkungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Editorial-annotations.de.html#Editorial-annotations" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Anmerkungen&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Selecting-notation-font-size" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Auswahl der Notations-Schriftgröße &gt; </a>]</td></tr></table>
+<a name="Inside-the-staff"></a>
+<h3 class="subsection">1.7.1 Innerhalb des Systems</h3>
+
+<p>Dieser Abschnitt zeigt, wie man Elemente hervorhebt, die sich
+innerhalb des Notensystems befinden.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Selecting-notation-font-size" accesskey="1">Auswahl der Notations-Schriftgröße</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Fingering-instructions" accesskey="2">Fingersatzanweisungen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Hidden-notes" accesskey="3">Unsichtbare Noten</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Coloring-objects" accesskey="4">Farbige Objekte</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Parentheses" accesskey="5">Klammern</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Stems" accesskey="6">Hälse</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Selecting-notation-font-size"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Inside-the-staff" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Fingering-instructions" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Fingersatzanweisungen &gt; </a>]</td></tr></table>
+<a name="Selecting-notation-font-size"></a>
+<h4 class="unnumberedsubsubsec">Auswahl der Notations-Schriftgröße</h4>
+
+<a name="index-Font_002c-Grosse-andern-fur-Notation"></a>
+<a name="index-Schriftgrosse-_0028Notation_0029-andern"></a>
+<a name="index-Auswahl-von-Schriftgrosse-_0028Notation_0029"></a>
+<a name="index-Noten_002c-Schriftgrosse"></a>
+<a name="index-Notenkopfe"></a>
+<a name="index-fontSize"></a>
+<a name="index-fontSize-1"></a>
+<a name="index-font_002dsize"></a>
+<a name="index-font_002dsize-1"></a>
+<a name="index-magstep"></a>
+<a name="index-magstep-1"></a>
+<a name="index-_005chuge"></a>
+<a name="index-_005chuge-1"></a>
+<a name="index-_005clarge"></a>
+<a name="index-_005clarge-1"></a>
+<a name="index-_005cnormalsize"></a>
+<a name="index-_005cnormalsize-1"></a>
+<a name="index-_005csmall"></a>
+<a name="index-_005csmall-1"></a>
+<a name="index-_005ctiny"></a>
+<a name="index-_005ctiny-1"></a>
+<a name="index-_005cteeny"></a>
+<a name="index-_005cteeny-1"></a>
+<a name="index-huge"></a>
+<a name="index-huge-1"></a>
+<a name="index-large"></a>
+<a name="index-large-1"></a>
+<a name="index-normalsize"></a>
+<a name="index-normalsize-1"></a>
+<a name="index-small"></a>
+<a name="index-small-1"></a>
+<a name="index-tiny"></a>
+<a name="index-tiny-1"></a>
+<a name="index-teeny"></a>
+<a name="index-teeny-1"></a>
+
+<p>Die Schriftgröße von Notationselementen kann geändert werden.
+Damit wird allerdings nicht die Größe von veränderlichen
+Symbolen, wie Balken oder Bögen, geändert.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Achtung:</b> Für Schriftgröße von Text, siehe
+<a href="Formatting-text.de.html#Selecting-font-and-font-size">Überblick über die wichtigsten Textbeschriftungsbefehle</a>.
+</p></td></tr></table>
+
+<blockquote><pre class="verbatim">\huge
+c4.-&gt; d8---3
+\large
+c4.-&gt; d8---3
+\normalsize
+c4.-&gt; d8---3
+\small
+c4.-&gt; d8---3
+\tiny
+c4.-&gt; d8---3
+\teeny
+c4.-&gt; d8---3
+</pre><p>
+ <a href="../b2/lily-e6d1f96c.ly">
+  <img align="middle"
+       border="0"
+       src="../b2/lily-e6d1f96c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Intern wird hiermit die <code>fontSize</code>-Eigenschaft gesetzt.  Sie
+wird für alle Layout-Objekte definiert.  Der Wert von
+<code>font-size</code> ist eine Zahl, die die Größe relativ zur Standardgröße
+für die aktuelle Systemhöhe angibt.  Jeder Vergrößerungsschritt bedeutet
+etwa eine Vergrößerung um 12% der Schriftgröße.  Mit sechs Schritten wird
+die Schriftgröße exakt verdoppelt.  Die Scheme-Funktion <code>magstep</code>
+wandelt einen Wert von <code>font-size</code> in einen Skalierungsfaktor um.
+Die <code>font-size</code>-Eigenschaft kann auch direkt gesetzt werden, so dass
+sie sich nur auf bestimmte Layoutobjekte bezieht.
+</p>
+<blockquote><pre class="verbatim">\set fontSize = #3
+c4.-&gt; d8---3
+\override NoteHead #'font-size = #-4
+c4.-&gt; d8---3
+\override Script #'font-size = #2
+c4.-&gt; d8---3
+\override Stem #'font-size = #-5
+c4.-&gt; d8---3
+</pre><p>
+ <a href="../2e/lily-85624c92.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-85624c92.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Standard_002dSchriftgrosse-_0028Notation_0029"></a>
+<a name="index-Schriftgrosse-_0028Notation_0029_002c-Standard"></a>
+<a name="index-font_002dinterface"></a>
+<a name="index-font_002dinterface-1"></a>
+<a name="index-font_002dsize-2"></a>
+<a name="index-font_002dsize-3"></a>
+
+<p>Schriftgrößenänderungen werden erreicht, indem man die Design-Schriftgröße
+nimmt, die der gewünschten am nächsten kommt, und sie dann skaliert.  Die
+Standard-Schriftgröße (für <code>font-size = #0</code>) hängt von der
+Standard-Systemhöhe ab. Für ein Notensystem von 20pt wird eine Schriftgröße
+von 10pt ausgewählt.
+</p>
+<p>Die <code>font-size</code>-Eigenschaft kann nur für die Layoutobjekte gesetzt
+werden, die Schrift-Dateien benutzen.  Das sind die, welche die
+<code>font-interface</code>-Layoutschnittstelle unterstützen.
+</p>
+
+<a name="Predefined-commands-25"></a>
+<h4 class="subsubheading">Vordefinierte Befehle</h4>
+<p><code>\teeny</code>,
+<code>\tiny</code>,
+<code>\small</code>,
+<code>\normalsize</code>,
+<code>\large</code>,
+<code>\huge</code>.
+</p>
+<a name="See-also-143"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-font_002dinterface-2"></a>
+<a href="../lilypond-internals/font_002dinterface.de.html#font_002dinterface">font-interface</a>.
+</p>
+
+<hr size="6">
+<a name="Fingering-instructions"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Selecting-notation-font-size" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Auswahl der Notations-Schriftgröße&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Hidden-notes" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Unsichtbare Noten &gt; </a>]</td></tr></table>
+<a name="Fingering-instructions"></a>
+<h4 class="unnumberedsubsubsec">Fingersatzanweisungen</h4>
+
+<a name="index-Fingersatz"></a>
+<a name="index-Fingerwechsel"></a>
+<a name="index-Griff_003a-Fingersatz"></a>
+<a name="index-_005cfinger"></a>
+<a name="index-_005cfinger-1"></a>
+<a name="index-finger"></a>
+<a name="index-finger-1"></a>
+
+<p>Fingersatzanweisungen können folgenderweise notiert werden:
+<var>Note</var>-<var>Zahl</var>
+</p>
+<blockquote><pre class="verbatim">c4-1 d-2 f-4 e-3
+</pre><p>
+ <a href="../5c/lily-ba50c9b0.ly">
+  <img align="middle"
+       border="0"
+       src="../5c/lily-ba50c9b0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Für Fingerwechsel muss eine Textbeschriftung (markup) benutzt werden:
+</p>
+<blockquote><pre class="verbatim">c4-1 d-2 f-4 c^\markup { \finger &quot;2 - 3&quot; }
+</pre><p>
+ <a href="../39/lily-6c851efb.ly">
+  <img align="middle"
+       border="0"
+       src="../39/lily-6c851efb.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-thumb_002dscript"></a>
+<a name="index-Fingersatz_003a-Daumen_002dZeichen"></a>
+<a name="index-_005cthumb"></a>
+<a name="index-_005cthumb-1"></a>
+<a name="index-thumb"></a>
+<a name="index-thumb-1"></a>
+
+<p>Mit dem Daumen-Befehl (<code>\thumb</code>) können die Noten bezeichnet 
+werden, die mit dem 
+Daumen (etwa auf dem Cello) gespielt werden sollen.
+</p>
+<blockquote><pre class="verbatim">&lt;a_\thumb a'-3&gt;2 &lt;b_\thumb b'-3&gt;
+</pre><p>
+ <a href="../cd/lily-893c1a75.ly">
+  <img align="middle"
+       border="0"
+       src="../cd/lily-893c1a75.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Fingersatz_003a-Akkorde"></a>
+<a name="index-Akkorde_003a-Fingersatz"></a>
+
+<p>Fingersätze für Akkorde können auch zu einzelnen Noten des 
+Akkordes hinzugefügt werden, indem sie innerhalb der Akkord-Klammer 
+direkt an die Noten angefügt werden.
+</p>
+<blockquote><pre class="verbatim">&lt;c-1 e-2 g-3 b-5&gt;2 &lt;d-1 f-2 a-3 c-5&gt;
+</pre><p>
+ <a href="../e5/lily-4f7e9294.ly">
+  <img align="middle"
+       border="0"
+       src="../e5/lily-4f7e9294.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Fingersatzanweisungen können manuell oberhalb des Systems gesetzt werden, siehe
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>.
+</p>
+<a name="Selected-Snippets-50"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<p><em> Controlling the placement of chord fingerings</em>
+</p>
+
+<p>The placement of fingering numbers can be controlled precisely.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \set fingeringOrientations = #'(left)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(down)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(down right up)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(up)
+  &lt;c-1 e-3 a-5&gt;4
+  \set fingeringOrientations = #'(left)
+  &lt;c-1&gt;2
+  \set fingeringOrientations = #'(down)
+  &lt;e-3&gt;2
+}
+
+
+</pre><p>
+ <a href="../2a/lily-bb4540d3.ly">
+  <img align="middle"
+       border="0"
+       src="../2a/lily-bb4540d3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Allowing fingerings to be printed inside the staff</em>
+</p>
+
+<p>By default, vertically oriented fingerings are positioned outside the
+staff.  However, this behavior can be canceled.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  &lt;c-1 e-2 g-3 b-5&gt;2
+  \once \override Fingering #'staff-padding = #'()
+  &lt;c-1 e-2 g-3 b-5&gt;2
+}
+
+</pre><p>
+ <a href="../74/lily-a512bc73.ly">
+  <img align="middle"
+       border="0"
+       src="../74/lily-a512bc73.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Avoiding collisions with chord fingerings</em>
+</p>
+
+<p>Fingerings and string numbers applied to individual notes will
+automatically avoid beams and stems, but this is not true by default
+for fingerings and string numbers applied to the individual notes of
+chords.  The following example shows how this default behavior can be
+overridden.
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \set fingeringOrientations = #'(up)
+  \set stringNumberOrientations = #'(up)
+  \set strokeFingerOrientations = #'(up)
+  
+  % Standart
+  r8
+  &lt;f c'-5&gt;8
+  &lt;f c'\5&gt;8
+  &lt;f c'-\rightHandFinger #2 &gt;8
+  
+  % Korrigiert, um Zusammenstöße zu vermeiden
+  r8
+  \override Fingering #'add-stem-support = ##t
+  &lt;f c'-5&gt;8
+  \override StringNumber #'add-stem-support = ##t
+  &lt;f c'\5&gt;8
+  \override StrokeFinger #'add-stem-support = ##t
+  &lt;f c'-\rightHandFinger #2 &gt;8
+}
+
+</pre><p>
+ <a href="../61/lily-81073e34.ly">
+  <img align="middle"
+       border="0"
+       src="../61/lily-81073e34.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-26"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-FingeringEvent"></a>
+<a href="../lilypond-internals/FingeringEvent.de.html#FingeringEvent">FingeringEvent</a>,
+<a name="index-fingering_002devent"></a>
+<a href="../lilypond-internals/fingering_002devent.de.html#fingering_002devent">fingering-event</a>,
+<a name="index-Fingering_005fengraver"></a>
+<a href="../lilypond-internals/Fingering_005fengraver.de.html#Fingering_005fengraver">Fingering_engraver</a>,
+<a name="index-New_005ffingering_005fengraver"></a>
+<a href="../lilypond-internals/New_005ffingering_005fengraver.de.html#New_005ffingering_005fengraver">New_fingering_engraver</a>,
+<a name="index-Fingering"></a>
+<a href="../lilypond-internals/Fingering.de.html#Fingering">Fingersatz</a>.
+</p>
+
+<hr size="6">
+<a name="Hidden-notes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Fingering-instructions" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Fingersatzanweisungen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Coloring-objects" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Farbige Objekte &gt; </a>]</td></tr></table>
+<a name="Hidden-notes"></a>
+<h4 class="unnumberedsubsubsec">Unsichtbare Noten</h4>
+
+<a name="index-Noten-verstecken"></a>
+<a name="index-Verstecken-von-Noten"></a>
+<a name="index-Noten_002c-unsichtbar"></a>
+<a name="index-unsichtbare-Noten"></a>
+<a name="index-durchsichtige-Noten"></a>
+<a name="index-Noten_002c-durchsichtig"></a>
+<a name="index-transparent_002c-Noten"></a>
+<a name="index-_005chideNotes"></a>
+<a name="index-_005chideNotes-1"></a>
+<a name="index-hideNotes"></a>
+<a name="index-hideNotes-1"></a>
+<a name="index-_005cunHideNotes"></a>
+<a name="index-_005cunHideNotes-1"></a>
+<a name="index-unHideNotes"></a>
+<a name="index-unHideNotes-1"></a>
+
+<p>Versteckte (oder unsichtbare oder transparente) Noten können sinnvoll sein,
+wenn man Notation für den Theorieunterricht oder Kompositionsübungen
+erstellen will.
+</p>
+<blockquote><pre class="verbatim">c4 d
+\hideNotes
+e4 f
+\unHideNotes
+g a
+\hideNotes
+b
+\unHideNotes
+c
+</pre><p>
+ <a href="../02/lily-7b5e82ec.ly">
+  <img align="middle"
+       border="0"
+       src="../02/lily-7b5e82ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Notationsobjekte, die an die unsichtbaren Noten angefügt sind, sind weiterhin
+sichtbar.
+</p>
+<blockquote><pre class="verbatim">c4( d)
+\hideNotes
+e4(\p f)--
+</pre><p>
+ <a href="../26/lily-d159d40e.ly">
+  <img align="middle"
+       border="0"
+       src="../26/lily-d159d40e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Predefined-commands-20"></a>
+<h4 class="subsubheading">Vordefinierte Befehle</h4>
+<p><code>\hideNotes</code>,
+<code>\unHideNotes</code>.
+</p>
+<a name="See-also-116"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Note_005fspacing_005fengraver"></a>
+<a href="../lilypond-internals/Note_005fspacing_005fengraver.de.html#Note_005fspacing_005fengraver">Note_spacing_engraver</a>,
+<a name="index-NoteSpacing"></a>
+<a href="../lilypond-internals/NoteSpacing.de.html#NoteSpacing">NoteSpacing</a>.
+</p>
+
+<hr size="6">
+<a name="Coloring-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Hidden-notes" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Unsichtbare Noten&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Parentheses" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Klammern &gt; </a>]</td></tr></table>
+<a name="Coloring-objects"></a>
+<h4 class="unnumberedsubsubsec">Farbige Objekte</h4>
+
+<a name="index-Objekte_002c-farbig"></a>
+<a name="index-Farbe"></a>
+<a name="index-Einfarben-von-Objekten"></a>
+<a name="index-Noten_002c-farbig"></a>
+<a name="index-farbige-Noten"></a>
+<a name="index-X11_002dFarben"></a>
+<a name="index-with_002dcolor"></a>
+<a name="index-color"></a>
+<a name="index-color-1"></a>
+<a name="index-_005cwith_002dcolor"></a>
+<a name="index-_005cwith_002dcolor-1"></a>
+<a name="index-with_002dcolor-1"></a>
+<a name="index-with_002dcolor-2"></a>
+<a name="index-x11_002dcolor"></a>
+<a name="index-x11_002dcolor-1"></a>
+
+<p>Einzelnen Objekten können einfach eigene Farben zugewiesen werden.
+Gültige Farben-Bezeichnungen sind aufgelistet in <a href="List-of-colors.de.html#List-of-colors">Liste der Farben</a>.
+</p>
+<blockquote><pre class="verbatim">\override NoteHead #'color = #red
+c4 c
+\override NoteHead #'color = #(x11-color 'LimeGreen)
+d
+\override Stem #'color = #blue
+e
+</pre><p>
+ <a href="../19/lily-afcb5d8e.ly">
+  <img align="middle"
+       border="0"
+       src="../19/lily-afcb5d8e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die ganze Farbpalette, die für X11 definiert ist, kann mit der
+Scheme-Funktion <code>x11-color</code> benutzt werden.  Diese Funktion
+hat ein Argument: entweder ein Symbol in der Form <var>&rsquo;FooBar</var>
+oder eine Zeichenkette in der Form <code>&quot;FooBar&quot;</code>.  Die erste
+Form ist schneller zu schreiben und effizienter.  Mit der zweiten
+Form ist es allerdings möglich, auch Farbbezeichnungen einzusetzen,
+die aus mehr als einem Wort bestehen.
+</p>
+<p>Wenn <code>x11-color</code> die angegebene Farbbezeichnung nicht kennt, wird
+Schwarz eingesetzt.
+</p>
+<blockquote><pre class="verbatim">\override Staff.StaffSymbol #'color = #(x11-color 'SlateBlue2)
+\set Staff.instrumentName = \markup {
+  \with-color #(x11-color 'navy) &quot;Clarinet&quot;
+}
+
+gis8 a
+\override Beam #'color = #(x11-color &quot;medium turquoise&quot;)
+gis a
+\override Accidental #'color = #(x11-color 'DarkRed)
+gis a
+\override NoteHead #'color = #(x11-color &quot;LimeGreen&quot;)
+gis a
+% Das ist Unsinn, die Hälsen bleiben schwarz
+\override Stem #'color = #(x11-color 'Boggle)
+b2 cis
+</pre><p>
+ <a href="../e4/lily-bb547d90.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-bb547d90.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-RGB_002dFarbe"></a>
+<a name="index-Farbe_002c-RGB"></a>
+<a name="index-rgb_002dcolor"></a>
+<a name="index-rgb_002dcolor-1"></a>
+
+<p>Exakte RGB-Farben können mit Hilfe der Scheme-Funktion <code>rgb-color</code>
+definiert werden.
+</p>
+<blockquote><pre class="verbatim">\override Staff.StaffSymbol #'color = #(x11-color 'SlateBlue2)
+\set Staff.instrumentName = \markup {
+  \with-color #(x11-color 'navy) &quot;Clarinet&quot;
+}
+
+\override Stem #'color = #(rgb-color 0 0 0)
+gis8 a
+\override Stem #'color = #(rgb-color 1 1 1)
+gis8 a
+\override Stem #'color = #(rgb-color 0 0 0.5)
+gis4 a
+</pre><p>
+ <a href="../3a/lily-1628661f.ly">
+  <img align="middle"
+       border="0"
+       src="../3a/lily-1628661f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-79"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="List-of-colors.de.html#List-of-colors">Liste der Farben</a>, <a href="The-tweak-command.de.html#The-tweak-command">Der <code>\tweak</code>-Befehl</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<a name="index-x11_002dFarbe"></a>
+<a name="index-farbige-Noten-in-Akkorden"></a>
+<a name="index-Noten_002c-farbige-in-Akkorden"></a>
+<a name="index-Akkorde_003a-farbige-Noten"></a>
+<a name="index-x11_002dcolor-2"></a>
+<a name="index-x11_002dcolor-3"></a>
+
+<a name="Known-issues-and-warnings-34"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+<p>Eine X11-Farbe hat nicht notwendigerweise exakt denselben Farbton wie
+eine ähnlich genannte normale Farbe.
+</p>
+<p>Nicht alle X11-Farben lassen sich am Webbrowser erkennen, d. h. der
+Unterschied etwa zwischen <code>'LimeGreen</code> und <code>'ForestGreen</code> wird
+eventuell nicht dargestellt.  Für die Benutzung im Internet wird
+die Benutzung von einfachen Farben nahegelegt (z. B. <code>#blue</code>,
+<code>#green</code>, <code>#red</code>).
+</p>
+<p>Noten in Akkorden können nicht mit <code>\override</code> eingefärbt werden,
+dazu muss <code>\tweak</code> benutzt werden. Siehe auch <a href="The-tweak-command.de.html#The-tweak-command">Der <code>\tweak</code>-Befehl</a>.
+</p>
+
+
+<hr size="6">
+<a name="Parentheses"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Coloring-objects" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Farbige Objekte&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Stems" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Hälse &gt; </a>]</td></tr></table>
+<a name="Parentheses"></a>
+<h4 class="unnumberedsubsubsec">Klammern</h4>
+
+<a name="index-Geisternoten"></a>
+<a name="index-Noten-in-Klammern"></a>
+<a name="index-Klammern-um-Noten"></a>
+<a name="index-editorische-Noten"></a>
+<a name="index-_005cparenthesize"></a>
+<a name="index-_005cparenthesize-1"></a>
+<a name="index-parenthesize"></a>
+<a name="index-parenthesize-1"></a>
+
+<p>Objekte können in Klammern gesetzt werden, indem vor ihnen der Befehl
+<code>\parenthesize</code> geschrieben wird.  Wenn ein Akkord in Klammern gesetzt
+wird, wirkt sich das auf jede Noten im Akkord aus.  Innerhalb von einem
+Akkord gesetzte Befehle wirken sich auf einzelne Noten aus.
+</p>
+<blockquote><pre class="verbatim">c2 \parenthesize d
+c2 \parenthesize &lt;c e g&gt;
+c2 &lt;c \parenthesize e g&gt;
+</pre><p>
+ <a href="../3a/lily-a867226b.ly">
+  <img align="middle"
+       border="0"
+       src="../3a/lily-a867226b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Auch andere Objekte als Noten können in Klammern gesetzt werden.
+</p>
+<blockquote><pre class="verbatim">c2-\parenthesize -. d
+c2 \parenthesize r
+</pre><p>
+ <a href="../23/lily-23ffa158.ly">
+  <img align="middle"
+       border="0"
+       src="../23/lily-23ffa158.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-138"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Parenthesis_005fengraver"></a>
+<a href="../lilypond-internals/Parenthesis_005fengraver.de.html#Parenthesis_005fengraver">Parenthesis_engraver</a>,
+<a name="index-ParenthesesItem"></a>
+<a href="../lilypond-internals/ParenthesesItem.de.html#ParenthesesItem">ParenthesesItem</a>,
+<a name="index-parentheses_002dinterface"></a>
+<a href="../lilypond-internals/parentheses_002dinterface.de.html#parentheses_002dinterface">parentheses-interface</a>.
+</p>
+<a name="Known-issues-and-warnings-16"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Wenn man einen Akkord einklammert, wird um jede Note eine eigene Klammer
+gesetzt, anstatt den gesamten Akkord in eine große Klammer zu fassen.
+</p>
+
+
+<hr size="6">
+<a name="Stems"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Parentheses" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Klammern&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside-the-staff.de.html#Outside-the-staff" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Außerhalb des Notensystems &gt; </a>]</td></tr></table>
+<a name="Stems"></a>
+<h4 class="unnumberedsubsubsec">Hälse</h4>
+
+<a name="index-Hals"></a>
+<a name="index-Hals_002c-unsichtbar"></a>
+<a name="index-Notenhals_002c-unsichtbar"></a>
+<a name="index-unsichtbarer-Notenhals"></a>
+
+<p>Immer, wenn das Programm eine Note findet, wird automatisch 
+ein Notenhals (<a name="index-Stem"></a>
+<a href="../lilypond-internals/Stem.de.html#Stem">Stem</a>) -Objekt erzeugt. Auch 
+für ganze Noten und Pausen werden sie erzeugt, aber unsichtbar 
+gemacht.
+</p>
+<a name="index-_005cstemNeutral"></a>
+<a name="index-_005cstemNeutral-1"></a>
+<a name="index-_005cstemUp"></a>
+<a name="index-_005cstemUp-1"></a>
+<a name="index-_005cstemDown"></a>
+<a name="index-_005cstemDown-1"></a>
+<a name="index-stemNeutral"></a>
+<a name="index-stemNeutral-1"></a>
+<a name="index-stemUp"></a>
+<a name="index-stemUp-1"></a>
+<a name="index-stemDown"></a>
+<a name="index-stemDown-1"></a>
+
+<a name="Predefined-commands-2"></a>
+<h4 class="subsubheading">Vordefinierte Befehle</h4>
+<p><code>\stemUp</code> (Hälse nach oben),
+<code>\stemDown</code> (Hälse nach unten),
+<code>\stemNeutral</code> (Hälse je nach Notenposition).
+</p>
+
+<a name="Selected-Snippets-44"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<a name="index-Hals_002c-Richtung-von"></a>
+<a name="index-Notenhals_002c-Richtung-von"></a>
+<a name="index-Hals-nach-oben"></a>
+<a name="index-Hals-nach-unten"></a>
+<a name="index-Hals-neutral"></a>
+
+<p><em> Default direction of stems on the center line of the staff</em>
+</p>
+
+<p>The default direction of stems on the center line of the staff is set
+by the <code>Stem</code> property <code>neutral-direction</code>.
+</p>
+
+<blockquote><pre class="verbatim">\relative c'' {
+  a4 b c b
+  \override Stem #'neutral-direction = #up
+  a4 b c b
+  \override Stem #'neutral-direction = #down
+  a4 b c b
+}
+
+</pre><p>
+ <a href="../94/lily-550f059d.ly">
+  <img align="middle"
+       border="0"
+       src="../94/lily-550f059d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-67"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Notationsreferenz:
+<a href="Direction-and-placement.de.html#Direction-and-placement">Richtung und Platzierung</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Editorial-annotations.html#Editorial-annotations">Anmerkungen</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Stem_005fengraver"></a>
+<a href="../lilypond-internals/Stem_005fengraver.de.html#Stem_005fengraver">Stem_engraver</a>,
+<a name="index-Stem-1"></a>
+<a href="../lilypond-internals/Stem.de.html#Stem">Stem</a>,
+<a name="index-stem_002dinterface"></a>
+<a href="../lilypond-internals/stem_002dinterface.de.html#stem_002dinterface">stem-interface</a>.
+</p>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Parentheses" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Klammern&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Inside-the-staff" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Innerhalb des Systems&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside-the-staff.de.html#Outside-the-staff" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Außerhalb des Notensystems &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Inside-the-staff.html">English</a>, <a href="Inside-the-staff.fr.html">français</a>, <a href="Inside-the-staff.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li class="toc_current"><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Inside-the-staff-1" href="Inside-the-staff.de.html#Inside-the-staff">1.7.1 Innerhalb des Systems</a>
+      <ul class="toc">
+        <li><a name="toc-Selecting-notation-font-size-1" href="Inside-the-staff.de.html#Selecting-notation-font-size">Auswahl der Notations-Schriftgröße</a>        </li>
+        <li><a name="toc-Fingering-instructions-1" href="Inside-the-staff.de.html#Fingering-instructions">Fingersatzanweisungen</a>        </li>
+        <li><a name="toc-Hidden-notes-1" href="Inside-the-staff.de.html#Hidden-notes">Unsichtbare Noten</a>        </li>
+        <li><a name="toc-Coloring-objects-1" href="Inside-the-staff.de.html#Coloring-objects">Farbige Objekte</a>        </li>
+        <li><a name="toc-Parentheses-1" href="Inside-the-staff.de.html#Parentheses">Klammern</a>        </li>
+        <li><a name="toc-Stems-1" href="Inside-the-staff.de.html#Stems">Hälse</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Outside-the-staff-1" href="Outside-the-staff.de.html#Outside-the-staff">1.7.2 Außerhalb des Notensystems</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

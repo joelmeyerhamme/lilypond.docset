@@ -1,0 +1,876 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.1.24 VaticanaStaff</title>
+
+<meta name="description" content="LilyPond program-reference: 2.1.24 VaticanaStaff">
+<meta name="keywords" content="LilyPond program-reference: 2.1.24 VaticanaStaff">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ja.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.ja.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.ja.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.ja.html#SEC_About" rel="help" title="About This Document">
+<link href="Contexts.ja.html#Contexts" rel="up" title="2.1 Contexts">
+<link href="Indices.ja.html#Indices" rel="next" title="A.2 Function index">
+<link href="TabVoice.ja.html#TabVoice" rel="previous" title="2.1.23 TabVoice">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="VaticanaStaff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.ja.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.ja.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.ja.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="TabVoice.ja.html#TabVoice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; TabVoice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.ja.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="VaticanaVoice.ja.html#VaticanaVoice" title="Next section in reading order" accesskey="n" rel="next">&nbsp;VaticanaVoice &gt; </a>]</td></tr></table>
+<a name="VaticanaStaff"></a>
+<h3 class="subsection">2.1.24 VaticanaStaff</h3>
+
+<p>Same as <code>Staff</code> context, except that it is
+accommodated for typesetting Gregorian Chant in the notational style
+of Editio Vaticana.
+</p>
+<p>This context also accepts commands for the following context(s):
+</p>
+<p>Staff.
+</p>
+<p>This context creates the following layout object(s):
+</p>
+<p><a href="AccidentalCautionary.ja.html#AccidentalCautionary">AccidentalCautionary</a>, <a href="AccidentalPlacement.ja.html#AccidentalPlacement">AccidentalPlacement</a>, <a href="AccidentalSuggestion.ja.html#AccidentalSuggestion">AccidentalSuggestion</a>, <a href="Accidental.ja.html#Accidental">Accidental</a>, <a href="BarLine.ja.html#BarLine">BarLine</a>, <a href="BassFigureAlignmentPositioning.ja.html#BassFigureAlignmentPositioning">BassFigureAlignmentPositioning</a>, <a href="BassFigureAlignment.ja.html#BassFigureAlignment">BassFigureAlignment</a>, <a href="BassFigureBracket.ja.html#BassFigureBracket">BassFigureBracket</a>, <a href="BassFigureContinuation.ja.html#BassFigureContinuation">BassFigureContinuation</a>, <a href="BassFigureLine.ja.html#BassFigureLine">BassFigureLine</a>, <a href="BassFigure.ja.html#BassFigure">BassFigure</a>, <a href="Clef.ja.html#Clef">Clef</a>, <a href="Custos.ja.html#Custos">Custos</a>, <a href="DotColumn.ja.html#DotColumn">DotColumn</a>, <a href="InstrumentName.ja.html#InstrumentName">InstrumentName</a>, <a href="KeyCancellation.ja.html#KeyCancellation">KeyCancellation</a>, <a href="KeySignature.ja.html#KeySignature">KeySignature</a>, <a href="LedgerLineSpanner.ja.html#LedgerLineSpanner">LedgerLineSpanner</a>, <a href="NoteCollision.ja.html#NoteCollision">NoteCollision</a>, <a href="OctavateEight.ja.html#OctavateEight">OctavateEight</a>, <a href="OttavaBracket.ja.html#OttavaBracket">OttavaBracket</a>, <a href="PianoPedalBracket.ja.html#PianoPedalBracket">PianoPedalBracket</a>, <a href="RestCollision.ja.html#RestCollision">RestCollision</a>, <a href="ScriptRow.ja.html#ScriptRow">ScriptRow</a>, <a href="SostenutoPedalLineSpanner.ja.html#SostenutoPedalLineSpanner">SostenutoPedalLineSpanner</a>, <a href="SostenutoPedal.ja.html#SostenutoPedal">SostenutoPedal</a>, <a href="StaffSpacing.ja.html#StaffSpacing">StaffSpacing</a>, <a href="StaffSymbol.ja.html#StaffSymbol">StaffSymbol</a>, <a href="SustainPedalLineSpanner.ja.html#SustainPedalLineSpanner">SustainPedalLineSpanner</a>, <a href="SustainPedal.ja.html#SustainPedal">SustainPedal</a>, <a href="UnaCordaPedalLineSpanner.ja.html#UnaCordaPedalLineSpanner">UnaCordaPedalLineSpanner</a>, <a href="UnaCordaPedal.ja.html#UnaCordaPedal">UnaCordaPedal</a> and <a href="VerticalAxisGroup.ja.html#VerticalAxisGroup">VerticalAxisGroup</a>.
+</p>
+<p>This context sets the following properties:
+</p>
+<ul>
+<li> Set grob-property <code>style</code> in <a href="Dots.ja.html#Dots">Dots</a> to <code>'vaticana</code>.
+</li><li> Set grob-property <code>neutral-direction</code> in <a href="Custos.ja.html#Custos">Custos</a> to <code>-1</code>.
+</li><li> Set grob-property <code>neutral-position</code> in <a href="Custos.ja.html#Custos">Custos</a> to <code>3</code>.
+</li><li> Set grob-property <code>style</code> in <a href="Custos.ja.html#Custos">Custos</a> to <code>'vaticana</code>.
+</li><li> Set grob-property <code>glyph-name-alist</code> in <a href="Accidental.ja.html#Accidental">Accidental</a> to <code>'((-1/2 . accidentals.vaticanaM1) (0 . accidentals.vaticana0) (1/2 . accidentals.mensural1))</code>.
+</li><li> Set grob-property <code>glyph-name-alist</code> in <a href="KeySignature.ja.html#KeySignature">KeySignature</a> to <code>'((-1/2 . accidentals.vaticanaM1) (0 . accidentals.vaticana0) (1/2 . accidentals.mensural1))</code>.
+</li><li> Set translator property <code>clefOctavation</code> to <code>0</code>.
+</li><li> Set translator property <code>clefPosition</code> to <code>1</code>.
+</li><li> Set translator property <code>middleCClefPosition</code> to <code>1</code>.
+</li><li> Set translator property <code>middleCPosition</code> to <code>1</code>.
+</li><li> Set translator property <code>clefGlyph</code> to <code>&quot;clefs.vaticana.do&quot;</code>.
+</li><li> Set grob-property <code>thickness</code> in <a href="StaffSymbol.ja.html#StaffSymbol">StaffSymbol</a> to <code>0.6</code>.
+</li><li> Set grob-property <code>line-count</code> in <a href="StaffSymbol.ja.html#StaffSymbol">StaffSymbol</a> to <code>4</code>.
+</li><li> Set grob-property <code>transparent</code> in <a href="BarLine.ja.html#BarLine">BarLine</a> to <code>#t</code>.
+</li><li> Set translator property <code>shortInstrumentName</code> to <code>'()</code>.
+</li><li> Set translator property <code>instrumentName</code> to <code>'()</code>.
+</li><li> Set grob-property <code>minimum-Y-extent</code> in <a href="VerticalAxisGroup.ja.html#VerticalAxisGroup">VerticalAxisGroup</a> to <code>'(-4 . 4)</code>.
+</li><li> Set translator property <code>ignoreFiguredBassRest</code> to <code>#t</code>.
+</li><li> Set translator property <code>createSpacing</code> to <code>#t</code>.
+</li><li> Set translator property <code>localKeySignature</code> to <code>'()</code>.
+</li></ul>
+
+
+<p>Context VaticanaStaff can contain
+<a href="VaticanaVoice.ja.html#VaticanaVoice">VaticanaVoice</a> and <a href="CueVoice.ja.html#CueVoice">CueVoice</a>.
+</p>
+<p>This context is built from the following engraver(s):
+</p><blockquote><dl compact="compact">
+<dt> <code><a href="Custos_005fengraver.ja.html#Custos_005fengraver">Custos_engraver</a></code></dt>
+<dd><p>Engrave custodes.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Custos.ja.html#Custos">Custos</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Script_005frow_005fengraver.ja.html#Script_005frow_005fengraver">Script_row_engraver</a></code></dt>
+<dd><p>Determine order in horizontal side position elements.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="ScriptRow.ja.html#ScriptRow">ScriptRow</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Figured_005fbass_005fposition_005fengraver.ja.html#Figured_005fbass_005fposition_005fengraver">Figured_bass_position_engraver</a></code></dt>
+<dd><p>Position figured bass alignments over notes.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BassFigureAlignmentPositioning.ja.html#BassFigureAlignmentPositioning">BassFigureAlignmentPositioning</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Figured_005fbass_005fengraver.ja.html#Figured_005fbass_005fengraver">Figured_bass_engraver</a></code></dt>
+<dd><p>Make figured bass numbers.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="bass_002dfigure_002devent.ja.html#bass_002dfigure_002devent">bass-figure-event</a> and <a href="rest_002devent.ja.html#rest_002devent">rest-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>figuredBassAlterationDirection</code> (direction)</dt>
+<dd><p>Where to put alterations
+relative to the main figure.
+</p></dd>
+<dt> <code>figuredBassCenterContinuations</code> (boolean)</dt>
+<dd><p>Whether to vertically
+center pairs of extender lines.  This does not work with three or more
+lines.
+</p></dd>
+<dt> <code>figuredBassFormatter</code> (procedure)</dt>
+<dd><p>A routine generating a markup
+for a bass figure.
+</p></dd>
+<dt> <code>implicitBassFigures</code> (list)</dt>
+<dd><p>A list of bass figures that are not
+printed as numbers, but only as extender lines.
+</p></dd>
+<dt> <code>useBassFigureExtenders</code> (boolean)</dt>
+<dd><p>Whether to use extender lines
+for repeated bass figures.
+</p></dd>
+<dt> <code>ignoreFiguredBassRest</code> (boolean)</dt>
+<dd><p>Don&rsquo;t swallow rest events.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BassFigure.ja.html#BassFigure">BassFigure</a>, <a href="BassFigureAlignment.ja.html#BassFigureAlignment">BassFigureAlignment</a>, <a href="BassFigureBracket.ja.html#BassFigureBracket">BassFigureBracket</a>, <a href="BassFigureContinuation.ja.html#BassFigureContinuation">BassFigureContinuation</a> and <a href="BassFigureLine.ja.html#BassFigureLine">BassFigureLine</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Axis_005fgroup_005fengraver.ja.html#Axis_005fgroup_005fengraver">Axis_group_engraver</a></code></dt>
+<dd><p>Group all objects created in this context in a <code>VerticalAxisGroup</code> spanner.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="VerticalAxisGroup.ja.html#VerticalAxisGroup">VerticalAxisGroup</a>.
+</p>
+
+</dd>
+<dt> <code><a href="String_005fnumber_005fengraver.ja.html#String_005fnumber_005fengraver">String_number_engraver</a></code></dt>
+<dd><p>Swallow string number events.  The purpose of this engraver is to process tablatures for normal notation.  To provent warnings for unprocessed string number events to obscure real error messages, this engraver swallows them all.
+</p>
+
+
+
+
+
+</dd>
+<dt> <code><a href="Instrument_005fname_005fengraver.ja.html#Instrument_005fname_005fengraver">Instrument_name_engraver</a></code></dt>
+<dd><p>Create a system start text for instrument or vocal names.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>shortInstrumentName</code> (markup)</dt>
+<dd><p>See <code>instrument</code>.
+</p></dd>
+<dt> <code>instrumentName</code> (markup)</dt>
+<dd><p>The name to print left of a staff.  The
+<code>instrument</code> property labels the staff in the first system, and
+the <code>instr</code> property labels following lines.
+</p></dd>
+<dt> <code>shortVocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line, short version.
+</p></dd>
+<dt> <code>vocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="InstrumentName.ja.html#InstrumentName">InstrumentName</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Piano_005fpedal_005falign_005fengraver.ja.html#Piano_005fpedal_005falign_005fengraver">Piano_pedal_align_engraver</a></code></dt>
+<dd><p>Align piano pedal symbols and brackets.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="SostenutoPedalLineSpanner.ja.html#SostenutoPedalLineSpanner">SostenutoPedalLineSpanner</a>, <a href="SustainPedalLineSpanner.ja.html#SustainPedalLineSpanner">SustainPedalLineSpanner</a> and <a href="UnaCordaPedalLineSpanner.ja.html#UnaCordaPedalLineSpanner">UnaCordaPedalLineSpanner</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Piano_005fpedal_005fengraver.ja.html#Piano_005fpedal_005fengraver">Piano_pedal_engraver</a></code></dt>
+<dd><p>Engrave piano pedal symbols and brackets.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="una_002dcorda_002devent.ja.html#una_002dcorda_002devent">una-corda-event</a>, <a href="sustain_002devent.ja.html#sustain_002devent">sustain-event</a> and <a href="sostenuto_002devent.ja.html#sostenuto_002devent">sostenuto-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>currentCommandColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+current breakable (clef, key signature, etc.) items.
+</p></dd>
+<dt> <code>pedalSostenutoStrings</code> (list)</dt>
+<dd><p>See <code>pedalSustainStrings</code>.
+</p></dd>
+<dt> <code>pedalSostenutoStyle</code> (symbol)</dt>
+<dd><p>See <code>pedalSustainStyle</code>.
+</p></dd>
+<dt> <code>pedalSustainStrings</code> (list)</dt>
+<dd><p>A list of strings to print for
+sustain-pedal.  Format is <code>(<var>up</var> <var>updown</var> <var>down</var>)</code>,
+where each of the three is the string to print when this is done with
+the pedal.
+</p></dd>
+<dt> <code>pedalSustainStyle</code> (symbol)</dt>
+<dd><p>A symbol that indicates how to print
+sustain pedals: <code>text</code>, <code>bracket</code> or <code>mixed</code> (both).
+</p></dd>
+<dt> <code>pedalUnaCordaStrings</code> (list)</dt>
+<dd><p>See <code>pedalSustainStrings</code>.
+</p></dd>
+<dt> <code>pedalUnaCordaStyle</code> (symbol)</dt>
+<dd><p>See <code>pedalSustainStyle</code>.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="PianoPedalBracket.ja.html#PianoPedalBracket">PianoPedalBracket</a>, <a href="SostenutoPedal.ja.html#SostenutoPedal">SostenutoPedal</a>, <a href="SustainPedal.ja.html#SustainPedal">SustainPedal</a> and <a href="UnaCordaPedal.ja.html#UnaCordaPedal">UnaCordaPedal</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Accidental_005fengraver.ja.html#Accidental_005fengraver">Accidental_engraver</a></code></dt>
+<dd><p>Make accidentals.  Catch note heads, ties and notices key-change events.  This engraver usually lives at Staff level, but reads the settings for Accidental at <code>Voice</code> level, so you can <code>\override</code> them at <code>Voice</code>.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>autoAccidentals</code> (list)</dt>
+<dd><p>List of different ways to typeset an
+accidental.
+</p>
+<p>For determining when to print an accidental, several different rules
+are tried.  The rule that gives the highest number of accidentals is
+used.
+</p>
+<p>Each entry in the list is either a symbol or a procedure.
+</p>
+<dl compact="compact">
+<dt> <var>symbol</var></dt>
+<dd><p>The symbol is the name of the context in which the following rules are to be
+applied. For example, if <var>context</var> is <a name="index-Score-4"></a>
+<a href="../lilypond-internals/Score.ja.html#Score">Score</a> then all
+staves share accidentals, and if <var>context</var> is <a name="index-Staff-3"></a>
+<a href="../lilypond-internals/Staff.ja.html#Staff">Staff</a> then
+all voices in the same staff share accidentals, but staves do not.
+</p>
+</dd>
+<dt> <var>procedure</var></dt>
+<dd><p>The procedure represents an accidental rule to be applied to the previously
+specified context.
+</p>
+<p>The procedure takes the following arguments:
+</p>
+<dl compact="compact">
+<dt> <code>context</code></dt>
+<dd><p>The current context to which the rule should be applied.
+</p>
+</dd>
+<dt> <code>pitch</code></dt>
+<dd><p>The pitch of the note to be evaluated.
+</p>
+</dd>
+<dt> <code>barnum</code></dt>
+<dd><p>The current bar number.
+</p>
+</dd>
+<dt> <code>measurepos</code></dt>
+<dd><p>The current measure position.
+</p>
+</dd>
+</dl>
+
+<p>The procedure returns a pair of booleans. The first states whether an extra
+natural should be added. The second states whether an accidental should be
+printed. <code>(#t . #f)</code> does not make sense.
+</p>
+</dd>
+</dl>
+</dd>
+<dt> <code>autoCautionaries</code> (list)</dt>
+<dd><p>List similar to <code>autoAccidentals</code>,
+but it controls cautionary accidentals rather than normal ones.  Both
+lists are tried, and the one giving the most accidentals wins.  In
+case of draw, a normal accidental is typeset.
+</p></dd>
+<dt> <code>internalBarNumber</code> (integer)</dt>
+<dd><p>Contains the current barnumber.
+This property is used for internal timekeeping, among others by the
+<code>Accidental_engraver</code>.
+</p></dd>
+<dt> <code>extraNatural</code> (boolean)</dt>
+<dd><p>Whether to typeset an extra natural sign
+before accidentals changing from a non-natural to another
+non-natural.
+</p></dd>
+<dt> <code>harmonicAccidentals</code> (boolean)</dt>
+<dd><p>If set, harmonic notes in chords
+get accidentals.
+</p></dd>
+<dt> <code>keySignature</code> (list)</dt>
+<dd><p>The current key signature.  This is an alist
+containing <code>(<var>step</var> . <var>alter</var>)</code> or <code>((<var>octave</var> .
+<var>step</var>) . <var>alter</var>)</code>,  where <var>step</var> is a number in the range
+0 to&nbsp;6 and <var>alter</var> a fraction, denoting alteration.  For
+alterations, use symbols, e.g. <code>keySignature = #`((6 . ,FLAT))</code>.
+</p></dd>
+<dt> <code>localKeySignature</code> (list)</dt>
+<dd><p>The key signature at this point in the
+measure.  The format is the same as for <code>keySignature</code>, but can
+also contain <code>((<var>octave</var> . <var>name</var>) . (<var>alter</var>
+<var>barnumber</var> . <var>measureposition</var>))</code> pairs.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>localKeySignature</code> (list)</dt>
+<dd><p>The key signature at this point in the
+measure.  The format is the same as for <code>keySignature</code>, but can
+also contain <code>((<var>octave</var> . <var>name</var>) . (<var>alter</var>
+<var>barnumber</var> . <var>measureposition</var>))</code> pairs.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Accidental.ja.html#Accidental">Accidental</a>, <a href="AccidentalCautionary.ja.html#AccidentalCautionary">AccidentalCautionary</a>, <a href="AccidentalPlacement.ja.html#AccidentalPlacement">AccidentalPlacement</a> and <a href="AccidentalSuggestion.ja.html#AccidentalSuggestion">AccidentalSuggestion</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Rest_005fcollision_005fengraver.ja.html#Rest_005fcollision_005fengraver">Rest_collision_engraver</a></code></dt>
+<dd><p>Handle collisions of rests.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="RestCollision.ja.html#RestCollision">RestCollision</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Grob_005fpq_005fengraver.ja.html#Grob_005fpq_005fengraver">Grob_pq_engraver</a></code></dt>
+<dd><p>Administrate when certain grobs (e.g., note heads) stop playing.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>busyGrobs</code> (list)</dt>
+<dd><p>A queue of <code>(<var>end-moment</var> .
+<var>GROB</var>)</code> cons cells.  This is for internal (C++) use only.  This
+property contains the grobs which are still busy (e.g. note heads,
+spanners, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Collision_005fengraver.ja.html#Collision_005fengraver">Collision_engraver</a></code></dt>
+<dd><p>Collect <code>NoteColumns</code>, and as soon as there are two or more, put them in a <code>NoteCollision</code> object.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="NoteCollision.ja.html#NoteCollision">NoteCollision</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Staff_005fsymbol_005fengraver.ja.html#Staff_005fsymbol_005fengraver">Staff_symbol_engraver</a></code></dt>
+<dd><p>Create the constellation of five (default) staff lines.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="staff_002dspan_002devent.ja.html#staff_002dspan_002devent">staff-span-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="StaffSymbol.ja.html#StaffSymbol">StaffSymbol</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Ledger_005fline_005fengraver.ja.html#Ledger_005fline_005fengraver">Ledger_line_engraver</a></code></dt>
+<dd><p>Create the spanner to draw ledger lines, and notices objects that need ledger lines.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="LedgerLineSpanner.ja.html#LedgerLineSpanner">LedgerLineSpanner</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Key_005fengraver.ja.html#Key_005fengraver">Key_engraver</a></code></dt>
+<dd><p>Engrave a key signature.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="key_002dchange_002devent.ja.html#key_002dchange_002devent">key-change-event</a>
+</p>
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>createKeyOnClefChange</code> (boolean)</dt>
+<dd><p>Print a key signature whenever
+the clef is changed.
+</p></dd>
+<dt> <code>explicitKeySignatureVisibility</code> (vector)</dt>
+<dd><p>&lsquo;<samp>break-visibility</samp>&rsquo;
+function for explicit key changes.  &lsquo;<samp>\override</samp>&rsquo; of the
+<code>break-visibility</code> property will set the visibility for normal
+(i.e., at the start of the line) key signatures.
+</p></dd>
+<dt> <code>extraNatural</code> (boolean)</dt>
+<dd><p>Whether to typeset an extra natural sign
+before accidentals changing from a non-natural to another
+non-natural.
+</p></dd>
+<dt> <code>keyAlterationOrder</code> (list)</dt>
+<dd><p>An alist that defines in what order
+alterations should be printed.  The format is <code>(<var>step</var>
+. <var>alter</var>)</code>, where <var>step</var> is a number from 0 to&nbsp;6 and
+<var>alter</var> from -2 (sharp) to 2 (flat).
+</p></dd>
+<dt> <code>keySignature</code> (list)</dt>
+<dd><p>The current key signature.  This is an alist
+containing <code>(<var>step</var> . <var>alter</var>)</code> or <code>((<var>octave</var> .
+<var>step</var>) . <var>alter</var>)</code>,  where <var>step</var> is a number in the range
+0 to&nbsp;6 and <var>alter</var> a fraction, denoting alteration.  For
+alterations, use symbols, e.g. <code>keySignature = #`((6 . ,FLAT))</code>.
+</p></dd>
+<dt> <code>lastKeySignature</code> (list)</dt>
+<dd><p>Last key signature before a key
+signature change.
+</p></dd>
+<dt> <code>printKeyCancellation</code> (boolean)</dt>
+<dd><p>Print restoration alterations
+before a key signature change.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>keySignature</code> (list)</dt>
+<dd><p>The current key signature.  This is an alist
+containing <code>(<var>step</var> . <var>alter</var>)</code> or <code>((<var>octave</var> .
+<var>step</var>) . <var>alter</var>)</code>,  where <var>step</var> is a number in the range
+0 to&nbsp;6 and <var>alter</var> a fraction, denoting alteration.  For
+alterations, use symbols, e.g. <code>keySignature = #`((6 . ,FLAT))</code>.
+</p></dd>
+<dt> <code>lastKeySignature</code> (list)</dt>
+<dd><p>Last key signature before a key
+signature change.
+</p></dd>
+<dt> <code>tonic</code> (pitch)</dt>
+<dd><p>The tonic of the current scale.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="KeyCancellation.ja.html#KeyCancellation">KeyCancellation</a> and <a href="KeySignature.ja.html#KeySignature">KeySignature</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Clef_005fengraver.ja.html#Clef_005fengraver">Clef_engraver</a></code></dt>
+<dd><p>Determine and set reference point for pitches.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>clefGlyph</code> (string)</dt>
+<dd><p>Name of the symbol within the music font.
+</p></dd>
+<dt> <code>clefOctavation</code> (integer)</dt>
+<dd><p>Add this much extra octavation.
+Values of 7 and -7 are common.
+</p></dd>
+<dt> <code>clefPosition</code> (number)</dt>
+<dd><p>Where should the center of the clef
+symbol go, measured in half staff spaces from the center of the
+staff.
+</p></dd>
+<dt> <code>explicitClefVisibility</code> (vector)</dt>
+<dd><p>&lsquo;<samp>break-visibility</samp>&rsquo;
+function for clef changes.
+</p></dd>
+<dt> <code>forceClef</code> (boolean)</dt>
+<dd><p>Show clef symbol, even if it has not
+changed.  Only active for the first clef after the property is set, not
+for the full staff.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="Clef.ja.html#Clef">Clef</a> and <a href="OctavateEight.ja.html#OctavateEight">OctavateEight</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Ottava_005fspanner_005fengraver.ja.html#Ottava_005fspanner_005fengraver">Ottava_spanner_engraver</a></code></dt>
+<dd><p>Create a text spanner when the ottavation property changes.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>ottavation</code> (markup)</dt>
+<dd><p>If set, the text for an ottava spanner.
+Changing this creates a new text spanner.
+</p></dd>
+<dt> <code>originalMiddleCPosition</code> (integer)</dt>
+<dd><p>Used for temporary overriding
+middle&nbsp;C in octavation brackets.
+</p></dd>
+<dt> <code>currentMusicalColumn</code> (layout object)</dt>
+<dd><p>Grob that is X-parent to all
+non-breakable items (note heads, lyrics, etc.).
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="OttavaBracket.ja.html#OttavaBracket">OttavaBracket</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Staff_005fcollecting_005fengraver.ja.html#Staff_005fcollecting_005fengraver">Staff_collecting_engraver</a></code></dt>
+<dd><p>Maintain the <code>stavesFound</code> variable.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>stavesFound</code> (list of grobs)</dt>
+<dd><p>A list of all staff-symbols found.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>stavesFound</code> (list of grobs)</dt>
+<dd><p>A list of all staff-symbols found.
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Dot_005fcolumn_005fengraver.ja.html#Dot_005fcolumn_005fengraver">Dot_column_engraver</a></code></dt>
+<dd><p>Engrave dots on dotted notes shifted to the right of the note.  If omitted, then dots appear on top of the notes.
+</p>
+
+
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="DotColumn.ja.html#DotColumn">DotColumn</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Separating_005fline_005fgroup_005fengraver.ja.html#Separating_005fline_005fgroup_005fengraver">Separating_line_group_engraver</a></code></dt>
+<dd><p>Generate objects for computing spacing parameters.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>createSpacing</code> (boolean)</dt>
+<dd><p>Create <code>StaffSpacing</code> objects?
+Should be set for staves.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>hasStaffSpacing</code> (boolean)</dt>
+<dd><p>True if the current
+<code>CommandColumn</code> contains items that will affect spacing.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="StaffSpacing.ja.html#StaffSpacing">StaffSpacing</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Font_005fsize_005fengraver.ja.html#Font_005fsize_005fengraver">Font_size_engraver</a></code></dt>
+<dd><p>Put <code>fontSize</code> into <code>font-size</code> grob property.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>fontSize</code> (number)</dt>
+<dd><p>The relative size of all grobs in a context.
+</p></dd>
+</dl>
+</blockquote>
+
+
+
+</dd>
+<dt> <code><a href="Bar_005fengraver.ja.html#Bar_005fengraver">Bar_engraver</a></code></dt>
+<dd><p>Create barlines.  This engraver is controlled through the <code>whichBar</code> property.  If it has no bar line to create, it will forbid a linebreak at this point.
+</p>
+
+
+<p>Properties (read)
+</p><blockquote><dl compact="compact">
+<dt> <code>whichBar</code> (string)</dt>
+<dd><p>This property is read to determine what type
+of bar line to create.
+</p>
+<p>Example:
+</p>
+<blockquote><pre class="example">\set Staff.whichBar = &quot;|:&quot;
+</pre></blockquote>
+
+<p>This will create a start-repeat bar in this staff only.  Valid values
+are described in <a name="index-bar_002dline_002dinterface-9"></a>
+<a href="../lilypond-internals/bar_002dline_002dinterface.ja.html#bar_002dline_002dinterface">bar-line-interface</a>.
+</p></dd>
+</dl>
+</blockquote>
+<p>Properties (write)
+</p><blockquote><dl compact="compact">
+<dt> <code>forbidBreak</code> (boolean)</dt>
+<dd><p>If set to <code>##t</code>, prevent a line break
+at this point.
+</p></dd>
+</dl>
+</blockquote>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="BarLine.ja.html#BarLine">BarLine</a>.
+</p>
+
+</dd>
+<dt> <code><a href="Output_005fproperty_005fengraver.ja.html#Output_005fproperty_005fengraver">Output_property_engraver</a></code></dt>
+<dd><p>Apply a procedure to any grob acknowledged.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="apply_002doutput_002devent.ja.html#apply_002doutput_002devent">apply-output-event</a>
+</p>
+
+
+
+</dd>
+</dl>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.ja.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ja.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.ja.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.ja.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.ja.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.ja.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="TabVoice.ja.html#TabVoice" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; TabVoice&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Contexts.ja.html#Contexts" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Contexts&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="VaticanaVoice.ja.html#VaticanaVoice" title="Next section in reading order" accesskey="n" rel="next">&nbsp;VaticanaVoice &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+このページは LilyPond-2.12.3 (安定版) を対象としています。
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.ja.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.ja.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.ja.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.ja.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.ja.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.ja.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.ja.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Contexts-1" href="Contexts.ja.html#Contexts">2.1 Contexts</a>
+    <ul class="toc">
+      <li><a name="toc-ChoirStaff-1" href="ChoirStaff.ja.html#ChoirStaff">2.1.1 ChoirStaff</a>      </li>
+      <li><a name="toc-ChordNames-1" href="ChordNames.ja.html#ChordNames">2.1.2 ChordNames</a>      </li>
+      <li><a name="toc-CueVoice-1" href="CueVoice.ja.html#CueVoice">2.1.3 CueVoice</a>      </li>
+      <li><a name="toc-Devnull-1" href="Devnull.ja.html#Devnull">2.1.4 Devnull</a>      </li>
+      <li><a name="toc-DrumStaff-1" href="DrumStaff.ja.html#DrumStaff">2.1.5 DrumStaff</a>      </li>
+      <li><a name="toc-DrumVoice-1" href="DrumVoice.ja.html#DrumVoice">2.1.6 DrumVoice</a>      </li>
+      <li><a name="toc-FiguredBass-1" href="FiguredBass.ja.html#FiguredBass">2.1.7 FiguredBass</a>      </li>
+      <li><a name="toc-FretBoards-1" href="FretBoards.ja.html#FretBoards">2.1.8 FretBoards</a>      </li>
+      <li><a name="toc-Global-1" href="Global.ja.html#Global">2.1.9 Global</a>      </li>
+      <li><a name="toc-GrandStaff-1" href="GrandStaff.ja.html#GrandStaff">2.1.10 GrandStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionStaff-1" href="GregorianTranscriptionStaff.ja.html#GregorianTranscriptionStaff">2.1.11 GregorianTranscriptionStaff</a>      </li>
+      <li><a name="toc-GregorianTranscriptionVoice-1" href="GregorianTranscriptionVoice.ja.html#GregorianTranscriptionVoice">2.1.12 GregorianTranscriptionVoice</a>      </li>
+      <li><a name="toc-Lyrics-1" href="Lyrics.ja.html#Lyrics">2.1.13 Lyrics</a>      </li>
+      <li><a name="toc-MensuralStaff-1" href="MensuralStaff.ja.html#MensuralStaff">2.1.14 MensuralStaff</a>      </li>
+      <li><a name="toc-MensuralVoice-1" href="MensuralVoice.ja.html#MensuralVoice">2.1.15 MensuralVoice</a>      </li>
+      <li><a name="toc-NoteNames-1" href="NoteNames.ja.html#NoteNames">2.1.16 NoteNames</a>      </li>
+      <li><a name="toc-PianoStaff-1" href="PianoStaff.ja.html#PianoStaff">2.1.17 PianoStaff</a>      </li>
+      <li><a name="toc-RhythmicStaff-1" href="RhythmicStaff.ja.html#RhythmicStaff">2.1.18 RhythmicStaff</a>      </li>
+      <li><a name="toc-Score-1" href="Score.ja.html#Score">2.1.19 Score</a>      </li>
+      <li><a name="toc-Staff-1" href="Staff.ja.html#Staff">2.1.20 Staff</a>      </li>
+      <li><a name="toc-StaffGroup-1" href="StaffGroup.ja.html#StaffGroup">2.1.21 StaffGroup</a>      </li>
+      <li><a name="toc-TabStaff-1" href="TabStaff.ja.html#TabStaff">2.1.22 TabStaff</a>      </li>
+      <li><a name="toc-TabVoice-1" href="TabVoice.ja.html#TabVoice">2.1.23 TabVoice</a>      </li>
+      <li class="toc_current"><a name="toc-VaticanaStaff-1" href="VaticanaStaff.ja.html#VaticanaStaff">2.1.24 VaticanaStaff</a>      </li>
+      <li><a name="toc-VaticanaVoice-1" href="VaticanaVoice.ja.html#VaticanaVoice">2.1.25 VaticanaVoice</a>      </li>
+      <li><a name="toc-Voice-1" href="Voice.ja.html#Voice">2.1.26 Voice</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.ja.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.ja.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.ja.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.ja.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.ja.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.ja.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.ja.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.ja.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.ja.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.ja.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.ja.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.ja.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

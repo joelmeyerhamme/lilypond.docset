@@ -1,0 +1,862 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Manual de aprendizaje de GNU LilyPond: 1.1 Antecedentes</title>
+
+<meta name="description" content="Manual de aprendizaje de GNU LilyPond: 1.1 Background">
+<meta name="keywords" content="Manual de aprendizaje de GNU LilyPond: 1.1 Background">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de aprendizaje">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Introduction.es.html#Introduction" rel="up" title="1. Introduction">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Introduction.es.html#Introduction" rel="previous" title="1. Introduction">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Background"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Introduction.es.html#Introduction" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Introduction.es.html#Introduction" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Introducción&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Engraving" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Grabado &gt; </a>]</td></tr></table>
+<a name="Background"></a>
+<h2 class="section">1.1 Antecedentes</h2>
+
+<p>Esta sección se ocupa de las metas principales y la arquitectura de
+LilyPond.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Engraving" accesskey="1">Grabado</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Automated-engraving" accesskey="2">Grabado automático</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#What-symbols-to-engrave_003f" accesskey="3">¿Qué símbolos grabar?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Music-representation" accesskey="4">Representación musical</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Example-applications" accesskey="5">Aplicaciones de ejemplo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Background" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Antecedentes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automated-engraving" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Grabado automático &gt; </a>]</td></tr></table>
+<a name="Engraving"></a>
+<h3 class="unnumberedsubsec">Grabado</h3>
+
+<a name="index-grabado"></a>
+<a name="index-typografia-musical"></a>
+<a name="index-musical_002c-tipografia"></a>
+<a name="index-plancha_002c-grabado-en"></a>
+<a name="index-musical_002c-grabado"></a>
+
+<p>El arte de la tipografía musical se conoce como <em>grabado (en
+plancha)</em>.  El término deriva del proceso tradicional de la impresión
+musical.  Hace sólo unas décadas, la música impresa se hacía
+estampando la música sobre planchas de zinc o estaño de forma
+invertida como en un espejo.  Después la plancha se entintaba y las
+depresiones causadas por los cortes y estampados retenían la tinta.
+Al presionar una hoja de papel sobre la plancha, se formaba una
+imagen.  El estampado y cortado se hacía completamente a mano.
+Cualquier corrección era muy fastidiosa de realizar, si es que era
+posible hacerla siquiera, así que el grabado tenía que quedar perfecto
+a la primera.  El grabado era una habilidad altamente especializada;
+un artesano necesitaba unos cinco años de preparación antes de poder
+ostentar el título de maestro grabador, y se necesitaban otros cinco
+años de experiencia para ser un auténtico experto.
+</p>
+<p>Hoy en día, toda la música impresa nueva se produce con ordenadores.
+Esto tiene unas ventajas evidentes: las copias son más baratas de
+producir y el trabajo editorial se puede repartir por correo
+electrónico.  Desgraciadamente la penetrante utilización de
+ordenadores también ha hecho disminuir la calidad gráfica de las
+partituras.  Las impresiones de ordenador tienen un aspecto insulso y
+mecánico, lo que hace que sea desagradable tocar a partir de ellas.
+</p>
+<p>Las imágenes siguientes ilustran la diferencia entre el grabado
+tradicional y la salida típica de ordenador, y la tercera imagen
+muestra cómo LilyPond imita el aspecto tradicional.  La imagen de la
+izquierda presenta el dibujo escaneado de un símbolo de bemol sacado
+de una edición publicada en el año 2000.  La del centro es un símbolo
+procedente de una edición de B&auml;renreiter grabada a mano de la
+misma música.  La de la izquierda ilustra los típicos puntos débiles
+de la impresión por ordenador: las líneas del pentagrama son muy
+delgadas, el peso del símbolo del bemol es también demasiado ligero
+como las líneas del pentagrama, y tiene una apariencia rectilínea con
+esquinas afiladas.  En contraste, el bemol de Bärenreiter tiene una
+apariencia redonda, pesada, casi voluptuosa.  Nuestro símbolo del
+bemol se diseñó según éste, entre otros.  Es de forma redondeada y su
+peso está en armonía con el grosor de nuestras líneas de pentagrama,
+que son asimismo mucho más gruesas que las de la edición por
+ordenador.
+</p>
+<table>
+<tr><td width="12%"></td><td width="25%"><img src="../henle-flat-gray.png" alt="png"></td><td width="25%"><img src="../baer-flat-gray.png" alt="png"></td><td width="25%"><img src="../lily-flat-bw.png" alt="png"></td></tr>
+<tr><td width="12%"></td><td width="25%"><p>Henle (2000)
+</p></td><td width="25%"><p>B&auml;renreiter (1950)
+</p></td><td width="25%"><p>Tipografía Feta de LilyPond (2003)
+</p></td></tr>
+</table>
+
+
+<a name="index-simbolos-musicales"></a>
+<a name="index-tipografias"></a>
+<a name="index-negrura"></a>
+<a name="index-equilibrio"></a>
+
+<p>Tratándose del espaciado, la distribución del espacio debe reflejar
+las duraciones que hay entre las notas.  Sin embargo muchas partituras
+modernas se atañen a las duraciones con precisión matemática, lo que
+lleva a unos resultados bastante pobres.  En el siguiente ejemplo se
+muestra un ejemplo dos veces: una utilizando espaciado matemáticamente
+exacto, y otra con ciertas correcciones.  ¿Puede adivinar cuál es
+cuál?
+</p>
+<a name="index-espaciado-optico"></a>
+<p>
+ <a href="../90/lily-35e012eb.ly">
+  <img align="middle"
+       border="0"
+       src="../90/lily-35e012eb.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<p>
+ <a href="../1c/lily-f9b0aa77.ly">
+  <img align="middle"
+       border="0"
+       src="../1c/lily-f9b0aa77.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<a name="index-ritmos-regulares"></a>
+<a name="index-espaciado-regular"></a>
+<a name="index-regular_002c-espaciado"></a>
+
+<p>Cada uno de los dos compases de este fragmento tiene solamente notas
+de duración constante.  El espaciado debería reflejarlo.
+Desgraciadamente el ojo nos engaña un poco; no solamente percibe la
+distancia entre las cabezas de las notas, sino que tiene también en
+cuenta la distancia entre las plicas.  Como resultado, las notas de
+una combinación plica arriba/plica abajo se tendrían que separar
+más, y las notas de una combinación plica abajo/plica arriba
+deberían juntarse, todo ello dependiendo de las posiciones combinadas
+de las notas.  Los dos compases de arriba están impresos con esta
+corrección y los de abajo sin ella, formando grupos de notas pegadas
+con plica abajo/plica arriba.
+</p>
+<p>Los músicos están normalmente más concentrados en tocar que en
+estudiar el aspecto de una partitura, y por ello las pequeñeces sobre
+los detalles tipográficos pueden parecer académicas.  Pero no lo son.
+En las partituras más largas con ritmos monótonos, las correcciones de
+espaciado llevan a sutiles variaciones en la disposición de cada una
+de las líneas dándoles una especie de firma visual distintiva.  Sin
+esta firma, todas las líneas parecerían iguales, y se convertirían en
+un laberinto.  Si un músico aparta la mirada o tiene un lapsus de
+concentración, las líneas podrían perder su lugar sobre el papel.
+</p>
+<p>De forma similar, la fuerza visual de unos símbolos pesados sobre
+gruesas líneas de pentagrama se sostiene mejor cuando el lector se
+aleja del papel, por ejemplo cuando está sobre un atril.  Una
+distribución cuidadosa del espacio blanco permite disponer la música
+muy apretada sin que los símbolos se toquen unos a otros.  El
+resultado reduce a un mínimo las vueltas de página, lo que es una gran
+ventaja.
+</p>
+<p>Ésta es una característica normal del arte tipográfico.  La
+disposición de la página tiene que ser bonita, no sólo por sí misma,
+sino sobre todo porque así ayuda al lector en su tarea.  Para los
+materiales destinados a la interpretación, como las partituras, esto
+es de una importancia doble: los músicos tienen una capacidad de
+concentración limitada.  Cuanta menos atención necesiten para el acto
+de leer, más se pueden dedicar al acto de tocar la música.  Dicho de
+otra forma: una mejor tipografía se traduce en una mejor
+interpretación.
+</p>
+<p>Estos ejemplos demuestran que la tipografía musical es un arte sutil y
+complejo, y que su elaboración requiere una experiencia considerable,
+que los músicos no suelen tener.  LilyPond representa nuestro esfuerzo
+para llevar la excelencia visual de la música grabada a mano a la era
+de la informática, y ponerla a disposición de los músicos normales.
+Hemos ido afinando nuestros algoritmos, diseños de tipografía y
+preferencias del programa para producir una impresión cuya calidad se
+equipara con la de las viejas ediciones que tanto nos gusta contemplar
+y de las que tanto nos gusta tocar.
+</p>
+
+<hr size="6">
+<a name="Automated-engraving"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Engraving" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Grabado&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;¿Qué símbolos grabar? &gt; </a>]</td></tr></table>
+<a name="Automated-engraving"></a>
+<h3 class="unnumberedsubsec">Grabado automático</h3>
+
+<a name="index-grabado-automatizado"></a>
+<a name="index-automatico_002c-grabado"></a>
+
+<p>¿Cómo nos las arreglamos para implementar la tipografía? Si un
+artesano necesita más de diez años para convertirse en un auténtico
+maestro ¿cómo vamos a poder nosotros, simples «hackers», escribir un
+programa que les quite el trabajo?
+</p>
+<p>La respuesta es: no podemos.  Puesto que la tipografía se fundamenta
+en el juicio humano sobre la apariencia, nunca se puede sustituir
+completamente a las personas.  Sin embargo, se puede automatizar gran
+parte del trabajo más duro y repetitivo.  Si LilyPond resuelve la
+mayoría de las situaciones comunes de forma correcta, esto ya será una
+tremenda mejoría sobre los programas existentes.  El resto de los
+casos se podrán afinar a mano.  Con el transcurso de los años, el
+software se puede refinar para que haga un mayor número de cosas de
+forma automática, de tal forma que los ajustes manuales tienden a ser
+cada vez menos necesarios.
+</p>
+<p>Cuando empezamos, escribimos el programa LilyPond completamente en el
+lenguaje C++; la funcionalidad del programa quedaba como esculpida en
+piedra por los desarrolladores.  Este esquema resultó no ser muy
+satisfactorio por una serie de motivos:
+</p>
+<ul>
+<li> Cuando LilyPond comete fallos,
+los usuarios tienen la necesidad de superar las decisiones de
+formateo.  Por ello el usuario debe tener acceso al motor de formateo.
+De aquí que no podamos dejar establecidas las reglas y valores durante
+la compilación, sino que los usuarios deben poder acceder a ellos
+durante la ejecución del programa.
+
+</li><li> El grabado de música es cosa de juicio visual y por ello es cuestión de gustos.
+A pesar de saber tanto como creemos saber, los usuarios pueden no
+estar de acuerdo con nuestras decisiones personales. Por tanto la
+definición del estilo tipográfico también debe estar al alcance del
+usuario.
+
+</li><li> Por último, estamos continuamente refinando los algoritmos de formateo y por
+tanto necesitamos un enfoque flexible para las reglas.  El lenguaje
+C++ fuerza un cierto método para agrupar las reglas que no encaja bien
+con la manera de funcionar de la notación musical.
+
+</li></ul>
+
+<a name="index-Scheme_002c-lenguaje-de-programacion"></a>
+
+<p>Estos problemas se han solucionado integrando un intérprete del
+lenguaje Scheme y reescribiendo parte del código de LilyPond en
+Scheme.  La actual arquitectura de formateo se construye alrededor del
+concepto de objetos gráficos, descrita por variables y funciones de
+Scheme.  Esta arquitectura puede tratar al mismo tiempo con las reglas
+de formateo, el estilo tipográfico y las decisiones de formateo
+individuales.  El usuario tiene acceso directo a la mayor parte de
+estos controles.
+</p>
+<p>Las variables de Scheme controlan las decisiones de formateo.  Por
+ejemplo, muchos objetos gráficos tienen una variable de dirección que
+codifica la elección entre arriba y abajo (o izquierda y
+derecha). Aquí puede ver dos acordes con acentos y signos de arpegio.
+En el primer acorde los objetos gráficos tienen todas sus direcciones
+hacia abajo (o hacia la izquierda).  El segundo acorde tiene todas las
+direcciones hacia arriba (o hacia la derecha).
+</p>
+<blockquote><p>
+ <a href="../ad/lily-a808e181.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-a808e181.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-partitura_002c-dar-formato-a"></a>
+<a name="index-formato_002c-dar-a-una-partitura"></a>
+<a name="index-formateado_002c-reglas-de"></a>
+
+<p>El proceso de formatear una partitura consiste en leer y escribir las
+variables de los objetos gráficos.  Ciertas variables tienen un valor
+predefinido.  Por ejemplo, el grosor de muchas líneas (una
+característica del estilo tipográfico) son variables con un valor
+preestablecido.  Podemos alterar este valor libremente dando así a
+nuestra partitura una impresión tipográfica distinta.
+</p>
+<blockquote><p>
+ <a href="../45/lily-b8e84cc1.ly">
+  <img align="middle"
+       border="0"
+       src="../45/lily-b8e84cc1.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Las reglas de formateo también son variables que están predefinidas:
+cada objeto tiene unas variables que contienen procedimientos.  Estos
+procedimientos realizan el trabajo real de formateo y sustituyéndolos
+por otros podemos alterar el aspecto de los objetos.  En el siguiente
+ejemplo, la regla que define cómo se dibuja la cabeza de una nota se
+altera durante el transcurso del fragmento musical.
+</p>
+<blockquote><p>
+ <a href="../dd/lily-4ee665c7.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-4ee665c7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+<hr size="6">
+<a name="What-symbols-to-engrave_003f"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automated-engraving" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Grabado automático&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Music-representation" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Representación musical &gt; </a>]</td></tr></table>
+<a name="What-symbols-to-engrave_003f"></a>
+<h3 class="unnumberedsubsec">¿Qué símbolos grabar?</h3>
+
+<a name="index-grabado-1"></a>
+<a name="index-tipografia"></a>
+<a name="index-grabador"></a>
+<a name="index-plug_002din"></a>
+<a name="index-complemento-_0028plugin_0029"></a>
+
+<p>El proceso de formateo toma las decisiones sobre dónde colocar los
+símbolos.  Sin embargo esto sólo se puede hacer una vez que se ha
+decidido <em>qué</em> símbolos han de imprimirse, o dicho de otro modo:
+qué notación utilizar.
+</p>
+<p>La notación musical común es un sistema de registro de música que ha
+venido evolucionando desde hace mil años.  La forma que se usa en
+nuestros días data de los primeros tiempos del Renacimiento.  Aunque
+la forma básica (es decir: puntos sobre una pauta de cinco líneas) no
+ha cambiado, los detalles continúan evolucionando para expresar todas
+las innovaciones de la notación contemporánea.  Por tanto abarca unos
+quinientos años de música.  Sus aplicaciones se extienden sobre un
+amplio rango que abarca desde melodías monofónicas hasta monstruosos
+contrapuntos para gran orquesta.
+</p>
+<p>¿Cómo podemos tratar con una bestia de tantas cabezas, y obligarla a
+que se encierre dentro de los límites de un programa de ordenador?
+Nuestra solución es trocear el problema de la notación (por oposición
+al grabado, esto es, a la tipografía) en fragmentos digeribles y más
+fáciles de programar: cada tipo de símbolo se maneja por un módulo
+separado que recibe el nombre de «plug-in».  Cada «plug-in» es
+completamente modular e independiente, de forma que puede
+desarrollarse y mejorarse por separado.  Estos «plug-ins» se llaman
+<code>engraver</code>s (grabadores), por analogía con los artesanos que
+traducen las ideas musicales a símbolos gráficos.
+</p>
+<p>En el siguiente ejemplo vemos cómo comenzamos con un plug-in para las
+cabezas de las notas, el <code>Note_heads_engraver</code>.
+</p>
+<blockquote><p>
+ <a href="../38/lily-e26fb32e.ly">
+  <img align="middle"
+       border="0"
+       src="../38/lily-e26fb32e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>A continuación un <code>Staff_symbol_engraver</code> (grabador del
+pentagrama) añade la pauta.
+</p>
+<blockquote><p>
+ <a href="../2e/lily-09b3a4db.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-09b3a4db.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El <code>Clef_engraver</code> (grabador de la clave) define un punto de
+referencia para el pentagrama.
+</p>
+<blockquote><p>
+ <a href="../ad/lily-b7b430b0.ly">
+  <img align="middle"
+       border="0"
+       src="../ad/lily-b7b430b0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>y el <code>Stem_engraver</code> (grabador de las plicas) añade las plicas.
+</p>
+<blockquote><p>
+ <a href="../de/lily-dde85252.ly">
+  <img align="middle"
+       border="0"
+       src="../de/lily-dde85252.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>El <code>Stem_engraver</code> (grabador de plicas) recibe una notificación
+cuando llega una cabeza. Cada vez que se ve una cabeza (o más, si es
+un acorde), se crea un objeto plica y se conecta a la cabeza.
+Añadiendo grabadores para las barras, ligaduras, acentos,
+alteraciones, líneas divisorias, indicación de compás y armadura
+conseguimos una notación completa.
+</p>
+<blockquote><p>
+ <a href="../48/lily-aa409614.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-aa409614.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-polifonia"></a>
+<a name="index-grabar-varias-voces"></a>
+<a name="index-contextos"></a>
+
+<p>Este sistema funciona bien para la música monofónica, pero ¿y con la
+polifonía?  En notación polifónica muchas voces pueden compartir el
+mismo pentagrama.
+</p>
+<blockquote><p>
+ <a href="../81/lily-ac7b5eb7.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-ac7b5eb7.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>En esta situación, las alteraciones y la pauta se comparten, pero las
+plicas, ligaduras, barras, etc. son propias de cada voz.  Por tanto
+los grabadores han de agruparse.  Los grabadores de cabezas, plicas,
+ligaduras, etc.  se unen en un grupo llamado &lsquo;Contexto de voz&rsquo;,
+mientras que los grabadores de la armadura, alteraciones, compás, etc.
+van a un grupo que se llama &lsquo;Contexto de la pauta&rsquo;.  En el caso de
+la polifonía, un único Contexto de pauta contiene más de un Contexto
+de voz.  De forma semejante, varios Contextos de pauta pueden
+agruparse en un único Contexto de partitura.  El Contexto de partitura
+es el contexto de notación de más alto nivel.
+</p>
+
+<a name="Vease-tambien-15"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de funcionamiento interno:
+<a name="index-Contexts"></a>
+<a href="../lilypond-internals/Contexts.es.html#Contexts">Contexts</a>.
+</p>
+
+<blockquote><p>
+ <a href="../d5/lily-4da76545.ly">
+  <img align="middle"
+       border="0"
+       src="../d5/lily-4da76545.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<a name="Music-representation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#What-symbols-to-engrave_003f" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; ¿Qué símbolos grabar?&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Example-applications" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Aplicaciones de ejemplo &gt; </a>]</td></tr></table>
+<a name="Music-representation"></a>
+<h3 class="unnumberedsubsec">Representación musical</h3>
+
+<a name="index-sintaxis"></a>
+<a name="index-recursivas_002c-estructuras"></a>
+
+<p>Idealmente el formato de entrada para cualquier sistema de formateo de
+alto nivel es una descripción abstracta del contenido.  En este caso,
+eso constituiría la propia música, lo que plantea un tremendo
+problema: ¿cómo podemos definir qué es realmente la música?  En lugar
+de intentar hallar una respuesta, le hemos dado la vuelta a la
+pregunta.  Escribimos un programa capaz de producir partituras y
+ajustamos el formato para que sea tan escueto como sea posible.
+Cuando el formato ya no puede reducirse más, por definición nos
+habremos quedado con el contenido musical propiamente dicho.  Nuestro
+programa sirve como definición formal de un documento musical.
+</p>
+
+<p>La sintaxis también es el interfaz de usuario de LilyPond, así que es
+fácil teclear
+</p>
+<blockquote><pre class="example">{
+  c'4 d'8
+}
+</pre></blockquote>
+
+<p>un Do4 (Do central) negra, y un Re4 (el Re por encima del Do central)
+corchea.
+</p>
+<blockquote><p>
+ <a href="../a3/lily-4ac8db18.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-4ac8db18.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>A una escala microscópica, dicha sintaxis es fácil de utilizar.  A una
+escala mayor, la sintaxis también requiere una estructura.  ¿De qué
+otra forma podríamos introducir piezas complejas como sinfonías u
+óperas?  La estructura se forma mediante el concepto de expresiones
+musicales: al combinar pequeños fragmentos de música dentro de otros
+mayores, se pueden expresar ideas musicales más complejas.  Por
+ejemplo
+</p>
+<blockquote><pre class="verbatim">f4
+</pre><p>
+ <a href="../71/lily-4525b349.ly">
+  <img align="middle"
+       border="0"
+       src="../71/lily-4525b349.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Los acordes se pueden construir encerrando las notas entre <code>&lt;&lt;</code> y
+<code>&gt;&gt;</code>
+</p>
+
+<blockquote><pre class="example">&lt;&lt;c4 d4 e4&gt;&gt;
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../ca/lily-8d9298b5.ly">
+  <img align="middle"
+       border="0"
+       src="../ca/lily-8d9298b5.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Esta expresión se coloca en secuencia encerrándola dentro de llaves
+<code>{&nbsp;&hellip;&nbsp;}</code>
+</p>
+<blockquote><pre class="example">{ f4 &lt;&lt;c4 d4 e4&gt;&gt; }
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../48/lily-f2a8b3f3.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-f2a8b3f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Lo anterior, a su vez también es una expresión, y por ello se puede combinar
+de nuevo con otra expresión simultánea (una blanca) usando &lt;&lt;,
+<code>\\</code>, y &gt;&gt;
+</p>
+<blockquote><pre class="example">&lt;&lt; g2 \\ { f4 &lt;&lt;c4 d4 e4&gt;&gt; } &gt;&gt;
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../a0/lily-41ba6474.ly">
+  <img align="middle"
+       border="0"
+       src="../a0/lily-41ba6474.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Las mencionadas estructuras recursivas se pueden especificar de forma
+nítida y formal dentro de una gramática independiente del contexto.
+El código de análisis también se genera a partir de esta gramática.
+En otras palabras, la sintaxis de LilyPond está definida de una forma
+clara y sin ambigüedades.
+</p>
+<p>Los interfaces de usuario y la sintaxis son lo que la persona ve y con
+lo que trata principalmente.  En parte, son fruto de preferencias
+personales y como tales están sujetas a mucha discusión.  Aunque las
+discusiones sobre el gusto tienen su mérito, no son demasiado
+productivas.  Dentro de la escena global de LilyPond, la sintaxis de
+la entrada tiene una importancia relativamente pequeña: inventarse una
+sintaxis elegante es fácil, pero escribir un código de formateo
+decente es mucho más difícil.  Esto también queda ilustrado por la
+cantidad de líneas de código de los componentes respectivos: el
+análisis y la representación se llevan menos del 10% del código
+fuente.
+</p>
+
+<hr size="6">
+<a name="Example-applications"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Representación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.es.html#About-the-documentation" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Sobre la documentación &gt; </a>]</td></tr></table>
+<a name="Example-applications"></a>
+<h3 class="unnumberedsubsec">Aplicaciones de ejemplo</h3>
+
+<a name="index-sencillos_002c-ejemplos"></a>
+<a name="index-ejemplos-sencillos"></a>
+
+<p>Escribimos LilyPond como un experimento de cómo condensar el arte del
+grabado de música dentro de un programa de ordenador.  Gracias a todo
+este duro trabajo, el programa ahora se puede usar para hacer trabajos
+útiles.  La aplicación más sencilla es imprimir notas.
+</p>
+<blockquote><p>
+ <a href="../63/lily-bbccbca9.ly">
+  <img align="middle"
+       border="0"
+       src="../63/lily-bbccbca9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Añadiendo los nombres de acordes y la letra, obtenemos una hoja guía
+de acordes (lead sheet).
+</p>
+<blockquote><p>
+ <a href="../4d/lily-7a6c7386.ly">
+  <img align="middle"
+       border="0"
+       src="../4d/lily-7a6c7386.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>También se puede imprimir notación polifónica y música para piano.
+El ejemplo siguiente combina algunas otras construcciones exóticas.
+</p>
+<blockquote><p>
+ <a href="../2c/lily-647cf69c.ly">
+  <img align="middle"
+       border="0"
+       src="../2c/lily-647cf69c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Todos los fragmentos mostrados se han escrito a mano, pero esto no es
+necesariamente así.  Puesto que el motor de formateo es casi
+completamente automático, puede servir como medio de salida para otros
+programas que manipulan música.  Por ejemplo, se puede usar también
+para convertir bases de datos de fragmentos musicales en imágenes con
+destino a páginas web y presentaciones multimedia.
+</p>
+<p>Este manual también es un ejemplo de aplicación: el formato de entrada
+es texto sencillo, y por ello se puede empotrar fácilmente dentro de
+otros formatos basados en texto, como LaTeX, HTML, o en el caso
+concreto de este manual, Texinfo.  A través de un programa especial,
+los fragmentos de entrada se pueden sustituir por imágenes musicales
+dentro de los archivos de salida PDF o HTML resultantes.  Esto
+convierte la tarea de mezclar música y texto dentro de los documentos,
+en algo muy sencillo.
+</p>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.es.html#Introduction" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Introducción&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.es.html#Tutorial" title="Cap&iacute;tulo siguiente">&nbsp;Tutorial &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Music-representation" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Representación musical&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Background" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Antecedentes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="About-the-documentation.es.html#About-the-documentation" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Sobre la documentación &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Background.html">English</a>, <a href="Background.fr.html">français</a>, <a href="Background.de.html">deutsch</a>, <a href="Background.ja.html">japones</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de aprendizaje</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.es.html#Preface">Preámbulo</a>  </li>
+  <li class="toc_current"><a name="toc-Introduction-1" href="Introduction.es.html#Introduction">1. Introducción</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Background-1" href="Background.es.html#Background">1.1 Antecedentes</a>
+    <ul class="toc">
+      <li><a name="toc-Engraving-1" href="Background.es.html#Engraving">Grabado</a>      </li>
+      <li><a name="toc-Automated-engraving-1" href="Background.es.html#Automated-engraving">Grabado automático</a>      </li>
+      <li><a name="toc-What-symbols-to-engrave_003f-1" href="Background.es.html#What-symbols-to-engrave_003f">¿Qué símbolos grabar?</a>      </li>
+      <li><a name="toc-Music-representation-1" href="Background.es.html#Music-representation">Representación musical</a>      </li>
+      <li><a name="toc-Example-applications-1" href="Background.es.html#Example-applications">Aplicaciones de ejemplo</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.es.html#About-the-documentation">1.2 Sobre la documentación</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.es.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.es.html#First-steps">2.1 Primeros pasos</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.es.html#Single-staff-notation">2.2 Notación en un solo pentagrama</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.es.html#Multiple-notes-at-once">2.3 Varias notas a la vez</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.es.html#Songs">2.4 Canciones</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.es.html#Final-touches">2.5 Retoques finales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.es.html#Fundamental-concepts">3. Conceptos fundamentales</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.es.html#How-LilyPond-input-files-work">3.1 Cómo funcionan los archivos de entrada de LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.es.html#Voices-contain-music">3.2 Las voces contienen música</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.es.html#Contexts-and-engravers">3.3 Contextos y grabadores</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.es.html#Extending-the-templates">3.4 Extender las plantillas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.es.html#Tweaking-output">4. Trucar la salida</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.es.html#Tweaking-basics">4.1 Elementos de trucaje</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual">4.2 Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.es.html#Appearance-of-objects">4.3 Apariencia de los objetos</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.es.html#Placement-of-objects">4.4 Colocación de los objetos</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.es.html#Collisions-of-objects">4.5 Colisiones de objetos</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.es.html#Further-tweaking">4.6 Trucajes adicionales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects">5. Trabajar en proyectos de LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-files-1" href="Suggestions-for-writing-LilyPond-files.es.html#Suggestions-for-writing-LilyPond-files">5.1 Suggestions for writing LilyPond files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.es.html#When-things-don_0027t-work">5.2 Cuando las cosas no van</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.es.html#Scores-and-parts">5.3 Partituras y particellas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.es.html#Templates">A. Plantillas</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.es.html#Single-staff">A.1 Pentagrama único</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.es.html#Piano-templates">A.2 Plantillas de piano</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.es.html#String-quartet">A.3 Cuarteto de cuerda</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.es.html#Vocal-ensembles">A.4 Conjuntos vocales</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.es.html#Ancient-notation-templates">A.5 Plantillas para notación antigua</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.es.html#Jazz-combo">A.6 Combo de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.es.html#lilypond_002dbook-templates">A.7 Plantillas de lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.es.html#Scheme-tutorial">B. Tutorial de Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.es.html#Tweaking-with-Scheme">B.1 Trucos con Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">D. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

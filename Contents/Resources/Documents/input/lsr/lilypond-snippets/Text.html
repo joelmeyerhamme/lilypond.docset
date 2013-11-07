@@ -1,0 +1,1721 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Text</title>
+
+<meta name="description" content="LilyPond snippets: Text">
+<meta name="keywords" content="LilyPond snippets: Text">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Editorial-annotations.html#Editorial-annotations" rel="previous" title="Editorial annotations">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Text"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Editorial-annotations.html#Editorial-annotations" title="Beginning of this chapter or previous chapter"> &lt;&lt; Editorial annotations&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Editorial-annotations.html#Using-PostScript-to-generate-special-note-head-shapes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Using PostScript to generate special note head shapes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adding-the-current-date-to-a-score" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adding the current date to a score &gt; </a>]</td></tr></table>
+<a name="Text"></a>
+<h1 class="unnumbered">Text</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Text.html#Text">Text</a>.
+</p>
+
+<a name="adding-the-current-date-to-a-score.ly"></a>
+<hr size="6">
+<a name="Adding-the-current-date-to-a-score"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Text" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Adjusting-lyrics-vertical-spacing" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Adjusting lyrics vertical spacing &gt; </a>]</td></tr></table>
+<a name="Adding-the-current-date-to-a-score"></a>
+<h2 class="unnumberedsec">Adding the current date to a score</h2>
+
+
+<p>With a little Scheme code, the current date can easily be added to a
+score.
+</p>
+
+<pre class="verbatim">% first, define a variable to hold the formatted date:
+date = #(strftime &quot;%d-%m-%Y&quot; (localtime (current-time)))
+
+% use it in the title block:
+\header {
+  title = &quot;Including the date!&quot;
+  subtitle = \date
+}
+
+\score {
+  \relative c'' {
+    c4 c c c
+  }
+}
+% and use it in a \markup block:
+\markup {
+  \date
+}
+
+</pre><p>
+ <a href="../62/lily-dae9b8a6.ly">
+  <img align="middle"
+       border="0"
+       src="../62/lily-dae9b8a6.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="adjusting-lyrics-vertical-spacing.ly"></a>
+<hr size="6">
+<a name="Adjusting-lyrics-vertical-spacing"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adding-the-current-date-to-a-score" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adding the current date to a score&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Aligning-and-centering-instrument-names" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Aligning and centering instrument names &gt; </a>]</td></tr></table>
+<a name="Adjusting-lyrics-vertical-spacing"></a>
+<h2 class="unnumberedsec">Adjusting lyrics vertical spacing</h2>
+
+
+<p>This snippet shows how to bring the lyrics line closer to the staff.
+</p>
+
+<pre class="verbatim">% Default layout:
+&lt;&lt;
+  \new Staff \new Voice = melody \relative c' {
+    c4 d e f
+    g4 f e d
+    c1
+  }
+  \new Lyrics \lyricsto melody { aa aa aa aa aa aa aa aa aa }
+
+% Reducing the minimum space below the staff and above the lyrics:
+  \new Staff \with {
+    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1 . 4)
+  }
+  \new Voice = melody \relative c' {
+    c4 d e f
+    g4 f e d
+    c1
+  }
+  \new Lyrics \with {
+    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+  }
+  \lyricsto melody { aa aa aa aa aa aa aa aa aa }
+&gt;&gt;
+
+</pre><p>
+ <a href="../56/lily-5a2565ed.ly">
+  <img align="middle"
+       border="0"
+       src="../56/lily-5a2565ed.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="aligning-and-centering-instrument-names.ly"></a>
+<hr size="6">
+<a name="Aligning-and-centering-instrument-names"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Adjusting-lyrics-vertical-spacing" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Adjusting lyrics vertical spacing&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Aligning-marks-with-various-notation-objects" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Aligning marks with various notation objects &gt; </a>]</td></tr></table>
+<a name="Aligning-and-centering-instrument-names"></a>
+<h2 class="unnumberedsec">Aligning and centering instrument names</h2>
+
+
+<p>The horizontal alignment of instrument names is tweaked by changing the
+<code>Staff.InstrumentName #'self-alignment-X</code> property. The
+<code>\layout</code> variables <code>indent</code> and <code>short-indent</code> define
+the space in which the instrument names are aligned before the first
+and the following systems, respectively.
+</p>
+
+<pre class="verbatim">\paper {
+  left-margin = 3\cm
+}
+
+\score {
+  \new StaffGroup &lt;&lt;
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #LEFT
+      \set Staff.instrumentName = \markup \left-column {
+        &quot;Left aligned&quot;
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Left&quot;
+      c''1
+      \break
+      c''1
+    }
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #CENTER
+      \set Staff.instrumentName = \markup \center-column {
+        Centered
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Centered&quot;
+      g'1
+      g'1
+    }
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+      \set Staff.instrumentName = \markup \right-column {
+        &quot;Right aligned&quot;
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Right&quot;
+      e'1
+      e'1
+    }
+  &gt;&gt;
+  \layout {
+    ragged-right = ##t
+    indent = 4\cm
+    short-indent = 2\cm
+  }
+}
+</pre><p>
+ <a href="../48/lily-0ea90e0e.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-0ea90e0e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="aligning-marks-with-various-notation-objects.ly"></a>
+<hr size="6">
+<a name="Aligning-marks-with-various-notation-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Aligning-and-centering-instrument-names" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Aligning and centering instrument names&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Aligning objects created with the \mark command &gt; </a>]</td></tr></table>
+<a name="Aligning-marks-with-various-notation-objects"></a>
+<h2 class="unnumberedsec">Aligning marks with various notation objects</h2>
+
+
+<p>If specified, text marks may be aligned with notation objects other
+than bar lines.  These objects include <code>ambitus</code>,
+<code>breathing-sign</code>, <code>clef</code>, <code>custos</code>, <code>staff-bar</code>,
+<code>left-edge</code>, <code>key-cancellation</code>, <code>key-signature</code>, and
+<code>time-signature</code>.
+</p>
+
+
+<p>In such cases, text marks will be horizontally centered above the
+object. However this can be changed, as demonstrated on the second line
+of this example (in a score with multiple staves, this setting should
+be done for all the staves).
+</p>
+
+
+
+<pre class="verbatim">\relative c' {
+  e1
+  
+  % the RehearsalMark will be centered above the Clef
+  \override Score.RehearsalMark #'break-align-symbols = #'(clef)
+  \key a \major
+  \clef treble
+  \mark &quot;↓&quot;
+  e1
+  
+  % the RehearsalMark will be centered above the TimeSignature
+  \override Score.RehearsalMark #'break-align-symbols = #'(time-signature)
+  \key a \major
+  \clef treble
+  \time 3/4
+  \mark &quot;↓&quot;
+  e2.
+  
+  % the RehearsalMark will be centered above the KeySignature
+  \override Score.RehearsalMark #'break-align-symbols = #'(key-signature)
+  \key a \major
+  \clef treble
+  \time 4/4
+  \mark &quot;↓&quot;
+  e1
+
+  \break
+  e1
+  
+  % the RehearsalMark will be aligned with the left edge of the KeySignature
+  \once \override Score.KeySignature #'break-align-anchor-alignment = #LEFT
+  \mark &quot;↓&quot;
+  \key a \major
+  e1
+  
+  % the RehearsalMark will be aligned with the right edge of the KeySignature
+  \once \override Score.KeySignature #'break-align-anchor-alignment = #RIGHT
+  \key a \major
+  \mark &quot;↓&quot;
+  e1
+  
+  % the RehearsalMark will be aligned with the left edge of the KeySignature
+  % and then shifted right by one unit.
+  \once \override Score.KeySignature #'break-align-anchor = #1
+  \key a \major
+  \mark &quot;↓&quot;
+  e1
+}
+</pre><p>
+ <a href="../34/lily-8c063efc.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-8c063efc.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="aligning-objects-created-with-the--mark-command.ly"></a>
+<hr size="6">
+<a name="Aligning-objects-created-with-the-_005cmark-command"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Aligning-marks-with-various-notation-objects" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Aligning marks with various notation objects&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Aligning-objects-created-with-the-_005cmark-command"></a>
+<h2 class="unnumberedsec">Aligning objects created with the \mark command</h2>
+
+
+<p>By default the <code>\mark</code> command centers objects over a bar line. 
+This behavior can be modified to align at right or left.  
+</p>
+
+<pre class="verbatim">\relative c' {
+  c1 \mark &quot;(Center)&quot;
+  c1
+  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
+  \mark &quot;(Left)&quot;
+  c4 c c c
+  c4 c c c
+  \once \override Score.RehearsalMark #'self-alignment-X = #RIGHT
+  \mark &quot;(Right)&quot;
+  c1
+}
+
+
+</pre><p>
+ <a href="../b9/lily-b6e69607.ly">
+  <img align="middle"
+       border="0"
+       src="../b9/lily-b6e69607.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="blanking-staff-lines-using-the--whiteout-command.ly"></a>
+<hr size="6">
+<a name="Aligning-objects-created-with-the-_005cmark-command"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Aligning objects created with the \mark command&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Blanking staff lines using the \whiteout command</h2>
+
+
+<p>The <code>\whiteout</code> command underlays a markup with a white box. 
+Since staff lines are in a lower layer than most other grobs, this
+white box will not overlap any other grob. 
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##f }
+\relative c' {
+  \override TextScript #'extra-offset = #'(2 . 4)
+  c2-\markup { \whiteout \pad-markup #0.5 &quot;middle C&quot; } c
+} 
+
+</pre><p>
+ <a href="../bb/lily-3735515e.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-3735515e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="center-text-below-hairpin-dynamics.ly"></a>
+<hr size="6">
+<a name="Aligning-objects-created-with-the-_005cmark-command"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Changing the default text font family &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Center text below hairpin dynamics</h2>
+
+
+<p>This example provides a function to typeset a hairpin (de)crescendo
+with some additional text below it, such as &quot;molto&quot; or &quot;poco&quot;. The
+example also illustrates how to modify the way an object is normally
+printed, using some Scheme code.
+</p>
+
+<pre class="verbatim">hairpinWithCenteredText =
+#(define-music-function (parser location text) (markup?)
+#{
+  \override Voice.Hairpin #'stencil = #(lambda (grob)
+    (ly:stencil-aligned-to
+     (ly:stencil-combine-at-edge
+      (ly:stencil-aligned-to (ly:hairpin::print grob) X CENTER)
+      Y DOWN
+      (ly:stencil-aligned-to (grob-interpret-markup grob $text) X CENTER))
+     X LEFT))
+#})
+
+hairpinMolto = \hairpinWithCenteredText \markup { \italic molto }
+hairpinMore = \hairpinWithCenteredText \markup { \larger moltissimo }
+
+\layout { ragged-right = ##f }
+
+\relative c' {
+  \hairpinMolto
+  c2\&lt; c\f
+  \hairpinMore
+  c2\&lt; c\f
+}
+</pre><p>
+ <a href="../00/lily-7919dd1d.ly">
+  <img align="middle"
+       border="0"
+       src="../00/lily-7919dd1d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-default-text-font-family.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Aligning-objects-created-with-the-_005cmark-command" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Changing-the-default-text-font-family"></a>
+<h2 class="unnumberedsec">Changing the default text font family</h2>
+
+
+<p>The default font families for text can be overridden with
+<code>make-pango-font-tree</code>. 
+</p>
+
+<pre class="verbatim">\paper {
+  % change for other default global staff size. 
+  myStaffSize = #20
+  %{
+     run
+         lilypond -dshow-available-fonts blabla
+     to show all fonts available in the process log.  
+  %}
+
+  #(define fonts
+    (make-pango-font-tree &quot;Times New Roman&quot;
+                          &quot;Nimbus Sans&quot;
+                          &quot;Luxi Mono&quot;
+;;                        &quot;Helvetica&quot;
+;;                        &quot;Courier&quot;
+     (/ myStaffSize 20)))
+}
+
+\relative c'' {
+  c4^\markup {
+    roman: foo \bold bla \italic bar \italic \bold baz 
+  }
+  c'4_\markup {
+    \override #'(font-family . sans)
+    {
+      sans: foo \bold bla \italic bar \italic \bold baz
+    }
+  }
+  c'2^\markup {
+    \override #'(font-family . typewriter)
+    {
+      mono: foo \bold bla \italic bar \italic \bold baz
+    }
+  }
+}  
+
+
+</pre><p>
+ <a href="../78/lily-e47679b4.ly">
+  <img align="middle"
+       border="0"
+       src="../78/lily-e47679b4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="combining-dynamics-with-markup-texts.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Changing the default text font family&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Combining dynamics with markup texts</h2>
+
+
+<p>Some dynamics may involve text indications (such as &quot;più forte&quot; or
+&quot;piano subito&quot;). They can be produced using a <code>\markup</code> block.
+</p>
+
+<pre class="verbatim">piuF = \markup { \italic più \dynamic f }
+\layout { ragged-right = ##f }
+\relative c'' {
+  c2\f c-\piuF
+}
+
+
+</pre><p>
+ <a href="../72/lily-519b5a38.ly">
+  <img align="middle"
+       border="0"
+       src="../72/lily-519b5a38.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="combining-two-parts-on-the-same-staff.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Combining two parts on the same staff</h2>
+
+
+<p>The part combiner tool ( <code>\partcombine</code> command ) allows the
+combination of several different parts on the same staff.  Text
+directions such as &quot;solo&quot; or &quot;a2&quot; are added by default; to remove
+them, simply set the property <code>printPartCombineTexts</code> to
+&quot;false&quot;. For vocal scores (hymns), there is no need to add
+&quot;solo&quot;/&quot;a2&quot; texts, so they should be switched off.  However, it
+might be better not to use it if there are any solos, as they won&rsquo;t be
+indicated.  In such cases, standard polyphonic notation may be
+preferable.
+</p>
+<p>This snippet presents the three ways two parts can be printed on a same
+staff: standard polyphony, <code>\partcombine</code> without texts, and
+<code>\partcombine</code> with texts.
+</p>
+
+
+
+
+<pre class="verbatim">musicUp = \relative c'' {
+  \time 4/4
+  a4 c4.( g8) a4 |
+  g4 e' g,( a8 b) |
+  c b a2.
+}
+
+musicDown = \relative c'' {
+  g4 e4.( d8) c4 |
+  r2 g'4( f8 e) |
+  d2 \stemDown a
+}
+
+\score {
+  &lt;&lt;
+    &lt;&lt;
+    \new Staff {
+      \set Staff.instrumentName = &quot;Standard polyphony  &quot;
+      &lt;&lt; \musicUp \\ \musicDown &gt;&gt;
+    }
+    \new Staff \with { printPartCombineTexts = ##f } {
+      \set Staff.instrumentName = &quot;PartCombine without texts  &quot;
+      \partcombine \musicUp \musicDown
+    }
+    \new Staff {
+      \set Staff.instrumentName = &quot;PartCombine with texts  &quot;
+      \partcombine \musicUp \musicDown
+    }
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    indent = 6.0\cm
+    \context {
+      \Score
+      \override SystemStartBar #'collapse-height = #30
+    }
+  }
+}
+
+</pre><p>
+ <a href="../18/lily-eda6a95e.ly">
+  <img align="middle"
+       border="0"
+       src="../18/lily-eda6a95e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-real-parenthesized-dynamics.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Creating &quot;real&quot; parenthesized dynamics</h2>
+
+
+<p>Although the easiest way to add parentheses to a dynamic mark is to use
+a <code>\markup</code> block, this method has a downside: the created
+objects will behave like text markups, and not like dynamics.
+</p>
+<p>However, it is possible to create a similar object using the equivalent
+Scheme code (as described in &quot;Markup programmer interface&quot;), combined
+with the <code>make-dynamic-script</code> function. This way, the markup will
+be regarded as a dynamic, and therefore will remain compatible with
+commands such as <code>\dynamicUp</code> or <code>\dynamicDown</code>.
+</p>
+
+
+
+<pre class="verbatim">parenF = #(make-dynamic-script (markup #:line (#:normal-text #:italic
+           #:fontsize 2 &quot;(&quot; #:hspace -0.8 #:dynamic &quot;f&quot; #:normal-text
+           #:italic #:fontsize 2 &quot;)&quot;)))
+
+\relative c'' {
+  c4\parenF c c \dynamicUp c\parenF
+}
+
+</pre><p>
+ <a href="../89/lily-628a4a34.ly">
+  <img align="middle"
+       border="0"
+       src="../89/lily-628a4a34.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-simultaneous-rehearsal-marks.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Creating simultaneous rehearsal marks</h2>
+
+
+<p>Unlike text scripts, rehearsal marks cannot be stacked at a particular
+point in a score: only one <code>RehearsalMark</code> object is created. 
+Using an invisible measure and bar line, an extra rehearsal mark can be
+added, giving the appearance of two marks in the same column. This
+method may also prove useful for placing rehearsal marks at both the
+end of one system and the start of the following system. 
+</p>
+
+<pre class="verbatim">{
+  \key a \major
+  \set Score.markFormatter = #format-mark-box-letters
+  \once \override Score.RehearsalMark #'outside-staff-priority = #5000
+  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
+  \once \override Score.RehearsalMark #'break-align-symbols = #'(key-signature)
+  \mark \markup { \bold { Senza denti } }
+  
+  % the hidden measure and bar line
+  \once \override Score.TimeSignature #'stencil = ##f
+  \time 1/16
+  s16 \bar &quot;&quot;
+  
+  \time 4/4
+  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
+  \mark \markup { \box \bold Intro }
+  d'1
+  \mark \default
+  d'1
+}
+</pre><p>
+ <a href="../d8/lily-ad064fd4.ly">
+  <img align="middle"
+       border="0"
+       src="../d8/lily-ad064fd4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-text-spanners.ly"></a>
+<hr size="6">
+<a name="Changing-the-default-text-font-family"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Demonstrating-all-headers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Demonstrating all headers &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Creating text spanners</h2>
+
+
+<p>The <code>\startTextSpan</code> and <code>\stopTextSpan</code> commands allow the
+creation of text spanners as easily as pedal indications or
+octavations. Override some properties of the <code>TextSpanner</code> object
+to modify its output.
+</p>
+
+<pre class="verbatim">\paper { ragged-right = ##f }
+
+\relative c'' {
+  \override TextSpanner #'(bound-details left text) = #&quot;bla&quot;
+  \override TextSpanner #'(bound-details right text) = #&quot;blu&quot;
+  a4 \startTextSpan
+  b4 c
+  a4 \stopTextSpan
+  
+  \override TextSpanner #'style = #'line
+  \once \override TextSpanner
+    #'(bound-details left stencil-align-dir-y) = #CENTER
+  a4 \startTextSpan
+  b4 c
+  a4 \stopTextSpan
+  
+  \override TextSpanner #'style = #'dashed-line
+  \override TextSpanner #'(bound-details left text) =
+    \markup { \draw-line #'(0 . 1) }
+  \override TextSpanner #'(bound-details right text) =
+    \markup { \draw-line #'(0 . -2) }
+  \once \override TextSpanner #'(bound-details right padding) = #-2
+
+  a4 \startTextSpan
+  b4 c
+  a4 \stopTextSpan
+  
+  \set Staff.middleCPosition = #-13
+  \override TextSpanner #'dash-period = #10
+  \override TextSpanner #'dash-fraction = #0.5
+  \override TextSpanner #'thickness = #10
+  a4 \startTextSpan
+  b4 c
+  a4 \stopTextSpan
+}
+</pre><p>
+ <a href="../c3/lily-4156fc65.ly">
+  <img align="middle"
+       border="0"
+       src="../c3/lily-4156fc65.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="demonstrating-all-headers.ly"></a>
+<hr size="6">
+<a name="Demonstrating-all-headers"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Changing-the-default-text-font-family" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Demonstrating-all-headers" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Demonstrating-all-headers"></a>
+<h2 class="unnumberedsec">Demonstrating all headers</h2>
+
+<p>All header fields with special meanings.
+</p><pre class="verbatim">\header {
+  copyright = &quot;copyright&quot;
+  title = &quot;title&quot;
+  subtitle = &quot;subtitle&quot;
+  composer = &quot;composer&quot;
+  arranger = &quot;arranger&quot;
+  instrument = &quot;instrument&quot;
+  metre = &quot;metre&quot;
+  opus = &quot;opus&quot;
+  piece = &quot;piece&quot;
+  poet = &quot;poet&quot;
+  texidoc = &quot;All header fields with special meanings.&quot;
+  copyright = &quot;public domain&quot;
+  enteredby = &quot;jcn&quot;
+  source = &quot;urtext&quot;
+}
+
+\layout {
+  ragged-right = ##f
+}
+
+\score {
+  \relative c'' { c1 | c | c | c }
+}
+
+\score {
+   \relative c'' { c1 | c | c | c }
+   \header {
+     title = &quot;localtitle&quot;
+     subtitle = &quot;localsubtitle&quot;
+     composer = &quot;localcomposer&quot;
+     arranger = &quot;localarranger&quot;
+     instrument = &quot;localinstrument&quot;
+     metre = &quot;localmetre&quot;
+     opus = &quot;localopus&quot;
+     piece = &quot;localpiece&quot;
+     poet = &quot;localpoet&quot;
+     copyright = &quot;localcopyright&quot;
+   }
+}
+
+</pre><p>
+ <a href="../a0/lily-f7ee3ec5.ly">
+  <img align="middle"
+       border="0"
+       src="../a0/lily-f7ee3ec5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="embedding-native-postscript-in-a--markup-block.ly"></a>
+<hr size="6">
+<a name="Demonstrating-all-headers"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Demonstrating-all-headers" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Demonstrating all headers&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Formatting-lyrics-syllables" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Formatting lyrics syllables &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Embedding native PostScript in a \markup block</h2>
+
+
+<p>PostScript code can be directly inserted inside a <code>\markup</code>
+block. 
+</p>
+
+<pre class="verbatim">% PostScript is a registered trademark of Adobe Systems Inc.
+
+\relative c'' {
+  a4-\markup { \postscript #&quot;3 4 moveto 5 3 rlineto stroke&quot; }
+  -\markup { \postscript #&quot;[ 0 1 ] 0 setdash 3 5 moveto 5 -3 rlineto stroke &quot; }
+  
+  b4-\markup { \postscript #&quot;3 4 moveto 0 0 1 2 8 4 20 3.5 rcurveto stroke&quot; }
+  s2
+  a'1
+}
+
+</pre><p>
+ <a href="../8c/lily-08ee1a1d.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-08ee1a1d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="formatting-lyrics-syllables.ly"></a>
+<hr size="6">
+<a name="Formatting-lyrics-syllables"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Demonstrating-all-headers" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#How-to-put-ties-between-syllables-in-lyrics" title="Next section in reading order" accesskey="n" rel="next">&nbsp;How to put ties between syllables in lyrics &gt; </a>]</td></tr></table>
+<a name="Formatting-lyrics-syllables"></a>
+<h2 class="unnumberedsec">Formatting lyrics syllables</h2>
+
+
+<p>To format individual syllables in lyrics, use <code>\markup { ....
+}</code> on these lyrics.
+</p>
+
+<pre class="verbatim">% Tip taken from http://lists.gnu.org/archive/html/lilypond-user/2007-12/msg00215.html
+\header {
+  title = &quot;Markup can be used inside lyrics!&quot;
+}
+
+mel = \relative c'' { c4 c c c }
+lyr = \lyricmode {
+  Lyrics \markup { \italic &quot;can&quot; } \markup {\with-color #red &quot;contain&quot; }
+  \markup {\fontsize #8 \bold &quot;Markup!&quot; }
+}
+
+&lt;&lt;
+  \context Voice = melody \mel
+  \context Lyrics \lyricsto melody \lyr
+&gt;&gt;
+
+
+</pre><p>
+ <a href="../d9/lily-20056645.ly">
+  <img align="middle"
+       border="0"
+       src="../d9/lily-20056645.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="how-to-put-ties-between-syllables-in-lyrics.ly"></a>
+<hr size="6">
+<a name="How-to-put-ties-between-syllables-in-lyrics"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Formatting-lyrics-syllables" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Formatting lyrics syllables&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Lyrics-alignment" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Lyrics alignment &gt; </a>]</td></tr></table>
+<a name="How-to-put-ties-between-syllables-in-lyrics"></a>
+<h2 class="unnumberedsec">How to put ties between syllables in lyrics</h2>
+
+
+<p>This can be achieved by separating those syllables by tildes.  
+</p>
+
+<pre class="verbatim">\lyrics {
+  wa~o~a 
+}
+
+</pre><p>
+ <a href="../e8/lily-0f1cf233.ly">
+  <img align="middle"
+       border="0"
+       src="../e8/lily-0f1cf233.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="lyrics-alignment.ly"></a>
+<hr size="6">
+<a name="Lyrics-alignment"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#How-to-put-ties-between-syllables-in-lyrics" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; How to put ties between syllables in lyrics&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Markup-lines" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Markup lines &gt; </a>]</td></tr></table>
+<a name="Lyrics-alignment"></a>
+<h2 class="unnumberedsec">Lyrics alignment</h2>
+
+
+<p>Horizontal alignment for lyrics cam be set by overriding the
+<code>self-alignment-X</code> property of the <code>LyricText</code> object.
+<code>#-1</code> is left, <code>#0</code> is center and <code>#1</code> is right;
+however, you can use <code>#LEFT</code>, <code>#CENTER</code> and <code>#RIGHT</code> as
+well. 
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##f }
+\relative c'' {
+  c1
+  c1
+  c1
+}
+\addlyrics {
+  \once \override LyricText #'self-alignment-X = #LEFT
+  &quot;This is left-aligned&quot;
+  \once \override LyricText #'self-alignment-X = #CENTER
+  &quot;This is centered&quot; 
+  \once \override LyricText #'self-alignment-X = #1
+  &quot;This is right-aligned&quot;
+}
+
+</pre><p>
+ <a href="../1b/lily-ea280c8c.ly">
+  <img align="middle"
+       border="0"
+       src="../1b/lily-ea280c8c.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="markup-lines.ly"></a>
+<hr size="6">
+<a name="Markup-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Lyrics-alignment" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Lyrics alignment&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Markup-lines" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Markup-lines"></a>
+<h2 class="unnumberedsec">Markup lines</h2>
+
+
+<p>Text that can spread over pages is entered with the
+<code>\markuplines</code> command.
+</p>
+
+<pre class="verbatim">#(set-default-paper-size &quot;a6&quot;)
+
+#(define-markup-list-command (paragraph layout props args) (markup-list?)
+  (interpret-markup-list layout props
+   (make-justified-lines-markup-list (cons (make-hspace-markup 2) args))))
+
+% Candide, Voltaire
+\markuplines {
+  \override-lines #'(baseline-skip . 2.5) {
+    \paragraph {
+      Il y avait en Westphalie, dans le château de M. le baron de
+      Thunder-ten-tronckh, un jeune garçon à qui la nature avait donné
+      les mœurs les plus douces.  Sa physionomie annonçait son âme.
+      Il avait le jugement assez droit, avec l'esprit le plus simple ;
+      c'est, je crois, pour cette raison qu'on le nommait Candide.  Les
+      anciens domestiques de la maison soupçonnaient qu'il était fils
+      de la sœur de monsieur le baron et d'un bon et honnête
+      gentilhomme du voisinage, que cette demoiselle ne voulut jamais
+      épouser parce qu'il n'avait pu prouver que soixante et onze
+      quartiers, et que le reste de son arbre généalogique avait été
+      perdu par l'injure du temps.
+    }
+    \paragraph {
+      Monsieur le baron était un des plus puissants seigneurs de la
+      Westphalie, car son château avait une porte et des fenêtres.  Sa
+      grande salle même était ornée d'une tapisserie.  Tous les chiens
+      de ses basses-cours composaient une meute dans le besoin ; ses
+      palefreniers étaient ses piqueurs; le vicaire du village était
+      son grand-aumônier.  Ils l'appelaient tous monseigneur, et ils
+      riaient quand il faisait des contes.
+    }
+  }
+}
+</pre><p>
+ <a href="../dc/lily-46abbfe0.ly">
+  <img align="middle"
+       border="0"
+       src="../dc/lily-46abbfe0.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="multi-measure-rest-markup.ly"></a>
+<hr size="6">
+<a name="Markup-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Markup-lines" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Markup lines&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Markup-lines" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Multi-measure rest markup</h2>
+
+
+<p>Markups attached to a multi-measure rest will be centered above or
+below it.  Long markups attached to multi-measure rests do not cause
+the measure to expand.  To expand a multi-measure rest to fit the
+markup, use a spacer rest with an attached markup before the
+multi-measure rest.
+</p>
+<p>Note that the spacer rest causes a bar line to be inserted.  Text
+attached to a spacer rest in this way is left-aligned to the position
+where the note would be placed in the measure, but if the measure
+length is determined by the length of the text, the text will appear to
+be centered. 
+</p>
+
+<pre class="verbatim">\relative c' {
+  \compressFullBarRests
+  \textLengthOn
+  s1*0^\markup { [MAJOR GENERAL] }
+  R1*19
+  s1*0_\markup { \italic { Cue: ... it is yours } }
+  s1*0^\markup { A }
+  R1*30^\markup { [MABEL] }
+  \textLengthOff
+  c4^\markup { CHORUS } d f c
+}
+</pre><p>
+ <a href="../56/lily-bcc7dac4.ly">
+  <img align="middle"
+       border="0"
+       src="../56/lily-bcc7dac4.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ottava-text.ly"></a>
+<hr size="6">
+<a name="Markup-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Markup-lines" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Outputting-the-version-number" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Outputting the version number &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Ottava text</h2>
+
+
+<p>Internally, <code>\ottava</code> sets the properties <code>ottavation</code> (for
+example, to <code>&quot;8va&quot;</code> or <code>&quot;8vb&quot;</code>) and
+<code>middleCPosition</code>.  To override the text of the bracket, set
+<code>ottavation</code> after invoking <code>\ottava</code>.
+</p>
+
+<pre class="verbatim">{
+  \ottava #1
+  \set Staff.ottavation = #&quot;8&quot;
+  c''1
+  \ottava #0
+  c'1
+  \ottava #1
+  \set Staff.ottavation = #&quot;Text&quot;
+  c''1
+}
+
+</pre><p>
+ <a href="../26/lily-af63d2eb.ly">
+  <img align="middle"
+       border="0"
+       src="../26/lily-af63d2eb.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="outputting-the-version-number.ly"></a>
+<hr size="6">
+<a name="Outputting-the-version-number"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Markup-lines" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Piano-template-with-centered-lyrics" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Piano template with centered lyrics &gt; </a>]</td></tr></table>
+<a name="Outputting-the-version-number"></a>
+<h2 class="unnumberedsec">Outputting the version number</h2>
+
+
+<p>By putting the output of
+    <code>lilypond-version</code> into a lyric, it is possible to print the 
+    version number of LilyPond in a score, or in a document generated
+    with <code>lilypond-book</code>.  Another possibility is to append the 
+    version number to the doc-string, in this manner: 
+</p>
+
+<pre class="verbatim">\score {
+  \new Lyrics {
+    \override Score.RehearsalMark #'self-alignment-X = #LEFT
+    \mark #(string-append &quot;Processed with LilyPond version &quot; (lilypond-version))
+    s2
+  }
+}
+
+
+
+</pre><p>
+ <a href="../d7/lily-6e9d7cd2.ly">
+  <img align="middle"
+       border="0"
+       src="../d7/lily-6e9d7cd2.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="piano-template-with-centered-lyrics.ly"></a>
+<hr size="6">
+<a name="Piano-template-with-centered-lyrics"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Outputting-the-version-number" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Outputting the version number&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Printing-marks-at-the-end-of-a-line-or-a-score" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Printing marks at the end of a line or a score &gt; </a>]</td></tr></table>
+<a name="Piano-template-with-centered-lyrics"></a>
+<h2 class="unnumberedsec">Piano template with centered lyrics</h2>
+
+
+<p>Instead of having a full staff for the melody and lyrics, lyrics can be
+centered between the staves of a piano staff.
+</p>
+
+<pre class="verbatim">upper = \relative c'' {
+  \clef treble
+  \key c \major
+  \time 4/4
+  
+  a4 b c d  
+}
+
+lower = \relative c {
+  \clef bass
+  \key c \major
+  \time 4/4
+  
+  a2 c  
+}
+
+text = \lyricmode {
+  Aaa Bee Cee Dee
+}
+
+\score {
+  \new GrandStaff &lt;&lt;
+    \new Staff = upper { \new Voice = &quot;singer&quot; \upper }
+    \new Lyrics \lyricsto &quot;singer&quot; \text
+    \new Staff = lower { \lower }
+  &gt;&gt;
+  \layout {
+    \context {
+      \GrandStaff
+      \accepts &quot;Lyrics&quot;
+    }
+    \context {
+      \Lyrics
+      \consists &quot;Bar_engraver&quot;
+    }
+  }
+  \midi { }
+}
+
+</pre><p>
+ <a href="../a9/lily-1d5833a3.ly">
+  <img align="middle"
+       border="0"
+       src="../a9/lily-1d5833a3.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-marks-at-the-end-of-a-line-or-a-score.ly"></a>
+<hr size="6">
+<a name="Printing-marks-at-the-end-of-a-line-or-a-score"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Piano-template-with-centered-lyrics" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Piano template with centered lyrics&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Printing-marks-on-every-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Printing marks on every staff &gt; </a>]</td></tr></table>
+<a name="Printing-marks-at-the-end-of-a-line-or-a-score"></a>
+<h2 class="unnumberedsec">Printing marks at the end of a line or a score</h2>
+
+
+<p>Marks can be printed at the end of the current line, instead of the
+beginning of the following line. This is particularly useful when a
+mark has to be added at the end of a score &ndash; when there is no next
+line.
+</p>
+<p>In such cases, the right end of the mark has to be aligned with the
+final bar line, as demonstrated on the second line of this example. 
+</p>
+
+<pre class="verbatim">\relative c'' {  
+  \override Score.RehearsalMark #'break-visibility = #begin-of-line-invisible
+  g2 c
+  d,2 a'
+  \mark \default
+  \break
+  g2 b,
+  c1 \bar &quot;||&quot;
+  \override Score.RehearsalMark #'self-alignment-X = #RIGHT  
+  \mark &quot;D.C. al Fine&quot;
+}
+
+</pre><p>
+ <a href="../27/lily-0d83b7bc.ly">
+  <img align="middle"
+       border="0"
+       src="../27/lily-0d83b7bc.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-marks-on-every-staff.ly"></a>
+<hr size="6">
+<a name="Printing-marks-on-every-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-marks-at-the-end-of-a-line-or-a-score" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Printing marks at the end of a line or a score&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Printing-marks-on-every-staff" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Printing-marks-on-every-staff"></a>
+<h2 class="unnumberedsec">Printing marks on every staff</h2>
+
+
+<p>Although text marks are normally only printed above the topmost staff,
+they may also be printed on every staff.
+</p>
+
+<pre class="verbatim">\score {
+  &lt;&lt;
+    \new Staff { c''1 \mark &quot;molto&quot; c'' }
+    \new Staff { c'1 \mark &quot;molto&quot; c' }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      \remove &quot;Mark_engraver&quot;
+      \remove &quot;Staff_collecting_engraver&quot;
+    }
+    \context {
+      \Staff
+      \consists &quot;Mark_engraver&quot;
+      \consists &quot;Staff_collecting_engraver&quot;
+    }
+  }
+}
+
+</pre><p>
+ <a href="../35/lily-049a8800.ly">
+  <img align="middle"
+       border="0"
+       src="../35/lily-049a8800.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-text-from-right-to-left.ly"></a>
+<hr size="6">
+<a name="Printing-marks-on-every-staff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-marks-on-every-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Printing marks on every staff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Stand_002dalone-two_002dcolumn-markup" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Stand-alone two-column markup &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Printing text from right to left</h2>
+
+
+<p>It is possible to print text from right to left in a markup object, as
+demonstrated here.
+</p>
+
+<pre class="verbatim">{
+  b1^\markup {
+    \line { i n g i r u m i m u s n o c t e }
+  }
+  f'_\markup {
+    \override #'(text-direction . -1)
+    \line { i n g i r u m i m u s n o c t e }
+  }
+}
+
+</pre><p>
+ <a href="../a3/lily-2214923f.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-2214923f.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="stand-alone-two-column-markup.ly"></a>
+<hr size="6">
+<a name="Stand_002dalone-two_002dcolumn-markup"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Printing-marks-on-every-staff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Stand_002dalone-two_002dcolumn-markup" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Stand_002dalone-two_002dcolumn-markup"></a>
+<h2 class="unnumberedsec">Stand-alone two-column markup</h2>
+
+
+<p>Stand-alone text may be arranged in several columns using
+<code>\markup</code> commands:
+</p>
+
+<pre class="verbatim">\markup {
+  \fill-line {
+    \hspace #1
+    \column {
+      \line { O sacrum convivium }
+      \line { in quo Christus sumitur, }
+      \line { recolitur memoria passionis ejus, }
+      \line { mens impletur gratia, }
+      \line { futurae gloriae nobis pignus datur. }
+      \line { Amen. }
+    }
+    \hspace #2
+    \column {
+      \line { \italic { O sacred feast } }
+      \line { \italic { in which Christ is received, } }
+      \line { \italic { the memory of His Passion is renewed, } }
+      \line { \italic { the mind is filled with grace, } }
+      \line { \italic { and a pledge of future glory is given to us. } }
+      \line { \italic { Amen. } }
+    }
+    \hspace #1
+  }
+}
+</pre><p>
+ <a href="../00/lily-54c604e2.ly">
+  <img align="middle"
+       border="0"
+       src="../00/lily-54c604e2.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="three-sided-box.ly"></a>
+<hr size="6">
+<a name="Stand_002dalone-two_002dcolumn-markup"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Stand_002dalone-two_002dcolumn-markup" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Stand-alone two-column markup&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#UTF_002d8" title="Next section in reading order" accesskey="n" rel="next">&nbsp;UTF-8 &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Three-sided box</h2>
+
+
+<p>This example shows how to add a markup command to get a three sided box
+around some text (or other markup).
+</p>
+
+<pre class="verbatim">% New command to add a three sided box, with sides north, west and south
+% Based on the box-stencil command defined in scm/stencil.scm
+% Note that &quot;;&quot; is used to comment a line in Scheme
+#(define-public (NWS-box-stencil stencil thickness padding)
+  &quot;Add a box around STENCIL, producing a new stencil.&quot;
+  (let* ((x-ext (interval-widen (ly:stencil-extent stencil 0) padding))
+         (y-ext (interval-widen (ly:stencil-extent stencil 1) padding))
+         (y-rule (make-filled-box-stencil (cons 0 thickness) y-ext))
+         (x-rule (make-filled-box-stencil
+                  (interval-widen x-ext thickness) (cons 0 thickness))))
+;    (set! stencil (ly:stencil-combine-at-edge stencil X 1 y-rule padding))
+    (set! stencil (ly:stencil-combine-at-edge stencil X -1 y-rule padding))
+    (set! stencil (ly:stencil-combine-at-edge stencil Y 1 x-rule 0.0))
+    (set! stencil (ly:stencil-combine-at-edge stencil Y -1 x-rule 0.0))
+    stencil))
+
+% The corresponding markup command, based on the \box command defined 
+% in scm/define-markup-commands.scm
+#(define-markup-command (NWS-box layout props arg) (markup?)
+  &quot;Draw a box round @var{arg}.  Looks at @code{thickness},
+@code{box-padding} and @code{font-size} properties to determine line
+thickness and padding around the markup.&quot;  
+  (let* ((th (chain-assoc-get 'thickness props  0.1))
+         (size (chain-assoc-get 'font-size props 0))
+         (pad (* (magstep size)
+                 (chain-assoc-get 'box-padding props 0.2)))
+         (m (interpret-markup layout props arg)))
+    (NWS-box-stencil m th pad)))
+
+% Test it:
+
+\layout { ragged-right = ##f }
+\relative c' {
+  c2^\markup { \NWS-box ABCD }
+  c2^\markup { \NWS-box \note #&quot;4&quot; #1.0 }
+}
+
+</pre><p>
+ <a href="../6b/lily-68585188.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-68585188.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="utf-8.ly"></a>
+<hr size="6">
+<a name="UTF_002d8"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Stand_002dalone-two_002dcolumn-markup" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Vocal ensemble template with lyrics aligned below and above the staves &gt; </a>]</td></tr></table>
+<a name="UTF_002d8"></a>
+<h2 class="unnumberedsec">UTF-8</h2>
+
+
+<p>Various scripts may be used for texts (like titles and lyrics) by
+entering them in UTF-8 encoding, and using a Pango based backend. 
+Depending on the fonts installed, this fragment will render Bulgarian
+(Cyrillic), Hebrew, Japanese and Portuguese.
+</p>
+
+<pre class="verbatim">% end verbatim - this comment is a hack to prevent texinfo.tex
+% from choking on non-European UTF-8 subsets
+
+%% Edit this file using a Unicode aware editor, such as GVIM, GEDIT, Emacs
+
+%{
+
+You may have to install additional fonts.
+
+Red Hat Fedora
+
+    taipeifonts fonts-xorg-truetype ttfonts-ja fonts-arabic \
+   ttfonts-zh_CN fonts-ja fonts-hebrew 
+
+Debian GNU/Linux
+
+   apt-get install emacs-intl-fonts xfonts-intl-.* \
+  ttf-kochi-gothic ttf-kochi-mincho \
+  xfonts-bolkhov-75dpi xfonts-cronyx-100dpi xfonts-cronyx-75dpi 
+%}
+
+% Cyrillic font
+bulgarian = \lyricmode {
+  Жълтата дюля беше щастлива, че пухът, който цъфна, замръзна като гьон.
+}
+
+hebrew = \lyricmode {
+  זה כיף סתם לשמוע איך תנצח קרפד עץ טוב בגן.
+}
+
+japanese = \lyricmode {
+  いろはにほへど ちりぬるを
+  わがよたれぞ  つねならむ
+  うゐのおくや  まけふこえて
+  あさきゆめみじ ゑひもせず
+}
+
+% &quot;a legal song to you&quot;
+portuguese = \lyricmode {
+  à vo -- cê uma can -- ção legal
+}
+
+\relative c' {
+  c2 d
+  e2 f
+  g2 f
+  e1
+}
+\addlyrics { \bulgarian }
+\addlyrics { \hebrew }
+\addlyrics { \japanese }
+\addlyrics { \portuguese }
+</pre><p>
+ <a href="../42/lily-72d1e0fa.ly">
+  <img align="middle"
+       border="0"
+       src="../42/lily-72d1e0fa.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves.ly"></a>
+<hr size="6">
+<a name="Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#UTF_002d8" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; UTF-8&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves"></a>
+<h2 class="unnumberedsec">Vocal ensemble template with lyrics aligned below and above the staves</h2>
+
+
+<p>This template is basically the same as the simple &quot;Vocal ensemble&quot;
+template, with the exception that here all the lyrics lines are placed
+using <code>alignAboveContext</code> and <code>alignBelowContext</code>.
+</p>
+
+<pre class="verbatim">global = {
+  \key c \major
+  \time 4/4
+}
+
+sopMusic = \relative c'' {
+  c4 c c8[( b)] c4
+}
+sopWords = \lyricmode {
+  hi hi hi hi
+}
+
+altoMusic = \relative c' {
+  e4 f d e
+}
+altoWords = \lyricmode {
+  ha ha ha ha
+}
+
+tenorMusic = \relative c' {
+  g4 a f g
+}
+tenorWords = \lyricmode {
+  hu hu hu hu
+}
+
+bassMusic = \relative c {
+  c4 c g c
+}
+bassWords = \lyricmode {
+  ho ho ho ho
+}
+
+\score {
+  \new ChoirStaff &lt;&lt;
+    \new Staff = women &lt;&lt;
+      \new Voice = &quot;sopranos&quot; { \voiceOne &lt;&lt; \global \sopMusic &gt;&gt; }
+      \new Voice = &quot;altos&quot; { \voiceTwo &lt;&lt; \global \altoMusic &gt;&gt; }
+    &gt;&gt;
+    \new Lyrics \with { alignAboveContext = women } \lyricsto sopranos \sopWords
+    \new Lyrics \with { alignBelowContext = women } \lyricsto altos \altoWords
+    % we could remove the line about this with the line below, since we want
+    % the alto lyrics to be below the alto Voice anyway.
+    % \new Lyrics \lyricsto altos \altoWords
+    
+    \new Staff = men &lt;&lt;
+      \clef bass
+      \new Voice = &quot;tenors&quot; { \voiceOne &lt;&lt; \global \tenorMusic &gt;&gt; }
+      \new Voice = &quot;basses&quot; { \voiceTwo &lt;&lt; \global \bassMusic &gt;&gt; }
+    &gt;&gt;
+    \new Lyrics \with { alignAboveContext = men } \lyricsto tenors \tenorWords
+    \new Lyrics \with { alignBelowContext = men } \lyricsto basses \bassWords
+    % again, we could replace the line above this with the line below.
+    % \new Lyrics \lyricsto basses \bassWords
+  &gt;&gt;
+  \layout {
+    \context {
+      % a little smaller so lyrics
+      % can be closer to the staff
+      \Staff
+      \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../45/lily-b608b16a.ly">
+  <img align="middle"
+       border="0"
+       src="../45/lily-b608b16a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="volta-text-markup-using-repeatcommands.ly"></a>
+<hr size="6">
+<a name="Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Vocal ensemble template with lyrics aligned below and above the staves&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Vocal-music.html#Vocal-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Vocal music &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Volta text markup using repeatCommands</h2>
+
+
+<p>Though volte are best specified using <code>\repeat volta</code>, the
+context property <code>repeatCommands</code> must be used in cases where the
+volta text needs more advanced formatting with <code>\markup</code>.
+</p>
+<p>Since <code>repeatCommands</code> takes a list, the simplest method of
+including markup is to use an identifier for the text and embed it in
+the command list using the Scheme syntax <code>#(list (list 'volta
+textIdentifier))</code>. Start- and end-repeat commands can be added as
+separate list elements: 
+</p>
+
+<pre class="verbatim">voltaAdLib = \markup { 1. 2. 3... \text \italic { ad lib. } }
+
+\relative c'' {
+  c1
+  \set Score.repeatCommands = #(list (list 'volta voltaAdLib) 'start-repeat)
+  c4 b d e
+  \set Score.repeatCommands = #'((volta #f) (volta &quot;4.&quot;) end-repeat)
+  f1
+  \set Score.repeatCommands = #'((volta #f))
+}
+</pre><p>
+ <a href="../be/lily-3c93e1a8.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-3c93e1a8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Text" title="Beginning of this chapter or previous chapter"> &lt;&lt; Text&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Vocal-music.html#Vocal-music" title="Next chapter">&nbsp;Vocal music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Vocal ensemble template with lyrics aligned below and above the staves&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Text" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Text&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Vocal-music.html#Vocal-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Vocal music &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li class="toc_current"><a name="toc-Text-1" href="Text.html#Text">Text</a>
+  <ul class="toc">
+    <li><a name="toc-Adding-the-current-date-to-a-score-1" href="Text.html#Adding-the-current-date-to-a-score">Adding the current date to a score</a>    </li>
+    <li><a name="toc-Adjusting-lyrics-vertical-spacing-1" href="Text.html#Adjusting-lyrics-vertical-spacing">Adjusting lyrics vertical spacing</a>    </li>
+    <li><a name="toc-Aligning-and-centering-instrument-names-3" href="Text.html#Aligning-and-centering-instrument-names">Aligning and centering instrument names</a>    </li>
+    <li><a name="toc-Aligning-marks-with-various-notation-objects-1" href="Text.html#Aligning-marks-with-various-notation-objects">Aligning marks with various notation objects</a>    </li>
+    <li><a name="toc-Aligning-objects-created-with-the-_005cmark-command-1" href="Text.html#Aligning-objects-created-with-the-_005cmark-command">Aligning objects created with the \mark command</a>    </li>
+    <li><a name="toc-Blanking-staff-lines-using-the-_005cwhiteout-command-1" href="Text.html#Aligning-objects-created-with-the-_005cmark-command">Blanking staff lines using the \whiteout command</a>    </li>
+    <li><a name="toc-Center-text-below-hairpin-dynamics-1" href="Text.html#Aligning-objects-created-with-the-_005cmark-command">Center text below hairpin dynamics</a>    </li>
+    <li><a name="toc-Changing-the-default-text-font-family-1" href="Text.html#Changing-the-default-text-font-family">Changing the default text font family</a>    </li>
+    <li><a name="toc-Combining-dynamics-with-markup-texts-1" href="Text.html#Changing-the-default-text-font-family">Combining dynamics with markup texts</a>    </li>
+    <li><a name="toc-Combining-two-parts-on-the-same-staff-2" href="Text.html#Changing-the-default-text-font-family">Combining two parts on the same staff</a>    </li>
+    <li><a name="toc-Creating-_0022real_0022-parenthesized-dynamics-2" href="Text.html#Changing-the-default-text-font-family">Creating &quot;real&quot; parenthesized dynamics</a>    </li>
+    <li><a name="toc-Creating-simultaneous-rehearsal-marks-1" href="Text.html#Changing-the-default-text-font-family">Creating simultaneous rehearsal marks</a>    </li>
+    <li><a name="toc-Creating-text-spanners-1" href="Text.html#Changing-the-default-text-font-family">Creating text spanners</a>    </li>
+    <li><a name="toc-Demonstrating-all-headers-3" href="Text.html#Demonstrating-all-headers">Demonstrating all headers</a>    </li>
+    <li><a name="toc-Embedding-native-PostScript-in-a-_005cmarkup-block-1" href="Text.html#Demonstrating-all-headers">Embedding native PostScript in a \markup block</a>    </li>
+    <li><a name="toc-Formatting-lyrics-syllables-1" href="Text.html#Formatting-lyrics-syllables">Formatting lyrics syllables</a>    </li>
+    <li><a name="toc-How-to-put-ties-between-syllables-in-lyrics-2" href="Text.html#How-to-put-ties-between-syllables-in-lyrics">How to put ties between syllables in lyrics</a>    </li>
+    <li><a name="toc-Lyrics-alignment-1" href="Text.html#Lyrics-alignment">Lyrics alignment</a>    </li>
+    <li><a name="toc-Markup-lines-1" href="Text.html#Markup-lines">Markup lines</a>    </li>
+    <li><a name="toc-Multi_002dmeasure-rest-markup-2" href="Text.html#Markup-lines">Multi-measure rest markup</a>    </li>
+    <li><a name="toc-Ottava-text-1" href="Text.html#Markup-lines">Ottava text</a>    </li>
+    <li><a name="toc-Outputting-the-version-number-2" href="Text.html#Outputting-the-version-number">Outputting the version number</a>    </li>
+    <li><a name="toc-Piano-template-with-centered-lyrics-2" href="Text.html#Piano-template-with-centered-lyrics">Piano template with centered lyrics</a>    </li>
+    <li><a name="toc-Printing-marks-at-the-end-of-a-line-or-a-score-1" href="Text.html#Printing-marks-at-the-end-of-a-line-or-a-score">Printing marks at the end of a line or a score</a>    </li>
+    <li><a name="toc-Printing-marks-on-every-staff-1" href="Text.html#Printing-marks-on-every-staff">Printing marks on every staff</a>    </li>
+    <li><a name="toc-Printing-text-from-right-to-left-2" href="Text.html#Printing-marks-on-every-staff">Printing text from right to left</a>    </li>
+    <li><a name="toc-Stand_002dalone-two_002dcolumn-markup-1" href="Text.html#Stand_002dalone-two_002dcolumn-markup">Stand-alone two-column markup</a>    </li>
+    <li><a name="toc-Three_002dsided-box-1" href="Text.html#Stand_002dalone-two_002dcolumn-markup">Three-sided box</a>    </li>
+    <li><a name="toc-UTF_002d8-1" href="Text.html#UTF_002d8">UTF-8</a>    </li>
+    <li><a name="toc-Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves-3" href="Text.html#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves">Vocal ensemble template with lyrics aligned below and above the staves</a>    </li>
+    <li><a name="toc-Volta-text-markup-using-repeatCommands-1" href="Text.html#Vocal-ensemble-template-with-lyrics-aligned-below-and-above-the-staves">Volta text markup using repeatCommands</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

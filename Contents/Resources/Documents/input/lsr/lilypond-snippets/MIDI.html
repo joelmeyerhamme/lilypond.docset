@@ -1,0 +1,406 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: MIDI</title>
+
+<meta name="description" content="LilyPond snippets: MIDI">
+<meta name="keywords" content="LilyPond snippets: MIDI">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Spacing.html#Spacing" rel="previous" title="Spacing">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="MIDI"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Spacing.html#Spacing" title="Beginning of this chapter or previous chapter"> &lt;&lt; Spacing&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Spacing.html#Page-label" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#MIDI" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="MIDI"></a>
+<h1 class="unnumbered">MIDI</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/MIDI-output.html#MIDI-output">MIDI output</a>.
+</p>
+
+<a name="changing-midi-output-to-one-channel-per-voice.ly"></a>
+<hr size="6">
+<a name="MIDI"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#MIDI" title="Beginning of this chapter or previous chapter"> &lt;&lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#MIDI" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#MIDI" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#MIDI" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Changing MIDI output to one channel per voice</h2>
+
+
+<p>When outputting MIDI, the default behavior is for each staff to
+represent one MIDI channel, with all the voices on a staff amalgamated.
+This minimizes the risk of running out of MIDI channels, since there
+are only 16 available per track.
+</p>
+<p>However, by moving the <code>Staff_performer</code> to the <code>Voice</code>
+context, each voice on a staff can have its own MIDI channel, as is
+demonstrated by the following example: despite being on the same staff,
+two MIDI channels are created, each with a different
+<code>midiInstrument</code>. 
+</p>
+
+<pre class="verbatim">\score {
+  \new Staff &lt;&lt;
+    \new Voice \relative c''' {
+      \set midiInstrument = #&quot;flute&quot;
+      \voiceOne
+      \key g \major
+      \time 2/2
+      r2 g-&quot;Flute&quot; ~
+      g fis ~
+      fis4 g8 fis e2 ~
+      e4 d8 cis d2
+    }
+    \new Voice \relative c'' {
+      \set midiInstrument = #&quot;clarinet&quot;
+      \voiceTwo
+      b1-&quot;Clarinet&quot;
+      a2. b8 a
+      g2. fis8 e
+      fis2 r
+    }
+  &gt;&gt;
+  \layout { }
+  \midi {
+    \context {
+      \Staff
+      \remove &quot;Staff_performer&quot;
+    }
+    \context {
+      \Voice
+      \consists &quot;Staff_performer&quot;      
+    }
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 72 2)
+    }
+  }
+}
+
+</pre><p>
+ <a href="../29/lily-a4aee98b.ly">
+  <img align="middle"
+       border="0"
+       src="../29/lily-a4aee98b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-tempo-without-a-metronome-mark.ly"></a>
+<hr size="6">
+<a name="MIDI"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#MIDI" title="Beginning of this chapter or previous chapter"> &lt;&lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#MIDI" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#MIDI" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Demo-MidiInstruments" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Demo MidiInstruments &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Changing the tempo without a metronome mark</h2>
+
+
+<p>To change the tempo in MIDI output without printing anything, make the
+metronome mark invisible.
+</p>
+
+<pre class="verbatim">\score {
+  \new Staff \relative c' {
+    \tempo 4 = 160
+    c4 e g b
+    c4 b d c
+    \set Score.tempoHideNote = ##t
+    \tempo 4 = 96
+    d,4 fis a cis
+    d4 cis e d
+  }
+  \layout { }
+  \midi { }
+}
+</pre><p>
+ <a href="../92/lily-90660573.ly">
+  <img align="middle"
+       border="0"
+       src="../92/lily-90660573.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="demo-midiinstruments.ly"></a>
+<hr size="6">
+<a name="Demo-MidiInstruments"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#MIDI" title="Beginning of this chapter or previous chapter"> &lt;&lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#MIDI" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#MIDI" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Templates.html#Templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Templates &gt; </a>]</td></tr></table>
+<a name="Demo-MidiInstruments"></a>
+<h2 class="unnumberedsec">Demo MidiInstruments</h2>
+
+
+<p>Problem: How to know which <code>midiInstrument</code> would be best for your
+composition? Solution: A LilyPond demo file.
+</p>
+
+
+
+<pre class="verbatim">\header {
+  title = &quot;Demo of all midi sounds&quot;
+  arranger = &quot;Myself &quot;
+}
+
+baseMelody = \relative c' {
+  c4.\mf g c16 b' c d
+  e16 d e f g4 g'4 r
+  R1
+}
+melody = {
+  \tempo 4 = 150
+  \baseMelody
+}
+
+\score {
+  \new Staff &lt;&lt;
+    \new Voice \melody
+  &gt;&gt;
+  \layout { }
+}
+
+\score { 
+  \new Staff &lt;&lt;
+    \new Voice {
+      r\mf
+      \set Staff.midiInstrument = #&quot;acoustic grand&quot; \melody
+      \set Staff.midiInstrument = #&quot;bright acoustic&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric grand&quot; \melody
+      \set Staff.midiInstrument = #&quot;honky-tonk&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric piano 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric piano 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;harpsichord&quot; \melody
+      \set Staff.midiInstrument = #&quot;clav&quot; \melody
+      \set Staff.midiInstrument = #&quot;celesta&quot; \melody
+      \set Staff.midiInstrument = #&quot;glockenspiel&quot; \melody
+      \set Staff.midiInstrument = #&quot;music box&quot; \melody
+      \set Staff.midiInstrument = #&quot;vibraphone&quot; \melody
+      \set Staff.midiInstrument = #&quot;marimba&quot; \melody
+      \set Staff.midiInstrument = #&quot;xylophone&quot; \melody
+      \set Staff.midiInstrument = #&quot;tubular bells&quot; \melody
+      \set Staff.midiInstrument = #&quot;dulcimer&quot; \melody
+      \set Staff.midiInstrument = #&quot;drawbar organ&quot; \melody
+      \set Staff.midiInstrument = #&quot;percussive organ&quot; \melody
+      \set Staff.midiInstrument = #&quot;rock organ&quot; \melody
+      \set Staff.midiInstrument = #&quot;church organ&quot; \melody
+      \set Staff.midiInstrument = #&quot;reed organ&quot; \melody
+      \set Staff.midiInstrument = #&quot;accordion&quot; \melody
+      \set Staff.midiInstrument = #&quot;harmonica&quot; \melody
+      \set Staff.midiInstrument = #&quot;concertina&quot; \melody
+      \set Staff.midiInstrument = #&quot;acoustic guitar (nylon)&quot; \melody
+      \set Staff.midiInstrument = #&quot;acoustic guitar (steel)&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric guitar (jazz)&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric guitar (clean)&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric guitar (muted)&quot; \melody
+      \set Staff.midiInstrument = #&quot;overdriven guitar&quot; \melody
+      \set Staff.midiInstrument = #&quot;distorted guitar&quot; \melody
+      \set Staff.midiInstrument = #&quot;acoustic bass&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric bass (finger)&quot; \melody
+      \set Staff.midiInstrument = #&quot;electric bass (pick)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fretless bass&quot; \melody
+      \set Staff.midiInstrument = #&quot;slap bass 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;slap bass 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;synth bass 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;synth bass 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;violin&quot; \melody
+      \set Staff.midiInstrument = #&quot;viola&quot; \melody
+      \set Staff.midiInstrument = #&quot;cello&quot; \melody
+      \set Staff.midiInstrument = #&quot;contrabass&quot; \melody
+      \set Staff.midiInstrument = #&quot;tremolo strings&quot; \melody
+      \set Staff.midiInstrument = #&quot;pizzicato strings&quot; \melody
+      \set Staff.midiInstrument = #&quot;orchestral strings&quot; \melody
+      \set Staff.midiInstrument = #&quot;timpani&quot; \melody
+      \set Staff.midiInstrument = #&quot;string ensemble 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;string ensemble 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;synthstrings 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;synthstrings 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;choir aahs&quot; \melody
+      \set Staff.midiInstrument = #&quot;voice oohs&quot; \melody
+      \set Staff.midiInstrument = #&quot;synth voice&quot; \melody
+      \set Staff.midiInstrument = #&quot;orchestra hit&quot; \melody
+      \set Staff.midiInstrument = #&quot;trumpet&quot; \melody
+      \set Staff.midiInstrument = #&quot;trombone&quot; \melody
+      \set Staff.midiInstrument = #&quot;tuba&quot; \melody
+      \set Staff.midiInstrument = #&quot;muted trumpet&quot; \melody
+      \set Staff.midiInstrument = #&quot;french horn&quot; \melody
+      \set Staff.midiInstrument = #&quot;brass section&quot; \melody
+      \set Staff.midiInstrument = #&quot;synthbrass 1&quot; \melody
+      \set Staff.midiInstrument = #&quot;synthbrass 2&quot; \melody
+      \set Staff.midiInstrument = #&quot;soprano sax&quot; \melody
+      \set Staff.midiInstrument = #&quot;alto sax&quot; \melody
+      \set Staff.midiInstrument = #&quot;tenor sax&quot; \melody
+      \set Staff.midiInstrument = #&quot;baritone sax&quot; \melody
+      \set Staff.midiInstrument = #&quot;oboe&quot; \melody
+      \set Staff.midiInstrument = #&quot;english horn&quot; \melody
+      \set Staff.midiInstrument = #&quot;bassoon&quot; \melody
+      \set Staff.midiInstrument = #&quot;clarinet&quot; \melody
+      \set Staff.midiInstrument = #&quot;piccolo&quot; \melody
+      \set Staff.midiInstrument = #&quot;flute&quot; \melody
+      \set Staff.midiInstrument = #&quot;recorder&quot; \melody
+      \set Staff.midiInstrument = #&quot;pan flute&quot; \melody
+      \set Staff.midiInstrument = #&quot;blown bottle&quot; \melody
+      \set Staff.midiInstrument = #&quot;shakuhachi&quot; \melody
+      \set Staff.midiInstrument = #&quot;whistle&quot; \melody
+      \set Staff.midiInstrument = #&quot;ocarina&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 1 (square)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 2 (sawtooth)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 3 (calliope)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 4 (chiff)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 5 (charang)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 6 (voice)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 7 (fifths)&quot; \melody
+      \set Staff.midiInstrument = #&quot;lead 8 (bass+lead)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 1 (new age)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 2 (warm)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 3 (polysynth)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 4 (choir)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 5 (bowed)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 6 (metallic)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 7 (halo)&quot; \melody
+      \set Staff.midiInstrument = #&quot;pad 8 (sweep)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 1 (rain)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 2 (soundtrack)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 3 (crystal)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 4 (atmosphere)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 5 (brightness)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 6 (goblins)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 7 (echoes)&quot; \melody
+      \set Staff.midiInstrument = #&quot;fx 8 (sci-fi)&quot; \melody
+      \set Staff.midiInstrument = #&quot;sitar&quot; \melody
+      \set Staff.midiInstrument = #&quot;banjo&quot; \melody
+      \set Staff.midiInstrument = #&quot;shamisen&quot; \melody
+      \set Staff.midiInstrument = #&quot;koto&quot; \melody
+      \set Staff.midiInstrument = #&quot;kalimba&quot; \melody
+      \set Staff.midiInstrument = #&quot;bagpipe&quot; \melody
+      \set Staff.midiInstrument = #&quot;fiddle&quot; \melody
+      \set Staff.midiInstrument = #&quot;shanai&quot; \melody
+      \set Staff.midiInstrument = #&quot;tinkle bell&quot; \melody
+      \set Staff.midiInstrument = #&quot;agogo&quot; \melody
+      \set Staff.midiInstrument = #&quot;steel drums&quot; \melody
+      \set Staff.midiInstrument = #&quot;woodblock&quot; \melody
+      \set Staff.midiInstrument = #&quot;taiko drum&quot; \melody
+      \set Staff.midiInstrument = #&quot;melodic tom&quot; \melody
+      \set Staff.midiInstrument = #&quot;synth drum&quot; \melody
+      \set Staff.midiInstrument = #&quot;reverse cymbal&quot; \melody
+      \set Staff.midiInstrument = #&quot;guitar fret noise&quot; \melody
+      \set Staff.midiInstrument = #&quot;breath noise&quot; \melody
+      \set Staff.midiInstrument = #&quot;seashore&quot; \melody
+      \set Staff.midiInstrument = #&quot;bird tweet&quot; \melody
+      \set Staff.midiInstrument = #&quot;telephone ring&quot; \melody
+      \set Staff.midiInstrument = #&quot;helicopter&quot; \melody
+      \set Staff.midiInstrument = #&quot;applause&quot; \melody
+      \set Staff.midiInstrument = #&quot;gunshot&quot; \melody
+    }
+  &gt;&gt;
+  \midi { }
+}
+
+</pre><p>
+ <a href="../17/lily-0a70e8e7.ly">
+  <img align="middle"
+       border="0"
+       src="../17/lily-0a70e8e7.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#MIDI" title="Beginning of this chapter or previous chapter"> &lt;&lt; MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Templates.html#Templates" title="Next chapter">&nbsp;Templates &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#MIDI" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#MIDI" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Templates.html#Templates" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Templates &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li class="toc_current"><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Changing-MIDI-output-to-one-channel-per-voice-1" href="MIDI.html#MIDI">Changing MIDI output to one channel per voice</a>    </li>
+    <li class="toc_current"><a name="toc-Changing-the-tempo-without-a-metronome-mark-2" href="MIDI.html#MIDI">Changing the tempo without a metronome mark</a>    </li>
+    <li><a name="toc-Demo-MidiInstruments-1" href="MIDI.html#Demo-MidiInstruments">Demo MidiInstruments</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

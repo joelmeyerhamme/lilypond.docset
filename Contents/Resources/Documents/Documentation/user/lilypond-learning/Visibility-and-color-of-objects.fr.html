@@ -1,0 +1,574 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 4.3.1 Visibilité et couleur des objets</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 4.3.1 Visibility and color of objects">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 4.3.1 Visibility and color of objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Appearance-of-objects.fr.html#Appearance-of-objects" rel="up" title="4.3 Appearance of objects">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Appearance-of-objects.fr.html#Appearance-of-objects" rel="previous" title="4.3 Appearance of objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Visibility-and-color-of-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.fr.html#Appearance-of-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Apparence des objets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.fr.html#Appearance-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Apparence des objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.fr.html#Size-of-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Taille des objets &gt; </a>]</td></tr></table>
+<a name="Visibility-and-color-of-objects"></a>
+<h3 class="subsection">4.3.1 Visibilité et couleur des objets</h3>
+
+<p>Dans un but pédagogique, on peut être amené à masquer certains éléments
+d&rsquo;une partition, que les élèves doivent ensuite compléter.  Imaginons,
+par exemple, un exercice dans lequel il faudrait rétablir les barres de
+mesure dans un morceau de musique. En temps normal, les barres de mesure
+s&rsquo;insèrent automatiquement.  Comment faire pour les effacer de la
+partition<font size="-4">&nbsp;</font>?  
+</p>
+<p>Avant de nous y attaquer, souvenons-nous que les propriétés d&rsquo;objets
+sont parfois groupées dans ce qu&rsquo;on appelle des <em>interfaces</em> &ndash;
+voir <a href="Properties-found-in-interfaces.fr.html#Properties-found-in-interfaces">Propriétés listées par interface</a>.  Cela permet de rapprocher
+toutes les propriétés susceptibles d&rsquo;être utilisées ensemble pour
+modifier un objet graphique &ndash; si l&rsquo;une d&rsquo;elles est choisie pour un
+objet, elle s&rsquo;appliquera à tous les autres.  Certains objets tirent
+alors leurs propriétés de telle ou telle interface, d&rsquo;autres objets de
+telle ou telle autre interface.  La liste des interfaces qui contiennent
+les propriétés liées à un objet graphique (<em>grob</em>) figure dans la
+RPI, en bas de la page de description du <em>grob</em>&nbsp;; pour voir ces
+propriétés, il faut aller voir ces interfaces.  
+</p>
+<p>Nous avons vu, dans <a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects">Propriétés des objets de rendu</a>, comment trouver 
+les informations sur les <em>grobs</em>.  Nous procédons de la même manière
+et consultons la RPI pour connaître l&rsquo;objet chargé d&rsquo;imprimer les barres
+de mesure.  En cliquant sur <em>Backend</em> puis sur <em>Tous les
+objets de rendu</em>, nous trouvons un objet appelé <code>BarLine</code>.  Parmi 
+ses propriétés, deux d&rsquo;entre elles déterminent son aspect visuel&nbsp;: 
+<code>break-visibility</code> et <code>stencil</code>.  L&rsquo;objet <code>BarLine</code> 
+est également lié à plusieurs interfaces, dont la <code>grob-interface</code> 
+où figurent les propriétés <code>transparent</code> et <code>color</code>.  Toutes
+peuvent modifier l&rsquo;aspect visuel des barres de mesure &ndash; et de beaucoup
+d&rsquo;autres objets, bien sûr.  Examinons chacune d&rsquo;elles tour à tour.
+</p>
+<a name="stencil"></a>
+<h3 class="subheading">stencil</h3>
+
+<a name="index-stencil_002c-propriete"></a>
+
+<p>Cette propriété contrôle l&rsquo;apparence des barres de mesure en précisant 
+le type de symbole (glyphe) à imprimer.  Comme pour de nombreuses 
+autres propriétés, on peut lui indiquer de ne rien imprimer en lui
+attribuant la valeur <code>#f</code>.  Essayons en laissant de côté, une fois
+encore, le contexte concerné (<code>Voice</code> en l&rsquo;occurrence)&nbsp;: 
+</p>
+<a name="index-BarLine_002c-exemple-de-derogation"></a>
+<a name="index-stencil_002c-exemple-de-propriete"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../a7/lily-1cc66621.ly">
+  <img align="middle"
+       border="0"
+       src="../a7/lily-1cc66621.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les barres de mesure sont encore là<font size="-4">&nbsp;</font>!  Pourquoi<font size="-4">&nbsp;</font>?  Retournons à la RPI
+et regardons de nouveau la page qui traite des propriétés de BarLine.
+En haut de la page, il est précisé que &laquo;&nbsp;Les objets BarLine sont créés
+par le graveur Bar_engraver&nbsp;&raquo;.  Allons à la page de <code>Bar_engraver</code>. 
+Tout en bas se trouve la liste des contextes dans lesquels fonctionne ce 
+graveur.  Tous sont du type <code>Staff</code>, de sorte que, si la commande 
+<code>\override</code> n&rsquo;a pas fonctionné comme prévu, c&rsquo;est parce que 
+<code>Barline</code> n&rsquo;appartient pas au contexte par défaut, <code>Voice</code>. 
+Si le contexte spécifié est erroné, la commande ne fonctionne pas.  Cela 
+n&rsquo;entraîne pas de message d&rsquo;erreur, et rien n&rsquo;apparaît sur le fichier log. 
+Essayons de corriger en mentionnant le bon contexte&nbsp;: 
+</p>
+<a name="index-BarLine_002c-exemple-de-derogation-1"></a>
+<a name="index-stencil_002c-exemple-de-propriete-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../af/lily-22da988b.ly">
+  <img align="middle"
+       border="0"
+       src="../af/lily-22da988b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Cette fois, les barres de mesure ont disparu.
+</p>
+<a name="break_002dvisibility"></a>
+<h3 class="subheading">visibilité des barres (break-visibility)</h3>
+
+<a name="index-break_002dvisibility_002c-propriete"></a>
+
+<p>La RPI mentionne, à la page sur <code>BarLine</code>, que la propriété
+<code>break-visibility</code> attend comme argument un vecteur de trois
+boléens.  Ceux-ci indiquent respectivement si les barres de mesure
+doivent être imprimées ou non à la fin de la ligne, à l&rsquo;intérieur de la
+ligne et au début de la ligne.  Dans notre cas, nous voulons que toutes
+les barres soient supprimées, si bien que la valeur dont nous avons
+besoin est <code>'#(#f&nbsp;#f&nbsp;#f)</code>. Essayons, sans oublier
+d&rsquo;ajouter le contexte <code>Staff</code>.  Vous remarquerez que, en plus de
+cette valeur, nous ajoutons <code>#'#</code> devant la parenthèse ouvrante.
+Le <code>'#</code> est nécessaire car il fait partie intégrante de la valeur
+contenant un vecteur, et le premier <code>#</code> est là, comme toujours avec
+la commande <code>\override</code>, pour introduire la valeur elle-même. 
+</p>
+<a name="index-BarLine_002c-example-of-overriding"></a>
+<a name="index-break_002dvisibility-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'break-visibility = #'#(#f #f #f)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../db/lily-5a5a3823.ly">
+  <img align="middle"
+       border="0"
+       src="../db/lily-5a5a3823.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Comme on peut le constater, cette solution-là aussi supprime les barres 
+de mesure.
+</p>
+<a name="transparent"></a>
+<h3 class="subheading">transparence</h3>
+
+<a name="index-transparent_002c-propriete"></a>
+<a name="index-transparence"></a>
+
+<p>La RPI mentionne, à la page sur <code>grob-interface</code>, que la propriété
+<code>transparent</code> attend comme argument un boléen.  Il faudrait donc
+mettre <code>#t</code> pour rendre l&rsquo;objet transparent.  Dans cet exemple,
+essayons de rendre transparente la métrique (<em>time signature</em> en
+anglais) plutôt que les barres de mesure.  Pour cela, il nous faut
+trouver le nom du <em>grob</em> chargé de l&rsquo;indication de mesure.  De
+retour sur la page &lsquo;Tous les objets de rendu&rsquo; de la RPI, nous
+cherchons les propriétés de l&rsquo;objet <code>TimeSignature</code>.  Celui-ci est
+géré par le graveur <code>Time_signature_engraver</code> qui, comme vous
+pouvez le constater, appartient au contexte <code>Staff</code> et peut se
+rattacher à la <code>grob-interface</code>.  Dans ces conditions, la commande
+pour rendre la métrique transparente est&nbsp;: 
+</p>
+<a name="index-TimeSignature_002c-exemple-de-derogation"></a>
+<a name="index-transparent_002c-exemple-de-propriete"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'transparent = ##t
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../98/lily-7a19ec15.ly">
+  <img align="middle"
+       border="0"
+       src="../98/lily-7a19ec15.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La métrique a bien disparu mais la commande a laissé un blanc en lieu et
+place du chiffrage.  Ce peut être souhaitable dans le cadre d&rsquo;un
+exercice, afin que les élèves aient la place à compléter, mais dans
+d&rsquo;autres circonstances, ce peut être gênant.  Pour y remédier,
+attribuons plutôt au stencil des métriques la valeur <code>#f</code>&nbsp;: 
+</p>
+<a name="index-TimeSignature_002c-exemple-de-derogation-1"></a>
+<a name="index-stencil_002c-exemple-de-propriete-2"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.TimeSignature #'stencil = ##f
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6c/lily-6937aea0.ly">
+  <img align="middle"
+       border="0"
+       src="../6c/lily-6937aea0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La différence est flagrante&nbsp;: le fait d&rsquo;attribuer au stencil la valeur
+<code>#f</code> supprime totalement l&rsquo;objet, tandis que le fait de le rendre
+<code>transparent</code> le laisse en place, mais de façon invisible. 
+</p>
+<a name="color"></a>
+<h3 class="subheading">couleur</h3>
+
+<a name="index-color_002c-propriete"></a>
+
+<p>Essayons enfin de rendre les barres de mesure invisibles en les colorant
+en blanc.  La difficulté est de savoir si les barres blanches vont
+couper ou non les lignes de la portée aux endroits où elles se
+croisent.  Vous verrez dans les exemples ci-dessous que cela peut se
+produire, sans qu&rsquo;on le sache à l&rsquo;avance.  Les explications de ce
+phénomène et les solutions pour y remédier sont exposées dans
+<a name="index-Painting-objects-white"></a>
+<a href="../lilypond/Visibility-of-objects.fr.html#Painting-objects-white">Blanchiment des objets</a>.  Pour le moment, acceptons cet
+inconvénient et concentrons-nous sur l&rsquo;apprentissage de la gestion des
+couleurs. 
+</p>
+<p>La <code>grob-interface</code> indique que la valeur de la propriété
+<code>color</code> est une liste, sans plus d&rsquo;explication.  En fait, cette
+liste est une liste de valeurs en unités internes&nbsp;; pour éviter d&rsquo;avoir
+à chercher ce qu&rsquo;il faut y mettre, il existe différents moyens
+d&rsquo;indiquer la couleur.  Le premier moyen consiste à utiliser l&rsquo;une des
+couleurs <em>normales</em> de la première <a name="index-List-of-colors"></a>
+<a href="../lilypond/List-of-colors.fr.html#List-of-colors">Liste des couleurs</a>.  Pour
+mettre les barres de mesure en blanc, on écrit&nbsp;:  
+</p>
+<a name="index-BarLine_002c-exemple-de-derogation-2"></a>
+<a name="index-color_002c-exemple-de-propriete"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #white
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../24/lily-ead66fae.ly">
+  <img align="middle"
+       border="0"
+       src="../24/lily-ead66fae.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>et nous constatons que les barres de mesure sont une fois de plus
+invisibles.  Attention&nbsp;: aucune apostrophe ne précède <code>white</code> &ndash; il
+ne s&rsquo;agit pas d&rsquo;un symbole mais d&rsquo;une <em>fonction</em>.  Quand on
+l&rsquo;invoque, elle fournit une liste de valeurs internes requises pour
+changer la couleur en blanc.  Les autres couleurs aussi, dans la
+&laquo;&nbsp;liste normale&nbsp;&raquo;, sont des fonctions.  Pour en être certain, vous
+pouvez faire l&rsquo;essai en choisissant une autre fonction de la liste en
+guise de couleur. 
+</p>
+<a name="index-couleur-X11"></a>
+<a name="index-X11_002c-couleurs"></a>
+
+<a name="index-x11_002dcolor"></a>
+<a name="index-x11_002dcolor-1"></a>
+
+<p>Le deuxième moyen de changer la couleur consiste à utiliser la deuxième
+<a name="index-List-of-colors-1"></a>
+<a href="../lilypond/List-of-colors.fr.html#List-of-colors">Liste des couleurs</a>, dite noms de couleurs X11.  Ceux-ci doivent
+obligatoirement être précédés d&rsquo;une autre fonction, qui convertit les
+noms de couleurs X11 en une liste de valeurs internes, <code>x11-color</code>,
+comme ceci&nbsp;: 
+</p>
+<a name="index-BarLine_002c-exemple-de-derogation-3"></a>
+<a name="index-color_002c-exemple-de-propriete-1"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(x11-color 'white)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../6b/lily-7a8b71ec.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-7a8b71ec.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vous noterez que, dans ce cas, la fonction <code>x11-color</code> admet un
+symbole comme argument&nbsp;; il faut donc placer une apostrophe devant le
+symbole et insérer les deux à l&rsquo;intérieur de parenthèses.  
+</p>
+<a name="index-rgb_002c-couleur"></a>
+<a name="index-couleurs-rgb"></a>
+
+<a name="index-rgb_002dcolor"></a>
+<a name="index-rgb_002dcolor-1"></a>
+
+<p>Il existe une troisième fonction, écrite pour convertir les valeurs RGB
+en couleurs internes &ndash; la fonction <code>rgb-color</code>.  Elle comporte
+trois arguments, donnant respectivement l&rsquo;intensité du rouge, du vert et
+du bleu.  Ces arguments prennent des valeurs comprises entre 0 et 1.
+Ainsi, pour choisir la couleur rouge, la valeur serait 
+<code>(rgb-color1 0 0)</code>&nbsp;; pour le blanc, ce serait 
+<code>(rgb-color 1 1 1)</code>&nbsp;: 
+</p>
+<a name="index-BarLine_002c-exemple-de-derogation-4"></a>
+<a name="index-color_002c-exemple-de-propriete-2"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.BarLine #'color = #(rgb-color 1 1 1)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d2/lily-013d0e0d.ly">
+  <img align="middle"
+       border="0"
+       src="../d2/lily-013d0e0d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Enfin, il existe une échelle de gris parmi les possibilités de couleurs
+X11.  Elle va du noir, <code>'grey0</code>, au blanc, <code>'grey100</code>, avec
+un pas de 1.  Essayons de l&rsquo;utiliser en attribuant à tous les objets de
+notre exemple différentes nuances de gris&nbsp;: 
+</p>
+<a name="index-StaffSymbol_002c-exemple-de-derogation"></a>
+<a name="index-TimeSignature_002c-exemple-de-derogation-2"></a>
+<a name="index-Clef_002c-exemple-de-derogation"></a>
+<a name="index-NoteHead_002c-exemple-de-derogation-4"></a>
+<a name="index-Stem_002c-exemple-de-derogation"></a>
+<a name="index-BarLine_002c-exemple-de-derogation-5"></a>
+<a name="index-color_002c-exemple-de-propriete-3"></a>
+<a name="index-x11_002dcolor_002c-exemple-d_0027utilisation"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 12/16
+  \override Staff.StaffSymbol   #'color = #(x11-color 'grey30)
+  \override Staff.TimeSignature #'color = #(x11-color 'grey60)
+  \override Staff.Clef          #'color = #(x11-color 'grey60)
+  \override Voice.NoteHead      #'color = #(x11-color 'grey85)
+  \override Voice.Stem          #'color = #(x11-color 'grey85)
+  \override Staff.BarLine       #'color = #(x11-color 'grey10)
+  c4 b8 c d16 c d8 |
+  g, a16 b8 c d4 e16 |
+  e8
+}
+</pre><p>
+ <a href="../d4/lily-f6c92178.ly">
+  <img align="middle"
+       border="0"
+       src="../d4/lily-f6c92178.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vous remarquerez le contexte associé à chacun des objets.  Une erreur
+sur ce point empêcherait la commande de fonctionner.  Souvenez-vous que
+le contexte est celui dans lequel est placé le graveur approprié.  Pour
+chaque graveur, on peut trouver son contexte par défaut en partant de
+l&rsquo;objet lui-même, puis en cherchant le graveur qui le produit&nbsp;; la page
+du graveur dans la RPI nous indique alors le contexte dans lequel le
+graveur se trouve normalement. 
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Appearance-of-objects.fr.html#Appearance-of-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Apparence des objets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Appearance-of-objects.fr.html#Appearance-of-objects" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Apparence des objets&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Size-of-objects.fr.html#Size-of-objects" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Taille des objets &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Visibility-and-color-of-objects.html">English</a>, <a href="Visibility-and-color-of-objects.es.html">español</a>, <a href="Visibility-and-color-of-objects.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>    </li>
+    <li class="toc_current"><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Visibility-and-color-of-objects-1" href="Visibility-and-color-of-objects.fr.html#Visibility-and-color-of-objects">4.3.1 Visibilité et couleur des objets</a>      </li>
+      <li><a name="toc-Size-of-objects-1" href="Size-of-objects.fr.html#Size-of-objects">4.3.2 Taille des objets</a>      </li>
+      <li><a name="toc-Length-and-thickness-of-objects-1" href="Length-and-thickness-of-objects.fr.html#Length-and-thickness-of-objects">4.3.3 Longueur et épaisseur des objets</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Learning Manual: 4.4.2 Within-staff objects</title>
+
+<meta name="description" content="GNU LilyPond Learning Manual: 4.4.2 Within-staff objects">
+<meta name="keywords" content="GNU LilyPond Learning Manual: 4.4.2 Within-staff objects">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Learning Manual">
+<link href="LilyPond-index.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Placement-of-objects.html#Placement-of-objects" rel="up" title="4.4 Placement of objects">
+<link href="LilyPond-index.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Automatic-behavior.html#Automatic-behavior" rel="previous" title="4.4.1 Automatic behavior">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Within_002dstaff-objects"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Automatic-behavior.html#Automatic-behavior" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Automatic behavior&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Placement-of-objects.html#Placement-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Placement of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside_002dstaff-objects.html#Outside_002dstaff-objects" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Outside-staff objects &gt; </a>]</td></tr></table>
+<a name="Within_002dstaff-objects"></a>
+<h3 class="subsection">4.4.2 Within-staff objects</h3>
+
+<p>We have already seen how the commands <code>\voiceXXX</code> affect
+the direction of slurs, ties, fingering and
+everything else which depends on the direction of the stems.
+These commands are essential when writing polyphonic music to
+permit interweaving melodic lines to be distinguished.
+But occasionally it may be necessary to override this automatic
+behavior.  This can be done for whole sections of music or even
+for an individual note.  The property which controls this
+behavior is the <code>direction</code> property of each layout object.
+We first explain what this does, and then introduce a number of
+ready-made commands which avoid your having to code explicit
+overrides for the more common modifications.
+</p>
+<p>Some layout objects like slurs and ties curve, bend or point
+either up or down; others like stems and flags also move to
+right or left when they point up or down.  This is controlled
+automatically when <code>direction</code> is set.
+</p>
+<a name="index-down"></a>
+<a name="index-up"></a>
+<a name="index-center"></a>
+<a name="index-neutral"></a>
+
+<p>The following example shows in bar 1 the default behavior of stems,
+with those on high notes pointing down and those on low notes pointing
+up, followed by four notes with all stems forced down, four notes with
+all stems forced up, and finally four notes reverted back to the
+default behavior.
+</p>
+<a name="index-Stem_002c-example-of-overriding-1"></a>
+<a name="index-direction-property_002c-example-1"></a>
+
+<blockquote><pre class="verbatim">a4 g c a
+\override Stem #'direction = #DOWN
+a g c a
+\override Stem #'direction = #UP
+a g c a
+\revert Stem #'direction
+a g c a
+</pre><p>
+ <a href="../43/lily-26b5f6d6.ly">
+  <img align="middle"
+       border="0"
+       src="../43/lily-26b5f6d6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Here we use the constants <code>DOWN</code> and <code>UP</code>.
+These have the values <code>-1</code> and <code>+1</code> respectively, and
+these numerical values may be used instead.  The value <code>0</code>
+may also be used in some cases.  It is simply treated as meaning
+<code>UP</code> for stems, but for some objects it means &lsquo;center&rsquo;.
+There is a constant, <code>CENTER</code> which has the value <code>0</code>.
+</p>
+<p>However, these explicit overrides are not usually used, as there are
+simpler equivalent predefined commands available.  Here is a table of
+the commonest.  The meaning of each is stated where it is not obvious.
+</p>
+<table>
+<thead><tr><th width="20%"><p> Down/Left
+  </p></th><th width="20%"><p> Up/Right
+  </p></th><th width="25%"><p> Revert
+  </p></th><th width="35%"><p> Effect
+</p></th></tr></thead>
+<tr><td width="20%"><p> <code>\arpeggioArrowDown</code>
+  </p></td><td width="20%"><p> <code>\arpeggioArrowUp</code>
+  </p></td><td width="25%"><p> <code>\arpeggioNormal</code>
+  </p></td><td width="35%"><p> Arrow is at bottom, at top, or no arrow
+</p></td></tr>
+<tr><td width="20%"><p> <code>\dotsDown</code>
+  </p></td><td width="20%"><p> <code>\dotsUp</code>
+  </p></td><td width="25%"><p> <code>\dotsNeutral</code>
+  </p></td><td width="35%"><p> Direction of movement to avoid staff lines
+</p></td></tr>
+<tr><td width="20%"><p> <code>\dynamicDown</code>
+  </p></td><td width="20%"><p> <code>\dynamicUp</code>
+  </p></td><td width="25%"><p> <code>\dynamicNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\phrasingSlurDown</code>
+  </p></td><td width="20%"><p> <code>\phrasingSlurUp</code>
+  </p></td><td width="25%"><p> <code>\phrasingSlurNeutral</code>
+  </p></td><td width="35%"><p> Note: distinct from slur commands
+</p></td></tr>
+<tr><td width="20%"><p> <code>\slurDown</code>
+  </p></td><td width="20%"><p> <code>\slurUp</code>
+  </p></td><td width="25%"><p> <code>\slurNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\stemDown</code>
+  </p></td><td width="20%"><p> <code>\stemUp</code>
+  </p></td><td width="25%"><p> <code>\stemNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\textSpannerDown</code>
+  </p></td><td width="20%"><p> <code>\textSpannerUp</code>
+  </p></td><td width="25%"><p> <code>\textSpannerNeutral</code>
+  </p></td><td width="35%"><p> Text entered as spanner is below/above staff
+</p></td></tr>
+<tr><td width="20%"><p> <code>\tieDown</code>
+  </p></td><td width="20%"><p> <code>\tieUp</code>
+  </p></td><td width="25%"><p> <code>\tieNeutral</code>
+  </p></td><td width="35%"></td></tr>
+<tr><td width="20%"><p> <code>\tupletDown</code>
+  </p></td><td width="20%"><p> <code>\tupletUp</code>
+  </p></td><td width="25%"><p> <code>\tupletNeutral</code>
+  </p></td><td width="35%"><p> Tuplets are below/above notes
+</p></td></tr>
+</table>
+
+<p>Note that these predefined commands may <strong>not</strong> be
+preceded by <code>\once</code>.  If you wish to limit the
+effect to a single note you must either use the equivalent
+<code>\once \override</code> command or use the predefined command
+followed after the affected note by the corresponding
+<code>\xxxNeutral</code> command.
+</p>
+<a name="Fingering"></a>
+<h3 class="subheading">Fingering</h3>
+
+<a name="index-fingering_002c-placement"></a>
+<a name="index-fingering_002c-chords"></a>
+
+<p>The placement of fingering on single notes can also be controlled
+by the <code>direction</code> property, but changing <code>direction</code>
+has no effect on chords.  As we shall see, there are special
+commands which allow the fingering of individual notes
+of chords to be controlled, with the fingering being placed
+above, below, to the left or to the right of each note.
+</p>
+<p>First, here&rsquo;s the effect of <code>direction</code> on the fingering
+attached to single notes.  The first bar shows the default
+behaviour, and the following two bars shows the effect of
+specifying <code>DOWN</code> and <code>UP</code>:
+</p>
+<a name="index-Fingering_002c-example-of-overriding"></a>
+<a name="index-direction-property_002c-example-2"></a>
+
+<blockquote><pre class="verbatim">c-5 a-3 f-1 c'-5
+\override Fingering #'direction = #DOWN
+c-5 a-3 f-1 c'-5
+\override Fingering #'direction = #UP
+c-5 a-3 f-1 c'-5
+</pre><p>
+ <a href="../25/lily-7de8e3f4.ly">
+  <img align="middle"
+       border="0"
+       src="../25/lily-7de8e3f4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>However, overriding the <code>direction</code> property is not the
+easiest way of manually setting the fingering above or below
+the notes; using <code>_</code> or <code>^</code> instead of <code>-</code> before
+the fingering number is usually preferable.  Here is the previous
+example using this method:
+</p>
+<a name="index-fingering-example"></a>
+
+<blockquote><pre class="verbatim">c-5 a-3 f-1 c'-5
+c_5 a_3 f_1 c'_5
+c^5 a^3 f^1 c'^5
+</pre><p>
+ <a href="../60/lily-2f7d2e09.ly">
+  <img align="middle"
+       border="0"
+       src="../60/lily-2f7d2e09.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>The <code>direction</code> property is ignored for chords, but the
+directional prefixes, <code>_</code> and <code>^</code> do work.  By default,
+the fingering is automatically placed both above and below the
+notes of a chord, as shown:
+</p>
+<a name="index-fingering-example-1"></a>
+
+<blockquote><pre class="verbatim">&lt;c-5 g-3&gt;
+&lt;c-5 g-3 e-2&gt;
+&lt;c-5 g-3 e-2 c-1&gt;
+</pre><p>
+ <a href="../dc/lily-ca2c476e.ly">
+  <img align="middle"
+       border="0"
+       src="../dc/lily-ca2c476e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>but this may be overriden to manually force all or any of the
+individual fingering numbers above or below:
+</p>
+<a name="index-fingering-example-2"></a>
+
+<blockquote><pre class="verbatim">&lt;c-5 g-3 e-2 c-1&gt;
+&lt;c^5 g_3 e_2 c_1&gt;
+&lt;c^5 g^3 e^2 c_1&gt;
+</pre><p>
+ <a href="../8c/lily-b920601e.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-b920601e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Even greater control over the placement of fingering of the
+individual notes in a chord is possible by using the
+<code>\set fingeringOrientations</code> command.  The format of this
+command is:
+</p>
+<blockquote><pre class="example"><code>\set fingeringOrientations = #'([up] [left/right] [down])</code>
+</pre></blockquote>
+
+<p><code>\set</code> is used because <code>fingeringOrientations</code> is a
+property of the <code>Voice</code> context, created and used by the
+<code>New_fingering_engraver</code>.
+</p>
+<p>The property may be set to a list of one to three values.
+It controls whether fingerings may be placed above (if
+<code>up</code> appears in the list), below (if <code>down</code> appears),
+to the left (if <code>left</code> appears, or to the right
+(if <code>right</code> appears).  Conversely, if a location is not
+listed, no fingering is placed there.  LilyPond takes these
+constraints and works out the best placement for the fingering
+of the notes of the following chords.  Note that <code>left</code> and
+<code>right</code> are mutually exclusive &ndash; fingering may be placed
+only on one side or the other, not both.
+</p>
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> To control the placement of the fingering of a single
+note using this command it is necessary to write it as a single
+note chord by placing angle brackets round it.
+</p></td></tr></table>
+
+<p>Here are a few examples:
+</p>
+<a name="index-fingering-example-3"></a>
+<a name="index-_005cset_002c-example-of-using"></a>
+<a name="index-fingeringOrientations-property_002c-example"></a>
+
+<blockquote><pre class="verbatim">\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left down)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(right)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+</pre><p>
+ <a href="../91/lily-02580353.ly">
+  <img align="middle"
+       border="0"
+       src="../91/lily-02580353.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>If the fingering seems a little crowded the <code>font-size</code>
+could be reduced.  The default value can be seen from the
+<code>Fingering</code> object in the IR to be <code>-5</code>, so let&rsquo;s
+try <code>-7</code>:
+</p>
+<blockquote><pre class="verbatim">\override Fingering #'font-size = #-7
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left down)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(up left)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+\set fingeringOrientations = #'(right)
+&lt;f-2&gt;
+&lt; c-1  e-2 g-3 b-5 &gt; 4
+</pre><p>
+ <a href="../44/lily-6c73088a.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-6c73088a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.html#Tweaking-output" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaking output&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-index.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects" title="Next chapter">&nbsp;Working on LilyPond projects &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Automatic-behavior.html#Automatic-behavior" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Automatic behavior&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Placement-of-objects.html#Placement-of-objects" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Placement of objects&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Outside_002dstaff-objects.html#Outside_002dstaff-objects" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Outside-staff objects &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Other languages: <a href="Within_002dstaff-objects.fr.html">français</a>, <a href="Within_002dstaff-objects.es.html">español</a>, <a href="Within_002dstaff-objects.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Learning Manual</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.html#Preface">Preface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.html#Background">1.1 Background</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.html#About-the-documentation">1.2 About the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.html#First-steps">2.1 First steps</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.html#Single-staff-notation">2.2 Single staff notation</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.html#Multiple-notes-at-once">2.3 Multiple notes at once</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.html#Songs">2.4 Songs</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.html#Final-touches">2.5 Final touches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.html#Fundamental-concepts">3. Fundamental concepts</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.html#How-LilyPond-input-files-work">3.1 How LilyPond input files work</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.html#Voices-contain-music">3.2 Voices contain music</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">3.3 Contexts and engravers</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.html#Extending-the-templates">3.4 Extending the templates</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.html#Tweaking-output">4. Tweaking output</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.html#Tweaking-basics">4.1 Tweaking basics</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.html#The-Internals-Reference-manual">4.2 The Internals Reference manual</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.html#Appearance-of-objects">4.3 Appearance of objects</a>    </li>
+    <li class="toc_current"><a name="toc-Placement-of-objects-1" href="Placement-of-objects.html#Placement-of-objects">4.4 Placement of objects</a>
+    <ul class="toc">
+      <li><a name="toc-Automatic-behavior-1" href="Automatic-behavior.html#Automatic-behavior">4.4.1 Automatic behavior</a>      </li>
+      <li class="toc_current"><a name="toc-Within_002dstaff-objects-1" href="Within_002dstaff-objects.html#Within_002dstaff-objects">4.4.2 Within-staff objects</a>      </li>
+      <li><a name="toc-Outside_002dstaff-objects-1" href="Outside_002dstaff-objects.html#Outside_002dstaff-objects">4.4.3 Outside-staff objects</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.html#Collisions-of-objects">4.5 Collisions of objects</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.html#Further-tweaking">4.6 Further tweaking</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.html#Working-on-LilyPond-projects">5. Working on LilyPond projects</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions for writing LilyPond input files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.html#When-things-don_0027t-work">5.2 When things don&rsquo;t work</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.html#Scores-and-parts">5.3 Scores and parts</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">A. Templates</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.html#Single-staff">A.1 Single staff</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.html#Piano-templates">A.2 Piano templates</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.html#String-quartet">A.3 String quartet</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.html#Vocal-ensembles">A.4 Vocal ensembles</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.html#Ancient-notation-templates">A.5 Ancient notation templates</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.html#Jazz-combo">A.6 Jazz combo</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.html#lilypond_002dbook-templates">A.7 lilypond-book templates</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.html#Scheme-tutorial">B. Scheme tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.html#Tweaking-with-Scheme">B.1 Tweaking with Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.html#LilyPond-index">D. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

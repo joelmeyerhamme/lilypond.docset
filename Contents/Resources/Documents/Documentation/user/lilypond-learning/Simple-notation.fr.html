@@ -1,0 +1,587 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 2.1.2 Notation simple</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 2.1.2 Simple notation">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 2.1.2 Simple notation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="First-steps.fr.html#First-steps" rel="up" title="2.1 First steps">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Compiling-a-file.fr.html#Compiling-a-file" rel="previous" title="2.1.1 Compiling a file">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Simple-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tutorial.fr.html#Tutorial" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Tutoriel&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fundamental-concepts.fr.html#Fundamental-concepts" title="Chapitre suivant">&nbsp;Concepts fondamentaux &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Compiling-a-file.fr.html#Compiling-a-file" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Compilation d&rsquo;un fichier&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="First-steps.fr.html#First-steps" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Premiers pas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Working-on-input-files.fr.html#Working-on-input-files" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Travail sur les fichiers d&rsquo;entrée &gt; </a>]</td></tr></table>
+<a name="Simple-notation"></a>
+<h3 class="subsection">2.1.2 Notation simple</h3>
+
+<a name="index-simple_002c-notation"></a>
+<a name="index-notation-simple"></a>
+
+<p>Il y a certains éléments graphiques de notation que LilyPond ajoute
+automatiquement.  Dans l&rsquo;exemple suivant, nous n&rsquo;avons fourni que
+quatre hauteurs, mais LilyPond a ajouté une clef, un chiffre de mesure
+et du rythme.
+</p>
+<blockquote><pre class="verbatim">{
+  c' e' g' e'
+}
+</pre><p>
+ <a href="../1d/lily-960871dd.ly">
+  <img align="middle"
+       border="0"
+       src="../1d/lily-960871dd.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Ces valeurs automatiques simplifient la saisie du code source dans
+bien des cas&nbsp;; nous verrons plus loin comment les indiquer
+explicitement.
+</p>
+
+<a name="Hauteurs"></a>
+<h3 class="subheading">Hauteurs</h3>
+
+<a name="index-hauteurs"></a>
+<a name="index-mode-relatif"></a>
+<a name="index-apostrophe"></a>
+<a name="index-virgule"></a>
+<a name="index-alterations-et-mode-relatif"></a>
+<a name="index-mode-relatif-et-alterations"></a>
+
+<a name="index-_005crelative"></a>
+<a name="index-_005crelative-1"></a>
+<a name="index-relative"></a>
+<a name="index-relative-1"></a>
+<a name="index-_0027"></a>
+<a name="index-_0027-1"></a>
+<a name="index-_002c"></a>
+<a name="index-_002c-1"></a>
+
+<p>Glossaire musical&nbsp;: <a name="index-pitch"></a>
+<a href="../music-glossary/pitch.fr.html#pitch">hauteur</a>, <a name="index-interval"></a>
+<a href="../music-glossary/interval.fr.html#interval">intervalle</a>,
+<a name="index-scale"></a>
+<a href="../music-glossary/scale.fr.html#scale">gamme</a>, <a name="index-middle-C"></a>
+<a href="../music-glossary/middle-C.fr.html#middle-C">do central</a>, <a name="index-octave"></a>
+<a href="../music-glossary/octave.fr.html#octave">octave</a>,
+<a name="index-accidental"></a>
+<a href="../music-glossary/accidental.fr.html#accidental">altération</a>.
+</p>
+<p>Le moyen le plus simple d&rsquo;entrer des notes est d&rsquo;utiliser le mode
+d&rsquo;octaves relatives, ou mode <code>\relative</code>.  Dans ce mode, l&rsquo;octave
+de chaque note est sélectionnée automatiquement de façon à ce qu&rsquo;elle
+soit la plus proche possible de la note précédente, c&rsquo;est-à-dire de
+façon à ce que l&rsquo;intervalle avec la note précédente soit au plus d&rsquo;une
+quarte.  Commençons par saisir une partition très simple, à savoir une
+gamme.
+</p>
+<blockquote><pre class="verbatim">% définit le point de départ en référence au do central
+\relative c' {
+  c d e f
+  g a b c
+}
+</pre><p>
+ <a href="../2a/lily-77bae1b3.ly">
+  <img align="middle"
+       border="0"
+       src="../2a/lily-77bae1b3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La note de départ est le <var>do central</var>.  Chacune des notes qui
+suivent est placée à l&rsquo;octave la plus proche de la note précédente &mdash;
+en d&rsquo;autres termes, le premier &lsquo;<samp>c</samp>&rsquo; est le do central, entre la
+clef de sol et la clef de fa, puis est suivi par le ré le plus proche,
+et ainsi de suite.  On peut bien sûr créer des mélodies avec de plus
+grands intervalles, toujours avec le mode <code>\relative</code>&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  d f a g
+  c b f d
+}
+</pre><p>
+ <a href="../6d/lily-187354e6.ly">
+  <img align="middle"
+       border="0"
+       src="../6d/lily-187354e6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Remarquez que cet exemple ne commence plus sur le do central&nbsp;: la
+première note &mdash; le &lsquo;<samp>d</samp>&rsquo; &mdash; est le ré qui en est le plus proche.
+</p>
+<p>Dans l&rsquo;exemple suivant, on remplace <code>c'</code> dans la commande
+<code>\relative c'</code> par <code>c''</code>, afin de calculer l&rsquo;octave de
+la première note par rapport au do situé une octave au-dessus du do
+central&nbsp;:
+</p>
+<blockquote><pre class="verbatim">% une octave au dessus du do central
+\relative c'' {
+  e c a c
+}
+</pre><p>
+ <a href="../31/lily-3bffba18.ly">
+  <img align="middle"
+       border="0"
+       src="../31/lily-3bffba18.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Le mode d&rsquo;octaves relatives peut être déroutant au début, mais c&rsquo;est
+souvent la façon la plus économique de saisir les hauteurs en
+utilisant le clavier de l&rsquo;ordinateur de façon classique.  Détaillons
+dans un exemple le calcul des octaves relatives.  En partant d&rsquo;un si
+sur la troisième ligne de la clé de sol, un do, un ré ou un mi sans
+indication d&rsquo;octave particulière seront placés juste au-dessus du si,
+c&rsquo;est-à-dire au plus à une quarte ascendante du si, alors qu&rsquo;un la, un
+sol ou un fa seront placés juste en-dessous du si, c&rsquo;est-à-dire au
+plus à une quarte descendante du si.
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  b c  % do est à un cran de plus, il sera donc au-dessus
+  b d  % ré est à 2 crans de plus ou 5 de moins, il sera donc au-dessus
+  b e  % mi est à 3 crans de plus ou 4 de moins, il sera donc au-dessus
+  b a  % la est à 6 crans de plus ou 1 de moins, il sera donc en dessous
+  b g  % sol est à 5 crans de plus ou 2 de moins, il sera donc en dessous
+  b f  % fa est à 4 crans de plus ou 3 de moins, il sera donc en dessous
+}
+</pre><p>
+ <a href="../e5/lily-fbce8f2d.ly">
+  <img align="middle"
+       border="0"
+       src="../e5/lily-fbce8f2d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Notez que le calcul des octaves relatives <strong>ne dépend pas des
+altérations</strong> des notes, dièses bémols ou bécarre.
+</p>
+<p>Pour obtenir des intervalles supérieurs à une quarte, on peut ajouter
+des apostrophes <code>'</code> &mdash; qui font chacune monter la hauteur d&rsquo;une
+octave &mdash; ou des virgules <code>,</code> &mdash; qui font chacune descendre la
+hauteur d&rsquo;une octave &mdash; au nom de la note.
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  a a, c' f,
+  g g'' a,, f'
+}
+</pre><p>
+ <a href="../e7/lily-fa9cb7de.ly">
+  <img align="middle"
+       border="0"
+       src="../e7/lily-fa9cb7de.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Pour déplacer une note deux octaves (ou davantage<font size="-4">&nbsp;</font>!) plus haut ou plus
+bas, il suffit de mettre deux (ou davantage) <code>'</code> ou <code>,</code> &mdash;
+attention cependant à bien mettre deux apostrophes <code>''</code>, et non
+un guillemet <code>&quot;</code>&nbsp;!  C&rsquo;est de cette même manière que l&rsquo;on
+peut modifier la valeur de départ de <code>\relative c'</code>.
+</p>
+
+<a name="Durees-et-rythme"></a>
+<h3 class="subheading">Durées et rythme</h3>
+
+<a name="index-note_002c-duree"></a>
+<a name="index-durees"></a>
+<a name="index-rhythmes"></a>
+<a name="index-ronde"></a>
+<a name="index-blanche"></a>
+<a name="index-noire"></a>
+<a name="index-note-pointee"></a>
+<a name="index-specification-des-durees"></a>
+
+<p>Glossaire musical&nbsp;: <a name="index-beam"></a>
+<a href="../music-glossary/beam.fr.html#beam">barre de ligature</a>, <a name="index-duration"></a>
+<a href="../music-glossary/duration.fr.html#duration">durée</a>,
+<a name="index-whole-note"></a>
+<a href="../music-glossary/whole-note.fr.html#whole-note">ronde</a>, <a name="index-half-note"></a>
+<a href="../music-glossary/half-note.fr.html#half-note">blanche</a>, <a name="index-quarter-note"></a>
+<a href="../music-glossary/quarter-note.fr.html#quarter-note">noire</a>,
+<a name="index-dotted-note"></a>
+<a href="../music-glossary/dotted-note.fr.html#dotted-note">note pointée</a>.
+</p>
+<p>La <var>durée</var> d&rsquo;une note est indiquée par un nombre qui suit sa
+hauteur&nbsp;: &lsquo;<samp>1</samp>&rsquo; pour une <var>ronde</var>, &lsquo;<samp>2</samp>&rsquo; pour une
+<var>blanche</var>, &lsquo;<samp>4</samp>&rsquo; pour une <var>noire</var> et ainsi de
+suite.  Les <var>crochets</var> et <var>liens</var> sont ajoutés
+automatiquement.
+</p>
+<p>Si aucune durée n&rsquo;est indiquée pour une note, la dernière durée entrée
+est utilisée.  En l&rsquo;absence d&rsquo;indication de durée, la première note
+est une noire.
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  a1
+  a2 a4 a8 a
+  a16 a a a a32 a a a a64 a a a a a a a a2
+}
+</pre><p>
+ <a href="../be/lily-debc8893.ly">
+  <img align="middle"
+       border="0"
+       src="../be/lily-debc8893.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Une <var>note pointée</var> s&rsquo;obtient en ajoutant un point <code>.</code>  à
+la valeur rythmique.  Le point doit être précédé d&rsquo;un nombre spécifiant
+la durée de base.
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  a a a4. a8
+  a8. a16 a a8. a8 a4.
+}
+</pre><p>
+ <a href="../13/lily-9b2281d2.ly">
+  <img align="middle"
+       border="0"
+       src="../13/lily-9b2281d2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Silences"></a>
+<h3 class="subheading">Silences</h3>
+
+<a name="index-silences"></a>
+<a name="index-notation-des-silences"></a>
+
+<p>Glossaire musical&nbsp;: <a name="index-rest"></a>
+<a href="../music-glossary/rest.fr.html#rest">silence</a>.
+</p>
+<p>On saisit un <var>silence</var> tout comme une note, mais avec la
+lettre &lsquo;<samp>r</samp>&rsquo; (pour <em>rest</em>).
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  a r r2
+  r8 a r4 r4. r8
+}
+</pre><p>
+ <a href="../37/lily-366ea140.ly">
+  <img align="middle"
+       border="0"
+       src="../37/lily-366ea140.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Metrique"></a>
+<h3 class="subheading">Métrique</h3>
+
+<a name="index-metrique"></a>
+
+<a name="index-_005ctime"></a>
+<a name="index-_005ctime-1"></a>
+<a name="index-time"></a>
+<a name="index-time-1"></a>
+
+<p>Glossaire musical&nbsp;: <a name="index-time-signature"></a>
+<a href="../music-glossary/time-signature.fr.html#time-signature">métrique</a>.
+</p>
+<p>La <var>métrique</var>, aussi appelée <var>chiffre de mesure</var>,
+peut être définie à l&rsquo;aide de la commande <code>\time</code>&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  \time 3/4
+  a4 a a
+  \time 6/8
+  a4. a
+  \time 4/4
+  a4 a a a
+}
+</pre><p>
+ <a href="../60/lily-bf08b3bf.ly">
+  <img align="middle"
+       border="0"
+       src="../60/lily-bf08b3bf.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Clef"></a>
+<h3 class="subheading">Clefs</h3>
+
+<a name="index-clef"></a>
+<a name="index-cle"></a>
+<a name="index-sol_002c-clef-de"></a>
+<a name="index-ut_002c-clef-d_0027"></a>
+<a name="index-fa_002c-clef-de"></a>
+
+<a name="index-_005cclef"></a>
+<a name="index-_005cclef-1"></a>
+<a name="index-clef-1"></a>
+<a name="index-clef-2"></a>
+
+<p>Glossaire musical&nbsp;: <a name="index-clef-3"></a>
+<a href="../music-glossary/clef.fr.html#clef">clef</a>.
+</p>
+<p>La <var>clef</var> peut être définie à l&rsquo;aide de la commande
+<code>\clef</code>&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\relative c' {
+  \clef treble
+  c1
+  \clef alto
+  c1
+  \clef tenor
+  c1
+  \clef bass
+  c1
+}
+</pre><p>
+ <a href="../d1/lily-1b80f55d.ly">
+  <img align="middle"
+       border="0"
+       src="../d1/lily-1b80f55d.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Tout-ensemble"></a>
+<h3 class="subheading">Tout ensemble</h3>
+
+<p>Voici un bref exemple qui rassemble tous les éléments que nous déjà
+vus&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\relative c, {
+  \time 3/4
+  \clef bass
+  c2 e8 c' g'2.
+  f4 e d c4 c, r4
+}
+</pre><p>
+ <a href="../73/lily-5f91c834.ly">
+  <img align="middle"
+       border="0"
+       src="../73/lily-5f91c834.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-10"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Manuel de notation&nbsp;: <a name="index-Writing-pitches"></a>
+<a href="../lilypond/Writing-pitches.fr.html#Writing-pitches">Écriture des hauteurs de note</a>,
+<a name="index-Writing-rhythms"></a>
+<a href="../lilypond/Writing-rhythms.fr.html#Writing-rhythms">Écriture du rythme</a>, <a name="index-Writing-rests"></a>
+<a href="../lilypond/Writing-rests.fr.html#Writing-rests">Écriture des silences</a>,
+<a name="index-Time-signature"></a>
+<a href="../lilypond/Displaying-rhythms.fr.html#Time-signature">Métrique</a>, <a name="index-Clef"></a>
+<a href="../lilypond/Displaying-pitches.fr.html#Clef">Clefs</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tutorial.fr.html#Tutorial" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Tutoriel&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Fundamental-concepts.fr.html#Fundamental-concepts" title="Chapitre suivant">&nbsp;Concepts fondamentaux &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Compiling-a-file.fr.html#Compiling-a-file" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Compilation d&rsquo;un fichier&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="First-steps.fr.html#First-steps" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Premiers pas&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Working-on-input-files.fr.html#Working-on-input-files" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Travail sur les fichiers d&rsquo;entrée &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Simple-notation.html">English</a>, <a href="Simple-notation.es.html">español</a>, <a href="Simple-notation.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>
+    <ul class="toc">
+      <li><a name="toc-Compiling-a-file-1" href="Compiling-a-file.fr.html#Compiling-a-file">2.1.1 Compilation d&rsquo;un fichier</a>      </li>
+      <li class="toc_current"><a name="toc-Simple-notation-1" href="Simple-notation.fr.html#Simple-notation">2.1.2 Notation simple</a>      </li>
+      <li><a name="toc-Working-on-input-files-1" href="Working-on-input-files.fr.html#Working-on-input-files">2.1.3 Travail sur les fichiers d&rsquo;entrée</a>      </li>
+      <li><a name="toc-How-to-read-the-manual-1" href="How-to-read-the-manual.fr.html#How-to-read-the-manual">2.1.4 Bien lire le manuel</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

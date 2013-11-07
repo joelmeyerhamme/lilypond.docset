@@ -1,0 +1,857 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.3 Tunable context properties</title>
+
+<meta name="description" content="LilyPond program-reference: 2.3 Tunable context properties">
+<meta name="keywords" content="LilyPond program-reference: 2.3 Tunable context properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.es.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.es.html#SEC_About" rel="help" title="About This Document">
+<link href="Translation.es.html#Translation" rel="up" title="2. Translation">
+<link href="Indices.es.html#Indices" rel="next" title="A.2 Function index">
+<link href="Volta_005fengraver.es.html#Volta_005fengraver" rel="previous" title="2.2.130 Volta_engraver">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Tunable-context-properties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.es.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.es.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.es.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Volta_005fengraver.es.html#Volta_005fengraver" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta_engraver&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Translation.es.html#Translation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Internal-context-properties.es.html#Internal-context-properties" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Internal context properties &gt; </a>]</td></tr></table>
+<a name="Tunable-context-properties"></a>
+<h2 class="section">2.3 Tunable context properties</h2>
+
+
+<dl compact="compact">
+<dt> <code>aDueText</code> (markup)</dt>
+<dd><p>Text to print at a unisono passage.
+</p></dd>
+<dt> <code>alignAboveContext</code> (string)</dt>
+<dd><p>Where to insert newly created context in
+vertical alignment.
+</p></dd>
+<dt> <code>alignBassFigureAccidentals</code> (boolean)</dt>
+<dd><p>If true, then the accidentals
+are aligned in bass figure context.
+</p></dd>
+<dt> <code>alignBelowContext</code> (string)</dt>
+<dd><p>Where to insert newly created context in
+vertical alignment.
+</p></dd>
+<dt> <code>associatedVoice</code> (string)</dt>
+<dd><p>Name of the <code>Voice</code> that has the
+melody for this <code>Lyrics</code> line.
+</p></dd>
+<dt> <code>autoAccidentals</code> (list)</dt>
+<dd><p>List of different ways to typeset an
+accidental.
+</p>
+<p>For determining when to print an accidental, several different rules
+are tried.  The rule that gives the highest number of accidentals is
+used.
+</p>
+<p>Each entry in the list is either a symbol or a procedure.
+</p>
+<dl compact="compact">
+<dt> <var>symbol</var></dt>
+<dd><p>The symbol is the name of the context in which the following rules are to be
+applied. For example, if <var>context</var> is <a name="index-Score-7"></a>
+<a href="../lilypond-internals/Score.es.html#Score">Score</a> then all
+staves share accidentals, and if <var>context</var> is <a name="index-Staff-5"></a>
+<a href="../lilypond-internals/Staff.es.html#Staff">Staff</a> then
+all voices in the same staff share accidentals, but staves do not.
+</p>
+</dd>
+<dt> <var>procedure</var></dt>
+<dd><p>The procedure represents an accidental rule to be applied to the previously
+specified context.
+</p>
+<p>The procedure takes the following arguments:
+</p>
+<dl compact="compact">
+<dt> <code>context</code></dt>
+<dd><p>The current context to which the rule should be applied.
+</p>
+</dd>
+<dt> <code>pitch</code></dt>
+<dd><p>The pitch of the note to be evaluated.
+</p>
+</dd>
+<dt> <code>barnum</code></dt>
+<dd><p>The current bar number.
+</p>
+</dd>
+<dt> <code>measurepos</code></dt>
+<dd><p>The current measure position.
+</p>
+</dd>
+</dl>
+
+<p>The procedure returns a pair of booleans. The first states whether an extra
+natural should be added. The second states whether an accidental should be
+printed. <code>(#t . #f)</code> does not make sense.
+</p>
+</dd>
+</dl>
+</dd>
+<dt> <code>autoBeamCheck</code> (procedure)</dt>
+<dd><p>A procedure taking three
+arguments, <var>context</var>, <var>dir</var> [start/stop (-1 or 1)], and
+<var>test</var> [shortest note in the beam].  A non-<code>#f</code> return value
+starts or stops the auto beam.
+</p></dd>
+<dt> <code>autoBeamSettings</code> (list)</dt>
+<dd><p>Specifies when automatically generated
+beams should begin and end.  See <a name="index-Setting-automatic-beam-8"></a>
+behavior
+<a href="../lilypond/Beams.es.html#Setting-automatic-beam-behavior">Setting automatic beam behavior</a> for more information.
+</p></dd>
+<dt> <code>autoBeaming</code> (boolean)</dt>
+<dd><p>If set to true then beams are generated
+automatically.
+</p></dd>
+<dt> <code>autoCautionaries</code> (list)</dt>
+<dd><p>List similar to <code>autoAccidentals</code>,
+but it controls cautionary accidentals rather than normal ones.  Both
+lists are tried, and the one giving the most accidentals wins.  In
+case of draw, a normal accidental is typeset.
+</p></dd>
+<dt> <code>automaticBars</code> (boolean)</dt>
+<dd><p>If set to false then bar lines will not
+be printed automatically; they must be explicitly created with a
+<code>\bar</code> command.  Unlike the <code>\cadenzaOn</code> keyword, measures
+are still counted.  Bar line generation will resume according to that
+count if this property is unset.
+</p></dd>
+<dt> <code>barAlways</code> (boolean)</dt>
+<dd><p>If set to true a bar line is drawn after
+each note.
+</p></dd>
+<dt> <code>barCheckSynchronize</code> (boolean)</dt>
+<dd><p>If true then reset
+<code>measurePosition</code> when finding a bar check.
+</p></dd>
+<dt> <code>barNumberVisibility</code> (procedure)</dt>
+<dd><p>A Procedure that takes an
+integer and returns whether the corresponding bar number should be
+printed.
+</p></dd>
+<dt> <code>bassFigureFormatFunction</code> (procedure)</dt>
+<dd><p>A procedure that is
+called to produce the formatting for a <code>BassFigure</code> grob.  It
+takes a list of <code>BassFigureEvent</code>s, a context, and the grob to
+format.
+</p></dd>
+<dt> <code>bassStaffProperties</code> (list)</dt>
+<dd><p>An alist of property settings to
+apply for the down staff of <code>PianoStaff</code>.  Used by
+<code>\autochange</code>.
+</p></dd>
+<dt> <code>beatGrouping</code> (list)</dt>
+<dd><p>A list of beatgroups, e.g., in 5/8 time
+<code>'(2 3)</code>.
+</p></dd>
+<dt> <code>beatLength</code> (moment)</dt>
+<dd><p>The length of one beat in this time
+signature.
+</p></dd>
+<dt> <code>chordChanges</code> (boolean)</dt>
+<dd><p>Only show changes in chords scheme?
+</p></dd>
+<dt> <code>chordNameExceptions</code> (list)</dt>
+<dd><p>An alist of chord exceptions.
+Contains <code>(<var>chord</var> . <var>markup</var>)</code> entries.
+</p></dd>
+<dt> <code>chordNameExceptionsFull</code> (list)</dt>
+<dd><p>An alist of full chord
+exceptions.  Contains <code>(<var>chord</var> . <var>markup</var>)</code> entries.
+</p></dd>
+<dt> <code>chordNameExceptionsPartial</code> (list)</dt>
+<dd><p>An alist of partial chord
+exceptions.  Contains <code>(<var>chord</var> . (<var>prefix-markup</var>
+<var>suffix-markup</var>))</code> entries.
+</p></dd>
+<dt> <code>chordNameFunction</code> (procedure)</dt>
+<dd><p>The function that converts lists
+of pitches to chord names.
+</p></dd>
+<dt> <code>chordNameSeparator</code> (markup)</dt>
+<dd><p>The markup object used to
+separate parts of a chord name.
+</p></dd>
+<dt> <code>chordNoteNamer</code> (procedure)</dt>
+<dd><p>A function that converts from a pitch
+object to a text markup.  Used for single pitches.
+</p></dd>
+<dt> <code>chordPrefixSpacer</code> (number)</dt>
+<dd><p>The space added between the root
+symbol and the prefix of a chord name.
+</p></dd>
+<dt> <code>chordRootNamer</code> (procedure)</dt>
+<dd><p>A function that converts from a pitch
+object to a text markup.  Used for chords.
+</p></dd>
+<dt> <code>clefGlyph</code> (string)</dt>
+<dd><p>Name of the symbol within the music font.
+</p></dd>
+<dt> <code>clefOctavation</code> (integer)</dt>
+<dd><p>Add this much extra octavation.
+Values of 7 and -7 are common.
+</p></dd>
+<dt> <code>clefPosition</code> (number)</dt>
+<dd><p>Where should the center of the clef
+symbol go, measured in half staff spaces from the center of the
+staff.
+</p></dd>
+<dt> <code>completionBusy</code> (boolean)</dt>
+<dd><p>Whether a completion-note head is playing.
+</p></dd>
+<dt> <code>connectArpeggios</code> (boolean)</dt>
+<dd><p>If set, connect arpeggios across
+piano staff.
+</p></dd>
+<dt> <code>countPercentRepeats</code> (boolean)</dt>
+<dd><p>If set, produce counters for
+percent repeats.
+</p></dd>
+<dt> <code>createKeyOnClefChange</code> (boolean)</dt>
+<dd><p>Print a key signature whenever
+the clef is changed.
+</p></dd>
+<dt> <code>createSpacing</code> (boolean)</dt>
+<dd><p>Create <code>StaffSpacing</code> objects?
+Should be set for staves.
+</p></dd>
+<dt> <code>crescendoSpanner</code> (symbol)</dt>
+<dd><p>The type of spanner to be used for
+crescendi.  Available values are &lsquo;<samp>hairpin</samp>&rsquo; and &lsquo;<samp>text</samp>&rsquo;.  If unset,
+a hairpin crescendo is used.
+</p></dd>
+<dt> <code>crescendoText</code> (markup)</dt>
+<dd><p>The text to print at start of non-hairpin
+crescendo, i.e., &lsquo;<samp>cresc.</samp>&rsquo;.
+</p></dd>
+<dt> <code>currentBarNumber</code> (integer)</dt>
+<dd><p>Contains the current barnumber.
+This property is incremented at every bar line.
+</p></dd>
+<dt> <code>decrescendoSpanner</code> (symbol)</dt>
+<dd><p>The type of spanner to be used for
+decrescendi.  Available values are &lsquo;<samp>hairpin</samp>&rsquo; and &lsquo;<samp>text</samp>&rsquo;.  If
+unset, a hairpin decrescendo is used.
+</p></dd>
+<dt> <code>decrescendoText</code> (markup)</dt>
+<dd><p>The text to print at start of
+non-hairpin decrescendo, i.e., &lsquo;<samp>dim.</samp>&rsquo;.
+</p></dd>
+<dt> <code>defaultBarType</code> (string)</dt>
+<dd><p>Set the default type of bar line.  See
+<code>whichBar</code> for information on available bar types.
+</p>
+<p>This variable is read by <a name="index-Timing_005ftranslator-2"></a>
+<a href="../lilypond-internals/Timing_005ftranslator.es.html#Timing_005ftranslator">Timing_translator</a> at
+<a name="index-Score-8"></a>
+<a href="../lilypond-internals/Score.es.html#Score">Score</a> level.
+</p></dd>
+<dt> <code>doubleRepeatType</code> (string)</dt>
+<dd><p>Set the default bar line for double
+repeats.
+</p></dd>
+<dt> <code>doubleSlurs</code> (boolean)</dt>
+<dd><p>If set, two slurs are created for every
+slurred note, one above and one below the chord.
+</p></dd>
+<dt> <code>drumPitchTable</code> (hash table)</dt>
+<dd><p>A table mapping percussion
+instruments (symbols) to pitches.
+</p></dd>
+<dt> <code>drumStyleTable</code> (hash table)</dt>
+<dd><p>A hash table which maps drums to
+layout settings.  Predefined values: &lsquo;<samp>drums-style</samp>&rsquo;,
+&lsquo;<samp>timbales-style</samp>&rsquo;, &lsquo;<samp>congas-style</samp>&rsquo;, &lsquo;<samp>bongos-style</samp>&rsquo;, and
+&lsquo;<samp>percussion-style</samp>&rsquo;.
+</p>
+<p>The layout style is a hash table, containing the drum-pitches (e.g.,
+the symbol &lsquo;<samp>hihat</samp>&rsquo;) as keys, and a list
+<code>(<var>notehead-style</var> <var>script</var> <var>vertical-position</var>)</code> as
+values.
+</p></dd>
+<dt> <code>explicitClefVisibility</code> (vector)</dt>
+<dd><p>&lsquo;<samp>break-visibility</samp>&rsquo;
+function for clef changes.
+</p></dd>
+<dt> <code>explicitKeySignatureVisibility</code> (vector)</dt>
+<dd><p>&lsquo;<samp>break-visibility</samp>&rsquo;
+function for explicit key changes.  &lsquo;<samp>\override</samp>&rsquo; of the
+<code>break-visibility</code> property will set the visibility for normal
+(i.e., at the start of the line) key signatures.
+</p></dd>
+<dt> <code>extendersOverRests</code> (boolean)</dt>
+<dd><p>Whether to continue extenders as
+they cross a rest.
+</p></dd>
+<dt> <code>extraNatural</code> (boolean)</dt>
+<dd><p>Whether to typeset an extra natural sign
+before accidentals changing from a non-natural to another
+non-natural.
+</p></dd>
+<dt> <code>figuredBassAlterationDirection</code> (direction)</dt>
+<dd><p>Where to put alterations
+relative to the main figure.
+</p></dd>
+<dt> <code>figuredBassCenterContinuations</code> (boolean)</dt>
+<dd><p>Whether to vertically
+center pairs of extender lines.  This does not work with three or more
+lines.
+</p></dd>
+<dt> <code>figuredBassFormatter</code> (procedure)</dt>
+<dd><p>A routine generating a markup
+for a bass figure.
+</p></dd>
+<dt> <code>figuredBassPlusDirection</code> (direction)</dt>
+<dd><p>Where to put plus signs
+relative to the main figure.
+</p></dd>
+<dt> <code>fingeringOrientations</code> (list)</dt>
+<dd><p>A list of symbols, containing
+&lsquo;<samp>left</samp>&rsquo;, &lsquo;<samp>right</samp>&rsquo;, &lsquo;<samp>up</samp>&rsquo; and/or &lsquo;<samp>down</samp>&rsquo;.  This list
+determines where fingerings are put relative to the chord being
+fingered.
+</p></dd>
+<dt> <code>firstClef</code> (boolean)</dt>
+<dd><p>If true, create a new clef when starting a
+staff.
+</p></dd>
+<dt> <code>followVoice</code> (boolean)</dt>
+<dd><p>If set, note heads are tracked across
+staff switches by a thin line.
+</p></dd>
+<dt> <code>fontSize</code> (number)</dt>
+<dd><p>The relative size of all grobs in a context.
+</p></dd>
+<dt> <code>forbidBreak</code> (boolean)</dt>
+<dd><p>If set to <code>##t</code>, prevent a line break
+at this point.
+</p></dd>
+<dt> <code>forceClef</code> (boolean)</dt>
+<dd><p>Show clef symbol, even if it has not
+changed.  Only active for the first clef after the property is set, not
+for the full staff.
+</p></dd>
+<dt> <code>gridInterval</code> (moment)</dt>
+<dd><p>Interval for which to generate
+<code>GridPoint</code>s.
+</p></dd>
+<dt> <code>harmonicAccidentals</code> (boolean)</dt>
+<dd><p>If set, harmonic notes in chords
+get accidentals.
+</p></dd>
+<dt> <code>harmonicDots</code> (boolean)</dt>
+<dd><p>If set, harmonic notes in dotted chords get
+dots.
+</p></dd>
+<dt> <code>highStringOne</code> (boolean)</dt>
+<dd><p>Whether the first string is the string
+with highest pitch on the instrument.  This used by the automatic
+string selector for tablature notation.
+</p></dd>
+<dt> <code>ignoreBarChecks</code> (boolean)</dt>
+<dd><p>Ignore bar checks.
+</p></dd>
+<dt> <code>ignoreFiguredBassRest</code> (boolean)</dt>
+<dd><p>Don&rsquo;t swallow rest events.
+</p></dd>
+<dt> <code>ignoreMelismata</code> (boolean)</dt>
+<dd><p>Ignore melismata for this
+<a name="index-Lyrics-2"></a>
+<a href="../lilypond-internals/Lyrics.es.html#Lyrics">Lyrics</a> line.
+</p></dd>
+<dt> <code>implicitBassFigures</code> (list)</dt>
+<dd><p>A list of bass figures that are not
+printed as numbers, but only as extender lines.
+</p></dd>
+<dt> <code>implicitTimeSignatureVisibility</code> (vector)</dt>
+<dd><p>break visibility for
+the default time signature.
+</p></dd>
+<dt> <code>instrumentCueName</code> (markup)</dt>
+<dd><p>The name to print if another
+instrument is to be taken.
+</p></dd>
+<dt> <code>instrumentEqualizer</code> (procedure)</dt>
+<dd><p>A function taking a string
+(instrument name), and returning a <code>(<var>min</var> . <var>max</var>)</code> pair
+of numbers for the loudness range of the instrument.
+</p></dd>
+<dt> <code>instrumentName</code> (markup)</dt>
+<dd><p>The name to print left of a staff.  The
+<code>instrument</code> property labels the staff in the first system, and
+the <code>instr</code> property labels following lines.
+</p></dd>
+<dt> <code>instrumentTransposition</code> (pitch)</dt>
+<dd><p>Define the transposition of
+the instrument.  Its value is the pitch that sounds like middle&nbsp;C.
+This is used to transpose the MIDI output, and <code>\quote</code>s.
+</p></dd>
+<dt> <code>internalBarNumber</code> (integer)</dt>
+<dd><p>Contains the current barnumber.
+This property is used for internal timekeeping, among others by the
+<code>Accidental_engraver</code>.
+</p></dd>
+<dt> <code>keepAliveInterfaces</code> (list)</dt>
+<dd><p>A list of symbols, signifying grob
+interfaces that are worth keeping a staff with <code>remove-empty</code> set
+around for.
+</p></dd>
+<dt> <code>keyAlterationOrder</code> (list)</dt>
+<dd><p>An alist that defines in what order
+alterations should be printed.  The format is <code>(<var>step</var>
+. <var>alter</var>)</code>, where <var>step</var> is a number from 0 to&nbsp;6 and
+<var>alter</var> from -2 (sharp) to 2 (flat).
+</p></dd>
+<dt> <code>keySignature</code> (list)</dt>
+<dd><p>The current key signature.  This is an alist
+containing <code>(<var>step</var> . <var>alter</var>)</code> or <code>((<var>octave</var> .
+<var>step</var>) . <var>alter</var>)</code>,  where <var>step</var> is a number in the range
+0 to&nbsp;6 and <var>alter</var> a fraction, denoting alteration.  For
+alterations, use symbols, e.g. <code>keySignature = #`((6 . ,FLAT))</code>.
+</p></dd>
+<dt> <code>lyricMelismaAlignment</code> (direction)</dt>
+<dd><p>Alignment to use for a melisma syllable.
+</p></dd>
+<dt> <code>majorSevenSymbol</code> (markup)</dt>
+<dd><p>How should the major 7th be formatted
+in a chord name?
+</p></dd>
+<dt> <code>markFormatter</code> (procedure)</dt>
+<dd><p>A procedure taking as arguments the
+context and the rehearsal mark.  It should return the formatted mark as
+a markup object.
+</p></dd>
+<dt> <code>maximumFretStretch</code> (number)</dt>
+<dd><p>Don&rsquo;t allocate frets further than
+this from specified frets.
+</p></dd>
+<dt> <code>measureLength</code> (moment)</dt>
+<dd><p>Length of one measure in the current
+time signature.
+</p></dd>
+<dt> <code>measurePosition</code> (moment)</dt>
+<dd><p>How much of the current measure have
+we had.  This can be set manually to create incomplete measures.
+</p></dd>
+<dt> <code>melismaBusyProperties</code> (list)</dt>
+<dd><p>A list of properties (symbols) to
+determine whether a melisma is playing.  Setting this property will
+influence how lyrics are aligned to notes.  For example, if set to
+<code>#'(melismaBusy beamMelismaBusy)</code>, only manual melismata and
+manual beams are considered.  Possible values include
+<code>melismaBusy</code>, <code>slurMelismaBusy</code>, <code>tieMelismaBusy</code>, and
+<code>beamMelismaBusy</code>.
+</p></dd>
+<dt> <code>metronomeMarkFormatter</code> (procedure)</dt>
+<dd><p>How to produce a metronome
+markup.  Called with four arguments: text, duration, count and context.
+</p></dd>
+<dt> <code>middleCClefPosition</code> (number)</dt>
+<dd><p>The position of the middle C,
+as determined only by the clef.  This can be calculated by looking at
+<code>clefPosition</code> and <code>clefGlyph</code>.
+</p></dd>
+<dt> <code>middleCOffset</code> (number)</dt>
+<dd><p>The offset of
+middle C from the position given by <code>middleCClefPosition</code> This
+is used for ottava brackets.
+</p></dd>
+<dt> <code>middleCPosition</code> (number)</dt>
+<dd><p>The place of the middle C, measured in
+half staff-spaces.  Usually determined by looking at
+<code>middleCClefPosition</code> and <code>middleCOffset</code>.
+</p></dd>
+<dt> <code>midiInstrument</code> (string)</dt>
+<dd><p>Name of the MIDI instrument to use.
+</p></dd>
+<dt> <code>midiMaximumVolume</code> (number)</dt>
+<dd><p>Analogous to
+<code>midiMinimumVolume</code>.
+</p></dd>
+<dt> <code>midiMinimumVolume</code> (number)</dt>
+<dd><p>Set the minimum loudness for MIDI.
+Ranges from 0 to&nbsp;1.
+</p></dd>
+<dt> <code>minimumFret</code> (number)</dt>
+<dd><p>The tablature auto string-selecting
+mechanism selects the highest string with a fret at least
+<code>minimumFret</code>.
+</p></dd>
+<dt> <code>minimumPageTurnLength</code> (moment)</dt>
+<dd><p>Minimum length of a rest for a
+page turn to be allowed.
+</p></dd>
+<dt> <code>minimumRepeatLengthForPageTurn</code> (moment)</dt>
+<dd><p>Minimum length of a
+repeated section for a page turn to be allowed within that section.
+</p></dd>
+<dt> <code>noteToFretFunction</code> (procedure)</dt>
+<dd><p>How to produce a fret diagram.
+Parameters: A list of note events and a list of tabstring events.
+</p></dd>
+<dt> <code>ottavation</code> (markup)</dt>
+<dd><p>If set, the text for an ottava spanner.
+Changing this creates a new text spanner.
+</p></dd>
+<dt> <code>output</code> (unknown)</dt>
+<dd><p>The output produced by a score-level
+translator during music interpretation.
+</p></dd>
+<dt> <code>pedalSostenutoStrings</code> (list)</dt>
+<dd><p>See <code>pedalSustainStrings</code>.
+</p></dd>
+<dt> <code>pedalSostenutoStyle</code> (symbol)</dt>
+<dd><p>See <code>pedalSustainStyle</code>.
+</p></dd>
+<dt> <code>pedalSustainStrings</code> (list)</dt>
+<dd><p>A list of strings to print for
+sustain-pedal.  Format is <code>(<var>up</var> <var>updown</var> <var>down</var>)</code>,
+where each of the three is the string to print when this is done with
+the pedal.
+</p></dd>
+<dt> <code>pedalSustainStyle</code> (symbol)</dt>
+<dd><p>A symbol that indicates how to print
+sustain pedals: <code>text</code>, <code>bracket</code> or <code>mixed</code> (both).
+</p></dd>
+<dt> <code>pedalUnaCordaStrings</code> (list)</dt>
+<dd><p>See <code>pedalSustainStrings</code>.
+</p></dd>
+<dt> <code>pedalUnaCordaStyle</code> (symbol)</dt>
+<dd><p>See <code>pedalSustainStyle</code>.
+</p></dd>
+<dt> <code>predefinedDiagramTable</code> (hash table)</dt>
+<dd><p>The hash table of predefined
+fret diagrams to use in FretBoards.
+</p></dd>
+<dt> <code>printKeyCancellation</code> (boolean)</dt>
+<dd><p>Print restoration alterations
+before a key signature change.
+</p></dd>
+<dt> <code>printOctaveNames</code> (boolean)</dt>
+<dd><p>Print octave marks for the
+<code>NoteNames</code> context.
+</p></dd>
+<dt> <code>printPartCombineTexts</code> (boolean)</dt>
+<dd><p>Set &lsquo;Solo&rsquo; and &lsquo;A due&rsquo; texts
+in the part combiner?
+</p></dd>
+<dt> <code>proportionalNotationDuration</code> (moment)</dt>
+<dd><p>Global override for
+shortest-playing duration.  This is used for switching on proportional
+notation.
+</p></dd>
+<dt> <code>recordEventSequence</code> (procedure)</dt>
+<dd><p>When
+<code>Recording_group_engraver</code> is in this context, then upon
+termination of the context, this function is called with current
+context and a list of music objects.  The list of contains entries with
+start times, music objects and whether they are processed in this
+context.
+</p></dd>
+<dt> <code>rehearsalMark</code> (integer)</dt>
+<dd><p>The last rehearsal mark printed.
+</p></dd>
+<dt> <code>repeatCommands</code> (list)</dt>
+<dd><p>This property is a list of commands
+of the form <code>(list 'volta <var>x</var>)</code>, where <var>x</var> is a string or
+<code>#f</code>.  <code>'end-repeat</code> is also accepted as a command.
+</p></dd>
+<dt> <code>repeatCountVisibility</code> (procedure)</dt>
+<dd><p>A procedure taking as
+arguments an integer and context, returning whether the corresponding
+percent repeat number should be printed when <code>countPercentRepeats</code>
+is set.
+</p></dd>
+<dt> <code>restNumberThreshold</code> (number)</dt>
+<dd><p>If a multimeasure rest has more
+measures than this, a number is printed.
+</p></dd>
+<dt> <code>shapeNoteStyles</code> (vector)</dt>
+<dd><p>Vector of symbols, listing style for
+each note head relative to the tonic (qv.) of the scale.
+</p></dd>
+<dt> <code>shortInstrumentName</code> (markup)</dt>
+<dd><p>See <code>instrument</code>.
+</p></dd>
+<dt> <code>shortVocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line, short version.
+</p></dd>
+<dt> <code>skipBars</code> (boolean)</dt>
+<dd><p>If set to true, then skip the empty bars
+that are produced by multimeasure notes and rests.  These bars will
+not appear on the printed output.  If not set (the default),
+multimeasure notes and rests expand into their full length, printing
+the appropriate number of empty bars so that synchronization with other
+voices is preserved.
+</p>
+<blockquote><pre class="example">{
+  r1 r1*3 R1*3
+  \set Score.skipBars= ##t
+  r1*3 R1*3
+}
+</pre></blockquote>
+</dd>
+<dt> <code>skipTypesetting</code> (boolean)</dt>
+<dd><p>If true, no typesetting is done,
+speeding up the interpretation phase.  Useful for debugging large
+scores.
+</p></dd>
+<dt> <code>soloIIText</code> (markup)</dt>
+<dd><p>The text for the start of a solo for
+voice &lsquo;two&rsquo; when part-combining.
+</p></dd>
+<dt> <code>soloText</code> (markup)</dt>
+<dd><p>The text for the start of a solo when
+part-combining.
+</p></dd>
+<dt> <code>squashedPosition</code> (integer)</dt>
+<dd><p>Vertical position of squashing for
+<a name="index-Pitch_005fsquash_005fengraver-2"></a>
+<a href="../lilypond-internals/Pitch_005fsquash_005fengraver.es.html#Pitch_005fsquash_005fengraver">Pitch_squash_engraver</a>.
+</p></dd>
+<dt> <code>staffLineLayoutFunction</code> (procedure)</dt>
+<dd><p>Layout of staff lines,
+<code>traditional</code>, or <code>semitone</code>.
+</p></dd>
+<dt> <code>stanza</code> (markup)</dt>
+<dd><p>Stanza &lsquo;number&rsquo; to print before the start of a
+verse.  Use in <code>Lyrics</code> context.
+</p></dd>
+<dt> <code>stemLeftBeamCount</code> (integer)</dt>
+<dd><p>Specify the number of beams to draw
+on the left side of the next note.  Overrides automatic beaming.  The
+value is only used once, and then it is erased.
+</p></dd>
+<dt> <code>stemRightBeamCount</code> (integer)</dt>
+<dd><p>See <code>stemLeftBeamCount</code>.
+</p></dd>
+<dt> <code>stringNumberOrientations</code> (list)</dt>
+<dd><p>See
+<code>fingeringOrientations</code>.
+</p></dd>
+<dt> <code>stringOneTopmost</code> (boolean)</dt>
+<dd><p>Whether the first string is
+printed on the top line of the tablature.
+</p></dd>
+<dt> <code>stringTunings</code> (list)</dt>
+<dd><p>The tablature strings tuning.  It is a list
+of the pitch (in semitones) of each string (starting with the lower
+one).
+</p></dd>
+<dt> <code>strokeFingerOrientations</code> (list)</dt>
+<dd><p>See
+<code>fingeringOrientations</code>.
+</p></dd>
+<dt> <code>subdivideBeams</code> (boolean)</dt>
+<dd><p>If set, multiple beams will be
+subdivided at beat positions by only drawing one beam over the beat.
+</p></dd>
+<dt> <code>suggestAccidentals</code> (boolean)</dt>
+<dd><p>If set, accidentals are typeset as
+cautionary suggestions over the note.
+</p></dd>
+<dt> <code>systemStartDelimiter</code> (symbol)</dt>
+<dd><p>Which grob to make for the start
+of the system/staff?  Set to <code>SystemStartBrace</code>,
+<code>SystemStartBracket</code> or <code>SystemStartBar</code>.
+</p></dd>
+<dt> <code>systemStartDelimiterHierarchy</code> (pair)</dt>
+<dd><p>A nested list, indicating
+the nesting of a start delimiters.
+</p></dd>
+<dt> <code>tablatureFormat</code> (procedure)</dt>
+<dd><p>A function formatting a tablature
+note head.  Called with three arguments: string number, context and event.
+It returns the text as a string.
+</p></dd>
+<dt> <code>tempoHideNote</code> (boolean)</dt>
+<dd><p>Hide the note=count in tempo marks.
+</p></dd>
+<dt> <code>tempoText</code> (markup)</dt>
+<dd><p>Text for tempo marks.
+</p></dd>
+<dt> <code>tempoUnitCount</code> (number)</dt>
+<dd><p>Count for specifying tempo.
+</p></dd>
+<dt> <code>tempoUnitDuration</code> (duration)</dt>
+<dd><p>Unit for specifying tempo.
+</p></dd>
+<dt> <code>tempoWholesPerMinute</code> (moment)</dt>
+<dd><p>The tempo in whole notes per
+minute.
+</p></dd>
+<dt> <code>tieWaitForNote</code> (boolean)</dt>
+<dd><p>If true, tied notes do not have to
+follow each other directly.  This can be used for writing out
+arpeggios.
+</p></dd>
+<dt> <code>timeSignatureFraction</code> (pair of numbers)</dt>
+<dd><p>A pair of numbers,
+signifying the time signature.  For example, <code>#'(4 . 4)</code> is a
+4/4 time signature.
+</p></dd>
+<dt> <code>timing</code> (boolean)</dt>
+<dd><p>Keep administration of measure length,
+position, bar number, etc.?  Switch off for cadenzas.
+</p></dd>
+<dt> <code>tonic</code> (pitch)</dt>
+<dd><p>The tonic of the current scale.
+</p></dd>
+<dt> <code>trebleStaffProperties</code> (list)</dt>
+<dd><p>An alist of property settings to
+apply for the up staff of <code>PianoStaff</code>.  Used by
+<code>\autochange</code>.
+</p></dd>
+<dt> <code>tremoloFlags</code> (integer)</dt>
+<dd><p>The number of tremolo flags to add if no
+number is specified.
+</p></dd>
+<dt> <code>tupletFullLength</code> (boolean)</dt>
+<dd><p>If set, the tuplet is printed up to
+the start of the next note.
+</p></dd>
+<dt> <code>tupletFullLengthNote</code> (boolean)</dt>
+<dd><p>If set, end at the next note,
+otherwise end on the matter (time signatures, etc.) before the note.
+</p></dd>
+<dt> <code>tupletSpannerDuration</code> (moment)</dt>
+<dd><p>Normally, a tuplet bracket is
+as wide as the <code>\times</code> expression that gave rise to it.  By
+setting this property, you can make brackets last shorter.
+</p>
+<blockquote><pre class="example">{
+  \set tupletSpannerDuration = #(ly:make-moment 1 4)
+  \times 2/3 { c8 c c c c c }
+}
+</pre></blockquote>
+</dd>
+<dt> <code>useBassFigureExtenders</code> (boolean)</dt>
+<dd><p>Whether to use extender lines
+for repeated bass figures.
+</p></dd>
+<dt> <code>verticallySpacedContexts</code> (list)</dt>
+<dd><p>List of symbols, containing
+context names whose vertical axis groups should be taken into account
+for vertical spacing of systems.
+</p></dd>
+<dt> <code>vocalName</code> (markup)</dt>
+<dd><p>Name of a vocal line.
+</p></dd>
+<dt> <code>voltaSpannerDuration</code> (moment)</dt>
+<dd><p>This specifies the maximum
+duration to use for the brackets printed for <code>\alternative</code>.
+This can be used to shrink the length of brackets in the situation
+where one alternative is very large.
+</p></dd>
+<dt> <code>whichBar</code> (string)</dt>
+<dd><p>This property is read to determine what type
+of bar line to create.
+</p>
+<p>Example:
+</p>
+<blockquote><pre class="example">\set Staff.whichBar = &quot;|:&quot;
+</pre></blockquote>
+
+<p>This will create a start-repeat bar in this staff only.  Valid values
+are described in <a name="index-bar_002dline_002dinterface-14"></a>
+<a href="../lilypond-internals/bar_002dline_002dinterface.es.html#bar_002dline_002dinterface">bar-line-interface</a>.
+</p></dd>
+</dl>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.es.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.es.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.es.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Volta_005fengraver.es.html#Volta_005fengraver" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Volta_engraver&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Translation.es.html#Translation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Translation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Internal-context-properties.es.html#Internal-context-properties" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Internal context properties &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.es.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.es.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.es.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.es.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.es.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.es.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li><a name="toc-Contexts-1" href="Contexts.es.html#Contexts">2.1 Contexts</a>    </li>
+    <li><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.es.html#Engravers-and-Performers">2.2 Engravers and Performers</a>    </li>
+    <li class="toc_current"><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.es.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.es.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.es.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.es.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.es.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.es.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.es.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.es.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.es.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.es.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.es.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

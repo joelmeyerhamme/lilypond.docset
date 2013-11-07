@@ -1,0 +1,333 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Notation Reference: 4.3.1 Line breaking</title>
+
+<meta name="description" content="GNU LilyPond Notation Reference: 4.3.1 Line breaking">
+<meta name="keywords" content="GNU LilyPond Notation Reference: 4.3.1 Line breaking">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="F. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Breaks.fr.html#Breaks" rel="up" title="4.3 Breaks">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="G. LilyPond index">
+<link href="Breaks.fr.html#Breaks" rel="previous" title="4.3 Breaks">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Line-breaking"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Spacing-issues.fr.html#Spacing-issues" title="Beginning of this chapter or previous chapter"> &lt;&lt; Spacing issues&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Changing-defaults.fr.html#Changing-defaults" title="Next chapter">&nbsp;Changing defaults &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Breaks.fr.html#Breaks" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Breaks&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Breaks.fr.html#Breaks" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Breaks&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Page-breaking.fr.html#Page-breaking" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Page breaking &gt; </a>]</td></tr></table>
+<a name="Line-breaking"></a>
+<h3 class="subsection">4.3.1 Line breaking</h3>
+
+<a name="index-line-breaks-1"></a>
+<a name="index-breaking-lines"></a>
+
+<p>Line breaks are normally determined automatically. They are chosen
+so that lines look neither cramped nor loose, and consecutive
+lines have similar density.  Occasionally you might want to
+override the automatic breaks; you can do this by specifying
+<code>\break</code>. This will force a line break at this point.  However,
+line breaks can only occur at the end of &lsquo;complete&rsquo; bars, i.e.,
+where there are no notes or tuplets left &lsquo;hanging&rsquo; over the bar
+line.  If you want to have a line break where there is no bar line,
+you can force an invisible bar line by entering <code>\bar &quot;&quot;</code>,
+although again there must be no notes left hanging over in any of
+the staves at this point, or it will be ignored.
+</p>
+<p>The opposite command, <code>\noBreak</code>, forbids a line break at the
+bar line where it is inserted.
+</p>
+<p>The most basic settings influencing line spacing are <code>indent</code>
+and <code>line-width</code>. They are set in the <code>\layout</code> block.
+They control the indentation of the first line of music, and the
+lengths of the lines.
+</p>
+<p>If <code>ragged-right</code> is set to true in the <code>\layout</code> block,
+then systems end at their natural horizontal length, instead of
+being spread horizontally to fill the whole line. This is useful
+for short fragments, and for checking how tight the natural
+spacing is.
+</p>
+
+<p>The option <code>ragged-last</code> is similar to <code>ragged-right</code>,
+but affects only the last line of the piece.
+</p>
+<blockquote><pre class="example">\layout {
+indent = #0
+line-width = #150
+ragged-last = ##t
+}
+</pre></blockquote>
+
+
+
+<a name="index-regular-line-breaks"></a>
+<a name="index-four-bar-music_002e"></a>
+
+<p>For line breaks at regular intervals use <code>\break</code> separated by
+skips and repeated with <code>\repeat</code>.  For example, this would
+cause the following 28 measures (assuming 4/4 time) to be broken
+every 4 measures, and only there:
+</p>
+<blockquote><pre class="example">&lt;&lt; \repeat unfold 7 {
+         s1 \noBreak s1 \noBreak
+         s1 \noBreak s1 \break }
+   <em>the real music</em>
+&gt;&gt;
+</pre></blockquote>
+
+<p>A linebreaking configuration can be saved as a <code>.ly</code> file
+automatically.  This allows vertical alignments to be stretched to
+fit pages in a second formatting run.  This is fairly new and
+complicated.  More details are available in
+<a href="../../../input/lsr/lilypond-snippets/Spacing.html#Spacing">Spacing</a>.
+</p>
+
+<a name="Predefined-commands-3"></a>
+<h4 class="subsubheading">Predefined commands</h4>
+<a name="index-_005cbreak"></a>
+<a name="index-_005cbreak-1"></a>
+<p><code>\break</code>,
+<a name="index-_005cnoBreak"></a>
+<a name="index-_005cnoBreak-1"></a>
+<code>\noBreak</code>.
+</p>
+
+<a name="See-also-56"></a>
+<h4 class="subsubheading">See also</h4>
+<p>Internals Reference:
+<a name="index-LineBreakEvent"></a>
+<a href="../lilypond-internals/LineBreakEvent.fr.html#LineBreakEvent">LineBreakEvent</a>.
+</p>
+<p>Snippets:
+<a href="../../../input/lsr/lilypond-snippets/Spacing.html#Spacing">Spacing</a>.
+</p>
+
+<a name="Known-issues-and-warnings-47"></a>
+<h4 class="subsubheading">Known issues and warnings</h4>
+
+<p>Line breaks can only occur if there is a &lsquo;proper&rsquo; bar line.  A note
+which is hanging over a bar line is not proper, such as
+</p>
+<blockquote><pre class="verbatim">c4 c2 &lt;&lt; c2 {s4 \break } &gt;&gt;  % this does nothing
+c2 c4 |           % a break here would work
+c4 c2 c4 ~ \break % as does this break
+c4 c2 c4
+</pre><p>
+ <a href="../c6/lily-74c24a95.ly">
+  <img align="middle"
+       border="0"
+       src="../c6/lily-74c24a95.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>This can be avoided by removing the <code>Forbid_line_break_engraver</code>.
+Note that manually forced line breaks have to be added in parallel
+with the music.
+</p>
+<blockquote><pre class="verbatim">\new Voice \with {
+  \remove Forbid_line_break_engraver
+} {
+  c4 c2 &lt;&lt; c2 {s4 \break } &gt;&gt;  % now the break is allowed
+  c2 c4
+}
+</pre><p>
+ <a href="../37/lily-27a313ba.ly">
+  <img align="middle"
+       border="0"
+       src="../37/lily-27a313ba.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Similarly, line breaks are normally forbidden when beams cross bar
+lines.  This behavior can be changed by setting
+<code>\override Beam #'breakable = ##t</code>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Spacing-issues.fr.html#Spacing-issues" title="Beginning of this chapter or previous chapter"> &lt;&lt; Spacing issues&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Changing-defaults.fr.html#Changing-defaults" title="Next chapter">&nbsp;Changing defaults &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Breaks.fr.html#Breaks" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Breaks&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Breaks.fr.html#Breaks" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Breaks&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Page-breaking.fr.html#Page-breaking" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Page breaking &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Line-breaking.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Musical notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Pitches</a>    </li>
+    <li><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rhythms</a>    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Expressive marks</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Repeats</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Simultaneous notes</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Staff notation</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Editorial annotations</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Specialist notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Vocal music</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Keyboard and other multi-staff instruments</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Unfretted string instruments</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Fretted string instruments</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussion</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Wind instruments</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Chord notation</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Ancient notation</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 World music</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. General input and output</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Input structure</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titles and headers</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Working with input files</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Controlling output</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 MIDI output</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Spacing issues</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Paper and pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Music layout</a>    </li>
+    <li class="toc_current"><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Breaks</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Line-breaking-1" href="Line-breaking.fr.html#Line-breaking">4.3.1 Line breaking</a>      </li>
+      <li><a name="toc-Page-breaking-1" href="Page-breaking.fr.html#Page-breaking">4.3.2 Page breaking</a>      </li>
+      <li><a name="toc-Optimal-page-breaking-1" href="Optimal-page-breaking.fr.html#Optimal-page-breaking">4.3.3 Optimal page breaking</a>      </li>
+      <li><a name="toc-Optimal-page-turning-1" href="Optimal-page-turning.fr.html#Optimal-page-turning">4.3.4 Optimal page turning</a>      </li>
+      <li><a name="toc-Minimal-page-breaking-1" href="Minimal-page-breaking.fr.html#Minimal-page-breaking">4.3.5 Minimal page breaking</a>      </li>
+      <li><a name="toc-Explicit-breaks-1" href="Explicit-breaks.fr.html#Explicit-breaks">4.3.6 Explicit breaks</a>      </li>
+      <li><a name="toc-Using-an-extra-voice-for-breaks-1" href="Using-an-extra-voice-for-breaks.fr.html#Using-an-extra-voice-for-breaks">4.3.7 Using an extra voice for breaks</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Vertical spacing</a>    </li>
+    <li><a name="toc-Horizontal-spacing-1" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Horizontal spacing</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Fitting music onto fewer pages</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Changing defaults</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Interpretation contexts</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 Explaining the Internals Reference</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modifying properties</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Useful concepts and properties</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Advanced tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces for programmers</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Music functions</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Programmer interfaces</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Building complicated functions</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Markup programmer interface</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contexts for programmers</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Scheme procedures as properties</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.fr.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Using Scheme code instead of <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Difficult tweaks</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Literature list</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Notation manual tables</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Chord name chart</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Common chord modifiers</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Predefined fretboard diagrams</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 MIDI instruments</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 List of colors</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 The Feta font</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Note head styles</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 List of articulations</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Percussion notes</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 All context properties</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Layout properties</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Identifiers</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Scheme functions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Cheat sheet</a>  </li>
+  <li><a name="toc-LilyPond-grammar-1" href="LilyPond-grammar.fr.html#LilyPond-grammar">D. LilyPond grammar</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">E. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">F. LilyPond command index</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">G. LilyPond index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

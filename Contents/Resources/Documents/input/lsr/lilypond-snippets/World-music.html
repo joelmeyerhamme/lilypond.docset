@@ -1,0 +1,219 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: World music</title>
+
+<meta name="description" content="LilyPond snippets: World music">
+<meta name="keywords" content="LilyPond snippets: World music">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Ancient-notation.html#Ancient-notation" rel="previous" title="Ancient notation">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="World-music"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Ancient-notation.html#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next chapter">&nbsp;Contexts and engravers &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Ancient-notation.html#Transcription-of-Ancient-music-with-incipit" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-improvisation" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Arabic improvisation &gt; </a>]</td></tr></table>
+<a name="World-music"></a>
+<h1 class="unnumbered">World music</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/World-music.html#World-music">World music</a>.
+</p>
+
+<a name="arabic-improvisation.ly"></a>
+<hr size="6">
+<a name="Arabic-improvisation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#World-music" title="Beginning of this chapter or previous chapter"> &lt;&lt; World music&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next chapter">&nbsp;Contexts and engravers &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#World-music" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; World music&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#World-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;World music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-improvisation" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Arabic-improvisation"></a>
+<h2 class="unnumberedsec">Arabic improvisation</h2>
+
+
+<p>For improvisations or taqasim which are temporarily free, the time
+signature can be omitted and <code>\cadenzaOn</code> can be used.  Adjusting
+the accidental style might be required, since the absence of bar lines
+will cause the accidental to be marked only once.  Here is an example
+of what could be the start of a hijaz improvisation:
+</p>
+
+<pre class="verbatim">\include &quot;arabic.ly&quot;
+
+\relative sol' {
+  \key re \kurd
+  #(set-accidental-style 'forget)
+  \cadenzaOn
+  sol4 sol sol sol fad mib sol1 fad8 mib re4. r8 mib1 fad sol
+}
+</pre><p>
+ <a href="../4f/lily-8f1bfc6d.ly">
+  <img align="middle"
+       border="0"
+       src="../4f/lily-8f1bfc6d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="makam-example.ly"></a>
+<hr size="6">
+<a name="Arabic-improvisation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#World-music" title="Beginning of this chapter or previous chapter"> &lt;&lt; World music&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next chapter">&nbsp;Contexts and engravers &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-improvisation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Arabic improvisation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#World-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;World music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Arabic-improvisation" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Makam example</h2>
+
+
+<p>Makam is a type of melody from Turkey using 1/9th-tone microtonal
+alterations. Consult the initialization file &lsquo;<samp>ly/makam.ly</samp>&rsquo; for
+details of pitch names and alterations. 
+</p>
+
+<pre class="verbatim">% Initialize makam settings
+\include &quot;makam.ly&quot;
+
+\relative c' {
+  \set Staff.keySignature = #`((3 . ,BAKIYE) (6 . ,(- KOMA)))
+  c4 cc db fk
+  gbm4 gfc gfb efk
+  fk4 db cc c
+}
+</pre><p>
+ <a href="../e8/lily-d6dd9777.ly">
+  <img align="middle"
+       border="0"
+       src="../e8/lily-d6dd9777.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="printing-text-from-right-to-left.ly"></a>
+<hr size="6">
+<a name="Arabic-improvisation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#World-music" title="Beginning of this chapter or previous chapter"> &lt;&lt; World music&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next chapter">&nbsp;Contexts and engravers &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-improvisation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#World-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;World music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Contexts and engravers &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Printing text from right to left</h2>
+
+
+<p>It is possible to print text from right to left in a markup object, as
+demonstrated here.
+</p>
+
+<pre class="verbatim">{
+  b1^\markup {
+    \line { i n g i r u m i m u s n o c t e }
+  }
+  f'_\markup {
+    \override #'(text-direction . -1)
+    \line { i n g i r u m i m u s n o c t e }
+  }
+}
+
+</pre><p>
+ <a href="../a3/lily-2214923f.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-2214923f.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#World-music" title="Beginning of this chapter or previous chapter"> &lt;&lt; World music&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next chapter">&nbsp;Contexts and engravers &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Arabic-improvisation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#World-music" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;World music&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Contexts-and-engravers.html#Contexts-and-engravers" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Contexts and engravers &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li class="toc_current"><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>
+  <ul class="toc">
+    <li><a name="toc-Arabic-improvisation-1" href="World-music.html#Arabic-improvisation">Arabic improvisation</a>    </li>
+    <li><a name="toc-Makam-example-1" href="World-music.html#Arabic-improvisation">Makam example</a>    </li>
+    <li><a name="toc-Printing-text-from-right-to-left-3" href="World-music.html#Arabic-improvisation">Printing text from right to left</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

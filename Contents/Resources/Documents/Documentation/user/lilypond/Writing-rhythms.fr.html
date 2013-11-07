@@ -1,0 +1,793 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.2.1 Écriture du rythme</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.2.1 Writing rhythms">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.2.1 Writing rhythms">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Rhythms.fr.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Rhythms.fr.html#Rhythms" rel="previous" title="1.2 Rhythms">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Writing-rhythms"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Rhythms.fr.html#Rhythms" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Rythme&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.fr.html#Rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Durations" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Durées &gt; </a>]</td></tr></table>
+<a name="Writing-rhythms"></a>
+<h3 class="subsection">1.2.1 Écriture du rythme</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Durations" accesskey="1">Durées</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Tuplets" accesskey="2">Nolets</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Scaling-durations" accesskey="3">Changement d&rsquo;échelle des durées</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">           
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Ties" accesskey="4">Liaisons de prolongation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Durations"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Writing-rhythms" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Tuplets" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Nolets &gt; </a>]</td></tr></table>
+<a name="Durations"></a>
+<h4 class="unnumberedsubsubsec">Durées</h4>
+
+<a name="index-durees"></a>
+<a name="index-_005clonga"></a>
+<a name="index-_005clonga-1"></a>
+<a name="index-_005cbreve"></a>
+<a name="index-_005cbreve-1"></a>
+<a name="index-_005cmaxima"></a>
+<a name="index-_005cmaxima-1"></a>
+
+<p>Dans les modes de notes, d&rsquo;accords et de paroles, les durées sont
+écrites avec des chiffres et des points&nbsp;: les durées sont indiquées par
+leur valeur fractionnaire par rapport à la durée d&rsquo;une ronde.  Une
+noire, par exemple, qui équivaut à un 1/4 de ronde &mdash; &laquo;&nbsp;quarter note&nbsp;&raquo;
+en anglais &mdash; s&rsquo;écrit <code>4</code>, alors qu&rsquo;une blanche &mdash;
+&laquo;&nbsp;half-note&nbsp;&raquo;, 1/2 ronde &mdash; s&rsquo;écrit <code>2</code>.  Pour des notes plus
+longues qu&rsquo;une ronde, vous devrez utiliser les commandes <code>\longa</code>
+pour une longue, et <code>\breve</code> pour une brève, aussi appelée carrée.
+</p>
+<blockquote><pre class="example">c'\breve
+c'1 c'2 c'4 c'8 c'16 c'32 c'64 c'64
+r\longa r\breve
+r1 r2 r4 r8 r16 r32 r64 r64
+</pre></blockquote>
+
+<blockquote><p>
+ <a href="../36/lily-90f30d62.ly">
+  <img align="middle"
+       border="0"
+       src="../36/lily-90f30d62.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si la durée n&rsquo;est pas précisée, elle est alors assimilée à la durée
+précédente.  La valeur par défaut pour la première note est une noire
+(4).
+</p>
+<blockquote><pre class="verbatim">{ a a a2 a a4 a a1 a }
+</pre><p>
+ <a href="../8b/lily-a961aec3.ly">
+  <img align="middle"
+       border="0"
+       src="../8b/lily-a961aec3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="index-_002e"></a>
+<a name="index-_002e-1"></a>
+
+<p>Pour obtenir des notes pointées, ajoutez simplement un point
+(&lsquo;<samp>.</samp>&rsquo;) au chiffre.  Les notes doublement pointées sont créées de
+la même façon.
+</p>
+<blockquote><pre class="verbatim">a'4 b' c''4. b'8 a'4. b'4.. c''8.
+</pre><p>
+ <a href="../90/lily-3081f19b.ly">
+  <img align="middle"
+       border="0"
+       src="../90/lily-3081f19b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Predefined-commands-1"></a>
+<h4 class="subsubheading">Commandes prédéfinies</h4>
+<p>Les points sont normalement haussés pour éviter les lignes de portées,
+sauf dans certaines polyphonies.  Les commandes suivantes peuvent être
+utilisées pour demander manuellement une orientation particulière des
+points.
+</p>
+<a name="index-_005cdotsUp"></a>
+<a name="index-_005cdotsUp-1"></a>
+<p><code>\dotsUp</code>,
+<a name="index-_005cdotsDown"></a>
+<a name="index-_005cdotsDown-1"></a>
+<code>\dotsDown</code>,
+<a name="index-_005cdotsNeutral"></a>
+<a name="index-_005cdotsNeutral-1"></a>
+<code>\dotsNeutral</code>.
+</p>
+
+<a name="See-also-68"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-Dots"></a>
+<a href="../lilypond-internals/Dots.fr.html#Dots">Dots</a>, <a name="index-DotColumn"></a>
+<a href="../lilypond-internals/DotColumn.fr.html#DotColumn">DotColumn</a>.
+</p>
+
+<hr size="6">
+<a name="Tuplets"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Durations" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Durées&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Scaling-durations" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Changement d&rsquo;échelle des durées &gt; </a>]</td></tr></table>
+<a name="Tuplets"></a>
+<h4 class="unnumberedsubsubsec">Nolets</h4>
+
+<a name="index-nolets"></a>
+<a name="index-triolets"></a>
+<a name="index-_005ctimes"></a>
+<a name="index-_005ctimes-1"></a>
+
+<p>Les nolets &mdash; triolets, quintolets, etc. &mdash; sont obtenus en
+multipliant toutes les durées d&rsquo;une expression musicale par une
+fraction.
+</p>
+<blockquote><pre class="example">\times <var>fraction</var> <var>expr_musique</var>
+</pre></blockquote>
+
+<p>La durée de <var>expr_musique</var> sera multipliée par la fraction.  Le
+dénominateur de la fraction sera imprimé au-dessus des notes, parfois
+avec un crochet.  Le nolet le plus courant est le triolet, dans lequel 3
+notes ont la durée de 2, et où les notes durent donc 2/3 de leur valeur
+écrite.
+</p>
+<blockquote><pre class="verbatim">g'4 \times 2/3 {c'4 c' c'} d'4 d'4
+</pre><p>
+ <a href="../2d/lily-0f6baf49.ly">
+  <img align="middle"
+       border="0"
+       src="../2d/lily-0f6baf49.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les nolets peuvent être imbriqués&nbsp;; par exemple,
+</p>
+<pre class="verbatim">\override TupletNumber #'text = #tuplet-number::calc-fraction-text
+\times 4/6 {
+  a4 a
+  \times 3/5 { a a a a a }
+}
+</pre><p>
+ <a href="../9e/lily-093d3430.ly">
+  <img align="middle"
+       border="0"
+       src="../9e/lily-093d3430.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="Predefined-commands-3"></a>
+<h4 class="subsubheading">Commandes prédéfinies</h4>
+<a name="index-_005ctupletUp"></a>
+<a name="index-_005ctupletUp-1"></a>
+<p><code>\tupletUp</code>,
+<a name="index-_005ctupletDown"></a>
+<a name="index-_005ctupletDown-1"></a>
+<code>\tupletDown</code>,
+<a name="index-_005ctupletNeutral"></a>
+<a name="index-_005ctupletNeutral-1"></a>
+<code>\tupletNeutral</code>.
+</p>
+
+<a name="Commonly-tweaked-properties-13"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<a name="index-tupletNumberFormatFunction"></a>
+<a name="index-tupletNumberFormatFunction-1"></a>
+<a name="index-nolets_002c-formatage"></a>
+
+<p>La propriété <code>tupletSpannerDuration</code> spécifie la longueur voulue de
+chaque crochet.  Avec elle, vous pouvez faire plusieurs nolets en ne
+tapant <code>\times</code> qu&rsquo;une fois, ce qui évite une longue saisie.  Dans
+le prochain exemple, deux triolets sont imprimés avec une seule fonction
+<code>\times</code>.
+</p>
+<blockquote><pre class="verbatim">\set tupletSpannerDuration = #(ly:make-moment 1 4)
+\times 2/3 { c8 c c c c c }
+</pre><p>
+ <a href="../4d/lily-d89e8513.ly">
+  <img align="middle"
+       border="0"
+       src="../4d/lily-d89e8513.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Pour plus d&rsquo;information sur <code>make-moment</code>, voir
+<a href="Special-rhythmic-concerns.fr.html#Time-administration">Gestion du temps</a>.
+</p>
+<p>L&rsquo;apparence du chiffre est déterminée par la propriété <code>text</code> dans
+<code>TupletNumber</code>.  La valeur par défaut imprime seulement le
+dénominateur, mais si elle est définie par la fonction
+<code>tuplet-number::calc-fraction-text</code>, la fraction entière
+<var>num</var>:<var>den</var> sera imprimée à la place.
+</p>
+<p>Pour éviter d&rsquo;imprimer les chiffres des nolets, utilisez
+</p>
+<blockquote><pre class="verbatim">\times 2/3 { c8 c c } \times 2/3 { c8 c c }
+\override TupletNumber #'transparent = ##t
+\times 2/3 { c8 c c } \times 2/3 { c8 c c }
+</pre><p>
+ <a href="../c2/lily-a19aabf4.ly">
+  <img align="middle"
+       border="0"
+       src="../c2/lily-a19aabf4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Utilisez la fonction <code>\tweak</code> pour définir une priorité dans le cas
+de nolets imbriqués débutant au même moment.  Dans cet exemple,
+<code>\tweak</code> spécifie un texte sous forme de fraction pour le
+<code>TupletNumber</code> externe et de dénominateur pour les trois triolets
+internes.
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  \tweak #'text #tuplet-number::calc-fraction-text
+  \times 4/3 {
+     \tweak #'text #tuplet-number::calc-denominator-text
+     \times 2/3 { c'8[ c'8 c'8] }
+     \times 2/3 { c'8[ c'8 c'8] }
+     \times 2/3 { c'8[ c'8 c'8] }
+  }
+}
+</pre><p>
+ <a href="../dd/lily-d4eaa7ef.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-d4eaa7ef.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Ici, <code>\tweak</code> et <code>\override</code> agissent de concert pour
+spécifier le positionnement du <code>TupletBracket</code>.  Le premier
+<code>\tweak</code> positionne le <code>TupletBracket</code> du nolet externe au
+dessus de la portée. Le second <code>\tweak</code> positionne le
+<code>TupletBracket</code> du premier triolet interne au dessous de la
+portée.  Notez que cette paire de fonctions <code>\tweak</code> n&rsquo;affecte
+que le triolet extérieur et le premier des trois triolets imbriqués
+parce qu&rsquo;ils commencent au même instant musical.  Nous utilisons
+<code>\override</code> de manière tout à fait normale, pour forcer le
+positionnement du <code>TupletBracket</code> des deuxième et troisième
+triolets en dessous de la portée.
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  \tweak #'text #tuplet-number::calc-fraction-text
+  \tweak #'direction #up
+  \times 4/3 {
+     \tweak #'direction #down
+     \times 2/3 { c'8[ c'8 c'8] }
+     \override TupletBracket #'direction = #down
+     \times 2/3 { c'8[ c'8 c'8] }
+     \times 2/3 { c'8[ c'8 c'8] }
+  }
+}
+</pre><p>
+ <a href="../e9/lily-dcb89212.ly">
+  <img align="middle"
+       border="0"
+       src="../e9/lily-dcb89212.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les crochets de nolets peuvent aller jusqu&rsquo;aux prémisses de la mesure
+suivante, ou à la prochaine note.
+</p>
+<p>
+ <a href="../2e/lily-bf95881e.ly">
+  <img align="middle"
+       border="0"
+       src="../2e/lily-bf95881e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="See-also-86"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-TupletBracket"></a>
+<a href="../lilypond-internals/TupletBracket.fr.html#TupletBracket">TupletBracket</a>,
+<a name="index-TupletNumber"></a>
+<a href="../lilypond-internals/TupletNumber.fr.html#TupletNumber">TupletNumber</a>, <a name="index-TimeScaledMusic"></a>
+<a href="../lilypond-internals/TimeScaledMusic.fr.html#TimeScaledMusic">TimeScaledMusic</a>.
+</p>
+
+<hr size="6">
+<a name="Scaling-durations"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Tuplets" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Nolets&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ties" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Liaisons de prolongation &gt; </a>]</td></tr></table>
+<a name="Scaling-durations"></a>
+<h4 class="unnumberedsubsubsec">Changement d&rsquo;échelle des durées</h4>
+
+<p>Vous pouvez altérer la durée des notes en leur joignant une fraction
+<var>N/M</var>, donnant &lsquo;<code>*</code><var>N/M</var>&rsquo; &mdash; ou &lsquo;<code>*</code><var>N</var>&rsquo; si
+<var>M=1</var>.  Ceci n&rsquo;affectera pas l&rsquo;apparence des notes ou silences
+produits.
+</p>
+<p>Dans l&rsquo;exemple suivant, les trois premières notes prennent exactement
+deux temps, mais aucun triolet n&rsquo;est imprimé.
+</p>
+<blockquote><pre class="verbatim">\time 2/4
+a4*2/3 gis4*2/3 a4*2/3
+a4 a4 a4*2
+b16*4 c4
+</pre><p>
+ <a href="../28/lily-efdeb5f0.ly">
+  <img align="middle"
+       border="0"
+       src="../28/lily-efdeb5f0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-43"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Dans ce manuel&nbsp;: <a href="#Tuplets">Nolets</a>.
+</p>
+
+<hr size="6">
+<a name="Ties"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Scaling-durations" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Changement d&rsquo;échelle des durées&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Writing-rests.fr.html#Writing-rests" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Écriture des silences &gt; </a>]</td></tr></table>
+<a name="Ties"></a>
+<h4 class="unnumberedsubsubsec">Liaisons de prolongation</h4>
+
+<a name="index-liaison-de-prolongation"></a>
+<a name="index-_007e"></a>
+<a name="index-_007e-1"></a>
+
+<p>Une liaison de tenue (ou de prolongation) relie deux notes adjacentes de
+même hauteur.  Dans les faits, elle prolonge la durée d&rsquo;une note, et ne
+doit donc pas être confondue avec les liaisons d&rsquo;articulation ou de
+phrasé.  Une liaison de tenue est indiquée au moyen d&rsquo;un tilde &lsquo;<samp>~</samp>&rsquo;.
+</p>
+<blockquote><pre class="verbatim">e' ~ e' &lt;c' e' g'&gt; ~ &lt;c' e' g'&gt;
+</pre><p>
+ <a href="../e4/lily-1f256900.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-1f256900.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Quand une liaison de tenue se trouve entre deux accords, toutes les
+notes de même hauteur entre ces deux accords sont reliées.  S&rsquo;il n&rsquo;y en
+a aucune, aucune liaison n&rsquo;est créée.  Il est également possible de lier
+partiellement deux accords, en mettant les liaisons à l&rsquo;intérieur des
+accords.
+</p>
+<blockquote><pre class="verbatim">&lt;c~ e g~ b&gt; &lt;c e g b&gt;
+</pre><p>
+ <a href="../68/lily-011cc842.ly">
+  <img align="middle"
+       border="0"
+       src="../68/lily-011cc842.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Une liaison de tenue est un moyen parmi d&rsquo;autres pour prolonger la durée
+d&rsquo;une note, tout comme les points.  L&rsquo;exemple suivant montre deux
+manières de matérialiser exactement la même idée&nbsp;:
+</p>
+
+<blockquote><p>
+ <a href="../c8/lily-5824c45e.ly">
+  <img align="middle"
+       border="0"
+       src="../c8/lily-5824c45e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Les liaisons de tenues sont utilisées soit lorsque la note dépasse de la
+mesure, soit quand les points ne suffisent pas à donner la bonne durée.
+Lorsque l&rsquo;on utilise ces liaisons, les valeurs rythmiques les plus
+longues doivent s&rsquo;aligner sur les subidivisions de la mesure, comme ici&nbsp;:
+</p>
+<blockquote><p>
+ <a href="../b2/lily-2c8494d8.ly">
+  <img align="middle"
+       border="0"
+       src="../b2/lily-2c8494d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Lorsque l&rsquo;on doit lier de nombreuses notes sur plusieurs mesures, il
+devient plus facile d&rsquo;avoir recours à la division automatique des notes
+&mdash; voir <a href="Displaying-rhythms.fr.html#Automatic-note-splitting">Découpage automatique des notes</a>.  Ce procédé divise
+automatiquement les notes trop longues, et les lie par-delà les barres
+de mesure.
+</p>
+<a name="index-_005crepeatTie"></a>
+<a name="index-_005crepeatTie-1"></a>
+<a name="index-liaison-de-prolongation_002c-repetition"></a>
+<a name="index-reprises-avec-alternatives-et-liaisons-de-prolongation"></a>
+
+<p>Lorsqu&rsquo;une mesure de seconde fois après une reprise commence sur une
+note liée, la liaison doit être répétée. C&rsquo;est à cela que sert la
+commande <code>\repeatTie</code>&nbsp;:
+</p>
+<blockquote><p>
+ <a href="../09/lily-b797dbd3.ly">
+  <img align="middle"
+       border="0"
+       src="../09/lily-b797dbd3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-laissez-vibrer"></a>
+<a name="index-liaison_002c-laissez-vibrer"></a>
+<a name="index-_005claissezVibrer"></a>
+<a name="index-_005claissezVibrer-1"></a>
+
+<p>Les liaisons &laquo;&nbsp;Laissez vibrer&nbsp;&raquo; (L.V.) sont utilisées pour le piano, la
+harpe, et certains instruments de percussion.  Elles indiquent à
+l&rsquo;instrumentiste de laisser sonner la note ou l&rsquo;accord au lieu de
+l&rsquo;étouffer.  Cet effet s&rsquo;obtient avec la commande <code>\laissezVibrer</code>.
+</p>
+<pre class="verbatim">&lt;c f g&gt;\laissezVibrer
+</pre><p>
+ <a href="../9d/lily-9bd39fda.ly">
+  <img align="middle"
+       border="0"
+       src="../9d/lily-9bd39fda.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+<a name="Commonly-tweaked-properties-7"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<p>Les liaisons de tenue servent parfois à rendre un accord arpégé. Dans ce
+cas, les notes liées ne sont pas toutes consécutives. Il faut alors
+assigner à la propriété <code>tieWaitForNote</code> la valeur <em>vrai</em>
+(&lsquo;t&rsquo; pour &lsquo;true&rsquo;).  Cette même méthode peut servir, par exemple, à
+lier un trémolo à un accord.
+</p>
+<blockquote><pre class="verbatim">\set tieWaitForNote = ##t
+\grace { c16[~ e~ g]~ } &lt;c, e g&gt;2
+\repeat tremolo 8 { c32~ c'~ } &lt;c c,&gt;1
+e8~ c~ a~ f~ &lt;e' c a f&gt;2
+</pre><p>
+ <a href="../a4/lily-e75c05bd.ly">
+  <img align="middle"
+       border="0"
+       src="../a4/lily-e75c05bd.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Il est possible de graver manuellement les liaisons de tenue, en
+modifiant la propriété <code>tie-configuration</code>.  Pour chaque paire, le
+premier nombre indique la distance à la portée, en espaces de portée, et
+le second la direction (1 pour haut, -1 pour bas).
+</p>
+<blockquote><pre class="verbatim">&lt;c e g&gt;2~ &lt;c e g&gt; |
+\override TieColumn #'tie-configuration =
+  #'((0.0 . 1) (-2.0 . 1) (-4.0 . 1))
+&lt;c e g&gt;~ &lt;c e g&gt; |
+</pre><p>
+ <a href="../8e/lily-71a8a35a.ly">
+  <img align="middle"
+       border="0"
+       src="../8e/lily-71a8a35a.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Predefined-commands-21"></a>
+<h4 class="subsubheading">Commandes prédéfinies</h4>
+<a name="index-_005ctieUp"></a>
+<a name="index-_005ctieUp-1"></a>
+<p><code>\tieUp</code>,
+<a name="index-_005ctieDown"></a>
+<a name="index-_005ctieDown-1"></a>
+<code>\tieDown</code>,
+<a name="index-_005ctieNeutral"></a>
+<a name="index-_005ctieNeutral-1"></a>
+<code>\tieNeutral</code>,
+<a name="index-_005ctieDotted"></a>
+<a name="index-_005ctieDotted-1"></a>
+<code>\tieDotted</code>,
+<a name="index-_005ctieDashed"></a>
+<a name="index-_005ctieDashed-1"></a>
+<code>\tieDashed</code>,
+<a name="index-_005ctieSolid"></a>
+<a name="index-_005ctieSolid-1"></a>
+<code>\tieSolid</code>.
+</p>
+
+<a name="See-also-50"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Glossaire musical&nbsp;:
+<a name="index-tie"></a>
+<a href="../music-glossary/tie.fr.html#tie">liaison de prolongation</a>,
+<a name="index-laissez-vibrer-1"></a>
+<a href="../music-glossary/laissez-vibrer.fr.html#laissez-vibrer">laissez vibrer</a>.
+</p>
+<p>Dans ce manuel&nbsp;: <a href="Displaying-rhythms.fr.html#Automatic-note-splitting">Découpage automatique des notes</a>.
+</p>
+<p>Référence du programme&nbsp;:
+<a name="index-Tie"></a>
+<a href="../lilypond-internals/Tie.fr.html#Tie">Tie</a>,
+<a name="index-TieColumn"></a>
+<a href="../lilypond-internals/TieColumn.fr.html#TieColumn">TieColumn</a>,
+<a name="index-LaissezVibrerTie"></a>
+<a href="../lilypond-internals/LaissezVibrerTie.fr.html#LaissezVibrerTie">LaissezVibrerTie</a>,
+<a name="index-LaissezVibrerTieColumn"></a>
+<a href="../lilypond-internals/LaissezVibrerTieColumn.fr.html#LaissezVibrerTieColumn">LaissezVibrerTieColumn</a>.
+</p>
+
+<a name="Known-issues-and-warnings-2"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Un changement de portée, lorsqu&rsquo;une liaison de tenue est active, ne
+peut produire une liaison oblique.
+</p>
+<p>Le changement de clé ou d&rsquo;octave pendant une liaison de tenue produit un
+résultat indéfini.  Dans ces cas-là, il est préférable d&rsquo;utiliser un
+legato.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Scaling-durations" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Changement d&rsquo;échelle des durées&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Écriture du rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Writing-rests.fr.html#Writing-rests" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Écriture des silences &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Writing-rhythms.html">English</a>, <a href="Writing-rhythms.es.html">español</a>, <a href="Writing-rhythms.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Writing-rhythms-1" href="Writing-rhythms.fr.html#Writing-rhythms">1.2.1 Écriture du rythme</a>
+      <ul class="toc">
+        <li><a name="toc-Durations-1" href="Writing-rhythms.fr.html#Durations">Durées</a>        </li>
+        <li><a name="toc-Tuplets-1" href="Writing-rhythms.fr.html#Tuplets">Nolets</a>        </li>
+        <li><a name="toc-Scaling-durations-1" href="Writing-rhythms.fr.html#Scaling-durations">Changement d&rsquo;échelle des durées</a>        </li>
+        <li><a name="toc-Ties-1" href="Writing-rhythms.fr.html#Ties">Liaisons de prolongation</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.fr.html#Writing-rests">1.2.2 Écriture des silences</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.fr.html#Displaying-rhythms">1.2.3 Gravure du rythme</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.fr.html#Beams">1.2.4 Barres de ligature</a>      </li>
+      <li><a name="toc-Bars-1" href="Bars.fr.html#Bars">1.2.5 Barres de mesure</a>      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.fr.html#Special-rhythmic-concerns">1.2.6 Fonctionnalités rythmiques particulières</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Utilisation des programmes&nbsp;: 5.3 Utilisation d&rsquo;abc2ly</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Utilisation des programmes: 5.3 Invoking abc2ly">
+<meta name="keywords" content="GNU LilyPond &ndash; Utilisation des programmes: 5.3 Invoking abc2ly">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Utilisation des programmes">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Converting-from-other-formats.fr.html#Converting-from-other-formats" rel="up" title="5. Converting from other formats">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly" rel="previous" title="5.2 Invoking musicxml2ly">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Invoking-abc2ly"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Conversion à partir d&rsquo;autres formats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License" title="Chapitre suivant">&nbsp;GNU Free Documentation License &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Utilisation de musicxml2ly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Conversion à partir d&rsquo;autres formats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-etf2ly.fr.html#Invoking-etf2ly" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Utilisation d&rsquo;etf2ly &gt; </a>]</td></tr></table>
+<a name="Invoking-abc2ly"></a>
+<h2 class="section">5.3 Utilisation de <code>abc2ly</code></h2>
+
+<a name="index-ABC"></a>
+
+<p>ABC est un format relativement simple basé sur l&rsquo;ASCII.  Sa
+description est disponible sur le 
+<a href="http://www.walshaw.plus.com/abc/learn.html">site d&rsquo;ABC</a>. 
+</p>
+<p><code>abc2ly</code> traduit du format ABC au format LilyPond.
+</p>
+<p>Pour le lancer en ligne de commande, procédez ainsi&nbsp;:
+</p><blockquote><pre class="example">abc2ly [<var>option</var>]&hellip; <var>fichier-abc</var>
+</pre></blockquote>
+
+<p><code>abc2ly</code> accepte les options suivantes&nbsp;:
+</p>
+<dl compact="compact">
+<dt> <code>-b,--beams=None</code></dt>
+<dd><p>Préserver la notion de lien de croches propre à ABC.
+</p></dd>
+<dt> <code>-h,--help</code></dt>
+<dd><p>Afficher un résumé des utilisations.
+</p></dd>
+<dt> <code>-o,--output=<var>file</var></code></dt>
+<dd><p>Générer le résultat dans le fichier <var>file</var>.
+</p></dd>
+<dt> <code>-s,--strict</code></dt>
+<dd><p>Être strict sur la réussite.
+</p></dd>
+<dt> <code>--version</code></dt>
+<dd><p>Afficher le numéro de version.
+</p></dd>
+</dl>
+
+<p>Il est possible d&rsquo;ajouter des bribes de code LilyPond dans un fichier
+source ABC.  Ainsi, l&rsquo;assertion
+</p>
+<blockquote><pre class="example">%%LY voices \set autoBeaming = ##f
+</pre></blockquote>
+
+<p>aura pour conséquence d&rsquo;insérer le texte qui suit le mot-clé &laquo;&nbsp;voices&nbsp;&raquo;
+dans la voix correspondante du fichier LilyPond.
+</p>
+<p>De la même manière,
+</p>
+<blockquote><pre class="example">%%LY slyrics more words
+</pre></blockquote>
+
+<p>placera le texte suivant le mot-clé &laquo;&nbsp;slyrics&nbsp;&raquo; dans une ligne de paroles.
+</p>
+
+<a name="Known-issues-and-warnings"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Le standard ABC n&rsquo;est pas si &laquo;&nbsp;standard&nbsp;&raquo; que cela.  Pour des
+fonctionnalités étendues, comme la polyphonie, existent différentes
+conventions.
+</p>
+<p>Un fichier comportant plusieurs morceaux ne peut être converti.
+</p>
+<p>ABC synchronise paroles et musique en début de ligne&nbsp;;
+<code>abc2ly</code> ne le fait pas.
+</p>
+<p><code>abc2ly</code> ignore les ligatures ABC.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Conversion à partir d&rsquo;autres formats&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License" title="Chapitre suivant">&nbsp;GNU Free Documentation License &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Utilisation de musicxml2ly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Converting-from-other-formats.fr.html#Converting-from-other-formats" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Conversion à partir d&rsquo;autres formats&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Invoking-etf2ly.fr.html#Invoking-etf2ly" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Utilisation d&rsquo;etf2ly &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Invoking-abc2ly.html">English</a>, <a href="Invoking-abc2ly.es.html">español</a>, <a href="Invoking-abc2ly.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Utilisation des programmes</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.fr.html#Install">1. Installation</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.fr.html#Precompiled-binaries">1.1 Paquets précompilés</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.fr.html#Compiling-from-source">1.2 Compilation à partir du code source</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.fr.html#Setup">2. Environnement de travail</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.fr.html#Setup-for-specific-Operating-Systems">2.1 Spécificités pour certains systèmes</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.fr.html#Text-editor-support">2.2 LilyPond et les éditeurs de texte</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.fr.html#Point-and-click">2.3 Pointer-cliquer</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.fr.html#Running-LilyPond">3. Exécution de LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.fr.html#Normal-usage">3.1 Utilisation habituelle</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.fr.html#Command_002dline-usage">3.2 Utilisation en ligne de commande</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.fr.html#Error-messages">3.3 Messages d&rsquo;erreur</a>    </li>
+    <li><a name="toc-Updating-with-convert_002dly" href="Updating-files-with-convert_002dly.fr.html#Updating-files-with-convert_002dly">3.4 Mise à jour avec <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.fr.html#Reporting-bugs">3.5 Rapport de bogue</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.fr.html#LilyPond_002dbook">4. <code>lilypond-book</code>&nbsp;: association musique-texte</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.fr.html#An-example-of-a-musicological-document">4.1 Exemple de document musicologique</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.fr.html#Integrating-music-and-text">4.2 Association musique-texte</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.fr.html#Music-fragment-options">4.3 Options applicables aux fragments de musique</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.fr.html#Invoking-lilypond_002dbook">4.4 Utilisation de <code>lilypond-book</code></a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.fr.html#Filename-extensions">4.5 Extensions de nom de fichier</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.fr.html#Alternate-methods-of-mixing-text-and-music">4.6 Autres méthodes d&rsquo;association texte-musique</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.fr.html#Converting-from-other-formats">5. Conversion à partir d&rsquo;autres formats</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.fr.html#Invoking-midi2ly">5.1 Utilisation de <code>midi2ly</code></a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.fr.html#Invoking-musicxml2ly">5.2 Utilisation de <code>musicxml2ly</code></a>    </li>
+    <li class="toc_current"><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.fr.html#Invoking-abc2ly">5.3 Utilisation de <code>abc2ly</code></a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.fr.html#Invoking-etf2ly">5.4 Utilisation de <code>etf2ly</code></a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.fr.html#Generating-LilyPond-files">5.5 Génération de fichiers LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">B. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

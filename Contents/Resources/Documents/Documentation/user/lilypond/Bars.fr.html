@@ -1,0 +1,654 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.2.5 Barres de mesure</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.2.5 Bars">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.2.5 Bars">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Rhythms.fr.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Beams.fr.html#Beams" rel="previous" title="1.2.4 Beams">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Bars"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Beams.fr.html#Feathered-beams" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Liens de croches en soufflet&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.fr.html#Rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-lines" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Barres de mesure &gt; </a>]</td></tr></table>
+<a name="Bars"></a>
+<h3 class="subsection">1.2.5 Barres de mesure</h3>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Bar-lines" accesskey="1">Barres de mesure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-numbers" accesskey="2">Numéros de mesure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Bar-and-bar-number-checks" accesskey="3">Vérification des limites et numéros de mesure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Rehearsal-marks" accesskey="4">Indications de repère</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Bar-lines"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bars" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de mesure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de mesure&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-numbers" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Numéros de mesure &gt; </a>]</td></tr></table>
+<a name="Bar-lines"></a>
+<h4 class="unnumberedsubsubsec">Barres de mesure</h4>
+
+<a name="index-barres-de-mesure"></a>
+<a name="index-_005cbar"></a>
+<a name="index-_005cbar-1"></a>
+<a name="index-barres-de-reprise"></a>
+
+
+<p>Les barres de mesures délimitent les mesures, mais peuvent aussi
+indiquer une reprise. En principe, elles sont insérées automatiquement,
+et les sauts de ligne ne peuvent avoir lieu qu&rsquo;au niveau de ces barres.
+</p>
+<p>Il est possible de forcer l&rsquo;impression d&rsquo;une barre de mesure spéciale,
+avec la commande <code>\bar</code>&nbsp;:
+</p>
+<blockquote><pre class="verbatim">c4 \bar &quot;|:&quot; c4
+</pre><p>
+ <a href="../6c/lily-f924a557.ly">
+  <img align="middle"
+       border="0"
+       src="../6c/lily-f924a557.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Les styles de barres de mesure disponibles sont
+</p>
+
+
+<p>En plus de cela, on peut demander <code>&quot;||:&quot;</code>, qui équivaut à
+<code>&quot;|:&quot;</code>, mais qui donnera, en cas de saut de ligne, une double barre
+en fin de ligne, et une barre de reprise au début de la ligne suivante.
+</p>
+<p>Il est possible d&rsquo;autoriser un saut de ligne même s&rsquo;il n&rsquo;y a pas
+de barre de mesure visible, en utilisant&nbsp;:
+</p>
+<blockquote><pre class="example">\bar &quot;&quot;
+</pre></blockquote>
+
+
+
+<p>Ceci insérera une barre de mesure invisible, et permettra de sauter de
+ligne à cet endroit, sans incrémenter le numéro de mesure.
+</p>
+
+<p>Dans une partition comprenant plusieurs portées, la commande <code>\bar</code>
+placée sur une portée s&rsquo;applique automatiquement à toutes les
+portées. Les barres de mesure que l&rsquo;on obtient alors sont d&rsquo;un seul
+tenant sur les portées d&rsquo;un <code>StaffGroup</code>, d&rsquo;un <code>PianoStaff</code> ou
+d&rsquo;un <code>GrandStaff</code>.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  \new StaffGroup &lt;&lt;
+    \new Staff {
+      e'4 d'
+      \bar &quot;||&quot;
+      f' e'
+    }
+    \new Staff { \clef bass c4 g e g }
+  &gt;&gt;
+  \new Staff { \clef bass c2 c2 }
+&gt;&gt;
+</pre><p>
+ <a href="../dd/lily-a618c4d8.ly">
+  <img align="middle"
+       border="0"
+       src="../dd/lily-a618c4d8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Commonly-tweaked-properties-6"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<a name="index-whichBar"></a>
+<a name="index-whichBar-1"></a>
+<a name="index-repeatCommands"></a>
+<a name="index-repeatCommands-1"></a>
+<a name="index-defaultBarType"></a>
+<a name="index-defaultBarType-1"></a>
+
+
+<p>La commande <code>\bar </code><var>bartype</var> sert de raccourci pour <code>\set
+Timing.whichBar = </code><var>bartype</var>.  Dès que l&rsquo;on définit <code>whichBar</code>,
+une barre de mesure est créée selon le style défini.
+</p>
+
+<p>Dès que la propriété <code>whichBar</code> est définie, une barre de mesure
+est créée.  À chaque début de mesure, elle prend la valeur de
+<code>Timing.defaultBarType</code>.  La valeur de <code>repeatCommands</code> sert à
+remplacer les barres de mesure par défaut.
+</p>
+<p>Nous vous invitons à utiliser <code>\repeat</code> pour indiquer les
+reprises. Voyez à ce sujet <a href="Repeats.fr.html#Repeats">Répétitions et reprises</a>.
+</p>
+
+<a name="See-also-63"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Dans ce manuel&nbsp;: <a href="Repeats.fr.html#Repeats">Répétitions et reprises</a>, <a href="Displaying-staves.fr.html#Grouping-staves">Regroupement de portées</a>.
+</p>
+<p>Référence du programme&nbsp;: <a name="index-BarLine"></a>
+<a href="../lilypond-internals/BarLine.fr.html#BarLine">BarLine</a> (faisant partie du
+contexte <a name="index-Staff-4"></a>
+<a href="../lilypond-internals/Staff.fr.html#Staff">Staff</a>), <a name="index-SpanBar"></a>
+<a href="../lilypond-internals/SpanBar.fr.html#SpanBar">SpanBar</a> (sur plusieurs
+portées).
+</p>
+
+<hr size="6">
+<a name="Bar-numbers"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-lines" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de mesure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de mesure&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Vérification des limites et numéros de mesure &gt; </a>]</td></tr></table>
+<a name="Bar-numbers"></a>
+<h4 class="unnumberedsubsubsec">Numéros de mesure</h4>
+
+<a name="index-Mesure_002c-numero-de"></a>
+<a name="index-numeros-de-mesure"></a>
+<a name="index-currentBarNumber"></a>
+<a name="index-currentBarNumber-1"></a>
+
+<p>Les numéros de mesure sont imprimés par défaut à chaque début de
+ligne.  Ce nombre est stocké par la propriété <code>currentBarNumber</code>
+qui sera mis à jour à chaque mesure.
+</p>
+<blockquote><pre class="verbatim">\repeat unfold 4 {c4 c c c} \break
+\set Score.currentBarNumber = #50
+\repeat unfold 4 {c4 c c c}
+</pre><p>
+ <a href="../b9/lily-0c61a9a0.ly">
+  <img align="middle"
+       border="0"
+       src="../b9/lily-0c61a9a0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>L&rsquo;impression d&rsquo;un numéro de mesure ne peut intervenir que s&rsquo;il y a une
+barre.  Aussi, pour pouvoir le faire au début d&rsquo;un morceau,
+devrez-vous ajouter une barre vide&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\set Score.currentBarNumber = #50
+\bar &quot;&quot;
+\repeat unfold 4 {c4 c c c} \break
+\repeat unfold 4 {c4 c c c}
+</pre><p>
+ <a href="../6f/lily-8b1f4e89.ly">
+  <img align="middle"
+       border="0"
+       src="../6f/lily-8b1f4e89.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vous pouvez imprimer un numéro de mesure à intervalles réguliers plutôt
+qu&rsquo;en tête de chaque ligne.  C&rsquo;est ce qu&rsquo;illustre l&rsquo;exemple suivant.
+</p>
+<blockquote><pre class="verbatim">\override Score.BarNumber #'break-visibility = #'#(#f #t #t)
+\set Score.currentBarNumber = #11
+\bar &quot;&quot;  % Le numéro de la première mesure est imprimé
+% Affichage du numéro toutes les deux mesures
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+c1 c c c c
+\break
+c c c c c
+</pre><p>
+ <a href="../d2/lily-0850603b.ly">
+  <img align="middle"
+       border="0"
+       src="../d2/lily-0850603b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Désactiver le graveur concerné &mdash; <code>Bar_number_engraver</code> &mdash;
+donnera une partition sans numéros de mesure.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  \context {
+    \Score
+    \remove &quot;Bar_number_engraver&quot;
+  }
+}
+\relative c''{
+c4 c c c \break
+c4 c c c
+}
+</pre><p>
+ <a href="../cc/lily-badc795f.ly">
+  <img align="middle"
+       border="0"
+       src="../cc/lily-badc795f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-92"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-BarNumber"></a>
+<a href="../lilypond-internals/BarNumber.fr.html#BarNumber">BarNumber</a>.
+</p>
+<p>Exemples&nbsp;: <a name="index-Staff-notation"></a>
+<a href="../../../input/lsr/lilypond-snippets/Staff-notation.html#Staff-notation">Notation sur la portée</a>.
+</p>
+
+<a name="Known-issues-and-warnings-31"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Les numéros de mesure peuvent entrer en collision avec les crochets de
+<a name="index-StaffGroup"></a>
+<a href="../lilypond-internals/StaffGroup.fr.html#StaffGroup">StaffGroup</a>. La propriété <code>padding</code> &mdash; décalage
+&mdash; de l&rsquo;objet <a name="index-BarNumber-1"></a>
+<a href="../lilypond-internals/BarNumber.fr.html#BarNumber">BarNumber</a> permet alors d&rsquo;ajuster leur
+positionnement. 
+</p>
+
+<hr size="6">
+<a name="Bar-and-bar-number-checks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-numbers" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Numéros de mesure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de mesure&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Rehearsal-marks" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Indications de repère &gt; </a>]</td></tr></table>
+<a name="Bar-and-bar-number-checks"></a>
+<h4 class="unnumberedsubsubsec">Vérification des limites et numéros de mesure</h4>
+
+<a name="index-verification-des-limites-de-mesure"></a>
+<a name="index-mesures_002c-verification-des-limites"></a>
+<a name="index-barCheckSynchronize"></a>
+<a name="index-barCheckSynchronize-1"></a>
+<a name="index-_007c"></a>
+<a name="index-_007c-1"></a>
+
+<p>Les tests de limites de mesure (ou tests de mesure) aident à détecter
+les erreurs dans les durées.  Un test de mesure s&rsquo;écrit avec une barre
+verticale, &lsquo;<samp>|</samp>&rsquo;.  Lors du traitement, elle doit correspondre à une
+barre de mesure.  Sinon, un avertissement est émis.  Dans l&rsquo;exemple
+suivant, le deuxième test de mesure signale une erreur.
+</p><blockquote><pre class="example">\time 3/4 c2 e4 | g2 |
+</pre></blockquote>
+
+<p>Le test de mesure peut être aussi utilisé dans les paroles, par exemple&nbsp;:
+</p><blockquote><pre class="example">\lyricmode {
+ \time 2/4
+ Twin -- kle | Twin -- kle
+}
+</pre></blockquote>
+
+<p>Des durées incorrectes font échouer les tests de mesure, et peuvent
+souvent mettre la partition sens dessus dessous, particulièrement s&rsquo;il
+s&rsquo;agit de musique polyphonique.  Vérifier les tests de mesure qui ont
+échoué et les durées incorrectes est un bon moyen de commencer à
+corriger sa partition.
+</p>
+<a name="index-_007c-2"></a>
+<a name="index-_007c-3"></a>
+<a name="index-pipeSymbol"></a>
+<a name="index-pipeSymbol-1"></a>
+
+<p>Il est aussi possible d&rsquo;attribuer une autre valeur au symbole
+<code>|</code>, en assignant une expression musicale à <code>pipeSymbol</code>,
+</p>
+<blockquote><pre class="verbatim">pipeSymbole = \bar &quot;||&quot;
+
+{ c'2 c' | c'2 c' }
+</pre><p>
+ <a href="../d5/lily-7f82dff3.ly">
+  <img align="middle"
+       border="0"
+       src="../d5/lily-7f82dff3.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<p>Lorsque l&rsquo;on recopie de longues pièces, il peut être utile de vérifier
+que les numéros de mesures de LilyPond correspondent à l&rsquo;original que
+l&rsquo;on recopie.  Cela se fait avec <code>\barNumberCheck</code>.  Par exemple,
+</p>
+<pre class="verbatim">\barNumberCheck #123
+</pre>
+<p>affiche un avertissement lors du traitement si le numéro de mesure à ce
+point (variable <code>currentBarNumber</code>) n&rsquo;est pas 123.
+</p>
+
+<hr size="6">
+<a name="Rehearsal-marks"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Vérification des limites et numéros de mesure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de mesure&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.fr.html#Special-rhythmic-concerns" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Fonctionnalités rythmiques particulières &gt; </a>]</td></tr></table>
+<a name="Rehearsal-marks"></a>
+<h4 class="unnumberedsubsubsec">Indications de repère</h4>
+
+<a name="index-Reperes_002c-indication-de"></a>
+<a name="index-_005cmark"></a>
+<a name="index-_005cmark-1"></a>
+
+<p>Indiquer un repère s&rsquo;obtient grâce à la commande <code>\mark</code>.
+</p>
+<blockquote><pre class="verbatim">c1 \mark \default
+c1 \mark \default
+c1 \mark #8
+c1 \mark \default
+c1 \mark \default
+</pre><p>
+ <a href="../8c/lily-99a01870.ly">
+  <img align="middle"
+       border="0"
+       src="../8c/lily-99a01870.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La lettre&nbsp;&lsquo;I&rsquo; n&rsquo;est pas utilisée, conformément aux usages de la
+gravure.  Cependant, vous pourrez intégrer la lettre &lsquo;I&rsquo; en utilisant
+</p>
+<blockquote><pre class="example">\set Score.markFormatter = #format-mark-alphabet
+</pre></blockquote>
+
+<p>Lorsque vous utilisez <code>\mark \default</code>, le repère s&rsquo;incrémente
+automatiquement&nbsp;; toutefois donner un nombre en argument permet de
+spécifier manuellement le repère en question.  La valeur à utiliser
+est enregistrée dans la propriété <code>rehearsalMark</code>.
+</p>
+<p>Le style du repère est déterminé par la propriété
+<code>markFormatter</code>.  Il s&rsquo;agit d&rsquo;une fonction qui prend en arguments
+le repère en cours (un entier) ainsi que le contexte en cours, et
+retournera un objet de type étiquette.  Dans l&rsquo;exemple qui suit,
+<code>markFormatter</code> est réglé pour une procédure type. Quelques
+mesure plus loin, son comportement est modifié pour imprimer un
+repère encadré.
+</p>
+<blockquote><pre class="verbatim">\set Score.markFormatter = #format-mark-numbers
+c1 \mark \default
+c1 \mark \default
+\set Score.markFormatter = #format-mark-box-numbers
+c1 \mark \default
+c1 \mark \default
+c1
+</pre><p>
+ <a href="../e9/lily-fdefc51e.ly">
+  <img align="middle"
+       border="0"
+       src="../e9/lily-fdefc51e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Le fichier &lsquo;<tt>scm/translation-functions.scm</tt>&rsquo; comporte les
+définitions de <code>format-mark-numbers</code> (comportement par défaut), 
+<code>format-mark-box-numbers</code>,
+<code>format-mark-letters</code> et <code>format-mark-box-letters</code>.  Vous
+pouvez vous en inspirer pour d&rsquo;autres fonctions de formatage.
+</p>
+<p><code>format-mark-barnumbers</code>, <code>format-mark-box-barnumbers</code> et 
+<code>format-mark-circle-barnumbers</code>  permettent d&rsquo;imprimer le numéro
+de mesure au lieu des compteurs alphabétique ou numérique.
+</p>
+<p>On peut aussi spécifier manuellement une marque de repère&nbsp;:
+</p>
+<blockquote><pre class="example">\mark &quot;A1&quot;
+</pre></blockquote>
+
+<p><code>Score.markFormatter</code> sera sans effet sur des repères ainsi
+définis.  Un <code>\markup</code> peut néanmoins s&rsquo;utiliser en argument.
+</p>
+<blockquote><pre class="example">\mark \markup{ \box A1 }
+</pre></blockquote>
+
+<a name="index-segno"></a>
+<a name="index-coda"></a>
+<a name="index-D_002eS-al-Fine"></a>
+
+<p>Un <code>\mark</code> peut contenir un glype musical tel que le signe
+<em>segno</em>.  
+</p>
+<blockquote><pre class="verbatim">c1 \mark \markup { \musicglyph #&quot;scripts.segno&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.coda&quot; }
+c1 \mark \markup { \musicglyph #&quot;scripts.ufermata&quot; }
+c1
+</pre><p>
+ <a href="../bc/lily-030082a9.ly">
+  <img align="middle"
+       border="0"
+       src="../bc/lily-030082a9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Pour connaître les différents symboles accessibles par
+<code>\musicglyph</code>, consultez <a href="The-Feta-font.fr.html#The-Feta-font">La fonte Feta</a>.
+</p>
+<p>Pour affiner le positionnement des repères, veuillez vous référer à
+<a href="Writing-text.fr.html#Text-marks">Indications textuelles</a>.
+</p>
+
+<a name="See-also-82"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Dans ce manuel&nbsp;: <a href="Writing-text.fr.html#Text-marks">Indications textuelles</a>.
+</p>
+<p>Référence du programme&nbsp;: <a name="index-RehearsalMark"></a>
+<a href="../lilypond-internals/RehearsalMark.fr.html#RehearsalMark">RehearsalMark</a>.
+</p>
+<p>Fichiers d&rsquo;initialisation&nbsp;: &lsquo;<tt>scm/translation-functions.scm</tt>&rsquo;
+contient les définitions de <code>format-mark-numbers</code> et
+<code>format-mark-letters</code>.  Elles seront source d&rsquo;inspiration pour
+d&rsquo;autres fonctions de formatage.
+</p>
+<p>Exemples&nbsp;: <a name="index-Rhythms-2"></a>
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rythme</a>, <a name="index-Expressive-marks"></a>
+<a href="../../../input/lsr/lilypond-snippets/Expressive-marks.html#Expressive-marks">Signes d&rsquo;interprétation</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Bar-and-bar-number-checks" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Vérification des limites et numéros de mesure&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Bars" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de mesure&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Special-rhythmic-concerns.fr.html#Special-rhythmic-concerns" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Fonctionnalités rythmiques particulières &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Bars.html">English</a>, <a href="Bars.es.html">español</a>, <a href="Bars.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.fr.html#Writing-rhythms">1.2.1 Écriture du rythme</a>      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.fr.html#Writing-rests">1.2.2 Écriture des silences</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.fr.html#Displaying-rhythms">1.2.3 Gravure du rythme</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.fr.html#Beams">1.2.4 Barres de ligature</a>      </li>
+      <li class="toc_current"><a name="toc-Bars-1" href="Bars.fr.html#Bars">1.2.5 Barres de mesure</a>
+      <ul class="toc">
+        <li><a name="toc-Bar-lines-1" href="Bars.fr.html#Bar-lines">Barres de mesure</a>        </li>
+        <li><a name="toc-Bar-numbers-1" href="Bars.fr.html#Bar-numbers">Numéros de mesure</a>        </li>
+        <li><a name="toc-Bar-and-bar-number-checks-1" href="Bars.fr.html#Bar-and-bar-number-checks">Vérification des limites et numéros de mesure</a>        </li>
+        <li><a name="toc-Rehearsal-marks-1" href="Bars.fr.html#Rehearsal-marks">Indications de repère</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.fr.html#Special-rhythmic-concerns">1.2.6 Fonctionnalités rythmiques particulières</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

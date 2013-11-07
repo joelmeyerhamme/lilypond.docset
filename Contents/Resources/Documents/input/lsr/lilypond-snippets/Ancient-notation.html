@@ -1,0 +1,1572 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Ancient notation</title>
+
+<meta name="description" content="LilyPond snippets: Ancient notation">
+<meta name="keywords" content="LilyPond snippets: Ancient notation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Winds.html#Winds" rel="previous" title="Winds">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Ancient-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Winds.html#Winds" title="Beginning of this chapter or previous chapter"> &lt;&lt; Winds&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Winds.html#Flute-slap-notation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Flute slap notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-notation" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Ancient-notation"></a>
+<h1 class="unnumbered">Ancient notation</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Ancient-notation.html#Ancient-notation">Ancient notation</a>.
+</p>
+
+<a name="adding-a-figured-bass-above-or-below-the-notes.ly"></a>
+<hr size="6">
+<a name="Ancient-notation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-notation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-fonts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ancient fonts &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Adding a figured bass above or below the notes</h2>
+
+
+<p>When writing a figured bass, here&rsquo;s a way to specify if you want your
+figures to be placed above or below the bass notes, by defining the
+<code>BassFigureAlignmentPositioning #'direction</code> property (exclusively
+in a <code>Staff</code> context). Choices are <code>#UP</code> (or <code>#1</code>),
+<code>#CENTER</code> (or <code>#0</code>) and <code>#DOWN</code> (or <code>#-1</code>).
+</p>
+<p>As you can see here, this property can be changed as many times as you
+wish. Use <code>\once \override</code> if you don&rsquo;t want the tweak to apply
+to the whole score. 
+</p>
+
+<pre class="verbatim">bass = {
+  \clef bass
+  g4 b, c d
+  e d8 c d2
+}
+continuo = \figuremode {
+  &lt;_&gt;4 &lt;6&gt;8
+  \once \override Staff.BassFigureAlignmentPositioning #'direction = #CENTER
+  &lt;5/&gt;8 &lt;_&gt;4
+  \override Staff.BassFigureAlignmentPositioning #'direction = #UP
+  &lt;_+&gt;4 &lt;6&gt;
+  \set Staff.useBassFigureExtenders = ##t
+  \override Staff.BassFigureAlignmentPositioning #'direction = #DOWN
+  &lt;4&gt;4. &lt;4&gt;8 &lt;_+&gt;4
+}
+\score {
+  &lt;&lt;
+    \new Staff = bassStaff \bass
+    \context Staff = bassStaff \continuo
+  &gt;&gt;
+}
+
+
+</pre><p>
+ <a href="../df/lily-d5d755e5.ly">
+  <img align="middle"
+       border="0"
+       src="../df/lily-d5d755e5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ancient-fonts.ly"></a>
+<hr size="6">
+<a name="Ancient-fonts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-notation" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-notation-template-_002d-modern-transcription-of-gregorian-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ancient notation template -- modern transcription of gregorian music &gt; </a>]</td></tr></table>
+<a name="Ancient-fonts"></a>
+<h2 class="unnumberedsec">Ancient fonts</h2>
+
+
+<p>Shown here are many (all?) of the symbols that are included in
+LilyPond&rsquo;s support for ancient notation.
+</p>
+
+
+
+<pre class="verbatim">upperStaff = \new VaticanaStaff = &quot;upperStaff&quot; &lt;&lt;
+  \context VaticanaVoice &lt;&lt;
+    \transpose c c {
+      
+      \override NoteHead #'style = #'vaticana.punctum
+      \key es \major
+      \clef &quot;vaticana-fa2&quot;
+      c1 des e f ges
+      
+      \override NoteHead #'style = #'vaticana.inclinatum
+      a! b ces'
+      \bar &quot;|&quot;
+      % \break % 1 (8*1)
+      
+      \override NoteHead #'style = #'vaticana.quilisma
+      b! des'! ges! fes!
+      \breathe
+      \clef &quot;vaticana-fa1&quot;
+      \override NoteHead #'style = #'vaticana.plica
+      es d
+      \override NoteHead #'style = #'vaticana.reverse.plica
+      c d
+      \bar &quot;|&quot;
+      % \break %2 (8*1)
+      
+      \override NoteHead #'style = #'vaticana.punctum.cavum
+      es f
+      \override NoteHead #'style = #'vaticana.lpes
+      g as
+      \override NoteHead #'style = #'vaticana.upes
+      bes as
+      \override NoteHead #'style = #'vaticana.vupes
+      g f
+      \override NoteHead #'style = #'vaticana.linea.punctum
+      \once \override Staff.BarLine #'bar-size = #2.0 \bar &quot;|&quot;
+      % \break % 3 (8*1)
+      
+      es d
+      \override NoteHead #'style = #'vaticana.epiphonus
+      c d
+      \override NoteHead #'style = #'vaticana.cephalicus
+      es f
+      
+      \override Staff.KeySignature #'glyph-name-alist = #alteration-medicaea-glyph-name-alist
+      \override Staff.Accidental #'glyph-name-alist = #alteration-medicaea-glyph-name-alist
+      \override Staff.Custos #'style = #'medicaea
+      \override NoteHead #'style = #'medicaea.punctum
+      \clef &quot;medicaea-fa2&quot;
+      ces des
+      \bar &quot;|&quot;
+      % \break % 4 (8*1)
+      
+      e! f! ges
+      \clef &quot;medicaea-do2&quot;
+      \override NoteHead #'style = #'medicaea.inclinatum
+      a! b! ces'
+      \override NoteHead #'style = #'medicaea.virga
+      b! a!
+      \bar &quot;|&quot;
+      % \break % 5 (8*1)
+      
+      ges fes
+      \clef &quot;medicaea-fa1&quot;
+      \override NoteHead #'style = #'medicaea.rvirga
+      e des ces
+      
+      \override Staff.KeySignature #'glyph-name-alist = #alteration-hufnagel-glyph-name-alist
+      \override Staff.Accidental #'glyph-name-alist = #alteration-hufnagel-glyph-name-alist
+      \override Staff.Custos #'style = #'hufnagel
+      \override NoteHead #'style = #'hufnagel.punctum
+      \clef &quot;hufnagel-fa2&quot;
+      ces des es
+      \bar &quot;|&quot;
+      % \break % 6 (8*1)
+      
+      fes ges
+      \clef &quot;hufnagel-do2&quot;
+      \override NoteHead #'style = #'hufnagel.lpes
+      as! bes! ces'
+      \override NoteHead #'style = #'hufnagel.virga
+      bes! as!
+      \bar &quot;|&quot;
+      % \break % 7 (8*1)
+      
+      ges! fes!
+      \clef &quot;hufnagel-do-fa&quot;
+      \override NoteHead #'style = #'hufnagel.punctum
+      es! des ces des! es! fes!
+      \bar &quot;||&quot;
+      % \break % 8 (8*1)
+      
+      s32*1
+      % \break % 12 (32*1)
+    }
+  &gt;&gt;
+&gt;&gt;
+
+lowerStaff = \new MensuralStaff = &quot;lowerStaff&quot; &lt;&lt;
+  \context MensuralVoice &lt;&lt;
+    \transpose c c {
+      
+      \key a \major
+      cis'1 d'\breve gis'\breve e'\breve \[ e'\longa fis'\longa \]
+      \set Staff.forceClef = ##t
+      \clef &quot;neomensural-c2&quot;
+      cis1
+      \bar &quot;|&quot;
+      % \break % 2 (16*1)
+      
+      \[ g\breve dis''\longa \]
+      b\breve \[ a\longa d\longa \]
+      \clef &quot;petrucci-c2&quot;
+      % \break % 4 (16*1)
+      
+      fis1 ces1
+      \clef &quot;petrucci-c2&quot;
+      r\longa
+      \set Staff.forceClef = ##t
+      \clef &quot;mensural-c2&quot;
+      r\breve
+      \bar &quot;|&quot;
+      % \break % 5 (8*1)
+      
+      r2
+      \clef &quot;mensural-g&quot;
+      r4 r8 r16 r16
+      \override NoteHead #'style = #'mensural
+      \override Rest #'style = #'mensural
+      \clef &quot;petrucci-f&quot;
+      c8 b, c16 b, c32 b, c64 b, c64 b,
+      d8 e d16 e d32 e d64 e d64 e
+      r\longa
+      \set Staff.forceClef = ##t
+      \clef &quot;petrucci-f&quot;
+      r\breve
+      \bar &quot;|&quot;
+      % \break % 6 (8*1)
+      
+      r\breve 
+      \clef &quot;mensural-f&quot;
+      r2 r4 r8 r16 r16
+      
+      \set Staff.forceClef = ##t
+      \clef &quot;mensural-f&quot;
+      e\breve f g a1
+      \clef &quot;mensural-g&quot;
+      % \break % 7 (8*1)
+      
+      \[ bes'!\longa a'!\longa c''!\longa \]
+      e'1 d' c' d' \bar &quot;|&quot;
+      \bar &quot;|&quot;
+      % \break % 9 (16*1)
+      
+      bes'!\longa fis'!1 as'!1 ges'!\longa % lig
+      \set Staff.forceClef = ##t
+      \clef &quot;mensural-g&quot;
+      e'2 d' c' \bar &quot;|&quot;
+      % \break % 11 (16*1)
+      
+      \set Staff.forceClef = ##t
+      \clef &quot;petrucci-g&quot;
+      c'2 d' e' f'
+      \clef &quot;petrucci-g&quot;
+      g' as'! bes'! cis''!
+      bes'! as'! gis'! fis'!
+      \set Staff.forceClef = ##t
+      \clef &quot;mensural-g&quot;
+      es'! des'! cis'!1 \bar &quot;||&quot;
+      % \break % 12 (8*1)
+    }
+  &gt;&gt;
+&gt;&gt;
+
+\paper {
+  line-thickness = #(/ staff-space 5.0)
+}
+
+\score {
+  &lt;&lt;
+    \upperStaff
+    \lowerStaff
+  &gt;&gt;
+  \layout {
+    indent = 0.0
+    line-width = 17.25\cm
+    \context {
+      \Score
+      timing = ##f
+    }
+    \context {
+      \MensuralVoice
+      \override NoteHead #'style = #'neomensural
+      \override Rest #'style = #'neomensural
+      \override Stem #'flag-style = #'mensural
+      \override Stem #'thickness = #1.0
+    }
+    \context {
+      \MensuralStaff
+      \revert  BarLine #'transparent
+      \override KeySignature #'glyph-name-alist = #alteration-mensural-glyph-name-alist
+      clefGlyph = #&quot;clefs.petrucci.c2&quot;
+    }
+    \context {
+      \VaticanaStaff
+      \revert  BarLine #'transparent
+      \override StaffSymbol #'thickness = #2.0
+      \override KeySignature #'glyph-name-alist = #alteration-vaticana-glyph-name-alist
+      \override Custos #'neutral-position = #4
+    }
+  }
+}
+
+</pre><p>
+ <a href="../e4/lily-c0c463a1.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-c0c463a1.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ancient-notation-template----modern-transcription-of-gregorian-music.ly"></a>
+<hr size="6">
+<a name="Ancient-notation-template-_002d_002d-modern-transcription-of-gregorian-music"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-fonts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ancient fonts&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-notation-template-_002d-modern-transcription-of-mensural-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ancient notation template -- modern transcription of mensural music &gt; </a>]</td></tr></table>
+<a name="Ancient-notation-template-_002d-modern-transcription-of-gregorian-music"></a>
+<h2 class="unnumberedsec">Ancient notation template &ndash; modern transcription of gregorian music</h2>
+
+
+<p>This example demonstrates how to do modern transcription of Gregorian
+music. Gregorian music has no measure, no stems; it uses only half and
+quarter note heads, and special marks, indicating rests of different
+length.
+</p>
+
+<pre class="verbatim">\include &quot;gregorian.ly&quot;
+
+chant = \relative c' {
+  \set Score.timing = ##f
+  f4 a2 \divisioMinima
+  g4 b a2 f2 \divisioMaior
+  g4( f) f( g) a2 \finalis
+}
+
+verba = \lyricmode {
+  Lo -- rem ip -- sum do -- lor sit a -- met
+}
+
+\score {
+  \new Staff &lt;&lt;
+    \new Voice = &quot;melody&quot; \chant
+    \new Lyrics = &quot;one&quot; \lyricsto melody \verba
+  &gt;&gt;
+  \layout {
+    \context {
+      \Staff
+      \remove &quot;Time_signature_engraver&quot;
+      \remove &quot;Bar_engraver&quot;
+      \override Stem #'transparent = ##t
+    }
+    \context {
+      \Voice
+      \override Stem #'length = #0
+    }
+    \context {
+      \Score
+      barAlways = ##t
+    }
+  }
+}
+
+</pre><p>
+ <a href="../1b/lily-4790c942.ly">
+  <img align="middle"
+       border="0"
+       src="../1b/lily-4790c942.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ancient-notation-template----modern-transcription-of-mensural-music.ly"></a>
+<hr size="6">
+<a name="Ancient-notation-template-_002d_002d-modern-transcription-of-mensural-music"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-notation-template-_002d-modern-transcription-of-gregorian-music" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ancient notation template -- modern transcription of gregorian music&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-time-signatures" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Ancient time signatures &gt; </a>]</td></tr></table>
+<a name="Ancient-notation-template-_002d-modern-transcription-of-mensural-music"></a>
+<h2 class="unnumberedsec">Ancient notation template &ndash; modern transcription of mensural music</h2>
+
+
+<p>When transcribing mensural music, an incipit at the beginning of the
+piece is useful to indicate the original key and tempo. While today
+musicians are used to bar lines in order to faster recognize rhythmic
+patterns, bar lines were not yet invented during the period of mensural
+music; in fact, the meter often changed after every few notes. As a
+compromise, bar lines are often printed between the staves rather than
+on the staves. 
+</p>
+
+<pre class="verbatim">global = {
+  \set Score.skipBars = ##t
+
+  % incipit
+  \once \override Score.SystemStartBracket #'transparent = ##t
+  \override Score.SpacingSpanner #'spacing-increment = #1.0 % tight spacing
+  \key f \major
+  \time 2/2
+  \once \override Staff.TimeSignature #'style = #'neomensural
+  \override Voice.NoteHead #'style = #'neomensural
+  \override Voice.Rest #'style = #'neomensural
+  \set Staff.printKeyCancellation = ##f
+  \cadenzaOn % turn off bar lines
+  \skip 1*10
+  \once \override Staff.BarLine #'transparent = ##f
+  \bar &quot;||&quot;
+  \skip 1*1 % need this extra \skip such that clef change comes
+            % after bar line
+  \bar &quot;&quot;
+
+  % main
+  \revert Score.SpacingSpanner #'spacing-increment % CHECK: no effect?
+  \cadenzaOff % turn bar lines on again
+  \once \override Staff.Clef #'full-size-change = ##t
+  \set Staff.forceClef = ##t
+  \key g \major
+  \time 4/4
+  \override Voice.NoteHead #'style = #'default
+  \override Voice.Rest #'style = #'default
+
+  % FIXME: setting printKeyCancellation back to #t must not
+  % occur in the first bar after the incipit.  Dto. for forceClef.
+  % Therefore, we need an extra \skip.
+  \skip 1*1
+  \set Staff.printKeyCancellation = ##t
+  \set Staff.forceClef = ##f
+
+  \skip 1*7 % the actual music
+
+  % let finis bar go through all staves
+  \override Staff.BarLine #'transparent = ##f
+
+  % finis bar
+  \bar &quot;|.&quot;
+}
+
+discantusNotes = {
+  \transpose c' c'' {
+    \set Staff.instrumentName = #&quot;Discantus  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c1&quot;
+    c'1. s2   % two bars
+    \skip 1*8 % eight bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble&quot;
+    d'2. d'4 |
+    b e' d'2 |
+    c'4 e'4.( d'8 c' b |
+    a4) b a2 |
+    b4.( c'8 d'4) c'4 |
+    \once \override NoteHead #'transparent = ##t c'1 |
+    b\breve |
+  }
+}
+
+discantusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- |
+  la -- te De -- |
+  o, om --
+  nis ter -- |
+  ra, __ om- |
+  &quot;...&quot; |
+  -us. |
+}
+
+altusNotes = {
+  \transpose c' c'' {
+    \set Staff.instrumentName = #&quot;Altus  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c3&quot;
+    r1        % one bar
+    f1. s2    % two bars
+    \skip 1*7 % seven bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble&quot;
+    r2 g2. e4 fis g | % two bars
+    a2 g4 e |
+    fis g4.( fis16 e fis4) |
+    g1 |
+    \once \override NoteHead #'transparent = ##t g1 |
+    g\breve |
+  }
+}
+
+altusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- la -- te | % two bars
+  De -- o, om -- |
+  nis ter -- ra, |
+  &quot;...&quot; |
+  -us. |
+}
+
+tenorNotes = {
+  \transpose c' c' {
+    \set Staff.instrumentName = #&quot;Tenor  &quot;
+
+    % incipit
+    \clef &quot;neomensural-c4&quot;
+    r\longa   % four bars
+    r\breve   % two bars
+    r1        % one bar
+    c'1. s2   % two bars
+    \skip 1*1 % one bar
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;treble_8&quot;
+    R1 |
+    R1 |
+    R1 |
+    r2 d'2. d'4 b e' | % two bars
+    \once \override NoteHead #'transparent = ##t e'1 |
+    d'\breve |
+  }
+}
+
+tenorLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi -- la -- te | % two bars
+  &quot;...&quot; |
+  -us. |
+}
+
+bassusNotes = {
+  \transpose c' c' {
+    \set Staff.instrumentName = #&quot;Bassus  &quot;
+
+    % incipit
+    \clef &quot;bass&quot;
+    r\maxima  % eight bars
+    f1. s2    % two bars
+    \skip 1*1 % one bar
+
+    % main
+    \clef &quot;bass&quot;
+    R1 |
+    R1 |
+    R1 |
+    R1 |
+    g2. e4 |
+    \once \override NoteHead #'transparent = ##t e1 |
+    g\breve |
+  }
+}
+
+bassusLyrics = \lyricmode {
+  % incipit
+  IV-
+
+  % main
+  Ju -- bi- |
+  &quot;...&quot; |
+  -us. |
+}
+
+\score {
+  \new StaffGroup = choirStaff &lt;&lt;
+    \new Voice =
+      &quot;discantusNotes&quot; &lt;&lt; \global \discantusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;discantusLyrics&quot; \lyricsto discantusNotes { \discantusLyrics }
+    \new Voice =
+      &quot;altusNotes&quot; &lt;&lt; \global \altusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;altusLyrics&quot; \lyricsto altusNotes { \altusLyrics }
+    \new Voice =
+      &quot;tenorNotes&quot; &lt;&lt; \global \tenorNotes &gt;&gt;
+    \new Lyrics =
+      &quot;tenorLyrics&quot; \lyricsto tenorNotes { \tenorLyrics }
+    \new Voice =
+      &quot;bassusNotes&quot; &lt;&lt; \global \bassusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;bassusLyrics&quot; \lyricsto bassusNotes { \bassusLyrics }
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+
+      % no bars in staves
+      \override BarLine #'transparent = ##t
+
+      % incipit should not start with a start delimiter
+      \remove &quot;System_start_delimiter_engraver&quot;
+    }
+    \context {
+      \Voice
+
+      % no slurs
+      \override Slur #'transparent = ##t
+
+      % Comment in the below &quot;\remove&quot; command to allow line
+      % breaking also at those barlines where a note overlaps
+      % into the next bar.  The command is commented out in this
+      % short example score, but especially for large scores, you
+      % will typically yield better line breaking and thus improve
+      % overall spacing if you comment in the following command.
+      %\remove &quot;Forbid_line_break_engraver&quot;
+    }
+  }
+}
+
+
+
+
+</pre><p>
+ <a href="../02/lily-e334b25a.ly">
+  <img align="middle"
+       border="0"
+       src="../02/lily-e334b25a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="ancient-time-signatures.ly"></a>
+<hr size="6">
+<a name="Ancient-time-signatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-notation-template-_002d-modern-transcription-of-mensural-music" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ancient notation template -- modern transcription of mensural music&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Ancient-time-signatures" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Ancient-time-signatures"></a>
+<h2 class="unnumberedsec">Ancient time signatures</h2>
+
+
+<p>Time signatures may also be engraved in an old style.
+</p>
+
+
+
+<pre class="verbatim">{
+  \override Staff.TimeSignature #'style = #'neomensural
+  s1
+}
+
+</pre><p>
+ <a href="../18/lily-e19e1728.ly">
+  <img align="middle"
+       border="0"
+       src="../18/lily-e19e1728.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="chant-or-psalms-notation.ly"></a>
+<hr size="6">
+<a name="Ancient-time-signatures"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-time-signatures" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Ancient time signatures&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Custodes" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Custodes &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Chant or psalms notation</h2>
+
+
+<p>This form of notation is used for the chant of the Psalms, where verses
+aren&rsquo;t always the same length.
+</p>
+
+<pre class="verbatim">stemOn = { \revert Staff.Stem #'transparent }
+stemOff = { \override Staff.Stem #'transparent = ##t }
+
+\score {
+  \new Staff \with { \remove &quot;Time_signature_engraver&quot; }
+  {
+    \key g \minor
+    \cadenzaOn
+    \stemOff a'\breve bes'4 g'4
+    \stemOn a'2 \bar &quot;||&quot;
+    \stemOff a'\breve g'4 a'4
+    \stemOn f'2 \bar &quot;||&quot;
+    \stemOff a'\breve^\markup { \italic flexe }
+    \stemOn g'2 \bar &quot;||&quot;
+  }
+}
+
+</pre><p>
+ <a href="../5b/lily-c5ec2b57.ly">
+  <img align="middle"
+       border="0"
+       src="../5b/lily-c5ec2b57.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="custodes.ly"></a>
+<hr size="6">
+<a name="Custodes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Ancient-time-signatures" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Custodes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Custodes"></a>
+<h2 class="unnumberedsec">Custodes</h2>
+
+
+<p>Custodes may be engraved in various styles.
+</p>
+
+<pre class="verbatim">\layout { ragged-right = ##t }
+
+\new Staff \with { \consists &quot;Custos_engraver&quot; } \relative c' {
+  \override Staff.Custos #'neutral-position = #4
+  
+  \override Staff.Custos #'style = #'hufnagel
+  c1^&quot;hufnagel&quot; \break
+  &lt;d a' f'&gt;1
+  
+  \override Staff.Custos #'style = #'medicaea
+  c1^&quot;medicaea&quot; \break
+  &lt;d a' f'&gt;1
+  
+  \override Staff.Custos #'style = #'vaticana
+  c1^&quot;vaticana&quot; \break
+  &lt;d a' f'&gt;1
+  
+  \override Staff.Custos #'style = #'mensural
+  c1^&quot;mensural&quot; \break
+  &lt;d a' f'&gt;1
+}
+
+</pre><p>
+ <a href="../6b/lily-36a7783a.ly">
+  <img align="middle"
+       border="0"
+       src="../6b/lily-36a7783a.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="incipit.ly"></a>
+<hr size="6">
+<a name="Custodes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Custodes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Custodes&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Custodes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Incipit</h2>
+
+
+<p>Incipits can be added using the instrument name grob, but keeping
+separate the instrument name definition and the incipit definition.
+</p>
+
+<pre class="verbatim">incipit =
+#(define-music-function (parser location incipit-music) (ly:music?)
+  #{
+    \once \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+    \once \override Staff.InstrumentName #'self-alignment-Y = #UP
+    \once \override Staff.InstrumentName #'Y-offset = #4
+    \once \override Staff.InstrumentName #'padding = #0.3
+    \once \override Staff.InstrumentName #'stencil =
+    #(lambda (grob)
+       (let* ((instrument-name (ly:grob-property grob 'long-text))
+              (layout (ly:output-def-clone (ly:grob-layout grob)))
+              (music (make-music 'SequentialMusic
+                      'elements (list (make-music 'ContextSpeccedMusic
+                                        'context-type 'MensuralStaff
+                                        'element (make-music 'PropertySet
+                                                   'symbol 'instrumentName
+                                                   'value instrument-name))
+                                      $incipit-music)))
+              (score (ly:make-score music))
+              (mm (ly:output-def-lookup layout 'mm))
+              (indent (ly:output-def-lookup layout 'indent))
+              (width (ly:output-def-lookup layout 'incipit-width))
+              (incipit-width (if (number? width)
+                                 (* width mm)
+                                 (* indent 0.5))))
+         (ly:output-def-set-variable! layout 'indent (- indent incipit-width))
+         (ly:output-def-set-variable! layout 'line-width indent)
+         (ly:output-def-set-variable! layout 'ragged-right #f)
+         (ly:output-def-set-variable! layout 'ragged-last #f)
+         (ly:output-def-set-variable! layout 'system-count 1)
+         (ly:score-add-output-def! score layout)
+         (ly:grob-set-property! grob 'long-text
+               (markup #:score score))
+         (ly:system-start-text::print grob)))
+  #})
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+global = {
+  \set Score.skipBars = ##t
+  \key g \major
+  \time 4/4
+
+  % the actual music
+  \skip 1*8
+
+  % let finis bar go through all staves
+  \override Staff.BarLine #'transparent = ##f
+
+  % finis bar
+  \bar &quot;|.&quot;
+}
+
+discantusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;discantusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c1&quot;
+      \key f \major
+      \time 2/2
+      c''1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto discantusIncipit { IV- }
+&gt;&gt;
+
+discantusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    d'2. d'4 |
+    b e' d'2 |
+    c'4 e'4.( d'8 c' b |
+    a4) b a2 |
+    b4.( c'8 d'4) c'4 |
+    \once \override NoteHead #'transparent = ##t
+    c'1 |
+    b\breve |
+  }
+}
+
+discantusLyrics = \lyricmode {
+  Ju -- bi -- |
+  la -- te De -- |
+  o, om --
+  nis ter -- |
+  ra, __ om- |
+  &quot;...&quot; |
+  -us. |
+}
+
+altusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;altusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c3&quot;
+      \key f \major
+      \time 2/2
+      r1 f'1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto altusIncipit { IV- }
+&gt;&gt;
+
+altusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    % two measures
+    r2 g2. e4 fis g |
+    a2 g4 e |
+    fis g4.( fis16 e fis4) |
+    g1 |
+    \once \override NoteHead #'transparent = ##t
+    g1 |
+    g\breve |
+  }
+}
+
+altusLyrics = \lyricmode {
+  % two measures
+  Ju -- bi -- la -- te |
+  De -- o, om -- |
+  nis ter -- ra, |
+  &quot;...&quot; |
+  -us. |
+}
+
+tenorIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;tenorIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;neomensural-c4&quot;
+      \key f \major
+      \time 2/2
+      r\longa
+      r\breve
+      r1 c'1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto tenorIncipit { IV- }
+&gt;&gt;
+
+tenorNotes = {
+  \transpose c' c' {
+    \once \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-6 . 3)
+    \clef &quot;treble_8&quot;
+    R1 |
+    R1 |
+    R1 |
+    % two measures
+    r2 d'2. d'4 b e' |
+    \once \override NoteHead #'transparent = ##t
+    e'1 |
+    d'\breve |
+  }
+}
+
+tenorLyrics = \lyricmode {
+  % two measures
+  Ju -- bi -- la -- te |
+  &quot;...&quot; |
+  -us. 
+}
+
+bassusIncipit = &lt;&lt;
+  \new MensuralVoice = &quot;bassusIncipit&quot; &lt;&lt;
+    \repeat unfold 9 { s1 \noBreak }
+    {
+      \clef &quot;bass&quot;
+      \key f \major
+      \time 2/2
+      %% incipit
+      r\maxima
+      f1.
+    }
+  &gt;&gt;
+  \new Lyrics \lyricsto bassusIncipit { IV- }
+&gt;&gt;
+
+bassusNotes = {
+  \transpose c' c' {
+    \clef &quot;bass&quot;
+    R1 |
+    R1 |
+    R1 |
+    R1 |
+    g2. e4 |
+    \once \override NoteHead #'transparent = ##t
+    e1 |
+    g\breve |
+  }
+}
+
+bassusLyrics = \lyricmode {
+  Ju -- bi- |
+  &quot;...&quot; |
+  -us.
+}
+
+\score {
+  &lt;&lt;
+    \new StaffGroup = choirStaff &lt;&lt;
+      \new Voice = &quot;discantusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Discantus&quot;
+        \incipit \discantusIncipit
+        \discantusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;discantusLyrics&quot; \lyricsto discantusNotes { \discantusLyrics }
+      \new Voice = &quot;altusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Altus&quot;
+        \incipit \altusIncipit
+        \altusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;altusLyrics&quot; \lyricsto altusNotes { \altusLyrics }
+      \new Voice = &quot;tenorNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Tenor&quot;
+        \incipit \tenorIncipit
+        \tenorNotes
+      &gt;&gt;
+      \new Lyrics = &quot;tenorLyrics&quot; \lyricsto tenorNotes { \tenorLyrics }
+      \new Voice = &quot;bassusNotes&quot; &lt;&lt;
+        \global
+        \set Staff.instrumentName = #&quot;Bassus&quot;
+        \incipit \bassusIncipit
+        \bassusNotes
+      &gt;&gt;
+      \new Lyrics = &quot;bassusLyrics&quot; \lyricsto bassusNotes { \bassusLyrics }
+    &gt;&gt;
+  &gt;&gt;
+  \layout {
+    \context {
+      \Score
+      %% no bar lines in staves or lyrics
+      \override BarLine #'transparent = ##t
+    }
+    %% the next two instructions keep the lyrics between the bar lines
+    \context {
+      \Lyrics
+      \consists &quot;Bar_engraver&quot;
+      \consists &quot;Separating_line_group_engraver&quot;
+    }
+    \context {
+      \Voice
+      %% no slurs
+      \override Slur #'transparent = ##t
+      %% Comment in the below &quot;\remove&quot; command to allow line
+      %% breaking also at those bar lines where a note overlaps
+      %% into the next measure.  The command is commented out in this
+      %% short example score, but especially for large scores, you
+      %% will typically yield better line breaking and thus improve
+      %% overall spacing if you comment in the following command.
+      %%\remove &quot;Forbid_line_break_engraver&quot;
+    }
+    indent = 6\cm
+    incipit-width = 4\cm
+  }
+}
+</pre><p>
+ <a href="../57/lily-748505f8.ly">
+  <img align="middle"
+       border="0"
+       src="../57/lily-748505f8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="mensurstriche-layout-bar-lines-between-the-staves.ly"></a>
+<hr size="6">
+<a name="Custodes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Custodes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Custodes" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Mensurstriche layout (bar lines between the staves)</h2>
+
+
+<p>The mensurstriche-layout where the bar lines do not show on the staves
+but between staves can be achieved with a <code>StaffGroup</code> instead of
+a <code>ChoirStaff</code>.  The bar line on staves is blanked out by setting
+the <code>transparent</code> property.
+</p>
+
+<pre class="verbatim">global = {
+  \override Staff.BarLine #'transparent = ##t
+  s1 s
+  % the final bar line is not interrupted
+  \revert Staff.BarLine #'transparent
+  \bar &quot;|.&quot;
+}
+\new StaffGroup \relative c'' {
+  &lt;&lt;
+    \new Staff { &lt;&lt; \global { c1 c } &gt;&gt; }
+    \new Staff { &lt;&lt; \global { c c } &gt;&gt; }
+  &gt;&gt;
+}
+
+</pre><p>
+ <a href="../2b/lily-269072f3.ly">
+  <img align="middle"
+       border="0"
+       src="../2b/lily-269072f3.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="rest-styles.ly"></a>
+<hr size="6">
+<a name="Custodes"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Custodes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Transcription-of-Ancient-music-with-incipit" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Transcription of Ancient music with incipit &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Rest styles</h2>
+
+
+<p>Rests may be used in various styles.
+</p>
+
+
+
+
+<pre class="verbatim">\layout {
+  indent = 0.0
+  \context {
+    \Staff
+    \remove &quot;Time_signature_engraver&quot;
+  }
+}
+
+\new Staff \relative c {
+  \cadenzaOn
+  \override Staff.Rest #'style = #'mensural
+  r\maxima^\markup \typewriter { mensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'neomensural
+  r\maxima^\markup \typewriter { neomensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'classical
+  r\maxima^\markup \typewriter { classical }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest  #'style = #'default
+  r\maxima^\markup \typewriter { default }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+}
+
+</pre><p>
+ <a href="../34/lily-f8f4eed5.ly">
+  <img align="middle"
+       border="0"
+       src="../34/lily-f8f4eed5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="transcription-of-ancient-music-with-incipit.ly"></a>
+<hr size="6">
+<a name="Transcription-of-Ancient-music-with-incipit"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Custodes" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Transcription-of-Ancient-music-with-incipit" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Transcription-of-Ancient-music-with-incipit"></a>
+<h2 class="unnumberedsec">Transcription of Ancient music with incipit</h2>
+
+
+<p>As a workaround to get real incipits which are independent from the
+main score these are included as a markup into the field normally used
+for the instrument name. As for now lyrics can only be added as a
+direct markup. It doesn&rsquo;t unfortunately conform with the spacing of the
+main lyrics.
+</p>
+
+<pre class="verbatim">global = {
+  \set Score.skipBars = ##t
+  \key g \major
+  \time 4/4
+  
+  %make the staff lines invisible on staves
+  \override Staff.BarLine #'transparent = ##t
+  \skip 1*8 % the actual music
+
+  % let finis bar go through all staves
+  \override Staff.BarLine #'transparent = ##f
+
+  % finis bar
+  \bar &quot;|.&quot;
+}
+
+  
+discantusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    d'2. d'4 |
+    b e' d'2 |
+    c'4 e'4.( d'8 c' b |
+    a4) b a2 |
+    b4.( c'8 d'4) c'4 |
+    \once \override NoteHead #'transparent = ##t c'1 |
+    b\breve |
+  }
+}
+
+discantusLyrics = \lyricmode {
+  Ju -- bi -- |
+  la -- te De -- |
+  o, om --
+  nis ter -- |
+  ra, __ om- |
+  &quot;...&quot; |
+  -us. |
+}
+
+altusNotes = {
+  \transpose c' c'' {
+    \clef &quot;treble&quot;
+    r2 g2. e4 fis g | % two bars
+    a2 g4 e |
+    fis g4.( fis16 e fis4) |
+    g1 |
+    \once \override NoteHead #'transparent = ##t g1 |
+    g\breve |
+  }
+}
+
+altusLyrics = \lyricmode {
+  Ju -- bi -- la -- te | % two bars
+  De -- o, om -- |
+  nis ter -- ra, |
+  &quot;...&quot; |
+  -us. |
+}
+
+tenorNotes = {
+  \transpose c' c' {
+    \clef &quot;treble_8&quot;
+    R1 |
+    R1 |
+    R1 |
+    r2 d'2. d'4 b e' | % two bars
+    \once \override NoteHead #'transparent = ##t e'1 |
+    d'\breve |
+  }
+}
+
+tenorLyrics = \lyricmode {
+  Ju -- bi -- la -- te | % two bars
+  &quot;...&quot; |
+  -us. 
+}
+
+bassusNotes = {
+  \transpose c' c' {
+    \clef &quot;bass&quot;
+    R1 |
+    R1 |
+    R1 |
+    R1 |
+    g2. e4 |
+    \once \override NoteHead #'transparent = ##t e1 |
+    g\breve |
+  }
+}
+
+bassusLyrics = \lyricmode {
+  Ju -- bi- |
+  &quot;...&quot; |
+  -us. 
+}
+
+incipitDiscantus = \markup{
+	\score{
+		{
+		\set Staff.instrumentName=&quot;Discantus &quot;
+		\override NoteHead   #'style = #'neomensural
+		\override Rest #'style = #'neomensural
+		\override Staff.TimeSignature #'style = #'neomensural
+		\cadenzaOn 
+		\clef &quot;neomensural-c1&quot;
+		\key f \major
+		\time 2/2
+	  	c''1._&quot;IV-&quot; s2  %two bars
+	  	\skip 1*8 % eight bars
+    	}
+	\layout {
+		\context {\Voice
+			\remove Ligature_bracket_engraver
+			\consists Mensural_ligature_engraver
+		}
+		line-width=4.5\cm 
+	}
+	}
+}
+
+incipitAltus = \markup{
+	\score{
+		{ 
+		\set Staff.instrumentName=&quot;Altus &quot;
+		\override NoteHead   #'style = #'neomensural
+		\override Rest #'style = #'neomensural
+		\override Staff.TimeSignature #'style = #'neomensural
+		\cadenzaOn 
+		\clef &quot;neomensural-c3&quot;
+		\key f \major
+		\time 2/2
+	  	r1        % one bar
+        f'1._&quot;IV-&quot; s2   % two bars
+        \skip 1*7 % seven bars
+		}
+	\layout {
+		\context {\Voice
+			\remove Ligature_bracket_engraver
+			\consists Mensural_ligature_engraver
+		}
+		line-width=4.5\cm 
+	}
+	}
+}
+
+incipitTenor = \markup{
+    \score{ {
+    \set Staff.instrumentName = &quot;Tenor  &quot;
+    \override NoteHead   #'style = #'neomensural
+	\override Rest #'style = #'neomensural
+	\override Staff.TimeSignature #'style = #'neomensural
+	\cadenzaOn 
+	\clef &quot;neomensural-c4&quot;
+	\key f \major
+	\time 2/2
+    r\longa   % four bars
+    r\breve   % two bars
+    r1        % one bar
+    c'1._&quot;IV-&quot; s2   % two bars
+    \skip 1   % one bar
+    }
+    \layout {
+		\context {\Voice
+			\remove Ligature_bracket_engraver
+			\consists Mensural_ligature_engraver
+		}
+		line-width=4.5\cm 
+}
+}
+}
+
+incipitBassus = \markup{
+    \score{ {
+    \set Staff.instrumentName = &quot;Bassus  &quot;
+    \override NoteHead   #'style = #'neomensural
+	\override Rest #'style = #'neomensural
+	\override Staff.TimeSignature #'style = #'neomensural
+	\cadenzaOn 
+	\clef &quot;bass&quot;
+	\key f \major
+	\time 2/2
+    % incipit
+    r\maxima  % eight bars
+    f1._&quot;IV-&quot; s2    % two bars
+    }
+    \layout {
+		\context {\Voice
+			\remove Ligature_bracket_engraver
+			\consists Mensural_ligature_engraver
+		}
+		line-width=4.5\cm 
+            }
+     }
+}
+
+%StaffGroup is used instead of ChoirStaff to get bar lines between systems
+\score {
+  &lt;&lt;
+  \new StaffGroup = choirStaff &lt;&lt;
+    \new Voice =
+      &quot;discantusNotes&quot; &lt;&lt; \global 
+      \set Staff.instrumentName=\incipitDiscantus   
+      \discantusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;discantusLyrics&quot; \lyricsto discantusNotes { \discantusLyrics }
+      
+    \new Voice =
+      &quot;altusNotes&quot; &lt;&lt; \global 
+      \set Staff.instrumentName=\incipitAltus 
+      \altusNotes &gt;&gt;
+    \new Lyrics =
+      &quot;altusLyrics&quot; \lyricsto altusNotes { \altusLyrics }
+     
+    \new Voice =
+      &quot;tenorNotes&quot; &lt;&lt; \global 
+      \set Staff.instrumentName=\incipitTenor 
+      \tenorNotes &gt;&gt;
+    \new Lyrics =
+      &quot;tenorLyrics&quot; \lyricsto tenorNotes { \tenorLyrics }
+     
+    \new Voice =
+      &quot;bassusNotes&quot; &lt;&lt; \global 
+      \set Staff.instrumentName=\incipitBassus
+      \bassusNotes &gt;&gt;
+      &gt;&gt;
+    \new Lyrics =
+      &quot;bassusLyrics&quot; \lyricsto bassusNotes { \bassusLyrics } 
+    %Keep the bass lyrics outside of the staff group to avoid bar lines
+    %between the lyrics.
+  &gt;&gt;
+  
+  \layout {
+    \context {
+      \Score
+
+      % no bars in staves
+      \override BarLine #'transparent = ##t
+    }
+    % the next three instructions keep the lyrics between the barlines
+	\context { \Lyrics 
+	   \consists &quot;Bar_engraver&quot; 
+	   \override BarLine #'transparent = ##t } 
+	\context { \StaffGroup \consists &quot;Separating_line_group_engraver&quot; }
+    \context {
+      \Voice
+
+      % no slurs
+      \override Slur #'transparent = ##t
+
+      % Comment in the below &quot;\remove&quot; command to allow line
+      % breaking also at those barlines where a note overlaps
+      % into the next bar.  The command is commented out in this
+      % short example score, but especially for large scores, you
+      % will typically yield better line breaking and thus improve
+      % overall spacing if you comment in the following command.
+      %\remove &quot;Forbid_line_break_engraver&quot;
+    }
+    	indent=5\cm
+  }
+}
+
+</pre><p>
+ <a href="../80/lily-486a5061.ly">
+  <img align="middle"
+       border="0"
+       src="../80/lily-486a5061.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="vertical-line-as-a-baroque-articulation-mark.ly"></a>
+<hr size="6">
+<a name="Transcription-of-Ancient-music-with-incipit"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Transcription-of-Ancient-music-with-incipit" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Transcription of Ancient music with incipit&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="World-music.html#World-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;World music &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Vertical line as a baroque articulation mark</h2>
+
+
+<p>This short vertical line placed above the note is commonly used in
+baroque music.  Its meaning can vary, but generally indicates notes
+that should be played with more &quot;weight&quot;.  The following example
+demonstrates how to achieve such a notation.
+</p>
+
+<pre class="verbatim">upline =
+#(let* ((m (make-music 'ArticulationEvent
+                       'articulation-type &quot;stopped&quot;
+                       'direction 1)))
+   (ly:music-set-property! m 'tweaks
+     (acons 'font-size 3
+       (acons 'text (markup
+                   #:postscript &quot;
+                        .15 setlinewidth
+                        0 -1 0 1.5 lineto
+                        stroke&quot;)
+         (acons 'stencil ly:text-interface::print
+           (ly:music-property m 'tweaks)))))
+   m)
+
+
+\relative c' {
+  a'^\upline a( c a)
+}
+</pre><p>
+ <a href="../44/lily-a947e111.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-a947e111.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Ancient-notation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Ancient notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="World-music.html#World-music" title="Next chapter">&nbsp;World music &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Transcription-of-Ancient-music-with-incipit" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Transcription of Ancient music with incipit&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Ancient-notation" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Ancient notation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="World-music.html#World-music" title="Next section in reading order" accesskey="n" rel="next">&nbsp;World music &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li class="toc_current"><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Adding-a-figured-bass-above-or-below-the-notes-2" href="Ancient-notation.html#Ancient-notation">Adding a figured bass above or below the notes</a>    </li>
+    <li><a name="toc-Ancient-fonts-1" href="Ancient-notation.html#Ancient-fonts">Ancient fonts</a>    </li>
+    <li><a name="toc-Ancient-notation-template-_002d_002d-modern-transcription-of-gregorian-music-1" href="Ancient-notation.html#Ancient-notation-template-_002d-modern-transcription-of-gregorian-music">Ancient notation template &ndash; modern transcription of gregorian music</a>    </li>
+    <li><a name="toc-Ancient-notation-template-_002d_002d-modern-transcription-of-mensural-music-2" href="Ancient-notation.html#Ancient-notation-template-_002d-modern-transcription-of-mensural-music">Ancient notation template &ndash; modern transcription of mensural music</a>    </li>
+    <li><a name="toc-Ancient-time-signatures-1" href="Ancient-notation.html#Ancient-time-signatures">Ancient time signatures</a>    </li>
+    <li><a name="toc-Chant-or-psalms-notation-4" href="Ancient-notation.html#Ancient-time-signatures">Chant or psalms notation</a>    </li>
+    <li><a name="toc-Custodes-2" href="Ancient-notation.html#Custodes">Custodes</a>    </li>
+    <li><a name="toc-Incipit-1" href="Ancient-notation.html#Custodes">Incipit</a>    </li>
+    <li><a name="toc-Mensurstriche-layout-_0028bar-lines-between-the-staves_0029-1" href="Ancient-notation.html#Custodes">Mensurstriche layout (bar lines between the staves)</a>    </li>
+    <li><a name="toc-Rest-styles-1" href="Ancient-notation.html#Custodes">Rest styles</a>    </li>
+    <li><a name="toc-Transcription-of-Ancient-music-with-incipit-2" href="Ancient-notation.html#Transcription-of-Ancient-music-with-incipit">Transcription of Ancient music with incipit</a>    </li>
+    <li><a name="toc-Vertical-line-as-a-baroque-articulation-mark-1" href="Ancient-notation.html#Transcription-of-Ancient-music-with-incipit">Vertical line as a baroque articulation mark</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 1.4 Advanced git stuff</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 1.4 Advanced git stuff">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 1.4 Advanced git stuff">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.es.html#SEC_About" rel="help" title="About This Document">
+<link href="Starting-with-git.es.html#Starting-with-git" rel="up" title="1. Starting with git">
+<link href="Making-a-release.es.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="Sharing-your-changes.es.html#Sharing-your-changes" rel="previous" title="1.3 Sharing your changes">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Advanced-git-stuff"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Sharing-your-changes.es.html#Committing-directly" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Committing directly&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Starting with git&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Introduction-to-Git-concepts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Introduction to Git concepts &gt; </a>]</td></tr></table>
+<a name="Advanced-git-stuff"></a>
+<h2 class="section">1.4 Advanced git stuff</h2>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> This section is not necessary for normal contributors;
+these commands are presented for information for people interested
+in learning more about git.
+</p></td></tr></table>
+
+
+<p>It is possible to work with several branches on the same local Git
+repository; this is especially useful for translators who may have to
+deal with both <code>lilypond/translation</code> and a stable branch,
+e.g. <code>stable/2.12</code>.
+</p>
+<p>Some Git commands are introduced first, then a workflow with several
+Git branches of LilyPond source code is presented.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Introduction-to-Git-concepts" accesskey="1">1.4.1 Introduction to Git concepts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Git-commands-for-managing-several-branches" accesskey="2">1.4.2 Git commands for managing several branches</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Working-on-LilyPond-sources-with-several-branches" accesskey="3">1.4.3 Working on LilyPond sources with several branches</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Git-log" accesskey="4">1.4.4 Git log</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Applying-git-patches" accesskey="5">1.4.5 Applying git patches</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="Introduction-to-Git-concepts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Advanced-git-stuff" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-commands-for-managing-several-branches" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Git commands for managing several branches &gt; </a>]</td></tr></table>
+<a name="Introduction-to-Git-concepts"></a>
+<h3 class="subsection">1.4.1 Introduction to Git concepts</h3>
+
+<p>A bit of Git vocabulary will be explained below.  The following is
+just introduction material; for better understanding of Git concepts,
+you are invited to read further documentation, especially Git
+Community Book at <a href="http://book.git-scm.com/">http://book.git-scm.com/</a>.
+</p>
+<p>The <code>git pull origin</code> command above is just a shortcut for this
+command:
+</p>
+<blockquote><pre class="example">git pull git://git.sv.gnu.org/lilypond.git/ <var>branch</var>:origin/<var>branch</var>
+</pre></blockquote>
+
+<p>where <code><var>branch</var></code> is typically <code>master</code>, <code>web</code> or
+<code>lilypond/translation</code>; if you do not know or remember, see
+<a href="Getting-the-source-code.es.html#Getting-the-source-code">Getting the source code</a> to remember which commands you issued or
+which source code you wanted to get.
+</p>
+<p>A <em>commit</em> is a set of changes made to the sources; it also
+includes the committish of the parent commit, the name and e-mail of
+the <em>author</em> (the person who wrote the changes), the name and
+e-mail of the <em>committer</em> (the person who brings these changes
+into the Git repository), and a commit message.
+</p>
+<p>A <em>committish</em> is the SHA1 checksum of a commit, a number made of
+40 hexadecimal digits, which acts as the internal unique identifier
+for this commit.  To refer to a particular revision, don&rsquo;t use vague
+references like the (approximative) date, simply copy and paste the
+committish.
+</p>
+<p>A <em>branch</em> is nothing more than a pointer to a particular commit,
+which is called the <em>head</em> of the branch; when referring to a
+branch, one often acutally thinks about its head and the ancestor
+commits of the head.
+</p>
+<p>Now we will explain the two last commands you used to get the source
+code from Git &ndash; see <a href="Getting-the-source-code.es.html#Getting-the-source-code">Getting the source code</a>.
+</p>
+<blockquote><pre class="example">git remote add -f -t <var>branch</var> -m <var>branch</var> origin git://git.sv.gnu.org/lilypond.git/
+git checkout -b <var>branch</var> origin/<var>branch</var>
+</pre></blockquote>
+
+<p>The <code>git remote</code> has created a branch called
+<code>origin/<var>branch</var></code> in your local Git repository.  As this
+branch is a copy of the remote branch web from git.sv.gnu.org LilyPond
+repository, it is called a <em>remote branch</em>, and is meant to track
+the changes on the branch from git.sv.gnu.org: it will be updated
+every time you run <code>git pull origin</code> or <code>git fetch
+origin</code>.
+</p>
+<p>The <code>git checkout</code> command has created a branch named
+<code><var>branch</var></code>.  At the beginning, this branch is identical to
+<code>origin/<var>branch</var></code>, but it will differ as soon as you make
+changes, e.g. adding newly translated pages or editing some
+documentation or code source file.  Whenever you pull, you merge the
+changes from <code>origin/<var>branch</var></code> and <code><var>branch</var></code> since
+the last pulling.  If you do not have push (i.e. &ldquo;write&rdquo;) access on
+git.sv.gnu.org, your <code><var>branch</var></code> will always differ from
+<code>origin/<var>branch</var></code>.  In this case, remember that other people
+working like you with the remote branch <code><var>branch</var></code> of
+git://git.sv.gnu.org/lilypond.git/ (called <code>origin/<var>branch</var></code>
+on your local repository) know nothing about your own
+<code><var>branch</var></code>: this means that whenever you use a committish or
+make a patch, others expect you to take the latest commit of
+<code>origin/<var>branch</var></code> as a reference.
+</p>
+<p>Finally, please remember to read the man page of every Git command you
+will find in this manual in case you want to discover alternate
+methods or just understand how it works.
+</p>
+
+<hr size="6">
+<a name="Git-commands-for-managing-several-branches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Introduction-to-Git-concepts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Introduction to Git concepts&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Working-on-LilyPond-sources-with-several-branches" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Working on LilyPond sources with several branches &gt; </a>]</td></tr></table>
+<a name="Git-commands-for-managing-several-branches"></a>
+<h3 class="subsection">1.4.2 Git commands for managing several branches</h3>
+
+<a name="Listing-branches-and-remotes"></a>
+<h4 class="subsubheading">Listing branches and remotes</h4>
+
+<p>You can get the exact path or URL of all remotes with
+running
+</p>
+<blockquote><pre class="example">git remote -v
+</pre></blockquote>
+
+<p>To list Git branches on your local repositories, run
+</p>
+<blockquote><pre class="example">git branch     # list local branches only
+git branch -r  # list remote branches
+git branch -a  # list all branches
+</pre></blockquote>
+
+
+<a name="Checking-out-branches"></a>
+<h4 class="subsubheading">Checking out branches</h4>
+
+<p>To know the currently checked out branch, i.e. the branch whose source
+files are present in your working tree, read the first line of the
+output of
+</p>
+<blockquote><pre class="example">git status
+</pre></blockquote>
+
+<p>The currently checked out branch is also marked with an asterisk in
+the output of <code>git branch</code>.
+</p>
+<p>You can check out another branch <code><var>other_branch</var></code>, i.e. check
+out <code><var>other_branch</var></code> to the working tree, by running
+</p>
+<blockquote><pre class="example">git checkout <var>other_branch</var>
+</pre></blockquote>
+
+<p>Note that it is possible to check out another branch while having
+uncommitted changes, but it is not recommended unless you know what
+you are doing; it is recommended to run <code>git status</code> to check
+this kind of issue before checking out another branch.
+</p>
+
+<a name="Merging-branches"></a>
+<h4 class="subsubheading">Merging branches</h4>
+
+<p>To merge branch <code><var>foo</var></code> into branch <code><var>bar</var></code>, i.e. to
+&ldquo;add&rdquo; all changes made in branch <code><var>foo</var></code> to branch
+<code><var>bar</var></code>, run
+</p>
+<blockquote><pre class="example">git checkout <var>bar</var>
+git merge <var>foo</var>
+</pre></blockquote>
+
+<p>If any conflict happens, see <a href="Updating-the-source-code.es.html#Resolving-conflicts">Resolving conflicts</a>.
+</p>
+<p>There are common usage cases for merging: as a translator, you will
+often want to merge <code>master</code> into <code>lilypond/translation</code>; on
+the other hand, the Translations meister wants to merge
+<code>lilypond/translation</code> into <code>master</code> whenever he has checked
+that <code>lilypond/translation</code> builds successfully.
+</p>
+
+<hr size="6">
+<a name="Working-on-LilyPond-sources-with-several-branches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-commands-for-managing-several-branches" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Git commands for managing several branches&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Git-log" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Git log &gt; </a>]</td></tr></table>
+<a name="Working-on-LilyPond-sources-with-several-branches"></a>
+<h3 class="subsection">1.4.3 Working on LilyPond sources with several branches</h3>
+
+<a name="Fetching-new-branches-from-git_002esv_002egnu_002eorg"></a>
+<h4 class="subsubheading">Fetching new branches from git.sv.gnu.org</h4>
+
+<p>To fetch and check out a new branch named <code><var>branch</var></code> on
+git.sv.gnu.org, run from top of the Git repository
+</p>
+<blockquote><pre class="example">git config --add remote.origin.fetch +refs/heads/<var>branch</var>:refs/remotes/origin/<var>branch</var>
+git checkout --track -b <var>branch</var> origin/<var>branch</var>
+</pre></blockquote>
+
+<p>After this, you can pull <code><var>branch</var></code> from git.sv.gnu.org with
+</p>
+<blockquote><pre class="example">git pull origin
+</pre></blockquote>
+
+<p>Note that this command generally fetches all branches you added with
+<code>git remote add</code> (when you initialized the repository) or
+<code>git config --add</code>, i.e. it updates all remote branches from
+remote <code>origin</code>, then it merges the remote branch tracked by
+current branch into current branch.  For example, if your current
+branch is <code>master</code> &mdash; which is the case if you got the sources
+with the commands described in <a href="Getting-the-source-code.es.html#Main-source-code">Main source code</a> and did not
+issue any <code>git checkout</code> command &mdash; <code>origin/master</code> will
+be merged into <code>master</code>.
+</p>
+
+<a name="Local-clones_002c-or-having-several-working-trees"></a>
+<h4 class="subsubheading">Local clones, or having several working trees</h4>
+
+<p>If you play with several Git branches, e.g. <code>master</code>,
+<code>lilypond/translation</code>, <code>stable/2.12</code>), you may want to have
+one source and build tree for each branch; this is possible with
+subdirectories of your local Git repository, used as local cloned
+subrepositories.  To create a local clone for the branch named
+<code><var>branch</var></code>, run
+</p>
+<blockquote><pre class="example">git checkout <var>branch</var>
+git clone -l -s -n . <var>subdir</var>
+cd <var>subdir</var>
+git reset --hard
+</pre></blockquote>
+
+<p>Note that <code><var>subdir</var></code> must be a directory name which does not
+already exist.  In <code><var>subdir</var></code>, you can use all Git commands
+to browse revisions history, commit and uncommit changes; to update
+the cloned subrepository with changes made on the main repository, cd
+into <code><var>subdir</var></code> and run <code>git pull</code>; to send changes
+made on the subrepository back to the main repository, run
+<code>git push</code> from <code><var>subdir</var></code>.  Note that only one
+branch (the currently checked out branch) is created in the
+subrepository by default; it is possible to have several branches in a
+subrepository and do usual operations (checkout, merge, create,
+delete...) on these branches, but this possibility is not detailed
+here.
+</p>
+<p>When you push <code><var>branch</var></code> from <code><var>subdir</var></code> to the main
+repository, and <code><var>branch</var></code> is checked out in the main
+repository, you must save uncommitted changes (see <code>git
+stash</code>) and do <code>git reset --hard</code> in the main repository in
+order to apply pushed changes in the working tree of the main
+repository.
+</p>
+
+
+<hr size="6">
+<a name="Git-log"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Working-on-LilyPond-sources-with-several-branches" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Working on LilyPond sources with several branches&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Applying-git-patches" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Applying git patches &gt; </a>]</td></tr></table>
+<a name="Git-log"></a>
+<h3 class="subsection">1.4.4 Git log</h3>
+
+<p>The commands above don&rsquo;t only bring you the latest version of the
+sources, but also the full history of revisions (revisons, also
+called commits, are changes made to the sources), stored in the
+.git directory.  You can browse this history with
+</p>
+<blockquote><pre class="example">git log     # only shows the logs (author, committish and commit message)
+git log -p  # also shows diffs
+gitk        # shows history graphically
+</pre></blockquote>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note:</b> The <code>gitk</code> command may require a separate <code>gitk</code> package,
+available in the appropriate distribution&rsquo;s repositories.
+</p></td></tr></table>
+
+<hr size="6">
+<a name="Applying-git-patches"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-log" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Git log&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Git-on-Windows.es.html#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Git on Windows &gt; </a>]</td></tr></table>
+<a name="Applying-git-patches"></a>
+<h3 class="subsection">1.4.5 Applying git patches</h3>
+
+<p>Well-formed git patches should be committed with
+</p>
+<blockquote><pre class="example">git am
+</pre></blockquote>
+
+<p>Patches created without <code>git format-patch</code> should be
+committed with
+</p>
+<blockquote><pre class="example">git apply
+</pre></blockquote>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Starting-with-git.es.html#Starting-with-git" title="Beginning of this chapter or previous chapter"> &lt;&lt; Starting with git&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.es.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.es.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Compiling-LilyPond.es.html#Compiling-LilyPond" title="Next chapter">&nbsp;Compiling LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Git-log" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Git log&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Advanced-git-stuff" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Advanced git stuff&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Git-on-Windows.es.html#Git-on-Windows" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Git on Windows &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.es.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Starting-with-git-1" href="Starting-with-git.es.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.es.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.es.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.es.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li class="toc_current"><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.es.html#Advanced-git-stuff">1.4 Advanced git stuff</a>
+    <ul class="toc">
+      <li><a name="toc-Introduction-to-Git-concepts-1" href="Advanced-git-stuff.es.html#Introduction-to-Git-concepts">1.4.1 Introduction to Git concepts</a>      </li>
+      <li><a name="toc-Git-commands-for-managing-several-branches-1" href="Advanced-git-stuff.es.html#Git-commands-for-managing-several-branches">1.4.2 Git commands for managing several branches</a>      </li>
+      <li><a name="toc-Working-on-LilyPond-sources-with-several-branches-1" href="Advanced-git-stuff.es.html#Working-on-LilyPond-sources-with-several-branches">1.4.3 Working on LilyPond sources with several branches</a>      </li>
+      <li><a name="toc-Git-log-1" href="Advanced-git-stuff.es.html#Git-log">1.4.4 Git log</a>      </li>
+      <li><a name="toc-Applying-git-patches-1" href="Advanced-git-stuff.es.html#Applying-git-patches">1.4.5 Applying git patches</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Git-on-Windows-1" href="Git-on-Windows.es.html#Git-on-Windows">1.5 Git on Windows</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.es.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.es.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.es.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Documentation-work-1" href="Documentation-work.es.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.es.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.es.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.es.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li><a name="toc-Documentation-policy-1" href="Documentation-policy.es.html#Documentation-policy">3.4 Documentation policy</a>    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.es.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.es.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.es.html#Translating-the-documentation">3.7 Translating the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.es.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.es.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.es.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-LSR-work-1" href="LSR-work.es.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.es.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.es.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.es.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.es.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.es.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.es.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.es.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.es.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.es.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.es.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Programming-work-1" href="Programming-work.es.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.es.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.es.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.es.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.es.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li><a name="toc-Code-style-1" href="Code-style.es.html#Code-style">7.5 Code style</a>    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.es.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.es.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.es.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.es.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.es.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.es.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

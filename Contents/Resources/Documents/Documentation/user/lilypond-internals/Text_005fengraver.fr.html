@@ -1,0 +1,262 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond program-reference: 2.2.116 Text_engraver</title>
+
+<meta name="description" content="LilyPond program-reference: 2.2.116 Text_engraver">
+<meta name="keywords" content="LilyPond program-reference: 2.2.116 Text_engraver">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &ndash; Internals Reference">
+<link href="Indices.fr.html#Indices" rel="index" title="A. Indices">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="About This Document">
+<link href="Engravers-and-Performers.fr.html#Engravers-and-Performers" rel="up" title="2.2 Engravers and Performers">
+<link href="Indices.fr.html#Indices" rel="next" title="A.2 Function index">
+<link href="Tempo_005fperformer.fr.html#Tempo_005fperformer" rel="previous" title="2.2.115 Tempo_performer">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Text_005fengraver"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.fr.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.fr.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Tempo_005fperformer.fr.html#Tempo_005fperformer" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Tempo_performer&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Engravers-and-Performers.fr.html#Engravers-and-Performers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Engravers and Performers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Text_005fspanner_005fengraver.fr.html#Text_005fspanner_005fengraver" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Text_spanner_engraver &gt; </a>]</td></tr></table>
+<a name="Text_005fengraver"></a>
+<h3 class="subsection">2.2.116 Text_engraver</h3>
+
+<p>Create text scripts.
+</p>
+<p>Music types accepted:
+</p>
+<p><a href="text_002dscript_002devent.fr.html#text_002dscript_002devent">text-script-event</a>
+</p>
+
+
+<p>This engraver creates the following layout object(s):
+</p>
+<p><a href="TextScript.fr.html#TextScript">TextScript</a>.
+</p>
+<p><code>Text_engraver</code> is part of the following context(s): <a href="CueVoice.fr.html#CueVoice">CueVoice</a>, <a href="DrumVoice.fr.html#DrumVoice">DrumVoice</a>, <a href="GregorianTranscriptionVoice.fr.html#GregorianTranscriptionVoice">GregorianTranscriptionVoice</a>, <a href="MensuralVoice.fr.html#MensuralVoice">MensuralVoice</a>, <a href="TabVoice.fr.html#TabVoice">TabVoice</a>, <a href="VaticanaVoice.fr.html#VaticanaVoice">VaticanaVoice</a> and <a href="Voice.fr.html#Voice">Voice</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Translation.fr.html#Translation" title="Beginning of this chapter or previous chapter"> &lt;&lt; Translation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indices.fr.html#Indices" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Backend.fr.html#Backend" title="Next chapter">&nbsp;Backend &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Tempo_005fperformer.fr.html#Tempo_005fperformer" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Tempo_performer&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Engravers-and-Performers.fr.html#Engravers-and-Performers" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Engravers and Performers&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Text_005fspanner_005fengraver.fr.html#Text_005fspanner_005fengraver" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Text_spanner_engraver &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.fr.html#Top" title="Start of the manual">Internals Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Music-definitions-1" href="Music-definitions.fr.html#Music-definitions">1. Music definitions</a>
+  <ul class="toc">
+    <li><a name="toc-Music-expressions-1" href="Music-expressions.fr.html#Music-expressions">1.1 Music expressions</a>    </li>
+    <li><a name="toc-Music-classes-1" href="Music-classes.fr.html#Music-classes">1.2 Music classes</a>    </li>
+    <li><a name="toc-Music-properties-1" href="Music-properties.fr.html#Music-properties">1.3 Music properties</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Translation-1" href="Translation.fr.html#Translation">2. Translation</a>
+  <ul class="toc">
+    <li><a name="toc-Contexts-1" href="Contexts.fr.html#Contexts">2.1 Contexts</a>    </li>
+    <li class="toc_current"><a name="toc-Engravers-and-Performers-1" href="Engravers-and-Performers.fr.html#Engravers-and-Performers">2.2 Engravers and Performers</a>
+    <ul class="toc">
+      <li><a name="toc-Accidental_005fengraver-1" href="Accidental_005fengraver.fr.html#Accidental_005fengraver">2.2.1 Accidental_engraver</a>      </li>
+      <li><a name="toc-Ambitus_005fengraver-1" href="Ambitus_005fengraver.fr.html#Ambitus_005fengraver">2.2.2 Ambitus_engraver</a>      </li>
+      <li><a name="toc-Arpeggio_005fengraver-1" href="Arpeggio_005fengraver.fr.html#Arpeggio_005fengraver">2.2.3 Arpeggio_engraver</a>      </li>
+      <li><a name="toc-Auto_005fbeam_005fengraver-1" href="Auto_005fbeam_005fengraver.fr.html#Auto_005fbeam_005fengraver">2.2.4 Auto_beam_engraver</a>      </li>
+      <li><a name="toc-Axis_005fgroup_005fengraver-1" href="Axis_005fgroup_005fengraver.fr.html#Axis_005fgroup_005fengraver">2.2.5 Axis_group_engraver</a>      </li>
+      <li><a name="toc-Balloon_005fengraver-1" href="Balloon_005fengraver.fr.html#Balloon_005fengraver">2.2.6 Balloon_engraver</a>      </li>
+      <li><a name="toc-Bar_005fengraver-1" href="Bar_005fengraver.fr.html#Bar_005fengraver">2.2.7 Bar_engraver</a>      </li>
+      <li><a name="toc-Bar_005fnumber_005fengraver-1" href="Bar_005fnumber_005fengraver.fr.html#Bar_005fnumber_005fengraver">2.2.8 Bar_number_engraver</a>      </li>
+      <li><a name="toc-Beam_005fengraver-1" href="Beam_005fengraver.fr.html#Beam_005fengraver">2.2.9 Beam_engraver</a>      </li>
+      <li><a name="toc-Beam_005fperformer-1" href="Beam_005fperformer.fr.html#Beam_005fperformer">2.2.10 Beam_performer</a>      </li>
+      <li><a name="toc-Bend_005fengraver-1" href="Bend_005fengraver.fr.html#Bend_005fengraver">2.2.11 Bend_engraver</a>      </li>
+      <li><a name="toc-Break_005falign_005fengraver-1" href="Break_005falign_005fengraver.fr.html#Break_005falign_005fengraver">2.2.12 Break_align_engraver</a>      </li>
+      <li><a name="toc-Breathing_005fsign_005fengraver-1" href="Breathing_005fsign_005fengraver.fr.html#Breathing_005fsign_005fengraver">2.2.13 Breathing_sign_engraver</a>      </li>
+      <li><a name="toc-Chord_005fname_005fengraver-1" href="Chord_005fname_005fengraver.fr.html#Chord_005fname_005fengraver">2.2.14 Chord_name_engraver</a>      </li>
+      <li><a name="toc-Chord_005ftremolo_005fengraver-1" href="Chord_005ftremolo_005fengraver.fr.html#Chord_005ftremolo_005fengraver">2.2.15 Chord_tremolo_engraver</a>      </li>
+      <li><a name="toc-Clef_005fengraver-1" href="Clef_005fengraver.fr.html#Clef_005fengraver">2.2.16 Clef_engraver</a>      </li>
+      <li><a name="toc-Cluster_005fspanner_005fengraver-1" href="Cluster_005fspanner_005fengraver.fr.html#Cluster_005fspanner_005fengraver">2.2.17 Cluster_spanner_engraver</a>      </li>
+      <li><a name="toc-Collision_005fengraver-1" href="Collision_005fengraver.fr.html#Collision_005fengraver">2.2.18 Collision_engraver</a>      </li>
+      <li><a name="toc-Completion_005fheads_005fengraver-1" href="Completion_005fheads_005fengraver.fr.html#Completion_005fheads_005fengraver">2.2.19 Completion_heads_engraver</a>      </li>
+      <li><a name="toc-Control_005ftrack_005fperformer-1" href="Control_005ftrack_005fperformer.fr.html#Control_005ftrack_005fperformer">2.2.20 Control_track_performer</a>      </li>
+      <li><a name="toc-Custos_005fengraver-1" href="Custos_005fengraver.fr.html#Custos_005fengraver">2.2.21 Custos_engraver</a>      </li>
+      <li><a name="toc-Default_005fbar_005fline_005fengraver-1" href="Default_005fbar_005fline_005fengraver.fr.html#Default_005fbar_005fline_005fengraver">2.2.22 Default_bar_line_engraver</a>      </li>
+      <li><a name="toc-Dot_005fcolumn_005fengraver-1" href="Dot_005fcolumn_005fengraver.fr.html#Dot_005fcolumn_005fengraver">2.2.23 Dot_column_engraver</a>      </li>
+      <li><a name="toc-Dots_005fengraver-1" href="Dots_005fengraver.fr.html#Dots_005fengraver">2.2.24 Dots_engraver</a>      </li>
+      <li><a name="toc-Drum_005fnote_005fperformer-1" href="Drum_005fnote_005fperformer.fr.html#Drum_005fnote_005fperformer">2.2.25 Drum_note_performer</a>      </li>
+      <li><a name="toc-Drum_005fnotes_005fengraver-1" href="Drum_005fnotes_005fengraver.fr.html#Drum_005fnotes_005fengraver">2.2.26 Drum_notes_engraver</a>      </li>
+      <li><a name="toc-Dynamic_005falign_005fengraver-1" href="Dynamic_005falign_005fengraver.fr.html#Dynamic_005falign_005fengraver">2.2.27 Dynamic_align_engraver</a>      </li>
+      <li><a name="toc-Dynamic_005fengraver-1" href="Dynamic_005fengraver.fr.html#Dynamic_005fengraver">2.2.28 Dynamic_engraver</a>      </li>
+      <li><a name="toc-Dynamic_005fperformer-1" href="Dynamic_005fperformer.fr.html#Dynamic_005fperformer">2.2.29 Dynamic_performer</a>      </li>
+      <li><a name="toc-Engraver-1" href="Engraver.fr.html#Engraver">2.2.30 Engraver</a>      </li>
+      <li><a name="toc-Extender_005fengraver-1" href="Extender_005fengraver.fr.html#Extender_005fengraver">2.2.31 Extender_engraver</a>      </li>
+      <li><a name="toc-Figured_005fbass_005fengraver-1" href="Figured_005fbass_005fengraver.fr.html#Figured_005fbass_005fengraver">2.2.32 Figured_bass_engraver</a>      </li>
+      <li><a name="toc-Figured_005fbass_005fposition_005fengraver-1" href="Figured_005fbass_005fposition_005fengraver.fr.html#Figured_005fbass_005fposition_005fengraver">2.2.33 Figured_bass_position_engraver</a>      </li>
+      <li><a name="toc-Fingering_005fengraver-1" href="Fingering_005fengraver.fr.html#Fingering_005fengraver">2.2.34 Fingering_engraver</a>      </li>
+      <li><a name="toc-Font_005fsize_005fengraver-1" href="Font_005fsize_005fengraver.fr.html#Font_005fsize_005fengraver">2.2.35 Font_size_engraver</a>      </li>
+      <li><a name="toc-Forbid_005fline_005fbreak_005fengraver-1" href="Forbid_005fline_005fbreak_005fengraver.fr.html#Forbid_005fline_005fbreak_005fengraver">2.2.36 Forbid_line_break_engraver</a>      </li>
+      <li><a name="toc-Fretboard_005fengraver-1" href="Fretboard_005fengraver.fr.html#Fretboard_005fengraver">2.2.37 Fretboard_engraver</a>      </li>
+      <li><a name="toc-Glissando_005fengraver-1" href="Glissando_005fengraver.fr.html#Glissando_005fengraver">2.2.38 Glissando_engraver</a>      </li>
+      <li><a name="toc-Grace_005fbeam_005fengraver-1" href="Grace_005fbeam_005fengraver.fr.html#Grace_005fbeam_005fengraver">2.2.39 Grace_beam_engraver</a>      </li>
+      <li><a name="toc-Grace_005fengraver-1" href="Grace_005fengraver.fr.html#Grace_005fengraver">2.2.40 Grace_engraver</a>      </li>
+      <li><a name="toc-Grace_005fspacing_005fengraver-1" href="Grace_005fspacing_005fengraver.fr.html#Grace_005fspacing_005fengraver">2.2.41 Grace_spacing_engraver</a>      </li>
+      <li><a name="toc-Grid_005fline_005fspan_005fengraver-1" href="Grid_005fline_005fspan_005fengraver.fr.html#Grid_005fline_005fspan_005fengraver">2.2.42 Grid_line_span_engraver</a>      </li>
+      <li><a name="toc-Grid_005fpoint_005fengraver-1" href="Grid_005fpoint_005fengraver.fr.html#Grid_005fpoint_005fengraver">2.2.43 Grid_point_engraver</a>      </li>
+      <li><a name="toc-Grob_005fpq_005fengraver-1" href="Grob_005fpq_005fengraver.fr.html#Grob_005fpq_005fengraver">2.2.44 Grob_pq_engraver</a>      </li>
+      <li><a name="toc-Hara_005fkiri_005fengraver-1" href="Hara_005fkiri_005fengraver.fr.html#Hara_005fkiri_005fengraver">2.2.45 Hara_kiri_engraver</a>      </li>
+      <li><a name="toc-Horizontal_005fbracket_005fengraver-1" href="Horizontal_005fbracket_005fengraver.fr.html#Horizontal_005fbracket_005fengraver">2.2.46 Horizontal_bracket_engraver</a>      </li>
+      <li><a name="toc-Hyphen_005fengraver-1" href="Hyphen_005fengraver.fr.html#Hyphen_005fengraver">2.2.47 Hyphen_engraver</a>      </li>
+      <li><a name="toc-Instrument_005fname_005fengraver-1" href="Instrument_005fname_005fengraver.fr.html#Instrument_005fname_005fengraver">2.2.48 Instrument_name_engraver</a>      </li>
+      <li><a name="toc-Instrument_005fswitch_005fengraver-1" href="Instrument_005fswitch_005fengraver.fr.html#Instrument_005fswitch_005fengraver">2.2.49 Instrument_switch_engraver</a>      </li>
+      <li><a name="toc-Key_005fengraver-1" href="Key_005fengraver.fr.html#Key_005fengraver">2.2.50 Key_engraver</a>      </li>
+      <li><a name="toc-Key_005fperformer-1" href="Key_005fperformer.fr.html#Key_005fperformer">2.2.51 Key_performer</a>      </li>
+      <li><a name="toc-Laissez_005fvibrer_005fengraver-1" href="Laissez_005fvibrer_005fengraver.fr.html#Laissez_005fvibrer_005fengraver">2.2.52 Laissez_vibrer_engraver</a>      </li>
+      <li><a name="toc-Ledger_005fline_005fengraver-1" href="Ledger_005fline_005fengraver.fr.html#Ledger_005fline_005fengraver">2.2.53 Ledger_line_engraver</a>      </li>
+      <li><a name="toc-Ligature_005fbracket_005fengraver-1" href="Ligature_005fbracket_005fengraver.fr.html#Ligature_005fbracket_005fengraver">2.2.54 Ligature_bracket_engraver</a>      </li>
+      <li><a name="toc-Lyric_005fengraver-1" href="Lyric_005fengraver.fr.html#Lyric_005fengraver">2.2.55 Lyric_engraver</a>      </li>
+      <li><a name="toc-Lyric_005fperformer-1" href="Lyric_005fperformer.fr.html#Lyric_005fperformer">2.2.56 Lyric_performer</a>      </li>
+      <li><a name="toc-Mark_005fengraver-1" href="Mark_005fengraver.fr.html#Mark_005fengraver">2.2.57 Mark_engraver</a>      </li>
+      <li><a name="toc-Measure_005fgrouping_005fengraver-1" href="Measure_005fgrouping_005fengraver.fr.html#Measure_005fgrouping_005fengraver">2.2.58 Measure_grouping_engraver</a>      </li>
+      <li><a name="toc-Melody_005fengraver-1" href="Melody_005fengraver.fr.html#Melody_005fengraver">2.2.59 Melody_engraver</a>      </li>
+      <li><a name="toc-Mensural_005fligature_005fengraver-1" href="Mensural_005fligature_005fengraver.fr.html#Mensural_005fligature_005fengraver">2.2.60 Mensural_ligature_engraver</a>      </li>
+      <li><a name="toc-Metronome_005fmark_005fengraver-1" href="Metronome_005fmark_005fengraver.fr.html#Metronome_005fmark_005fengraver">2.2.61 Metronome_mark_engraver</a>      </li>
+      <li><a name="toc-Multi_005fmeasure_005frest_005fengraver-1" href="Multi_005fmeasure_005frest_005fengraver.fr.html#Multi_005fmeasure_005frest_005fengraver">2.2.62 Multi_measure_rest_engraver</a>      </li>
+      <li><a name="toc-New_005fdynamic_005fengraver-1" href="New_005fdynamic_005fengraver.fr.html#New_005fdynamic_005fengraver">2.2.63 New_dynamic_engraver</a>      </li>
+      <li><a name="toc-New_005ffingering_005fengraver-1" href="New_005ffingering_005fengraver.fr.html#New_005ffingering_005fengraver">2.2.64 New_fingering_engraver</a>      </li>
+      <li><a name="toc-Note_005fhead_005fline_005fengraver-1" href="Note_005fhead_005fline_005fengraver.fr.html#Note_005fhead_005fline_005fengraver">2.2.65 Note_head_line_engraver</a>      </li>
+      <li><a name="toc-Note_005fheads_005fengraver-1" href="Note_005fheads_005fengraver.fr.html#Note_005fheads_005fengraver">2.2.66 Note_heads_engraver</a>      </li>
+      <li><a name="toc-Note_005fname_005fengraver-1" href="Note_005fname_005fengraver.fr.html#Note_005fname_005fengraver">2.2.67 Note_name_engraver</a>      </li>
+      <li><a name="toc-Note_005fperformer-1" href="Note_005fperformer.fr.html#Note_005fperformer">2.2.68 Note_performer</a>      </li>
+      <li><a name="toc-Note_005fspacing_005fengraver-1" href="Note_005fspacing_005fengraver.fr.html#Note_005fspacing_005fengraver">2.2.69 Note_spacing_engraver</a>      </li>
+      <li><a name="toc-Note_005fswallow_005ftranslator-1" href="Note_005fswallow_005ftranslator.fr.html#Note_005fswallow_005ftranslator">2.2.70 Note_swallow_translator</a>      </li>
+      <li><a name="toc-Ottava_005fspanner_005fengraver-1" href="Ottava_005fspanner_005fengraver.fr.html#Ottava_005fspanner_005fengraver">2.2.71 Ottava_spanner_engraver</a>      </li>
+      <li><a name="toc-Output_005fproperty_005fengraver-1" href="Output_005fproperty_005fengraver.fr.html#Output_005fproperty_005fengraver">2.2.72 Output_property_engraver</a>      </li>
+      <li><a name="toc-Page_005fturn_005fengraver-1" href="Page_005fturn_005fengraver.fr.html#Page_005fturn_005fengraver">2.2.73 Page_turn_engraver</a>      </li>
+      <li><a name="toc-Paper_005fcolumn_005fengraver-1" href="Paper_005fcolumn_005fengraver.fr.html#Paper_005fcolumn_005fengraver">2.2.74 Paper_column_engraver</a>      </li>
+      <li><a name="toc-Parenthesis_005fengraver-1" href="Parenthesis_005fengraver.fr.html#Parenthesis_005fengraver">2.2.75 Parenthesis_engraver</a>      </li>
+      <li><a name="toc-Part_005fcombine_005fengraver-1" href="Part_005fcombine_005fengraver.fr.html#Part_005fcombine_005fengraver">2.2.76 Part_combine_engraver</a>      </li>
+      <li><a name="toc-Percent_005frepeat_005fengraver-1" href="Percent_005frepeat_005fengraver.fr.html#Percent_005frepeat_005fengraver">2.2.77 Percent_repeat_engraver</a>      </li>
+      <li><a name="toc-Phrasing_005fslur_005fengraver-1" href="Phrasing_005fslur_005fengraver.fr.html#Phrasing_005fslur_005fengraver">2.2.78 Phrasing_slur_engraver</a>      </li>
+      <li><a name="toc-Piano_005fpedal_005falign_005fengraver-1" href="Piano_005fpedal_005falign_005fengraver.fr.html#Piano_005fpedal_005falign_005fengraver">2.2.79 Piano_pedal_align_engraver</a>      </li>
+      <li><a name="toc-Piano_005fpedal_005fengraver-1" href="Piano_005fpedal_005fengraver.fr.html#Piano_005fpedal_005fengraver">2.2.80 Piano_pedal_engraver</a>      </li>
+      <li><a name="toc-Piano_005fpedal_005fperformer-1" href="Piano_005fpedal_005fperformer.fr.html#Piano_005fpedal_005fperformer">2.2.81 Piano_pedal_performer</a>      </li>
+      <li><a name="toc-Pitch_005fsquash_005fengraver-1" href="Pitch_005fsquash_005fengraver.fr.html#Pitch_005fsquash_005fengraver">2.2.82 Pitch_squash_engraver</a>      </li>
+      <li><a name="toc-Pitched_005ftrill_005fengraver-1" href="Pitched_005ftrill_005fengraver.fr.html#Pitched_005ftrill_005fengraver">2.2.83 Pitched_trill_engraver</a>      </li>
+      <li><a name="toc-Repeat_005facknowledge_005fengraver-1" href="Repeat_005facknowledge_005fengraver.fr.html#Repeat_005facknowledge_005fengraver">2.2.84 Repeat_acknowledge_engraver</a>      </li>
+      <li><a name="toc-Repeat_005ftie_005fengraver-1" href="Repeat_005ftie_005fengraver.fr.html#Repeat_005ftie_005fengraver">2.2.85 Repeat_tie_engraver</a>      </li>
+      <li><a name="toc-Rest_005fcollision_005fengraver-1" href="Rest_005fcollision_005fengraver.fr.html#Rest_005fcollision_005fengraver">2.2.86 Rest_collision_engraver</a>      </li>
+      <li><a name="toc-Rest_005fengraver-1" href="Rest_005fengraver.fr.html#Rest_005fengraver">2.2.87 Rest_engraver</a>      </li>
+      <li><a name="toc-Rest_005fswallow_005ftranslator-1" href="Rest_005fswallow_005ftranslator.fr.html#Rest_005fswallow_005ftranslator">2.2.88 Rest_swallow_translator</a>      </li>
+      <li><a name="toc-Rhythmic_005fcolumn_005fengraver-1" href="Rhythmic_005fcolumn_005fengraver.fr.html#Rhythmic_005fcolumn_005fengraver">2.2.89 Rhythmic_column_engraver</a>      </li>
+      <li><a name="toc-Script_005fcolumn_005fengraver-1" href="Script_005fcolumn_005fengraver.fr.html#Script_005fcolumn_005fengraver">2.2.90 Script_column_engraver</a>      </li>
+      <li><a name="toc-Script_005fengraver-1" href="Script_005fengraver.fr.html#Script_005fengraver">2.2.91 Script_engraver</a>      </li>
+      <li><a name="toc-Script_005frow_005fengraver-1" href="Script_005frow_005fengraver.fr.html#Script_005frow_005fengraver">2.2.92 Script_row_engraver</a>      </li>
+      <li><a name="toc-Separating_005fline_005fgroup_005fengraver-1" href="Separating_005fline_005fgroup_005fengraver.fr.html#Separating_005fline_005fgroup_005fengraver">2.2.93 Separating_line_group_engraver</a>      </li>
+      <li><a name="toc-Skip_005fevent_005fswallow_005ftranslator-1" href="Skip_005fevent_005fswallow_005ftranslator.fr.html#Skip_005fevent_005fswallow_005ftranslator">2.2.94 Skip_event_swallow_translator</a>      </li>
+      <li><a name="toc-Slash_005frepeat_005fengraver-1" href="Slash_005frepeat_005fengraver.fr.html#Slash_005frepeat_005fengraver">2.2.95 Slash_repeat_engraver</a>      </li>
+      <li><a name="toc-Slur_005fengraver-1" href="Slur_005fengraver.fr.html#Slur_005fengraver">2.2.96 Slur_engraver</a>      </li>
+      <li><a name="toc-Slur_005fperformer-1" href="Slur_005fperformer.fr.html#Slur_005fperformer">2.2.97 Slur_performer</a>      </li>
+      <li><a name="toc-Spacing_005fengraver-1" href="Spacing_005fengraver.fr.html#Spacing_005fengraver">2.2.98 Spacing_engraver</a>      </li>
+      <li><a name="toc-Span_005farpeggio_005fengraver-1" href="Span_005farpeggio_005fengraver.fr.html#Span_005farpeggio_005fengraver">2.2.99 Span_arpeggio_engraver</a>      </li>
+      <li><a name="toc-Span_005fbar_005fengraver-1" href="Span_005fbar_005fengraver.fr.html#Span_005fbar_005fengraver">2.2.100 Span_bar_engraver</a>      </li>
+      <li><a name="toc-Spanner_005fbreak_005fforbid_005fengraver-1" href="Spanner_005fbreak_005fforbid_005fengraver.fr.html#Spanner_005fbreak_005fforbid_005fengraver">2.2.101 Spanner_break_forbid_engraver</a>      </li>
+      <li><a name="toc-Staff_005fcollecting_005fengraver-1" href="Staff_005fcollecting_005fengraver.fr.html#Staff_005fcollecting_005fengraver">2.2.102 Staff_collecting_engraver</a>      </li>
+      <li><a name="toc-Staff_005fperformer-1" href="Staff_005fperformer.fr.html#Staff_005fperformer">2.2.103 Staff_performer</a>      </li>
+      <li><a name="toc-Staff_005fsymbol_005fengraver-1" href="Staff_005fsymbol_005fengraver.fr.html#Staff_005fsymbol_005fengraver">2.2.104 Staff_symbol_engraver</a>      </li>
+      <li><a name="toc-Stanza_005fnumber_005falign_005fengraver-1" href="Stanza_005fnumber_005falign_005fengraver.fr.html#Stanza_005fnumber_005falign_005fengraver">2.2.105 Stanza_number_align_engraver</a>      </li>
+      <li><a name="toc-Stanza_005fnumber_005fengraver-1" href="Stanza_005fnumber_005fengraver.fr.html#Stanza_005fnumber_005fengraver">2.2.106 Stanza_number_engraver</a>      </li>
+      <li><a name="toc-Stem_005fengraver-1" href="Stem_005fengraver.fr.html#Stem_005fengraver">2.2.107 Stem_engraver</a>      </li>
+      <li><a name="toc-String_005fnumber_005fengraver-1" href="String_005fnumber_005fengraver.fr.html#String_005fnumber_005fengraver">2.2.108 String_number_engraver</a>      </li>
+      <li><a name="toc-Swallow_005fengraver-1" href="Swallow_005fengraver.fr.html#Swallow_005fengraver">2.2.109 Swallow_engraver</a>      </li>
+      <li><a name="toc-Swallow_005fperformer-1" href="Swallow_005fperformer.fr.html#Swallow_005fperformer">2.2.110 Swallow_performer</a>      </li>
+      <li><a name="toc-System_005fstart_005fdelimiter_005fengraver-1" href="System_005fstart_005fdelimiter_005fengraver.fr.html#System_005fstart_005fdelimiter_005fengraver">2.2.111 System_start_delimiter_engraver</a>      </li>
+      <li><a name="toc-Tab_005fharmonic_005fengraver-1" href="Tab_005fharmonic_005fengraver.fr.html#Tab_005fharmonic_005fengraver">2.2.112 Tab_harmonic_engraver</a>      </li>
+      <li><a name="toc-Tab_005fnote_005fheads_005fengraver-1" href="Tab_005fnote_005fheads_005fengraver.fr.html#Tab_005fnote_005fheads_005fengraver">2.2.113 Tab_note_heads_engraver</a>      </li>
+      <li><a name="toc-Tab_005fstaff_005fsymbol_005fengraver-1" href="Tab_005fstaff_005fsymbol_005fengraver.fr.html#Tab_005fstaff_005fsymbol_005fengraver">2.2.114 Tab_staff_symbol_engraver</a>      </li>
+      <li><a name="toc-Tempo_005fperformer-1" href="Tempo_005fperformer.fr.html#Tempo_005fperformer">2.2.115 Tempo_performer</a>      </li>
+      <li class="toc_current"><a name="toc-Text_005fengraver-1" href="Text_005fengraver.fr.html#Text_005fengraver">2.2.116 Text_engraver</a>      </li>
+      <li><a name="toc-Text_005fspanner_005fengraver-1" href="Text_005fspanner_005fengraver.fr.html#Text_005fspanner_005fengraver">2.2.117 Text_spanner_engraver</a>      </li>
+      <li><a name="toc-Tie_005fengraver-1" href="Tie_005fengraver.fr.html#Tie_005fengraver">2.2.118 Tie_engraver</a>      </li>
+      <li><a name="toc-Tie_005fperformer-1" href="Tie_005fperformer.fr.html#Tie_005fperformer">2.2.119 Tie_performer</a>      </li>
+      <li><a name="toc-Time_005fsignature_005fengraver-1" href="Time_005fsignature_005fengraver.fr.html#Time_005fsignature_005fengraver">2.2.120 Time_signature_engraver</a>      </li>
+      <li><a name="toc-Time_005fsignature_005fperformer-1" href="Time_005fsignature_005fperformer.fr.html#Time_005fsignature_005fperformer">2.2.121 Time_signature_performer</a>      </li>
+      <li><a name="toc-Timing_005ftranslator-1" href="Timing_005ftranslator.fr.html#Timing_005ftranslator">2.2.122 Timing_translator</a>      </li>
+      <li><a name="toc-Translator-1" href="Translator.fr.html#Translator">2.2.123 Translator</a>      </li>
+      <li><a name="toc-Trill_005fspanner_005fengraver-1" href="Trill_005fspanner_005fengraver.fr.html#Trill_005fspanner_005fengraver">2.2.124 Trill_spanner_engraver</a>      </li>
+      <li><a name="toc-Tuplet_005fengraver-1" href="Tuplet_005fengraver.fr.html#Tuplet_005fengraver">2.2.125 Tuplet_engraver</a>      </li>
+      <li><a name="toc-Tweak_005fengraver-1" href="Tweak_005fengraver.fr.html#Tweak_005fengraver">2.2.126 Tweak_engraver</a>      </li>
+      <li><a name="toc-Vaticana_005fligature_005fengraver-1" href="Vaticana_005fligature_005fengraver.fr.html#Vaticana_005fligature_005fengraver">2.2.127 Vaticana_ligature_engraver</a>      </li>
+      <li><a name="toc-Vertical_005falign_005fengraver-1" href="Vertical_005falign_005fengraver.fr.html#Vertical_005falign_005fengraver">2.2.128 Vertical_align_engraver</a>      </li>
+      <li><a name="toc-Vertically_005fspaced_005fcontexts_005fengraver-1" href="Vertically_005fspaced_005fcontexts_005fengraver.fr.html#Vertically_005fspaced_005fcontexts_005fengraver">2.2.129 Vertically_spaced_contexts_engraver</a>      </li>
+      <li><a name="toc-Volta_005fengraver-1" href="Volta_005fengraver.fr.html#Volta_005fengraver">2.2.130 Volta_engraver</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Tunable-context-properties-1" href="Tunable-context-properties.fr.html#Tunable-context-properties">2.3 Tunable context properties</a>    </li>
+    <li><a name="toc-Internal-context-properties-1" href="Internal-context-properties.fr.html#Internal-context-properties">2.4 Internal context properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Backend-1" href="Backend.fr.html#Backend">3. Backend</a>
+  <ul class="toc">
+    <li><a name="toc-All-layout-objects-1" href="All-layout-objects.fr.html#All-layout-objects">3.1 All layout objects</a>    </li>
+    <li><a name="toc-Graphical-Object-Interfaces-1" href="Graphical-Object-Interfaces.fr.html#Graphical-Object-Interfaces">3.2 Graphical Object Interfaces</a>    </li>
+    <li><a name="toc-User-backend-properties-1" href="User-backend-properties.fr.html#User-backend-properties">3.3 User backend properties</a>    </li>
+    <li><a name="toc-Internal-backend-properties-1" href="Internal-backend-properties.fr.html#Internal-backend-properties">3.4 Internal backend properties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">4. Scheme functions</a>  </li>
+  <li><a name="toc-Indices-1" href="Indices.fr.html#Indices">A. Indices</a>
+  <ul class="toc">
+    <li><a name="toc-Concept-index" href="Indices.fr.html#Indices">A.1 Concept index</a>    </li>
+    <li><a name="toc-Function-index" href="Indices.fr.html#Indices">A.2 Function index</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

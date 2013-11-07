@@ -1,0 +1,660 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel de notation&nbsp;: 1.2.4 Barres de ligature</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel de notation: 1.2.4 Beams">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel de notation: 1.2.4 Beams">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel de notation">
+<link href="LilyPond-command-index.fr.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="Rhythms.fr.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Displaying-rhythms.fr.html#Displaying-rhythms" rel="previous" title="1.2.3 Displaying rhythms">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Displaying-rhythms.fr.html#Showing-melody-rhythms" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Gravure de lignes rythmiques&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.fr.html#Rhythms" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Rythme&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Automatic-beams" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Barres de ligature automatiques &gt; </a>]</td></tr></table>
+<a name="Beams"></a>
+<h3 class="subsection">1.2.4 Barres de ligature</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Automatic-beams" accesskey="1">Barres de ligature automatiques</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Setting-automatic-beam-behavior" accesskey="2">Définition des règles de ligature automatique</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Manual-beams" accesskey="3">Barres de ligature manuelles</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Feathered-beams" accesskey="4">Liens de croches en soufflet</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Automatic-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Beams" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de ligature&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de ligature&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Setting-automatic-beam-behavior" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Définition des règles de ligature automatique &gt; </a>]</td></tr></table>
+<a name="Automatic-beams"></a>
+<h4 class="unnumberedsubsubsec">Barres de ligature automatiques</h4>
+
+<p>LilyPond décide automatiquement de la manière de grouper les notes et
+d&rsquo;imprimer les ligatures.
+</p>
+<blockquote><pre class="verbatim">\time 2/4 c8 c c c \time 6/8 c c c c8. c16 c8
+</pre><p>
+ <a href="../ee/lily-faef7bca.ly">
+  <img align="middle"
+       border="0"
+       src="../ee/lily-faef7bca.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Lorsque ce comportement automatisé n&rsquo;est pas satisfaisant, on peut
+définir des groupements manuellement &mdash; voir section suivante &mdash; ou
+personnaliser les groupements automatiques &mdash; voir <a href="#Setting-automatic-beam-behavior">Définition des règles de ligature automatique</a>.
+</p>
+<p>La commande <code>\noBeam</code> peut servir à empêcher des notes
+individuelles d&rsquo;être rattachées aux autres.
+</p>
+<blockquote><pre class="verbatim">\time 2/4 c8 c\noBeam c c
+</pre><p>
+ <a href="../49/lily-4d76621f.ly">
+  <img align="middle"
+       border="0"
+       src="../49/lily-4d76621f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-85"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Référence du programme&nbsp;: <a name="index-Beam"></a>
+<a href="../lilypond-internals/Beam.fr.html#Beam">Beam</a>.
+</p>
+
+<hr size="6">
+<a name="Setting-automatic-beam-behavior"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Automatic-beams" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de ligature automatiques&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de ligature&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Manual-beams" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Barres de ligature manuelles &gt; </a>]</td></tr></table>
+<a name="Setting-automatic-beam-behavior"></a>
+<h4 class="unnumberedsubsubsec">Définition des règles de ligature automatique</h4>
+
+<a name="index-autoBeamSettings"></a>
+<a name="index-autoBeamSettings-1"></a>
+<a name="index-_0028end-_002a-_002a-_002a-_002a_0029"></a>
+<a name="index-_0028end-_002a-_002a-_002a-_002a_0029-1"></a>
+<a name="index-_0028begin-_002a-_002a-_002a-_002a_0029"></a>
+<a name="index-_0028begin-_002a-_002a-_002a-_002a_0029-1"></a>
+<a name="index-ligatures-automatiques_002c-reglage"></a>
+<a name="index-reglage-des-ligatures-automatiques"></a>
+
+
+<p>Dans les métriques courantes, les ligatures automatiques peuvent commencer
+sur n&rsquo;importe quelle note, mais ne peuvent se terminer qu&rsquo;à certains points précis
+dans la mesure&nbsp;: sur une pulsation, ou après toute durée spécifiée par les propriétés
+nommées <code>autoBeamSettings</code>.  Ces propriétés consistent en une liste de règles
+relatives au début ou à la fin des ligatures.  Par défaut, elles sont définies dans
+le fichier
+&lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;.
+</p>
+<p>On peut ajouter à cette liste une nouvelle règle, au moyen de la commande
+</p><blockquote><pre class="example">#(override-auto-beam-setting '(extrémité p q n m) a b [contexte])
+</pre></blockquote>
+
+<ul>
+<li> <code>extrémité</code> désigne le début (<code>begin</code>) ou la fin (<code>end</code>) de la ligature.
+
+</li><li> <code>p/q</code> désigne la valeur rythmique de la note que l&rsquo;on veut affecter, ou de la
+plus brève des notes concernées.  Si cette règle doit s&rsquo;appliquer à toutes les ligatures,
+remplacez <code>p</code> et <code>q</code> par des étoiles &laquo;&nbsp;<code>*</code>&nbsp;&raquo;.
+
+
+</li><li> <code>n/m</code> est le chiffre de mesure dans lequel la règle doit
+s&rsquo;appliquer.  Si celle-ci doit s&rsquo;appliquer dans toutes les métriques,
+remplacez <code>n</code> et <code>m</code> par des étoiles &laquo;&nbsp;<code>*</code>&nbsp;&raquo;.
+
+</li><li> <code>a/b</code> est l&rsquo;emplacement, dans la mesure, auquel les ligatures doivent
+débuter ou s&rsquo;achever (suivant la valeur &lsquo;extrémité&rsquo; que nous venons de voir).
+
+
+</li><li> <code>contexte</code> est un argument facultatif, qui détermine le contexte dans lequel
+la règle doit s&rsquo;appliquer.  Par défaut, il s&rsquo;agit de <code>'Voice</code>.
+<code>#(score-override-auto-beam-setting '(A B C D) E F)</code> équivaut à
+<code>#(override-auto-beam-setting '(A B C D) E F 'Score)</code>.
+
+</li></ul>
+
+<p>Par exemple, si l&rsquo;on veut que les ligatures s&rsquo;achèvent toujours après la première noire&nbsp;:
+</p>
+
+<blockquote><pre class="example">#(override-auto-beam-setting '(end * * * *) 1 4)
+</pre></blockquote>
+
+<p>On peut obliger une règle de ligatures à ne s&rsquo;appliquer qu&rsquo;à des groupes dont la note
+la plus brève est d&rsquo;une valeur précise&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\time 2/4
+#(override-auto-beam-setting '(end 1 16 * *) 1 16)
+a16 a a a a a a a |
+a32 a a a a16 a a a a a |
+#(override-auto-beam-setting '(end 1 32 * *) 1 16)
+a32 a a a a16 a a a a a |
+</pre><p>
+ <a href="../d1/lily-cb9ec047.ly">
+  <img align="middle"
+       border="0"
+       src="../d1/lily-cb9ec047.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>On peut obliger une règle de ligatures à ne s&rsquo;appliquer que pour un chiffre de mesure
+précis&nbsp;:
+</p>
+<blockquote><pre class="verbatim">\time 5/8
+#(override-auto-beam-setting '(end * * 5 8) 2 8)
+c8 c d d d
+\time 4/4
+e8 e f f e e d d
+\time 5/8
+c8 c d d d
+</pre><p>
+ <a href="../2d/lily-65cc44e8.ly">
+  <img align="middle"
+       border="0"
+       src="../2d/lily-65cc44e8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Enfin, on peut désactiver une règle de ligatures au moyen du réglage suivant&nbsp;:
+</p>
+<blockquote><pre class="example">#(revert-auto-beam-setting '(extrémité p q n m) a b [contexte])
+</pre></blockquote>
+
+<p><code>extrémité</code>, <code>p</code>, <code>q</code>, <code>n</code>, <code>m</code>, <code>a</code>, <code>b</code> et <code>contexte</code>
+étant les mêmes que plus haut.  Il est même possible de désactiver des règles que l&rsquo;on n&rsquo;a pas
+explicitement créées&nbsp;: les règles par défaut, qui se trouvent dans le fichier &lsquo;<tt>scm/auto-beam.scm</tt>&rsquo;.
+</p>
+
+
+<blockquote><pre class="verbatim">\time 4/4
+a16 a a a a a a a a a a a a a a a
+#(revert-auto-beam-setting '(end 1 16 4 4) 1 4)
+a16 a a a a a a a a a a a a a a a
+</pre><p>
+ <a href="../4a/lily-d15724e8.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-d15724e8.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La commande <code>revert-auto-beam-setting</code> requiert exactement les mêmes arguments
+que la règle d&rsquo;origine.  En d&rsquo;autres termes, les étoiles ne seront pas prises en compte ici.
+</p>
+<blockquote><pre class="verbatim">\time 1/4
+#(override-auto-beam-setting '(end 1 16 1 4) 1 8)
+a16 a a a
+#(revert-auto-beam-setting '(end 1 16 * *) 1 8) % ceci ne désactive pas la règle<font size="-4">&nbsp;</font>!
+a a a a
+#(revert-auto-beam-setting '(end 1 16 1 4) 1 8) % ceci marche
+a a a a
+</pre><p>
+ <a href="../1a/lily-2fbbedd6.ly">
+  <img align="middle"
+       border="0"
+       src="../1a/lily-2fbbedd6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+
+<p>Si, dans une mesure à 5/4, l&rsquo;on veut que les ligatures soient regroupées temps par temps,
+il est nécessaire d&rsquo;indiquer toutes les terminaisons de ligatures.
+</p><blockquote><pre class="example">#(override-auto-beam-setting '(end * * * *) 1 4 'Staff)
+#(override-auto-beam-setting '(end * * * *) 1 2 'Staff)
+#(override-auto-beam-setting '(end * * * *) 3 4 'Staff)
+#(override-auto-beam-setting '(end * * * *) 5 4 'Staff)
+&hellip;
+</pre></blockquote>
+
+<p>La même syntaxe peut servir à définir les points de départ des ligatures.
+Dans l&rsquo;exemple suivant, les ligatures automatiques  ne peuvent se terminer 
+que sur une noire pointée.
+</p><blockquote><pre class="example">#(override-auto-beam-setting '(end * * * *) 3 8)
+#(override-auto-beam-setting '(end * * * *) 1 2)
+#(override-auto-beam-setting '(end * * * *) 7 8)
+</pre></blockquote>
+<p>Dans une mesure à 4/4, cela implique que les ligatures ne peuvent se terminer que sur
+la troisième croche, ou sur le quatrième temps (après la valeur de deux fois trois croches).
+</p>
+<p>Si une ligature se fait de manière inattendue, pensez à vérifer les règles automatiques
+dans le fichier &lsquo;<tt>scm/auto-beam.scm</tt>&rsquo; pour rechercher d&rsquo;éventuels conflits, dans
+la mesure ou les règles par défaut s&rsquo;ajoutent à vos propres règles.  Il est alors nécessaire
+de désactiver toute règle par défaut conduisant à des ligatures indésirables.
+</p>
+<p>Ainsi, pour obtenir des ligatures en groupes de <code>(3 4 3 2)</code> croches, dans une mesure à 12/8,
+il faudra préalablement utiliser&nbsp;:
+</p>
+<blockquote><pre class="example">%%% annulons les réglages par défaut relatifs à 12/8, dans scm/auto-beam.scm 
+#(revert-auto-beam-setting '(end * * 12 8) 3 8)
+#(revert-auto-beam-setting '(end * * 12 8) 3 4)
+#(revert-auto-beam-setting '(end * * 12 8) 9 8)
+
+%%% puis ajoutons nos propres règles
+#(override-auto-beam-setting '(end 1 8 12 8) 3 8)
+#(override-auto-beam-setting '(end 1 8 12 8) 7 8)
+#(override-auto-beam-setting '(end 1 8 12 8) 10 8)
+</pre></blockquote>
+
+<a name="index-ligatures-automatiques"></a>
+<a name="index-groupes-de-notes"></a>
+<a name="index-autoBeaming"></a>
+<a name="index-autoBeaming-1"></a>
+<a name="index-paroles"></a>
+
+<p>Si des ligatures sont utilisées dans les paroles d&rsquo;une chanson (pour indiquer des mélismes),
+les ligatures automatiques doivent être désactivées, avec <code>\autoBeamOff</code>.
+</p>
+
+<a name="Predefined-commands-11"></a>
+<h4 class="subsubheading">Commandes prédéfinies</h4>
+<a name="index-_005cautoBeamOff"></a>
+<a name="index-_005cautoBeamOff-1"></a>
+<p><code>\autoBeamOff</code>,
+<a name="index-_005cautoBeamOn"></a>
+<a name="index-_005cautoBeamOn-1"></a>
+<code>\autoBeamOn</code>.
+</p>
+
+<a name="Commonly-tweaked-properties-1"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<p>Les groupes de notes reliées par les ligatures peuvent être spécifiés au moyen
+de la propriété <code>beatGrouping</code>.
+</p>
+<blockquote><pre class="verbatim">\time 5/16
+\set beatGrouping = #'(2 3)
+c8[^&quot;(2+3)&quot; c16 c8]
+\set beatGrouping = #'(3 2)
+c8[^&quot;(3+2)&quot; c16 c8]
+</pre><p>
+ <a href="../7b/lily-19283802.ly">
+  <img align="middle"
+       border="0"
+       src="../7b/lily-19283802.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Known-issues-and-warnings-33"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Si une partition se termine alors qu&rsquo;une ligature automatique est restée inachevée,
+cette dernière ligature ne sera pas imprimée du tout.  C&rsquo;est également valable dans
+le cas d&rsquo;une musique polyphonique, saisie avec la syntaxe <code>&lt;&lt; &hellip; \\ &hellip;
+&gt;&gt;</code>, où une voix se terminerait sans que la dernière ligature
+soit achevée.
+</p>
+
+<hr size="6">
+<a name="Manual-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Setting-automatic-beam-behavior" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Définition des règles de ligature automatique&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de ligature&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Feathered-beams" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Liens de croches en soufflet &gt; </a>]</td></tr></table>
+<a name="Manual-beams"></a>
+<h4 class="unnumberedsubsubsec">Barres de ligature manuelles</h4>
+
+<a name="index-groupements-de-note-manuels"></a>
+<a name="index-ligatures-manuelles"></a>
+<a name="index-_005d"></a>
+<a name="index-_005d-1"></a>
+<a name="index-_005b"></a>
+<a name="index-_005b-1"></a>
+
+<p>Dans certaines situations, il peut s&rsquo;avérer nécessaire de
+supplanter l&rsquo;algorithme de groupement automatique des notes, par
+exemple pour prolonger une ligature par-dessus un silence ou une barre
+de mesure.  Le début et la fin de la ligature sont alors indiqués par
+<code>[</code> et <code>]</code>.
+</p>
+<blockquote><pre class="verbatim">{
+  r4 r8[ g' a r8] r8 g[ | a] r8
+}
+</pre><p>
+ <a href="../31/lily-ee7abff0.ly">
+  <img align="middle"
+       border="0"
+       src="../31/lily-ee7abff0.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Commonly-tweaked-properties-21"></a>
+<h4 class="subsubheading">Propriétés couramment modifiées</h4>
+
+<a name="index-stemLeftBeamCount"></a>
+<a name="index-stemLeftBeamCount-1"></a>
+<a name="index-stemRightBeamCount"></a>
+<a name="index-stemRightBeamCount-1"></a>
+
+<p>LilyPond peut déterminer automatiquement les sous-groupes à
+l&rsquo;intérieur d&rsquo;un groupement de notes, bien que le résultat ne soit pas 
+toujours optimal.  Les propriétés <code>stemLeftBeamCount</code> et
+<code>stemRightBeamCount</code> permettent alors
+d&rsquo;ajuster ce comportement.  Lorsque l&rsquo;une ou l&rsquo;autre de ces propriétés
+est définie, elle ne s&rsquo;applique qu&rsquo;une seule fois, après quoi sa
+définition est effacée.
+</p>
+<blockquote><pre class="verbatim">{
+   f8[ r16
+      f g a]
+   f8[ r16
+   \set stemLeftBeamCount = #1
+      f g a]
+}
+</pre><p>
+ <a href="../04/lily-6cf9b4ac.ly">
+  <img align="middle"
+       border="0"
+       src="../04/lily-6cf9b4ac.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>La propriété <code>subdivideBeams</code> sert à grouper les double-croches
+ou les valeurs plus brèves pulsation par pulsation, la pulsation
+étant définie par la propriété <code>beatLength</code>.
+</p>
+<blockquote><pre class="verbatim">c16[ c c c c c c c]
+\set subdivideBeams = ##t
+c16[ c c c c c c c]
+\set Score.beatLength = #(ly:make-moment 1 8)
+c16[ c c c c c c c]
+</pre><p>
+ <a href="../00/lily-d1477279.ly">
+  <img align="middle"
+       border="0"
+       src="../00/lily-d1477279.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+<a name="index-subdivideBeams"></a>
+<a name="index-subdivideBeams-1"></a>
+
+<p>Pour plus d&rsquo;information sur <code>make-moment</code>, voir
+<a href="Special-rhythmic-concerns.fr.html#Time-administration">Gestion du temps</a>.
+</p>
+<p>Lorsqu&rsquo;une ligature franchit une barre de mesure, le saut
+de ligne est en principe interdit à cet endroit.  Ce comportement peut
+être outrepassé en définissant <code>breakable</code>.
+</p>
+<a name="index-breakable"></a>
+<a name="index-breakable-1"></a>
+
+<a name="index-ligatures-et-sauts-de-ligne"></a>
+<a name="index-ligatures-coudees"></a>
+<a name="index-auto_002dknee_002dgap"></a>
+
+<p>LilyPond insère automatiquement des ligatures coudées &mdash; certaines
+notes vers le haut, d&rsquo;autres vers le bas &mdash; lorsqu&rsquo;il détecte un espace
+important entre des têtes de notes. Ce comportement peut être changé par
+l&rsquo;intermédiaire de l&rsquo;objet <code>auto-knee-gap</code>
+</p>
+
+<a name="Known-issues-and-warnings-16"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>Les ligatures coudées à cheval sur deux portées ne peuvent être
+employées en même temps que des portées invisibles.  Voir
+<a href="Modifying-single-staves.fr.html#Hiding-staves">Masquage de portées</a>.
+</p>
+<p>Les ligatures peuvent entrer en collision avec des symboles entourant
+les notes, contrairement aux textes ou aux altérations.
+</p>
+
+<hr size="6">
+<a name="Feathered-beams"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Manual-beams" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de ligature manuelles&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de ligature&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Bars.fr.html#Bars" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Barres de mesure &gt; </a>]</td></tr></table>
+<a name="Feathered-beams"></a>
+<h4 class="unnumberedsubsubsec">Liens de croches en soufflet</h4>
+
+<p>Les ligatures en soufflet s&rsquo;obtiennent en définissant la propriété
+<code>grow-direction</code> d&rsquo;une barre de ligature.  La fonction
+<code>\featherDurations</code> sert à ajuster la durée des notes.
+</p>
+<blockquote><pre class="verbatim">\override Beam #'grow-direction = #LEFT
+\featherDurations #(ly:make-moment 5 4) 
+{
+  c16[ c c c c c c]
+}
+</pre><p>
+ <a href="../e4/lily-dde36303.ly">
+  <img align="middle"
+       border="0"
+       src="../e4/lily-dde36303.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="Known-issues-and-warnings-26"></a>
+<h4 class="subsubheading">Problèmes connus et avertissements</h4>
+
+<p>La commande <code>\featherDurations</code> ne permet de traiter que de très
+courts extraits.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.fr.html#Musical-notation" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Notation musicale générale&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-command-index.fr.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.fr.html#Specialist-notation" title="Chapitre suivant">&nbsp;Notation spécialisée &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Manual-beams" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Barres de ligature manuelles&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Beams" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Barres de ligature&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Bars.fr.html#Bars" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Barres de mesure &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Beams.html">English</a>, <a href="Beams.es.html">español</a>, <a href="Beams.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel de notation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.fr.html#Musical-notation">1. Notation musicale générale</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.fr.html#Pitches">1.1 Hauteurs</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.fr.html#Rhythms">1.2 Rythme</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.fr.html#Writing-rhythms">1.2.1 Écriture du rythme</a>      </li>
+      <li><a name="toc-Writing-rests-1" href="Writing-rests.fr.html#Writing-rests">1.2.2 Écriture des silences</a>      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.fr.html#Displaying-rhythms">1.2.3 Gravure du rythme</a>      </li>
+      <li class="toc_current"><a name="toc-Beams-1" href="Beams.fr.html#Beams">1.2.4 Barres de ligature</a>
+      <ul class="toc">
+        <li><a name="toc-Automatic-beams-1" href="Beams.fr.html#Automatic-beams">Barres de ligature automatiques</a>        </li>
+        <li><a name="toc-Setting-automatic-beam-behavior-1" href="Beams.fr.html#Setting-automatic-beam-behavior">Définition des règles de ligature automatique</a>        </li>
+        <li><a name="toc-Manual-beams-1" href="Beams.fr.html#Manual-beams">Barres de ligature manuelles</a>        </li>
+        <li><a name="toc-Feathered-beams-1" href="Beams.fr.html#Feathered-beams">Liens de croches en soufflet</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Bars-1" href="Bars.fr.html#Bars">1.2.5 Barres de mesure</a>      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.fr.html#Special-rhythmic-concerns">1.2.6 Fonctionnalités rythmiques particulières</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.fr.html#Expressive-marks">1.3 Signes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.fr.html#Repeats">1.4 Répétitions et reprises</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.fr.html#Simultaneous-notes">1.5 Notes simultanées</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.fr.html#Staff-notation">1.6 Notation sur la portée</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.fr.html#Editorial-annotations">1.7 Notation éditoriale</a>    </li>
+    <li><a name="toc-Text-1" href="Text.fr.html#Text">1.8 Texte</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.fr.html#Specialist-notation">2. Notation spécialisée</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.fr.html#Vocal-music">2.1 Musique vocale</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.fr.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Instruments utilisant des portées multiples</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.fr.html#Unfretted-string-instruments">2.3 Cordes non frettées</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.fr.html#Fretted-string-instruments">2.4 Instruments à cordes frettées</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.fr.html#Percussion">2.5 Percussions</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.fr.html#Wind-instruments">2.6 Instruments à vent</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.fr.html#Chord-notation">2.7 Notation des accords</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.fr.html#Ancient-notation">2.8 Notations anciennes</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.fr.html#World-music">2.9 Musiques du monde</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.fr.html#General-input-and-output">3. Généralités en matière d&rsquo;entrée et sortie</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.fr.html#Input-structure">3.1 Structure de fichier</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.fr.html#Titles-and-headers">3.2 Titres et entêtes</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.fr.html#Working-with-input-files">3.3 Travail sur des fichiers texte</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.fr.html#Controlling-output">3.4 Contrôle des sorties</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.fr.html#MIDI-output">3.5 Sortie MIDI</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.fr.html#Spacing-issues">4. Gestion de l&rsquo;espace</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.fr.html#Paper-and-pages">4.1 Du papier et des pages</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.fr.html#Music-layout">4.2 Mise en forme de la musique</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.fr.html#Breaks">4.3 Sauts</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.fr.html#Vertical-spacing">4.4 Espacement vertical</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.fr.html#Horizontal-spacing">4.5 Espacement horizontal</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.fr.html#Fitting-music-onto-fewer-pages">4.6 Réduction du nombre de pages de la partition</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.fr.html#Changing-defaults">5. Modification des réglages prédéfinis</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.fr.html#Interpretation-contexts">5.1 Contextes d&rsquo;interprétation</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.fr.html#Explaining-the-Internals-Reference">5.2 En quoi consiste la référence du programme</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.fr.html#Modifying-properties">5.3 Modification de propriétés</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.fr.html#Useful-concepts-and-properties">5.4 Propriétés et contextes utiles</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.fr.html#Advanced-tweaks">5.5 Retouches avancées</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.fr.html#Interfaces-for-programmers">6. Interfaces pour les programmeurs</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.fr.html#Music-functions">6.1 Fonctions musicales</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.fr.html#Programmer-interfaces">6.2 Interfaces de programmation</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.fr.html#Building-complicated-functions">6.3 Construction de fonctions complexes</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.fr.html#Markup-programmer-interface">6.4 Interface de programmation des marqueurs de texte</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.fr.html#Contexts-for-programmers">6.5 Contextes pour programmeurs</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.fr.html#Scheme-procedures-as-properties">6.6 Utilisation de procédures Scheme en tant que propriétés</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak" href="Using-Scheme-code-instead-of-tweak.fr.html#Using-Scheme-code-instead-of-tweak">6.7 Utilisation de code Scheme au lieu de <code>\tweak</code></a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.fr.html#Difficult-tweaks">6.8 Retouches complexes</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.fr.html#Literature-list">A. Bibliographie</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.fr.html#Notation-manual-tables">B. Tables du manuel de notation</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.fr.html#Chord-name-chart">B.1 Table des noms d&rsquo;accord</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.fr.html#Common-chord-modifiers">B.2 Modificateurs d&rsquo;accord usuels</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.fr.html#Predefined-fretboard-diagrams">B.3 Tablatures prédéfinies</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.fr.html#MIDI-instruments">B.4 Instruments MIDI</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.fr.html#List-of-colors">B.5 Liste des couleurs</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.fr.html#The-Feta-font">B.6 La fonte Feta</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.fr.html#Note-head-styles">B.7 Styles de tête de note</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.fr.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.fr.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.fr.html#List-of-articulations">B.10 Liste des signes d&rsquo;articulation</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.fr.html#Percussion-notes">B.11 Notes utilisées en percussion</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.fr.html#All-context-properties">B.12 Liste des propriétés de contexte</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.fr.html#Layout-properties">B.13 Propriétés de mise en forme</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.fr.html#Identifiers">B.14 Variables</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.fr.html#Scheme-functions">B.15 Fonctions Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.fr.html#Cheat-sheet">C. Aide-mémoire</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.fr.html#LilyPond-command-index">E. Index des commandes LilyPond</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">F. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 por los autores
+
+La traducción de la siguiente nota de copyright se ofrece como
+cortesía para las personas de habla no inglesa, pero únicamente la
+nota en inglés tiene validez legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Se otorga permiso para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia de Documentación Libre de GNU, versión 1.1
+o cualquier versión posterior publicada por la Free Software Foundation;
+sin ninguna de las secciones invariantes.
+Se incluye una copia de esta licencia dentro de la sección titulada "Licencia
+de Documentación Libre de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on el 13 enero 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Manual de aprendizaje de GNU LilyPond: 4.1.4 Métodos de trucaje</title>
+
+<meta name="description" content="Manual de aprendizaje de GNU LilyPond: 4.1.4 Tweaking methods">
+<meta name="keywords" content="Manual de aprendizaje de GNU LilyPond: 4.1.4 Tweaking methods">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.es.html#Top" rel="start" title="GNU LilyPond: Manual de aprendizaje">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.es.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="index_abt.es.html#SEC_About" rel="help" title="Acerca de este documento">
+<link href="Tweaking-basics.es.html#Tweaking-basics" rel="up" title="4.1 Tweaking basics">
+<link href="LilyPond-index.es.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Naming-conventions-of-objects-and-properties.es.html#Naming-conventions-of-objects-and-properties" rel="previous" title="4.1.3 Naming conventions of objects and properties">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Tweaking-methods"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Naming-conventions-of-objects-and-properties.es.html#Naming-conventions-of-objects-and-properties" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Convenciones de nombres de objetos y propiedades&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Tweaking-basics.es.html#Tweaking-basics" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Elementos de trucaje&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Manual de referencia de funcionamiento interno &gt; </a>]</td></tr></table>
+<a name="Tweaking-methods"></a>
+<h3 class="subsection">4.1.4 Métodos de trucaje</h3>
+
+<a name="index-trucaje_002c-metodos-de"></a>
+
+<p><strong>La instrucción \override</strong>
+</p>
+<a name="index-override_002c-instruccion"></a>
+<a name="index-override-_0028sobreescritura_0029_002c-sintaxis-de"></a>
+
+<a name="index-_005coverride"></a>
+<a name="index-_005coverride-1"></a>
+<a name="index-override"></a>
+<a name="index-override-1"></a>
+
+<p>Ya hemos visto las instrucciones <code>\set</code> y <code>\with</code>, que se
+usan para cambiar las propiedades de los <strong>contextos</strong> y para
+quitar y poner <strong>grabadores</strong>, en <a href="Modifying-context-properties.es.html#Modifying-context-properties">Modificar las propiedades de los contextos</a> y <a href="Adding-and-removing-engravers.es.html#Adding-and-removing-engravers">Añadir y eliminar grabadores</a>.  Ahora debemos
+examinar algunas instrucciones importantes más.
+</p>
+<p>La instrucción que cambia las propiedades de los <strong>objetos de
+presentación</strong> es <code>\override</code>.  Puesto que esta instrucción debe
+modificar propiedades internas que se encuentran en un lugar profundo
+dentro de LilyPond, su sintaxis no es tan simple como la del resto de
+las instrucciones que hemos visto hasta ahora.  Tiene que saber
+exactamente qué propiedad de qué objeto y en qué contexto se debe
+modificar, y cuál debe ser su nuevo valor.  Veamos cómo se hace.
+</p>
+<p>La sintaxis genérica de esta instrucción es:
+</p>
+<blockquote><pre class="example">\override <var>Contexto</var>.<var>ObjetoDePresentación</var>  #'<var>propiedad-de-presentación</var> =
+#<var>valor</var>
+</pre></blockquote>
+
+<p>Esto establecerá la propiedad de nombre
+<var>propiedad-de-presentación</var> del objeto de presentación con el
+nombre <var>ObjetoDePresentación</var>, que es miembro del contexto
+<var>Contexto</var>, al valor <var>valor</var>.
+</p>
+<p>El <var>contexto</var> se puede omitir (y normalmente así es) cuando el
+contexto requerido se encuentra implicado sin ambigüedad y es uno de
+los contextos del nivel más bajo, es decir: <code>Voice</code>,
+<code>ChordNames</code> o <code>Lyrics</code>, y lo omitiremos en muchos de los
+ejemplos siguientes.  Veremos más tarde cuándo se debe especificar.
+</p>
+<p>Las últimas secciones tratan de forma exhaustiva las propiedades y sus
+valores, pero para ilustrar el formato y utilización de estas
+instrucciones usaremos sólo unas cuantas propiedades y valores
+sencillos que sean fáciles de entender.
+</p>
+<p>Por ahora no se preocupe por el <code>#'</code>, que debe anteponerse a la
+propiedad de presentación, y el <code>#</code>, que debe preceder al valor.
+Deben estar presentes siempre y de esa forma exacta.  Es la
+instrucción de uso más común dentro del trucaje, y durante la mayor
+parte del resto de este capítulo presentaremos ejemplos de cómo se
+usa.  A continuación hay un ejemplo sencillo para cambiar el color de
+una cabeza:
+</p>
+<a name="index-color_002c-propiedad_002c-ejemplo"></a>
+<a name="index-NoteHead_002c-ejemplo-de-sobreescritura"></a>
+
+<blockquote><pre class="verbatim">c d
+\override NoteHead #'color = #red
+e f g
+\override NoteHead #'color = #green
+a b c
+</pre><p>
+ <a href="../f9/lily-4f473a9f.ly">
+  <img align="middle"
+       border="0"
+       src="../f9/lily-4f473a9f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><strong>La instrucción \revert</strong>
+</p>
+<a name="index-revert_002c-instruccion"></a>
+
+<a name="index-_005crevert"></a>
+<a name="index-_005crevert-1"></a>
+<a name="index-revert"></a>
+<a name="index-revert-1"></a>
+
+<p>Una vez sobreescrita, la propiedad retiene su nuevo valor hasta que
+se sobreescribe de nuevo o se encuentra una instrucción
+<code>\revert</code>.  La instrucción <code>\revert</code> tiene la siguiente
+sintaxis y ocasiona que el valor de la propiedad se devuelva a su
+valor predeterminado original; observe que no es a su valor previo si
+se han utilizado varias instrucciones <code>\override</code>.
+</p>
+<blockquote><pre class="example">\revert <var>Contexto</var>.<var>ObjetoDePresentación</var> #'<var>propiedad-de-presentación</var>
+</pre></blockquote>
+
+<p>Una vez más, igual que <var>Contexto</var> dentro de la instrucción
+<code>\override</code>, con frecuencia no es necesario especificar el
+<var>Contexto</var>.  Se omitirá en muchos de los ejemplos siguientes.
+Aquí devolvemos el color de la cabeza al valor predeterminado para las
+dos últimas notas:
+</p>
+<a name="index-color_002c-propiedad_002c-ejemplo-1"></a>
+<a name="index-NoteHead_002c-ejemplo-de-sobreescritura-1"></a>
+
+<blockquote><pre class="verbatim">c d
+\override NoteHead #'color = #red
+e f g
+\override NoteHead #'color = #green
+a
+\revert NoteHead #'color
+b c
+</pre><p>
+ <a href="../cf/lily-1f14311b.ly">
+  <img align="middle"
+       border="0"
+       src="../cf/lily-1f14311b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><strong>El prefijo \once</strong>
+</p>
+<a name="index-_005conce"></a>
+<a name="index-_005conce-1"></a>
+<a name="index-once"></a>
+<a name="index-once-1"></a>
+
+<p>Tanto la instrucción <code>\override</code> como <code>\set</code> se pueden
+preceder por <code>\once</code>.  Esto ocasiona que la siguiente instrucción
+<code>\override</code> o <code>\set</code> sea efectiva solamente durante el
+tiempo musical en curso y antes de que la propiedad vuelva a tener
+otra vez su valor predeterminado.  Utilizando el mismo ejemplo,
+podemos cambiar el color de una sola nota de la siguiente manera:
+</p>
+<a name="index-color_002c-propiedad_002c-ejemplo-2"></a>
+<a name="index-NoteHead_002c-ejemplo-de-sobreescritura-2"></a>
+
+<blockquote><pre class="verbatim">c d
+\once \override NoteHead #'color = #red
+e f g
+\once \override NoteHead #'color = #green
+a b c
+</pre><p>
+ <a href="../fb/lily-43897e3b.ly">
+  <img align="middle"
+       border="0"
+       src="../fb/lily-43897e3b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><strong>La instrucción \overrideProperty</strong>
+</p>
+<a name="index-overrideProperty_002c-instruccion"></a>
+
+<a name="index-_005coverrideProperty"></a>
+<a name="index-_005coverrideProperty-1"></a>
+<a name="index-overrideProperty"></a>
+<a name="index-overrideProperty-1"></a>
+
+<p>Hay otra forma para la instrucción de sobreescritura,
+<code>\overrideProperty</code>, que ocasionalmente es necesaria.  La
+mencionamos aquí con un propósito de exhaustividad, pero para ver más
+detalles consulte <a name="index-Difficult-tweaks"></a>
+<a href="../lilypond/Difficult-tweaks.es.html#Difficult-tweaks">Trucos difíciles</a>.
+</p>
+<p><strong>La instrucción \tweak</strong>
+</p>
+<a name="index-tweak_002c-instruccion"></a>
+
+<a name="index-_005ctweak"></a>
+<a name="index-_005ctweak-1"></a>
+<a name="index-tweak"></a>
+<a name="index-tweak-1"></a>
+
+<p>La última instrucción de trucaje que está disponible es <code>\tweak</code>.
+Se debe utilizar para cambiar las propiedades de objetos que suceden
+en el mismo momento musical, como las notas de un acorde.  El uso de
+<code>\override</code> para la sobreescritura afectaría a todas las notas
+del acorde, mientras que <code>\tweak</code> afecta solamente al siguiente
+elemento del flujo de entrada.
+</p>
+<p>He aquí un ejemplo.  Suponga que queremos cambiar el tamaño de la
+cabeza de la nota intermedia (el Mi) en un acorde de Do mayor.  En
+primer lugar, veamos lo que haría <code>\once \override</code>:
+</p>
+<a name="index-font_002dsize_002c-propiedad_002c-ejemplo"></a>
+<a name="index-NoteHead_002c-ejemplo-de-sobreescritura-3"></a>
+
+<blockquote><pre class="verbatim">  &lt;c e g&gt;4
+  \once \override NoteHead #'font-size = #-3
+  &lt;c e g&gt;
+  &lt;c e g&gt;
+</pre><p>
+ <a href="../bb/lily-f9d99845.ly">
+  <img align="middle"
+       border="0"
+       src="../bb/lily-f9d99845.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Vemos que la sobreescritura con override afecta a <em>todas</em> las
+cabezas de las notas del acorde.  Esto es así porque todas las notas
+de un acorde ocurren en el mismo <em>momento musical</em>, y la acción
+de <code>\once</code> es aplicar la sobreescritura a todos los objetos de
+presentación del tipo especificado que ocurren en el mismo momento
+musical que la propia instrucción de sobreescritura <code>\override</code>.
+</p>
+<p>La instrucción <code>\tweak</code> opera de una forma distinta.  Actúa sobre
+el elemento inmediatamente siguiente dentro del flujo de entrada.  Sin
+embargo, es efectivo solamente sobre objetos que se crean directamente
+a partir del flujo de entrada, en esencia las cabezas y las
+articulaciones; los objetos como las plicas y las alteraciones se
+crean con posterioridad y no se pueden trucar de esta forma.  Es más,
+cuando se aplica a las cabezas de las notas, éstas <em>deben</em> estar
+dentro de un acorde, es decir, dentro de ángulos simples, así que para
+trucar una sola nota la instrucción <code>\tweak</code> se debe colocar
+dentro de ángulos simples junto con la nota.
+</p>
+<p>Así pues, volviendo a nuestro ejemplo, el tamaño de la nota intermedia
+se cambiaría de la siguiente forma:
+</p>
+<a name="index-font_002dsize_002c-propiedad_002c-ejemplo-1"></a>
+<a name="index-_005ctweak_002c-ejemplo"></a>
+
+<blockquote><pre class="verbatim">  &lt;c e g&gt;4
+  &lt;c \tweak #'font-size #-3 e g&gt;4
+</pre><p>
+ <a href="../cb/lily-d74215cc.ly">
+  <img align="middle"
+       border="0"
+       src="../cb/lily-d74215cc.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Observe que la sintaxis de <code>\tweak</code> no es igual que la de
+<code>\override</code>.  Ni el contexto ni el objeto de presentación se
+deben especificar; de hecho, generaría un error hacerlo.  Los dos
+están implícitos por el siguiente elemento del flujo de entrada.
+Observe también que no debe haber un signo igual. Así que la sintaxis
+genérica de la instrucción <code>\tweak</code> es, simplemente,
+</p>
+<blockquote><pre class="example">\tweak #'<var>propiedad-de-presentación</var> #<var>valor</var>
+</pre></blockquote>
+
+<p>Una instrucción <code>\tweak</code> también se puede usar para modificar
+sólo una de una serie de articulaciones, como se muestra aquí:
+</p>
+<a name="index-color_002c-propiedad_002c-ejemplo-3"></a>
+<a name="index-_005ctweak_002c-ejemplo-1"></a>
+
+<blockquote><pre class="verbatim">a ^Black
+  -\tweak #'color #red ^Red
+  -\tweak #'color #green _Green
+</pre><p>
+ <a href="../44/lily-3ad4290c.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-3ad4290c.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Observe que la instrucción <code>\tweak</code> debe venir precedida de una
+marca de articulación como si ella misma fuera una articulación.
+</p>
+<a name="index-grupos-especiales-anidados"></a>
+<a name="index-tresillos-anidados"></a>
+<a name="index-corchete-del-grupo-especial"></a>
+<a name="index-corchete-de-tresillo"></a>
+<a name="index-grupo-especial_002c-corchete-de"></a>
+<a name="index-tresillo_002c-corchete-de"></a>
+
+<a name="index-TupletBracket"></a>
+<a name="index-TupletBracket-1"></a>
+
+<p>La instrucción <code>\tweak</code> también se debe usar para cambiar la
+apariencia de uno solo de un conjunto de grupos especiales anidados
+que comiencen en el mismo instante musical.  En el siguiente ejemplo,
+el corchete del tresillo largo y el primero de los tres corchetes
+cortos empiezan en el mismo momento musical, y por ello cualquier
+instrucción <code>\override</code> se aplicaría a los dos.  En el ejemplo se
+usa <code>\tweak</code> para distinguir entre ellos.  La primera instrucción
+<code>\tweak</code> especifica que el corchete del tresillo largo se debe
+colocar por encima de las notas y el segundo especifica que el número
+del tresillo se debe imprimir en rojo sobre el corchete del primer
+tresillo corto.
+</p>
+<a name="index-_005ctweak_002c-ejemplo-2"></a>
+<a name="index-direction_002c-propiedad_002c-ejemplo"></a>
+<a name="index-color_002c-propiedad_002c-ejemplo-4"></a>
+
+<blockquote><pre class="verbatim">\tweak #'direction #up
+\times 4/3 {
+  \tweak #'color #red
+  \times 2/3 { c8[ c8 c8] }
+  \times 2/3 { c8[ c8 c8] }
+  \times 2/3 { c8[ c8 c8] }
+}
+</pre><p>
+ <a href="../a3/lily-9404f6c2.ly">
+  <img align="middle"
+       border="0"
+       src="../a3/lily-9404f6c2.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Si los grupos anidados no comienzan en el mismo momento, su apariencia
+se puede modificar de la forma usual mediante instrucciones
+<code>\override</code>:
+</p>
+<a name="index-text_002c-propiedad_002c-ejemplo"></a>
+<a name="index-tuplet_002dnumber_002c-funcion_002c-ejemplo"></a>
+<a name="index-transparent_002c-propiedad_002c-ejemplo"></a>
+<a name="index-TupletNumber_002c-ejemplo-de-sobreescritura"></a>
+
+<blockquote><pre class="verbatim">\times 2/3 { c8[ c c]}
+\once \override TupletNumber
+  #'text = #tuplet-number::calc-fraction-text
+\times 2/3 {
+  c[ c]
+  c[ c]
+  \once \override TupletNumber #'transparent = ##t
+  \times 2/3 { c8[ c c] }
+\times 2/3 { c8[ c c]}
+}
+</pre><p>
+ <a href="../4a/lily-5b03d21b.ly">
+  <img align="middle"
+       border="0"
+       src="../4a/lily-5b03d21b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="Vease-tambien-11"></a>
+<h4 class="subsubheading">Véase también</h4>
+<p>Referencia de la notación:
+<a name="index-The-tweak-command"></a>
+<a href="../lilypond/The-tweak-command.es.html#The-tweak-command">La instrucción tweak</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.es.html#Tweaking-output" title="Inicio de este cap&iacute;tulo o cap&iacute;tulo anterior"> &lt;&lt; Trucar la salida&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.es.html#Top" title="Portada del documento" rel="start">Arriba</a>][<a href="index_toc.es.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="LilyPond-index.es.html#LilyPond-index" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>][<a href="index_abt.es.html#SEC_About" title="Acerca de (p&aacute;gina de ayuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects" title="Cap&iacute;tulo siguiente">&nbsp;Trabajar en proyectos de LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Naming-conventions-of-objects-and-properties.es.html#Naming-conventions-of-objects-and-properties" title="Secci&oacute;n anterior en orden de lectura" accesskey="p" rel="previous"> &lt; Convenciones de nombres de objetos y propiedades&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Tweaking-basics.es.html#Tweaking-basics" title="Subir secci&oacute;n" accesskey="u" rel="up">&nbsp; Subir :&nbsp;Elementos de trucaje&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual" title="Secci&oacute;n siguiente en orden de lectura" accesskey="n" rel="next">&nbsp;Manual de referencia de funcionamiento interno &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Esta página corresponde a LilyPond-2.12.3 (rama estable).
+</p>
+<p class="footer_report">
+Se agradecen las <a href="http://lilypond.org/web/devel/participating/documentation-adding">sugerencias para la documentación</a>. Informe de los fallos a través de la lista en español <a href="http://es.groups.yahoo.com/group/lilypond-es/">lilypond-es</a>, o en inglés a través de <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">la lista oficial de fallos</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Otros idiomas: <a href="Tweaking-methods.html">English</a>, <a href="Tweaking-methods.fr.html">français</a>, <a href="Tweaking-methods.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.es.html" 
+         title="Documentation Index">&lt;&lt; Volver al índice de la documentación</a></p>
+<h4 class="toc_header"><a href="index.es.html#Top" title="Start of the manual">Manual de aprendizaje</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.es.html#Preface">Preámbulo</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.es.html#Introduction">1. Introducción</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.es.html#Background">1.1 Antecedentes</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.es.html#About-the-documentation">1.2 Sobre la documentación</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.es.html#Tutorial">2. Tutorial</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.es.html#First-steps">2.1 Primeros pasos</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.es.html#Single-staff-notation">2.2 Notación en un solo pentagrama</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.es.html#Multiple-notes-at-once">2.3 Varias notas a la vez</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.es.html#Songs">2.4 Canciones</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.es.html#Final-touches">2.5 Retoques finales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.es.html#Fundamental-concepts">3. Conceptos fundamentales</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.es.html#How-LilyPond-input-files-work">3.1 Cómo funcionan los archivos de entrada de LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.es.html#Voices-contain-music">3.2 Las voces contienen música</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.es.html#Contexts-and-engravers">3.3 Contextos y grabadores</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.es.html#Extending-the-templates">3.4 Extender las plantillas</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.es.html#Tweaking-output">4. Trucar la salida</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Tweaking-basics-1" href="Tweaking-basics.es.html#Tweaking-basics">4.1 Elementos de trucaje</a>
+    <ul class="toc">
+      <li><a name="toc-Introduction-to-tweaks-1" href="Introduction-to-tweaks.es.html#Introduction-to-tweaks">4.1.1 Introducción al trucaje</a>      </li>
+      <li><a name="toc-Objects-and-interfaces-1" href="Objects-and-interfaces.es.html#Objects-and-interfaces">4.1.2 Objetos e interfaces</a>      </li>
+      <li><a name="toc-Naming-conventions-of-objects-and-properties-1" href="Naming-conventions-of-objects-and-properties.es.html#Naming-conventions-of-objects-and-properties">4.1.3 Convenciones de nombres de objetos y propiedades</a>      </li>
+      <li class="toc_current"><a name="toc-Tweaking-methods-1" href="Tweaking-methods.es.html#Tweaking-methods">4.1.4 Métodos de trucaje</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.es.html#The-Internals-Reference-manual">4.2 Manual de referencia de funcionamiento interno</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.es.html#Appearance-of-objects">4.3 Apariencia de los objetos</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.es.html#Placement-of-objects">4.4 Colocación de los objetos</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.es.html#Collisions-of-objects">4.5 Colisiones de objetos</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.es.html#Further-tweaking">4.6 Trucajes adicionales</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.es.html#Working-on-LilyPond-projects">5. Trabajar en proyectos de LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-files-1" href="Suggestions-for-writing-LilyPond-files.es.html#Suggestions-for-writing-LilyPond-files">5.1 Suggestions for writing LilyPond files</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.es.html#When-things-don_0027t-work">5.2 Cuando las cosas no van</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.es.html#Scores-and-parts">5.3 Partituras y particellas</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.es.html#Templates">A. Plantillas</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.es.html#Single-staff">A.1 Pentagrama único</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.es.html#Piano-templates">A.2 Plantillas de piano</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.es.html#String-quartet">A.3 Cuarteto de cuerda</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.es.html#Vocal-ensembles">A.4 Conjuntos vocales</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.es.html#Ancient-notation-templates">A.5 Plantillas para notación antigua</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.es.html#Jazz-combo">A.6 Combo de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.es.html#lilypond_002dbook-templates">A.7 Plantillas de lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.es.html#Scheme-tutorial">B. Tutorial de Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.es.html#Tweaking-with-Scheme">B.1 Trucos con Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.es.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.es.html#LilyPond-index">D. Índice de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

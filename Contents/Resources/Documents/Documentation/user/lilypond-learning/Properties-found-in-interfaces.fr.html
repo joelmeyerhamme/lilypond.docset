@@ -1,0 +1,320 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 par les auteurs
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+La traduction de la notice de droits d'auteur ci-dessous vise à
+faciliter sa compréhension par le lecteur non anglophone, mais seule la
+notice en anglais a valeur légale.
+
+Vous avez le droit de copier, distribuer et/ou modifier ce document
+selon les termes de la Licence GNU de documentation libre, version 1.1
+ou tout autre version ultérieure publiée par la Free Software
+Foundation, "sans aucune section invariante".
+Une copie de la licence est fournie à la section "Licence GNU de documentation libre".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on le 13 janvier 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond &ndash; Manuel d&rsquo;initiation&nbsp;: 4.2.2 Propriétés listées par interface</title>
+
+<meta name="description" content="GNU LilyPond &ndash; Manuel d'initiation: 4.2.2 Properties found in interfaces">
+<meta name="keywords" content="GNU LilyPond &ndash; Manuel d'initiation: 4.2.2 Properties found in interfaces">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.fr.html#Top" rel="start" title="GNU LilyPond &mdash; Manuel d'initiation">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.fr.html#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="index_abt.fr.html#SEC_About" rel="help" title="A propos de ce document">
+<link href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual" rel="up" title="4.2 The Internals Reference manual">
+<link href="LilyPond-index.fr.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" rel="previous" title="4.2.1 Properties of layout objects">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="fr" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Properties-found-in-interfaces"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Propriétés des objets de rendu&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Le manuel des références internes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Types-of-properties.fr.html#Types-of-properties" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Types de propriétés &gt; </a>]</td></tr></table>
+<a name="Properties-found-in-interfaces"></a>
+<h3 class="subsection">4.2.2 Propriétés listées par interface</h3>
+
+<a name="index-interface-1"></a>
+<a name="index-interfaces_002c-proprietes-des"></a>
+<a name="index-proprietes-des-interfaces"></a>
+
+<p>Supposons maintenant que nous voulions imprimer des paroles en italique.  
+Quelle formulation de la commande <code>\override</code> allons-nous utiliser<font size="-4">&nbsp;</font>? 
+Nous consultons en premier lieu, comme précédemment, la page de la RPI 
+qui contient la liste &lsquo;Tous les objets de rendu&rsquo;, et recherchons 
+un objet qui contrôle les paroles.  Nous trouvons <code>LyricText</code>, qui 
+semble approprié.  Nous cliquons dessus et nous voyons apparaître les 
+différentes propriétés des paroles, parmi lesquelles <code>font-series</code> 
+et <code>font-size</code>.  Mais aucune ne propose l&rsquo;italique.  Car la mise 
+en forme des caractères est une propriété commune à tous les objets 
+d&rsquo;écriture, si bien que, au lieu de figurer dans tous les objets de rendu, 
+elle est regroupée avec d&rsquo;autres propriétés semblables et placée dans une 
+<strong>Interface</strong>, la <code>font-interface</code>.
+</p>
+<p>Il nous faut donc apprendre à trouver les propriétés des interfaces 
+et découvrir les objets qui utilisent les propriétés de ces interfaces.
+</p>
+<p>Retournons à la page de la RPI qui traite des paroles
+(<em>LyricText</em>).  En bas de la page est dressée sous forme de liens
+la liste des interfaces qui concernent LyricText.  Cette liste comporte
+plusieurs entrées, dont <code>font-interface</code>.  En cliquant dessus, nous
+voyons apparaître les différentes propriétés associées à cette
+interface, qui sont en même temps les propriétés de tous les objets qui
+s&rsquo;y rapportent, parmi lesquels  LyricText.
+</p>
+<p>Nous avons alors sous les yeux tous les réglages de propriétés qui 
+contrôlent les polices de caractères, et notamment 
+<code>font-shape(symbole)</code>, où <code>symbole</code> peut prendre la valeur 
+<code>upright</code>, <code>italics</code> ou <code>caps</code>.
+</p>
+<p>Vous remarquerez que <code>font-series</code> et <code>font-size</code> figurent 
+aussi dans la liste.  La question qui ne manque pas de se poser est&nbsp;: 
+&laquo;&nbsp;Comment se fait-il que les propriétés <code>font-series</code> et 
+<code>font-size</code> se retrouvent à la fois dans <code>LyricText</code> et dans 
+l&rsquo;interface <code>font-interface</code> alors que ce n&rsquo;est pas le cas pour 
+<code>font-shape</code><font size="-4">&nbsp;</font>?&nbsp;&raquo;  La réponse est que lorsqu&rsquo;un objet <code>LyricText</code> 
+est créé, les valeurs globales par défaut de <code>font-series</code> et 
+<code>font-size</code> sont modifiées, mais pas celles de <code>font-shape</code>. 
+Les possibilités de modification dans <code>LyricText</code> ne concernent 
+donc que les valeurs à appliquer à <code>LyricText</code>.  Les autres objets qui 
+dépendent de <code>font-interface</code> fixeront leurs propriétés différemment 
+lorsqu&rsquo;ils seront créés.
+</p>
+<p>Voyons maintenant si nous sommes en mesure de formuler la commande 
+<code>\override</code> pour mettre les paroles en italique.  L&rsquo;objet est 
+<code>LyricText</code>, la propriété est <code>font-shape</code> et la valeur est 
+<code>italic</code>.  Comme auparavant, nous laissons de côté le contexte. 
+</p>
+<p>Signalons rapidement &ndash; même si cette remarque est importante &ndash; que,
+puisque les valeurs de <code>font-shape</code> se présentent sous forme de
+symboles, elles doivent être précédées d&rsquo;une simple apostrophe,
+<code>'</code>.  C&rsquo;est pour cette raison qu&rsquo;il fallait une apostrophe devant
+<code>thickness</code> dans l&rsquo;exemple précédent, et qu&rsquo;il en faut une devant
+<code>font-shape</code>. Ce sont à chaque fois des symboles, qui sont
+interprétés comme tels par LilyPond.  Certains symboles peuvent être des
+noms de propriété, comme <code>thickness</code> ou <code>font-shape</code>,
+d&rsquo;autres sont des valeurs à attribuer aux propriétés, comme
+<code>italic</code>. À ne pas confondre avec les chaînes de caractères libres,
+qui se présentent comme <code>&quot;un texte libre&quot;</code>&nbsp;; pour plus de détails
+sur les symboles et les chaînes de caractères, voir <a href="Scheme-tutorial.fr.html#Scheme-tutorial">Tutoriel Scheme</a>. 
+</p>
+<p>Ainsi, la commande <code>\override</code> pour mettre les paroles en italique 
+est&nbsp;: 
+</p>
+<blockquote><pre class="example">\override LyricText #'font-shape = #'italic
+</pre></blockquote>
+
+<p>et elle doit être placée juste devant et tout près des paroles à modifier, 
+comme ceci&nbsp;:
+</p>
+<a name="index-font_002dshape_002c-exemple-de-propriete"></a>
+<a name="index-italic_002c-exemple"></a>
+<a name="index-LyricText_002c-exemple-de-derogation"></a>
+<a name="index-_005caddlyrics_002c-exemple"></a>
+
+<blockquote><pre class="verbatim">{
+  \time 6/8
+  {
+    r4 b8 b[( g]) g |
+    g[( e]) e d[( f]) a |
+    a g
+  }
+  \addlyrics {
+    \override LyricText #'font-shape = #'italic
+    The man who feels love's sweet e -- mo -- tion
+  }
+}
+</pre><p>
+ <a href="../06/lily-92a4be57.ly">
+  <img align="middle"
+       border="0"
+       src="../06/lily-92a4be57.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>et voilà les paroles en italiques.
+</p>
+<a name="Specifying-the-context-in-lyric-mode"></a>
+<h3 class="subheading">Spécification du contexte en mode lyrique</h3>
+
+<a name="index-contexte_002c-specification-en-mode-lyrique"></a>
+<a name="index-mode-lyrique_002c-specification-de-contexte-en"></a>
+
+<p>Lorsqu&rsquo;il s&rsquo;agit de paroles et qu&rsquo;on cherche à préciser le contexte 
+sur le modèle de ce qui a été fait précédemment, la commande échoue. 
+Car une syllabe saisie en mode Paroles (lyricmode) se termine 
+obligatoirement par une espace, un saut de ligne ou un nombre. Tout 
+autre caractère compte comme un élément de la syllabe. C&rsquo;est pourquoi 
+il faut une espace ou un saut de ligne avant le <code>}</code> final, pour 
+éviter qu&rsquo;il ne soit assimilé à la dernière syllabe. De même, il faut insérer 
+des espaces avant et après le point, &lsquo;.&rsquo;, qui sépare le nom de 
+contexte du nom de l&rsquo;objet, faute de quoi les deux noms seront joints et 
+l&rsquo;interpréteur ne pourra pas les reconnaître. La formulation correcte est 
+donc&nbsp;: 
+</p>
+<blockquote><pre class="example">\override Lyrics . LyricText #'font-shape = #'italic
+</pre></blockquote>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note&nbsp;:</b> Dans la saisie des paroles, pensez à toujours laisser une
+espace entre la dernière syllabe et l&rsquo;accolade fermante.
+</p></td></tr></table>
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Note&nbsp;:</b> Lorsqu&rsquo;on retouche des paroles, toujours placer des espaces 
+autour du point qui sépare le nom de contexte du nom d&rsquo;objet.
+</p></td></tr></table>
+
+<a name="See-also-11"></a>
+<h4 class="subsubheading">Voir aussi</h4>
+<p>Manuel d&rsquo;initiation&nbsp;: <a href="Scheme-tutorial.fr.html#Scheme-tutorial">Tutoriel Scheme</a>.
+</p>
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaking-output.fr.html#Tweaking-output" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; Retouche de partition&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.fr.html#Top" title="Couverture (top) du document" rel="start">Racine</a>][<a href="index_toc.fr.html#SEC_Contents" title="Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>][<a href="LilyPond-index.fr.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.fr.html#SEC_About" title="A propos (page d&rsquo;aide)" rel="help"><font size="-4">&nbsp;</font>? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects" title="Chapitre suivant">&nbsp;Travail sur des projets LilyPond &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture" accesskey="p" rel="previous"> &lt; Propriétés des objets de rendu&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual" title="Section sup&eacute;rieure" accesskey="u" rel="up">&nbsp;Plus haut:&nbsp;Le manuel des références internes&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Types-of-properties.fr.html#Types-of-properties" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">&nbsp;Types de propriétés &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Cette page documente LilyPond-2.12.3 (branche stable).
+</p>
+<p class="footer_report">
+Vos <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions à propos de la documentation</a> sont les bienvenues ;
+signalez tout bogue en français à la <a href=\"http://n2.nabble.com/LilyPond-French-Users-f1298960.html\">liste
+francophone des utilisateurs</a> ou en anglais à la <a href=\"http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs\">liste des
+utilisateurs</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Autres langues&nbsp;: <a href="Properties-found-in-interfaces.html">English</a>, <a href="Properties-found-in-interfaces.es.html">español</a>, <a href="Properties-found-in-interfaces.de.html">deutsch</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.fr.html" 
+         title="Documentation Index">&lt;&lt; Retour à l&rsquo;accueil de la documentation</a></p>
+<h4 class="toc_header"><a href="index.fr.html#Top" title="Start of the manual">Manuel d&rsquo;initiation</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.fr.html#Preface">Préface</a>  </li>
+  <li><a name="toc-Introduction-1" href="Introduction.fr.html#Introduction">1. Introduction</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.fr.html#Background">1.1 Contexte</a>    </li>
+    <li><a name="toc-About-the-documentation-1" href="About-the-documentation.fr.html#About-the-documentation">1.2 À propos de la documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.fr.html#Tutorial">2. Tutoriel</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.fr.html#First-steps">2.1 Premiers pas</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.fr.html#Single-staff-notation">2.2 Notation sur une seule portée</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.fr.html#Multiple-notes-at-once">2.3 Notes simultanées</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.fr.html#Songs">2.4 Chansons</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.fr.html#Final-touches">2.5 Dernières précisions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.fr.html#Fundamental-concepts">3. Concepts fondamentaux</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.fr.html#How-LilyPond-input-files-work">3.1 Organisation des fichiers LilyPond</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.fr.html#Voices-contain-music">3.2 Les voix contiennent la musique</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.fr.html#Contexts-and-engravers">3.3 Contextes et graveurs</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.fr.html#Extending-the-templates">3.4 Extension des modèles</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Tweaking-output-1" href="Tweaking-output.fr.html#Tweaking-output">4. Retouche de partition</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.fr.html#Tweaking-basics">4.1 Retouches élémentaires</a>    </li>
+    <li class="toc_current"><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.fr.html#The-Internals-Reference-manual">4.2 Le manuel des références internes</a>
+    <ul class="toc">
+      <li><a name="toc-Properties-of-layout-objects-1" href="Properties-of-layout-objects.fr.html#Properties-of-layout-objects">4.2.1 Propriétés des objets de rendu</a>      </li>
+      <li class="toc_current"><a name="toc-Properties-found-in-interfaces-1" href="Properties-found-in-interfaces.fr.html#Properties-found-in-interfaces">4.2.2 Propriétés listées par interface</a>      </li>
+      <li><a name="toc-Types-of-properties-1" href="Types-of-properties.fr.html#Types-of-properties">4.2.3 Types de propriétés</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.fr.html#Appearance-of-objects">4.3 Apparence des objets</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.fr.html#Placement-of-objects">4.4 Positionnement des objets</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.fr.html#Collisions-of-objects">4.5 Collisions d&rsquo;objets</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.fr.html#Further-tweaking">4.6 Autres retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.fr.html#Working-on-LilyPond-projects">5. Travail sur des projets LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.fr.html#Suggestions-for-writing-LilyPond-input-files">5.1 Suggestions pour la saisie de fichiers LilyPond</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.fr.html#When-things-don_0027t-work">5.2 Quand ça ne fonctionne pas</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.fr.html#Scores-and-parts">5.3 Conducteurs et parties</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.fr.html#Templates">A. Modèles</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.fr.html#Single-staff">A.1 Portée unique</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.fr.html#Piano-templates">A.2 Modèles pour claviers</a>    </li>
+    <li><a name="toc-String-quartet-1" href="String-quartet.fr.html#String-quartet">A.3 Quatuor à cordes</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.fr.html#Vocal-ensembles">A.4 Ensemble vocal</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.fr.html#Ancient-notation-templates">A.5 Exemples de notation ancienne</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.fr.html#Jazz-combo">A.6 Symboles de jazz</a>    </li>
+    <li><a name="toc-lilypond_002dbook-templates-1" href="lilypond_002dbook-templates.fr.html#lilypond_002dbook-templates">A.7 Squelettes pour lilypond-book</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.fr.html#Scheme-tutorial">B. Tutoriel Scheme</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.fr.html#Tweaking-with-Scheme">B.1 Scheme et les retouches</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.fr.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.fr.html#LilyPond-index">D. Index de LilyPond</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

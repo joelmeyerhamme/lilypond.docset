@@ -1,0 +1,880 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eie Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Benutzerhandbuch: 1.2.2 Pausen eingeben</title>
+
+<meta name="description" content="GNU LilyPond Benutzerhandbuch: 1.2.2 Writing rests">
+<meta name="keywords" content="GNU LilyPond Benutzerhandbuch: 1.2.2 Writing rests">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#index" rel="start" title="GNU LilyPond &mdash; Notation Reference">
+<link href="LilyPond-command-index.de.html#LilyPond-command-index" rel="index" title="E. LilyPond command index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Rhythms.de.html#Rhythms" rel="up" title="1.2 Rhythms">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="F. LilyPond index">
+<link href="Writing-rhythms.de.html#Writing-rhythms" rel="previous" title="1.2.1 Writing rhythms">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Writing-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Writing-rhythms.de.html#Ties" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Bindebögen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Rhythms.de.html#Rhythms" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Rhythmus&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Rests" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Pausen &gt; </a>]</td></tr></table>
+<a name="Writing-rests"></a>
+<h3 class="subsection">1.2.2 Pausen eingeben</h3>
+
+<p>Pausen werden als Teil der musikalischen Ausdrücke zusammen mit
+den Noten notiert.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Rests" accesskey="1">Pausen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Invisible-rests" accesskey="2">Unsichtbare Pausen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Full-measure-rests" accesskey="3">Ganztaktige Pausen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">          
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="Rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Writing-rests" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Pausen eingeben&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Pausen eingeben&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Invisible-rests" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Unsichtbare Pausen &gt; </a>]</td></tr></table>
+<a name="Rests"></a>
+<h4 class="unnumberedsubsubsec">Pausen</h4>
+
+<a name="index-Pausen"></a>
+<a name="index-Pausendauern"></a>
+<a name="index-Maxima_002dPause"></a>
+<a name="index-Longa_002dPause"></a>
+<a name="index-Brevis_002dPause"></a>
+
+<a name="index-_005crest"></a>
+<a name="index-_005crest-1"></a>
+<a name="index-r"></a>
+<a name="index-r-1"></a>
+<a name="index-_005cmaxima-2"></a>
+<a name="index-_005cmaxima-3"></a>
+<a name="index-_005clonga-2"></a>
+<a name="index-_005clonga-3"></a>
+<a name="index-_005cbreve-2"></a>
+<a name="index-_005cbreve-3"></a>
+<a name="index-rest"></a>
+<a name="index-rest-1"></a>
+<a name="index-maxima-3"></a>
+<a name="index-maxima-4"></a>
+<a name="index-longa-3"></a>
+<a name="index-longa-4"></a>
+<a name="index-breve-3"></a>
+<a name="index-breve-4"></a>
+
+<p>Pausen werden wie Noten eingegeben, ihre Bezeichnung ist <code>r</code>.
+Dauern, die länger als eine Ganze sind, haben die gezeigten
+vordefinierten Befehle:
+</p>
+<blockquote><pre class="verbatim">\new Staff {
+  % Die zwei Linien sind nur zur Verschönerung
+  \time 16/1
+  \override Staff.TimeSignature #'stencil = ##f
+  % Setze Maxima-Pause, gleich vier Breven
+  r\maxima
+  % Setze Longa-Pause, gleich zwei Breven
+  r\longa
+  % Setze Breve-Pause
+  r\breve
+  r1 r2 r4 r8 r16 r32 r64 r128
+}
+</pre><p>
+ <a href="../d3/lily-678b45ef.ly">
+  <img align="middle"
+       border="0"
+       src="../d3/lily-678b45ef.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Pausen_002c-mehrtaktig"></a>
+<a name="index-Ganztaktpausen"></a>
+<a name="index-Mehrtaktpausen"></a>
+
+<p>Pausen, die ganze Takte ausfüllen und in der Taktmitte zentriert 
+werden sollen, müssen als mehrtaktige Pausen eingegeben werden. 
+Sie können sowohl für einen einzigen Takt als auch für mehrere 
+Takte verwendet werden, Näheres im Abschnitt
+<a href="#Full-measure-rests">Ganztaktige Pausen</a>.
+</p>
+<p>Um die vertikale Position einer Pause explizit festzulegen, 
+kann eine Note eingegeben werden, gefolgt vom Befehl <code>\rest</code>. 
+Die Pause wird dann an die Stelle gesetzt, wo sich sonst die 
+Note befinden würde.  Damit wird die manuelle Formatierung von mehrstimmiger Musik 
+sehr viel einfacher, da die Formatierungsfunktion zur automatischen 
+Auflösung von Zusammenstößen diese Pausen nicht mit einbezieht.
+</p>
+<blockquote><pre class="verbatim">a4\rest d4\rest
+</pre><p>
+ <a href="../ea/lily-8bbfccc6.ly">
+  <img align="middle"
+       border="0"
+       src="../ea/lily-8bbfccc6.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Pausenstile</em>
+</p>
+
+<p>Pausen können in verschiedenen Stilen dargestellt werden.
+</p>
+<blockquote><pre class="verbatim">\layout {
+  indent = 0.0
+  \context {
+    \Staff
+    \remove &quot;Time_signature_engraver&quot;
+  }
+}
+
+\new Staff \relative c {
+  \cadenzaOn
+  \override Staff.Rest #'style = #'mensural
+  r\maxima^\markup \typewriter { mensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'neomensural
+  r\maxima^\markup \typewriter { neomensural }
+  r\longa r\breve r1 r2 r4 r8 r16 s32 s64 s128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest #'style = #'classical
+  r\maxima^\markup \typewriter { classical }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+  \bar &quot;&quot;
+  
+  \override Staff.Rest  #'style = #'default
+  r\maxima^\markup \typewriter { default }
+  r\longa r\breve r1 r2 r4 r8 r16 r32 r64 r128 s128
+}
+
+</pre><p>
+ <a href="../ac/lily-4cc5b56b.ly">
+  <img align="middle"
+       border="0"
+       src="../ac/lily-4cc5b56b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-73"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-breve-5"></a>
+<a href="../music-glossary/breve.de.html#breve">Brevis</a>,
+<a name="index-longa-5"></a>
+<a href="../music-glossary/longa.de.html#longa">Longa</a>,
+<a name="index-maxima-5"></a>
+<a href="../music-glossary/maxima.de.html#maxima">maxima</a>.
+</p>
+<p>Notationsreferenz:
+<a href="#Full-measure-rests">Ganztaktige Pausen</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-Rest"></a>
+<a href="../lilypond-internals/Rest.de.html#Rest">Rest</a>.
+</p>
+
+<a name="Known-issues-and-warnings-10"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Es gibt keine gundlegende Grenze für die Dauer von Pausen (sowohl
+kürzer als auch länger), aber die Anzahl von Symbolen ist
+begrenzt: Es gibt Zeichen für Pausen von einer 128 bis zu einer
+Maxima (8 Ganze).
+</p>
+
+<hr size="6">
+<a name="Invisible-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Rests" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Pausen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Pausen eingeben&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Full-measure-rests" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Ganztaktige Pausen &gt; </a>]</td></tr></table>
+<a name="Invisible-rests"></a>
+<h4 class="unnumberedsubsubsec">Unsichtbare Pausen</h4>
+
+<a name="index-Skip"></a>
+<a name="index-Uberspringen-von-Zeichen"></a>
+<a name="index-Unsichtbare-Pausen"></a>
+<a name="index-Pausen_002c-unsichtbar"></a>
+<a name="index-Platzhalternoten"></a>
+
+<a name="index-_005cskip"></a>
+<a name="index-_005cskip-1"></a>
+<a name="index-skip"></a>
+<a name="index-skip-1"></a>
+<a name="index-s"></a>
+<a name="index-s-1"></a>
+
+<p>Eine unsichtbare Pause (auch als &bdquo;skip&ldquo; oder Überspringung bezeichnet) 
+kann wie eine Note eingegeben werden, die Notationsbezeichnung ist <code>s</code>.
+</p>
+<blockquote><pre class="verbatim">a4 a4 s4 a4 \skip 1 a4
+</pre><p>
+ <a href="../44/lily-cadee351.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-cadee351.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Gesangstext_002c-uberspringen"></a>
+
+<p>Die <code>s</code>-Syntax steht nur im Noten- oder Akkordmodus zur Verfügung. In 
+anderen Situationen, z. B. innerhalb eines Liedtextes, muss <code>\skip</code> 
+benutzt werden.  <code>\skip</code> benötigt eine explizite Dauerangabe.
+</p>
+<blockquote><pre class="verbatim">&lt;&lt;
+  {
+    a2 \skip2 a2 a2
+  }
+  \new Lyrics {
+    \lyricmode {
+      foo2 \skip 1 bla2
+    }
+  }
+&gt;&gt;
+</pre><p>
+ <a href="../81/lily-4399536f.ly">
+  <img align="middle"
+       border="0"
+       src="../81/lily-4399536f.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die Überspringung mit <code>s</code> erstellt <code>Staff</code> und
+<code>Voice</code>-Kontext, wenn es erforderlich ist, genauso wie Noten und Pausen.
+</p>
+<blockquote><pre class="verbatim">s1 s s
+</pre><p>
+ <a href="../14/lily-436d3315.ly">
+  <img align="middle"
+       border="0"
+       src="../14/lily-436d3315.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Der Überspringungsbefehl (<code>\skip</code>) ist einfach ein leerer Platzhalter. 
+Durch ihn wird 
+überhaupt nichts gesetzt, auch keine transparenten Objekte.
+</p>
+<blockquote><pre class="verbatim">% Gültiger Eingabecode, aber tut nichts
+\skip 1 \skip1 \skip 1
+</pre><p>
+ <a href="../42/lily-fd0ea497.ly">
+  <img align="middle"
+       border="0"
+       src="../42/lily-fd0ea497.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="See-also-130"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-SkipMusic"></a>
+<a href="../lilypond-internals/SkipMusic.de.html#SkipMusic">SkipMusic</a>
+</p>
+
+
+<hr size="6">
+<a name="Full-measure-rests"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Invisible-rests" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Unsichtbare Pausen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Pausen eingeben&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-rhythms.de.html#Displaying-rhythms" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Rhythmen anzeigen lassen &gt; </a>]</td></tr></table>
+<a name="Full-measure-rests"></a>
+<h4 class="unnumberedsubsubsec">Ganztaktige Pausen</h4>
+
+<a name="index-Ganztaktpausen-1"></a>
+<a name="index-Mehrtaktpausen-1"></a>
+<a name="index-Pausen_002c-Ganztakt_002d"></a>
+<a name="index-Pausen_002c-Mehrtakt_002d"></a>
+
+<a name="index-R"></a>
+<a name="index-R-1"></a>
+
+<p>Pausen für einen oder mehrere ganze Takte werden wie
+Noten eingegeben, wobei die Bezeichnung ein Großbuchstabe
+<code>R</code> ist:
+</p>
+<blockquote><pre class="verbatim">% Pausentakte zu einem einzelnen Takt zusammegezogen
+\compressFullBarRests
+R1*4
+R1*24
+R1*4
+b2^&quot;Tutti&quot; b4 a4
+</pre><p>
+ <a href="../f6/lily-6b9bf514.ly">
+  <img align="middle"
+       border="0"
+       src="../f6/lily-6b9bf514.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Die Dauer von Ganztaktpausen wird genauso angegeben wie die
+Dauer von Noten.  Die Dauer einer Ganztaktpause muss immer
+eine ganze Anzahl an Taktlängen sein, weshalb Punktierungen
+und Brüche recht häufig eingesetzt werden müssen.
+</p>
+<blockquote><pre class="verbatim">\compressFullBarRests
+\time 2/4
+R1 | R2 |
+\time 3/4
+R2. | R2.*2 |
+\time 13/8
+R1*13/8 | R1*13/8*12 |
+\time 10/8
+R4*5*4 |
+</pre><p>
+ <a href="../c9/lily-c1aeb5b4.ly">
+  <img align="middle"
+       border="0"
+       src="../c9/lily-c1aeb5b4.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Eine Ganztaktpause wird abhängig von der Taktart entweder als
+Ganze oder Brevis-Pause gesetzt, zentriert im Takt.
+</p>
+<blockquote><pre class="verbatim">\time 4/4
+R1 |
+\time 6/4
+R1*3/2 |
+\time 8/4
+R1*2 |
+</pre><p>
+ <a href="../64/lily-40c75257.ly">
+  <img align="middle"
+       border="0"
+       src="../64/lily-40c75257.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Mehrtaktpausen_002c-ausschreiben"></a>
+<a name="index-Pausen_002c-mehrere-Takte-ausschreiben"></a>
+<a name="index-Pausen_002c-mehrere-Takte-komprimieren"></a>
+<a name="index-Mehrtaktpausen_002c-komprimieren"></a>
+
+<a name="index-_005cexpandFullBarRests"></a>
+<a name="index-_005cexpandFullBarRests-1"></a>
+<a name="index-_005ccompressFullBarRests"></a>
+<a name="index-_005ccompressFullBarRests-1"></a>
+<a name="index-expandFullBarRests"></a>
+<a name="index-expandFullBarRests-1"></a>
+<a name="index-compressFullBarRests"></a>
+<a name="index-compressFullBarRests-1"></a>
+
+<p>In den Standardeinstellungen werden mehrtaktige Pausen
+ausgeschrieben gesetzt, sodass sie die entsprechende Anzahl von
+Takten einnehmen.  Alternativ kann die mehrtaktige Pause
+aber auch nur in einem Takt angezeigt werden, der ein
+Mehrtaktpausensymbol geinhaltet, wobei die Anzahl der Takte
+der Pausendauer über dem Pausenzeichen ausgegeben wird:
+</p>
+<blockquote><pre class="verbatim">% Standart
+\time 3/4 r2. | R2.*2 |
+\time 2/4 R2 |
+\time 4/4
+% Pausentakte zu einem einzelnen Takt zusammegezogen
+\compressFullBarRests
+r1 | R1*17 | R1*4 |
+% Pausentakte 	ausklappen
+\expandFullBarRests
+\time 3/4
+R2.*2 |
+</pre><p>
+ <a href="../ca/lily-2307047e.ly">
+  <img align="middle"
+       border="0"
+       src="../ca/lily-2307047e.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="index-Text-uber-Mehrtaktpausen"></a>
+<a name="index-Mehrtaktpausen_002c-Text-hinzufugen"></a>
+<a name="index-Beschriftung-uber-Mehrtaktpausen"></a>
+<a name="index-Mehrtaktpausen_002c-Beschriftung"></a>
+<a name="index-Fermate-uber-Mehrtaktpausen"></a>
+<a name="index-Mehrtaktpause-mit-Fermate"></a>
+
+<a name="index-_005cfermataMarkup"></a>
+<a name="index-_005cfermataMarkup-1"></a>
+<a name="index-fermataMarkup"></a>
+<a name="index-fermataMarkup-1"></a>
+
+<p>Textbeschriftung kann Mehrtaktpausen mit <code>\markup</code>
+hinzugefügt werden.  Ein 
+vordefinierte Befehl <code>\fermataMarkup</code> fügt eine
+Fermate ein.
+</p>
+<blockquote><pre class="verbatim">\compressFullBarRests
+\time 3/4
+R2.*10^\markup { \italic &quot;ad lib.&quot; }
+R2.^\fermataMarkup
+</pre><p>
+ <a href="../0c/lily-92bf5997.ly">
+  <img align="middle"
+       border="0"
+       src="../0c/lily-92bf5997.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<table class="cartouche" border="1"><tr><td>
+<p><b>Achtung:</b> Beschriftungen, die an Mehrtaktpausen gehängt werden, sind
+Objekte vom Typ <code>MultiMeasureRestText</code>, nicht vom Typ
+<code>TextScript</code>.  Änderungen etwa mit <code>override</code>
+müssen auf das richtige Objekt gerichtet werden, damit sie
+nicht ignoriert werden.  Siehe auch das folgende Beispiel.
+</p>
+</td></tr></table>
+
+<blockquote><pre class="verbatim">% Das funktioniert nicht, weil die falsche Objektbezeichnung angegeben ist
+\override TextScript #'padding = #5
+R1^&quot;wrong&quot;
+% Das stimmt und funktioniert
+\override MultiMeasureRestText #'padding = #5
+R1^&quot;right&quot;
+</pre><p>
+ <a href="../50/lily-5b95480b.ly">
+  <img align="middle"
+       border="0"
+       src="../50/lily-5b95480b.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p>Wenn eine Mehrtaktpause direkt auf einen Auftakt mit <code>\partial</code>
+folgt, werden möglicherweise daraus resultierende
+Taktprüfungswarnungen nicht angezeigt.
+</p>
+<a name="Predefined-commands-9"></a>
+<h4 class="subsubheading">Vordefinierte Befehle</h4>
+<p><code>\textLengthOn</code>,
+<code>\textLengthOff</code>,
+<code>\fermataMarkup</code>,
+<code>\compressFullBarRests</code>,
+<code>\expandFullBarRests</code>.
+</p>
+<a name="Selected-Snippets-51"></a>
+<h4 class="subsubheading">Ausgewählte Schnipsel</h4>
+
+<a name="index-Kirchenpausen"></a>
+<a name="index-Pausen_002c-Kirchenstil"></a>
+<a name="index-Balkenpausen_002c-mehrtaktig"></a>
+
+<p><em> Die Erscheinung von Pausentakten ändern</em>
+</p>
+
+<p>Wenn zehn oder weniger Pausentakte vorkommen, wird eine Reihe von Longa-
+und Brevispausen (auch Kirchenpausen genannt) gesetzt, bei mehr Takten
+wird eine Line mit der Taktanzahl ausgegeben.  Der vorgegebene Wert von
+zehn kann geändert werden, indem man die <code>expand-limit</code>-Eigenschaft
+setzt:
+</p>
+<blockquote><pre class="verbatim">\relative c'' {
+  \compressFullBarRests
+  R1*2 | R1*5 | R1*9
+  \override MultiMeasureRest #'expand-limit = #3
+  R1*2 | R1*5 | R1*9
+}
+</pre><p>
+ <a href="../a1/lily-768d0fe9.ly">
+  <img align="middle"
+       border="0"
+       src="../a1/lily-768d0fe9.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<a name="index-Mehrtaktpausen_002c-Positionierung"></a>
+<a name="index-Position-von-Mehrtaktpausen"></a>
+
+<p><em> Positionierung von Ganztaktpausen</em>
+</p>
+
+<p>Anders als bei normalen Pausen gibt es keinen direkten Befehl, um die
+vertikale Position von Ganztaktpausen zu beeinflussen, indem man sie an
+eine Tonhöhe anhängt.  In polyphoner Notation wird aber dennoch die
+Position der Pausen von geraden und ungeraden Stimmen voneinander
+unterschieden.  Die Position von Ganztaktpausen kann wie folgt verändert
+werden:
+</p> 
+<blockquote><pre class="verbatim">\relative c'' {
+  % Multi-measure rests by default are set under the fourth line
+  R1
+  % Sie können mit override verschoben werden
+  \override MultiMeasureRest #'staff-position = #-2
+  R1
+  % Ein Wert von O ist die Standardposition
+  % hiermit wird die Pause zur Mittellinie verschoben
+  \override MultiMeasureRest #'staff-position = #-0.01
+  R1
+  % Ganztaktpausen in Stimmen mit ungerader Zahl sind unter der obersten Linie
+  &lt;&lt; { R1 } \\ { a1 } &gt;&gt;
+  % Ganztaktpausen in geraden Stimmen sind unter der untersten Linie
+  &lt;&lt; { c1 } \\ { R1 } &gt;&gt;
+  % auch in leeren Takten bleichen sie getrennt
+  &lt;&lt; { R1 } \\ { R1 } &gt;&gt;
+  % Hiermit werden sie zusammegefügt, auch wenn sie zwei Stimmen sind
+  \compressFullBarRests
+  &lt;&lt;
+    \revert MultiMeasureRest #'staff-position
+    { R1*3 }
+    \\
+    \revert MultiMeasureRest #'staff-position
+    { R1*3 }
+  &gt;&gt;
+}
+</pre><p>
+ <a href="../8b/lily-cc2b0d79.ly">
+  <img align="middle"
+       border="0"
+       src="../8b/lily-cc2b0d79.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+<p><em> Multi-measure rest markup</em>
+</p>
+
+<p>Markups attached to a multi-measure rest will be centered above or
+below it.  Long markups attached to multi-measure rests do not cause
+the measure to expand.  To expand a multi-measure rest to fit the
+markup, use a spacer rest with an attached markup before the
+multi-measure rest.
+</p>
+<p>Note that the spacer rest causes a bar line to be inserted.  Text
+attached to a spacer rest in this way is left-aligned to the position
+where the note would be placed in the measure, but if the measure
+length is determined by the length of the text, the text will appear to
+be centered. 
+</p>
+
+<blockquote><pre class="verbatim">\relative c' {
+  \compressFullBarRests
+  \textLengthOn
+  s1*0^\markup { [MAJOR GENERAL] }
+  R1*19
+  s1*0_\markup { \italic { Cue: ... it is yours } }
+  s1*0^\markup { A }
+  R1*30^\markup { [MABEL] }
+  \textLengthOff
+  c4^\markup { CHORUS } d f c
+}
+</pre><p>
+ <a href="../05/lily-ffe88083.ly">
+  <img align="middle"
+       border="0"
+       src="../05/lily-ffe88083.png"
+       alt="[image of music]">
+ </a>
+</p>
+</blockquote>
+
+
+
+
+<a name="See-also-76"></a>
+<h4 class="subsubheading">Siehe auch</h4>
+<p>Glossar:
+<a name="index-multi_002dmeasure-rest"></a>
+<a href="../music-glossary/multi_002dmeasure-rest.de.html#multi_002dmeasure-rest">Pausen über mehrere Takte</a>.
+</p>
+<p>Notationsreferenz:
+<a href="Writing-rhythms.de.html#Durations">Tondauern</a>,
+<a href="Text.de.html#Text">Text</a>,
+<a href="Formatting-text.de.html#Formatting-text">Text formatieren</a>,
+<a href="Writing-text.de.html#Text-scripts">Textarten</a>.
+</p>
+<p>Schnipsel:
+<a href="../../../input/lsr/lilypond-snippets/Rhythms.html#Rhythms">Rhythmus</a>.
+</p>
+<p>Referenz der Interna:
+<a name="index-MultiMeasureRest"></a>
+<a href="../lilypond-internals/MultiMeasureRest.de.html#MultiMeasureRest">MultiMeasureRest</a>,
+<a name="index-MultiMeasureRestNumber"></a>
+<a href="../lilypond-internals/MultiMeasureRestNumber.de.html#MultiMeasureRestNumber">MultiMeasureRestNumber</a>,
+<a name="index-MultiMeasureRestText"></a>
+<a href="../lilypond-internals/MultiMeasureRestText.de.html#MultiMeasureRestText">MultiMeasureRestText</a>.
+</p>
+<a name="index-Fingersatz-und-Mehrtaktpausen"></a>
+<a name="index-Mehrtaktpausen-und-Fingersatz"></a>
+<a name="index-Ganztaktpausen-und-Fingersatz"></a>
+
+<a name="Known-issues-and-warnings-18"></a>
+<h4 class="subsubheading">Bekannte Probleme und Warnungen</h4>
+
+<p>Wenn man versucht, mit Fingersatz (etwa <code>R1*10-4</code> Zahlen
+über Ganztaktpausen zu setzen, kann die Zahl des Fingersatzes
+(4) mit der Taktanzahl (10) zusammenstoßen.
+</p>
+<a name="index-Zusammenfalten-von-Pausen"></a>
+<a name="index-Pausen_002c-Zusammenfalten"></a>
+
+<p>Es gibt keine Möglichkeit, normale Pausen automatisch zu
+Ganztaktpausen zu reduzieren.
+</p>
+<a name="index-Pausen_002c-Zusammenstosse"></a>
+
+<p>Ganztaktpausen werden bei der Vermeidung von Zusammenstößen nicht
+berücksichtigt.
+</p>
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Musical-notation.de.html#Musical-notation" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Musikalische Notation&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#index" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-command-index.de.html#LilyPond-command-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Specialist-notation.de.html#Specialist-notation" title="N&auml;chstes Kapitel">&nbsp;Spezielle Notation &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Invisible-rests" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Unsichtbare Pausen&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Writing-rests" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Pausen eingeben&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Displaying-rhythms.de.html#Displaying-rhythms" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Rhythmen anzeigen lassen &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="Writing-rests.html">English</a>, <a href="Writing-rests.fr.html">français</a>, <a href="Writing-rests.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#index" title="Start of the manual">Notation Reference</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class="toc_current"><a name="toc-Musical-notation-1" href="Musical-notation.de.html#Musical-notation">1. Musikalische Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Pitches-1" href="Pitches.de.html#Pitches">1.1 Tonhöhen</a>    </li>
+    <li class="toc_current"><a name="toc-Rhythms-1" href="Rhythms.de.html#Rhythms">1.2 Rhythmus</a>
+    <ul class="toc">
+      <li><a name="toc-Writing-rhythms-1" href="Writing-rhythms.de.html#Writing-rhythms">1.2.1 Rhythmen eingeben</a>      </li>
+      <li class="toc_current"><a name="toc-Writing-rests-1" href="Writing-rests.de.html#Writing-rests">1.2.2 Pausen eingeben</a>
+      <ul class="toc">
+        <li><a name="toc-Rests-1" href="Writing-rests.de.html#Rests">Pausen</a>        </li>
+        <li><a name="toc-Invisible-rests-1" href="Writing-rests.de.html#Invisible-rests">Unsichtbare Pausen</a>        </li>
+        <li><a name="toc-Full-measure-rests-1" href="Writing-rests.de.html#Full-measure-rests">Ganztaktige Pausen</a>        </li>
+      </ul>
+      </li>
+      <li><a name="toc-Displaying-rhythms-1" href="Displaying-rhythms.de.html#Displaying-rhythms">1.2.3 Rhythmen anzeigen lassen</a>      </li>
+      <li><a name="toc-Beams-1" href="Beams.de.html#Beams">1.2.4 Balken</a>      </li>
+      <li><a name="toc-Bars-1" href="Bars.de.html#Bars">1.2.5 Takte</a>      </li>
+      <li><a name="toc-Special-rhythmic-concerns-1" href="Special-rhythmic-concerns.de.html#Special-rhythmic-concerns">1.2.6 Besondere rhythmische Fragen</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Expressive-marks-1" href="Expressive-marks.de.html#Expressive-marks">1.3 Ausdrucksbezeichnungen</a>    </li>
+    <li><a name="toc-Repeats-1" href="Repeats.de.html#Repeats">1.4 Wiederholungszeichen</a>    </li>
+    <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.de.html#Simultaneous-notes">1.5 Gleichzeitig erscheinende Noten</a>    </li>
+    <li><a name="toc-Staff-notation-1" href="Staff-notation.de.html#Staff-notation">1.6 Notation auf Systemen</a>    </li>
+    <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.de.html#Editorial-annotations">1.7 Anmerkungen</a>    </li>
+    <li><a name="toc-Text-1" href="Text.de.html#Text">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Specialist-notation-1" href="Specialist-notation.de.html#Specialist-notation">2. Spezielle Notation</a>
+  <ul class="toc">
+    <li><a name="toc-Vocal-music-1" href="Vocal-music.de.html#Vocal-music">2.1 Notation von Gesang</a>    </li>
+    <li><a name="toc-Keyboard-and-other-multi_002dstaff-instruments-1" href="Keyboard-and-other-multi_002dstaff-instruments.de.html#Keyboard-and-other-multi_002dstaff-instruments">2.2 Tasteninstrumente und andere Instrumente mit mehreren Systemen</a>    </li>
+    <li><a name="toc-Unfretted-string-instruments-1" href="Unfretted-string-instruments.de.html#Unfretted-string-instruments">2.3 Bundlose Saiteninstrumente</a>    </li>
+    <li><a name="toc-Fretted-string-instruments-1" href="Fretted-string-instruments.de.html#Fretted-string-instruments">2.4 Saiteninstrumente mit Bünden</a>    </li>
+    <li><a name="toc-Percussion-1" href="Percussion.de.html#Percussion">2.5 Schlagzeug</a>    </li>
+    <li><a name="toc-Wind-instruments-1" href="Wind-instruments.de.html#Wind-instruments">2.6 Blasinstrumente</a>    </li>
+    <li><a name="toc-Chord-notation-1" href="Chord-notation.de.html#Chord-notation">2.7 Notation von Akkorden</a>    </li>
+    <li><a name="toc-Ancient-notation-1" href="Ancient-notation.de.html#Ancient-notation">2.8 Notation von alter Musik</a>    </li>
+    <li><a name="toc-World-music-1" href="World-music.de.html#World-music">2.9 Weltmusik</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-General-input-and-output-1" href="General-input-and-output.de.html#General-input-and-output">3. Allgemeine Eingabe und Ausgabe</a>
+  <ul class="toc">
+    <li><a name="toc-Input-structure-1" href="Input-structure.de.html#Input-structure">3.1 Eingabestruktur</a>    </li>
+    <li><a name="toc-Titles-and-headers-1" href="Titles-and-headers.de.html#Titles-and-headers">3.2 Titel</a>    </li>
+    <li><a name="toc-Working-with-input-files-1" href="Working-with-input-files.de.html#Working-with-input-files">3.3 Arbeiten an Eingabe-Dateien</a>    </li>
+    <li><a name="toc-Controlling-output-1" href="Controlling-output.de.html#Controlling-output">3.4 Ausgabe kontrollieren</a>    </li>
+    <li><a name="toc-MIDI-output-1" href="MIDI-output.de.html#MIDI-output">3.5 MIDI-Ausgabe</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Spacing-issues-1" href="Spacing-issues.de.html#Spacing-issues">4. Abstände</a>
+  <ul class="toc">
+    <li><a name="toc-Paper-and-pages-1" href="Paper-and-pages.de.html#Paper-and-pages">4.1 Papier und Seiten</a>    </li>
+    <li><a name="toc-Music-layout-1" href="Music-layout.de.html#Music-layout">4.2 Notenlayout</a>    </li>
+    <li><a name="toc-Breaks-1" href="Breaks.de.html#Breaks">4.3 Umbrüche</a>    </li>
+    <li><a name="toc-Vertical-spacing-1" href="Vertical-spacing.de.html#Vertical-spacing">4.4 Vertikale Abstände</a>    </li>
+    <li><a name="toc-Horizontal-Spacing" href="Horizontal-spacing.de.html#Horizontal-spacing">4.5 Horizontale Abstände</a>    </li>
+    <li><a name="toc-Fitting-music-onto-fewer-pages-1" href="Fitting-music-onto-fewer-pages.de.html#Fitting-music-onto-fewer-pages">4.6 Die Musik auf weniger Seiten zwingen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Changing-defaults-1" href="Changing-defaults.de.html#Changing-defaults">5. Standardeinstellungen verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Interpretation-contexts-1" href="Interpretation-contexts.de.html#Interpretation-contexts">5.1 Interpretationsumgebungen</a>    </li>
+    <li><a name="toc-Explaining-the-Internals-Reference-1" href="Explaining-the-Internals-Reference.de.html#Explaining-the-Internals-Reference">5.2 Die Referenz der Programminterna erklärt</a>    </li>
+    <li><a name="toc-Modifying-properties-1" href="Modifying-properties.de.html#Modifying-properties">5.3 Eignschaften verändern</a>    </li>
+    <li><a name="toc-Useful-concepts-and-properties-1" href="Useful-concepts-and-properties.de.html#Useful-concepts-and-properties">5.4 Nützliche Konzepte und Eigenschaften</a>    </li>
+    <li><a name="toc-Advanced-tweaks-1" href="Advanced-tweaks.de.html#Advanced-tweaks">5.5 Fortgeschrittene Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Interfaces-for-programmers-1" href="Interfaces-for-programmers.de.html#Interfaces-for-programmers">6. Schnittstellen für Programmierer</a>
+  <ul class="toc">
+    <li><a name="toc-Music-functions-1" href="Music-functions.de.html#Music-functions">6.1 Musikalische Funktionen</a>    </li>
+    <li><a name="toc-Programmer-interfaces-1" href="Programmer-interfaces.de.html#Programmer-interfaces">6.2 Schnittstelle für Programmierer</a>    </li>
+    <li><a name="toc-Building-complicated-functions-1" href="Building-complicated-functions.de.html#Building-complicated-functions">6.3 Komplizierte Funktionen erstellen</a>    </li>
+    <li><a name="toc-Markup-programmer-interface-1" href="Markup-programmer-interface.de.html#Markup-programmer-interface">6.4 Programmierungsschnittstelle für Textbeschriftungen</a>    </li>
+    <li><a name="toc-Contexts-for-programmers-1" href="Contexts-for-programmers.de.html#Contexts-for-programmers">6.5 Kontexte für Programmierer</a>    </li>
+    <li><a name="toc-Scheme-procedures-as-properties-1" href="Scheme-procedures-as-properties.de.html#Scheme-procedures-as-properties">6.6 Scheme-Vorgänge als Eigenschaften</a>    </li>
+    <li><a name="toc-Using-Scheme-code-instead-of-_005ctweak-1" href="Using-Scheme-code-instead-of-_005ctweak.de.html#Using-Scheme-code-instead-of-_005ctweak">6.7 Scheme-Code anstelle von <code>	weak</code> verwenden</a>    </li>
+    <li><a name="toc-Difficult-tweaks-1" href="Difficult-tweaks.de.html#Difficult-tweaks">6.8 Schwierige Korrekturen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Literature-list-1" href="Literature-list.de.html#Literature-list">A. Literatur</a>  </li>
+  <li><a name="toc-Notation-manual-tables-1" href="Notation-manual-tables.de.html#Notation-manual-tables">B. Notationsübersicht</a>
+  <ul class="toc">
+    <li><a name="toc-Chord-name-chart-1" href="Chord-name-chart.de.html#Chord-name-chart">B.1 Liste der Akkordbezeichnungen</a>    </li>
+    <li><a name="toc-Common-chord-modifiers-1" href="Common-chord-modifiers.de.html#Common-chord-modifiers">B.2 Übliche Akkord-Variablen</a>    </li>
+    <li><a name="toc-Predefined-fretboard-diagrams-1" href="Predefined-fretboard-diagrams.de.html#Predefined-fretboard-diagrams">B.3 Vordefinierte Bund-Diagramme</a>    </li>
+    <li><a name="toc-MIDI-instruments-1" href="MIDI-instruments.de.html#MIDI-instruments">B.4 MIDI-Instrumente</a>    </li>
+    <li><a name="toc-List-of-colors-1" href="List-of-colors.de.html#List-of-colors">B.5 Liste der Farben</a>    </li>
+    <li><a name="toc-The-Feta-font-1" href="The-Feta-font.de.html#The-Feta-font">B.6 Die Feta-Schriftart</a>    </li>
+    <li><a name="toc-Note-head-styles-1" href="Note-head-styles.de.html#Note-head-styles">B.7 Notenkopfstile</a>    </li>
+    <li><a name="toc-Text-markup-commands-1" href="Text-markup-commands.de.html#Text-markup-commands">B.8 Text markup commands</a>    </li>
+    <li><a name="toc-Text-markup-list-commands-1" href="Text-markup-list-commands.de.html#Text-markup-list-commands">B.9 Text markup list commands</a>    </li>
+    <li><a name="toc-List-of-articulations-1" href="List-of-articulations.de.html#List-of-articulations">B.10 Liste der Arktikulationszeichen</a>    </li>
+    <li><a name="toc-Percussion-notes-1" href="Percussion-notes.de.html#Percussion-notes">B.11 Schlagzeugnoten</a>    </li>
+    <li><a name="toc-All-context-properties-1" href="All-context-properties.de.html#All-context-properties">B.12 Alle Kontexteigenschaften</a>    </li>
+    <li><a name="toc-Layout-properties-1" href="Layout-properties.de.html#Layout-properties">B.13 Eigenschaften des Layouts</a>    </li>
+    <li><a name="toc-Identifiers-1" href="Identifiers.de.html#Identifiers">B.14 Bezeichner</a>    </li>
+    <li><a name="toc-Scheme-functions-1" href="Scheme-functions.de.html#Scheme-functions">B.15 Scheme-Funktionen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Cheat-sheet-1" href="Cheat-sheet.de.html#Cheat-sheet">C. Befehlsübersicht</a>  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">D. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-command-index-1" href="LilyPond-command-index.de.html#LilyPond-command-index">E. Index der LilyPond-Befehle</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">F. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

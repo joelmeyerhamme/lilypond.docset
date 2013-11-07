@@ -1,0 +1,573 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>LilyPond snippets: Paper and layout</title>
+
+<meta name="description" content="LilyPond snippets: Paper and layout">
+<meta name="keywords" content="LilyPond snippets: Paper and layout">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="GNU LilyPond &mdash; Snippets List">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="index.html#Top" rel="up" title="GNU LilyPond &mdash; Snippets List">
+<link href="Templates.html#Single-staff-template-with-only-notes" rel="next" title="Vocal ensemble template">
+<link href="Tweaks-and-overrides.html#Tweaks-and-overrides" rel="previous" title="Tweaks and overrides">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="../../../Documentation/user/lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="../../../Documentation/user/lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="../../../Documentation/user/lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Paper-and-layout"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Tweaks-and-overrides.html#Tweaks-and-overrides" title="Beginning of this chapter or previous chapter"> &lt;&lt; Tweaks and overrides&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Tweaks-and-overrides.html#Vertically-aligned-dynamics-and-textscripts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="index.html#Top" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Top&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Paper-and-layout" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Paper-and-layout"></a>
+<h1 class="unnumbered">Paper and layout</h1>
+
+<p>These snippets illustrate the Notation Reference,
+section <a href="../../../Documentation/user/lilypond/Spacing-issues.html#Spacing-issues">Spacing issues</a>.
+</p>
+
+<a name="aligning-and-centering-instrument-names.ly"></a>
+<hr size="6">
+<a name="Paper-and-layout"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Paper-and-layout" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Book-parts" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Book parts &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Aligning and centering instrument names</h2>
+
+
+<p>The horizontal alignment of instrument names is tweaked by changing the
+<code>Staff.InstrumentName #'self-alignment-X</code> property. The
+<code>\layout</code> variables <code>indent</code> and <code>short-indent</code> define
+the space in which the instrument names are aligned before the first
+and the following systems, respectively.
+</p>
+
+<pre class="verbatim">\paper {
+  left-margin = 3\cm
+}
+
+\score {
+  \new StaffGroup &lt;&lt;
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #LEFT
+      \set Staff.instrumentName = \markup \left-column {
+        &quot;Left aligned&quot;
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Left&quot;
+      c''1
+      \break
+      c''1
+    }
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #CENTER
+      \set Staff.instrumentName = \markup \center-column {
+        Centered
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Centered&quot;
+      g'1
+      g'1
+    }
+    \new Staff {
+      \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+      \set Staff.instrumentName = \markup \right-column {
+        &quot;Right aligned&quot;
+        &quot;instrument name&quot;
+      }
+      \set Staff.shortInstrumentName = #&quot;Right&quot;
+      e'1
+      e'1
+    }
+  &gt;&gt;
+  \layout {
+    ragged-right = ##t
+    indent = 4\cm
+    short-indent = 2\cm
+  }
+}
+</pre><p>
+ <a href="../48/lily-0ea90e0e.ly">
+  <img align="middle"
+       border="0"
+       src="../48/lily-0ea90e0e.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="book-parts.ly"></a>
+<hr size="6">
+<a name="Book-parts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Paper-and-layout" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Book-parts" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Book-parts"></a>
+<h2 class="unnumberedsec">Book parts</h2>
+
+
+<p><code>\bookpart</code> can be used to split a book into several parts. Each
+part last page can be affected by <code>ragged-last-bottom</code>. Header and
+footer markups can detect a part last page, and make the difference
+with the book last page.
+</p>
+
+<pre class="verbatim">#(set-default-paper-size &quot;a6&quot;)
+
+\book {
+
+  %% book paper, which is inherited by all children bookparts
+  \paper {
+    ragged-last-bottom = ##t
+    %% Page footer: add a different part-tagline at part last page
+    oddFooterMarkup = \markup {
+      \column {
+        \fill-line {
+          %% Copyright header field only on book first page.
+          \on-the-fly #first-page \fromproperty #'header:copyright
+        }
+        \fill-line {
+          %% Part tagline header field only on each part last page.
+          \on-the-fly #part-last-page \fromproperty #'header:parttagline
+        }
+        \fill-line {
+          %% Tagline header field only on book last page.
+          \on-the-fly #last-page \fromproperty #'header:tagline
+        }
+      }
+    }
+  }
+
+  %% book header, which is inherited by the first bookpart
+  \header {
+    title = &quot;Book title&quot;
+    copyright = &quot;Copyright line on book first page&quot;
+    parttagline = &quot;Part tagline&quot;
+    tagline = &quot;Book tagline&quot;
+  }
+  
+  \bookpart {
+    %% a different page breaking function may be used on each part
+    \paper { #(define page-breaking optimal-page-breaks) }
+    \header { subtitle = &quot;First part&quot; }
+    \markup { The first book part }
+    \markup { a page break }
+    \pageBreak
+    \markup { first part last page }
+    \markup \wordwrap { with ragged-last-bottom (see the space below this text) }
+  }
+
+  \bookpart {
+    \header { subtitle = &quot;Second part&quot; }
+    { c' }
+  }
+
+}
+</pre><p>
+ <a href="../30/lily-25a38bf8.ly">
+  <img align="middle"
+       border="0"
+       src="../30/lily-25a38bf8.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="changing-the-staff-size.ly"></a>
+<hr size="6">
+<a name="Book-parts"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Book-parts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Book parts&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Clip-systems" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Clip systems &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Changing the staff size</h2>
+
+
+<p>Though the simplest way to resize staves is to use
+<code>#(set-global-staff-size xx)</code>, an individual staff&rsquo;s size can be
+changed by scaling the properties <code>'staff-space</code> and
+<code>fontSize</code>. 
+</p>
+
+<pre class="verbatim">&lt;&lt;
+  \new Staff {
+    \relative c'' {
+      \dynamicDown
+      c8\ff c c c c c c c
+    }
+  }
+  \new Staff \with {
+    fontSize = #-3
+    \override StaffSymbol #'staff-space = #(magstep -3)
+  } {
+    \clef bass
+    c8 c c c c\f c c c
+  }
+&gt;&gt;
+
+</pre><p>
+ <a href="../44/lily-448b205b.ly">
+  <img align="middle"
+       border="0"
+       src="../44/lily-448b205b.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="clip-systems.ly"></a>
+<hr size="6">
+<a name="Clip-systems"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Book-parts" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Clip-systems" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Clip-systems"></a>
+<h2 class="unnumberedsec">Clip systems</h2>
+
+
+<p>This code shows how to clip (extract) snippets from a full score.
+</p>
+<p>This file needs to be run separately with <code>-dclip-systems</code>; the
+snippets page may not adequately show the results.
+</p>
+<p>The result will be files named
+&lsquo;<samp>base-from-start-to-end[-count].eps</samp>&rsquo;.
+</p>
+
+<p>If system starts and ends are included, they include extents of the
+System grob, e.g., instrument names.
+</p>
+
+<p>Grace notes at the end point of the region are not included.
+</p>
+
+<p>Regions can span multiple systems.  In this case, multiple EPS files
+are generated. 
+</p>
+
+<pre class="verbatim">#(ly:set-option 'clip-systems)
+#(set! output-count 1)
+
+origScore = \score {
+  \relative c' {
+    \set Staff.instrumentName = #&quot;bla&quot;
+    c1
+    d1
+    \grace c16 e1
+    \key d \major
+    f1 \break
+    \clef bass
+    g,1
+    fis1
+  }
+}
+
+\book {
+  \score {
+    \origScore
+    \layout {
+      % Each clip-region is a (START . END) pair
+      % where both are rhythmic-locations.
+      
+      % (make-rhythmic-locations BAR-NUMBER NUM DEN)
+      % means NUM/DEN whole-notes into bar numbered BAR-NUMBER
+
+      clip-regions = #(list
+      (cons
+       (make-rhythmic-location 2 0 1)
+       (make-rhythmic-location 4 0 1))
+      
+      (cons
+       (make-rhythmic-location 0 0 1)
+       (make-rhythmic-location 4 0 1))
+
+      (cons
+       (make-rhythmic-location 0 0 1)
+       (make-rhythmic-location 6 0 1))
+      )
+    }
+  }
+}
+
+#(set! output-count 0)
+#(ly:set-option 'clip-systems #f)
+
+\book {
+  \score { \origScore }
+  \markup { \bold \fontsize #6 clips }
+  \score {
+    \lyrics {
+      \markup { from-2.0.1-to-4.0.1-clip.eps }
+      \markup {
+        \epsfile #X #30.0 #(format #f &quot;~a-1-from-2.0.1-to-4.0.1-clip.eps&quot;
+                            (ly:parser-output-name parser)) }
+    }
+  }
+}
+
+</pre><p>
+ <a href="../b8/lily-a912ba85.ly">
+  <img align="middle"
+       border="0"
+       src="../b8/lily-a912ba85.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="creating-blank-staves.ly"></a>
+<hr size="6">
+<a name="Clip-systems"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clip-systems" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Clip systems&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Clip-systems" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Creating blank staves</h2>
+
+
+<p>To create blank staves, generate empty measures then remove the
+<code>Bar_number_engraver</code> from the <code>Score</code> context, and the
+<code>Time_signature_engraver</code>, <code>Clef_engraver</code> and
+<code>Bar_engraver</code> from the <code>Staff</code> context. 
+</p>
+
+<pre class="verbatim">#(set-global-staff-size 20)
+
+\score {
+  { 
+    \repeat unfold 12 { s1 \break } 
+  }
+  \layout {
+    indent = 0\in
+    \context {
+      \Staff
+      \remove &quot;Time_signature_engraver&quot;
+      \remove &quot;Clef_engraver&quot;
+      \remove &quot;Bar_engraver&quot;
+    }
+    \context {
+      \Score
+      \remove &quot;Bar_number_engraver&quot;
+    }
+  }
+}
+
+\paper {
+  #(set-paper-size &quot;letter&quot;)
+  ragged-last-bottom = ##f
+  line-width = 7.5\in
+  left-margin = 0.5\in
+  bottom-margin = 0.25\in
+  top-margin = 0.25\in
+}
+
+</pre><p>
+ <a href="../d1/lily-160fd34d.ly">
+  <img align="middle"
+       border="0"
+       src="../d1/lily-160fd34d.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="demonstrating-all-headers.ly"></a>
+<hr size="6">
+<a name="Clip-systems"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clip-systems" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Table-of-contents" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Table of contents &gt; </a>]</td></tr></table>
+<h2 class="unnumberedsec">Demonstrating all headers</h2>
+
+<p>All header fields with special meanings.
+</p><pre class="verbatim">\header {
+  copyright = &quot;copyright&quot;
+  title = &quot;title&quot;
+  subtitle = &quot;subtitle&quot;
+  composer = &quot;composer&quot;
+  arranger = &quot;arranger&quot;
+  instrument = &quot;instrument&quot;
+  metre = &quot;metre&quot;
+  opus = &quot;opus&quot;
+  piece = &quot;piece&quot;
+  poet = &quot;poet&quot;
+  texidoc = &quot;All header fields with special meanings.&quot;
+  copyright = &quot;public domain&quot;
+  enteredby = &quot;jcn&quot;
+  source = &quot;urtext&quot;
+}
+
+\layout {
+  ragged-right = ##f
+}
+
+\score {
+  \relative c'' { c1 | c | c | c }
+}
+
+\score {
+   \relative c'' { c1 | c | c | c }
+   \header {
+     title = &quot;localtitle&quot;
+     subtitle = &quot;localsubtitle&quot;
+     composer = &quot;localcomposer&quot;
+     arranger = &quot;localarranger&quot;
+     instrument = &quot;localinstrument&quot;
+     metre = &quot;localmetre&quot;
+     opus = &quot;localopus&quot;
+     piece = &quot;localpiece&quot;
+     poet = &quot;localpoet&quot;
+     copyright = &quot;localcopyright&quot;
+   }
+}
+
+</pre><p>
+ <a href="../a0/lily-f7ee3ec5.ly">
+  <img align="middle"
+       border="0"
+       src="../a0/lily-f7ee3ec5.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<a name="table-of-contents.ly"></a>
+<hr size="6">
+<a name="Table-of-contents"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clip-systems" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Titles.html#Titles" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Titles &gt; </a>]</td></tr></table>
+<a name="Table-of-contents"></a>
+<h2 class="unnumberedsec">Table of contents</h2>
+
+
+<p>A table of contents is included using <code>\markuplines
+\table-of-contents</code>.  The TOC items are added with the
+<code>\tocItem</code> command.
+</p>
+
+<pre class="verbatim">#(set-default-paper-size &quot;a6&quot;)
+
+\book {
+  \markuplines \table-of-contents
+  \pageBreak
+  \tocItem \markup { The first score }
+  \score {
+    {
+      c'1 \pageBreak
+      \mark &quot;A&quot; \tocItem \markup { Mark A }
+      d'1
+    }
+  }
+  \pageBreak
+  \tocItem \markup { The second score }
+  \score {
+    { e'1 }
+    \header { piece = &quot;Second score&quot; }
+  }
+}
+</pre><p>
+ <a href="../ce/lily-9b74a484.ly">
+  <img align="middle"
+       border="0"
+       src="../ce/lily-9b74a484.png"
+       alt="[image of music]">
+ </a>
+</p>
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="#Paper-and-layout" title="Beginning of this chapter or previous chapter"> &lt;&lt; Paper and layout&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Titles.html#Titles" title="Next chapter">&nbsp;Titles &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Clip-systems" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Paper-and-layout" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Paper and layout&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Titles.html#Titles" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Titles &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#Top" title="Start of the manual">Snippets List</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Pitches-1" href="Pitches.html#Pitches">Pitches</a>  </li>
+  <li><a name="toc-Rhythms-1" href="Rhythms.html#Rhythms">Rhythms</a>  </li>
+  <li><a name="toc-Expressive-marks-1" href="Expressive-marks.html#Expressive-marks">Expressive marks</a>  </li>
+  <li><a name="toc-Repeats-1" href="Repeats.html#Repeats">Repeats</a>  </li>
+  <li><a name="toc-Simultaneous-notes-1" href="Simultaneous-notes.html#Simultaneous-notes">Simultaneous notes</a>  </li>
+  <li><a name="toc-Staff-notation-1" href="Staff-notation.html#Staff-notation">Staff notation</a>  </li>
+  <li><a name="toc-Editorial-annotations-1" href="Editorial-annotations.html#Editorial-annotations">Editorial annotations</a>  </li>
+  <li><a name="toc-Text-1" href="Text.html#Text">Text</a>  </li>
+  <li><a name="toc-Vocal-music-1" href="Vocal-music.html#Vocal-music">Vocal music</a>  </li>
+  <li><a name="toc-Chords-1" href="Chords.html#Chords">Chords</a>  </li>
+  <li><a name="toc-Keyboards-1" href="Keyboards.html#Keyboards">Keyboards</a>  </li>
+  <li><a name="toc-Percussion-1" href="Percussion.html#Percussion">Percussion</a>  </li>
+  <li><a name="toc-Fretted-strings-1" href="Fretted-strings.html#Fretted-strings">Fretted strings</a>  </li>
+  <li><a name="toc-Unfretted-strings-1" href="Unfretted-strings.html#Unfretted-strings">Unfretted strings</a>  </li>
+  <li><a name="toc-Winds-1" href="Winds.html#Winds">Winds</a>  </li>
+  <li><a name="toc-Ancient-notation-1" href="Ancient-notation.html#Ancient-notation">Ancient notation</a>  </li>
+  <li><a name="toc-World-music-1" href="World-music.html#World-music">World music</a>  </li>
+  <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.html#Contexts-and-engravers">Contexts and engravers</a>  </li>
+  <li><a name="toc-Tweaks-and-overrides-1" href="Tweaks-and-overrides.html#Tweaks-and-overrides">Tweaks and overrides</a>  </li>
+  <li class="toc_current"><a name="toc-Paper-and-layout-1" href="Paper-and-layout.html#Paper-and-layout">Paper and layout</a>
+  <ul class="toc">
+    <li class="toc_current"><a name="toc-Aligning-and-centering-instrument-names-2" href="Paper-and-layout.html#Paper-and-layout">Aligning and centering instrument names</a>    </li>
+    <li><a name="toc-Book-parts-1" href="Paper-and-layout.html#Book-parts">Book parts</a>    </li>
+    <li><a name="toc-Changing-the-staff-size-3" href="Paper-and-layout.html#Book-parts">Changing the staff size</a>    </li>
+    <li><a name="toc-Clip-systems-1" href="Paper-and-layout.html#Clip-systems">Clip systems</a>    </li>
+    <li><a name="toc-Creating-blank-staves-4" href="Paper-and-layout.html#Clip-systems">Creating blank staves</a>    </li>
+    <li><a name="toc-Demonstrating-all-headers-1" href="Paper-and-layout.html#Clip-systems">Demonstrating all headers</a>    </li>
+    <li><a name="toc-Table-of-contents-1" href="Paper-and-layout.html#Table-of-contents">Table of contents</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Titles-1" href="Titles.html#Titles">Titles</a>  </li>
+  <li><a name="toc-Spacing-1" href="Spacing.html#Spacing">Spacing</a>  </li>
+  <li><a name="toc-MIDI-1" href="MIDI.html#MIDI">MIDI</a>  </li>
+  <li><a name="toc-Templates-1" href="Templates.html#Templates">Templates</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

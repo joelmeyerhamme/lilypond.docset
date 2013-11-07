@@ -1,0 +1,479 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2008 by the authors
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on January 13, 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Contributor's Guide: 7.5 Code style</title>
+
+<meta name="description" content="GNU LilyPond Contributor's Guide: 7.5 Code style">
+<meta name="keywords" content="GNU LilyPond Contributor's Guide: 7.5 Code style">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#index" rel="start" title="GNU LilyPond &mdash; Contributor's Guide">
+<link href="index_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index_abt.html#SEC_About" rel="help" title="About This Document">
+<link href="Programming-work.html#Programming-work" rel="up" title="7. Programming work">
+<link href="Making-a-release.html#Making-a-release" rel="next" title="8.4 Making a release">
+<link href="Finding-functions.html#Finding-functions" rel="previous" title="7.4 Finding functions">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Finding-functions.html#Finding-functions" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Programming-work.html#Programming-work" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Programming work&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<a name="Code-style"></a>
+<h2 class="section">7.5 Code style</h2>
+
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; Code style&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.1 Handling errors</h3>
+
+<p>As a general rule, you should always try to continue computations,
+even if there is some kind of error.  When the program stops, it
+is often very hard for a user to pinpoint what part of the input
+causes an error.  Finding the culprit is much easier if there is
+some viewable output.
+</p>
+<p>So functions and methods do not return errorcodes, they never
+crash, but report a programming_error and try to carry on.
+</p>
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.2 Languages</h3>
+
+<p>C++ and Python are preferred.  Python code should use PEP 8.
+</p>
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.3 Filenames</h3>
+
+<p>Definitions of classes that are only accessed via pointers (*) or
+references (&amp;) shall not be included as include files.
+</p>
+<pre class="verbatim">   filenames
+
+        &quot;.hh&quot;   Include files
+             &quot;.cc&quot;      Implementation files
+             &quot;.icc&quot;     Inline definition files
+             &quot;.tcc&quot;     non inline Template defs
+
+   in emacs:
+
+             (setq auto-mode-alist
+                   (append '((&quot;\\.make$&quot; . makefile-mode)
+                        (&quot;\\.cc$&quot; . c++-mode)
+                        (&quot;\\.icc$&quot; . c++-mode)
+                        (&quot;\\.tcc$&quot; . c++-mode)
+                        (&quot;\\.hh$&quot; . c++-mode)
+                        (&quot;\\.pod$&quot; . text-mode)
+                        )
+                      auto-mode-alist))
+</pre>
+<p>The class Class_name is coded in &lsquo;class-name.*&rsquo;
+</p>
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.4 Indentation</h3>
+
+<p>Standard GNU coding style is used. In emacs:
+</p>
+<pre class="verbatim">             (add-hook 'c++-mode-hook
+                  '(lambda() (c-set-style &quot;gnu&quot;)
+                     ))
+</pre>
+<p>If you like using font-lock, you can also add this to your
+&lsquo;.emacs&rsquo;:
+</p>
+<pre class="verbatim">             (setq font-lock-maximum-decoration t)
+             (setq c++-font-lock-keywords-3
+                   (append
+                    c++-font-lock-keywords-3
+                    '((&quot;\\b\\(a-zA-Z_?+_\\)\\b&quot; 1 font-lock-variable-name-face) (&quot;\\b\\(A-Z?+a-z_?+\\)\\b&quot; 1 font-lock-type-face))
+                    ))
+</pre>
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.5 Classes and Types</h3>
+
+<pre class="verbatim">This_is_a_class
+</pre>
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.6 Members</h3>
+
+<p>Member variable names end with an underscore:
+</p>
+<pre class="verbatim">Type Class::member_
+</pre>
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.7 Macros</h3>
+
+<p>Macro names should be written in uppercase completely.
+</p>
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.8 Broken code</h3>
+
+<p>Do not write broken code.  This includes hardwired dependencies,
+hardwired constants, slow algorithms and obvious limitations.  If
+you can not avoid it, mark the place clearly, and add a comment
+explaining shortcomings of the code.
+</p>
+<p>We reject broken-in-advance on principle.
+</p>
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.9 Naming</h3>
+
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Code-style" title="Next section in reading order" accesskey="n" rel="next">&nbsp; &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.10 Messages</h3>
+
+<p>Messages need to follow Localization.
+</p>
+
+<hr size="6">
+<a name="Code-style"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Debugging-LilyPond.html#Debugging-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Debugging LilyPond &gt; </a>]</td></tr></table>
+<h3 class="subsection">7.5.11 Localization</h3>
+
+<p>This document provides some guidelines for programmers write user
+messages.  To help translations, user messages must follow
+uniform conventions.  Follow these rules when coding for LilyPond.
+Hopefully, this can be replaced by general GNU guidelines in the
+future.  Even better would be to have an English (en_BR, en_AM)
+guide helping programmers writing consistent messages for all GNU
+programs.
+</p>
+<p>Non-preferred messages are marked with &lsquo;+&rsquo;. By convention,
+ungrammatical examples are marked with &lsquo;*&rsquo;.  However, such ungrammatical
+examples may still be preferred.
+</p>
+<ul>
+<li>
+Every message to the user should be localized (and thus be marked
+for localization). This includes warning and error messages.
+
+</li><li>
+Don&rsquo;t localize/gettextify:
+
+<ul>
+<li>
+&lsquo;programming_error ()&rsquo;s
+
+</li><li>
+&lsquo;programming_warning ()&rsquo;s
+
+</li><li>
+debug strings
+
+</li><li>
+output strings (PostScript, TeX, etc.)
+
+</li></ul>
+
+</li><li>
+Messages to be localised must be encapsulated in &lsquo;_ (STRING)&rsquo; or
+&lsquo;_f (FORMAT, ...)&rsquo;. E.g.:
+
+<blockquote><pre class="example">warning (_ (&quot;need music in a score&quot;));
+error (_f (&quot;cannot open file: `%s'&quot;, file_name));
+</pre></blockquote>
+
+<p>In some rare cases you may need to call &lsquo;gettext ()&rsquo; by hand. This
+happens when you pre-define (a list of) string constants for later
+use. In that case, you&rsquo;ll probably also need to mark these string
+constants for translation, using &lsquo;_i (STRING)&rsquo;. The &lsquo;_i&rsquo; macro is
+a no-op, it only serves as a marker for &lsquo;xgettext&rsquo;.
+</p>
+<blockquote><pre class="example">char const* messages[] = {
+  _i (&quot;enable debugging output&quot;),
+  _i (&quot;ignore lilypond version&quot;),
+  0
+};
+
+void
+foo (int i)
+{
+  puts (gettext (messages i));
+}
+</pre></blockquote>
+
+<p>See also &lsquo;flower/getopt-long.cc&rsquo; and &lsquo;lily/main.cc&rsquo;.
+</p>
+</li><li>
+Do not use leading or trailing whitespace in messages. If you need
+whitespace to be printed, prepend or append it to the translated
+message
+
+<blockquote><pre class="example">message (&quot;Calculating line breaks...&quot; + &quot; &quot;);
+</pre></blockquote>
+
+</li><li>
+Error or warning messages displayed with a file name and line
+number never start with a capital, eg,
+
+<blockquote><pre class="example">foo.ly: 12: not a duration: 3
+</pre></blockquote>
+
+<p>Messages containing a final verb, or a gerund (&lsquo;-ing&rsquo;-form) always
+start with a capital. Other (simpler) messages start with a
+lowercase letter
+</p>
+<blockquote><pre class="example">Processing foo.ly...
+`foo': not declared.
+Not declaring: `foo'.
+</pre></blockquote>
+
+</li><li>
+Avoid abbreviations or short forms, use &lsquo;cannot&rsquo; and &lsquo;do not&rsquo;
+rather than &lsquo;can&rsquo;t&rsquo; or &lsquo;don&rsquo;t&rsquo;
+To avoid having a number of different messages for the same
+situation, well will use quoting like this &lsquo;&quot;message: &lsquo;%s&rsquo;&quot;&rsquo; for all
+strings. Numbers are not quoted:
+
+<blockquote><pre class="example">_f (&quot;cannot open file: `%s'&quot;, name_str)
+_f (&quot;cannot find character number: %d&quot;, i)
+</pre></blockquote>
+
+</li><li>
+Think about translation issues. In a lot of cases, it is better to
+translate a whole message. The english grammar must not be imposed
+on the translator. So, instead of
+
+<blockquote><pre class="example">stem at  + moment.str () +  does not fit in beam
+</pre></blockquote>
+
+<p>have
+</p>
+<blockquote><pre class="example">_f (&quot;stem at %s does not fit in beam&quot;, moment.str ())
+</pre></blockquote>
+
+</li><li>
+Split up multi-sentence messages, whenever possible. Instead of
+
+<blockquote><pre class="example">warning (_f (&quot;out of tune!  Can't find: `%s'&quot;, &quot;Key_engraver&quot;));
+warning (_f (&quot;cannot find font `%s', loading default&quot;, font_name));
+</pre></blockquote>
+
+<p>rather say:
+</p>
+<blockquote><pre class="example">warning (_ (&quot;out of tune:&quot;));
+warning (_f (&quot;cannot find: `%s', &quot;Key_engraver&quot;));
+warning (_f (&quot;cannot find font: `%s', font_name));
+warning (_f (&quot;Loading default font&quot;));
+</pre></blockquote>
+
+</li><li>
+If you must have multiple-sentence messages, use full punctuation.
+Use two spaces after end of sentence punctuation. No punctuation
+(esp. period) is used at the end of simple messages.
+
+<blockquote><pre class="example">_f (&quot;Non-matching braces in text `%s', adding braces&quot;, text)
+_ (&quot;Debug output disabled.  Compiled with NPRINT.&quot;)
+_f (&quot;Huh?  Not a Request: `%s'.  Ignoring.&quot;, request)
+</pre></blockquote>
+
+</li><li>
+Do not modularise too much; words frequently cannot be translated
+without context. It is probably safe to treat most occurences of
+words like stem, beam, crescendo as separately translatable words.
+
+</li><li>
+When translating, it is preferable to put interesting information
+at the end of the message, rather than embedded in the middle.
+This especially applies to frequently used messages, even if this
+would mean sacrificing a bit of eloquency. This holds for original
+messages too, of course.
+
+<blockquote><pre class="example">en: cannot open: `foo.ly'
++   nl: kan `foo.ly' niet openen (1)
+kan niet openen: `foo.ly'*   (2)
+niet te openen: `foo.ly'*    (3)
+</pre></blockquote>
+
+
+<p>The first nl message, although grammatically and stylistically
+correct, is not friendly for parsing by humans (even if they speak
+dutch). I guess we would prefer something like (2) or (3).
+</p>
+</li><li>
+Do not run make po/po-update with GNU gettext &lt; 0.10.35
+
+</li></ul>
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Programming-work.html#Programming-work" title="Beginning of this chapter or previous chapter"> &lt;&lt; Programming work&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.html#index" title="Cover (top) of document" rel="start">Top</a>][<a href="index_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][Index][<a href="index_abt.html#SEC_About" title="About (help)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Release-work.html#Release-work" title="Next chapter">&nbsp;Release work &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#Code-style" title="Previous section in reading order" accesskey="p" rel="previous"> &lt; &nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#Code-style" title="Up section" accesskey="u" rel="up">&nbsp; Up :&nbsp;Code style&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Debugging-LilyPond.html#Debugging-LilyPond" title="Next section in reading order" accesskey="n" rel="next">&nbsp;Debugging LilyPond &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+This page is for LilyPond-2.12.3 (stable-branch).
+</p>
+<p class="footer_report">
+Your <a href="http://lilypond.org/web/devel/participating/documentation-adding">suggestions for the documentation</a> are welcome, please report errors to our <a href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">bug list</a>.
+</p>
+</div>
+
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.html" 
+         title="Documentation Index">&lt;&lt; Back to Documentation Index</a></p>
+<h4 class="toc_header"> <a href="index.html#index" title="Start of the manual">Contributor&rsquo;s Guide</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Starting-with-git-1" href="Starting-with-git.html#Starting-with-git">1. Starting with git</a>
+  <ul class="toc">
+    <li><a name="toc-Getting-the-source-code-1" href="Getting-the-source-code.html#Getting-the-source-code">1.1 Getting the source code</a>    </li>
+    <li><a name="toc-Updating-the-source-code-1" href="Updating-the-source-code.html#Updating-the-source-code">1.2 Updating the source code</a>    </li>
+    <li><a name="toc-Sharing-your-changes-1" href="Sharing-your-changes.html#Sharing-your-changes">1.3 Sharing your changes</a>    </li>
+    <li><a name="toc-Advanced-git-stuff-1" href="Advanced-git-stuff.html#Advanced-git-stuff">1.4 Advanced git stuff</a>    </li>
+    <li><a name="toc-Git-on-Windows-1" href="Git-on-Windows.html#Git-on-Windows">1.5 Git on Windows</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Compiling-LilyPond-1" href="Compiling-LilyPond.html#Compiling-LilyPond">2. Compiling LilyPond</a>
+  <ul class="toc">
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.html#Compiling-from-source">2.1 Compiling from source</a>    </li>
+    <li><a name="toc-Concurrent-Stable-and-Development-Versions-1" href="Concurrent-Stable-and-Development-Versions.html#Concurrent-Stable-and-Development-Versions">2.2 Concurrent Stable and Development Versions</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Documentation-work-1" href="Documentation-work.html#Documentation-work">3. Documentation work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-documentation-work-1" href="Introduction-to-documentation-work.html#Introduction-to-documentation-work">3.1 Introduction to documentation work</a>    </li>
+    <li><a name="toc-Documentation-suggestions-1" href="Documentation-suggestions.html#Documentation-suggestions">3.2 Documentation suggestions</a>    </li>
+    <li><a name="toc-Texinfo-introduction-and-usage-policy-1" href="Texinfo-introduction-and-usage-policy.html#Texinfo-introduction-and-usage-policy">3.3 Texinfo introduction and usage policy</a>    </li>
+    <li><a name="toc-Documentation-policy-1" href="Documentation-policy.html#Documentation-policy">3.4 Documentation policy</a>    </li>
+    <li><a name="toc-Tips-for-writing-docs-1" href="Tips-for-writing-docs.html#Tips-for-writing-docs">3.5 Tips for writing docs</a>    </li>
+    <li><a name="toc-Updating-doc-with-convert_002dly" href="Updating-docs-with-convert_002dly.html#Updating-docs-with-convert_002dly">3.6 Updating doc with <code>convert-ly</code></a>    </li>
+    <li><a name="toc-Translating-the-documentation-1" href="Translating-the-documentation.html#Translating-the-documentation">3.7 Translating the documentation</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Website-work-1" href="Website-work.html#Website-work">4. Website work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-website-work-1" href="Introduction-to-website-work.html#Introduction-to-website-work">4.1 Introduction to website work</a>    </li>
+    <li><a name="toc-Translating-the-website-1" href="Translating-the-website.html#Translating-the-website">4.2 Translating the website</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-LSR-work-1" href="LSR-work.html#LSR-work">5. LSR work</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-LSR-1" href="Introduction-to-LSR.html#Introduction-to-LSR">5.1 Introduction to LSR</a>    </li>
+    <li><a name="toc-Adding-and-editing-snippets-1" href="Adding-and-editing-snippets.html#Adding-and-editing-snippets">5.2 Adding and editing snippets</a>    </li>
+    <li><a name="toc-Approving-snippets-1" href="Approving-snippets.html#Approving-snippets">5.3 Approving snippets</a>    </li>
+    <li><a name="toc-LSR-to-Git-1" href="LSR-to-Git.html#LSR-to-Git">5.4 LSR to Git</a>    </li>
+    <li><a name="toc-Fixing-snippets-in-LilyPond-sources-1" href="Fixing-snippets-in-LilyPond-sources.html#Fixing-snippets-in-LilyPond-sources">5.5 Fixing snippets in LilyPond sources</a>    </li>
+    <li><a name="toc-Updating-LSR-to-a-new-version-1" href="Updating-LSR-to-a-new-version.html#Updating-LSR-to-a-new-version">5.6 Updating LSR to a new version</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Issues-1" href="Issues.html#Issues">6. Issues</a>
+  <ul class="toc">
+    <li><a name="toc-Introduction-to-issues-1" href="Introduction-to-issues.html#Introduction-to-issues">6.1 Introduction to issues</a>    </li>
+    <li><a name="toc-Issue-classification-1" href="Issue-classification.html#Issue-classification">6.2 Issue classification</a>    </li>
+    <li><a name="toc-Adding-issues-to-the-tracker-1" href="Adding-issues-to-the-tracker.html#Adding-issues-to-the-tracker">6.3 Adding issues to the tracker</a>    </li>
+  </ul>
+  </li>
+  <li class="toc_current"><a name="toc-Programming-work-1" href="Programming-work.html#Programming-work">7. Programming work</a>
+  <ul class="toc">
+    <li><a name="toc-Overview-of-LilyPond-architecture-1" href="Overview-of-LilyPond-architecture.html#Overview-of-LilyPond-architecture">7.1 Overview of LilyPond architecture</a>    </li>
+    <li><a name="toc-LilyPond-programming-languages-1" href="LilyPond-programming-languages.html#LilyPond-programming-languages">7.2 LilyPond programming languages</a>    </li>
+    <li><a name="toc-Programming-without-compiling-1" href="Programming-without-compiling.html#Programming-without-compiling">7.3 Programming without compiling</a>    </li>
+    <li><a name="toc-Finding-functions-1" href="Finding-functions.html#Finding-functions">7.4 Finding functions</a>    </li>
+    <li class="toc_current"><a name="toc-Code-style-1" href="Code-style.html#Code-style">7.5 Code style</a>
+    <ul class="toc">
+      <li class="toc_current"><a name="toc-Handling-errors" href="Code-style.html#Code-style">7.5.1 Handling errors</a>      </li>
+      <li class="toc_current"><a name="toc-Languages" href="Code-style.html#Code-style">7.5.2 Languages</a>      </li>
+      <li class="toc_current"><a name="toc-Filenames" href="Code-style.html#Code-style">7.5.3 Filenames</a>      </li>
+      <li class="toc_current"><a name="toc-Indentation" href="Code-style.html#Code-style">7.5.4 Indentation</a>      </li>
+      <li class="toc_current"><a name="toc-Classes-and-Types" href="Code-style.html#Code-style">7.5.5 Classes and Types</a>      </li>
+      <li class="toc_current"><a name="toc-Members" href="Code-style.html#Code-style">7.5.6 Members</a>      </li>
+      <li class="toc_current"><a name="toc-Macros" href="Code-style.html#Code-style">7.5.7 Macros</a>      </li>
+      <li class="toc_current"><a name="toc-Broken-code" href="Code-style.html#Code-style">7.5.8 Broken code</a>      </li>
+      <li class="toc_current"><a name="toc-Naming" href="Code-style.html#Code-style">7.5.9 Naming</a>      </li>
+      <li class="toc_current"><a name="toc-Messages" href="Code-style.html#Code-style">7.5.10 Messages</a>      </li>
+      <li class="toc_current"><a name="toc-Localization" href="Code-style.html#Code-style">7.5.11 Localization</a>      </li>
+    </ul>
+    </li>
+    <li><a name="toc-Debugging-LilyPond-1" href="Debugging-LilyPond.html#Debugging-LilyPond">7.6 Debugging LilyPond</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Release-work-1" href="Release-work.html#Release-work">8. Release work</a>
+  <ul class="toc">
+    <li><a name="toc-Development-phases-1" href="Development-phases.html#Development-phases">8.1 Development phases</a>    </li>
+    <li><a name="toc-Minor-release-checklist-1" href="Minor-release-checklist.html#Minor-release-checklist">8.2 Minor release checklist</a>    </li>
+    <li><a name="toc-Major-release-checklist-1" href="Major-release-checklist.html#Major-release-checklist">8.3 Major release checklist</a>    </li>
+    <li><a name="toc-Making-a-release-1" href="Making-a-release.html#Making-a-release">8.4 Making a release</a>    </li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

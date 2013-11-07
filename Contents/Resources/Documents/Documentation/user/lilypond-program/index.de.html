@@ -1,0 +1,234 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung 
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber 
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne 
+Invariante Abschnitte), 
+zu kopieren, verbreiten und/oder
+zu verändern. Eine Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Programmbenutzung: GNU LilyPond &ndash; Programmbenutzung</title>
+
+<meta name="description" content="GNU LilyPond Programmbenutzung: GNU LilyPond &ndash; Programmbenutzung">
+<meta name="keywords" content="GNU LilyPond Programmbenutzung: GNU LilyPond &ndash; Programmbenutzung">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="GNU LilyPond &ndash; Programmbenutzung">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="index" title="B. LilyPond index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="B. LilyPond index">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="Top"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="center" colspan="3">[<a href="#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td></tr></table>
+<a name="Top"></a>
+<h1 class="settitle">GNU LilyPond &ndash; Programmbenutzung</h1>
+
+<p>Dieses Dokument ist auch als
+<a href="../../../Documentation/user/lilypond-program.de.pdf">PDF</a> und auf
+<a href="../../../Documentation/user/lilypond-program-big-page.html">einer großen Seite</a>
+verfügbar.
+</p>
+
+
+
+
+
+
+
+
+
+<p>Diese Datei dokumentiert die Programmbenutzung von GNU LilyPond.
+</p>
+<p>Copyright 1999&ndash;2009 bei den Autoren
+</p>
+<p><em>The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.</em>
+</p>
+<p><em>Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung 
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber 
+nur die englische Version gültig.</em>
+</p>
+<blockquote><p>Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne
+Invariante Abschnitte), 
+zu kopieren, verbreiten und/oder
+zu verändern. Eine Kopie der Lizenz ist im Abschnitt &ldquo;GNU
+Free Documentation License&rdquo; angefügt.
+</p></blockquote>
+
+<blockquote><p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled &ldquo;GNU
+Free Documentation License&rdquo;.
+</p></blockquote>
+
+<p>Das ist das Handbuch zur Programmbenutzung für GNU LilyPond Version 2.12.3.
+Für einen Überblick über die gesamte Dokumentation von LilyPond und die Intention
+dieses Handbuchs siehe <a name="index-About-the-documentation"></a>
+<a href="../lilypond-learning/About-the-documentation.de.html#About-the-documentation">Über die Dokumentation</a>.
+</p>
+<a name="index-Internetseite"></a>
+<a name="index-URL"></a>
+
+<p><a href="http://www.lilypond.org/">http://www.lilypond.org/</a>. Auf der Internetseite
+finden sich Kopien dieser und anderer Dokumentationsdateien.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="Install.de.html#Install" accesskey="1">1. Installieren</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        Wie das Programm installiert oder kompiliert wird.
+</td></tr>
+<tr><td align="left" valign="top"><a href="Setup.de.html#Setup" accesskey="2">2. Setup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          Wie LilyPond mit anderen Programmen benutzt werden kann.
+</td></tr>
+<tr><td align="left" valign="top"><a href="Running-LilyPond.de.html#Running-LilyPond" accesskey="3">3. LilyPond starten</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">               Betrieb des Programms.
+</td></tr>
+<tr><td align="left" valign="top"><a href="LilyPond_002dbook.de.html#LilyPond_002dbook" accesskey="4">4. <code>lilypond-book</code>: Noten in den Text integrieren</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                  Kombination von Text und Noten.
+</td></tr>
+<tr><td align="left" valign="top"><a href="Converting-from-other-formats.de.html#Converting-from-other-formats" accesskey="5">5. Von anderen Formaten konvertieren</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Konvertierungen in das LilyPond-Quellformat.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Anhänge
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License" accesskey="6">A. GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"> Die Lizenz dieses Dokuments.
+</td></tr>
+<tr><td align="left" valign="top"><a href="LilyPond-index.de.html#LilyPond-index" accesskey="7">B. LilyPond-Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+
+
+<hr size="1">
+<table class="nav_table">
+<tr><td valign="middle" align="center" colspan="3">[<a href="#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="index.html">English</a>, <a href="index.fr.html">français</a>, <a href="index.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="#Top" title="Start of the manual">Programmbenutzung</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Install-1" href="Install.de.html#Install">1. Installieren</a>
+  <ul class="toc">
+    <li><a name="toc-Precompiled-binaries-1" href="Precompiled-binaries.de.html#Precompiled-binaries">1.1 Vorkompilierte Binär-Pakete</a>    </li>
+    <li><a name="toc-Compiling-from-source-1" href="Compiling-from-source.de.html#Compiling-from-source">1.2 Aus den Quellen übersetzen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Setup-1" href="Setup.de.html#Setup">2. Setup</a>
+  <ul class="toc">
+    <li><a name="toc-Setup-for-specific-Operating-Systems-1" href="Setup-for-specific-Operating-Systems.de.html#Setup-for-specific-Operating-Systems">2.1 Setup für bestimmte Betriebssysteme</a>    </li>
+    <li><a name="toc-Text-editor-support-1" href="Text-editor-support.de.html#Text-editor-support">2.2 Unterstützung von Texteditoren</a>    </li>
+    <li><a name="toc-Point-and-click-1" href="Point-and-click.de.html#Point-and-click">2.3 Point and click</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Running-LilyPond-1" href="Running-LilyPond.de.html#Running-LilyPond">3. LilyPond starten</a>
+  <ul class="toc">
+    <li><a name="toc-Normal-usage-1" href="Normal-usage.de.html#Normal-usage">3.1 Übliche Programmbenutzung</a>    </li>
+    <li><a name="toc-Command_002dline-usage-1" href="Command_002dline-usage.de.html#Command_002dline-usage">3.2 Benutzung auf der Kommandozeile</a>    </li>
+    <li><a name="toc-Error-messages-1" href="Error-messages.de.html#Error-messages">3.3 Fehlermeldungen</a>    </li>
+    <li><a name="toc-Updating-files-with-convert_002dly-1" href="Updating-files-with-convert_002dly.de.html#Updating-files-with-convert_002dly">3.4 Dateien mit <code>convert-ly</code> aktualisieren</a>    </li>
+    <li><a name="toc-Reporting-bugs-1" href="Reporting-bugs.de.html#Reporting-bugs">3.5 Fehler melden</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-lilypond_002dbook_003a-Integrating-text-and-music" href="LilyPond_002dbook.de.html#LilyPond_002dbook">4. <code>lilypond-book</code>: Noten in den Text integrieren</a>
+  <ul class="toc">
+    <li><a name="toc-An-example-of-a-musicological-document-1" href="An-example-of-a-musicological-document.de.html#An-example-of-a-musicological-document">4.1 Ein musikwissenschaftlicher Text als Beispiel</a>    </li>
+    <li><a name="toc-Integrating-music-and-text-1" href="Integrating-music-and-text.de.html#Integrating-music-and-text">4.2 Noten in Text integrieren</a>    </li>
+    <li><a name="toc-Music-fragment-options-1" href="Music-fragment-options.de.html#Music-fragment-options">4.3 Die Musikfragment-Optionen</a>    </li>
+    <li><a name="toc-Invoking-lilypond_002dbook-1" href="Invoking-lilypond_002dbook.de.html#Invoking-lilypond_002dbook">4.4 <code>lilypond-book</code> aufrufen</a>    </li>
+    <li><a name="toc-Filename-extensions-1" href="Filename-extensions.de.html#Filename-extensions">4.5 Dateiendungen</a>    </li>
+    <li><a name="toc-Alternative-methods-of-mixing-text-and-music" href="Alternate-methods-of-mixing-text-and-music.de.html#Alternate-methods-of-mixing-text-and-music">4.6 Alternative Methoden, Text mit Musik zu kombinieren</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Converting-from-other-formats-1" href="Converting-from-other-formats.de.html#Converting-from-other-formats">5. Von anderen Formaten konvertieren</a>
+  <ul class="toc">
+    <li><a name="toc-Invoking-midi2ly-1" href="Invoking-midi2ly.de.html#Invoking-midi2ly">5.1 <code>midi2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-musicxml2ly-1" href="Invoking-musicxml2ly.de.html#Invoking-musicxml2ly">5.2 <code>muscxml2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-abc2ly-1" href="Invoking-abc2ly.de.html#Invoking-abc2ly">5.3 <code>abc2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Invoking-etf2ly-1" href="Invoking-etf2ly.de.html#Invoking-etf2ly">5.4 <code>etf2ly</code> aufrufen</a>    </li>
+    <li><a name="toc-Generating-LilyPond-files-1" href="Generating-LilyPond-files.de.html#Generating-LilyPond-files">5.5 LilyPond-Dateien erstellen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">A. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">B. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

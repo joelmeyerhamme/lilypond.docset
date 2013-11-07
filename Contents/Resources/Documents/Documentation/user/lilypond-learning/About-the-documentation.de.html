@@ -1,0 +1,543 @@
+<!-- header_tag -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Copyright C 1999-2009 bei den Autoren
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+Die Übersetzung der folgenden Lizenzanmerkung ist zur Orientierung
+für Leser, die nicht Englisch sprechen. Im rechtlichen Sinne ist aber
+nur die englische Version gültig.
+
+Es ist erlaubt, dieses Dokument unter den Bedingungen der
+GNU Free Documentation Lizenz (Version 1.1 oder
+spätere, von der Free Software Foundation publizierte Versionen, ohne Invariante Abschnitte),
+zu kopieren, verbreiten und/oder
+zu verändern. Eine Kopie der Lizenz ist im Abschnitt "GNU
+Free Documentation License" angefügt.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on 13. Januar 2010 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>GNU LilyPond Handbuch zum Lernen: 1.2 Über die Dokumentation</title>
+
+<meta name="description" content="GNU LilyPond Handbuch zum Lernen: 1.2 About the documentation">
+<meta name="keywords" content="GNU LilyPond Handbuch zum Lernen: 1.2 About the documentation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.de.html#Top" rel="start" title="GNU LilyPond &ndash; Handbuch zum Lernen">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="index" title="D. LilyPond index">
+<link href="index_toc.de.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="index_abt.de.html#SEC_About" rel="help" title="&Uuml;ber dieses Dokument">
+<link href="Introduction.de.html#Introduction" rel="up" title="1. Introduction">
+<link href="LilyPond-index.de.html#LilyPond-index" rel="next" title="D. LilyPond index">
+<link href="Background.de.html#Background" rel="previous" title="1.1 Background">
+<link rel="stylesheet" type="text/css" title="Patrick McCarty's design" href="lilypond-mccarty.css">
+<link rel="alternate stylesheet" type="text/css" href="lilypond.css" title="Andrew Hawryluk's design">
+<link rel="alternate stylesheet" type="text/css" href="lilypond-blue.css" title="Kurt Kroon's blue design">
+<!--[if lte IE 7]>
+<link href="lilypond-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+
+<div id="main">
+<a name="About-the-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="Background.de.html#Example-applications" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Beispielanwendung&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="Introduction.de.html#Introduction" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Einleitung&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Learning-Manual" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über das Handbuch zum Lernen (LM) &gt; </a>]</td></tr></table>
+<a name="About-the-documentation"></a>
+<h2 class="section">1.2 Über die Dokumentation</h2>
+
+<a name="index-Handbuch-zum-Lernen"></a>
+<a name="index-Glossar"></a>
+<a name="index-Anwendungsbenutzung"></a>
+<a name="index-Schnipselliste"></a>
+<a name="index-Referenz-der-Interna"></a>
+
+<p>Die Dokumentation zu LilyPond ist unterteilt in mehrere Handbücher.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#About-the-Learning-Manual" accesskey="1">Über das Handbuch zum Lernen (LM)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dieses Handbuch stellt LilyPond vor und vermittelt die Grundkenntnisse, um damit arbeiten zu können.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#About-the-Music-Glossary" accesskey="2">Über das Glossar (MG)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dieses Handbuch erklärt zahlreiche musikalische Fachausdrücke inklusive Übersetzungen in verschiedene Sprachen.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#About-the-Notation-Reference" accesskey="3">Über die Notationsreferenz (NR)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dieses Handbuch stellt den Hauptteil der Dokumentation dar.  Es liefert detaillierte Informationen zum Notensatz mit LilyPond.  Als Voraussetzung werden die Kenntnisse des &bdquo;Handbuchs zum Lernen&ldquo; angenommen.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#About-the-Application-Usage" accesskey="4">Über die Anwendungsbenutzung (AU)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dieses Handbuch diskutiert den konkreten Aufruf des &bdquo;lilypond&ldquo;-Programms und wie LilyPond-Notensatz in andere Programme integriert werden kann.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#About-the-Snippet-List" accesskey="5">Über die Schnipselliste</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dies ist eine Sammlung von kurzen LilyPond-Beispielen.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#About-the-Internals-Reference" accesskey="6">Über die Referenz der Iterna (IR)</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  Dieses Dokument liefert Referenzwissen über LilyPonds interne Strukturen und ist vor allem bei der Erstellung von tiefergehenden Optimierungen und Anpassungen hilfreich.
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Other-documentation" accesskey="7">Andere Dokumentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">         Es existieren noch etliche weitere Teile der Dokumentation, wie etwa die &sbquo;Neueigkeiten&lsquo; Seite oder das Archiv der Mailingliste.
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a name="About-the-Learning-Manual"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-documentation" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Music-Glossary" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über das Glossar (MG) &gt; </a>]</td></tr></table>
+<a name="About-the-Learning-Manual"></a>
+<h3 class="unnumberedsubsec">Über das Handbuch zum Lernen (LM)</h3>
+
+<a name="index-Handbuch-zum-Lernen-1"></a>
+
+<p>Dieses Handbuch erklärt die Grundbegriffe von LilyPond und stellt 
+die fundamentalen Konzepte hinter dem Programm vor. Diese Kapitel sollten
+in linearer Reihenfolge gelesen werden.
+</p>
+<p>Am Ende jedes Abschnitts findet sich ein Absatz <strong>Siehe auch</strong>, der
+Kreuzreferenzen zu anderen Abschnitten enthält. Beim ersten Durchlesen
+empfiehlt es sich nicht, diesen gleich zu folgen, da meist noch
+zahlreiche Grundbegriffe zum Verständnis fehlen. Wenn Sie sich durch
+das Handbuch zum Lernen geackert haben, wollen Sie vielleicht einzelne 
+Abschnitte nochmal durchgehen und dann den Kreuzverweisen zur Vertiefung
+der Zusammenhänge folgen.
+</p>
+<ul>
+<li>
+<a href="Introduction.de.html#Introduction">Einleitung</a>: erklärt den Hintergrund und das Ziel von LilyPond.
+
+</li><li>
+<a href="Tutorial.de.html#Tutorial">Übung</a>: liefert eine einfache Einführung in das Setzen von Musik 
+mit LilyPond. Neulinge sollten mit diesem Kapitel beginnen.
+
+</li><li>
+<a href="Fundamental-concepts.de.html#Fundamental-concepts">Grundbegriffe</a>: erklärt etliche allgemeine Konzepte
+hinter dem Dateiformat von LilyPond. Wenn Sie sich nicht sicher 
+sind, an welcher Stelle Sie einen Befehl in die Datei einfügen sollen,
+ist dieses Kapitel genau das richtige!
+
+</li><li>
+<a href="Tweaking-output.de.html#Tweaking-output">Die Ausgabe verändern</a>: stellt dar, wie die Standardeinstellungen von 
+LilyPond verändert werden können.
+
+</li><li>
+<a href="Working-on-LilyPond-projects.de.html#Working-on-LilyPond-projects">An LilyPond-Projekten arbeiten</a>: liefert Tipps im praktischen Umgang mit
+Lilypond und gibt Hinweise, wie gängige Fehler vermieden werden können. 
+Bevor Sie mit einem großen Projekt beginnen, sollten Sie dieses Kapitel 
+unbedingt gelesen haben!
+
+</li></ul>
+
+<p>Das Handbuch zum Lernen enthält auch zahlreiche Anhänge, die nicht
+zum linearen Durchlesen geeignet sind.  Sie sind allerdings zur späteren
+Referenz sehr gut geeignet:
+</p>
+<ul>
+<li>
+<a href="Templates.de.html#Templates">Vorlagen</a>: zeigt einige fertige Dokumentvorlagen für diverse
+Stücke mit unterschiedlichen Charakteristika.  Kopieren Sie einfach 
+die Vorlagen in Ihre eigene Datei, fügen Sie die Noten hinzu und Sie 
+sind fertig!
+
+</li><li>
+<a href="Scheme-tutorial.de.html#Scheme-tutorial">Scheme-Übung</a>: liefert eine kurze Einführung in Scheme, die
+Programmiersprache, die die Musikfunktionen in LilyPond intern benutzen.  
+Dies stellt tiefgehendes Wissen dar, wenn Sie LilyPond bis ins kleinste Detail
+konfigurieren möchten. Die meisten Benutzer brauchen dies jedoch selten bis 
+gar nicht.
+
+</li></ul>
+
+
+<hr size="6">
+<a name="About-the-Music-Glossary"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Learning-Manual" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über das Handbuch zum Lernen (LM)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Notation-Reference" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über die Notationsreferenz (NR) &gt; </a>]</td></tr></table>
+<a name="About-the-Music-Glossary"></a>
+<h3 class="unnumberedsubsec">Über das Glossar (MG)</h3>
+
+<a name="index-Idiom"></a>
+<a name="index-Jargon"></a>
+<a name="index-Terminologie"></a>
+<a name="index-Ubersetzungen"></a>
+<a name="index-Sprachen"></a>
+<a name="index-Glossar-1"></a>
+<a name="index-Thesaurus"></a>
+<a name="index-Fremdsprache"></a>
+
+<a name="index-Top"></a>
+<p><a href="../music-glossary/index.de.html#Top">Das Glossar</a> erklärt musikalische Fachausdrücke und 
+enthält auch deren Übersetzungen in diverse Sprachen.  Wenn Sie mit
+Musiknotation oder der (englisch-sprachigen) Musikterminologie nicht vertraut 
+sind (vor allem, wenn Englisch nicht Ihre Muttersprache ist), ist es
+sehr empfehlenswert, das Glossar immer wieder zu Rate zu ziehen.
+</p>
+
+<hr size="6">
+<a name="About-the-Notation-Reference"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Music-Glossary" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über das Glossar (MG)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Application-Usage" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über die Anwendungsbenutzung (AU) &gt; </a>]</td></tr></table>
+<a name="About-the-Notation-Reference"></a>
+<h3 class="unnumberedsubsec">Über die Notationsreferenz (NR)</h3>
+
+<a name="index-Notationsreferenz"></a>
+<a name="index-Anhange"></a>
+<a name="index-Referenz-zum-Notensatz"></a>
+
+<p>In diesem Buch werden alle LilyPond-Befehle erklärt, die Notationszeichen 
+produzieren. Es geht von der Annahme aus, dass der Leser sich mit den 
+Grundkonzepten des Programmes im Handbuch zum Lernen bekannt gemacht hat.
+</p>
+<ul>
+<li>
+<em><a name="index-Musical-notation"></a>
+<a href="../lilypond/Musical-notation.de.html#Musical-notation">Musikalische Notation</a></em>:
+erklärt alles über die grundlegenden Notationskonstruktionen. Dieses Kapitel 
+ist für fast jedes Notationsprojekt nützlich.
+
+</li><li>
+<em><a name="index-Specialist-notation"></a>
+<a href="../lilypond/Specialist-notation.de.html#Specialist-notation">Spezielle Notation</a></em>:
+erklärt spezifische Schwierigkeiten, die sich bei bestimmten Notationstypen 
+ergeben. Dieses Kapitel ist nur in entsprechenden Fällen bestimmter Instrumente 
+oder bei Gesang zu konsultieren.
+
+</li><li>
+<em><a name="index-General-input-and-output"></a>
+<a href="../lilypond/General-input-and-output.de.html#General-input-and-output">Allgemeine Eingabe und Ausgabe</a></em>:
+erläutert allgemeine Informationen über die Eingabedateien von Lilypond und
+wie die Ausgabe gesteuert werden kann.
+
+</li><li>
+<em><a name="index-Spacing-issues"></a>
+<a href="../lilypond/Spacing-issues.de.html#Spacing-issues">Abstände</a></em>:
+befasst sich mit globalen Fragen wie der Definition von Papierformaten 
+oder wie man Seitenumbrüche definiert.
+
+</li><li>
+<em><a name="index-Changing-defaults"></a>
+<a href="../lilypond/Changing-defaults.de.html#Changing-defaults">Standardeinstellungen verändern</a></em>:
+erklärt, wie des Layout getrimmt werden kann um genau zum gewünschten Ergebnis 
+zu kommen.
+
+</li><li>
+<em><a name="index-Interfaces-for-programmers"></a>
+<a href="../lilypond/Interfaces-for-programmers.de.html#Interfaces-for-programmers">Schnittstellen für Programmierer</a></em>:
+demonstriert die Erstellung von musikalischen Funktionen.
+
+</li></ul>
+
+<p>Ds Benutzerhandbuch enthält auch Anhänge mit nützlichen Referenztabellen.
+</p>
+<ul>
+<li>
+Die <a name="index-Literature-list"></a>
+<a href="../lilypond/Literature-list.de.html#Literature-list">Literatur</a>
+enthält einige wichtige Quellen für alle, die mehr über Notation und 
+den Notensatz erfahren wollen.
+
+</li><li>
+<a name="index-Notation-manual-tables"></a>
+<a href="../lilypond/Notation-manual-tables.de.html#Notation-manual-tables">Notationsübersicht</a>
+sind Tabellen, in denen Akkordbezeichnungen, MIDI-Instrumente, 
+Farbbezeichnungen und die Zeichen der Feta-Schriftart gesammelt sind.
+
+</li><li>
+Die
+<em><a name="index-Cheat-sheet"></a>
+<a href="../lilypond/Cheat-sheet.de.html#Cheat-sheet">Befehlsübersicht</a></em>
+zeigt die wichtigsten LilyPond-Befehle.
+
+</li><li>
+Der
+<em><a name="index-LilyPond-command-index"></a>
+<a href="../lilypond/LilyPond-command-index.de.html#LilyPond-command-index">Index der LilyPond-Befehle</a></em>
+listet alle Befehle auf, die mit <code>\</code> anfangen.
+
+</li><li>
+Der 
+<em><a href="LilyPond-index.de.html#LilyPond-index">LilyPond-Index</a></em>
+ist ein vollständiger Index.
+
+</li></ul>
+
+
+
+<hr size="6">
+<a name="About-the-Application-Usage"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Notation-Reference" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Notationsreferenz (NR)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Snippet-List" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über die Schnipselliste &gt; </a>]</td></tr></table>
+<a name="About-the-Application-Usage"></a>
+<h3 class="unnumberedsubsec">Über die Anwendungsbenutzung (AU)</h3>
+
+<a name="index-Anwendungsbenutzung-1"></a>
+<a name="index-Benutzung_002c-lilypond_002dProgramm"></a>
+<a name="index-Integration-von-LilyPond-in-andere-Programme"></a>
+
+<p>In diesem Buch wird erklärt, wie das Programm ausgeführt wird und 
+wie die Notation von LilyPond in andere Programme integriert werden 
+kann.
+</p>
+<ul>
+<li>
+<em><a name="index-Install"></a>
+<a href="../lilypond-program/Install.de.html#Install">Installieren</a></em>:
+erklärt wie LilyPond installiert wird (inklusive Kompilation, wenn es 
+nötig sein sollte).
+
+</li><li>
+<em><a name="index-Setup"></a>
+<a href="../lilypond-program/Setup.de.html#Setup">Setup</a></em>:
+erklärt wie der Computer eingerichtet wird, damit LilyPond optimal genutzt 
+werden kann. Hierzu gehören etwa spezielle Umgebungen für bestimmte 
+Texteditoren.
+
+</li><li>
+<em><a name="index-Running-LilyPond"></a>
+<a href="../lilypond-program/Running-LilyPond.de.html#Running-LilyPond">LilyPond starten</a></em>:
+zeigt, wie LilyPond und seine Hilfsprogramme gestartet werden. Zusätzlich 
+wird hier erklärt, wie Quelldateien von alten LilyPond-Versionen aktualisiert 
+werden können.
+
+</li><li>
+<em><a name="index-LilyPond_002dbook"></a>
+<a href="../lilypond-program/LilyPond_002dbook.de.html#LilyPond_002dbook">LilyPond-book</a></em>:
+erklärt die Details, um einen Text mit eingefügten Notenbeispielen (wie 
+etwa dieses Handbuch) zu 
+erstellen.
+
+</li><li>
+<em><a name="index-Converting-from-other-formats"></a>
+<a href="../lilypond-program/Converting-from-other-formats.de.html#Converting-from-other-formats">Von anderen Formaten konvertieren</a></em>:
+erklärt, wie die Konvertierungsprogramme aufgerufen werden. Diese 
+Programme kommen mit LilyPond zusammen und konvertieren eine Vielzahl 
+von Notensatzformaten in das <code>.ly</code>-Format.
+
+</li></ul>
+
+
+<hr size="6">
+<a name="About-the-Snippet-List"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Application-Usage" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Anwendungsbenutzung (AU)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#About-the-Internals-Reference" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Über die Referenz der Iterna (IR) &gt; </a>]</td></tr></table>
+<a name="About-the-Snippet-List"></a>
+<h3 class="unnumberedsubsec">Über die Schnipselliste</h3>
+
+<a name="index-Schnipsel"></a>
+<a name="index-LSR"></a>
+<a name="index-LilyPond-Snippet-Repository"></a>
+<a name="index-LilyPond_002dSchnipsel_002dDepot"></a>
+
+<p>Die <a href="../../../input/lsr/lilypond-snippets/index.html#Top">LilyPond-Schnipsel</a> sind eine ausführliche Sammlung kurzer 
+Beispiele, anhand derer Tricks, Tipps und Spezialfunktionen von LilyPond
+demonstriert werden. Die meisten dieser Schnipsel können auch im 
+ <a href="http://lsr.dsi.unimi.it/">LilyPond-Schnipsel-Depot</a> betrachtet 
+werden. Diese Internetseite verfügt auch über ein 
+durchsuchbares LilyPond-Handbuch.
+</p>
+<p>Die Liste der Schnipsel zu einem Abschnitt des Benutzerhandbuchs ist auch
+dort jeweils im Abschnitt <strong>Siehe auch</strong> verlinkt.
+</p>
+
+<hr size="6">
+<a name="About-the-Internals-Reference"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Snippet-List" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Schnipselliste&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="#Other-documentation" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Andere Dokumentation &gt; </a>]</td></tr></table>
+<a name="About-the-Internals-Reference"></a>
+<h3 class="unnumberedsubsec">Über die Referenz der Iterna (IR)</h3>
+
+<a name="index-Referenz-der-Interna-1"></a>
+
+<p>Die <a name="index-Top-1"></a>
+<a href="../lilypond-internals/index.de.html#Top">Referenz der Interna</a> ist eine Sammlung intensiv 
+verlinkter HTML-Seiten, die alle Details jeder einzelnen 
+LilyPond-Klasse, jedes Objektes und jeder Funktion erklären. Sie wird 
+direkt aus den Satzdefinitionen im Quellcode produziert.
+</p>
+<p>So gut wie alle Formatierungsmöglichkeiten, die intern verwendet werden, 
+sind auch direkt für den Benutzer zugänglich. Alle Variablen z. B., die
+Dicke-Werte, Entfernungen usw. kontrollieren, können in den Eingabe-Dateien 
+verändert werden. Es gibt eine riesige Anzahl von Formatierungsoptionen, und 
+alle haben einen &bdquo;Siehe&ldquo;-Abschnitt, der auf die Dokumentation verweist.
+Im HTML-Handbuch haben diese Abschnitte klickbare Links.
+</p>
+<p>Die Programmreferenz ist nur auf englisch verfügbar.
+</p>
+
+<hr size="6">
+<a name="Other-documentation"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Internals-Reference" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Referenz der Iterna (IR)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Übung &gt; </a>]</td></tr></table>
+<a name="Other-documentation"></a>
+<h3 class="unnumberedsubsec">Andere Dokumentation</h3>
+
+<p>Es gibt noch eine Reihe weiterer wertvoller Informationsquellen zu LilyPond:
+</p>
+
+<ul>
+<li>
+<a href="../../topdocs/NEWS.html">Neuigkeiten</a>:
+eine Zusammenfassung der Änderungen in LilyPond seit der letzten Version.
+
+</li><li> <a href="http://lists.gnu.org/archive/html/lilypond-user/">Das Archiv der lilypond-user Mailing-Liste</a>: enthält alle bisher an die Liste
+gesendeten Mails.  Viele Fragen werden immer wieder gestellt und auch
+beantwortet.  Die Chance, dass Ihre Frage auch schon mal aufgetaucht ist,
+ist also relativ groß.  In diesem Fall finden Sie die Antwort in diesem
+Archiv.
+
+</li><li> <a href="http://lists.gnu.org/archive/html/lilypond-devel/">Das Archiv der lilypond-devel Mailing-Liste</a>: enthält alle bisher an die 
+Entwicklerliste gesendeten Mails.  Diese Diskussionen sind dementsprechend
+technisch gehalten.  Wenn Sie eine tiefergehende Frage zu den Interna von 
+LilyPond haben, finden Sie die Antwort vielleicht in diesem Archiv.
+
+</li><li> Eingebettete Musikbeispiele: Auf allen HTML-Seiten mit Notenbeispielen,
+die von LilyPond erzeugt wurden, kann die originale Quelldatei durch einen Klick auf das 
+Bild betrachtet werden.
+
+</li><li> Initialisierungsdateien von LilyPond:
+
+<p>Der Speicherort der Dokumentationsdateien unterscheidet sich evtl. je 
+nach Betriebssystem. Manchmal wird hier auf Initialisierungs- oder 
+Beispieldateien verwiesen. Das Handbuch nimmt dabei an, dass diese 
+Dateien sich relativ zum Quellverzeichnis befinden. Zum Beispiel würde 
+der Pfad &lsquo;<tt>input/lsr/Verzeichnis/bla.ly</tt>&rsquo; etwa auf die Datei 
+&lsquo;<tt>lilypond2.x.y/input/lsr/Verzeichnis/bla.ly</tt>&rsquo; verweisen. In den 
+Binärpaketen für Unix-Plattformen sind Dokumentation und Beispiele 
+üblicherweise in einem Verzeichnis wie &lsquo;<tt>/usr/share/doc/lilypond/</tt>&rsquo;
+gespeichert. Initialisierungsdateien, etwa  &lsquo;<tt>scm/lily.scm</tt>&rsquo;
+oder &lsquo;<tt>ly/engraver-init.ly</tt>&rsquo;, befinden sich normalerweise im 
+Verzeichnis &lsquo;<tt>/usr/share/lilypond/</tt>&rsquo;.
+</p>
+<p>Weiterführende Informationen finden Sie unter <a href="Other-sources-of-information.de.html#Other-sources-of-information">Mehr Information</a>.
+</p>
+</li></ul>
+
+
+
+
+
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="Introduction.de.html#Introduction" title="Anfang dieses oder des letzten Kapitels"> &lt;&lt; Einleitung&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.de.html#Top" title="Titelseite des Dokuments" rel="start">Anfang</a>][<a href="index_toc.de.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="LilyPond-index.de.html#LilyPond-index" title="Index" rel="index">Index</a>][<a href="index_abt.de.html#SEC_About" title="&Uuml;ber (Hilfe)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chstes Kapitel">&nbsp;Übung &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="#About-the-Internals-Reference" title="Voriger Abschnitt in Lesereihenfolge" accesskey="p" rel="previous"> &lt; Über die Referenz der Iterna (IR)&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="#About-the-documentation" title="Abschnitt nach oben" accesskey="u" rel="up">&nbsp; Nach oben :&nbsp;Über die Dokumentation&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="Tutorial.de.html#Tutorial" title="N&auml;chster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">&nbsp;Übung &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<p class="footer_version">
+Diese Seite ist für LilyPond-2.12.3 (stabiler Zweig).
+</p>
+<p class="footer_report">
+Ihre <a href="http://lilypond.org/web/devel/participating/documentation-adding">Vorschläge für die Dokumentation</a> sind willkommen. Bitte melden Sie Probleme und Fehler an unsere <a·href="http://post.gmane.org/post.php?group=gmane.comp.gnu.lilypond.bugs">Fehler-Liste</a>.
+</p>
+</div>
+
+
+<p id="languages">
+ Andere Sprachen: <a href="About-the-documentation.html">English</a>, <a href="About-the-documentation.fr.html">français</a>, <a href="About-the-documentation.es.html">español</a>.
+ <br>
+ 
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../index.de.html" 
+         title="Documentation Index">&lt;&lt; Zur Dokumentationsübersicht</a></p>
+<h4 class="toc_header"><a href="index.de.html#Top" title="Start of the manual">Handbuch zum Lernen</a></h4>
+<div class="contents">
+<ul class="toc">
+  <li><a name="toc-Preface-1" href="Preface.de.html#Preface">Vorwort</a>  </li>
+  <li class="toc_current"><a name="toc-Introduction-1" href="Introduction.de.html#Introduction">1. Einleitung</a>
+  <ul class="toc">
+    <li><a name="toc-Background-1" href="Background.de.html#Background">1.1 Hintergrund</a>    </li>
+    <li class="toc_current"><a name="toc-About-the-documentation-1" href="About-the-documentation.de.html#About-the-documentation">1.2 Über die Dokumentation</a>
+    <ul class="toc">
+      <li><a name="toc-About-the-Learning-Manual-1" href="About-the-documentation.de.html#About-the-Learning-Manual">Über das Handbuch zum Lernen (LM)</a>      </li>
+      <li><a name="toc-About-the-Music-Glossary-1" href="About-the-documentation.de.html#About-the-Music-Glossary">Über das Glossar (MG)</a>      </li>
+      <li><a name="toc-About-the-Notation-Reference-1" href="About-the-documentation.de.html#About-the-Notation-Reference">Über die Notationsreferenz (NR)</a>      </li>
+      <li><a name="toc-About-the-Application-Usage-1" href="About-the-documentation.de.html#About-the-Application-Usage">Über die Anwendungsbenutzung (AU)</a>      </li>
+      <li><a name="toc-About-the-Snippet-List-1" href="About-the-documentation.de.html#About-the-Snippet-List">Über die Schnipselliste</a>      </li>
+      <li><a name="toc-About-the-Internals-Reference-1" href="About-the-documentation.de.html#About-the-Internals-Reference">Über die Referenz der Iterna (IR)</a>      </li>
+      <li><a name="toc-Other-documentation-1" href="About-the-documentation.de.html#Other-documentation">Andere Dokumentation</a>      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tutorial-1" href="Tutorial.de.html#Tutorial">2. Übung</a>
+  <ul class="toc">
+    <li><a name="toc-First-steps-1" href="First-steps.de.html#First-steps">2.1 Erste Schritte</a>    </li>
+    <li><a name="toc-Single-staff-notation-1" href="Single-staff-notation.de.html#Single-staff-notation">2.2 Notation auf einem System</a>    </li>
+    <li><a name="toc-Multiple-notes-at-once-1" href="Multiple-notes-at-once.de.html#Multiple-notes-at-once">2.3 Mehrere Noten auf einmal</a>    </li>
+    <li><a name="toc-Songs-1" href="Songs.de.html#Songs">2.4 Lieder</a>    </li>
+    <li><a name="toc-Final-touches-1" href="Final-touches.de.html#Final-touches">2.5 Letzter Schliff</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Fundamental-concepts-1" href="Fundamental-concepts.de.html#Fundamental-concepts">3. Grundbegriffe</a>
+  <ul class="toc">
+    <li><a name="toc-How-LilyPond-input-files-work-1" href="How-LilyPond-input-files-work.de.html#How-LilyPond-input-files-work">3.1 Wie eine LilyPond-Eingabe-Datei funktioniert</a>    </li>
+    <li><a name="toc-Voices-contain-music-1" href="Voices-contain-music.de.html#Voices-contain-music">3.2 Voice enthält Noten</a>    </li>
+    <li><a name="toc-Contexts-and-engravers-1" href="Contexts-and-engravers.de.html#Contexts-and-engravers">3.3 Kontexte und Engraver</a>    </li>
+    <li><a name="toc-Extending-the-templates-1" href="Extending-the-templates.de.html#Extending-the-templates">3.4 Erweiterung der Beispiele</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Tweaking-output-1" href="Tweaking-output.de.html#Tweaking-output">4. Die Ausgabe verändern</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-basics-1" href="Tweaking-basics.de.html#Tweaking-basics">4.1 Grundlagen für die Optimierung</a>    </li>
+    <li><a name="toc-The-Internals-Reference-manual-1" href="The-Internals-Reference-manual.de.html#The-Internals-Reference-manual">4.2 Die Referenz der Programminterna</a>    </li>
+    <li><a name="toc-Appearance-of-objects-1" href="Appearance-of-objects.de.html#Appearance-of-objects">4.3 Erscheinung von Objekten</a>    </li>
+    <li><a name="toc-Placement-of-objects-1" href="Placement-of-objects.de.html#Placement-of-objects">4.4 Positionierung von Objekten</a>    </li>
+    <li><a name="toc-Collisions-of-objects-1" href="Collisions-of-objects.de.html#Collisions-of-objects">4.5 Kollision von Objekten</a>    </li>
+    <li><a name="toc-Further-tweaking-1" href="Further-tweaking.de.html#Further-tweaking">4.6 Weitere Optimierungen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Working-on-LilyPond-projects-1" href="Working-on-LilyPond-projects.de.html#Working-on-LilyPond-projects">5. An LilyPond-Projekten arbeiten</a>
+  <ul class="toc">
+    <li><a name="toc-Suggestions-for-writing-LilyPond-input-files-1" href="Suggestions-for-writing-LilyPond-input-files.de.html#Suggestions-for-writing-LilyPond-input-files">5.1 Vorschläge, wie LilyPond-Eingabe-Dateien geschrieben werden sollen</a>    </li>
+    <li><a name="toc-When-things-don_0027t-work-1" href="When-things-don_0027t-work.de.html#When-things-don_0027t-work">5.2 Wenn etwas nicht funktioniert</a>    </li>
+    <li><a name="toc-Scores-and-parts-1" href="Scores-and-parts.de.html#Scores-and-parts">5.3 Partituren und Stimmen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Templates-1" href="Templates.de.html#Templates">A. Vorlagen</a>
+  <ul class="toc">
+    <li><a name="toc-Single-staff-1" href="Single-staff.de.html#Single-staff">A.1 Ein einzelnes System</a>    </li>
+    <li><a name="toc-Piano-templates-1" href="Piano-templates.de.html#Piano-templates">A.2 Klaviervorlagen</a>    </li>
+    <li><a name="toc-String-quartet-2" href="String-quartet.de.html#String-quartet">A.3 Streichquartett</a>    </li>
+    <li><a name="toc-Vocal-ensembles-1" href="Vocal-ensembles.de.html#Vocal-ensembles">A.4 Vokalensemble</a>    </li>
+    <li><a name="toc-Ancient-notation-templates-1" href="Ancient-notation-templates.de.html#Ancient-notation-templates">A.5 Vorlagen für alte Notation</a>    </li>
+    <li><a name="toc-Jazz-combo-1" href="Jazz-combo.de.html#Jazz-combo">A.6 Jazz-Combo</a>    </li>
+    <li><a name="toc-Lilypond_002dbook-templates-1" href="Lilypond_002dbook-templates.de.html#Lilypond_002dbook-templates">A.7 Lilypond-book-Vorlagen</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-Scheme-tutorial-1" href="Scheme-tutorial.de.html#Scheme-tutorial">B. Scheme-Übung</a>
+  <ul class="toc">
+    <li><a name="toc-Tweaking-with-Scheme-1" href="Tweaking-with-Scheme.de.html#Tweaking-with-Scheme">B.1 Optimierungen mit Scheme</a>    </li>
+  </ul>
+  </li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.de.html#GNU-Free-Documentation-License">C. GNU Free Documentation License</a>  </li>
+  <li><a name="toc-LilyPond-index-1" href="LilyPond-index.de.html#LilyPond-index">D. LilyPond-Index</a>  </li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
