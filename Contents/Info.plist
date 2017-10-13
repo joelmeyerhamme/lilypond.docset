@@ -11,6 +11,10 @@
   <key>isDashDocset</key>
   <true/>
   <key>dashIndexFilePath</key>
-  <string>index.html</string>
+  <string>web/manuals.html</string>
+  <key>DashDocSetFallbackURL</key>
+  <string>http://lilypond.org/website/manuals.html</string>
+  <key>DashDocSetPlayURL</key>
+  <string>http://lilybin.com</string>
 </dict>
 </plist>
