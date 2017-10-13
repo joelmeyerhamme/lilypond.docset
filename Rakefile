@@ -15,7 +15,7 @@ file TAR do
 end
 
 task 'extract' => [TAR, DIR] do
-  sh "tar -xzf \"#{TAR}\" -C \"#{DIR}\" \"#{PATH}\""
+  sh "tar -xzf \"#{TAR}\" --strip-components=5 -C \"#{DIR}\" \"#{PATH}\""
 end
 
 task :default => 'extract'
