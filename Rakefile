@@ -1,5 +1,7 @@
 # require 'pry-byebug'
-LATEST = "http://lilypond.org/downloads/binaries/documentation/lilypond-2.19.65-1.documentation.tar.bz2"
+
+URL = "http://lilypond.org/downloads/binaries/documentation/"
+LATEST = "#{URL}lilypond-2.19.65-1.documentation.tar.bz2"
 DIR = "Contents/Resources/Documents/"
 PATH = "share/doc/lilypond/html"
 TAR = File.basename(LATEST)
@@ -13,7 +15,7 @@ file TAR do
 end
 
 task 'extract' => [TAR, DIR] do
-  "tar -xzf \"#{TAR}\" \"#{PATH}\" -C \"#{DIR}\""
+  sh "tar -xzf \"#{TAR}\" -C \"#{DIR}\" \"#{PATH}\""
 end
 
 task :default => 'extract'
