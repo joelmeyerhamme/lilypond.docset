@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright C 1999-2015 pels autors.
+
+La traducció de la següent nota de copyright s'ofereix com a
+cortesia per a les persones de parla no anglesa, però únicament la
+nota en anglès té validesa legal.
+
+The translation of the following copyright notice is provided
+for courtesy to non-English speakers, but only the notice in English
+legally counts.
+
+S'atorga permís per copiar, distribuir i/o modificar aquest
+document sota els termes de la Llicència de Documentació Lliure de
+GNU, versió 1.1 o qualsevol posterior publicada per la Free
+Software Foundation; sense cap de les seccions invariants.
+S'inclou una còpia d'aquesta llicència dins de la secció titulada
+"Llicència de Documentació Lliure de GNU".
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1
+or any later version published by the Free Software Foundation;
+with no Invariant Sections.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+ -->
+<!-- Created on Juny 24, 2018 by texi2html 1.82
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>Referència de la notació del GNU LilyPond: 3.5.10 L'script Articulate</title>
+
+<meta name="description" content="Referència de la notació del GNU LilyPond: 3.5.10 L'script Articulate">
+<meta name="keywords" content="Referència de la notació del GNU LilyPond: 3.5.10 L'script Articulate">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.82">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.ca.html#index" rel="start" title="LilyPond &mdash; Referència de la notació">
+<link href="lilypond-command-index.ca.html#lilypond-command-index" rel="index" title="D. Índex d'ordres del LilyPond">
+<link href="index_toc.ca.html#SEC_Contents" rel="contents" title="Taula de contingus">
+<link href="index_abt.ca.html#SEC_About" rel="help" title="Quant a aquest document">
+<link href="creating-midi-output.ca.html#creating-midi-output" rel="up" title="3.5 Creació de sortida MIDI">
+<link href="lilypond-index.ca.html#lilypond-index" rel="next" title="E. Índex del LilyPond">
+<link href="enhancing-midi-output.ca.html#enhancing-midi-output" rel="previous" title="3.5.9 Enriquiment de la sortida MIDI">
+<link rel="stylesheet" type="text/css" title="Default style" href="../../Documentation/css/lilypond-manuals.css">
+<!--[if lte IE 7]>
+<link href="../../Documentation/css/lilypond-manuals-ie-fixes.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+</head>
+
+<body lang="ca" class="notation devStatus">
+
+
+<div id="main">
+<a name="L_0027script-Articulate"></a>
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="general-input-and-output.ca.html" title="Inici d&rsquo;aquest capítol o capítol previ"> &lt;&lt; Entrada i sortida generals&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ca.html" title="Portada (inici) del document" rel="start">Part superior</a>][<a href="index_toc.ca.html#SEC_Contents" title="Taula de continguts" rel="contents">Continguts</a>][<a href="lilypond-command-index.ca.html" title="Índex" rel="index">Índex</a>][<a href="index_abt.ca.html#SEC_About" title="Quant a (ajuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="spacing-issues.ca.html" title="Capítol següent">&nbsp;Spacing issues &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="enhancing-midi-output.ca.html" title="Secció prèvia en ordre de lectura" accesskey="p" rel="previous"> &lt; Enriquiment de la sortida MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="creating-midi-output.ca.html" title="Amunt secció" accesskey="u" rel="up">&nbsp; Amunt :&nbsp;Creació de sortida MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="extracting-musical-information.ca.html" title="Secció següent en ordre de lectura" accesskey="n" rel="next">&nbsp;Extracció de la informació musical &gt; </a>]</td></tr></table>
+<a name="the-articulate-script"></a>
+<h3 class="subsection">3.5.10 L&rsquo;script Articulate</h3>
+
+<p>Per utilitzar l&rsquo;script Articulate, l&rsquo;hem d&rsquo;incloure al principi
+del nostre fitxer d&rsquo;entrada:
+</p>
+<blockquote><pre class="example">\include &quot;articulate.ly&quot;
+</pre></blockquote>
+
+<p>L&rsquo;script crea una sortida MIDI en la qual les notes tenen una
+duració ajustada al temps de forma que es corresponen amb una
+sèrie d&rsquo;indicacions d&rsquo;articulació i de tempo.  Malgrat això, la
+sortida gravada també s&rsquo;altera per reflectir literalment el
+contingut de la sortida MIDI.
+</p>
+<blockquote><pre class="example">\score {
+  \articulate &lt;&lt;
+    <var>&hellip; music &hellip;</var>
+  &gt;&gt;
+  \midi { }
+}
+</pre></blockquote>
+
+<p>L&rsquo;ordre <code>\articulate</code> habilita el processat de les
+abreviatures com trins i mordents de diverses notes.  En el propi
+script pot veure&rsquo;s una llista completa dels elements que estan
+previstos.  Vegeu &lsquo;<tt>ly/articulate.ly</tt>&rsquo;.
+</p>
+<a name="Vegeu-tambe-238"></a>
+<h4 class="subsubheading">Vegeu també</h4>
+<p>Manual d&rsquo;aprenentatge:
+<a name="index-Altres-fonts-d_0027informacio-11"></a>
+<a href="../learning/other-sources-of-information.ca.html">Altres fonts d'informació</a>.
+</p>
+<p>Referència de la notació:
+<a name="index-Score-layout-4"></a>
+<a href="../notation/score-layout.ca.html">Disposició de la partitura</a>.
+</p>
+<p>Fitxers instal·lats:
+&lsquo;<tt>ly/articulate.ly</tt>&rsquo;.
+</p>
+<div class="warning"><p><strong>Nota:</strong> L&rsquo;script &lsquo;<tt>articulate</tt>&rsquo; pot escurçar els acords, el
+que podria no ser adequat per alguns tipus d&rsquo;instrument, com
+l&rsquo;òrgan.  Les notes que no tenen cap articulació també es poden
+escurçar; així, per contenir l&rsquo;abast d&rsquo;aquest efecte limiteu l&rsquo;ús
+de la funció <code>articulate</code> a segments de música més breus o
+modifiqueu els valors de les variables definides per compensar
+l&rsquo;efecte d&rsquo;escurçament de les notes.
+</p>
+</div>
+<hr size="6">
+<table class="nav_table">
+<tr><td valign="middle" align="left" colspan="1">[<a href="general-input-and-output.ca.html" title="Inici d&rsquo;aquest capítol o capítol previ"> &lt;&lt; Entrada i sortida generals&nbsp;</a>]</td><td valign="middle" align="center" colspan="3">[<a href="index.ca.html" title="Portada (inici) del document" rel="start">Part superior</a>][<a href="index_toc.ca.html#SEC_Contents" title="Taula de continguts" rel="contents">Continguts</a>][<a href="lilypond-command-index.ca.html" title="Índex" rel="index">Índex</a>][<a href="index_abt.ca.html#SEC_About" title="Quant a (ajuda)" rel="help"> ? </a>]</td><td valign="middle" align="right" colspan="1">[<a href="spacing-issues.ca.html" title="Capítol següent">&nbsp;Spacing issues &gt;&gt; </a>]</td></tr><tr><td valign="middle" align="left" colspan="2">[<a href="enhancing-midi-output.ca.html" title="Secció prèvia en ordre de lectura" accesskey="p" rel="previous"> &lt; Enriquiment de la sortida MIDI&nbsp;</a>]</td><td valign="middle" align="center" colspan="1">[<a href="creating-midi-output.ca.html" title="Amunt secció" accesskey="u" rel="up">&nbsp; Amunt :&nbsp;Creació de sortida MIDI&nbsp;</a>]</td><td valign="middle" align="right" colspan="2">[<a href="extracting-musical-information.ca.html" title="Secció següent en ordre de lectura" accesskey="n" rel="next">&nbsp;Extracció de la informació musical &gt; </a>]</td></tr></table>
+<!-- footer_tag -->
+<div class="footer">
+<!-- This footer was autogenerated by /home/gub/NewGub/gub/target/linux-x86/build/lilypond-git.sv.gnu.org--lilypond.git-stable-2.20/scripts/build/out/www_post -->
+<p class="footer_version">
+Aquesta pàgina correspon a LilyPond-2.19.82 (branca de desenvolupament).
+</p>
+<p class="footer_report">
+Agraïm la vostra ajuda: sisplau <a href="http://lilypond.org/help-us.html">ajudeu-nos</a> informant d'errors a la nostra <a href="mailto:https://lists.gnu.org/mailman/listinfo/bug-lilypond">llista de correu d'errors</a>.
+</p>
+</div>
+
+
+<p id="languages">
+<!-- These links were autogenerated by /home/gub/NewGub/gub/target/linux-x86/build/lilypond-git.sv.gnu.org--lilypond.git-stable-2.20/scripts/build/out/www_post -->
+ Altres idiomes: <a href="the-articulate-script.de.html">deutsch</a>, <a href="the-articulate-script.es.html">español</a>.
+ <br>
+ Quant a la <a href="http://www.lilypond.org/website/misc/browser-language">selecció automàtica de la llengua</a>.
+</p>
+
+<!-- FOOTER -->
+
+<!-- end div#main here -->
+</div>
+
+
+
+<div id="tocframe">
+<p class="toc_uplink"><a href="../../Documentation/web/manuals.ca.html"
+         title="Documentation Index">&lt;&lt; Torna a l'índex de la documentació</a></p>
+<h4 class="toc_header"> <a href="index.ca.html" title="Start of the manual">LilyPond &mdash; Referència de la notació  v2.19.82 (branca de desenvolupament). </a></h4>
+<div class="contents">
+<ul class="toc">
+  <li class=""><a name="toc-Notacio-musical" href="musical-notation.ca.html">1. Notació musical</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Altures-1" href="pitches.ca.html">1.1 Altures</a>    </li>
+    <li class=""><a name="toc-Duracions-1" href="rhythms.ca.html">1.2 Duracions</a>    </li>
+    <li class=""><a name="toc-Expressions-1" href="expressive-marks.ca.html">1.3 Expressions</a>    </li>
+    <li class=""><a name="toc-Repeticions-1" href="repeats.ca.html">1.4 Repeticions</a>    </li>
+    <li class=""><a name="toc-Notes-simultanies" href="simultaneous-notes.ca.html">1.5 Notes simultànies</a>    </li>
+    <li class=""><a name="toc-Notacio-dels-pentagrames" href="staff-notation.ca.html">1.6 Notació dels pentagrames</a>    </li>
+    <li class=""><a name="toc-Anotacions-editorials-1" href="editorial-annotations.ca.html">1.7 Anotacions editorials</a>    </li>
+    <li class=""><a name="toc-Text-1" href="text.ca.html">1.8 Text</a>    </li>
+  </ul>
+  </li>
+  <li class=""><a name="toc-Notacio-especialitzada" href="specialist-notation.ca.html">2. Notació especialitzada</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Musica-vocal" href="vocal-music.ca.html">2.1 Música vocal</a>    </li>
+    <li class=""><a name="toc-Teclats-i-altres-instruments-de-pentagrames-multiples" href="keyboard-and-other-multi_002dstaff-instruments.ca.html">2.2 Teclats i altres instruments de pentagrames múltiples</a>    </li>
+    <li class=""><a name="toc-Instruments-de-corda-sense-trasts-1" href="unfretted-string-instruments.ca.html">2.3 Instruments de corda sense trasts</a>    </li>
+    <li class=""><a name="toc-Instruments-de-corda-amb-trasts-1" href="fretted-string-instruments.ca.html">2.4 Instruments de corda amb trasts</a>    </li>
+    <li class=""><a name="toc-Percussio" href="percussion.ca.html">2.5 Percussió</a>    </li>
+    <li class=""><a name="toc-Instruments-de-vent-1" href="wind-instruments.ca.html">2.6 Instruments de vent</a>    </li>
+    <li class=""><a name="toc-Notacio-d_0027acords" href="chord-notation.ca.html">2.7 Notació d&rsquo;acords</a>    </li>
+    <li class=""><a name="toc-Musica-contemporania" href="contemporary-music.ca.html">2.8 Música contemporània</a>    </li>
+    <li class=""><a name="toc-Notacio-antiga" href="ancient-notation.ca.html">2.9 Notació antiga</a>    </li>
+    <li class=""><a name="toc-Musiques-del-mon" href="world-music.ca.html">2.10 Músiques del món</a>    </li>
+  </ul>
+  </li>
+  <li class=" toc_current"><a name="toc-Entrada-i-sortida-generals-1" href="general-input-and-output.ca.html">3. Entrada i sortida generals</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Estructura-del-codi-d_0027entrada-1" href="input-structure.ca.html">3.1 Estructura del codi d&rsquo;entrada</a>    </li>
+    <li class=""><a name="toc-Titols-i-encapcalaments" href="titles-and-headers.ca.html">3.2 Títols i encapçalaments</a>    </li>
+    <li class=""><a name="toc-Treball-sobre-els-fitxers-d_0027entrada-1" href="working-with-input-files.ca.html">3.3 Treball sobre els fitxers d&rsquo;entrada</a>    </li>
+    <li class=""><a name="toc-Control-de-la-sortida-1" href="controlling-output.ca.html">3.4 Control de la sortida</a>    </li>
+    <li class=" toc_current"><a name="toc-Creacio-de-sortida-MIDI" href="creating-midi-output.ca.html">3.5 Creació de sortida MIDI</a>
+    <ul class="toc">
+      <li class=""><a name="toc-Notacio-amb-suport-del-MIDI" href="supported-notation-for-midi.ca.html">3.5.1 Notació amb suport del MIDI</a>      </li>
+      <li class=""><a name="toc-Notacio-sense-suport-del-MIDI" href="unsupported-notation-for-midi.ca.html">3.5.2 Notació sense suport del MIDI</a>      </li>
+      <li class=""><a name="toc-El-bloc-MIDI-1" href="the-midi-block.ca.html">3.5.3 El bloc MIDI</a>      </li>
+      <li class=""><a name="toc-Control-de-les-dinamiques-del-MIDI" href="controlling-midi-dynamics.ca.html">3.5.4 Control de les dinàmiques del MIDI</a>      </li>
+      <li class=""><a name="toc-Us-dels-instruments-MIDI" href="using-midi-instruments.ca.html">3.5.5 Ús dels instruments MIDI</a>      </li>
+      <li class=""><a name="toc-Us-de-les-repeticions-amb-el-MIDI" href="using-repeats-with-midi.ca.html">3.5.6 Ús de les repeticions amb el MIDI</a>      </li>
+      <li class=""><a name="toc-Assignacio-de-canals-MIDI" href="midi-channel-mapping.ca.html">3.5.7 Assignació de canals MIDI</a>      </li>
+      <li class=""><a name="toc-Propietats-de-context-per-a-efectes-MIDI-1" href="context-properties-for-midi-effects.ca.html">3.5.8 Propietats de context per a efectes MIDI</a>      </li>
+      <li class=""><a name="toc-Enriquiment-de-la-sortida-MIDI-1" href="enhancing-midi-output.ca.html">3.5.9 Enriquiment de la sortida MIDI</a>      </li>
+      <li class=" toc_current"><a name="toc-L_0027script-Articulate-1" href="the-articulate-script.ca.html">3.5.10 L&rsquo;script Articulate</a>      </li>
+    </ul>
+    </li>
+    <li class=""><a name="toc-Extraccio-de-la-informacio-musical" href="extracting-musical-information.ca.html">3.6 Extracció de la informació musical</a>    </li>
+  </ul>
+  </li>
+  <li class=""><a name="toc-Spacing-issues-1" href="spacing-issues.ca.html">4. Spacing issues</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Page-layout-1" href="page-layout.ca.html">4.1 Page layout</a>    </li>
+    <li class=""><a name="toc-Score-layout-1" href="score-layout.ca.html">4.2 Score layout</a>    </li>
+    <li class=""><a name="toc-Breaks-1" href="breaks.ca.html">4.3 Breaks</a>    </li>
+    <li class=""><a name="toc-Vertical-spacing-1" href="vertical-spacing.ca.html">4.4 Vertical spacing</a>    </li>
+    <li class=""><a name="toc-Horizontal-spacing-1" href="horizontal-spacing.ca.html">4.5 Horizontal spacing</a>    </li>
+    <li class=""><a name="toc-Fitting-music-onto-fewer-pages-1" href="fitting-music-onto-fewer-pages.ca.html">4.6 Fitting music onto fewer pages</a>    </li>
+  </ul>
+  </li>
+  <li class=""><a name="toc-Changing-defaults-1" href="changing-defaults.ca.html">5. Changing defaults</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Interpretation-contexts-1" href="interpretation-contexts.ca.html">5.1 Interpretation contexts</a>    </li>
+    <li class=""><a name="toc-Explaining-the-Internals-Reference-1" href="explaining-the-internals-reference.ca.html">5.2 Explaining the Internals Reference</a>    </li>
+    <li class=""><a name="toc-Modifying-properties-1" href="modifying-properties.ca.html">5.3 Modifying properties</a>    </li>
+    <li class=""><a name="toc-Useful-concepts-and-properties-1" href="useful-concepts-and-properties.ca.html">5.4 Useful concepts and properties</a>    </li>
+    <li class=""><a name="toc-Advanced-tweaks-1" href="advanced-tweaks.ca.html">5.5 Advanced tweaks</a>    </li>
+    <li class=""><a name="toc-Using-music-functions-1" href="using-music-functions.ca.html">5.6 Using music functions</a>    </li>
+  </ul>
+  </li>
+  <li class=""><a name="toc-Notation-manual-tables-1" href="notation-manual-tables.ca.html">A. Notation manual tables</a>
+  <ul class="toc">
+    <li class=""><a name="toc-Chord-name-chart-1" href="chord-name-chart.ca.html">A.1 Chord name chart</a>    </li>
+    <li class=""><a name="toc-Common-chord-modifiers-1" href="common-chord-modifiers.ca.html">A.2 Common chord modifiers</a>    </li>
+    <li class=""><a name="toc-Predefined-string-tunings-1" href="predefined-string-tunings.ca.html">A.3 Predefined string tunings</a>    </li>
+    <li class=""><a name="toc-Predefined-fretboard-diagrams-1" href="predefined-fretboard-diagrams.ca.html">A.4 Predefined fretboard diagrams</a>    </li>
+    <li class=""><a name="toc-Predefined-paper-sizes-1" href="predefined-paper-sizes.ca.html">A.5 Predefined paper sizes</a>    </li>
+    <li class=""><a name="toc-MIDI-instruments-1" href="midi-instruments.ca.html">A.6 MIDI instruments</a>    </li>
+    <li class=""><a name="toc-List-of-colors-1" href="list-of-colors.ca.html">A.7 List of colors</a>    </li>
+    <li class=""><a name="toc-The-Emmentaler-font-1" href="the-emmentaler-font.ca.html">A.8 The Emmentaler font</a>    </li>
+    <li class=""><a name="toc-Note-head-styles-1" href="note-head-styles.ca.html">A.9 Note head styles</a>    </li>
+    <li class=""><a name="toc-Clef-styles-1" href="clef-styles.ca.html">A.10 Clef styles</a>    </li>
+    <li class=""><a name="toc-Text-markup-commands-1" href="text-markup-commands.ca.html">A.11 Text markup commands</a>    </li>
+    <li class=""><a name="toc-Text-markup-list-commands-1" href="text-markup-list-commands.ca.html">A.12 Text markup list commands</a>    </li>
+    <li class=""><a name="toc-List-of-special-characters-1" href="list-of-special-characters.ca.html">A.13 List of special characters</a>    </li>
+    <li class=""><a name="toc-List-of-articulations-1" href="list-of-articulations.ca.html">A.14 List of articulations</a>    </li>
+    <li class=""><a name="toc-Percussion-notes-1" href="percussion-notes.ca.html">A.15 Percussion notes</a>    </li>
+    <li class=""><a name="toc-Technical-glossary-1" href="technical-glossary.ca.html">A.16 Technical glossary</a>    </li>
+    <li class=""><a name="toc-All-context-properties-1" href="all-context-properties.ca.html">A.17 All context properties</a>    </li>
+    <li class=""><a name="toc-Layout-properties-1" href="layout-properties.ca.html">A.18 Layout properties</a>    </li>
+    <li class=""><a name="toc-Available-music-functions-1" href="available-music-functions.ca.html">A.19 Available music functions</a>    </li>
+    <li class=""><a name="toc-Context-modification-identifiers-1" href="context-modification-identifiers.ca.html">A.20 Context modification identifiers</a>    </li>
+    <li class=""><a name="toc-Predefined-type-predicates-1" href="predefined-type-predicates.ca.html">A.21 Predefined type predicates</a>    </li>
+    <li class=""><a name="toc-Scheme-functions-1" href="scheme-functions.ca.html">A.22 Scheme functions</a>    </li>
+  </ul>
+  </li>
+  <li class=""><a name="toc-Cheat-sheet-1" href="cheat-sheet.ca.html">B. Cheat sheet</a>  </li>
+  <li class=""><a name="toc-GNU-Free-Documentation-License-1" href="gnu-free-documentation-license.ca.html">C. GNU Free Documentation License</a>  </li>
+  <li class=""><a name="toc-Index-d_0027ordres-del-LilyPond" href="lilypond-command-index.ca.html">D. Índex d&rsquo;ordres del LilyPond</a>  </li>
+  <li class=""><a name="toc-Index-del-LilyPond" href="lilypond-index.ca.html">E. Índex del LilyPond</a>  </li>
+<li>
+<!--
+    Translation of GIT committish: 9d074d78d7c25852afa87005e21c118630f4f83b
+
+    When revising a translation, copy the HEAD committish of the
+    version that you are working on.  See TRANSLATION for details.
+
+we depend on an external entity here, which we cannot control.  Suppose
+we go from 2.15.x to 2.17.x and put the documentation under "v2.17".
+For some time, Google won't have the new location in its index, so the
+search would get nothing.  It would be better to keep "v2.15" in the
+search for a while and have a redirection from "v2.15" to "v2.17".
+-->
+
+<form action="http://google.com/search"
+      method="get"
+      name="search"
+      onSubmit="search.q.value='site:lilypond.org/doc/v2.19 '
+		+ search.brute_query.value"
+      onMouseMove="search.q.value='site:lilypond.org/doc/v2.19 '
+		   + search.brute_query.value"
+      onKeyUp="search.q.value='site:lilypond.org/doc/v2.19 '
+	       + search.brute_query.value">
+  <input type="hidden" name="btnG" value="Cerca a Google">
+  <input type="text" name="brute_query" onfocus="this.value=''" value="Buscar">
+  <input type="hidden" name="q" value="">
+</form>
+</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
